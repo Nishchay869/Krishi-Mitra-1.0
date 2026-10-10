@@ -181,3 +181,36 @@ class PlainLanguageTests(TestCase):
             texts = [e['answer'] for e in json.load(fh)] + list(TREATMENTS.values())
         offenders = [t[:80] for t in texts if self.SHORTHAND.search(t)]
         self.assertEqual(offenders, [])
+
+
+@override_settings(SARVAM_API_KEY='test-key')
+@patch.object(sarvam, 'speak', return_value=['bXAz'])
+class SpeakTests(TestCase):
+    def setUp(self):
+        from django.contrib.auth.models import User
+        self.owner = User.objects.create_user('owner', password='pw')
+        self.other = User.objects.create_user('other', password='pw')
+        self.msg = ChatMessage.objects.create(user=self.owner, message='q', response='ಉತ್ತರ', language='kn-IN')
+
+    def test_owner_gets_female_voice_audio_in_reply_language(self, speak):
+        self.client.force_login(self.owner)
+        data = self.client.post(reverse('chatbot:speak', args=[self.msg.pk])).json()
+        self.assertEqual(data, {'audios': ['bXAz'], 'format': 'mp3'})
+        speak.assert_called_once_with('ಉತ್ತರ', 'kn-IN')
+
+    def test_cannot_speak_someone_elses_reply(self, speak):
+        self.client.force_login(self.other)
+        self.assertEqual(self.client.post(reverse('chatbot:speak', args=[self.msg.pk])).status_code, 404)
+        self.client.logout()
+        self.assertEqual(self.client.post(reverse('chatbot:speak', args=[self.msg.pk])).status_code, 404)
+        speak.assert_not_called()
+
+    def test_chat_reply_includes_message_id_for_listening(self, speak):
+        with patch.object(sarvam, 'detect_language', return_value='en-IN'):
+            data = self.client.post(reverse('chatbot:api'), json.dumps({'message': 'hello'}),
+                                    content_type='application/json').json()
+        self.assertTrue(ChatMessage.objects.filter(pk=data['message_id']).exists())
+
+    def test_speech_text_drops_bullets_and_web_addresses(self, speak):
+        text = '• PM-KISAN – Rs 6,000/year (pmkisan.gov.in)\n* PMFBY – insurance (pmfby.gov.in)'
+        self.assertEqual(sarvam.speech_text(text), 'PM-KISAN – Rs 6,000/year \nPMFBY – insurance')

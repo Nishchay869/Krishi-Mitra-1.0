@@ -21,3 +21,4 @@ body { background: #f6f8f4; }
 
 .price-up { color: #198754; font-weight: 600; }
 .price-down { color: #dc3545; font-weight: 600; }
+.bubble .listen-btn { display: block; color: var(--agri); text-decoration: none; font-size: .8rem; }

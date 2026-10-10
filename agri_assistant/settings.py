@@ -13,8 +13,24 @@ https://docs.djangoproject.com/en/6.1/ref/settings/
 import os
 from pathlib import Path
 
+
+def _load_dotenv(path):
+    """Load KEY=value lines from .env so `python manage.py runserver` works without `source .env`.
+    Variables already set in the environment take precedence."""
+    if not path.exists():
+        return
+    for line in path.read_text(encoding='utf-8').splitlines():
+        line = line.strip()
+        if not line or line.startswith('#') or '=' not in line:
+            continue
+        key, value = line.split('=', 1)
+        value = value.strip().strip('"\'')
+        if value:  # blank entries such as `DB_NAME=` mean "not set"
+            os.environ.setdefault(key.strip(), value)
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+_load_dotenv(BASE_DIR / '.env')
 
 
 # Quick-start development settings - unsuitable for production

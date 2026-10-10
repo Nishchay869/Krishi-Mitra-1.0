@@ -2,7 +2,7 @@ import json
 
 from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, render
 from django.views.decorators.http import require_POST
 
 from . import multilingual, sarvam
@@ -47,11 +47,27 @@ def api_voice(request):
     return JsonResponse({'transcript': transcript, **_answer(request, transcript[:MAX_MESSAGE_LENGTH], language, True)})
 
 
+@require_POST
+def api_speak(request, pk):
+    """Read a bot reply aloud. Only the asker's own stored replies can be spoken, so the
+    endpoint cannot be used to synthesise arbitrary text on our Sarvam account."""
+    msg = get_object_or_404(ChatMessage, pk=pk)
+    owns = (msg.user_id == request.user.id) if request.user.is_authenticated else \
+        (msg.user_id is None and msg.session_key and msg.session_key == request.session.session_key)
+    if not owns:
+        return JsonResponse({'error': 'Not found.'}, status=404)
+    try:
+        audios = sarvam.speak(msg.response, msg.language)
+    except sarvam.SarvamError:
+        return JsonResponse({'error': 'Voice reply is unavailable right now.'}, status=503)
+    return JsonResponse({'audios': audios, 'format': 'mp3'})
+
+
 def _answer(request, message, language=None, is_voice=False):
     reply, text, language, message_en = multilingual.respond(message, language)
     if not request.session.session_key:
         request.session.save()
-    ChatMessage.objects.create(
+    msg = ChatMessage.objects.create(
         user=request.user if request.user.is_authenticated else None,
         session_key=request.session.session_key or '',
         message=message,
@@ -63,4 +79,4 @@ def _answer(request, message, language=None, is_voice=False):
         matched_entry=reply.entry,
         confidence=reply.confidence,
     )
-    return {**reply.as_dict(), 'reply': text, 'language': language}
+    return {**reply.as_dict(), 'reply': text, 'language': language, 'message_id': msg.pk}

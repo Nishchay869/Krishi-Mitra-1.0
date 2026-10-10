@@ -3,6 +3,7 @@
 Docs: https://docs.sarvam.ai/api-reference-docs
 """
 import hashlib
+import re
 
 import requests
 from django.conf import settings
@@ -14,6 +15,11 @@ API_BASE = 'https://api.sarvam.ai'
 QUERY_MODEL, QUERY_MAX_CHARS = 'mayura:v1', 1000
 ANSWER_MODEL, ANSWER_MAX_CHARS = 'sarvam-translate:v1', 2000
 STT_MODEL = 'saaras:v4'
+# Female voice: priya (measured ~195 Hz pitch and the loudest of bulbul:v3's female voices).
+# bulbul:v3 has no loudness setting, so the browser boosts volume (see static/js/chat.js).
+TTS_MODEL, TTS_SPEAKER, TTS_MAX_CHARS = 'bulbul:v3', 'priya', 2500
+TTS_PACE = 0.95  # slightly slower than normal for clarity
+TTS_CACHE_SECONDS = 24 * 60 * 60
 TRANSLATION_CACHE_SECONDS = 7 * 24 * 60 * 60
 
 ENGLISH = 'en-IN'
@@ -90,3 +96,27 @@ def transcribe(audio_file):
     data = _post('/speech-to-text', files=files, data={'model': STT_MODEL, 'language_code': 'unknown'})
     code = data.get('language_code')
     return data.get('transcript', '').strip(), (code if code in LANGUAGES else ENGLISH)
+
+
+def speech_text(text):
+    """Make a reply pleasant to listen to: drop bullets, URLs and bracketed web addresses."""
+    text = re.sub(r'\(?\b[\w.-]+\.(?:gov|nic|org|res)\.in/?\)?', '', text)
+    text = re.sub(r'^\s*[•*-]\s*', '', text, flags=re.MULTILINE)
+    return re.sub(r'[ \t]+', ' ', text).strip()
+
+
+def speak(text, language):
+    """Female text-to-speech in the given language. Returns a list of base64 MP3 clips."""
+    text = speech_text(text)
+    key = 'sarvam:tts:' + hashlib.sha256(f'{TTS_MODEL}|{TTS_SPEAKER}|{language}|{text}'.encode()).hexdigest()
+    if (cached := cache.get(key)) is not None:
+        return cached
+    clips = []
+    for chunk in _chunks(text, TTS_MAX_CHARS):
+        data = _post('/text-to-speech', json={
+            'text': chunk, 'language_code': language if language in LANGUAGES else ENGLISH,
+            'model': TTS_MODEL, 'speaker': TTS_SPEAKER, 'pace': TTS_PACE, 'output_audio_codec': 'mp3',
+        })
+        clips.extend(data.get('audios', []))
+    cache.set(key, clips, TTS_CACHE_SECONDS)
+    return clips
