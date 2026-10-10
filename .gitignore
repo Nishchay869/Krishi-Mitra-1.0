@@ -1,10 +1,31 @@
+# Python / virtualenv
 .venv/
 __pycache__/
 *.pyc
-db.sqlite3
+*.egg-info/
+.pytest_cache/
+
+# Secrets — API keys live in .env (copy .env.example to create it)
 .env
+kaggle.json
+
+# Local database and user uploads
+db.sqlite3
+db.sqlite3-journal
 media/
 staticfiles/
+
+# Datasets too large for git (re-download with the Kaggle CLI, see README)
 data/plantvillage/
-ml/models/*.keras
+data/_download/
+*.zip
+
+# ML artifacts: yield_rf.joblib is ~215 MB (GitHub limit is 100 MB);
+# regenerate it with `python -m ml.train_yield` (~30 s). Training logs are noise.
+ml/models/yield_rf.joblib
+ml/models/*.log
+
+# Editor / OS
+.vscode/
+.idea/
 .DS_Store

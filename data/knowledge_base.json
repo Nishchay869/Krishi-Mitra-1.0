@@ -27,7 +27,7 @@
     "intent": "soil",
     "question": "How do I get a Soil Health Card and soil testing?",
     "keywords": "soil test health card shc lab sample",
-    "answer": "The Soil Health Card scheme tests your soil for nutrients (N, P, K, micronutrients), pH and EC and gives fertilizer recommendations for your crops. Contact your local agriculture office or Krishi Vigyan Kendra (KVK) for sample collection. Take samples from 0-15 cm depth in a zig-zag pattern across the field after harvest.",
+    "answer": "The Soil Health Card scheme tests your soil for the main nutrients (nitrogen, phosphorus, potassium), micronutrients such as zinc, soil acidity/alkalinity (pH) and salt level, and gives fertilizer recommendations for your crops. Contact your local agriculture office or Krishi Vigyan Kendra (KVK) for sample collection. Take samples from the top 15 cm of soil in a zig-zag pattern across the field after harvest.",
     "source": "Soil Health Card scheme, Department of Agriculture & Farmers Welfare",
     "source_url": "https://soilhealth.dac.gov.in/"
   },
@@ -67,7 +67,7 @@
     "intent": "fertilizer",
     "question": "How much fertilizer should I apply for rice paddy?",
     "keywords": "rice paddy fertilizer dose urea dap npk",
-    "answer": "A common general recommendation for irrigated high-yielding rice is about 120 kg N, 60 kg P2O5 and 40 kg K2O per hectare. Apply all P and K and about half of N at transplanting, and the remaining N in two splits at tillering and panicle initiation. Doses vary by state and variety, so follow your Soil Health Card recommendation.",
+    "answer": "For irrigated high-yielding rice, a common general recommendation per hectare is about 120 kg nitrogen, 60 kg phosphate and 40 kg potash.\nIn fertilizer bags this is roughly:\n• Per acre: 53 kg DAP (di-ammonium phosphate) + 85 kg urea + 27 kg muriate of potash (MOP)\n• Per hectare: 130 kg DAP + 210 kg urea + 67 kg muriate of potash\nWhen to apply (per acre): all the DAP and potash plus 32 kg urea at transplanting; then 26 kg urea at tillering and 26 kg urea at panicle initiation (when the ear starts forming).\nDoses vary by state and variety, so follow your Soil Health Card recommendation.",
     "source": "ICAR / State Agricultural University package of practices",
     "source_url": "https://icar.org.in/"
   },
@@ -75,7 +75,7 @@
     "intent": "fertilizer",
     "question": "How much fertilizer should I apply for wheat?",
     "keywords": "wheat fertilizer dose urea dap npk",
-    "answer": "For timely sown irrigated wheat a general recommendation is about 120 kg N, 60 kg P2O5 and 40 kg K2O per hectare. Apply half N with full P and K at sowing, and the remaining N at the first irrigation (crown root initiation, about 21 days after sowing). Adjust using your soil test results.",
+    "answer": "For timely sown irrigated wheat, a general recommendation per hectare is about 120 kg nitrogen, 60 kg phosphate and 40 kg potash.\nIn fertilizer bags this is roughly:\n• Per acre: 53 kg DAP (di-ammonium phosphate) + 85 kg urea + 27 kg muriate of potash (MOP)\n• Per hectare: 130 kg DAP + 210 kg urea + 67 kg muriate of potash\nWhen to apply (per acre): all the DAP and potash plus 32 kg urea at sowing; the remaining 53 kg urea at the first irrigation (about 21 days after sowing, when crown roots form).\nAdjust using your soil test results.",
     "source": "ICAR - Indian Institute of Wheat & Barley Research",
     "source_url": "https://iiwbr.icar.gov.in/"
   },
@@ -99,7 +99,7 @@
     "intent": "soil",
     "question": "My rice leaves show brown rusty spots and stunted growth, is it zinc deficiency?",
     "keywords": "zinc deficiency khaira rice micronutrient",
-    "answer": "Rusty brown spots on older leaves with stunted, uneven growth in rice 2-4 weeks after transplanting is often zinc deficiency (khaira disease). Apply zinc sulphate at about 25 kg/ha at puddling as a basal dose, or as a correction spray 0.5% zinc sulphate with 0.25% lime. Confirm with a soil test.",
+    "answer": "Rusty brown spots on older leaves with stunted, uneven growth in rice 2-4 weeks after transplanting is often zinc deficiency (khaira disease). Apply zinc sulphate at about 10 kg per acre (25 kg per hectare) during puddling, or as a correction spray of 5 grams zinc sulphate + 2.5 grams lime per litre of water. Confirm with a soil test.",
     "source": "ICAR / State Agricultural University package of practices",
     "source_url": "https://icar.org.in/"
   },
@@ -107,7 +107,7 @@
     "intent": "soil",
     "question": "How do I correct acidic or alkaline soil pH?",
     "keywords": "acidic alkaline soil ph lime gypsum sodic",
-    "answer": "Most crops prefer soil pH of about 6.0-7.5. Acidic soil (pH below about 5.5) is corrected with agricultural lime; alkaline/sodic soil is reclaimed with gypsum plus good drainage and organic matter. The quantity depends on a soil test, so get a Soil Health Card test first.",
+    "answer": "Soil pH measures how acidic or alkaline the soil is; most crops grow best between 6.0 and 7.5. Acidic soil (pH below about 5.5) is corrected with agricultural lime; alkaline or salty (sodic) soil is reclaimed with gypsum plus good drainage and organic manure. The quantity depends on a soil test, so get a Soil Health Card test first.",
     "source": "Soil Health Card scheme / ICAR",
     "source_url": "https://soilhealth.dac.gov.in/"
   },
@@ -115,7 +115,7 @@
     "intent": "pest",
     "question": "How to control fall armyworm in maize?",
     "keywords": "fall armyworm maize corn caterpillar whorl",
-    "answer": "Fall armyworm larvae feed in the maize whorl leaving ragged holes and sawdust-like droppings. Monitor with pheromone traps, apply neem-based azadirachtin 1500 ppm (5 ml/litre) at early stages, and if damage is high spray emamectin benzoate 5 SG (0.4 g/litre) directed into the whorl. Always follow the label and wear protective gear.",
+    "answer": "Fall armyworm caterpillars feed inside the maize whorl (the central funnel of leaves), leaving ragged holes and sawdust-like droppings. Monitor with pheromone traps. At early stages spray neem-based azadirachtin 1500 ppm (0.15%) at 5 ml per litre of water. If damage is high, spray emamectin benzoate 5% soluble granules (5 SG) at 0.4 grams per litre of water, directed into the whorl. Always follow the label and wear protective gear.",
     "source": "ICAR - Indian Institute of Maize Research advisory",
     "source_url": "https://iimr.icar.gov.in/"
   },
@@ -123,7 +123,7 @@
     "intent": "pest",
     "question": "How to control late blight in tomato and potato?",
     "keywords": "late blight tomato potato fungus phytophthora",
-    "answer": "Late blight causes dark water-soaked patches on leaves and stems, spreading fast in cool, humid weather. Remove and destroy infected plants, avoid overhead irrigation, and spray mancozeb 75 WP at 2.5 g/litre preventively; in severe cases use a recommended systemic fungicide such as cymoxanil + mancozeb as per label.",
+    "answer": "Late blight causes dark water-soaked patches on leaves and stems, spreading fast in cool, humid weather. Remove and destroy infected plants, avoid overhead irrigation, and spray mancozeb 75% wettable powder (75 WP) at 2.5 grams per litre of water as prevention. In severe cases use a recommended systemic fungicide such as cymoxanil + mancozeb as per the label.",
     "source": "ICAR - Central Potato Research Institute advisory",
     "source_url": "https://cpri.icar.gov.in/"
   },
@@ -131,7 +131,7 @@
     "intent": "pest",
     "question": "How to control blast disease in rice?",
     "keywords": "rice blast eye shaped spots neck blast",
-    "answer": "Rice blast shows eye-shaped spots with grey centres on leaves and can rot the panicle neck. Use resistant varieties, avoid excess nitrogen, and spray tricyclazole 75 WP at 0.6 g/litre at first symptoms and again at panicle emergence if needed.",
+    "answer": "Rice blast shows eye-shaped spots with grey centres on leaves and can rot the neck of the panicle (ear head). Use resistant varieties, avoid excess nitrogen (urea), and spray tricyclazole 75% wettable powder (75 WP) at 0.6 grams per litre of water at first symptoms, and again when panicles emerge if needed.",
     "source": "ICAR - National Rice Research Institute",
     "source_url": "https://icar-nrri.in/"
   },
@@ -139,7 +139,7 @@
     "intent": "pest",
     "question": "How to control aphids and sucking pests organically?",
     "keywords": "aphid whitefly jassid thrips sucking pest insects leaves cotton vegetables neem organic",
-    "answer": "For aphids, whiteflies and jassids: install yellow sticky traps (about 10-12 per acre), spray neem seed kernel extract 5% or neem oil (about 5 ml/litre with a little soap), and conserve natural enemies such as ladybird beetles by avoiding unnecessary broad-spectrum sprays.",
+    "answer": "For aphids, whiteflies and jassids: install yellow sticky traps (about 10-12 per acre), spray 5% neem seed kernel extract or neem oil (about 5 ml per litre of water with a little soap), and protect natural enemies such as ladybird beetles by avoiding unnecessary broad-spectrum sprays.",
     "source": "National Centre for Integrated Pest Management (ICAR-NCIPM)",
     "source_url": "https://ncipm.icar.gov.in/"
   },
@@ -155,7 +155,7 @@
     "intent": "pest",
     "question": "How should I treat seeds before sowing?",
     "keywords": "seed treatment trichoderma fungicide sowing",
-    "answer": "Seed treatment protects seedlings from soil-borne diseases. A common bio-option is Trichoderma viride at 4-10 g per kg of seed; chemical options such as carbendazim at 2 g/kg are also used. For pulses, also treat with Rhizobium culture after fungicide. Dry the seed in shade before sowing.",
+    "answer": "Seed treatment protects seedlings from soil-borne diseases. A common biological option is Trichoderma viride at 4-10 grams per kg of seed; a chemical option is carbendazim at 2 grams per kg of seed. For pulses, also treat with Rhizobium culture after the fungicide. Dry the seed in shade before sowing.",
     "source": "ICAR / State Agricultural University package of practices",
     "source_url": "https://icar.org.in/"
   },
@@ -194,7 +194,7 @@
   {
     "intent": "scheme",
     "question": "What government schemes are available for rice paddy farmers?",
-    "keywords": "rice paddy growers farmers scheme msp procurement nfsm support",
+    "keywords": "rice paddy dhan growers paddy farmers scheme for paddy msp procurement nfsm support",
     "answer": "Schemes useful for rice (paddy) growers:\n• MSP procurement – the government announces a Minimum Support Price for paddy every Kharif season; register on your State's procurement portal and sell at government procurement centres.\n• PMFBY crop insurance – paddy is covered as a Kharif crop at 2% farmer premium.\n• National Food Security Mission (NFSM) – Rice – in identified districts, support for quality seed, cluster demonstrations and farm machinery through the State agriculture department.\n• Soil Health Card – free soil test to plan fertilizer doses for paddy.\n• Kisan Credit Card – crop loans at concessional interest.\n• PM-KISAN – Rs 6,000/year income support for landholding families.\nContact your block agriculture officer or KVK for district-specific benefits.",
     "source": "Ministry of Agriculture & Farmers Welfare; NFSM; Food Corporation of India",
     "source_url": "https://www.nfsm.gov.in/"
@@ -203,7 +203,7 @@
     "intent": "fertilizer",
     "question": "Which fertilizer and how much should I apply to get the best yield?",
     "keywords": "which fertilizer how much dose best yield balanced npk soil test recommendation",
-    "answer": "The right fertilizer and dose depend on your crop and your soil's nutrient status, so start with a soil test (Soil Health Card). General rules: apply balanced N-P-K instead of only urea; give all phosphorus and potassium at sowing and split nitrogen into 2-3 doses; add farmyard manure or vermicompost to improve soil; correct micronutrient deficiencies such as zinc when found. Tell me your crop (for example 'fertilizer for rice' or 'fertilizer for wheat') for a typical dose.",
+    "answer": "The right fertilizer and dose depend on your crop and your soil's nutrient status, so start with a soil test (Soil Health Card). General rules: apply a balance of nitrogen (urea), phosphate (DAP or single super phosphate) and potash (muriate of potash) instead of only urea; give all phosphate and potash at sowing and split the urea into 2-3 doses; add farmyard manure or vermicompost to improve soil; correct micronutrient deficiencies such as zinc when found. Tell me your crop (for example 'fertilizer for rice' or 'fertilizer for wheat') for a typical dose.",
     "source": "Soil Health Card scheme / ICAR package of practices",
     "source_url": "https://soilhealth.dac.gov.in/"
   }

@@ -12,7 +12,7 @@ class KnowledgeEntryAdmin(admin.ModelAdmin):
 
 @admin.register(ChatMessage)
 class ChatMessageAdmin(admin.ModelAdmin):
-    list_display = ('message', 'intent', 'confidence', 'matched_entry', 'user', 'created_at')
-    list_filter = ('intent',)
-    search_fields = ('message',)
+    list_display = ('message', 'language', 'is_voice', 'intent', 'confidence', 'matched_entry', 'user', 'created_at')
+    list_filter = ('intent', 'language', 'is_voice')
+    search_fields = ('message', 'message_en')
     readonly_fields = [f.name for f in ChatMessage._meta.fields]

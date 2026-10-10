@@ -69,6 +69,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'chatbot.context_processors.features',
             ],
         },
     },
@@ -149,6 +150,7 @@ LOGOUT_REDIRECT_URL = 'home'
 # ML artifacts and external services
 ML_MODELS_DIR = BASE_DIR / 'ml' / 'models'
 OPENWEATHER_API_KEY = os.environ.get('OPENWEATHER_API_KEY', '')
+SARVAM_API_KEY = os.environ.get('SARVAM_API_KEY', '')  # multilingual chat + voice input
 
 
 # Email

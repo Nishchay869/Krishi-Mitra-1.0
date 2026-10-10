@@ -5,7 +5,9 @@ grounded in local data and carries its source. The match score blends:
   * word TF-IDF on Porter-stemmed text (scheme/schemes, grower/growers),
   * character n-gram TF-IDF, which tolerates misspellings (fertizer, yeild),
   * a boost for entries whose intent matches the intent detected in the query,
-    so "schemes for rice growers" prefers scheme answers over rice fertilizer ones.
+    so "schemes for rice growers" prefers scheme answers over rice fertilizer ones,
+  * a boost for entries about the crop the query names, so "schemes for paddy farmers"
+    prefers the paddy-specific entry over the generic schemes list.
 """
 import re
 from dataclasses import dataclass
@@ -20,9 +22,16 @@ from .models import KnowledgeEntry
 MATCH_THRESHOLD = 0.2
 WORD_WEIGHT, CHAR_WEIGHT = 0.6, 0.4
 INTENT_BOOST = 0.15
+CROP_BOOST = 0.1
+# Synonym groups; a question naming a crop prefers entries about that crop over generic ones.
+CROP_TERMS = {
+    'rice': {'rice', 'paddy', 'dhan'}, 'wheat': {'wheat', 'gehu', 'gehun'}, 'maize': {'maize', 'corn', 'makka'},
+    'cotton': {'cotton', 'kapas'}, 'tomato': {'tomato', 'tamatar'}, 'potato': {'potato', 'aloo'},
+    'chilli': {'chilli', 'chili', 'mirchi'},
+}
 
 INTENT_KEYWORDS = {
-    'greeting': ['hello', 'hi', 'hey', 'namaste', 'namaskar', 'good morning'],
+    'greeting': ['hello', 'hi', 'hey', 'greetings', 'namaste', 'namaskar', 'namaskara', 'good morning'],
     'market': ['price', 'prices', 'rate', 'rates', 'mandi', 'bhav', 'market'],
     'weather': ['weather', 'rain', 'forecast', 'temperature', 'humidity', 'wind'],
     'fertilizer': ['fertilizer', 'fertiliser', 'urea', 'dap', 'npk', 'manure', 'compost', 'potash'],
@@ -71,6 +80,11 @@ def stem_text(text):
     return ' '.join(_stemmer.stem(w) for w in normalize(text).split() if w not in ENGLISH_STOP_WORDS)
 
 
+def crops_in(text):
+    words = set(normalize(text).split())
+    return {crop for crop, terms in CROP_TERMS.items() if words & terms}
+
+
 def detect_intent(text):
     text = f' {normalize(text)} '
     scores = {
@@ -87,6 +101,7 @@ class _Index:
     def __init__(self):
         self.version = None
         self.entries = []
+        self.entry_crops = []
         self.word_vec = self.char_vec = None
         self.word_matrix = self.char_matrix = None
 
@@ -99,6 +114,7 @@ class _Index:
         version = self._current_version(qs)
         if version != self.version:
             self.entries = list(qs)
+            self.entry_crops = [crops_in(f'{e.question} {e.keywords}') for e in self.entries]
             docs = [normalize(f'{e.question} {e.question} {e.keywords}') for e in self.entries]
             if docs:
                 self.word_vec = TfidfVectorizer(ngram_range=(1, 2), sublinear_tf=True,
@@ -116,6 +132,8 @@ class _Index:
         scores = WORD_WEIGHT * word + CHAR_WEIGHT * char
         if intent != 'general':
             scores += [INTENT_BOOST if e.intent == intent else 0 for e in self.entries]
+        if crops := crops_in(message):
+            scores += [CROP_BOOST if crops & self.entry_crops[i] else 0 for i in range(len(self.entries))]
         return scores
 
 

@@ -61,14 +61,15 @@
   </div>
   <div class="card-body chat-log" data-chat-log></div>
   <form class="card-footer d-flex gap-2" data-chat-form>
-    <input class="form-control" name="message" placeholder="Ask about crops, pests, schemes..." autocomplete="off" required maxlength="1000">
-    <button class="btn btn-agri"><i class="bi bi-send"></i></button>
+    <input class="form-control" name="message" placeholder="Ask in any language…" autocomplete="off" required maxlength="1000">
+    {% if VOICE_ENABLED %}<button type="button" class="btn btn-outline-secondary" data-mic title="Ask by voice" aria-label="Ask by voice"><i class="bi bi-mic-fill"></i></button>{% endif %}
+    <button class="btn btn-agri" aria-label="Send"><i class="bi bi-send"></i></button>
   </form>
 </div>
 {% endif %}
 
 {% csrf_token %}
-<script>window.CHAT_API_URL = "{% url 'chatbot:api' %}";</script>
+<script>window.CHAT_API_URL = "{% url 'chatbot:api' %}"; window.CHAT_VOICE_URL = "{% url 'chatbot:voice' %}";</script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="{% static 'js/chat.js' %}"></script>
 {% block scripts %}{% endblock %}

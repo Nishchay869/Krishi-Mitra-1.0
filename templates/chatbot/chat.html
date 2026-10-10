@@ -5,15 +5,16 @@
   <div class="card shadow-sm" data-chat-root>
     <div class="card-header bg-agri text-white"><i class="bi bi-robot"></i> Farm Assistant</div>
     <div class="card-body chat-log" data-chat-log>
-      <div class="bubble bot">Namaste! Ask me about crop selection, fertilizers, pests and diseases, irrigation, soil health or government schemes like PM-KISAN and PMFBY.</div>
+      <div class="bubble bot">Namaste! Ask me about crop selection, fertilizers, pests and diseases, irrigation, soil health or government schemes like PM-KISAN and PMFBY.{% if VOICE_ENABLED %} Type or tap 🎤 and speak in your own language — ಕನ್ನಡ, हिन्दी, తెలుగు, தமிழ், मराठी and more.{% endif %}</div>
       {% for m in history %}
-        <div class="bubble user">{{ m.message }}</div>
+        <div class="bubble user">{% if m.is_voice %}🎤 {% endif %}{{ m.message }}</div>
         <div class="bubble bot">{{ m.response }}{% if m.matched_entry %}<span class="source">Source: {{ m.matched_entry.source }}</span>{% endif %}</div>
       {% endfor %}
     </div>
     <form class="card-footer d-flex gap-2" data-chat-form>
-      <input class="form-control" name="message" placeholder="e.g. How much fertilizer for wheat?" autocomplete="off" required maxlength="1000" autofocus>
-      <button class="btn btn-agri"><i class="bi bi-send"></i> Send</button>
+      <input class="form-control" name="message" placeholder="e.g. ಗೋಧಿಗೆ ಎಷ್ಟು ಗೊಬ್ಬರ? / गेहूं में कितनी खाद? / fertilizer for wheat" autocomplete="off" required maxlength="1000" autofocus>
+      {% if VOICE_ENABLED %}<button type="button" class="btn btn-outline-secondary" data-mic title="Ask by voice" aria-label="Ask by voice"><i class="bi bi-mic-fill"></i></button>{% endif %}
+    <button class="btn btn-agri"><i class="bi bi-send"></i> Send</button>
     </form>
   </div>
 </div></div>
