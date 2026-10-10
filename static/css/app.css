@@ -1,0 +1,23 @@
+:root { --agri: #2e7d32; --agri-dark: #1b5e20; --agri-light: #e8f5e9; }
+body { background: #f6f8f4; }
+.bg-agri { background: var(--agri) !important; }
+.btn-agri { background: var(--agri); color: #fff; border: none; }
+.btn-agri:hover, .btn-agri:focus { background: var(--agri-dark); color: #fff; }
+.text-agri { color: var(--agri); }
+.hero { background: linear-gradient(135deg, var(--agri-dark), #558b2f); color: #fff; border-radius: 1rem; }
+.feature-card { transition: transform .15s; border: none; }
+.feature-card:hover { transform: translateY(-3px); }
+.feature-card .bi { font-size: 2rem; color: var(--agri); }
+
+#chat-toggle { position: fixed; right: 20px; bottom: 20px; width: 56px; height: 56px; font-size: 1.4rem; z-index: 1050; }
+#chat-widget { position: fixed; right: 20px; bottom: 88px; width: min(360px, calc(100vw - 32px)); height: 480px; z-index: 1050; }
+.chat-log { overflow-y: auto; display: flex; flex-direction: column; gap: .5rem; }
+.chat-page .chat-log { height: 60vh; }
+.bubble { max-width: 85%; padding: .5rem .75rem; border-radius: 1rem; white-space: pre-wrap; }
+.bubble.user { align-self: flex-end; background: var(--agri); color: #fff; border-bottom-right-radius: .25rem; }
+.bubble.bot { align-self: flex-start; background: #fff; border: 1px solid #dee2e6; border-bottom-left-radius: .25rem; }
+.bubble .source { display: block; margin-top: .35rem; font-size: .75rem; color: #6c757d; }
+.bubble.typing { color: #6c757d; font-style: italic; }
+
+.price-up { color: #198754; font-weight: 600; }
+.price-down { color: #dc3545; font-weight: 600; }

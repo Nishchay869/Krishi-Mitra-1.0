@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block title %}Yield Estimate{% endblock %}
+{% block content %}
+<h3>Crop yield estimate</h3>
+<p class="text-muted">Estimates the expected harvest per hectare for your crop, season and state, learned from Indian state-level yields ({{ latest_year|default:'2020' }} and earlier).</p>
+<div class="row g-4">
+  <div class="col-lg-6">
+    {% if form %}
+    <div class="card shadow-sm"><div class="card-body">
+      <form method="post" class="row">{% csrf_token %}
+        {% include 'partials/fields.html' with col='col-sm-6' %}
+        <div class="col-12"><button class="btn btn-agri">Estimate yield</button></div>
+      </form>
+    </div></div>
+    {% endif %}
+  </div>
+  <div class="col-lg-6">
+    {% if error %}<div class="alert alert-warning">{{ error }}</div>{% endif %}
+    {% if result %}
+    <div class="card shadow-sm border-success"><div class="card-body">
+      <div class="text-muted small">{{ result.crop }} · {{ result.season }} · {{ result.state }}</div>
+      <div class="display-6 fw-semibold text-agri">{{ result.yield_per_ha }} <span class="fs-5">{{ result.unit }}</span></div>
+      <div class="small text-muted mb-3">Likely range: {{ result.range_low }} – {{ result.range_high }} {{ result.unit }}</div>
+      {% if result.total %}
+      <p class="mb-2"><i class="bi bi-basket"></i> For your {{ result.area_ha }} ha: about <strong>{{ result.total }} {{ result.total_unit }}</strong></p>
+      {% endif %}
+      {% if result.historical_median %}
+      <p class="small mb-2"><i class="bi bi-clock-history"></i> {{ result.state }} recent average for {{ result.crop }}: {{ result.historical_median }} {{ result.unit }}</p>
+      {% else %}
+      <div class="alert alert-warning small py-2 mb-2">No historical record of {{ result.crop }} in {{ result.state }} — treat this estimate with caution.</div>
+      {% endif %}
+      {% if not result.season_typical %}
+      <div class="alert alert-warning small py-2 mb-2">{{ result.crop }} is not usually recorded in the {{ result.season }} season; the estimate may be unreliable.</div>
+      {% endif %}
+      <div class="small text-muted">This is a state-level average estimate. Your actual yield depends on variety, soil, irrigation, fertilizer and pest management — ask the assistant for crop-specific advice.</div>
+    </div></div>
+    {% elif metrics %}
+    <div class="alert alert-light border small">
+      <strong>How accurate is it?</strong> Tested on 2016–2020 data the model never saw: R² {{ metrics.r2|floatformat:2 }}, RMSE {{ metrics.rmse|floatformat:2 }}.
+      Most units are tonnes per hectare; cotton, jute and mesta are in bales per hectare.
+    </div>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}

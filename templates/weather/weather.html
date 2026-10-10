@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block title %}Weather{% endblock %}
+{% block content %}
+<h3>Weather & farm advisory</h3>
+<form method="get" class="row g-2 align-items-end mb-4">
+  <div class="col-sm-5"><label class="form-label small" for="loc">Location (district / town)</label><input id="loc" class="form-control" name="location" value="{{ location }}" placeholder="e.g. Mandya" required></div>
+  <div class="col-sm-4"><label class="form-label small" for="sm">Soil moisture % (optional, from sensor)</label><input id="sm" class="form-control" type="number" step="any" min="0" max="100" name="soil_moisture" value="{{ soil_moisture|default_if_none:'' }}"></div>
+  <div class="col-sm-3"><button class="btn btn-agri w-100">Get forecast</button></div>
+</form>
+{% if error %}<div class="alert alert-warning">{{ error }}</div>{% endif %}
+{% if notes %}
+<div class="mb-4">
+  <h5>Advisories</h5>
+  {% for level, text in notes %}<div class="alert alert-{{ level }} py-2 mb-2 small">{{ text }}</div>{% endfor %}
+</div>
+{% endif %}
+{% if days %}
+<div class="row g-3">
+  {% for d in days %}
+  <div class="col-6 col-md-4 col-lg"><div class="card shadow-sm h-100 text-center"><div class="card-body">
+    <div class="fw-semibold">{{ d.date }}</div>
+    <div class="text-capitalize small text-muted mb-2">{{ d.description }}</div>
+    <div class="fs-5">{{ d.temp_max }}° / <span class="text-muted">{{ d.temp_min }}°</span></div>
+    <div class="small mt-2"><i class="bi bi-droplet"></i> {{ d.humidity }}% · <i class="bi bi-cloud-rain"></i> {{ d.rain_mm }} mm</div>
+    <div class="small"><i class="bi bi-wind"></i> {{ d.wind_speed }} m/s · {{ d.pressure }} hPa</div>
+  </div></div></div>
+  {% endfor %}
+</div>
+{% elif not error and not location %}
+<div class="alert alert-light border">Enter a location, or <a href="{% url 'accounts:profile' %}">add your district to your profile</a>.</div>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block title %}Disease Check{% endblock %}
+{% block content %}
+<h3>Leaf disease detection</h3>
+<p class="text-muted">Upload or take a photo of a single affected leaf against a plain background.</p>
+<div class="row g-4">
+  <div class="col-lg-6"><div class="card shadow-sm"><div class="card-body">
+    <form method="post" enctype="multipart/form-data">{% csrf_token %}
+      {% include 'partials/fields.html' %}
+      <img id="preview" class="img-fluid rounded mb-3 d-none" alt="Leaf preview" style="max-height:240px">
+      <button class="btn btn-agri">Diagnose</button>
+    </form>
+  </div></div></div>
+  <div class="col-lg-6">
+    {% if error %}<div class="alert alert-warning">{{ error }}</div>{% endif %}
+    {% if result %}
+    <div class="card shadow-sm border-{% if result.is_healthy %}success{% else %}danger{% endif %}">
+      <div class="card-body">
+        <div class="text-muted small">{{ result.plant }}</div>
+        <h4 class="{% if result.is_healthy %}text-success{% else %}text-danger{% endif %}">{{ result.disease }}</h4>
+        <div class="small text-muted mb-3">Confidence: {% widthratio result.confidence 1 100 %}%</div>
+        {% if result.confidence < 0.6 %}<div class="alert alert-warning small py-2">Low confidence — retake the photo of a single leaf in good light, or confirm with your local KVK.</div>{% endif %}
+        <h6>Recommended action</h6>
+        <p>{{ result.treatment }}</p>
+        <div class="small text-muted">Source: {{ result.source }}. Confirm with your local KVK before spraying; always follow the pesticide label.</div>
+      </div>
+    </div>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}
+{% block scripts %}
+<script>
+document.querySelector('input[type=file]')?.addEventListener('change', (e) => {
+  const f = e.target.files[0], img = document.getElementById('preview');
+  if (f) { img.src = URL.createObjectURL(f); img.classList.remove('d-none'); }
+});
+</script>
+{% endblock %}

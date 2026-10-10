@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block title %}Admin dashboard{% endblock %}
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-3">
+  <h3 class="mb-0">Administrator dashboard</h3>
+  <a class="btn btn-outline-success btn-sm" href="{% url 'admin:chatbot_knowledgeentry_changelist' %}">Manage knowledge base</a>
+</div>
+<div class="row g-3 mb-4">
+  <div class="col-6 col-lg"><div class="card shadow-sm"><div class="card-body"><div class="text-muted small">Farmers</div><div class="fs-3 fw-semibold">{{ farmer_count }}</div></div></div></div>
+  <div class="col-6 col-lg"><div class="card shadow-sm"><div class="card-body"><div class="text-muted small">Chat messages</div><div class="fs-3 fw-semibold">{{ chat_count }}</div></div></div></div>
+  <div class="col-6 col-lg"><div class="card shadow-sm"><div class="card-body"><div class="text-muted small">Crop predictions</div><div class="fs-3 fw-semibold">{{ prediction_counts.crop|default:0 }}</div></div></div></div>
+  <div class="col-6 col-lg"><div class="card shadow-sm"><div class="card-body"><div class="text-muted small">Yield estimates</div><div class="fs-3 fw-semibold">{{ prediction_counts.yield|default:0 }}</div></div></div></div>
+  <div class="col-6 col-lg"><div class="card shadow-sm"><div class="card-body"><div class="text-muted small">Disease checks</div><div class="fs-3 fw-semibold">{{ prediction_counts.disease|default:0 }}</div></div></div></div>
+</div>
+<div class="row g-3">
+  <div class="col-lg-6"><div class="card shadow-sm h-100"><div class="card-header bg-white fw-semibold">Unanswered questions <span class="text-muted fw-normal small">(knowledge gaps — {{ kb_count }} active entries)</span></div>
+    <ul class="list-group list-group-flush">
+      {% for c in unanswered %}<li class="list-group-item small">{{ c.message|truncatechars:90 }} <span class="badge text-bg-light">{{ c.intent }}</span></li>
+      {% empty %}<li class="list-group-item text-muted small">None — every question matched the knowledge base.</li>{% endfor %}
+    </ul></div></div>
+  <div class="col-lg-6"><div class="card shadow-sm h-100"><div class="card-header bg-white fw-semibold">Top intents</div>
+    <ul class="list-group list-group-flush">
+      {% for t in top_intents %}<li class="list-group-item small d-flex justify-content-between"><span>{{ t.intent|default:'—' }}</span><span class="badge text-bg-success">{{ t.n }}</span></li>
+      {% empty %}<li class="list-group-item text-muted small">No chat data yet.</li>{% endfor %}
+    </ul></div></div>
+  <div class="col-12"><div class="card shadow-sm"><div class="card-header bg-white fw-semibold">Recent predictions</div>
+    <div class="table-responsive"><table class="table table-sm mb-0 small">
+      <thead><tr><th>When</th><th>User</th><th>Type</th><th>Result</th></tr></thead>
+      <tbody>{% for p in recent_predictions %}<tr><td>{{ p.created_at|date:'d M H:i' }}</td><td>{{ p.user.username|default:'anonymous' }}</td><td>{{ p.get_kind_display }}</td>
+        <td>{% if p.kind == 'crop' %}{{ p.result.top.0.crop|title }}{% elif p.kind == 'yield' %}{{ p.result.crop }}: {{ p.result.yield_per_ha }} {{ p.result.unit }}{% else %}{{ p.result.plant }} — {{ p.result.disease }}{% endif %}</td></tr>
+      {% empty %}<tr><td colspan="4" class="text-muted">No predictions yet.</td></tr>{% endfor %}</tbody>
+    </table></div></div></div>
+</div>
+{% endblock %}

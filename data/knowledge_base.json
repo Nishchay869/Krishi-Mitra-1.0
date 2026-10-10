@@ -1,0 +1,210 @@
+[
+  {
+    "intent": "scheme",
+    "question": "What is PM-KISAN and how much money do farmers get?",
+    "keywords": "pm kisan samman nidhi income support 6000 installment",
+    "answer": "PM-KISAN gives eligible landholding farmer families income support of Rs 6,000 per year, paid in three instalments of Rs 2,000 directly to the bank account. Register through the PM-KISAN portal, your Common Service Centre (CSC) or the local agriculture/revenue office. e-KYC and Aadhaar-linked bank account are required.",
+    "source": "PM-KISAN, Ministry of Agriculture & Farmers Welfare",
+    "source_url": "https://pmkisan.gov.in/"
+  },
+  {
+    "intent": "scheme",
+    "question": "How do I get crop insurance under PMFBY?",
+    "keywords": "pradhan mantri fasal bima yojana crop insurance premium claim",
+    "answer": "Under Pradhan Mantri Fasal Bima Yojana (PMFBY) the farmer premium is 2% of the sum insured for Kharif food and oilseed crops, 1.5% for Rabi, and 5% for commercial/horticultural crops; the government pays the rest. Enrol through your bank, CSC, insurance company or the PMFBY portal before the season's cut-off date. Report crop loss within 72 hours on the Crop Insurance app or helpline.",
+    "source": "PMFBY, Ministry of Agriculture & Farmers Welfare",
+    "source_url": "https://pmfby.gov.in/"
+  },
+  {
+    "intent": "scheme",
+    "question": "How can I get a Kisan Credit Card loan?",
+    "keywords": "kcc kisan credit card crop loan interest bank",
+    "answer": "The Kisan Credit Card (KCC) gives short-term credit for crop cultivation, post-harvest and allied activities at concessional interest through interest subvention, with an extra incentive for prompt repayment. Apply at any commercial, cooperative or regional rural bank with land records, ID proof and a passport photo.",
+    "source": "Kisan Credit Card scheme, Department of Financial Services / NABARD",
+    "source_url": "https://www.nabard.org/"
+  },
+  {
+    "intent": "soil",
+    "question": "How do I get a Soil Health Card and soil testing?",
+    "keywords": "soil test health card shc lab sample",
+    "answer": "The Soil Health Card scheme tests your soil for nutrients (N, P, K, micronutrients), pH and EC and gives fertilizer recommendations for your crops. Contact your local agriculture office or Krishi Vigyan Kendra (KVK) for sample collection. Take samples from 0-15 cm depth in a zig-zag pattern across the field after harvest.",
+    "source": "Soil Health Card scheme, Department of Agriculture & Farmers Welfare",
+    "source_url": "https://soilhealth.dac.gov.in/"
+  },
+  {
+    "intent": "scheme",
+    "question": "Where can I check market prices and sell my crop online?",
+    "keywords": "mandi price market rate enam sell",
+    "answer": "e-NAM (National Agriculture Market) is an online trading platform linking APMC mandis; you can check commodity prices and sell through registered mandis. Daily mandi prices are also available on the Agmarknet portal.",
+    "source": "e-NAM, Small Farmers' Agribusiness Consortium",
+    "source_url": "https://enam.gov.in/"
+  },
+  {
+    "intent": "crop_selection",
+    "question": "Which crops can I grow in kharif season?",
+    "keywords": "kharif monsoon june july crops",
+    "answer": "Kharif crops are sown with the onset of the monsoon (June-July) and harvested in September-October. Common kharif crops: rice (paddy), maize, jowar, bajra, cotton, soybean, groundnut, and pulses such as tur (arhar), moong and urad. Choose based on your soil, rainfall and irrigation; use the Crop Recommendation tool with your soil test values for a specific suggestion.",
+    "source": "ICAR / State Agricultural University crop calendars",
+    "source_url": "https://icar.org.in/"
+  },
+  {
+    "intent": "crop_selection",
+    "question": "Which crops can I grow in rabi season?",
+    "keywords": "rabi winter october november crops",
+    "answer": "Rabi crops are sown in October-December after the monsoon and harvested in March-April. Common rabi crops: wheat, barley, mustard, chickpea (gram), lentil (masoor), peas and linseed. They need cool weather for growth and need irrigation or residual soil moisture.",
+    "source": "ICAR / State Agricultural University crop calendars",
+    "source_url": "https://icar.org.in/"
+  },
+  {
+    "intent": "crop_selection",
+    "question": "What is intercropping and why should small farmers use it?",
+    "keywords": "intercropping mixed cropping smallholder risk legume",
+    "answer": "Intercropping means growing two or more crops together in the same field, for example maize + cowpea, pigeonpea (tur) + soybean, or groundnut + tur. It reduces the risk of total crop failure, uses land and moisture better, and legumes add nitrogen to the soil. Many smallholder farmers in India have practised mixed cropping for generations for these reasons.",
+    "source": "ICAR - Central Research Institute for Dryland Agriculture (CRIDA)",
+    "source_url": "https://www.icar-crida.res.in/"
+  },
+  {
+    "intent": "fertilizer",
+    "question": "How much fertilizer should I apply for rice paddy?",
+    "keywords": "rice paddy fertilizer dose urea dap npk",
+    "answer": "A common general recommendation for irrigated high-yielding rice is about 120 kg N, 60 kg P2O5 and 40 kg K2O per hectare. Apply all P and K and about half of N at transplanting, and the remaining N in two splits at tillering and panicle initiation. Doses vary by state and variety, so follow your Soil Health Card recommendation.",
+    "source": "ICAR / State Agricultural University package of practices",
+    "source_url": "https://icar.org.in/"
+  },
+  {
+    "intent": "fertilizer",
+    "question": "How much fertilizer should I apply for wheat?",
+    "keywords": "wheat fertilizer dose urea dap npk",
+    "answer": "For timely sown irrigated wheat a general recommendation is about 120 kg N, 60 kg P2O5 and 40 kg K2O per hectare. Apply half N with full P and K at sowing, and the remaining N at the first irrigation (crown root initiation, about 21 days after sowing). Adjust using your soil test results.",
+    "source": "ICAR - Indian Institute of Wheat & Barley Research",
+    "source_url": "https://iiwbr.icar.gov.in/"
+  },
+  {
+    "intent": "fertilizer",
+    "question": "How do I make and use vermicompost or organic manure?",
+    "keywords": "organic manure vermicompost compost fym farmyard",
+    "answer": "Vermicompost is made by feeding earthworms (usually Eisenia fetida) with partly decomposed crop residue and cow dung in a shaded pit or bed, kept moist; it is ready in about 2-3 months. Well-decomposed farmyard manure or vermicompost improves soil structure, water holding and microbial life. Apply it before sowing and mix into the soil.",
+    "source": "National Centre of Organic & Natural Farming",
+    "source_url": "https://ncof.dacnet.nic.in/"
+  },
+  {
+    "intent": "fertilizer",
+    "question": "What is green manuring?",
+    "keywords": "green manure dhaincha sunhemp nitrogen",
+    "answer": "Green manuring means growing a fast-growing legume such as dhaincha (Sesbania) or sunhemp and ploughing it into the soil at flowering (about 45-60 days). It adds organic matter and nitrogen and is widely used before transplanting rice.",
+    "source": "ICAR / State Agricultural University package of practices",
+    "source_url": "https://icar.org.in/"
+  },
+  {
+    "intent": "soil",
+    "question": "My rice leaves show brown rusty spots and stunted growth, is it zinc deficiency?",
+    "keywords": "zinc deficiency khaira rice micronutrient",
+    "answer": "Rusty brown spots on older leaves with stunted, uneven growth in rice 2-4 weeks after transplanting is often zinc deficiency (khaira disease). Apply zinc sulphate at about 25 kg/ha at puddling as a basal dose, or as a correction spray 0.5% zinc sulphate with 0.25% lime. Confirm with a soil test.",
+    "source": "ICAR / State Agricultural University package of practices",
+    "source_url": "https://icar.org.in/"
+  },
+  {
+    "intent": "soil",
+    "question": "How do I correct acidic or alkaline soil pH?",
+    "keywords": "acidic alkaline soil ph lime gypsum sodic",
+    "answer": "Most crops prefer soil pH of about 6.0-7.5. Acidic soil (pH below about 5.5) is corrected with agricultural lime; alkaline/sodic soil is reclaimed with gypsum plus good drainage and organic matter. The quantity depends on a soil test, so get a Soil Health Card test first.",
+    "source": "Soil Health Card scheme / ICAR",
+    "source_url": "https://soilhealth.dac.gov.in/"
+  },
+  {
+    "intent": "pest",
+    "question": "How to control fall armyworm in maize?",
+    "keywords": "fall armyworm maize corn caterpillar whorl",
+    "answer": "Fall armyworm larvae feed in the maize whorl leaving ragged holes and sawdust-like droppings. Monitor with pheromone traps, apply neem-based azadirachtin 1500 ppm (5 ml/litre) at early stages, and if damage is high spray emamectin benzoate 5 SG (0.4 g/litre) directed into the whorl. Always follow the label and wear protective gear.",
+    "source": "ICAR - Indian Institute of Maize Research advisory",
+    "source_url": "https://iimr.icar.gov.in/"
+  },
+  {
+    "intent": "pest",
+    "question": "How to control late blight in tomato and potato?",
+    "keywords": "late blight tomato potato fungus phytophthora",
+    "answer": "Late blight causes dark water-soaked patches on leaves and stems, spreading fast in cool, humid weather. Remove and destroy infected plants, avoid overhead irrigation, and spray mancozeb 75 WP at 2.5 g/litre preventively; in severe cases use a recommended systemic fungicide such as cymoxanil + mancozeb as per label.",
+    "source": "ICAR - Central Potato Research Institute advisory",
+    "source_url": "https://cpri.icar.gov.in/"
+  },
+  {
+    "intent": "pest",
+    "question": "How to control blast disease in rice?",
+    "keywords": "rice blast eye shaped spots neck blast",
+    "answer": "Rice blast shows eye-shaped spots with grey centres on leaves and can rot the panicle neck. Use resistant varieties, avoid excess nitrogen, and spray tricyclazole 75 WP at 0.6 g/litre at first symptoms and again at panicle emergence if needed.",
+    "source": "ICAR - National Rice Research Institute",
+    "source_url": "https://icar-nrri.in/"
+  },
+  {
+    "intent": "pest",
+    "question": "How to control aphids and sucking pests organically?",
+    "keywords": "aphid whitefly jassid thrips sucking pest insects leaves cotton vegetables neem organic",
+    "answer": "For aphids, whiteflies and jassids: install yellow sticky traps (about 10-12 per acre), spray neem seed kernel extract 5% or neem oil (about 5 ml/litre with a little soap), and conserve natural enemies such as ladybird beetles by avoiding unnecessary broad-spectrum sprays.",
+    "source": "National Centre for Integrated Pest Management (ICAR-NCIPM)",
+    "source_url": "https://ncipm.icar.gov.in/"
+  },
+  {
+    "intent": "pest",
+    "question": "How to manage pink bollworm in cotton?",
+    "keywords": "pink bollworm cotton boll",
+    "answer": "For pink bollworm: install pheromone traps (about 5 per hectare) to monitor, remove rosette flowers, avoid extending the crop beyond the recommended duration, and destroy crop residue after harvest. Spray recommended insecticides only when trap catches cross the economic threshold, as advised by your KVK.",
+    "source": "ICAR - Central Institute for Cotton Research",
+    "source_url": "https://cicr.org.in/"
+  },
+  {
+    "intent": "pest",
+    "question": "How should I treat seeds before sowing?",
+    "keywords": "seed treatment trichoderma fungicide sowing",
+    "answer": "Seed treatment protects seedlings from soil-borne diseases. A common bio-option is Trichoderma viride at 4-10 g per kg of seed; chemical options such as carbendazim at 2 g/kg are also used. For pulses, also treat with Rhizobium culture after fungicide. Dry the seed in shade before sowing.",
+    "source": "ICAR / State Agricultural University package of practices",
+    "source_url": "https://icar.org.in/"
+  },
+  {
+    "intent": "irrigation",
+    "question": "What are the benefits of drip irrigation and is there a subsidy?",
+    "keywords": "drip sprinkler micro irrigation subsidy pmksy per drop more crop",
+    "answer": "Drip irrigation delivers water at the root zone, saving a large share of water compared with flood irrigation and allowing fertilizer through water (fertigation). Subsidy for drip and sprinkler systems is available under PMKSY - Per Drop More Crop; apply through your state horticulture/agriculture department.",
+    "source": "PMKSY - Per Drop More Crop, Ministry of Agriculture & Farmers Welfare",
+    "source_url": "https://pmksy.gov.in/"
+  },
+  {
+    "intent": "irrigation",
+    "question": "When should I irrigate wheat?",
+    "keywords": "wheat irrigation schedule critical stage crown root",
+    "answer": "The most critical irrigation for wheat is at crown root initiation (about 20-25 days after sowing). Other important stages are tillering, jointing, flowering, milk and dough stages. If water is limited, never skip the crown root irrigation.",
+    "source": "ICAR - Indian Institute of Wheat & Barley Research",
+    "source_url": "https://iiwbr.icar.gov.in/"
+  },
+  {
+    "intent": "general",
+    "question": "Where can I get expert advice from agriculture scientists?",
+    "keywords": "kvk kisan call centre helpline expert advice",
+    "answer": "Call the Kisan Call Centre on toll-free 1800-180-1551 (6 am - 10 pm) for advice in your local language, or visit your district Krishi Vigyan Kendra (KVK) for field-level guidance and training.",
+    "source": "Kisan Call Centre, Department of Agriculture & Farmers Welfare",
+    "source_url": "https://mkisan.gov.in/"
+  },
+  {
+    "intent": "scheme",
+    "question": "What are the main government schemes for farmers?",
+    "keywords": "government schemes list farmers central yojana benefits support all schemes",
+    "answer": "Main central government schemes for farmers:\n• PM-KISAN – Rs 6,000/year income support in three instalments (pmkisan.gov.in)\n• PMFBY – low-premium crop insurance: 2% Kharif, 1.5% Rabi, 5% commercial/horticulture crops (pmfby.gov.in)\n• Kisan Credit Card – concessional short-term crop loans from banks\n• Soil Health Card – free soil testing with fertilizer recommendations\n• PMKSY – Per Drop More Crop – subsidy for drip and sprinkler irrigation\n• PM-KUSUM – support for solar irrigation pumps\n• e-NAM – sell produce online across mandis\n• Minimum Support Price (MSP) – government procurement of notified crops\nYour State agriculture department also runs its own schemes; ask at the local agriculture office or Krishi Vigyan Kendra, or call the Kisan Call Centre on 1800-180-1551.",
+    "source": "Ministry of Agriculture & Farmers Welfare, Government of India",
+    "source_url": "https://agriwelfare.gov.in/"
+  },
+  {
+    "intent": "scheme",
+    "question": "What government schemes are available for rice paddy farmers?",
+    "keywords": "rice paddy growers farmers scheme msp procurement nfsm support",
+    "answer": "Schemes useful for rice (paddy) growers:\n• MSP procurement – the government announces a Minimum Support Price for paddy every Kharif season; register on your State's procurement portal and sell at government procurement centres.\n• PMFBY crop insurance – paddy is covered as a Kharif crop at 2% farmer premium.\n• National Food Security Mission (NFSM) – Rice – in identified districts, support for quality seed, cluster demonstrations and farm machinery through the State agriculture department.\n• Soil Health Card – free soil test to plan fertilizer doses for paddy.\n• Kisan Credit Card – crop loans at concessional interest.\n• PM-KISAN – Rs 6,000/year income support for landholding families.\nContact your block agriculture officer or KVK for district-specific benefits.",
+    "source": "Ministry of Agriculture & Farmers Welfare; NFSM; Food Corporation of India",
+    "source_url": "https://www.nfsm.gov.in/"
+  },
+  {
+    "intent": "fertilizer",
+    "question": "Which fertilizer and how much should I apply to get the best yield?",
+    "keywords": "which fertilizer how much dose best yield balanced npk soil test recommendation",
+    "answer": "The right fertilizer and dose depend on your crop and your soil's nutrient status, so start with a soil test (Soil Health Card). General rules: apply balanced N-P-K instead of only urea; give all phosphorus and potassium at sowing and split nitrogen into 2-3 doses; add farmyard manure or vermicompost to improve soil; correct micronutrient deficiencies such as zinc when found. Tell me your crop (for example 'fertilizer for rice' or 'fertilizer for wheat') for a typical dose.",
+    "source": "Soil Health Card scheme / ICAR package of practices",
+    "source_url": "https://soilhealth.dac.gov.in/"
+  }
+]

@@ -1,0 +1,105 @@
+{% extends 'base.html' %}
+{% load humanize %}
+{% block title %}Market Prices{% endblock %}
+{% block content %}
+<div class="d-flex flex-wrap justify-content-between align-items-end gap-2 mb-3">
+  <div>
+    <h3 class="mb-1">Daily mandi prices — {{ state_name }}</h3>
+    {% if data.date %}
+    <div class="text-muted small">
+      Latest published: <strong>{{ data.date|date:"D, d M Y" }}</strong>
+      {% if days_old == 0 %}<span class="badge text-bg-success">today</span>
+      {% elif days_old == 1 %}<span class="badge text-bg-secondary">yesterday</span>
+      {% elif days_old %}<span class="badge text-bg-secondary">{{ days_old }} days ago</span>{% endif %}
+      · compared with {{ data.previous_date|date:"D, d M" }} · average modal price, ₹ per quintal
+    </div>
+    {% endif %}
+  </div>
+  <form method="get" class="d-flex gap-2">
+    <select name="state" class="form-select" onchange="this.form.submit()" aria-label="State">
+      <option value="0" {% if not state_id %}selected{% endif %}>All India</option>
+      {% for sid, sname in states %}<option value="{{ sid }}" {% if sid == state_id %}selected{% endif %}>{{ sname }}</option>{% endfor %}
+    </select>
+    <noscript><button class="btn btn-agri">Go</button></noscript>
+  </form>
+</div>
+
+{% if error %}<div class="alert alert-warning">{{ error }}</div>{% endif %}
+{% if days_old and days_old > 0 %}
+<div class="alert alert-info small py-2">
+  <i class="bi bi-info-circle"></i> Mandis upload prices at the end of each trading day and Agmarknet verifies them before publishing,
+  so the newest prices are usually 1–2 days old (longer after Sundays and holidays). This page updates automatically when new prices are published.
+</div>
+{% endif %}
+
+{% if groups %}
+<div class="d-flex flex-wrap gap-2 align-items-center mb-3">
+  <span class="badge rounded-pill text-bg-success"><i class="bi bi-caret-up-fill"></i> {{ summary.up }} up</span>
+  <span class="badge rounded-pill text-bg-danger"><i class="bi bi-caret-down-fill"></i> {{ summary.down }} down</span>
+  <span class="badge rounded-pill text-bg-secondary"><i class="bi bi-dash"></i> {{ summary.flat }} unchanged / no data</span>
+  <input id="price-search" class="form-control form-control-sm ms-auto" style="max-width:220px" placeholder="Search crop…" aria-label="Search crop">
+</div>
+
+<div class="card shadow-sm"><div class="table-responsive">
+<table class="table table-hover align-middle mb-0 price-table">
+  <thead class="table-light">
+    <tr>
+      <th>Commodity</th>
+      <th class="text-end">{{ data.date|date:"d M" }}</th>
+      <th class="text-end">{{ data.previous_date|date:"d M" }}</th>
+      <th class="text-end">Change</th>
+      <th class="text-end d-none d-md-table-cell">MSP</th>
+    </tr>
+  </thead>
+  {% for group, rows in groups %}
+  <tbody>
+    <tr class="group-row"><th colspan="5" class="small text-uppercase text-muted bg-light-subtle">{{ group }}</th></tr>
+    {% for r in rows %}
+    <tr data-name="{{ r.commodity|lower }}">
+      <td class="fw-semibold">{{ r.commodity }}</td>
+      <td class="text-end fw-semibold">{% if r.price is not None %}₹{{ r.price|floatformat:0|intcomma }}{% else %}—{% endif %}</td>
+      <td class="text-end text-muted">{% if r.previous_price is not None %}₹{{ r.previous_price|floatformat:0|intcomma }}{% else %}—{% endif %}</td>
+      <td class="text-end text-nowrap">
+        {% if r.direction == 'up' %}
+          <span class="price-up"><i class="bi bi-caret-up-fill"></i> ₹{{ r.change|floatformat:0|intcomma }} ({{ r.percent|floatformat:1 }}%)</span>
+        {% elif r.direction == 'down' %}
+          <span class="price-down"><i class="bi bi-caret-down-fill"></i> ₹{{ r.change|floatformat:0|intcomma|cut:'-' }} ({{ r.percent|floatformat:1|cut:'-' }}%)</span>
+        {% elif r.direction == 'same' %}
+          <span class="text-muted"><i class="bi bi-dash"></i> No change</span>
+        {% else %}
+          <span class="text-muted small">No previous data</span>
+        {% endif %}
+      </td>
+      <td class="text-end d-none d-md-table-cell small">
+        {% if r.msp %}₹{{ r.msp|floatformat:0|intcomma }}
+          <span class="badge {% if r.vs_msp == 'above' %}text-bg-success{% else %}text-bg-warning{% endif %}">{{ r.vs_msp }}</span>
+        {% else %}<span class="text-muted">—</span>{% endif %}
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+  {% endfor %}
+</table>
+</div></div>
+<p class="small text-muted mt-2">
+  Prices are the average modal price across reporting mandis{% if state_id %} in {{ state_name }}{% endif %}; your local mandi may differ.
+  "Previous" is the previous reporting day. Source: <a href="{{ source_url }}" target="_blank" rel="noopener">{{ source }}</a>.
+</p>
+{% endif %}
+{% endblock %}
+{% block scripts %}
+<script>
+document.getElementById('price-search')?.addEventListener('input', (e) => {
+  const q = e.target.value.trim().toLowerCase();
+  document.querySelectorAll('.price-table tbody').forEach((tb) => {
+    let visible = 0;
+    tb.querySelectorAll('tr[data-name]').forEach((tr) => {
+      const show = tr.dataset.name.includes(q);
+      tr.classList.toggle('d-none', !show);
+      visible += show;
+    });
+    tb.querySelector('.group-row').classList.toggle('d-none', visible === 0);
+  });
+});
+</script>
+{% endblock %}

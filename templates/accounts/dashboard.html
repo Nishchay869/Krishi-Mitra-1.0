@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block title %}Dashboard{% endblock %}
+{% block content %}
+<h3 class="mb-1">Namaste, {{ user.first_name|default:user.username }}</h3>
+<p class="text-muted">{% if user.profile.location_query %}<i class="bi bi-geo-alt"></i> {{ user.profile.location_query }}{% if user.profile.state %}, {{ user.profile.state }}{% endif %}{% else %}<a href="{% url 'accounts:profile' %}">Add your district</a> to get local weather.{% endif %}</p>
+<div class="row g-3 mb-4">{% include 'partials/feature_cards.html' %}</div>
+<div class="row g-3">
+  <div class="col-lg-6"><div class="card shadow-sm h-100"><div class="card-header bg-white fw-semibold">Recent predictions</div>
+    <ul class="list-group list-group-flush">
+      {% for p in predictions %}
+      <li class="list-group-item small">
+        <span class="badge bg-success-subtle text-success-emphasis me-1">{{ p.get_kind_display }}</span>
+        {% if p.kind == 'crop' %}{% for r in p.result.top %}{{ r.crop|title }}{% if not forloop.last %}, {% endif %}{% endfor %}
+        {% elif p.kind == 'yield' %}{{ p.result.crop }}: {{ p.result.yield_per_ha }} {{ p.result.unit }}
+        {% else %}{{ p.result.plant }} — {{ p.result.disease }}{% endif %}
+        <span class="text-muted float-end">{{ p.created_at|timesince }} ago</span>
+      </li>
+      {% empty %}<li class="list-group-item text-muted small">No predictions yet.</li>{% endfor %}
+    </ul></div></div>
+  <div class="col-lg-6"><div class="card shadow-sm h-100"><div class="card-header bg-white fw-semibold">Recent questions</div>
+    <ul class="list-group list-group-flush">
+      {% for c in chats %}<li class="list-group-item small">{{ c.message|truncatechars:80 }}<span class="text-muted float-end">{{ c.created_at|timesince }} ago</span></li>
+      {% empty %}<li class="list-group-item text-muted small">No questions yet — try the assistant.</li>{% endfor %}
+    </ul></div></div>
+</div>
+{% endblock %}

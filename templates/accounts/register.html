@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block title %}Register{% endblock %}
+{% block content %}
+<div class="row justify-content-center"><div class="col-lg-8">
+  <div class="card shadow-sm"><div class="card-body p-4">
+    <h4 class="mb-3">Create farmer account</h4>
+    <form method="post" class="row">{% csrf_token %}
+      {% include 'partials/fields.html' with col='col-md-6' %}
+      <div class="col-12"><button class="btn btn-agri">Register</button></div>
+    </form>
+  </div></div>
+</div></div>
+{% endblock %}

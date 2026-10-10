@@ -1,0 +1,10 @@
+Django==6.1.2
+scikit-learn==1.9.1
+pandas==3.0.6
+numpy==2.5.3
+joblib==1.6.0
+pillow==12.3.0
+requests==2.34.2
+nltk==3.10.3
+psycopg[binary]==3.3.6
+gunicorn==26.2.0

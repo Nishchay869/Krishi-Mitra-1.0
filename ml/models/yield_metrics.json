@@ -1,0 +1,42 @@
+{
+  "random_80_20": {
+    "random_forest": {
+      "mse": 6.713,
+      "rmse": 2.591,
+      "r2": 0.9485,
+      "r2_log": 0.9561
+    },
+    "linear_regression": {
+      "mse": 30.223,
+      "rmse": 5.498,
+      "r2": 0.768,
+      "r2_log": 0.8384
+    },
+    "decision_tree": {
+      "mse": 5.86,
+      "rmse": 2.421,
+      "r2": 0.955,
+      "r2_log": 0.9382
+    }
+  },
+  "time_2016_2020": {
+    "random_forest": {
+      "mse": 26.946,
+      "rmse": 5.191,
+      "r2": 0.8268,
+      "r2_log": 0.9252
+    },
+    "linear_regression": {
+      "mse": 48.401,
+      "rmse": 6.957,
+      "r2": 0.6889,
+      "r2_log": 0.8228
+    },
+    "decision_tree": {
+      "mse": 28.466,
+      "rmse": 5.335,
+      "r2": 0.817,
+      "r2_log": 0.9036
+    }
+  }
+}
