@@ -69,6 +69,7 @@ MIDDLEWARE = [
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'accounts.middleware.FarmerLanguageMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
@@ -140,7 +141,11 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/6.1/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'en'
+from accounts.languages import LANGUAGE_CHOICES
+LANGUAGES = LANGUAGE_CHOICES
+LANGUAGES_BIDI = ['ks', 'sd', 'ur']
+LOCALE_PATHS = [BASE_DIR / 'locale']
 
 TIME_ZONE = 'Asia/Kolkata'
 
@@ -165,6 +170,11 @@ LOGOUT_REDIRECT_URL = 'home'
 
 # ML artifacts and external services
 ML_MODELS_DIR = BASE_DIR / 'ml' / 'models'
+# Server-side leaf image assessment. Never expose this key to templates or browser JS.
+GEMINI_API_KEY = os.environ.get('GEMINI_API_KEY') or os.environ.get('GOOGLE_API_KEY', '')
+GEMINI_DISEASE_MODEL = os.environ.get('GEMINI_DISEASE_MODEL', 'gemini-3.8-flash')
+
+DATA_GOV_IN_API_KEY = os.environ.get('DATA_GOV_IN_API_KEY', '')
 OPENWEATHER_API_KEY = os.environ.get('OPENWEATHER_API_KEY', '')
 SARVAM_API_KEY = os.environ.get('SARVAM_API_KEY', '')  # multilingual chat + voice input
 
@@ -175,5 +185,24 @@ SARVAM_API_KEY = os.environ.get('SARVAM_API_KEY', '')  # multilingual chat + voi
 MAILERS = {
     'default': {
         'BACKEND': 'django.core.mail.backends.console.EmailBackend',
+    },
+}
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'verbose': {'format': '[%(levelname)s %(name)s] %(message)s'},
+    },
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+            'formatter': 'verbose',
+        },
+    },
+    'root': {'handlers': ['console'], 'level': 'WARNING'},
+    'loggers': {
+        'disease': {'handlers': ['console'], 'level': 'DEBUG', 'propagate': False},
+        'django.request': {'handlers': ['console'], 'level': 'ERROR', 'propagate': False},
     },
 }

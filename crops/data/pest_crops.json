@@ -1,0 +1,1396 @@
+{
+  "Tomato": {
+    "issues": [
+      "damping-off",
+      "early-blight",
+      "late-blight",
+      "fusarium-wilt",
+      "powdery-mildew",
+      "bacterial-wilt",
+      "bacterial-spot",
+      "bacterial-canker",
+      "leaf-curl",
+      "mosaic",
+      "root-knot",
+      "whiteflies",
+      "thrips",
+      "leafminers",
+      "spider-mites",
+      "fruit-borer",
+      "tobacco-caterpillar",
+      "blossom-end-rot"
+    ],
+    "sources": [
+      {
+        "label": "NIPHM · AESA / IPM package: Tomato",
+        "url": "https://niphm.gov.in/IPMPackages/Tomato.pdf"
+      },
+      {
+        "label": "TNAU · Tomato diseases",
+        "url": "https://agritech.tnau.ac.in/crop_protection/crop_prot_crop%20diseases_veg_tomato.html"
+      },
+      {
+        "label": "UC IPM · Tomato powdery mildew (California reference)",
+        "url": "https://ipm.ucanr.edu/agriculture/tomato/powdery-mildew-on-field-grown-tomatoes/"
+      }
+    ],
+    "guide": "Tomato",
+    "overrides": {
+      "powdery-mildew": {
+        "early": "Light-green or yellow patches appear on leaves; white powdery growth can be sparse on the underside.",
+        "progress": "Patches become brown and leaves may dry. Tomato symptoms can be less visibly powdery than those on other hosts."
+      }
+    }
+  },
+  "Pepper bell": {
+    "issues": [
+      "damping-off",
+      "anthracnose",
+      "bacterial-spot",
+      "powdery-mildew",
+      "phytophthora-rot",
+      "leaf-curl",
+      "whiteflies",
+      "thrips",
+      "aphids",
+      "spider-mites",
+      "fruit-borer",
+      "root-knot"
+    ],
+    "sources": [
+      {
+        "label": "NIPHM · AESA / IPM package: Pepper bell",
+        "url": "https://niphm.gov.in/IPMPackages/Chilli.pdf"
+      }
+    ],
+    "guide": "Chilli"
+  },
+  "Onion": {
+    "issues": [
+      "damping-off",
+      "purple-blotch",
+      "stemphylium",
+      "basal-rot",
+      "white-rot",
+      "downy-mildew",
+      "anthracnose",
+      "soft-rot",
+      "thrips",
+      "spider-mites",
+      "cutworms"
+    ],
+    "sources": [
+      {
+        "label": "NIPHM · AESA / IPM package: Onion",
+        "url": "https://niphm.gov.in/IPMPackages/Onion.pdf"
+      }
+    ],
+    "guide": "Onion"
+  },
+  "Potato": {
+    "issues": [
+      "early-blight",
+      "late-blight",
+      "bacterial-wilt",
+      "black-scurf",
+      "potato-scab",
+      "soft-rot",
+      "aphids",
+      "whiteflies",
+      "leafminers",
+      "cutworms",
+      "root-knot"
+    ],
+    "sources": [
+      {
+        "label": "NIPHM · AESA / IPM package: Potato",
+        "url": "https://niphm.gov.in/IPMPackages/Potato.pdf"
+      }
+    ],
+    "guide": "Potato"
+  },
+  "Garlic": {
+    "issues": [
+      "purple-blotch",
+      "stemphylium",
+      "basal-rot",
+      "white-rot",
+      "downy-mildew",
+      "thrips",
+      "root-knot"
+    ],
+    "sources": [
+      {
+        "label": "NIPHM · AESA / IPM package: Garlic",
+        "url": "https://niphm.gov.in/IPMPackages/Garlic.pdf"
+      }
+    ],
+    "guide": "Garlic"
+  },
+  "Sweet potato": {
+    "issues": [
+      "sweetpotato-weevil",
+      "sweetpotato-black-rot",
+      "root-rot",
+      "aphids",
+      "whiteflies"
+    ],
+    "sources": [
+      {
+        "label": "TNAU · Sweet potato crop guide",
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_vegetables_sweet%20potato.html"
+      }
+    ],
+    "guide": "sweetpotato"
+  },
+  "Squash": {
+    "issues": [
+      "damping-off",
+      "powdery-mildew",
+      "downy-mildew",
+      "anthracnose",
+      "mosaic",
+      "fruit-flies",
+      "red-pumpkin-beetle",
+      "aphids",
+      "whiteflies",
+      "spider-mites"
+    ],
+    "sources": [
+      {
+        "label": "NIPHM · AESA / IPM package: Squash",
+        "url": "https://niphm.gov.in/IPMPackages/CucurbitaceousVegetable.pdf"
+      }
+    ],
+    "guide": "CucurbitaceousVegetable"
+  },
+  "Brinjal": {
+    "issues": [
+      "damping-off",
+      "bacterial-wilt",
+      "fusarium-wilt",
+      "cercospora-spot",
+      "root-knot",
+      "brinjal-borer",
+      "leafhoppers",
+      "aphids",
+      "whiteflies",
+      "spider-mites"
+    ],
+    "sources": [
+      {
+        "label": "NIPHM · AESA / IPM package: Brinjal",
+        "url": "https://niphm.gov.in/IPMPackages/Brinjal.pdf"
+      }
+    ],
+    "guide": "Brinjal"
+  },
+  "Okra": {
+    "issues": [
+      "damping-off",
+      "powdery-mildew",
+      "cercospora-spot",
+      "root-knot",
+      "leaf-curl",
+      "okra-borer",
+      "leafhoppers",
+      "whiteflies",
+      "aphids",
+      "spider-mites"
+    ],
+    "sources": [
+      {
+        "label": "NIPHM · AESA / IPM package: Okra",
+        "url": "https://niphm.gov.in/IPMPackages/Okra.pdf"
+      }
+    ],
+    "guide": "Okra",
+    "overrides": {
+      "leaf-curl": {
+        "name": "Yellow vein mosaic / leaf curl virus diseases"
+      }
+    }
+  },
+  "Cucumber": {
+    "issues": [
+      "damping-off",
+      "powdery-mildew",
+      "downy-mildew",
+      "anthracnose",
+      "mosaic",
+      "fruit-flies",
+      "red-pumpkin-beetle",
+      "aphids",
+      "whiteflies",
+      "spider-mites"
+    ],
+    "sources": [
+      {
+        "label": "NIPHM · AESA / IPM package: Cucumber",
+        "url": "https://niphm.gov.in/IPMPackages/CucurbitaceousVegetable.pdf"
+      }
+    ],
+    "guide": "CucurbitaceousVegetable"
+  },
+  "Cabbage": {
+    "issues": [
+      "damping-off",
+      "clubroot",
+      "brassica-black-rot",
+      "alternaria-spot",
+      "downy-mildew",
+      "soft-rot",
+      "diamondback",
+      "aphids",
+      "cutworms",
+      "tobacco-caterpillar"
+    ],
+    "sources": [
+      {
+        "label": "NIPHM · AESA / IPM package: Cabbage",
+        "url": "https://niphm.gov.in/IPMPackages/CabbageandCauliflower.pdf"
+      }
+    ],
+    "guide": "CabbageandCauliflower"
+  },
+  "Cauliflower": {
+    "issues": [
+      "damping-off",
+      "clubroot",
+      "brassica-black-rot",
+      "alternaria-spot",
+      "downy-mildew",
+      "soft-rot",
+      "diamondback",
+      "aphids",
+      "cutworms",
+      "tobacco-caterpillar"
+    ],
+    "sources": [
+      {
+        "label": "NIPHM · AESA / IPM package: Cauliflower",
+        "url": "https://niphm.gov.in/IPMPackages/CabbageandCauliflower.pdf"
+      }
+    ],
+    "guide": "CabbageandCauliflower"
+  },
+  "Carrot": {
+    "issues": [
+      "alternaria-spot",
+      "cercospora-spot",
+      "soft-rot",
+      "root-knot",
+      "damping-off",
+      "aphids"
+    ],
+    "sources": [
+      {
+        "label": "UC IPM · Carrot pest management",
+        "url": "https://ipm.ucanr.edu/agriculture/carrot/"
+      }
+    ],
+    "guide": "carrot"
+  },
+  "Pumpkin": {
+    "issues": [
+      "damping-off",
+      "powdery-mildew",
+      "downy-mildew",
+      "anthracnose",
+      "mosaic",
+      "fruit-flies",
+      "red-pumpkin-beetle",
+      "aphids",
+      "whiteflies"
+    ],
+    "sources": [
+      {
+        "label": "NIPHM · AESA / IPM package: Pumpkin",
+        "url": "https://niphm.gov.in/IPMPackages/CucurbitaceousVegetable.pdf"
+      }
+    ],
+    "guide": "CucurbitaceousVegetable"
+  },
+  "Rice": {
+    "issues": [
+      "blast",
+      "rice-blight",
+      "rice-brown-spot",
+      "sheath-blight",
+      "rice-tungro",
+      "false-smut",
+      "rice-stem-borer",
+      "rice-planthopper",
+      "rice-leaffolder"
+    ],
+    "sources": [
+      {
+        "label": "NIPHM · AESA / IPM package: Rice",
+        "url": "https://niphm.gov.in/IPMPackages/Rice.pdf"
+      }
+    ],
+    "guide": "Rice"
+  },
+  "Wheat": {
+    "issues": [
+      "rust",
+      "powdery-mildew",
+      "smut",
+      "aphids",
+      "cutworms"
+    ],
+    "sources": [
+      {
+        "label": "NIPHM · AESA / IPM package: Wheat",
+        "url": "https://niphm.gov.in/IPMPackages/Wheat.pdf"
+      }
+    ],
+    "guide": "Wheat"
+  },
+  "Maize": {
+    "issues": [
+      "maize-blight",
+      "rust",
+      "downy-mildew",
+      "charcoal-rot",
+      "fall-armyworm",
+      "cutworms",
+      "aphids"
+    ],
+    "sources": [
+      {
+        "label": "NIPHM · AESA / IPM package: Maize",
+        "url": "https://niphm.gov.in/IPMPackages/Maize.pdf"
+      }
+    ],
+    "guide": "Maize"
+  },
+  "Bajra": {
+    "issues": [
+      "downy-mildew",
+      "rust",
+      "smut",
+      "shoot-fly",
+      "aphids",
+      "white-grubs"
+    ],
+    "sources": [
+      {
+        "label": "NIPHM · AESA / IPM package: Bajra",
+        "url": "https://niphm.gov.in/IPMPackages/Pearlmillet.pdf"
+      }
+    ],
+    "guide": "Pearlmillet"
+  },
+  "Ragi": {
+    "issues": [
+      "blast",
+      "aphids",
+      "shoot-fly",
+      "cutworms"
+    ],
+    "sources": [
+      {
+        "label": "Assam Agricultural University · Finger millet",
+        "url": "https://rkbassam.aau.ac.in/crops/Millet?active=finger-millet"
+      }
+    ],
+    "guide": "ragi"
+  },
+  "Barley": {
+    "issues": [
+      "rust",
+      "powdery-mildew",
+      "smut",
+      "aphids"
+    ],
+    "sources": [
+      {
+        "label": "ICAR · Barley diseases in India",
+        "url": "https://doi.org/10.25174/2249-4065/2018/83844"
+      }
+    ],
+    "guide": "barley"
+  },
+  "Jowar": {
+    "issues": [
+      "anthracnose",
+      "rust",
+      "downy-mildew",
+      "charcoal-rot",
+      "smut",
+      "shoot-fly",
+      "aphids"
+    ],
+    "sources": [
+      {
+        "label": "NIPHM · AESA / IPM package: Jowar",
+        "url": "https://niphm.gov.in/IPMPackages/Sorghum.pdf"
+      }
+    ],
+    "guide": "Sorghum"
+  },
+  "Chickpea": {
+    "issues": [
+      "fusarium-wilt",
+      "root-rot",
+      "grey-mould",
+      "rust",
+      "fruit-borer",
+      "aphids",
+      "cutworms"
+    ],
+    "sources": [
+      {
+        "label": "NIPHM · AESA / IPM package: Chickpea",
+        "url": "https://niphm.gov.in/IPMPackages/Chickpea.pdf"
+      }
+    ],
+    "guide": "Chickpea"
+  },
+  "Lentil": {
+    "issues": [
+      "fusarium-wilt",
+      "rust",
+      "root-rot",
+      "sclerotinia",
+      "aphids",
+      "fruit-borer",
+      "cutworms"
+    ],
+    "sources": [
+      {
+        "label": "NIPHM · AESA / IPM package: Lentil",
+        "url": "https://niphm.gov.in/IPMPackages/Lentil.pdf"
+      }
+    ],
+    "guide": "Lentil"
+  },
+  "Mungbean": {
+    "issues": [
+      "powdery-mildew",
+      "cercospora-spot",
+      "anthracnose",
+      "root-rot",
+      "mosaic",
+      "whiteflies",
+      "aphids",
+      "fruit-borer"
+    ],
+    "sources": [
+      {
+        "label": "NIPHM · AESA / IPM package: Mungbean",
+        "url": "https://niphm.gov.in/IPMPackages/BlackgramandGreengram.pdf"
+      }
+    ],
+    "guide": "BlackgramandGreengram",
+    "overrides": {
+      "mosaic": {
+        "name": "Yellow mosaic virus diseases"
+      }
+    }
+  },
+  "Blackgram": {
+    "issues": [
+      "powdery-mildew",
+      "cercospora-spot",
+      "anthracnose",
+      "root-rot",
+      "mosaic",
+      "whiteflies",
+      "aphids",
+      "fruit-borer"
+    ],
+    "sources": [
+      {
+        "label": "NIPHM · AESA / IPM package: Blackgram",
+        "url": "https://niphm.gov.in/IPMPackages/BlackgramandGreengram.pdf"
+      }
+    ],
+    "guide": "BlackgramandGreengram",
+    "overrides": {
+      "mosaic": {
+        "name": "Yellow mosaic virus diseases"
+      }
+    }
+  },
+  "Pigeonpeas": {
+    "issues": [
+      "fusarium-wilt",
+      "phytophthora-rot",
+      "root-rot",
+      "fruit-borer",
+      "aphids"
+    ],
+    "sources": [
+      {
+        "label": "NIPHM · AESA / IPM package: Pigeonpeas",
+        "url": "https://niphm.gov.in/IPMPackages/Redgram.pdf"
+      }
+    ],
+    "guide": "Redgram"
+  },
+  "Kidneybeans": {
+    "issues": [
+      "anthracnose",
+      "rust",
+      "root-rot",
+      "mosaic",
+      "aphids",
+      "whiteflies",
+      "root-knot"
+    ],
+    "sources": [
+      {
+        "label": "UC IPM · Dry beans",
+        "url": "https://ipm.ucanr.edu/agriculture/dry-beans/"
+      }
+    ],
+    "guide": "beans"
+  },
+  "Cowpea(Lobia)": {
+    "issues": [
+      "anthracnose",
+      "rust",
+      "powdery-mildew",
+      "mosaic",
+      "aphids",
+      "whiteflies",
+      "root-knot"
+    ],
+    "sources": [
+      {
+        "label": "TNAU · Cowpea crop protection",
+        "url": "https://agritech.tnau.ac.in/crop_protection/crop_prot_crop%20diseases_pulses_cowpea.html"
+      }
+    ],
+    "guide": "cowpea"
+  },
+  "Mango": {
+    "issues": [
+      "anthracnose",
+      "powdery-mildew",
+      "sooty-mould",
+      "leafhoppers",
+      "mealybugs",
+      "scales",
+      "fruit-flies",
+      "spider-mites"
+    ],
+    "sources": [
+      {
+        "label": "NIPHM · AESA / IPM package: Mango",
+        "url": "https://niphm.gov.in/IPMPackages/Mango.pdf"
+      }
+    ],
+    "guide": "Mango"
+  },
+  "Banana": {
+    "issues": [
+      "panama",
+      "sigatoka",
+      "anthracnose",
+      "bunchy-top",
+      "mosaic",
+      "soft-rot",
+      "banana-weevil",
+      "aphids",
+      "root-knot"
+    ],
+    "sources": [
+      {
+        "label": "NIPHM · AESA / IPM package: Banana",
+        "url": "https://niphm.gov.in/IPMPackages/Banana.pdf"
+      }
+    ],
+    "guide": "Banana"
+  },
+  "Orange": {
+    "issues": [
+      "citrus-canker",
+      "citrus-greening",
+      "citrus-tristeza",
+      "phytophthora-rot",
+      "anthracnose",
+      "sooty-mould",
+      "citrus-psyllid",
+      "citrus-leafminer",
+      "mealybugs",
+      "scales",
+      "aphids"
+    ],
+    "sources": [
+      {
+        "label": "NIPHM · AESA / IPM package: Orange",
+        "url": "https://niphm.gov.in/IPMPackages/Citrus.pdf"
+      }
+    ],
+    "guide": "Citrus"
+  },
+  "Papaya": {
+    "issues": [
+      "papaya-ringspot",
+      "damping-off",
+      "powdery-mildew",
+      "anthracnose",
+      "phytophthora-rot",
+      "root-knot",
+      "aphids",
+      "whiteflies",
+      "mealybugs",
+      "spider-mites",
+      "fruit-flies"
+    ],
+    "sources": [
+      {
+        "label": "NIPHM · AESA / IPM package: Papaya",
+        "url": "https://niphm.gov.in/IPMPackages/Papaya.pdf"
+      }
+    ],
+    "guide": "Papaya"
+  },
+  "Pomegranate": {
+    "issues": [
+      "anthracnose",
+      "bacterial-spot",
+      "alternaria-spot",
+      "mealybugs",
+      "aphids",
+      "thrips",
+      "whiteflies",
+      "fruit-flies"
+    ],
+    "sources": [
+      {
+        "label": "NIPHM · AESA / IPM package: Pomegranate",
+        "url": "https://niphm.gov.in/IPMPackages/Pomegranate.pdf"
+      }
+    ],
+    "guide": "Pomegranate",
+    "overrides": {
+      "bacterial-spot": {
+        "name": "Bacterial blight of pomegranate",
+        "cause": "Xanthomonas citri pv. punicae",
+        "early": "Water-soaked spots appear on leaves or young fruit.",
+        "progress": "Spots darken and fruit lesions may crack; affected leaves can drop."
+      }
+    }
+  },
+  "Grapes": {
+    "issues": [
+      "downy-mildew",
+      "powdery-mildew",
+      "anthracnose",
+      "grape-black-rot",
+      "grey-mould",
+      "mealybugs",
+      "thrips",
+      "spider-mites"
+    ],
+    "sources": [
+      {
+        "label": "NIPHM · AESA / IPM package: Grapes",
+        "url": "https://niphm.gov.in/IPMPackages/Grapes.pdf"
+      }
+    ],
+    "guide": "Grapes"
+  },
+  "Watermelon": {
+    "issues": [
+      "damping-off",
+      "fusarium-wilt",
+      "anthracnose",
+      "powdery-mildew",
+      "downy-mildew",
+      "mosaic",
+      "aphids",
+      "fruit-flies",
+      "red-pumpkin-beetle",
+      "spider-mites"
+    ],
+    "sources": [
+      {
+        "label": "NIPHM · AESA / IPM package: Watermelon",
+        "url": "https://niphm.gov.in/IPMPackages/Watermelon.pdf"
+      }
+    ],
+    "guide": "Watermelon"
+  },
+  "Muskmelon": {
+    "issues": [
+      "damping-off",
+      "fusarium-wilt",
+      "anthracnose",
+      "powdery-mildew",
+      "downy-mildew",
+      "mosaic",
+      "aphids",
+      "fruit-flies",
+      "red-pumpkin-beetle",
+      "spider-mites"
+    ],
+    "sources": [
+      {
+        "label": "NIPHM · AESA / IPM package: Muskmelon",
+        "url": "https://niphm.gov.in/IPMPackages/CucurbitaceousVegetable.pdf"
+      }
+    ],
+    "guide": "CucurbitaceousVegetable"
+  },
+  "Apple": {
+    "issues": [
+      "apple-scab",
+      "powdery-mildew",
+      "fire-blight",
+      "anthracnose",
+      "aphids",
+      "scales",
+      "spider-mites"
+    ],
+    "sources": [
+      {
+        "label": "NIPHM · AESA / IPM package: Apple",
+        "url": "https://niphm.gov.in/IPMPackages/Apple.pdf"
+      }
+    ],
+    "guide": "Apple"
+  },
+  "Strawberry": {
+    "issues": [
+      "grey-mould",
+      "powdery-mildew",
+      "anthracnose",
+      "phytophthora-rot",
+      "verticillium-wilt",
+      "aphids",
+      "thrips",
+      "spider-mites",
+      "root-knot"
+    ],
+    "sources": [
+      {
+        "label": "NIPHM · AESA / IPM package: Strawberry",
+        "url": "https://niphm.gov.in/IPMPackages/Strawberry.pdf"
+      }
+    ],
+    "guide": "Strawberry"
+  },
+  "Peach": {
+    "issues": [
+      "peach-leaf-curl",
+      "brown-rot",
+      "powdery-mildew",
+      "aphids",
+      "scales",
+      "fruit-flies"
+    ],
+    "sources": [
+      {
+        "label": "NIPHM · AESA / IPM package: Peach",
+        "url": "https://niphm.gov.in/IPMPackages/Peach.pdf"
+      }
+    ],
+    "guide": "Peach"
+  },
+  "Coconut": {
+    "issues": [
+      "phytophthora-rot",
+      "root-rot",
+      "rhinoceros-beetle",
+      "red-palm-weevil",
+      "scales",
+      "white-grubs"
+    ],
+    "sources": [
+      {
+        "label": "NIPHM · AESA / IPM package: Coconut",
+        "url": "https://niphm.gov.in/IPMPackages/Coconut.pdf"
+      }
+    ],
+    "guide": "Coconut"
+  },
+  "Guava": {
+    "issues": [
+      "anthracnose",
+      "fusarium-wilt",
+      "sooty-mould",
+      "mealybugs",
+      "scales",
+      "fruit-flies"
+    ],
+    "sources": [
+      {
+        "label": "NIPHM · AESA / IPM package: Guava",
+        "url": "https://niphm.gov.in/IPMPackages/Guava.pdf"
+      }
+    ],
+    "guide": "Guava"
+  },
+  "Jackfruit": {
+    "issues": [
+      "anthracnose",
+      "root-rot",
+      "mealybugs",
+      "scales",
+      "fruit-flies"
+    ],
+    "sources": [
+      {
+        "label": "NIPHM · AESA / IPM package: Jackfruit",
+        "url": "https://niphm.gov.in/IPMPackages/Jackfruit.pdf"
+      }
+    ],
+    "guide": "Jackfruit"
+  },
+  "Pineapple": {
+    "issues": [
+      "phytophthora-rot",
+      "root-rot",
+      "mealybugs",
+      "scales",
+      "root-knot"
+    ],
+    "sources": [
+      {
+        "label": "NIPHM · AESA / IPM package: Pineapple",
+        "url": "https://niphm.gov.in/IPMPackages/Pineapple.pdf"
+      }
+    ],
+    "guide": "Pineapple"
+  },
+  "Litchi": {
+    "issues": [
+      "anthracnose",
+      "powdery-mildew",
+      "mealybugs",
+      "scales",
+      "spider-mites",
+      "fruit-flies"
+    ],
+    "sources": [
+      {
+        "label": "NIPHM · AESA / IPM package: Litchi",
+        "url": "https://niphm.gov.in/IPMPackages/Litchi.pdf"
+      }
+    ],
+    "guide": "Litchi"
+  },
+  "Soybean": {
+    "issues": [
+      "rust",
+      "anthracnose",
+      "charcoal-rot",
+      "root-rot",
+      "mosaic",
+      "tobacco-caterpillar",
+      "whiteflies",
+      "aphids"
+    ],
+    "sources": [
+      {
+        "label": "NIPHM · AESA / IPM package: Soybean",
+        "url": "https://niphm.gov.in/IPMPackages/Soyabean.pdf"
+      }
+    ],
+    "guide": "Soyabean"
+  },
+  "Groundnut": {
+    "issues": [
+      "groundnut-leaf-spot",
+      "rust",
+      "root-rot",
+      "tobacco-caterpillar",
+      "aphids",
+      "leafminers",
+      "white-grubs"
+    ],
+    "sources": [
+      {
+        "label": "NIPHM · AESA / IPM package: Groundnut",
+        "url": "https://niphm.gov.in/IPMPackages/Groundnut.pdf"
+      }
+    ],
+    "guide": "Groundnut"
+  },
+  "Sunflower": {
+    "issues": [
+      "alternaria-spot",
+      "rust",
+      "downy-mildew",
+      "sclerotinia",
+      "charcoal-rot",
+      "tobacco-caterpillar",
+      "fruit-borer",
+      "leafhoppers"
+    ],
+    "sources": [
+      {
+        "label": "NIPHM · AESA / IPM package: Sunflower",
+        "url": "https://niphm.gov.in/IPMPackages/Sunflower.pdf"
+      }
+    ],
+    "guide": "Sunflower",
+    "overrides": {
+      "fruit-borer": {
+        "name": "Head borer",
+        "cause": "Helicoverpa armigera"
+      }
+    }
+  },
+  "Sesamum": {
+    "issues": [
+      "alternaria-spot",
+      "cercospora-spot",
+      "charcoal-rot",
+      "powdery-mildew",
+      "leaf-curl",
+      "aphids",
+      "whiteflies"
+    ],
+    "sources": [
+      {
+        "label": "NIPHM · AESA / IPM package: Sesamum",
+        "url": "https://niphm.gov.in/IPMPackages/Sesame.pdf"
+      }
+    ],
+    "guide": "Sesame"
+  },
+  "Castor seed": {
+    "issues": [
+      "fusarium-wilt",
+      "root-rot",
+      "grey-mould",
+      "alternaria-spot",
+      "leafhoppers",
+      "tobacco-caterpillar"
+    ],
+    "sources": [
+      {
+        "label": "NIPHM · AESA / IPM package: Castor seed",
+        "url": "https://niphm.gov.in/IPMPackages/Castor.pdf"
+      }
+    ],
+    "guide": "Castor"
+  },
+  "Rapeseed &Mustard": {
+    "issues": [
+      "alternaria-spot",
+      "downy-mildew",
+      "sclerotinia",
+      "powdery-mildew",
+      "mustard-aphid",
+      "aphids"
+    ],
+    "sources": [
+      {
+        "label": "NIPHM · AESA / IPM package: Rapeseed &Mustard",
+        "url": "https://niphm.gov.in/IPMPackages/Mustard.pdf"
+      }
+    ],
+    "guide": "Mustard"
+  },
+  "Safflower": {
+    "issues": [
+      "alternaria-spot",
+      "rust",
+      "fusarium-wilt",
+      "aphids",
+      "fruit-borer"
+    ],
+    "sources": [
+      {
+        "label": "NIPHM · AESA / IPM package: Safflower",
+        "url": "https://niphm.gov.in/IPMPackages/Safflower.pdf"
+      }
+    ],
+    "guide": "Safflower"
+  },
+  "Linseed": {
+    "issues": [
+      "rust",
+      "fusarium-wilt",
+      "powdery-mildew",
+      "alternaria-spot"
+    ],
+    "sources": [
+      {
+        "label": "ICAR · Diseases of linseed in India",
+        "url": "https://epubs.icar.org.in/index.php/JOR/article/view/137694"
+      }
+    ],
+    "guide": "linseed"
+  },
+  "Ginger": {
+    "issues": [
+      "bacterial-wilt",
+      "root-rot",
+      "root-knot",
+      "white-grubs"
+    ],
+    "sources": [
+      {
+        "label": "NIPHM · AESA / IPM package: Ginger",
+        "url": "https://niphm.gov.in/IPMPackages/Ginger.pdf"
+      }
+    ],
+    "guide": "Ginger",
+    "overrides": {
+      "root-rot": {
+        "name": "Rhizome rot complex",
+        "cause": "Pythium and Fusarium species; confirm the pathogen locally.",
+        "early": "Leaf tips yellow and the stem base or rhizome becomes discoloured.",
+        "progress": "Rhizomes soften or decay and shoots collapse."
+      }
+    }
+  },
+  "Turmeric": {
+    "issues": [
+      "root-rot",
+      "anthracnose",
+      "root-knot",
+      "scales"
+    ],
+    "sources": [
+      {
+        "label": "NIPHM · AESA / IPM package: Turmeric",
+        "url": "https://niphm.gov.in/IPMPackages/Turmeric.pdf"
+      }
+    ],
+    "guide": "Turmeric",
+    "overrides": {
+      "anthracnose": {
+        "name": "Leaf spot of turmeric",
+        "cause": "Colletotrichum capsici complex",
+        "early": "Brown leaf spots develop pale centres.",
+        "progress": "Spots merge, reducing healthy leaf area."
+      },
+      "root-rot": {
+        "name": "Rhizome rot complex",
+        "cause": "Pythium, Fusarium and other soilborne pathogens"
+      }
+    }
+  },
+  "Black pepper": {
+    "issues": [
+      "phytophthora-rot",
+      "anthracnose",
+      "root-rot",
+      "root-knot",
+      "mealybugs",
+      "scales"
+    ],
+    "sources": [
+      {
+        "label": "NIPHM · AESA / IPM package: Black pepper",
+        "url": "https://niphm.gov.in/IPMPackages/Blackpepper.pdf"
+      }
+    ],
+    "guide": "Blackpepper"
+  },
+  "Cardamom": {
+    "issues": [
+      "phytophthora-rot",
+      "root-rot",
+      "mosaic",
+      "thrips",
+      "root-knot",
+      "white-grubs"
+    ],
+    "sources": [
+      {
+        "label": "NIPHM · AESA / IPM package: Cardamom",
+        "url": "https://niphm.gov.in/IPMPackages/Smallcardamom.pdf"
+      }
+    ],
+    "guide": "Smallcardamom"
+  },
+  "Coriander": {
+    "issues": [
+      "powdery-mildew",
+      "fusarium-wilt",
+      "root-rot",
+      "aphids",
+      "whiteflies"
+    ],
+    "sources": [
+      {
+        "label": "NIPHM · AESA / IPM package: Coriander",
+        "url": "https://niphm.gov.in/IPMPackages/Coriander.pdf"
+      }
+    ],
+    "guide": "Coriander"
+  },
+  "Dry chillies": {
+    "issues": [
+      "damping-off",
+      "anthracnose",
+      "powdery-mildew",
+      "bacterial-spot",
+      "leaf-curl",
+      "thrips",
+      "spider-mites",
+      "whiteflies",
+      "aphids",
+      "fruit-borer"
+    ],
+    "sources": [
+      {
+        "label": "NIPHM · AESA / IPM package: Dry chillies",
+        "url": "https://niphm.gov.in/IPMPackages/Chilli.pdf"
+      }
+    ],
+    "guide": "Chilli"
+  },
+  "Cotton": {
+    "issues": [
+      "bacterial-spot",
+      "fusarium-wilt",
+      "verticillium-wilt",
+      "root-rot",
+      "leaf-curl",
+      "pink-bollworm",
+      "fruit-borer",
+      "okra-borer",
+      "whiteflies",
+      "leafhoppers",
+      "aphids",
+      "thrips",
+      "mealybugs"
+    ],
+    "sources": [
+      {
+        "label": "NIPHM · AESA / IPM package: Cotton",
+        "url": "https://niphm.gov.in/IPMPackages/Cotton.pdf"
+      }
+    ],
+    "guide": "Cotton",
+    "overrides": {
+      "bacterial-spot": {
+        "name": "Bacterial blight of cotton",
+        "cause": "Xanthomonas citri pv. malvacearum",
+        "early": "Angular, water-soaked spots appear on cotton leaves.",
+        "progress": "Veins and petioles may blacken; boll lesions can develop."
+      },
+      "okra-borer": {
+        "name": "Spotted bollworms",
+        "cause": "Earias vittella and Earias insulana",
+        "early": "Tender shoots or squares develop entry holes and wilt.",
+        "progress": "Caterpillars bore into squares and bolls, leaving frass and damaged lint."
+      },
+      "fruit-borer": {
+        "name": "American bollworm",
+        "cause": "Helicoverpa armigera",
+        "early": "Flower buds, squares and young bolls develop feeding marks.",
+        "progress": "Larvae bore into bolls and damage seeds and lint."
+      }
+    }
+  },
+  "Sugarcane": {
+    "issues": [
+      "red-rot",
+      "smut",
+      "rust",
+      "root-rot",
+      "white-grubs",
+      "scales",
+      "aphids"
+    ],
+    "sources": [
+      {
+        "label": "NIPHM · AESA / IPM package: Sugarcane",
+        "url": "https://niphm.gov.in/IPMPackages/Sugarcane.pdf"
+      }
+    ],
+    "guide": "Sugarcane",
+    "overrides": {
+      "smut": {
+        "name": "Smut of sugarcane",
+        "cause": "Sporisorium scitamineum",
+        "early": "Affected shoots become thin and unusually numerous.",
+        "progress": "A long black whip-like structure develops from the growing point; spores spread when exposed."
+      }
+    }
+  },
+  "Coffee": {
+    "issues": [
+      "coffee-rust",
+      "anthracnose",
+      "root-rot",
+      "coffee-berry-borer",
+      "scales",
+      "mealybugs",
+      "root-knot"
+    ],
+    "sources": [
+      {
+        "label": "NIPHM · AESA / IPM package: Coffee",
+        "url": "https://niphm.gov.in/IPMPackages/Coffee.pdf"
+      }
+    ],
+    "guide": "Coffee"
+  },
+  "Jute": {
+    "issues": [
+      "charcoal-rot",
+      "anthracnose",
+      "root-rot",
+      "spider-mites",
+      "tobacco-caterpillar"
+    ],
+    "sources": [
+      {
+        "label": "Gazipur Agricultural University · Diseases of jute",
+        "url": "https://gau.edu.bd/tanbir/wp-content/uploads/sites/170/2021/09/14-Diseases-of-Jute.pdf"
+      }
+    ],
+    "guide": "jute"
+  },
+  "Arecanut": {
+    "issues": [
+      "phytophthora-rot",
+      "root-rot",
+      "scales",
+      "white-grubs",
+      "spider-mites"
+    ],
+    "sources": [
+      {
+        "label": "NIPHM · AESA / IPM package: Arecanut",
+        "url": "https://niphm.gov.in/IPMPackages/Arecanut.pdf"
+      }
+    ],
+    "guide": "Arecanut"
+  },
+  "Cashewnut": {
+    "issues": [
+      "anthracnose",
+      "powdery-mildew",
+      "tea-mosquito",
+      "mealybugs",
+      "thrips"
+    ],
+    "sources": [
+      {
+        "label": "TNAU · Cashewnut cultivation and pests",
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_plantation%20crops_cashewnut.html"
+      },
+      {
+        "label": "TNAU · Cashew diseases",
+        "url": "https://agritech.tnau.ac.in/crop_protection/crop_prot_crop%20diseases_plantation_cashew.html"
+      }
+    ],
+    "guide": "cashew"
+  },
+  "Rose": {
+    "issues": [
+      "rose-black-spot",
+      "powdery-mildew",
+      "rust",
+      "grey-mould",
+      "aphids",
+      "scales",
+      "spider-mites",
+      "blossom-thrips"
+    ],
+    "sources": [
+      {
+        "label": "TNAU · Rose diseases",
+        "url": "https://agritech.tnau.ac.in/crop_protection/crop_prot_crop%20diseases_flowers_rose.html"
+      }
+    ],
+    "guide": "rose"
+  },
+  "Marigold": {
+    "issues": [
+      "damping-off",
+      "alternaria-spot",
+      "cercospora-spot",
+      "root-rot",
+      "mealybugs",
+      "spider-mites",
+      "blossom-thrips"
+    ],
+    "sources": [
+      {
+        "label": "TNAU · Marigold crop guide",
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_flower%20crops_marigold.html"
+      }
+    ],
+    "guide": "marigold"
+  },
+  "Jasmine": {
+    "issues": [
+      "alternaria-spot",
+      "cercospora-spot",
+      "rust",
+      "jasmine-budworm",
+      "spider-mites",
+      "blossom-thrips"
+    ],
+    "sources": [
+      {
+        "label": "TNAU · Jasmine crop guide",
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_flower%20crops_malligai.html"
+      }
+    ],
+    "guide": "jasmine"
+  },
+  "Hibiscus": {
+    "issues": [
+      "cercospora-spot",
+      "phytophthora-rot",
+      "root-rot",
+      "aphids",
+      "whiteflies",
+      "mealybugs",
+      "scales",
+      "spider-mites",
+      "blossom-thrips"
+    ],
+    "sources": [
+      {
+        "label": "UC IPM · Hibiscus pests and diseases",
+        "url": "https://ipm.ucanr.edu/home-and-landscape/hibiscus/"
+      },
+      {
+        "label": "Connecticut Agricultural Experiment Station · Hibiscus",
+        "url": "https://portal.ct.gov/caes/plant-pest-handbook/pphh/hibiscus-hibiscus"
+      }
+    ],
+    "guide": "hibiscus"
+  },
+  "Tuberose": {
+    "issues": [
+      "root-rot",
+      "sclerotinia",
+      "root-knot",
+      "aphids",
+      "spider-mites",
+      "blossom-thrips"
+    ],
+    "sources": [
+      {
+        "label": "TNAU · Tuberose crop guide",
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_flower%20crops_tuberose.html"
+      }
+    ],
+    "guide": "tuberose"
+  },
+  "Lotus": {
+    "issues": [
+      "lotus-aphid",
+      "lotus-southern-blight"
+    ],
+    "sources": [
+      {
+        "label": "Plant Disease · Florida lotus southern-blight host record",
+        "url": "https://doi.org/10.1094/PDIS-01-24-0020-PDN"
+      },
+      {
+        "label": "RHS · Sacred lotus and its pests (UK reference)",
+        "url": "https://www.rhs.org.uk/plants/11438/nelumbo-nucifera/details"
+      }
+    ],
+    "guide": "lotus"
+  }
+}

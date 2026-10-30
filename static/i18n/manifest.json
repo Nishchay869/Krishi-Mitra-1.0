@@ -1,0 +1,85 @@
+{
+  "version": "9cdb21000d3ff973",
+  "languages": [
+    {
+      "code": "as",
+      "label": "অসমীয়া",
+      "dir": "ltr"
+    },
+    {
+      "code": "bn",
+      "label": "বাংলা",
+      "dir": "ltr"
+    },
+    {
+      "code": "brx",
+      "label": "बड़ो",
+      "dir": "ltr"
+    },
+    {
+      "code": "doi",
+      "label": "डोगरी",
+      "dir": "ltr"
+    },
+    {
+      "code": "en",
+      "label": "English",
+      "dir": "ltr"
+    },
+    {
+      "code": "gu",
+      "label": "ગુજરાતી",
+      "dir": "ltr"
+    },
+    {
+      "code": "hi",
+      "label": "हिन्दी",
+      "dir": "ltr"
+    },
+    {
+      "code": "kn",
+      "label": "ಕನ್ನಡ",
+      "dir": "ltr"
+    },
+    {
+      "code": "kok",
+      "label": "कोंकणी",
+      "dir": "ltr"
+    },
+    {
+      "code": "ks",
+      "label": "کٲشُر",
+      "dir": "rtl"
+    },
+    {
+      "code": "mai",
+      "label": "मैथिली",
+      "dir": "ltr"
+    },
+    {
+      "code": "ml",
+      "label": "മലയാളം",
+      "dir": "ltr"
+    },
+    {
+      "code": "mni",
+      "label": "মৈতৈলোন্",
+      "dir": "ltr"
+    },
+    {
+      "code": "mr",
+      "label": "मराठी",
+      "dir": "ltr"
+    },
+    {
+      "code": "ta",
+      "label": "தமிழ்",
+      "dir": "ltr"
+    },
+    {
+      "code": "te",
+      "label": "తెలుగు",
+      "dir": "ltr"
+    }
+  ]
+}

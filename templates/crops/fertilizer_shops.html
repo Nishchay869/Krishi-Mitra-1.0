@@ -1,0 +1,19 @@
+{% load i18n %}<section class="fertilizer-shops card mt-4" aria-labelledby="shops-heading"><div class="card-body">
+<h2 id="shops-heading">{% translate 'Nearby fertilizer shops' %}</h2>
+<p>{% translate 'Search live map listings near your saved village or district, or choose another location.' %}</p>
+<form action="{% url 'crops:fertilizer_shops' %}" method="get" target="_blank" rel="noopener noreferrer" data-shop-form>
+  <label class="form-label" for="shop-location">{% translate 'Location (district / town)' %}</label>
+  <input id="shop-location" name="location" class="form-control" value="{{ shop_location }}" maxlength="300" data-shop-location>
+  <div class="d-flex gap-2 flex-wrap mt-3">
+    <button class="btn btn-agri" type="submit">{% translate 'Open nearby shops in Maps' %}</button>
+    <button class="btn btn-outline-success" type="button" data-shop-geolocate hidden>{% translate 'Use my location' %}</button>
+  </div>
+  <noscript><p class="mt-3">{% translate 'Location can be changed in Maps after opening the search.' %}</p></noscript>
+</form>
+<p class="small mt-3" role="status" data-shop-status
+ data-locating="{% translate 'Finding your location…' %}"
+ data-found="{% translate 'Location ready. Open Maps to see nearby shops.' %}"
+ data-error="{% translate 'Location is unavailable. Enter your village or district instead.' %}"></p>
+<p class="small text-muted">{% translate 'Use my location sends your position to BigDataCloud to find the place name. It is not saved to your profile. Maps opens when you search for shops.' %}</p>
+<p class="small">{% translate 'Source:' %} <a href="https://www.bigdatacloud.com/docs/free-api/free-reverse-geocode-to-city-api" target="_blank" rel="noopener noreferrer">BigDataCloud</a></p>
+</div></section>

@@ -1,6 +1,9 @@
+from decimal import Decimal
 from django import forms
+from django.utils.translation import gettext_lazy as _
 
 from accounts.form_utils import BootstrapFormMixin
+from accounts.localization import ui_text
 
 from .predictor import FIELD_RANGES
 
@@ -35,4 +38,58 @@ class YieldForm(BootstrapFormMixin, forms.Form):
     def __init__(self, *args, bundle, **kwargs):
         super().__init__(*args, **kwargs)
         for name, key in (('crop', 'crops'), ('season', 'seasons'), ('state', 'states')):
-            self.fields[name].choices = [('', '— select —')] + [(v, v) for v in bundle[key]]
+            self.fields[name].choices = [('', _('— select —'))] + [(v, ui_text(v)) for v in bundle[key]]
+
+
+class FertilizerForm(BootstrapFormMixin, forms.Form):
+    crop_preset = forms.ChoiceField(required=False, widget=forms.HiddenInput)
+    planting_type = forms.ChoiceField(choices=[('plants', 'Plants'), ('trees', 'Trees')],
+                                      widget=forms.HiddenInput)
+    nitrogen = forms.DecimalField(label='Recommended nitrogen (N, kg/ha)', min_value=0,
+                                   max_value=1000, max_digits=8, decimal_places=3)
+    phosphorus = forms.DecimalField(label='Recommended phosphate (P2O5, kg/ha)', min_value=0,
+                                     max_value=1000, max_digits=8, decimal_places=3)
+    potassium = forms.DecimalField(label='Recommended potash (K2O, kg/ha)', min_value=0,
+                                    max_value=1000, max_digits=8, decimal_places=3)
+    area = forms.DecimalField(label='Field size', min_value=Decimal('0.001'), max_value=100000,
+                               max_digits=12, decimal_places=3)
+    area_unit = forms.ChoiceField(label='Area unit', choices=[('ha', _('Hectares')), ('acre', _('Acres')), ('gunta', _('Gunta'))])
+    tree_count = forms.IntegerField(label='Number of trees', min_value=1, max_value=1000000)
+    plant_count = forms.IntegerField(label='Plants in this field', min_value=1, max_value=100000000)
+
+    def __init__(self, *args, planting_type='plants', preset=None, **kwargs):
+        super().__init__(*args, **kwargs)
+        from .fertilizer_presets import PRESETS, preset_label
+        self.fields['crop_preset'].choices = [(key, preset_label(value)) for key, value in PRESETS.items()
+                                                if value['mode'] == planting_type]
+        per_plant = preset is not None and preset.get('basis') == 'plant'
+        if not per_plant:
+            del self.fields['plant_count']
+        elif preset.get('count_pits'):
+            self.fields['plant_count'].label = _('Planting pits in this field')
+        if planting_type == 'trees':
+            del self.fields['area']
+            del self.fields['area_unit']
+            for name, label in (
+                ('nitrogen', 'Recommended nitrogen (N, grams/tree)'),
+                ('phosphorus', 'Recommended phosphate (P2O5, grams/tree)'),
+                ('potassium', 'Recommended potash (K2O, grams/tree)'),
+            ):
+                self.fields[name] = forms.DecimalField(
+                    label=_(label), min_value=0, max_value=10000,
+                    max_digits=8, decimal_places=3,
+                    widget=forms.NumberInput(attrs={'class': 'form-control', 'step': '0.001'}),
+                )
+        else:
+            del self.fields['tree_count']
+            if per_plant:
+                for name, label in (('nitrogen', 'Recommended nitrogen (N, grams/plant)'),
+                                    ('phosphorus', 'Recommended phosphate (P2O5, grams/plant)'),
+                                    ('potassium', 'Recommended potash (K2O, grams/plant)')):
+                    if preset.get('count_pits'):
+                        label = {'nitrogen':'N (g/pit)',
+                                 'phosphorus':'P2O5 (g/pit)',
+                                 'potassium':'K2O (g/pit)'}[name]
+                    self.fields[name] = forms.DecimalField(label=_(label), min_value=0,
+                        max_value=10000, max_digits=8, decimal_places=3,
+                        widget=forms.NumberInput(attrs={'class':'form-control','step':'0.001'}))

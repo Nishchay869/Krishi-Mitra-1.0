@@ -1,0 +1,15 @@
+@font-face{font-family:KrishiOlChiki;src:url('/static/vendor/fonts/notosansolchiki.ttf') format('truetype');font-weight:100 900;font-display:swap}
+@font-face{font-family:KrishiMeetei;src:url('/static/vendor/fonts/notosansmeeteimayek.ttf') format('truetype');font-weight:100 900;font-display:swap}
+@font-face{font-family:KrishiArabic;src:url('/static/vendor/fonts/notonaskharabic.ttf') format('truetype');font-weight:400 700;font-display:swap}
+html[lang=sat] body{font-family:KrishiOlChiki,system-ui,sans-serif}
+html[lang=mni] body{font-family:KrishiMeetei,system-ui,sans-serif}
+html[dir=rtl] body{font-family:KrishiArabic,system-ui,sans-serif;line-height:1.9}
+html[dir=rtl] .navbar-brand{margin-right:0;margin-left:1rem}
+html[dir=rtl] .hero-copy h1{font-family:KrishiArabic,serif;letter-spacing:normal}
+select.form-select{font-family:system-ui,KrishiOlChiki,KrishiMeetei,KrishiArabic,sans-serif}
+select option[value=sat]{font-family:KrishiOlChiki,system-ui,sans-serif}
+select option[value=mni]{font-family:KrishiMeetei,system-ui,sans-serif}
+select option[value=ks],select option[value=sd],select option[value=ur]{font-family:KrishiArabic,system-ui,sans-serif}
+html:not([lang=en]) .hero-copy h1 em,html:not([lang=en]) .auth-story h1 em{font-family:inherit;font-style:normal}
+html[dir=rtl] .btn .bi{margin-left:0;margin-right:16px}
+html[dir=rtl] .navbar .btn{margin-left:0;margin-right:18px}

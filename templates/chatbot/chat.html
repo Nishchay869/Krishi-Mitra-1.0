@@ -1,23 +1,24 @@
 {% extends 'base.html' %}
-{% block title %}Ask Assistant{% endblock %}
-{% block content %}
+{% load i18n farm_i18n %}
+{% block title %}{% translate "Ask Assistant" %}{% endblock %}
+{% block content %}<header class="page-intro"><span class="eyebrow">{% translate "YOUR FARMING COMPANION" %}</span><h1>{% translate "Let’s talk about your farm." %}</h1><p>{% translate "From your first seed to your next harvest, ask what’s on your mind." %}</p></header>
 <div class="row justify-content-center chat-page"><div class="col-lg-8">
   <div class="card shadow-sm" data-chat-root>
     <div class="card-header bg-agri text-white d-flex justify-content-between align-items-center">
-      <span><i class="bi bi-robot"></i> Farm Assistant</span>
-      {% if VOICE_ENABLED %}<button type="button" class="btn btn-sm text-white p-0 fs-5" data-voice-toggle aria-label="Voice replies"></button>{% endif %}
+      <span><i class="bi bi-robot"></i> {% translate "Farm Assistant" %}</span>
+      {% if VOICE_ENABLED %}<button type="button" class="btn btn-sm text-white p-0 fs-5" data-voice-toggle aria-label="{% translate 'Voice replies' %}"></button>{% endif %}
     </div>
-    <div class="card-body chat-log" data-chat-log>
-      <div class="bubble bot">Namaste! Ask me about crop selection, fertilizers, pests and diseases, irrigation, soil health or government schemes like PM-KISAN and PMFBY.{% if VOICE_ENABLED %} Type or tap 🎤 and speak in your own language — ಕನ್ನಡ, हिन्दी, తెలుగు, தமிழ், मराठी and more.{% endif %}</div>
+    <div class="card-body chat-log" data-chat-log role="log" aria-label="{% translate 'Conversation' %}" aria-live="polite">
+      <div class="bubble bot">{% translate "Namaste! Ask me about crop selection, fertilizers, pests and diseases, irrigation, soil health or government schemes like PM-KISAN and PMFBY." %}{% if VOICE_ENABLED %} {% translate "Type, or tap 🎤 to dictate in your own language — ಕನ್ನಡ, हिन्दी, తెలుగు, தமிழ், मराठी and more. For a hands-free voice conversation, tap the round green button." %}{% endif %}</div>
       {% for m in history %}
         <div class="bubble user">{% if m.is_voice %}🎤 {% endif %}{{ m.message }}</div>
-        <div class="bubble bot" data-message-id="{{ m.pk }}">{{ m.response }}{% if m.matched_entry %}<span class="source">Source: {{ m.matched_entry.source }}</span>{% endif %}</div>
+        <div class="bubble bot" data-message-id="{{ m.pk }}">{{ m.response }}{% if m.matched_entry %}<span class="source">{% translate "Source:" %} {{ m.matched_entry.source }}</span>{% endif %}</div>
       {% endfor %}
     </div>
     <form class="card-footer d-flex gap-2" data-chat-form>
-      <input class="form-control" name="message" placeholder="e.g. ಗೋಧಿಗೆ ಎಷ್ಟು ಗೊಬ್ಬರ? / गेहूं में कितनी खाद? / fertilizer for wheat" autocomplete="off" required maxlength="1000" autofocus>
-      {% if VOICE_ENABLED %}<button type="button" class="btn btn-outline-secondary" data-mic title="Ask by voice" aria-label="Ask by voice"><i class="bi bi-mic-fill"></i></button>{% endif %}
-    <button class="btn btn-agri"><i class="bi bi-send"></i> Send</button>
+      <input class="form-control" name="message" aria-label="{% translate 'Your farming question' %}" placeholder="{% translate 'e.g. ಗೋಧಿಗೆ ಎಷ್ಟು ಗೊಬ್ಬರ? / गेहूं में कितनी खाद? / fertilizer for wheat' %}" autocomplete="off" required maxlength="1000" autofocus>
+      {% if VOICE_ENABLED %}<button type="button" class="btn btn-outline-secondary mic-dictate" data-mic title="{% translate 'Dictate: speak and the words appear in the box' %}" aria-label="{% translate 'Dictate your question' %}"><i class="bi bi-mic-fill"></i></button>{% endif %}
+    <button class="btn btn-agri"><i class="bi bi-send"></i> {% translate "Send" %}</button>
     </form>
   </div>
 </div></div>

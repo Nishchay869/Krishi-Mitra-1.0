@@ -1,13 +1,40 @@
-{% extends 'base.html' %}
-{% block title %}Register{% endblock %}
-{% block content %}
-<div class="row justify-content-center"><div class="col-lg-8">
-  <div class="card shadow-sm"><div class="card-body p-4">
-    <h4 class="mb-3">Create farmer account</h4>
-    <form method="post" class="row">{% csrf_token %}
-      {% include 'partials/fields.html' with col='col-md-6' %}
-      <div class="col-12"><button class="btn btn-agri">Register</button></div>
-    </form>
-  </div></div>
-</div></div>
-{% endblock %}
+{% load i18n static farm_i18n %}{% get_current_language as LANGUAGE_CODE %}{% get_current_language_bidi as LANGUAGE_BIDI %}
+<!doctype html><html lang="{{ LANGUAGE_CODE }}" dir="{% if LANGUAGE_BIDI %}rtl{% else %}ltr{% endif %}">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>{% translate 'Create farmer account' %} · {% translate 'Krishi Mitra' %}</title>
+<link rel="stylesheet" href="{% if LANGUAGE_BIDI %}{% static 'vendor/bootstrap/bootstrap.rtl.min.css' %}{% else %}{% static 'vendor/bootstrap/bootstrap.min.css' %}{% endif %}">
+<link rel="stylesheet" href="{% static 'css/language-fonts.css' %}?v={{ STATIC_VERSION }}"><link rel="stylesheet" href="{% static 'css/onboarding.css' %}?v={{ STATIC_VERSION }}"></head>
+<body><a href="#main-content" class="skip-link">{% translate 'Skip to content' %}</a>
+<header class="welcome-header"><a class="welcome-brand" href="{% url 'home' %}"><span aria-hidden="true">✳</span> krishi<b>mitra</b></a><a class="login-link" href="{% url 'accounts:login' %}">{% translate 'Log in' %} ↗</a></header>
+<main id="main-content" class="welcome-shell" tabindex="-1">
+<aside class="welcome-story" aria-hidden="true"><span class="overline">{% translate 'YOUR FARMING COMPANION' %}</span><img src="{% static 'illustrations/onboarding-farm.svg' %}" width="480" height="400" alt=""><h2>{% translate 'A growing farm.' %}<br>{% translate 'trusted companion.' %}</h2><p>{% translate 'Your soil. Your crops. Your next harvest. A little guidance for every step, from a companion that understands farming.' %}</p><span class="story-foot">{% translate 'Built for Indian farmers' %} <span>✳</span></span></aside>
+<div class="welcome-content" data-stage="{{ stage }}">
+<nav class="steps" aria-label="{% translate 'Get started' %}"><a href="?stage=language" {% if stage == 'language' %}aria-current="step"{% endif %}>01 <span>{% translate 'Language' %}</span></a><a href="?stage=tour" {% if stage == 'tour' %}aria-current="step"{% endif %}>02 <span>{% translate 'Explore tools' %}</span></a><a href="?stage=farm" {% if stage == 'farm' or stage == 'growing' %}aria-current="step"{% endif %}>03 <span>{% translate 'Crop' %}</span></a><a href="?stage=details" {% if stage == 'details' %}aria-current="step"{% endif %}>04 <span>{% translate 'Register' %}</span></a></nav>
+{% if stage == 'language' %}
+<form method="post" action="{% url 'accounts:onboarding' %}" class="language-stage">{% csrf_token %}<input type="hidden" name="action" value="language">
+<div class="stage-heading"><span class="greeting-icon" aria-hidden="true">✳</span><h1>{% translate 'Namaste! 🙏' %}</h1><p>{% translate 'Preferred language' %}</p></div>
+<div class="language-grid">{% for code,label in languages %}<label class="choice language-choice"><input type="radio" name="language" value="{{ code }}" {% if code == selected_language %}checked{% endif %} required><span lang="{{ code }}" dir="auto">{{ label }}</span><span class="choice-ring" aria-hidden="true"></span></label>{% endfor %}</div>
+<div class="stage-actions"><small>{% translate 'Ask in your language' %}</small><button class="primary" type="submit">{% translate 'Next' %} <span aria-hidden="true">→</span></button></div></form>
+{% elif stage == 'tour' %}
+<section class="tour-stage" aria-label="{% translate 'Explore tools' %}">
+<article class="tour-slide" data-slide><img src="{% static 'illustrations/onboarding-leaf.svg' %}" width="480" height="400" alt=""><h1 tabindex="-1">{% translate 'Disease detection' %}</h1><p>{% translate 'Something on a leaf? Share a photo to explore the cause and next steps.' %}</p></article>
+<article class="tour-slide" data-slide><img src="{% static 'illustrations/onboarding-market.svg' %}" width="480" height="400" alt=""><h1 tabindex="-1">{% translate 'Market Prices' %}</h1><p>{% translate 'Stay in the know with daily mandi prices and recent price changes.' %}</p></article>
+<article class="tour-slide" data-slide><img src="{% static 'illustrations/onboarding-assistant.svg' %}" width="480" height="400" alt=""><h1 tabindex="-1">{% translate 'Ask in your language' %}</h1><p>{% translate 'A question today. A clearer tomorrow. Ask about crops, pests, irrigation, and schemes.' %}</p></article>
+<article class="tour-slide" data-slide><img src="{% static 'illustrations/onboarding-weather.svg' %}" width="480" height="400" alt=""><h1 tabindex="-1">{% translate 'Weather & Advisory' %}</h1><p>{% translate 'Make plans with a five-day forecast and practical irrigation advice.' %}</p></article>
+<div class="tour-dots" hidden><button type="button" data-dot="0" aria-label="{% translate 'Disease detection' %}"></button><button type="button" data-dot="1" aria-label="{% translate 'Market Prices' %}"></button><button type="button" data-dot="2" aria-label="{% translate 'Ask in your language' %}"></button><button type="button" data-dot="3" aria-label="{% translate 'Weather & Advisory' %}"></button></div>
+<div class="stage-actions"><a class="subtle-link" href="?stage=farm">{% translate 'Skip' %}</a><a class="primary" data-tour-next href="?stage=farm">{% translate 'Next' %} <span aria-hidden="true">→</span></a></div></section>
+{% elif stage == 'farm' %}
+<form method="post" action="{% url 'accounts:onboarding' %}">{% csrf_token %}<input type="hidden" name="action" value="crops">
+<div class="stage-heading align-start"><h1>{% translate 'Tell us about your farm' %}</h1><p>{% translate 'Select your crops' %}</p></div>
+<nav class="crop-categories" aria-label="{% translate 'Crop' %}">{% for group,crops in crop_groups %}<a href="#crop-group-{{ forloop.counter }}">{{ group|ui_text }}</a>{% endfor %}</nav>
+{% for group,crops in crop_groups %}<fieldset class="crop-group" id="crop-group-{{ forloop.counter }}"><legend>{{ group|ui_text }}</legend><div class="crop-grid">{% for crop,photo in crops %}<label class="crop-choice"><input type="checkbox" name="selected_crops" value="{{ crop }}" {% if crop in selected_crops %}checked{% endif %}><span class="crop-picture" aria-hidden="true"><img src="{% static photo %}" width="96" height="96" alt="" loading="lazy" decoding="async"><span class="crop-check">✓</span></span><span>{{ crop|ui_text }}</span></label>{% endfor %}</div></fieldset>{% endfor %}
+<p class="photo-source">{% translate 'Source:' %} <a href="{% static 'images/crops/credits.html' %}" target="_blank" rel="noopener">Wikimedia Commons ↗</a></p>
+<div class="stage-actions"><a class="subtle-link" href="?stage=growing">{% translate 'Skip' %}</a><button class="primary" type="submit">{% translate 'Next' %} <span aria-hidden="true">→</span></button></div></form>
+{% elif stage == 'growing' %}
+<form method="post" action="{% url 'accounts:onboarding' %}" class="growing-stage">{% csrf_token %}<input type="hidden" name="action" value="preferences">{% for crop in selected_crops %}<input type="hidden" name="selected_crops" value="{{ crop }}">{% endfor %}
+<img class="growing-art" src="{% static 'illustrations/onboarding-farm.svg' %}" width="480" height="400" alt="">
+<fieldset class="growing-group"><legend>{% translate 'Tell us about your farm' %}</legend>{% for value,label in growing_places %}<label class="choice"><input type="radio" name="growing_place" value="{{ value }}" {% if value == growing_place %}checked{% endif %}><span class="place-icon" aria-hidden="true">{% if value == 'garden' %}🏡{% elif value == 'field' %}🌾{% else %}🪴{% endif %}</span><span>{{ label }}</span><span class="choice-ring" aria-hidden="true"></span></label>{% endfor %}</fieldset>
+<div class="stage-actions"><a class="subtle-link" href="?stage=details">{% translate 'Skip' %}</a><button class="primary" type="submit">{% translate 'Next' %} <span aria-hidden="true">→</span></button></div></form>
+{% endif %}
+<section {% if stage != 'details' %}hidden{% endif %} class="details-stage"><div class="stage-heading align-start"><span class="overline">{% translate 'YOUR NEXT CHAPTER STARTS HERE' %}</span><h1>{% translate 'Create farmer account' %}</h1><p>{% translate 'Keep your farm insights, questions, and plans together. Let’s make the next season a little clearer.' %}</p></div>
+<form method="post" action="{% url 'accounts:register' %}?stage=details" class="row">{% csrf_token %}{% include 'partials/fields.html' with col='col-md-6' %}<div class="stage-actions"><a class="subtle-link" href="?stage=farm">{% translate 'Back' %}</a><button class="primary" type="submit">{% translate 'Register' %} <span aria-hidden="true">→</span></button></div></form></section>
+</div></main>{{ state_districts|json_script:'signup-locations' }}<script src="{% static 'js/register-location.js' %}?v={{ STATIC_VERSION }}" defer></script><script src="{% static 'js/offline-client.js' %}?v={{ STATIC_VERSION }}" defer></script><script src="{% static 'js/onboarding.js' %}?v={{ STATIC_VERSION }}" defer></script></body></html>

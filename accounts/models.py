@@ -14,6 +14,8 @@ class Profile(models.Model):
     state = models.CharField(max_length=100, blank=True)
     preferred_language = models.CharField(max_length=10, default='en')
     phone = models.CharField(max_length=15, blank=True)
+    selected_crops = models.JSONField(default=list, blank=True)
+    growing_place = models.CharField(max_length=10, blank=True)
 
     def __str__(self):
         return f'{self.user.username} ({self.get_role_display()})'
@@ -24,8 +26,8 @@ class Profile(models.Model):
 
     @property
     def location_query(self):
-        """Best available place name for weather lookups."""
-        return self.district or self.village or self.state
+        """Prefer the saved village when a caller needs a place name."""
+        return next((value.strip() for value in (self.village, self.district, self.state) if value.strip()), '')
 
 
 class PredictionLog(models.Model):

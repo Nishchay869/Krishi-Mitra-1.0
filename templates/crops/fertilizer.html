@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+{% load i18n static farm_i18n %}
+{% block title %}{% translate 'Fertilizer Calculator' %}{% endblock %}
+{% block extra_head %}<link rel="stylesheet" href="{% static 'css/fertilizer.css' %}?v={{ STATIC_VERSION }}">{% endblock %}
+{% block content %}
+<header class="page-intro"><span class="eyebrow">{% translate 'NUTRIENT PLANNING' %}</span><h1>{% translate 'Fertilizer Calculator' %}</h1><p>{% translate 'Convert your recommended nutrient application rates into fertilizer quantities for your farm.' %}</p></header>
+<nav class="d-flex gap-2 mb-3" aria-label="{% translate 'Planting type' %}">
+<a class="btn {% if not is_trees %}btn-agri{% else %}btn-outline-success{% endif %}" href="?planting_type=plants" {% if not is_trees %}aria-current="page"{% endif %}>{% translate 'Plants — field size' %}</a>
+<a class="btn {% if is_trees %}btn-agri{% else %}btn-outline-success{% endif %}" href="?planting_type=trees" {% if is_trees %}aria-current="page"{% endif %}>{% translate 'Trees — tree count' %}</a>
+</nav>
+<div class="row g-4">
+  <div class="col-lg-6"><div class="card"><div class="card-body">
+    <form method="get" class="fertilizer-crop-picker">
+      <input type="hidden" name="planting_type" value="{% if is_trees %}trees{% else %}plants{% endif %}">
+      <label class="form-label fw-semibold" for="fertilizer-crop">{% translate 'Crop' %}</label>
+      <div class="d-flex gap-2"><select id="fertilizer-crop" name="crop_preset" class="form-select">
+        {% for group, options in preset_groups %}<optgroup label="{{ group }}">{% for value, label in options %}<option value="{{ value }}" {% if value == selected_preset %}selected{% endif %}>{{ label }}</option>{% endfor %}</optgroup>{% endfor %}
+      </select><button class="btn btn-outline-success" type="submit">{% translate 'Go' %}</button></div>
+    </form>
+    {% if is_trees %}<p class="small fw-semibold">{{ preset_label }}</p>{% endif %}
+    <form method="post" class="fertilizer-form">{% csrf_token %}
+      {{ form.planting_type }}{{ form.crop_preset }}
+      {% for error in form.non_field_errors %}<p class="text-danger">{{ error }}</p>{% endfor %}
+      {% for error in form.crop_preset.errors %}<p class="text-danger">{{ error }}</p>{% endfor %}
+      <div class="nutrient-summary" aria-live="polite">
+        <span>N <strong data-nutrient="nitrogen">{{ form.nitrogen.value }}</strong></span>
+        <span>P <strong data-nutrient="phosphorus">{{ form.phosphorus.value }}</strong></span>
+        <span>K <strong data-nutrient="potassium">{{ form.potassium.value }}</strong></span>
+      </div>
+      <p class="small text-muted">N–P2O5–K2O · {% if is_trees %}{% translate 'Grams per tree per year' %}{% elif preset.count_pits %}{% translate 'Grams per planting pit' %}{% elif is_per_plant %}{% translate 'Grams per plant; period shown below' %}{% else %}kg/ha · {{ preset_scope }}{% endif %}</p>
+      <p class="small fertilizer-source"><a href="{{ preset.source }}" target="_blank" rel="noopener">{% translate 'Source:' %} {{ source_org }} · {{ source_region|ui_text }}</a><br>{{ preset_scope }}</p>
+      <details class="nutrient-editor" {% if form.errors or customized %}open{% endif %}>
+        <summary>{% translate 'Edit' %}</summary>
+        <div class="row mt-3">
+        {% for field in form %}{% if field.name == 'nitrogen' or field.name == 'phosphorus' or field.name == 'potassium' %}
+          <div class="col-sm-4 mb-3"><label class="form-label" for="{{ field.id_for_label }}">{{ field.label }}</label>{{ field }}{% for error in field.errors %}<p class="text-danger small">{{ error }}</p>{% endfor %}</div>
+        {% endif %}{% endfor %}
+        </div>
+      </details>
+      <p class="small text-muted">{% translate 'Regional crop defaults are prefilled. Edit them to match your soil-test recommendation. These totals exclude organic manures and must be split according to local crop guidance.' %}</p>
+      {% if is_trees %}
+      <label class="form-label fw-semibold" for="{{ form.tree_count.id_for_label }}">{{ form.tree_count.label }}</label>
+      <div class="fertilizer-amount"><button type="button" data-adjust="-1" data-target="id_tree_count" hidden aria-label="{% translate 'Decrease' %}">−</button>{{ form.tree_count }}<button type="button" data-adjust="1" data-target="id_tree_count" hidden aria-label="{% translate 'Increase' %}">+</button></div>
+      {% for error in form.tree_count.errors %}<p class="text-danger">{{ error }}</p>{% endfor %}
+      {% else %}
+      <label class="form-label fw-semibold" for="{{ form.area.id_for_label }}">{{ form.area.label }}</label>
+      <div class="fertilizer-amount"><button type="button" data-adjust="-0.5" data-target="id_area" hidden aria-label="{% translate 'Decrease' %}">−</button>{{ form.area }}<button type="button" data-adjust="0.5" data-target="id_area" hidden aria-label="{% translate 'Increase' %}">+</button></div>
+      {% for error in form.area.errors %}<p class="text-danger">{{ error }}</p>{% endfor %}
+      {% if is_per_plant %}
+      <label class="form-label fw-semibold mt-3" for="{{ form.plant_count.id_for_label }}">{{ form.plant_count.label }}</label>{{ form.plant_count }}
+      {% for error in form.plant_count.errors %}<p class="text-danger">{{ error }}</p>{% endfor %}
+      {% endif %}
+      <label class="form-label mt-3" for="{{ form.area_unit.id_for_label }}">{{ form.area_unit.label }}</label>{{ form.area_unit }}
+      {% for error in form.area_unit.errors %}<p class="text-danger">{{ error }}</p>{% endfor %}
+      {% endif %}
+      <button class="btn btn-agri w-100 mt-4" type="submit">{% translate 'Calculate quantities' %}</button>
+    </form>
+  </div></div></div>
+  <div class="col-lg-6">
+    {% if result %}
+    <div class="card"><div class="card-body">
+      <h2>{% translate 'Calculated quantities' %}</h2>
+      {% if customized %}<p class="badge text-bg-warning">{% translate 'Edited nutrient rates' %}</p>{% endif %}
+      {% if is_trees %}<p>{% translate 'Number of trees:' %} {{ result.tree_count }}</p>{% else %}<p>{% translate 'Farm area (ha):' %} {{ result.area_ha|floatformat:4 }}</p>{% endif %}
+      {% if is_per_plant %}<p>{{ form.plant_count.label }}: {{ result.plant_count }}</p>{% endif %}
+      <p>{{ preset_label }} · {{ preset_scope }}</p>
+      {% for combination in result.combinations %}
+      <article class="fertilizer-combination mb-3">
+        <h3>{{ combination.title }}</h3>
+        <div class="fertilizer-products">
+          {% for product in combination.products %}{% include 'crops/fertilizer_product_amount.html' with show_per_unit=True %}{% endfor %}
+        </div>
+        {% if combination.excess_n_total %}<p class="alert alert-warning small">{% translate 'DAP alone exceeds your nitrogen target. This combination cannot meet all three targets exactly. Ask your agronomist about a different phosphorus source before applying.' %}<br>{% translate 'Excess nitrogen for your farm (kg):' %} {{ combination.excess_n_total|floatformat:2 }}</p>{% endif %}
+        <div class="text-end"><a class="btn btn-agri" href="{{ combination.application_url }}">{% translate 'See application' %}<span class="visually-hidden"> · {{ combination.title }}</span></a></div>
+      </article>
+      {% endfor %}
+      <p class="small text-muted">{% translate 'Product masses using the listed fertilizer grades; values rounded for display.' %}</p>
+      <p class="small text-muted">{% translate 'Bag equivalents use 45 kg for urea and 50 kg for other products. Check your pack size. Weigh the fertilizer; do not round the dose to whole bags.' %}</p>
+    </div></div>
+    {% endif %}
+    <p class="small text-muted mt-3">{% translate 'These quantities convert your entered recommendation. Application timing, split doses and placement depend on the crop and local guidance.' %}</p>
+    <p class="small"><a href="https://ifdc.org/wp-content/uploads/2023/04/West-Africa-Fertilizer-Bulk-Blending-Manual-November-2022-Edition.pdf" target="_blank" rel="noopener">{% translate 'Calculation reference: IFDC Fertilizer Bulk Blending Guide, page 27' %}</a></p>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}<script src="{% static 'js/fertilizer.js' %}?v={{ STATIC_VERSION }}" defer></script>{% endblock %}

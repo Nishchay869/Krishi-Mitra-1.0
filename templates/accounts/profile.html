@@ -1,12 +1,13 @@
 {% extends 'base.html' %}
-{% block title %}Profile{% endblock %}
+{% load i18n farm_i18n %}
+{% block title %}{% translate "Profile" %}{% endblock %}
 {% block content %}
 <div class="row justify-content-center"><div class="col-lg-7">
   <div class="card shadow-sm"><div class="card-body p-4">
-    <h4 class="mb-3">My profile</h4>
+    <header class="page-intro"><span class="page-heading-icon"><i class="bi bi-person"></i></span><span class="eyebrow">{% translate "MAKE IT YOURS" %}</span><h1>{% translate "My profile" %}</h1></header>
     <form method="post" class="row">{% csrf_token %}
       {% include 'partials/fields.html' with col='col-md-6' %}
-      <div class="col-12"><button class="btn btn-agri">Save</button></div>
+      <div class="col-12"><button class="btn btn-agri">{% translate "Save" %}</button></div>
     </form>
   </div></div>
 </div></div>

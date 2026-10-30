@@ -1,16 +1,20 @@
 {% extends 'base.html' %}
+{% load i18n farm_i18n static %}
+{% block body_class %}agro-home{% endblock %}
+{% block extra_head %}
+<meta name="description" content="Practical farming guidance, crop recommendations, leaf health checks, forecasts, and market insights. Meet Krishi Mitra, your AI farming companion.">
+<link rel="preload" as="image" href="{% static 'images/landing/farmland.jpg' %}" fetchpriority="high">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+{% endblock %}
 {% block content %}
-<section class="hero p-4 p-md-5 mb-4">
-  <h1 class="display-6 fw-semibold">Your AI farming companion</h1>
-  <p class="lead mb-4">Get crop recommendations from your soil test, check leaf diseases from a photo, see local weather advisories, and ask farming questions — answers grounded in Indian agricultural sources.</p>
-  {% if user.is_authenticated %}
-    <a class="btn btn-light btn-lg" href="{% url 'accounts:dashboard' %}">Go to dashboard</a>
-  {% else %}
-    <a class="btn btn-light btn-lg me-2" href="{% url 'accounts:register' %}">Register as farmer</a>
-    <a class="btn btn-outline-light btn-lg" href="{% url 'accounts:login' %}">Login</a>
-  {% endif %}
-</section>
-<div class="row g-3">
-  {% include 'partials/feature_cards.html' %}
+<div data-agro-landing data-asset-base="{% static 'images' %}"
+ data-start="{% if user.is_authenticated %}{% url 'accounts:dashboard' %}{% else %}{% url 'accounts:register' %}{% endif %}"
+ data-dashboard="{% url 'accounts:dashboard' %}" data-profile="{% url 'accounts:profile' %}"
+ data-chat="{% url 'chatbot:chat' %}" data-crop="{% url 'crops:recommend' %}"
+ data-disease="{% url 'disease:detect' %}" data-weather="{% url 'weather:forecast' %}"
+ data-fertilizer="{% url 'crops:fertilizer' %}" data-market="{% url 'market:prices' %}"
+ data-yield="{% url 'crops:yield' %}" data-library="{% url 'crops:library' %}">
+{% include 'partials/home_fallback.html' %}
 </div>
 {% endblock %}

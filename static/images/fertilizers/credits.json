@@ -1,0 +1,66 @@
+{
+  "urea.png": {
+    "source": "https://www.spic.in/products/primary-nutrients/",
+    "image": "https://www.spic.in/wp-content/uploads/2021/10/01.-BHARAT-UREA.png",
+    "owner": "SPIC",
+    "accessed": "2026-10-29",
+    "sha256": "4681329d9733a61da330f93a6268a6c2641b313a871c707ce79508f053af9bb6",
+    "purpose": "Product packaging reference; not a local stock listing."
+  },
+  "dap.png": {
+    "source": "https://www.spic.in/products/primary-nutrients/",
+    "image": "https://www.spic.in/wp-content/uploads/2021/10/02.-BHARAT-DAP.png",
+    "owner": "SPIC",
+    "accessed": "2026-10-29",
+    "sha256": "b547a26e372f59d2522ef0d602e176aadbdb852bb1f26deb06257922bd43c89e",
+    "purpose": "Product packaging reference; not a local stock listing."
+  },
+  "mop.png": {
+    "source": "https://www.spic.in/productcms/bharat-mop-spic-mop-muriate-of-potash/",
+    "image": "https://www.spic.in/wp-content/uploads/2025/10/product-Bharat-MOP.png",
+    "owner": "SPIC",
+    "accessed": "2026-10-29",
+    "sha256": "0ac61e886d5fb0941c6b073bdac5f96ffcaa7c54ecc0f49986fb8346dee8cd2b",
+    "purpose": "Product packaging reference; not a local stock listing."
+  },
+  "tsp.png": {
+    "source": "https://jaikisaan.online/fertilizer?location=tsp",
+    "image": "https://jaikisaan.online/pub/media/csipl/fertilizer/image/cache/355/tspmain.png",
+    "owner": "Paradeep Phosphates / Jai Kisaan",
+    "accessed": "2026-10-29",
+    "sha256": "40a59e101b0c8a1a6358671f1ae68f02285c347894484c36f59376d2f05ba7ba",
+    "purpose": "Product packaging reference; not a local stock listing."
+  },
+  "jai-kisaan-dap.png": {
+    "source": "https://jaikisaan.online/fertilizer?location=zincated-dap",
+    "image": "https://jaikisaan.online/pub/media/csipl/fertilizer/image/cache/355/NAVRATNA_DAP_18_46_0_IMPORTED_copy_1_1.png",
+    "owner": "Paradeep Phosphates / Jai Kisaan",
+    "accessed": "2026-10-29",
+    "sha256": "b98a16a3fc56d71c264603c179c6d4796a572b7eb2569f05fa07fb43cf5b27e4",
+    "purpose": "Product packaging reference; not a local stock listing."
+  },
+  "jai-kisaan-mop.jpg": {
+    "source": "https://jaikisaan.online/fertilizer?location=zincated-dap",
+    "image": "https://jaikisaan.online/pub/media/csipl/fertilizer/image/cache/355/PPL-Navratna-MOP-IF-PACKSHOT_1_1.jpg",
+    "owner": "Paradeep Phosphates / Jai Kisaan",
+    "accessed": "2026-10-29",
+    "sha256": "5a0fab7bb6a029fc027dfbeb6912434203a843019f9c12459340d3676de92dfe",
+    "purpose": "Product packaging reference; not a local stock listing."
+  },
+  "iffco-dap.png": {
+    "source": "https://www.iffco.in/en/dap-18-46-0",
+    "image": "https://iffco-public-assets.s3.ap-south-1.amazonaws.com/s3fs-public/2025-10/DAP-18-46-0.png",
+    "owner": "IFFCO",
+    "accessed": "2026-10-29",
+    "sha256": "502f2be0e41a6c18796a1ca4521f47f852151f48c832b74d756c534942bde2b3",
+    "purpose": "Product packaging reference; not a local stock listing."
+  },
+  "iffco-urea.jpeg": {
+    "source": "https://www.iffco.in/en/urea-fertilizer",
+    "image": "https://iffco-public-assets.s3.ap-south-1.amazonaws.com/s3fs-public/2025-10/Neem-Coated-Urea.jpeg",
+    "owner": "IFFCO",
+    "accessed": "2026-10-29",
+    "sha256": "0cb3149ab8f93167ea05e809fdcf18d4d8d3dff7cf0f761bddebafbbe3ad2b49",
+    "purpose": "Product packaging reference; not a local stock listing."
+  }
+}

@@ -155,6 +155,13 @@ class VoiceTests(TestCase):
         transcribe.side_effect = sarvam.SarvamError('down')
         self.assertEqual(self.client.post(url, self.upload()).status_code, 503)
 
+    def test_dictation_returns_text_only_and_logs_nothing(self, transcribe, translate):
+        transcribe.return_value = (KANNADA_Q, 'kn-IN')
+        data = self.client.post(reverse('chatbot:transcribe'), self.upload()).json()
+        self.assertEqual(data, {'transcript': KANNADA_Q, 'language': 'kn-IN'})
+        self.assertFalse(ChatMessage.objects.exists())  # not a question until the farmer presses Send
+        translate.assert_not_called()
+
     def test_mic_button_only_shown_when_key_configured(self, transcribe, translate):
         from django.contrib.auth.models import User
         self.client.force_login(User.objects.create_user('f', password='pw'))
@@ -184,19 +191,21 @@ class PlainLanguageTests(TestCase):
 
 
 @override_settings(SARVAM_API_KEY='test-key')
-@patch.object(sarvam, 'speak', return_value=['bXAz'])
+@patch.object(sarvam, 'speak_reply', return_value=['bXAz'])
 class SpeakTests(TestCase):
     def setUp(self):
         from django.contrib.auth.models import User
         self.owner = User.objects.create_user('owner', password='pw')
         self.other = User.objects.create_user('other', password='pw')
-        self.msg = ChatMessage.objects.create(user=self.owner, message='q', response='ಉತ್ತರ', language='kn-IN')
+        self.msg = ChatMessage.objects.create(user=self.owner, message='q', response='ಉತ್ತರ',
+                                              response_en='Answer', language='kn-IN')
 
     def test_owner_gets_female_voice_audio_in_reply_language(self, speak):
         self.client.force_login(self.owner)
         data = self.client.post(reverse('chatbot:speak', args=[self.msg.pk])).json()
         self.assertEqual(data, {'audios': ['bXAz'], 'format': 'mp3'})
-        speak.assert_called_once_with('ಉತ್ತರ', 'kn-IN')
+        # Speech is built from the English reply (symbols cleaned) and then translated.
+        speak.assert_called_once_with('Answer', 'kn-IN')
 
     def test_cannot_speak_someone_elses_reply(self, speak):
         self.client.force_login(self.other)
@@ -211,6 +220,74 @@ class SpeakTests(TestCase):
                                     content_type='application/json').json()
         self.assertTrue(ChatMessage.objects.filter(pk=data['message_id']).exists())
 
-    def test_speech_text_drops_bullets_and_web_addresses(self, speak):
-        text = '• PM-KISAN – Rs 6,000/year (pmkisan.gov.in)\n* PMFBY – insurance (pmfby.gov.in)'
-        self.assertEqual(sarvam.speech_text(text), 'PM-KISAN – Rs 6,000/year \nPMFBY – insurance')
+
+
+class SpeechTextTests(TestCase):
+    """Text-to-speech reads '/' as 'by' and '+' as 'plus'; speech must contain only words."""
+
+    def test_symbols_become_words(self):
+        cases = {
+            '• PM-KISAN – Rs 6,000/year (pmkisan.gov.in)': 'PM-KISAN, 6,000 rupees per year',
+            '53 kg DAP + 85 kg urea + 27 kg muriate of potash (MOP)': '53 kg DAP and 85 kg urea and 27 kg muriate of potash',
+            'mancozeb 75% wettable powder (75 WP) at 2.5 grams': 'mancozeb 75% wettable powder at 2.5 grams',
+            'alkaline/sodic soil; 2-4 weeks': 'alkaline or sodic soil; 2 to 4 weeks',
+            'call 1800-180-1551 (6 am - 10 pm)': 'call 1800 180 1551 (6 am to 10 pm)',
+        }
+        for text, spoken in cases.items():
+            with self.subTest(text=text):
+                self.assertEqual(sarvam.speech_text(text), spoken)
+
+    def test_knowledge_base_speech_has_no_spoken_symbols(self):
+        with open(settings.BASE_DIR / 'data' / 'knowledge_base.json', encoding='utf-8') as fh:
+            for entry in json.load(fh):
+                spoken = sarvam.speech_text(entry['answer'])
+                self.assertNotRegex(spoken, r'[/+•*]|\([A-Z]{2,}\)', entry['question'])
+
+    @override_settings(SARVAM_API_KEY='test-key')
+    @patch.object(sarvam, 'speak', return_value=['bXAz'])
+    @patch.object(sarvam, 'translate', side_effect=lambda text, s, t: f'[{t}] {text}')
+    def test_speak_reply_cleans_then_translates(self, translate, speak):
+        sarvam.speak_reply('DAP + urea', 'hi-IN')
+        speak.assert_called_once_with('[hi-IN] DAP and urea', 'hi-IN')
+
+
+class GreetingTests(TestCase):
+    def setUp(self):
+        from django.contrib.auth.models import User
+        self.user = User.objects.create_user('nishchay', password='pw', first_name='nishchay')
+        self.user.profile.preferred_language = 'kn'
+        self.user.profile.save()
+        self.url = reverse('chatbot:greeting')
+
+    def test_greeting_by_time_of_day(self):
+        from .views import greeting_text
+        self.assertTrue(greeting_text('Asha', 8).startswith('Good morning, Asha!'))
+        self.assertTrue(greeting_text('Asha', 14).startswith('Good afternoon, Asha!'))
+        self.assertTrue(greeting_text('Asha', 19).startswith('Good evening, Asha!'))
+        self.assertTrue(greeting_text('Asha', 2).startswith('Hello, Asha!'))
+        self.assertIn("I'm Krishi Mitra", greeting_text('', 8))
+
+    @override_settings(SARVAM_API_KEY='test-key')
+    @patch.object(sarvam, 'speak', return_value=['bXAz'])
+    @patch.object(sarvam, 'translate', side_effect=lambda text, s, t: f'[{t}] {text}')
+    def test_greets_by_name_in_preferred_language(self, translate, speak):
+        self.client.force_login(self.user)
+        data = self.client.post(self.url, json.dumps({'hour': 9}), content_type='application/json').json()
+        self.assertEqual(data['language'], 'kn-IN')
+        self.assertTrue(data['text'].startswith('[kn-IN] Good morning, Nishchay!'))
+        self.assertEqual(data['audios'], ['bXAz'])
+        speak.assert_called_once_with(data['text'], 'kn-IN')
+
+    @override_settings(SARVAM_API_KEY='test-key')
+    @patch.object(sarvam, 'translate', side_effect=sarvam.SarvamError('down'))
+    def test_falls_back_to_english_text_without_audio(self, translate):
+        self.client.force_login(self.user)
+        data = self.client.post(self.url, json.dumps({'hour': 20}), content_type='application/json').json()
+        self.assertEqual(data['language'], 'en-IN')
+        self.assertTrue(data['text'].startswith('Good evening, Nishchay!'))
+        self.assertEqual(data['audios'], [])
+
+    def test_rejects_missing_or_bad_hour(self):
+        for body in ['{}', '{"hour": 25}', '{"hour": "x"}', 'nope']:
+            with self.subTest(body=body):
+                self.assertEqual(self.client.post(self.url, body, content_type='application/json').status_code, 400)

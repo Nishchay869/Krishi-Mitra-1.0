@@ -1,0 +1,83 @@
+import type { ComponentType } from 'react'
+import './index.css'
+
+// React "islands" inside Django pages. Each component is its own lazily loaded chunk, so a page
+// only downloads what it shows.
+//  * Static: <div data-react-island="HomeHero" data-props='{"title": "…"}'> mounts on page load;
+//    server-rendered content inside the element is the fallback until React takes over.
+//  * Dynamic: window.KrishiIslands.mount(el, 'LiveStrands') from plain JS (static/js/chat.js);
+//    resolves to an unmount function.
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type Loader = () => Promise<{ default: ComponentType<any> }>
+
+const islands: Record<string, Loader> = {
+  AgroLanding: () => import('./islands/AgroLanding'),
+  FarmToolkit: () => import('./islands/FarmToolkit'),
+  PestGuide: () => import('./islands/PestGuide'),
+  HomeHero: () => import('./islands/HomeHero'),
+  LiveStrands: () => import('./islands/LiveStrands'),
+  CropCursorEffect: () => import('./islands/CropCursorEffect'),
+}
+
+async function mount(el: HTMLElement, name: string, props: object = {}): Promise<() => void> {
+  if (name === 'LiveStrands' && (matchMedia('(prefers-reduced-motion: reduce), (max-width: 767px)').matches || (navigator as Navigator & { connection?: { saveData?: boolean } }).connection?.saveData)) return () => {}
+  const load = islands[name]
+  if (!load) return () => {}
+  const [{ default: Island }, { createRoot }, { createElement }] = await Promise.all([load(), import('react-dom/client'), import('react')])
+  const root = createRoot(el)
+  root.render(createElement(Island, props))
+  return () => root.unmount()
+}
+
+declare global {
+  interface Window { KrishiIslands?: { mount: typeof mount } }
+}
+window.KrishiIslands = { mount }
+
+document.querySelectorAll<HTMLElement>('[data-react-island]').forEach((el) => {
+  const props = el.dataset.props ? JSON.parse(el.dataset.props) : {}
+  mount(el, el.dataset.reactIsland ?? '', props)
+})
+
+import "./experience"
+
+// Keep the translated server fallback if the landing chunk cannot load.
+const landing = document.querySelector<HTMLElement>('[data-agro-landing]')
+if (landing) {
+  const { assetBase = '/static/images', ...routes } = landing.dataset
+  void mount(landing, 'AgroLanding', { routes, assetBase }).catch((err) => {
+    console.error('Failed to mount AgroLanding island:', err)
+  })
+
+  // Crop cursor effect: a hidden <div> appended next to the landing root so
+  // the effect component can attach listeners to .km-hero / .agro-hero.
+  if (!matchMedia('(prefers-reduced-motion: reduce), (hover: none)').matches) {
+    const effectHost = document.createElement('div')
+    effectHost.setAttribute('aria-hidden', 'true')
+    landing.parentElement?.appendChild(effectHost)
+    void mount(effectHost, 'CropCursorEffect').catch((err) => {
+      console.error('Failed to mount CropCursorEffect island:', err)
+    })
+  }
+}
+
+// Reuse translated server-rendered copy and links; retain the native fallback if a chunk fails.
+document.querySelectorAll<HTMLElement>('[data-farm-toolkit]').forEach(el => {
+  const tools = Array.from(el.querySelectorAll<HTMLAnchorElement>('.tool-link')).map(link => ({
+    title: link.querySelector('h3')?.textContent?.trim() ?? '',
+    description: link.querySelector('p')?.textContent?.trim() ?? '',
+    cta: link.querySelector('.tool-cta')?.textContent?.trim() ?? '',
+    href: link.getAttribute('href') ?? '#', icon: link.querySelector('.tool-icon i')?.className ?? '',
+  }))
+  if (tools.length && !el.closest('[data-agro-landing]')) mount(el, 'FarmToolkit', { tools }).catch(() => {})
+})
+document.querySelectorAll<HTMLElement>('[data-pest-guide]').forEach(el => {
+  const sections = Array.from(el.querySelectorAll<HTMLElement>('.pest-care')).map(section => ({
+    id: section.id, title: section.querySelector('h2')?.textContent?.trim() ?? '',
+    text: section.querySelector('div')?.innerText.trim() ?? '',
+  }))
+  if (sections.length) mount(el, 'PestGuide', { sections }).catch(() => {})
+})
+document.querySelectorAll<HTMLAnchorElement>('.site-nav .nav-link[href]').forEach(link => {
+  if (new URL(link.href).pathname === location.pathname && !new URL(link.href).hash) link.setAttribute('aria-current', 'page')
+})

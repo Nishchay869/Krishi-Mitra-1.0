@@ -1,4 +1,6 @@
 from django import forms
+from django.forms.utils import pretty_name
+from django.utils.translation import gettext_lazy as _
 
 
 class BootstrapFormMixin:
@@ -6,7 +8,9 @@ class BootstrapFormMixin:
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        for field in self.fields.values():
+        for name, field in self.fields.items():
+            field.label = _(field.label or pretty_name(name))
+            field.help_text = _(field.help_text) if field.help_text else field.help_text
             field.widget.attrs['class'] = 'form-select' if isinstance(field.widget, forms.Select) else 'form-control'
 
     def full_clean(self):

@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% load i18n static farm_i18n %}
+{% block title %}{{ combination.title }} · {% translate 'Application instructions' %}{% endblock %}
+{% block extra_head %}<link rel="stylesheet" href="{% static 'css/fertilizer.css' %}?v={{ STATIC_VERSION }}">{% endblock %}
+{% block content %}
+<a class="fertilizer-back" href="{{ back_url }}">← {% translate 'Back to calculation' %}</a>
+<header class="page-intro"><span class="eyebrow">{{ preset_label }}</span><h1>{{ combination.title }}</h1></header>
+<p>{% if is_trees %}{% translate 'Number of trees:' %} {{ result.tree_count }} · {% translate 'Annual total' %}{% else %}{% translate 'Farm area (ha):' %} {{ result.area_ha|floatformat:4 }} · {{ preset_scope }}{% endif %}</p>
+{% if is_per_plant %}<p>{{ form.plant_count.label }}: {{ result.plant_count }} · {{ preset_scope }}</p>{% endif %}
+<p class="small text-muted">{% translate 'Stage quantities are nutrient-equivalent calculations from the linked regional reference. Confirm timing, product suitability and placement with your local agronomist. Organic manures and micronutrients are not included.' %}</p>
+{% if schedule.fertigation %}<p class="alert alert-info">{% translate 'This cucumber reference uses drip fertigation with different soluble fertilizers. These quantities are nutrient equivalents, not a drip-injection recipe. Do not put granular TSP or an unapproved product into drip equipment.' %}</p>{% endif %}
+<section aria-labelledby="application-heading" class="fertilizer-application">
+<h2 id="application-heading">{% translate 'Application instructions' %}</h2>
+{% if schedule.unavailable %}
+<div class="alert alert-warning">{{ schedule.unavailable|ui_text }}</div>
+<div class="fertilizer-products mb-4">{% for product in combination.products %}{% include 'crops/fertilizer_product_amount.html' %}{% endfor %}</div>
+{% else %}
+{% for stage in schedule.stages %}
+<article class="fertilizer-stage">
+  <span class="small text-muted">{% translate 'Application' %} {{ forloop.counter }}</span>
+  <h3>{{ stage.label|ui_text }}</h3>
+  <p>{% if schedule.fertigation %}{% translate 'Calculated quantities' %}{% else %}{% translate 'Apply the following amounts' %}{% endif %}</p>
+  <div class="fertilizer-products">{% for product in stage.products %}{% include 'crops/fertilizer_product_amount.html' %}{% endfor %}</div>
+</article>
+{% endfor %}
+{% endif %}
+<p><a href="{{ preset.source }}" target="_blank" rel="noopener">{% translate 'Source:' %} {{ source_org }} · {{ source_region|ui_text }}</a> · {{ preset_scope }}</p>
+<p class="small text-muted">{% translate 'Product masses using the listed fertilizer grades; values rounded for display.' %}</p>
+      <p class="small text-muted">{% translate 'Bag equivalents use 45 kg for urea and 50 kg for other products. Check your pack size. Weigh the fertilizer; do not round the dose to whole bags.' %}</p>
+</section>
+<section class="fertilizer-relevant" aria-labelledby="products-heading">
+<h2 id="products-heading">{% translate 'Relevant products' %}</h2>
+<div class="fertilizer-filters" data-product-filters hidden>
+  <button type="button" class="active" data-product-filter="all" aria-pressed="true">{% translate 'All' %}</button>
+  {% for product in combination.products %}<button type="button" data-product-filter="{{ product.code }}" aria-pressed="false">{{ product.short_name|ui_text }}</button>{% endfor %}
+</div>
+<div class="fertilizer-product-guides">
+{% for product in relevant_products %}
+<article class="fertilizer-product-guide" data-product-code="{{ product.code }}" data-product-variant="{{ product.id }}">
+  <figure class="fertilizer-product-photo"><img src="{% static product.photo %}" alt="{{ product.photo_label }}" loading="lazy" width="240" height="300"><figcaption>{{ product.photo_label }}</figcaption></figure>
+  <h3>{{ product.short_name|ui_text }} ({{ product.grade }})</h3>
+  <p class="small">{{ product.pack_kg }} kg/{% translate 'bag' %}</p>
+  {% if product.code == 'TSP' %}<p>{% translate 'Phosphate source without nitrogen. TSP is different from single superphosphate (SSP); check the grade on the label.' %}</p><a href="https://www.ocpna.com/product/duraphos-0-46-0/" target="_blank" rel="noopener">{% translate 'Learn about this fertilizer' %}</a>
+  {% elif product.code == 'DAP' %}<p>{% translate 'Supplies nitrogen and phosphate. Its nitrogen contribution is included in the urea calculation.' %}</p><a href="https://www.iffco.in/en/dap-18-46-0" target="_blank" rel="noopener">{% translate 'Learn about this fertilizer' %}</a>
+  {% elif product.code == 'MOP' %}<p>{% translate 'Potash source. Check crop suitability and the nutrient grade before use.' %}</p>
+  {% else %}<p>{% translate 'Nitrogen source. Use the calculated quantity and the locally confirmed split.' %}</p>{% endif %}
+  <p class="small"><a href="{{ product.photo_source }}" target="_blank" rel="noopener noreferrer">{% translate 'Photo source' %}</a></p>
+  <a class="btn btn-outline-success" data-shop-search data-shop-product="{{ product.shop_query }}" href="{{ product.shop_search_url }}" target="_blank" rel="noopener noreferrer">{% translate 'Find nearby shops' %}</a>
+</article>
+{% endfor %}
+</div>
+<p class="small text-muted mt-3">{% translate 'Real product photos are examples, not a promise of local stock. Check the actual nutrient grade, pack size and availability with the shop.' %}</p>
+</section>
+{% include 'crops/fertilizer_shops.html' %}
+{% endblock %}
+{% block scripts %}<script src="{% static 'js/fertilizer.js' %}?v={{ STATIC_VERSION }}" defer></script>{% endblock %}

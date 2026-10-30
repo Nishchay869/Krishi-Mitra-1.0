@@ -1,31 +1,32 @@
 {% extends 'base.html' %}
-{% block title %}Crop Advisor{% endblock %}
+{% load i18n farm_i18n %}
+{% block title %}{% translate "Crop Advisor" %}{% endblock %}
 {% block content %}
-<h3>Crop recommendation</h3>
-<p class="text-muted">Enter values from your Soil Health Card and local climate. The model (Random Forest) suggests the best-suited crops.</p>
+<header class="page-intro"><span class="page-heading-icon"><i class="bi bi-flower2"></i></span><span class="eyebrow">{% translate "SOIL TO SEASON" %}</span><h1>{% translate "Find your next crop." %}</h1><p>{% translate "Enter values from your Soil Health Card and local climate to discover crops suited to your farm." %}</p></header>
+<p><a class="btn btn-outline-success" href="{% url 'crops:fertilizer' %}">{% translate "Fertilizer Calculator" %}</a></p>
 <div class="row g-4">
   <div class="col-lg-7"><div class="card shadow-sm"><div class="card-body">
     <form method="post" class="row">{% csrf_token %}
       {% include 'partials/fields.html' with col='col-sm-6' %}
-      <div class="col-12"><button class="btn btn-agri">Recommend crops</button></div>
+      <div class="col-12"><button class="btn btn-agri">{% translate "Recommend crops" %}</button></div>
     </form>
   </div></div></div>
   <div class="col-lg-5">
-    {% if error %}<div class="alert alert-warning">{{ error }}</div>{% endif %}
+    {% if error %}<div class="alert alert-warning">{{ error|ui_text }}</div>{% endif %}
     {% if results %}
-    <div class="card shadow-sm"><div class="card-header bg-white fw-semibold">Recommended crops</div>
+    <div class="card shadow-sm"><div class="card-header bg-white fw-semibold">{% translate "Recommended crops" %}</div>
       <ul class="list-group list-group-flush">
         {% for r in results %}
         <li class="list-group-item">
-          <div class="d-flex justify-content-between"><span class="fw-semibold">{% if forloop.first %}<i class="bi bi-star-fill text-warning"></i> {% endif %}{{ r.crop|title }}</span><span>{% widthratio r.probability 1 100 %}%</span></div>
+          <div class="d-flex justify-content-between"><span class="fw-semibold">{% if forloop.first %}<i class="bi bi-star-fill text-warning"></i> {% endif %}{{ r.crop|title|ui_text }}</span><span>{% widthratio r.probability 1 100 %}%</span></div>
           <div class="progress mt-1" style="height:6px"><div class="progress-bar bg-success" style="width: {% widthratio r.probability 1 100 %}%"></div></div>
         </li>
         {% endfor %}
       </ul>
-      <div class="card-footer small text-muted">Ask the assistant about fertilizer doses and pest management for your chosen crop.</div>
+      <div class="card-footer small text-muted">{% translate "Ask the assistant about fertilizer doses and pest management for your chosen crop." %}</div>
     </div>
     {% elif not error %}
-    <div class="alert alert-light border small"><strong>Tip:</strong> N, P, K values come from your soil test report. Rainfall is the expected seasonal rainfall in mm.</div>
+    <div class="alert alert-light border small"><strong>{% translate "Tip:" %}</strong> {% translate "N, P, K values come from your soil test report. Rainfall is the expected seasonal rainfall in mm." %}</div>
     {% endif %}
   </div>
 </div>

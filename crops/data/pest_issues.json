@@ -1,0 +1,1495 @@
+{
+  "damping-off": {
+    "id": "damping-off",
+    "name": "Damping-off",
+    "kind": "Disease complex",
+    "cause": "Pythium, Rhizoctonia and other soilborne pathogens",
+    "early": "Seedlings fail to emerge or develop a pinched, wet stem base.",
+    "progress": "Seedlings topple; gaps develop in nursery rows.",
+    "conditions": "Use clean nursery media and avoid saturated seedbeds.",
+    "stages": [
+      "seedling",
+      "vegetative"
+    ],
+    "photo_query": "damping off seedlings"
+  },
+  "powdery-mildew": {
+    "id": "powdery-mildew",
+    "name": "Powdery mildew",
+    "kind": "Fungus",
+    "cause": "Powdery mildew fungi; species depend on the host",
+    "early": "Small white, powdery patches appear on young leaves or shoots.",
+    "progress": "Patches merge; leaves curl and flower or fruit quality may decline.",
+    "conditions": "Crowded growth and humid canopies favour infection.",
+    "stages": [
+      "vegetative",
+      "flowering",
+      "fruiting",
+      "harvest"
+    ],
+    "photo_query": "powdery mildew infected leaf"
+  },
+  "downy-mildew": {
+    "id": "downy-mildew",
+    "name": "Downy mildew",
+    "kind": "Oomycete",
+    "cause": "Host-specific downy mildew pathogens",
+    "early": "Pale or angular patches appear on leaves.",
+    "progress": "Grey-purple growth may develop underneath; affected leaves dry.",
+    "conditions": "Prolonged leaf wetness and dense canopies favour spread.",
+    "stages": [
+      "vegetative",
+      "flowering",
+      "fruiting",
+      "harvest"
+    ],
+    "photo_query": "Plasmopara viticola leaf"
+  },
+  "early-blight": {
+    "id": "early-blight",
+    "name": "Early blight",
+    "kind": "Fungus",
+    "cause": "Alternaria solani and related Alternaria species",
+    "early": "Brown, target-like spots begin on older leaves.",
+    "progress": "Spots merge; lower foliage dries and fruit or tuber lesions may develop.",
+    "conditions": "Inspect older foliage after warm, wet weather.",
+    "stages": [
+      "vegetative",
+      "flowering",
+      "fruiting",
+      "harvest"
+    ],
+    "photo_query": "tomato early blight Alternaria solani"
+  },
+  "late-blight": {
+    "id": "late-blight",
+    "name": "Late blight",
+    "kind": "Oomycete",
+    "cause": "Phytophthora infestans",
+    "early": "Irregular, water-soaked leaf lesions appear.",
+    "progress": "Dark lesions spread rapidly; white growth may occur at lesion edges in humidity.",
+    "conditions": "Cool, wet conditions favour rapid spread.",
+    "stages": [
+      "vegetative",
+      "flowering",
+      "fruiting",
+      "harvest"
+    ],
+    "photo_query": "tomato late blight Phytophthora infestans"
+  },
+  "fusarium-wilt": {
+    "id": "fusarium-wilt",
+    "name": "Fusarium wilt",
+    "kind": "Fungus",
+    "cause": "Host-adapted Fusarium oxysporum complexes",
+    "early": "Lower leaves yellow; wilting may begin on one side.",
+    "progress": "Vascular tissue browns and wilting becomes persistent.",
+    "conditions": "Check roots and stems; drought and other wilts can look similar.",
+    "stages": [
+      "seedling",
+      "vegetative",
+      "flowering",
+      "fruiting",
+      "harvest"
+    ],
+    "photo_query": "Fusarium wilt plant"
+  },
+  "verticillium-wilt": {
+    "id": "verticillium-wilt",
+    "name": "Verticillium wilt",
+    "kind": "Fungus",
+    "cause": "Verticillium species",
+    "early": "Lower leaves yellow, sometimes in wedge-shaped areas.",
+    "progress": "Progressive wilting and vascular discoloration weaken the plant.",
+    "conditions": "Soilborne infection can persist across seasons.",
+    "stages": [
+      "vegetative",
+      "flowering",
+      "fruiting",
+      "harvest"
+    ],
+    "photo_query": "Verticillium wilt plant"
+  },
+  "bacterial-wilt": {
+    "id": "bacterial-wilt",
+    "name": "Bacterial wilt",
+    "kind": "Bacterium",
+    "cause": "Ralstonia solanacearum species complex",
+    "early": "Leaves wilt while much of the foliage is still green.",
+    "progress": "Wilting becomes permanent; cut stems may show bacterial ooze.",
+    "conditions": "Use laboratory confirmation to separate bacterial and fungal wilts.",
+    "stages": [
+      "seedling",
+      "vegetative",
+      "flowering",
+      "fruiting",
+      "harvest"
+    ],
+    "photo_query": "Ralstonia solanacearum wilt tomato"
+  },
+  "bacterial-spot": {
+    "id": "bacterial-spot",
+    "name": "Bacterial leaf and fruit spot",
+    "kind": "Bacterium",
+    "cause": "Xanthomonas species; identity varies with crop",
+    "early": "Small water-soaked leaf spots appear.",
+    "progress": "Spots darken and merge; some hosts develop raised fruit lesions.",
+    "conditions": "Rain splash and handling wet plants can spread bacteria.",
+    "stages": [
+      "vegetative",
+      "flowering",
+      "fruiting",
+      "harvest"
+    ],
+    "photo_query": "Xanthomonas bacterial spot tomato"
+  },
+  "bacterial-canker": {
+    "id": "bacterial-canker",
+    "name": "Bacterial canker",
+    "kind": "Bacterium",
+    "cause": "Clavibacter michiganensis on tomato",
+    "early": "Leaf edges scorch and plants may wilt unevenly.",
+    "progress": "Stem cankers and small bird-eye fruit spots may develop.",
+    "conditions": "Inspect transplants and avoid spreading sap on tools.",
+    "stages": [
+      "vegetative",
+      "flowering",
+      "fruiting",
+      "harvest"
+    ],
+    "photo_query": "tomato bacterial canker Clavibacter"
+  },
+  "anthracnose": {
+    "id": "anthracnose",
+    "name": "Anthracnose",
+    "kind": "Fungus",
+    "cause": "Colletotrichum species",
+    "early": "Small dark spots appear on leaves, stems or developing produce.",
+    "progress": "Lesions enlarge and may become sunken; fruit decay can intensify after harvest.",
+    "conditions": "Wet weather and wounded or ripening produce favour symptoms.",
+    "stages": [
+      "vegetative",
+      "flowering",
+      "fruiting",
+      "harvest"
+    ],
+    "photo_query": "Colletotrichum anthracnose fruit"
+  },
+  "alternaria-spot": {
+    "id": "alternaria-spot",
+    "name": "Alternaria leaf spot",
+    "kind": "Fungus",
+    "cause": "Alternaria species",
+    "early": "Small dark leaf spots may show concentric rings.",
+    "progress": "Spots merge and affected leaves yellow or dry.",
+    "conditions": "Inspect lower and older leaves after wet periods.",
+    "stages": [
+      "vegetative",
+      "flowering",
+      "fruiting",
+      "harvest"
+    ],
+    "photo_query": "Alternaria leaf spot"
+  },
+  "cercospora-spot": {
+    "id": "cercospora-spot",
+    "name": "Cercospora leaf spot",
+    "kind": "Fungus",
+    "cause": "Cercospora and related leaf-spot fungi",
+    "early": "Small, distinct leaf spots develop pale or brown centres.",
+    "progress": "Numerous spots reduce green leaf area and may cause leaf fall.",
+    "conditions": "Warm, humid canopies favour many leaf-spot diseases.",
+    "stages": [
+      "vegetative",
+      "flowering",
+      "fruiting",
+      "harvest"
+    ],
+    "photo_query": "Cercospora leaf spot"
+  },
+  "rust": {
+    "id": "rust",
+    "name": "Rust",
+    "kind": "Fungus",
+    "cause": "Host-specific rust fungi",
+    "early": "Yellow or pale flecks precede powdery orange or brown pustules.",
+    "progress": "Pustules multiply; leaves dry and grain or crop filling suffers.",
+    "conditions": "Check both leaf surfaces; rust species differ between crops.",
+    "stages": [
+      "vegetative",
+      "flowering",
+      "fruiting",
+      "harvest"
+    ],
+    "photo_query": "Puccinia leaf rust"
+  },
+  "grey-mould": {
+    "id": "grey-mould",
+    "name": "Grey mould",
+    "kind": "Fungus",
+    "cause": "Botrytis species",
+    "early": "Flowers or soft tissues develop tan, water-soaked spots.",
+    "progress": "Grey fuzzy growth and soft decay spread on affected tissue.",
+    "conditions": "Humid, poorly ventilated flowering canopies favour infection.",
+    "stages": [
+      "flowering",
+      "fruiting",
+      "harvest"
+    ],
+    "photo_query": "Botrytis cinerea grey mould"
+  },
+  "soft-rot": {
+    "id": "soft-rot",
+    "name": "Bacterial soft rot",
+    "kind": "Bacterium",
+    "cause": "Pectobacterium and related soft-rot bacteria",
+    "early": "Wounded tissue becomes water-soaked and soft.",
+    "progress": "Tissue collapses into wet decay, sometimes with a strong odour.",
+    "conditions": "Avoid wounds, contaminated water and poorly ventilated storage.",
+    "stages": [
+      "fruiting",
+      "harvest"
+    ],
+    "photo_query": "Pectobacterium carotovorum potato"
+  },
+  "root-rot": {
+    "id": "root-rot",
+    "name": "Root and collar rot",
+    "kind": "Disease complex",
+    "cause": "Soilborne fungi and fungus-like organisms; the causal agent varies by crop.",
+    "early": "Plants grow poorly; fine roots or the stem base discolour.",
+    "progress": "Roots decay and plants wilt or collapse.",
+    "conditions": "Check drainage and roots; waterlogging can cause similar symptoms.",
+    "stages": [
+      "seedling",
+      "vegetative",
+      "flowering",
+      "fruiting",
+      "harvest"
+    ],
+    "photo_query": "Rhizoctonia root rot plant"
+  },
+  "sclerotinia": {
+    "id": "sclerotinia",
+    "name": "Sclerotinia stem rot",
+    "kind": "Fungus",
+    "cause": "Sclerotinia sclerotiorum",
+    "early": "Watery lesions appear around stems or branches.",
+    "progress": "White cottony growth and hard black resting bodies may develop.",
+    "conditions": "Inspect dense canopies during humid flowering periods.",
+    "stages": [
+      "vegetative",
+      "flowering",
+      "fruiting",
+      "harvest"
+    ],
+    "photo_query": "Sclerotinia sclerotiorum plant stem"
+  },
+  "charcoal-rot": {
+    "id": "charcoal-rot",
+    "name": "Charcoal rot",
+    "kind": "Fungus",
+    "cause": "Macrophomina phaseolina",
+    "early": "Plants lose vigour and develop premature wilting.",
+    "progress": "Roots or stems show numerous tiny black, charcoal-like structures.",
+    "conditions": "Heat and moisture stress can intensify symptoms.",
+    "stages": [
+      "vegetative",
+      "flowering",
+      "fruiting",
+      "harvest"
+    ],
+    "photo_query": "Macrophomina phaseolina"
+  },
+  "phytophthora-rot": {
+    "id": "phytophthora-rot",
+    "name": "Phytophthora root, foot or heart rot",
+    "kind": "Oomycete",
+    "cause": "Phytophthora species; host and affected organ vary",
+    "early": "Root or collar tissues darken; leaves lose vigour.",
+    "progress": "Roots, crown or central tissues decay; plants may collapse.",
+    "conditions": "Saturated soil and contaminated planting material favour infection.",
+    "stages": [
+      "seedling",
+      "vegetative",
+      "flowering",
+      "fruiting",
+      "harvest"
+    ],
+    "photo_query": "Phytophthora root rot plant"
+  },
+  "mosaic": {
+    "id": "mosaic",
+    "name": "Mosaic virus diseases",
+    "kind": "Virus",
+    "cause": "Different host-specific viruses cause mosaic symptoms",
+    "early": "Leaves develop uneven light and dark green patterns.",
+    "progress": "Leaves may distort and plants remain stunted with reduced yield.",
+    "conditions": "Insect vectors or handling spread different viruses; identify the actual cause.",
+    "stages": [
+      "seedling",
+      "vegetative",
+      "flowering",
+      "fruiting",
+      "harvest"
+    ],
+    "photo_query": "plant mosaic virus leaf"
+  },
+  "leaf-curl": {
+    "id": "leaf-curl",
+    "name": "Leaf curl virus disease",
+    "kind": "Virus",
+    "cause": "Host-specific begomoviruses, often transmitted by whiteflies",
+    "early": "Young leaves curl and show yellowing or reduced size.",
+    "progress": "Plants become stunted and set fewer flowers or fruits.",
+    "conditions": "Inspect young growth and whiteflies; curling alone is not diagnostic.",
+    "stages": [
+      "seedling",
+      "vegetative",
+      "flowering",
+      "fruiting",
+      "harvest"
+    ],
+    "photo_query": "tomato yellow leaf curl disease"
+  },
+  "purple-blotch": {
+    "id": "purple-blotch",
+    "name": "Purple blotch",
+    "kind": "Fungus",
+    "cause": "Alternaria porri",
+    "early": "Small pale lesions form on onion-family leaves.",
+    "progress": "Lesions enlarge into purple, zoned patches; leaves bend and dry.",
+    "conditions": "Leaf wetness and older or injured foliage favour infection.",
+    "stages": [
+      "vegetative",
+      "fruiting",
+      "harvest"
+    ],
+    "photo_query": "Alternaria porri"
+  },
+  "stemphylium": {
+    "id": "stemphylium",
+    "name": "Stemphylium leaf blight",
+    "kind": "Fungus",
+    "cause": "Stemphylium vesicarium and related species",
+    "early": "Small yellow to brown leaf lesions appear.",
+    "progress": "Lesions lengthen and merge, causing extensive leaf blight.",
+    "conditions": "Wet leaves and damaged foliage favour infection.",
+    "stages": [
+      "vegetative",
+      "fruiting",
+      "harvest"
+    ],
+    "photo_query": "Stemphylium vesicarium"
+  },
+  "basal-rot": {
+    "id": "basal-rot",
+    "name": "Fusarium basal rot",
+    "kind": "Fungus",
+    "cause": "Fusarium oxysporum f. sp. cepae",
+    "early": "Leaf tips yellow while basal roots discolour.",
+    "progress": "The bulb base rots; decay can continue during storage.",
+    "conditions": "Inspect basal plates and use sound planting bulbs or cloves.",
+    "stages": [
+      "vegetative",
+      "fruiting",
+      "harvest"
+    ],
+    "photo_query": "Fusarium onion bulb"
+  },
+  "white-rot": {
+    "id": "white-rot",
+    "name": "Allium white rot",
+    "kind": "Fungus",
+    "cause": "Stromatinia cepivora, formerly Sclerotium cepivorum",
+    "early": "Onion-family leaves yellow and plants weaken.",
+    "progress": "White growth and tiny black resting bodies form around the bulb base.",
+    "conditions": "Do not move contaminated soil or planting material to clean beds.",
+    "stages": [
+      "vegetative",
+      "fruiting",
+      "harvest"
+    ],
+    "photo_query": "Stromatinia cepivora"
+  },
+  "black-scurf": {
+    "id": "black-scurf",
+    "name": "Black scurf and stem canker",
+    "kind": "Fungus",
+    "cause": "Rhizoctonia solani",
+    "early": "Sprouts or young stems develop brown cankers.",
+    "progress": "Tuber surfaces develop hard black structures resembling attached soil.",
+    "conditions": "Use clean seed tubers and avoid cold, waterlogged planting soil.",
+    "stages": [
+      "seedling",
+      "vegetative",
+      "fruiting",
+      "harvest"
+    ],
+    "photo_query": "potato black scurf Rhizoctonia"
+  },
+  "potato-scab": {
+    "id": "potato-scab",
+    "name": "Common scab",
+    "kind": "Bacterium",
+    "cause": "Streptomyces species",
+    "early": "Small corky spots form on developing potato tubers.",
+    "progress": "Raised or pitted corky lesions enlarge on the tuber surface.",
+    "conditions": "Check field history and moisture during tuber initiation.",
+    "stages": [
+      "fruiting",
+      "harvest"
+    ],
+    "photo_query": "potato common scab"
+  },
+  "clubroot": {
+    "id": "clubroot",
+    "name": "Clubroot",
+    "kind": "Protist",
+    "cause": "Plasmodiophora brassicae",
+    "early": "Brassica plants wilt during the day and grow unevenly.",
+    "progress": "Roots become swollen and club-shaped; older galls decay.",
+    "conditions": "Avoid moving infested soil or transplants into clean fields.",
+    "stages": [
+      "seedling",
+      "vegetative",
+      "fruiting",
+      "harvest"
+    ],
+    "photo_query": "Plasmodiophora brassicae"
+  },
+  "brassica-black-rot": {
+    "id": "brassica-black-rot",
+    "name": "Black rot of brassicas",
+    "kind": "Bacterium",
+    "cause": "Xanthomonas campestris pv. campestris",
+    "early": "Yellow V-shaped lesions begin at leaf margins.",
+    "progress": "Veins darken and lesions extend into leaves or heads.",
+    "conditions": "Inspect seedling health and avoid overhead splash on wet crops.",
+    "stages": [
+      "seedling",
+      "vegetative",
+      "fruiting",
+      "harvest"
+    ],
+    "photo_query": "cabbage black rot V shaped"
+  },
+  "blast": {
+    "id": "blast",
+    "name": "Blast",
+    "kind": "Fungus",
+    "cause": "Pyricularia / Magnaporthe species; host lineages differ",
+    "early": "Spindle-shaped leaf lesions develop pale centres and darker margins.",
+    "progress": "Neck or finger infection can interrupt grain filling and cause empty heads.",
+    "conditions": "Inspect nursery leaves, tillers and emerging crop heads.",
+    "stages": [
+      "seedling",
+      "vegetative",
+      "flowering",
+      "fruiting",
+      "harvest"
+    ],
+    "photo_query": "Magnaporthe oryzae"
+  },
+  "rice-blight": {
+    "id": "rice-blight",
+    "name": "Bacterial leaf blight of rice",
+    "kind": "Bacterium",
+    "cause": "Xanthomonas oryzae pv. oryzae",
+    "early": "Leaf tips or margins develop water-soaked yellow streaks.",
+    "progress": "Long yellow-white lesions spread; severely affected foliage dries.",
+    "conditions": "Inspect after storms and avoid spreading infected leaf material.",
+    "stages": [
+      "seedling",
+      "vegetative",
+      "flowering",
+      "fruiting",
+      "harvest"
+    ],
+    "photo_query": "rice bacterial leaf blight"
+  },
+  "rice-brown-spot": {
+    "id": "rice-brown-spot",
+    "name": "Brown spot of rice",
+    "kind": "Fungus",
+    "cause": "Bipolaris oryzae",
+    "early": "Small oval brown spots appear on rice leaves.",
+    "progress": "Spots multiply and may affect glumes and grain quality.",
+    "conditions": "Nutrient stress and seed health should be checked along with infection.",
+    "stages": [
+      "seedling",
+      "vegetative",
+      "flowering",
+      "fruiting",
+      "harvest"
+    ],
+    "photo_query": "Bipolaris oryzae"
+  },
+  "sheath-blight": {
+    "id": "sheath-blight",
+    "name": "Sheath blight",
+    "kind": "Fungus",
+    "cause": "Rhizoctonia solani",
+    "early": "Oval green-grey lesions start on lower leaf sheaths.",
+    "progress": "Lesions spread upward and adjacent tillers become affected.",
+    "conditions": "Dense, humid canopies can favour spread between tillers.",
+    "stages": [
+      "vegetative",
+      "flowering",
+      "fruiting",
+      "harvest"
+    ],
+    "photo_query": "rice sheath blight"
+  },
+  "rice-tungro": {
+    "id": "rice-tungro",
+    "name": "Rice tungro",
+    "kind": "Virus",
+    "cause": "Rice tungro virus complex, transmitted by leafhoppers",
+    "early": "Young rice plants show yellow-orange leaves and reduced growth.",
+    "progress": "Plants remain stunted, tiller poorly and produce fewer filled grains.",
+    "conditions": "Compare affected patches and inspect leafhopper activity.",
+    "stages": [
+      "seedling",
+      "vegetative",
+      "flowering",
+      "fruiting",
+      "harvest"
+    ],
+    "photo_query": "rice tungro disease"
+  },
+  "false-smut": {
+    "id": "false-smut",
+    "name": "False smut of rice",
+    "kind": "Fungus",
+    "cause": "Ustilaginoidea virens",
+    "early": "Individual developing grains are replaced by swollen fungal balls.",
+    "progress": "Balls turn yellow-orange, then green-black as spores mature.",
+    "conditions": "Inspect panicles during grain development; do not infer risk from photos alone.",
+    "stages": [
+      "fruiting",
+      "harvest"
+    ],
+    "photo_query": "rice false smut"
+  },
+  "smut": {
+    "id": "smut",
+    "name": "Smut diseases of cereals",
+    "kind": "Fungus",
+    "cause": "Host-specific smut fungi",
+    "early": "Affected heads or kernels develop abnormal swelling or darkening.",
+    "progress": "Grain or head tissues are replaced by dark spore masses.",
+    "conditions": "Use clean seed and identify the host-specific smut before treatment.",
+    "stages": [
+      "flowering",
+      "fruiting",
+      "harvest"
+    ],
+    "photo_query": "Ustilago tritici"
+  },
+  "maize-blight": {
+    "id": "maize-blight",
+    "name": "Turcicum / northern leaf blight",
+    "kind": "Fungus",
+    "cause": "Exserohilum turcicum",
+    "early": "Long grey-green lesions begin on maize leaves.",
+    "progress": "Cigar-shaped brown lesions expand and reduce green leaf area.",
+    "conditions": "Inspect lower leaves after prolonged wet weather.",
+    "stages": [
+      "vegetative",
+      "flowering",
+      "fruiting",
+      "harvest"
+    ],
+    "photo_query": "maize northern leaf blight"
+  },
+  "groundnut-leaf-spot": {
+    "id": "groundnut-leaf-spot",
+    "name": "Early and late leaf spot of groundnut",
+    "kind": "Fungus",
+    "cause": "Passalora arachidicola and Nothopassalora personata",
+    "early": "Brown to dark spots appear on groundnut leaflets.",
+    "progress": "Spots multiply; infected foliage yellows and drops prematurely.",
+    "conditions": "Inspect both leaflet surfaces; early and late leaf spots differ.",
+    "stages": [
+      "vegetative",
+      "flowering",
+      "fruiting",
+      "harvest"
+    ],
+    "photo_query": "groundnut leaf spot disease"
+  },
+  "sigatoka": {
+    "id": "sigatoka",
+    "name": "Sigatoka leaf spots of banana",
+    "kind": "Fungus",
+    "cause": "Pseudocercospora species",
+    "early": "Small pale or dark streaks appear on banana leaves.",
+    "progress": "Streaks enlarge into dead patches and functional leaf area declines.",
+    "conditions": "Inspect recently unfurled leaves in humid conditions.",
+    "stages": [
+      "vegetative",
+      "flowering",
+      "fruiting",
+      "harvest"
+    ],
+    "photo_query": "banana Sigatoka leaf disease"
+  },
+  "panama": {
+    "id": "panama",
+    "name": "Panama disease of banana",
+    "kind": "Fungus",
+    "cause": "Fusarium oxysporum f. sp. cubense complex",
+    "early": "Older banana leaves yellow and droop around the plant.",
+    "progress": "Pseudostem vascular tissues discolour and the plant declines.",
+    "conditions": "Use clean planting material; strain identification requires specialist testing.",
+    "stages": [
+      "seedling",
+      "vegetative",
+      "flowering",
+      "fruiting",
+      "harvest"
+    ],
+    "photo_query": "banana Panama disease Fusarium"
+  },
+  "bunchy-top": {
+    "id": "bunchy-top",
+    "name": "Banana bunchy top",
+    "kind": "Virus",
+    "cause": "Banana bunchy top virus",
+    "early": "Dark green streaks may occur on veins or petioles.",
+    "progress": "Short, narrow upright leaves crowd at the top and plants fail to yield normally.",
+    "conditions": "Inspect suckers and banana aphids; obtain confirmation before rouging.",
+    "stages": [
+      "seedling",
+      "vegetative",
+      "flowering",
+      "fruiting",
+      "harvest"
+    ],
+    "photo_query": "banana bunchy top virus"
+  },
+  "citrus-canker": {
+    "id": "citrus-canker",
+    "name": "Citrus canker",
+    "kind": "Bacterium",
+    "cause": "Xanthomonas citri",
+    "early": "Small raised spots appear on citrus leaves or fruit.",
+    "progress": "Corky crater-like lesions develop yellow halos; severe infection causes leaf fall.",
+    "conditions": "Wind-driven rain and injured tissue favour spread.",
+    "stages": [
+      "vegetative",
+      "flowering",
+      "fruiting",
+      "harvest"
+    ],
+    "photo_query": "citrus canker leaf fruit"
+  },
+  "citrus-greening": {
+    "id": "citrus-greening",
+    "name": "Citrus greening / HLB",
+    "kind": "Bacterium",
+    "cause": "Candidatus Liberibacter species",
+    "early": "Leaves develop uneven, asymmetric blotchy mottling.",
+    "progress": "Shoots decline; fruits may be small, lopsided and poorly coloured.",
+    "conditions": "Distinguish from nutrient deficiency and seek diagnostic confirmation.",
+    "stages": [
+      "vegetative",
+      "flowering",
+      "fruiting",
+      "harvest"
+    ],
+    "photo_query": "citrus greening huanglongbing leaf"
+  },
+  "citrus-tristeza": {
+    "id": "citrus-tristeza",
+    "name": "Citrus tristeza",
+    "kind": "Virus",
+    "cause": "Citrus tristeza virus",
+    "early": "Trees may show poor vigour or leaf yellowing.",
+    "progress": "Susceptible combinations decline or develop stem pitting.",
+    "conditions": "Use certified planting material; symptoms depend on rootstock and strain.",
+    "stages": [
+      "vegetative",
+      "flowering",
+      "fruiting",
+      "harvest"
+    ],
+    "photo_query": "citrus tristeza virus stem pitting"
+  },
+  "papaya-ringspot": {
+    "id": "papaya-ringspot",
+    "name": "Papaya ringspot",
+    "kind": "Virus",
+    "cause": "Papaya ringspot virus",
+    "early": "Young leaves develop mosaic patterns and distortion.",
+    "progress": "Leaf blades narrow; fruit may show circular oily rings.",
+    "conditions": "Inspect young leaves and nearby aphids; photos do not confirm the virus.",
+    "stages": [
+      "seedling",
+      "vegetative",
+      "flowering",
+      "fruiting",
+      "harvest"
+    ],
+    "photo_query": "papaya ringspot virus"
+  },
+  "apple-scab": {
+    "id": "apple-scab",
+    "name": "Apple scab",
+    "kind": "Fungus",
+    "cause": "Venturia inaequalis",
+    "early": "Olive, velvety patches appear on young leaves or fruit.",
+    "progress": "Lesions darken; fruit becomes scabby and may crack.",
+    "conditions": "Wet periods around new leaf growth and fruit set favour infection.",
+    "stages": [
+      "vegetative",
+      "flowering",
+      "fruiting",
+      "harvest"
+    ],
+    "photo_query": "apple scab Venturia"
+  },
+  "fire-blight": {
+    "id": "fire-blight",
+    "name": "Fire blight",
+    "kind": "Bacterium",
+    "cause": "Erwinia amylovora",
+    "early": "Blossoms brown and young shoots begin to wilt.",
+    "progress": "Shoots may form a hooked tip; cankers develop and affected growth blackens.",
+    "conditions": "Inspect blossoms and young shoots; confirm before extensive pruning.",
+    "stages": [
+      "vegetative",
+      "flowering",
+      "fruiting",
+      "harvest"
+    ],
+    "photo_query": "Erwinia amylovora"
+  },
+  "peach-leaf-curl": {
+    "id": "peach-leaf-curl",
+    "name": "Peach leaf curl",
+    "kind": "Fungus",
+    "cause": "Taphrina deformans",
+    "early": "Emerging leaves become puckered and reddish.",
+    "progress": "Leaves thicken, distort and may drop early.",
+    "conditions": "Cool, wet weather during leaf emergence favours infection.",
+    "stages": [
+      "vegetative",
+      "flowering",
+      "fruiting"
+    ],
+    "photo_query": "peach leaf curl Taphrina"
+  },
+  "brown-rot": {
+    "id": "brown-rot",
+    "name": "Brown rot of stone fruit",
+    "kind": "Fungus",
+    "cause": "Monilinia species",
+    "early": "Blossoms wilt or ripening fruit develops brown spots.",
+    "progress": "Soft brown decay spreads; spore cushions and mummified fruit may form.",
+    "conditions": "Inspect blossoms and damaged ripening fruit in wet weather.",
+    "stages": [
+      "flowering",
+      "fruiting",
+      "harvest"
+    ],
+    "photo_query": "Monilinia brown rot peach"
+  },
+  "grape-black-rot": {
+    "id": "grape-black-rot",
+    "name": "Black rot of grape",
+    "kind": "Fungus",
+    "cause": "Phyllosticta ampelicida",
+    "early": "Tan leaf spots or small brown berry lesions appear.",
+    "progress": "Berries shrivel into hard black mummies.",
+    "conditions": "Inspect foliage and young berries after rainy periods.",
+    "stages": [
+      "vegetative",
+      "flowering",
+      "fruiting",
+      "harvest"
+    ],
+    "photo_query": "Guignardia bidwellii"
+  },
+  "red-rot": {
+    "id": "red-rot",
+    "name": "Red rot of sugarcane",
+    "kind": "Fungus",
+    "cause": "Colletotrichum falcatum",
+    "early": "Canes lose vigour and top leaves may yellow.",
+    "progress": "Split canes show red internal tissue interrupted by white patches.",
+    "conditions": "Inspect setts and declining stools; use clean planting cane.",
+    "stages": [
+      "seedling",
+      "vegetative",
+      "fruiting",
+      "harvest"
+    ],
+    "photo_query": "Colletotrichum falcatum"
+  },
+  "coffee-rust": {
+    "id": "coffee-rust",
+    "name": "Coffee leaf rust",
+    "kind": "Fungus",
+    "cause": "Hemileia vastatrix",
+    "early": "Pale patches appear on the upper leaf surface.",
+    "progress": "Orange powdery pustules form underneath; affected leaves fall.",
+    "conditions": "Inspect leaf undersides, especially in humid canopies.",
+    "stages": [
+      "vegetative",
+      "flowering",
+      "fruiting",
+      "harvest"
+    ],
+    "photo_query": "coffee leaf rust Hemileia"
+  },
+  "rose-black-spot": {
+    "id": "rose-black-spot",
+    "name": "Black spot of rose",
+    "kind": "Fungus",
+    "cause": "Diplocarpon rosae",
+    "early": "Dark, often fringed spots appear on rose leaves.",
+    "progress": "Yellowing develops around spots and leaves drop prematurely.",
+    "conditions": "Prolonged leaf wetness favours repeated infections.",
+    "stages": [
+      "vegetative",
+      "flowering",
+      "fruiting",
+      "harvest"
+    ],
+    "photo_query": "rose black spot Diplocarpon"
+  },
+  "sooty-mould": {
+    "id": "sooty-mould",
+    "name": "Sooty mould",
+    "kind": "Fungus",
+    "cause": "Surface-growing fungi associated with insect honeydew",
+    "early": "A dark film develops on sticky leaves or fruit.",
+    "progress": "Black surface growth can cover large areas and reduce light reaching leaves.",
+    "conditions": "Look for sap-sucking insects producing honeydew.",
+    "stages": [
+      "vegetative",
+      "flowering",
+      "fruiting",
+      "harvest"
+    ],
+    "photo_query": "sooty mold leaves"
+  },
+  "blossom-end-rot": {
+    "id": "blossom-end-rot",
+    "name": "Blossom-end rot",
+    "kind": "Non-infectious disorder",
+    "cause": "Disrupted calcium supply to developing fruit, often linked to water stress",
+    "early": "A small water-soaked patch forms at the blossom end.",
+    "progress": "The patch becomes dark, sunken and leathery as the fruit grows.",
+    "conditions": "Check watering consistency and roots; this is not a contagious fungus.",
+    "stages": [
+      "fruiting",
+      "harvest"
+    ],
+    "photo_query": "tomato blossom end rot"
+  },
+  "aphids": {
+    "id": "aphids",
+    "name": "Aphids",
+    "kind": "Insect",
+    "cause": "Aphididae; species depend on the crop",
+    "early": "Colonies gather on tender shoots, buds or leaf undersides.",
+    "progress": "Leaves curl and honeydew attracts ants or sooty mould; some species transmit viruses.",
+    "conditions": "Inspect new growth and protect natural enemies.",
+    "stages": [
+      "seedling",
+      "vegetative",
+      "flowering",
+      "fruiting",
+      "harvest"
+    ],
+    "photo_query": "aphid colony leaf"
+  },
+  "whiteflies": {
+    "id": "whiteflies",
+    "name": "Whiteflies",
+    "kind": "Insect",
+    "cause": "Whitefly species including Bemisia tabaci",
+    "early": "Tiny white adults fly up when leaf undersides are disturbed.",
+    "progress": "Nymphs, honeydew and leaf yellowing accumulate; some species transmit viruses.",
+    "conditions": "Check leaf undersides, not only flying adults.",
+    "stages": [
+      "seedling",
+      "vegetative",
+      "flowering",
+      "fruiting",
+      "harvest"
+    ],
+    "photo_query": "Bemisia tabaci whitefly leaf"
+  },
+  "thrips": {
+    "id": "thrips",
+    "name": "Thrips",
+    "kind": "Insect",
+    "cause": "Thrips species; vectors differ by species",
+    "early": "Leaves or petals develop pale, silvery feeding scars.",
+    "progress": "Distortion, browning or corky scars increase; some thrips transmit viruses.",
+    "conditions": "Tap flowers over a pale sheet and inspect young folded leaves.",
+    "stages": [
+      "seedling",
+      "vegetative",
+      "flowering",
+      "fruiting",
+      "harvest"
+    ],
+    "photo_query": "Thrips tabaci insect"
+  },
+  "spider-mites": {
+    "id": "spider-mites",
+    "name": "Spider mites",
+    "kind": "Mite",
+    "cause": "Tetranychus and related spider-mite species",
+    "early": "Fine pale stippling appears on leaves.",
+    "progress": "Bronzing, drying and fine webbing develop during heavy infestations.",
+    "conditions": "Inspect leaf undersides with a hand lens, especially in dry conditions.",
+    "stages": [
+      "vegetative",
+      "flowering",
+      "fruiting",
+      "harvest"
+    ],
+    "photo_query": "Tetranychus urticae"
+  },
+  "mealybugs": {
+    "id": "mealybugs",
+    "name": "Mealybugs",
+    "kind": "Insect",
+    "cause": "Pseudococcidae; species vary by host",
+    "early": "White cottony insects cluster in sheltered plant parts.",
+    "progress": "Honeydew, black surface mould and plant weakening increase.",
+    "conditions": "Inspect leaf axils, fruit clusters and ant activity.",
+    "stages": [
+      "seedling",
+      "vegetative",
+      "flowering",
+      "fruiting",
+      "harvest"
+    ],
+    "photo_query": "Phenacoccus solenopsis"
+  },
+  "scales": {
+    "id": "scales",
+    "name": "Scale insects",
+    "kind": "Insect",
+    "cause": "Armoured or soft scale species",
+    "early": "Small fixed shell-like or soft bumps appear on plant tissues.",
+    "progress": "Heavy colonies weaken shoots; soft scales may produce honeydew.",
+    "conditions": "Examine twigs and leaves closely; species identification matters.",
+    "stages": [
+      "vegetative",
+      "flowering",
+      "fruiting",
+      "harvest"
+    ],
+    "photo_query": "scale insect infestation branch"
+  },
+  "leafminers": {
+    "id": "leafminers",
+    "name": "Leaf miners",
+    "kind": "Insect",
+    "cause": "Liriomyza and other leaf-mining insects",
+    "early": "Thin winding mines appear within leaves.",
+    "progress": "Mines broaden or merge and reduce functioning leaf tissue.",
+    "conditions": "Hold a leaf against the light and inspect fresh mines.",
+    "stages": [
+      "seedling",
+      "vegetative",
+      "flowering",
+      "fruiting",
+      "harvest"
+    ],
+    "photo_query": "Liriomyza leaf mine leaf"
+  },
+  "leafhoppers": {
+    "id": "leafhoppers",
+    "name": "Leafhoppers / jassids",
+    "kind": "Insect",
+    "cause": "Cicadellidae; host-specific species",
+    "early": "Leaf edges yellow where small jumping insects feed.",
+    "progress": "Margins curl and scorch; severe feeding causes hopperburn.",
+    "conditions": "Inspect leaf undersides and avoid confusing adults with harmless insects.",
+    "stages": [
+      "seedling",
+      "vegetative",
+      "flowering",
+      "fruiting",
+      "harvest"
+    ],
+    "photo_query": "Amrasca biguttula"
+  },
+  "fruit-borer": {
+    "id": "fruit-borer",
+    "name": "Fruit and pod borer",
+    "kind": "Insect",
+    "cause": "Helicoverpa armigera",
+    "early": "Small feeding holes or damaged flower buds appear.",
+    "progress": "Caterpillars bore into fruit or pods, leaving holes and frass.",
+    "conditions": "Inspect flowers and developing produce; confirm the caterpillar species.",
+    "stages": [
+      "flowering",
+      "fruiting",
+      "harvest"
+    ],
+    "photo_query": "Helicoverpa armigera larva"
+  },
+  "tobacco-caterpillar": {
+    "id": "tobacco-caterpillar",
+    "name": "Tobacco caterpillar",
+    "kind": "Insect",
+    "cause": "Spodoptera litura",
+    "early": "Young larvae scrape leaves together near an egg mass.",
+    "progress": "Older larvae feed heavily, leaving irregular holes or extensive defoliation.",
+    "conditions": "Check lower foliage and field edges for young larval groups.",
+    "stages": [
+      "seedling",
+      "vegetative",
+      "flowering",
+      "fruiting",
+      "harvest"
+    ],
+    "photo_query": "Spodoptera litura larva"
+  },
+  "fall-armyworm": {
+    "id": "fall-armyworm",
+    "name": "Fall armyworm",
+    "kind": "Insect",
+    "cause": "Spodoptera frugiperda",
+    "early": "Young maize leaves show pale scraping and small holes.",
+    "progress": "Ragged whorl damage and frass accumulate; larvae may attack ears.",
+    "conditions": "Open the whorl carefully and distinguish from other armyworms.",
+    "stages": [
+      "seedling",
+      "vegetative",
+      "flowering",
+      "fruiting",
+      "harvest"
+    ],
+    "photo_query": "Spodoptera frugiperda larva"
+  },
+  "cutworms": {
+    "id": "cutworms",
+    "name": "Cutworms",
+    "kind": "Insect",
+    "cause": "Agrotis and related noctuid caterpillars",
+    "early": "Seedlings are cut or chewed near soil level.",
+    "progress": "Missing plants occur in patches; larvae hide in nearby soil by day.",
+    "conditions": "Check around freshly cut plants at dusk or early morning.",
+    "stages": [
+      "seedling",
+      "vegetative"
+    ],
+    "photo_query": "Agrotis ipsilon caterpillar"
+  },
+  "fruit-flies": {
+    "id": "fruit-flies",
+    "name": "Fruit flies",
+    "kind": "Insect",
+    "cause": "Tephritid fruit flies; species depend on crop",
+    "early": "Small punctures or sap marks appear on developing produce.",
+    "progress": "Maggots feed inside; fruit softens, rots or drops.",
+    "conditions": "Inspect fallen or prematurely soft fruit and identify the fruit-fly species.",
+    "stages": [
+      "fruiting",
+      "harvest"
+    ],
+    "photo_query": "Bactrocera dorsalis fruit fly"
+  },
+  "diamondback": {
+    "id": "diamondback",
+    "name": "Diamondback moth",
+    "kind": "Insect",
+    "cause": "Plutella xylostella",
+    "early": "Small pale leaf windows appear on brassicas.",
+    "progress": "Shot holes and damaged outer leaves or heads develop.",
+    "conditions": "Inspect undersides and folded leaves for small, wriggling larvae.",
+    "stages": [
+      "seedling",
+      "vegetative",
+      "fruiting",
+      "harvest"
+    ],
+    "photo_query": "Plutella xylostella larva cabbage"
+  },
+  "red-pumpkin-beetle": {
+    "id": "red-pumpkin-beetle",
+    "name": "Red pumpkin beetle",
+    "kind": "Insect",
+    "cause": "Aulacophora foveicollis",
+    "early": "Seedling leaves develop round feeding holes.",
+    "progress": "Heavy adult feeding damages seedlings and flowers; larvae feed below ground.",
+    "conditions": "Inspect emerging cucurbit seedlings and flowers.",
+    "stages": [
+      "seedling",
+      "vegetative",
+      "flowering"
+    ],
+    "photo_query": "Aulacophora foveicollis beetle"
+  },
+  "brinjal-borer": {
+    "id": "brinjal-borer",
+    "name": "Brinjal shoot and fruit borer",
+    "kind": "Insect",
+    "cause": "Leucinodes orbonalis",
+    "early": "Tender shoot tips wilt or show an entry hole.",
+    "progress": "Larvae tunnel in shoots and fruits, producing frass-filled holes.",
+    "conditions": "Inspect wilted tips and recently set fruits.",
+    "stages": [
+      "vegetative",
+      "flowering",
+      "fruiting",
+      "harvest"
+    ],
+    "photo_query": "Leucinodes orbonalis larva"
+  },
+  "okra-borer": {
+    "id": "okra-borer",
+    "name": "Okra shoot and fruit borer",
+    "kind": "Insect",
+    "cause": "Earias species",
+    "early": "Tender shoots wilt after internal feeding.",
+    "progress": "Flower buds and pods develop bore holes with frass.",
+    "conditions": "Inspect shoot tips, buds and young pods.",
+    "stages": [
+      "vegetative",
+      "flowering",
+      "fruiting",
+      "harvest"
+    ],
+    "photo_query": "Earias vittella moth"
+  },
+  "rice-stem-borer": {
+    "id": "rice-stem-borer",
+    "name": "Rice yellow stem borer",
+    "kind": "Insect",
+    "cause": "Scirpophaga incertulas",
+    "early": "Central shoots wilt, producing dead hearts.",
+    "progress": "Later attack causes white, empty panicles that pull out easily.",
+    "conditions": "Inspect affected tillers and split stems to check for larvae.",
+    "stages": [
+      "vegetative",
+      "flowering",
+      "fruiting",
+      "harvest"
+    ],
+    "photo_query": "Scirpophaga incertulas moth"
+  },
+  "rice-planthopper": {
+    "id": "rice-planthopper",
+    "name": "Brown planthopper",
+    "kind": "Insect",
+    "cause": "Nilaparvata lugens",
+    "early": "Small brown insects gather near the base of rice tillers.",
+    "progress": "Yellow-brown patches and hopperburn appear under heavy feeding.",
+    "conditions": "Inspect lower stems, not just the leaf canopy.",
+    "stages": [
+      "vegetative",
+      "flowering",
+      "fruiting",
+      "harvest"
+    ],
+    "photo_query": "Nilaparvata lugens brown planthopper"
+  },
+  "rice-leaffolder": {
+    "id": "rice-leaffolder",
+    "name": "Rice leaf folder",
+    "kind": "Insect",
+    "cause": "Cnaphalocrocis medinalis",
+    "early": "Leaves are folded lengthwise and held with silk.",
+    "progress": "White feeding streaks develop inside folded leaves.",
+    "conditions": "Open a fresh fold and check for a living caterpillar.",
+    "stages": [
+      "vegetative",
+      "flowering",
+      "fruiting",
+      "harvest"
+    ],
+    "photo_query": "Cnaphalocrocis medinalis"
+  },
+  "shoot-fly": {
+    "id": "shoot-fly",
+    "name": "Shoot fly",
+    "kind": "Insect",
+    "cause": "Atherigona species",
+    "early": "Young central shoots wilt after internal larval feeding.",
+    "progress": "Dead hearts and poor establishment develop in affected seedlings.",
+    "conditions": "Inspect damaged seedlings and verify the crop-specific fly.",
+    "stages": [
+      "seedling",
+      "vegetative"
+    ],
+    "photo_query": "Atherigona soccata fly"
+  },
+  "pink-bollworm": {
+    "id": "pink-bollworm",
+    "name": "Pink bollworm",
+    "kind": "Insect",
+    "cause": "Pectinophora gossypiella",
+    "early": "Flowers may form rosettes or young bolls show subtle entry marks.",
+    "progress": "Pink larvae feed inside bolls and damage seeds and lint.",
+    "conditions": "Inspect flowers and split sample bolls; outward symptoms can be limited.",
+    "stages": [
+      "flowering",
+      "fruiting",
+      "harvest"
+    ],
+    "photo_query": "Pectinophora gossypiella"
+  },
+  "mustard-aphid": {
+    "id": "mustard-aphid",
+    "name": "Mustard aphid",
+    "kind": "Insect",
+    "cause": "Lipaphis erysimi",
+    "early": "Pale green aphids gather on inflorescences and tender shoots.",
+    "progress": "Dense colonies stunt growth and reduce normal pod development.",
+    "conditions": "Check flowering shoots and preserve ladybirds and other predators.",
+    "stages": [
+      "vegetative",
+      "flowering",
+      "fruiting",
+      "harvest"
+    ],
+    "photo_query": "Lipaphis erysimi aphid"
+  },
+  "white-grubs": {
+    "id": "white-grubs",
+    "name": "White grubs",
+    "kind": "Insect",
+    "cause": "Root-feeding scarab beetle larvae",
+    "early": "Plants wilt or grow unevenly as roots are eaten.",
+    "progress": "Root loss causes patchy plant death or poor anchorage.",
+    "conditions": "Inspect root zones near affected plants and identify the grub.",
+    "stages": [
+      "seedling",
+      "vegetative",
+      "fruiting",
+      "harvest"
+    ],
+    "photo_query": "white grub scarabaeidae larva"
+  },
+  "root-knot": {
+    "id": "root-knot",
+    "name": "Root-knot nematodes",
+    "kind": "Nematode",
+    "cause": "Meloidogyne species",
+    "early": "Plants are stunted or wilt despite apparently adequate water.",
+    "progress": "Knotted root galls and poor root function reduce growth and yield.",
+    "conditions": "Wash roots gently and distinguish galls from normal legume nodules.",
+    "stages": [
+      "seedling",
+      "vegetative",
+      "flowering",
+      "fruiting",
+      "harvest"
+    ],
+    "photo_query": "Meloidogyne root knot galls"
+  },
+  "banana-weevil": {
+    "id": "banana-weevil",
+    "name": "Banana rhizome weevil",
+    "kind": "Insect",
+    "cause": "Cosmopolites sordidus",
+    "early": "Plants lose vigour; holes may occur in the corm.",
+    "progress": "Larval tunnels weaken the corm and can cause snapping or toppling.",
+    "conditions": "Use clean suckers and inspect cut corm surfaces.",
+    "stages": [
+      "seedling",
+      "vegetative",
+      "flowering",
+      "fruiting",
+      "harvest"
+    ],
+    "photo_query": "Cosmopolites sordidus"
+  },
+  "citrus-psyllid": {
+    "id": "citrus-psyllid",
+    "name": "Asian citrus psyllid",
+    "kind": "Insect",
+    "cause": "Diaphorina citri",
+    "early": "Small insects and curled or distorted leaves occur on tender flush.",
+    "progress": "Nymphs and waxy deposits accumulate; the insect can spread citrus greening.",
+    "conditions": "Inspect new flush and confirm identity before selecting control.",
+    "stages": [
+      "vegetative",
+      "flowering",
+      "fruiting",
+      "harvest"
+    ],
+    "photo_query": "Diaphorina citri"
+  },
+  "citrus-leafminer": {
+    "id": "citrus-leafminer",
+    "name": "Citrus leaf miner",
+    "kind": "Insect",
+    "cause": "Phyllocnistis citrella",
+    "early": "Silvery winding mines appear in young citrus leaves.",
+    "progress": "Mined leaves distort and curl as the flush expands.",
+    "conditions": "Inspect tender flush; old hardened leaves show past injury.",
+    "stages": [
+      "seedling",
+      "vegetative",
+      "flowering",
+      "fruiting"
+    ],
+    "photo_query": "Phyllocnistis citrella leaf mines"
+  },
+  "rhinoceros-beetle": {
+    "id": "rhinoceros-beetle",
+    "name": "Coconut rhinoceros beetle",
+    "kind": "Insect",
+    "cause": "Oryctes rhinoceros",
+    "early": "Newly opened fronds show characteristic cut notches.",
+    "progress": "Crown boring damages young tissues and can weaken palms.",
+    "conditions": "Inspect the crown safely and remove breeding material around the crop.",
+    "stages": [
+      "seedling",
+      "vegetative",
+      "flowering",
+      "fruiting",
+      "harvest"
+    ],
+    "photo_query": "Oryctes rhinoceros"
+  },
+  "red-palm-weevil": {
+    "id": "red-palm-weevil",
+    "name": "Red palm weevil",
+    "kind": "Insect",
+    "cause": "Rhynchophorus ferrugineus",
+    "early": "Trunk or crown wounds may ooze and contain chewed fibres.",
+    "progress": "Internal larval tunnelling can cause severe crown decline or palm collapse.",
+    "conditions": "Seek prompt local inspection; internal damage can precede obvious symptoms.",
+    "stages": [
+      "vegetative",
+      "flowering",
+      "fruiting",
+      "harvest"
+    ],
+    "photo_query": "Rhynchophorus ferrugineus adult"
+  },
+  "coffee-berry-borer": {
+    "id": "coffee-berry-borer",
+    "name": "Coffee berry borer",
+    "kind": "Insect",
+    "cause": "Hypothenemus hampei",
+    "early": "A small round hole appears near the berry tip.",
+    "progress": "Larvae tunnel inside berries and damage the beans.",
+    "conditions": "Inspect green and ripening berries and remove leftover infested berries.",
+    "stages": [
+      "fruiting",
+      "harvest"
+    ],
+    "photo_query": "Hypothenemus hampei coffee berry"
+  },
+  "tea-mosquito": {
+    "id": "tea-mosquito",
+    "name": "Tea mosquito bug",
+    "kind": "Insect",
+    "cause": "Helopeltis species",
+    "early": "Dark feeding punctures develop on tender shoots or panicles.",
+    "progress": "Shoot dieback and flower or young nut injury increase.",
+    "conditions": "Inspect tender flush and flowering panicles.",
+    "stages": [
+      "vegetative",
+      "flowering",
+      "fruiting",
+      "harvest"
+    ],
+    "photo_query": "Helopeltis insect"
+  },
+  "blossom-thrips": {
+    "id": "blossom-thrips",
+    "name": "Flower thrips",
+    "kind": "Insect",
+    "cause": "Flower-feeding thrips species",
+    "early": "Petals or buds show fine pale scars and small insects.",
+    "progress": "Buds may distort or fail to open normally; flowers brown.",
+    "conditions": "Inspect unopened buds and tap flowers over a light sheet.",
+    "stages": [
+      "flowering",
+      "fruiting",
+      "harvest"
+    ],
+    "photo_query": "Frankliniella occidentalis flower thrips"
+  },
+  "lotus-aphid": {
+    "id": "lotus-aphid",
+    "name": "Water-lily / plum aphid",
+    "kind": "Insect",
+    "cause": "Rhopalosiphum nymphaeae",
+    "early": "Dark aphid colonies gather on emergent aquatic leaves.",
+    "progress": "Sticky honeydew and distorted new growth develop.",
+    "conditions": "Inspect emergent leaves; protect pond animals when considering any treatment.",
+    "stages": [
+      "vegetative",
+      "flowering",
+      "fruiting",
+      "harvest"
+    ],
+    "photo_query": "Rhopalosiphum nymphaeae aphid"
+  },
+  "sweetpotato-weevil": {
+    "id": "sweetpotato-weevil",
+    "name": "Sweet potato weevil",
+    "kind": "Insect",
+    "cause": "Cylas formicarius",
+    "early": "Small punctures and feeding marks appear on stems or storage roots.",
+    "progress": "Larval tunnels develop inside roots; affected roots become unmarketable.",
+    "conditions": "Use clean vines and inspect roots and field residues.",
+    "stages": [
+      "seedling",
+      "vegetative",
+      "fruiting",
+      "harvest"
+    ],
+    "photo_query": "Cylas formicarius weevil"
+  },
+  "sweetpotato-black-rot": {
+    "id": "sweetpotato-black-rot",
+    "name": "Black rot of sweet potato",
+    "kind": "Fungus",
+    "cause": "Ceratocystis fimbriata",
+    "early": "Dark, firm, circular spots develop on storage roots.",
+    "progress": "Dark lesions enlarge; affected plants or stored roots deteriorate.",
+    "conditions": "Inspect planting material and handle roots without injury.",
+    "stages": [
+      "vegetative",
+      "fruiting",
+      "harvest"
+    ],
+    "photo_query": "sweet potato black rot Ceratocystis"
+  },
+  "jasmine-budworm": {
+    "id": "jasmine-budworm",
+    "name": "Jasmine budworm",
+    "kind": "Insect",
+    "cause": "Hendecasis duplifascialis",
+    "early": "Small holes appear in unopened flower buds.",
+    "progress": "Caterpillars feed within buds, which brown or fail to open.",
+    "conditions": "Inspect unopened buds and remove infested material.",
+    "stages": [
+      "flowering",
+      "fruiting",
+      "harvest"
+    ],
+    "photo_query": "Hendecasis duplifascialis"
+  },
+  "lotus-southern-blight": {
+    "id": "lotus-southern-blight",
+    "name": "Southern blight of lotus",
+    "kind": "Fungus",
+    "cause": "Agroathelia rolfsii, formerly Sclerotium rolfsii",
+    "early": "A published Florida record describes large leaf lesions on sacred lotus.",
+    "progress": "The pathogen was isolated from symptomatic tissue; local confirmation is essential.",
+    "conditions": "This is a research host record from Florida, not evidence of an outbreak in India.",
+    "stages": [
+      "vegetative"
+    ],
+    "photo_query": "Sclerotium rolfsii southern blight"
+  }
+}

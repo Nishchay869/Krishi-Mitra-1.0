@@ -1,0 +1,66 @@
+export const experiences = {
+  grow: {
+    number: '01', label: 'Plan & Grow', title: 'A good harvest starts', accent: 'below the surface.',
+    intro: 'Know your soil. Understand your growing conditions. Give your next crop a more thoughtful beginning.', image: 'rice', theme: 'grow',
+    statement: 'Your field has a story.', statementAccent: 'Start by listening.',
+    description: 'A crop that thrives in one field may struggle in another. Bring together soil nutrients, rainfall, temperature, and the realities of your farm before deciding what to grow.',
+    primary: 'crop', primaryLabel: 'Find your next crop', secondary: 'yield', secondaryLabel: 'Explore yield estimates',
+    pillars: [
+      ['Understand the ground', 'A recent soil test gives useful context about nitrogen, phosphorus, potassium, and pH. Use measured values when you have them, rather than guessing.'],
+      ['Work with your climate', 'Temperature, humidity, and rainfall shape what can grow well. Consider local conditions alongside water access and your crop calendar.'],
+      ['Plan beyond planting', 'Think through inputs, labour, irrigation, and a route to market. A recommendation is a starting point for a practical farm plan.'],
+    ],
+    stages: [
+      { title: 'Read your soil', eyebrow: 'BEFORE YOU SOW', description: 'Gather the essentials before opening the crop advisor. A little preparation makes the inputs more useful.', items: ['Keep your latest soil report nearby.', 'Check the units used for nutrient values.', 'Note pH and the date the sample was collected.'], route: 'crop', cta: 'Open Crop Advisor' },
+      { title: 'Choose your crop', eyebrow: 'MATCH CROP TO CONTEXT', description: 'Look at the recommendation together with local growing knowledge, seasonal suitability, and available resources.', items: ['Review water availability and local rainfall.', 'Read growing conditions in the crop library.', 'Discuss unfamiliar choices with a local agronomist.'], route: 'library', cta: 'Explore growing conditions' },
+      { title: 'Look ahead', eyebrow: 'PREPARE FOR THE SEASON', description: 'Explore a yield estimate and think about the resources needed to take your crop from sowing to harvest.', items: ['Choose the relevant crop, season, and state.', 'Treat estimates as planning aids, not guarantees.', 'Revisit the plan when weather or field conditions change.'], route: 'yield', cta: 'Explore Yield Estimate' },
+    ],
+    featureTitle: 'Build a plan around', featureAccent: 'your field.',
+    features: [['crop', 'Crop Advisor', 'Bring soil and climate inputs together to explore a crop recommendation.'], ['yield', 'Yield Estimate', 'Look ahead using your crop, season, and state as a starting point.'], ['library', 'Crop Library', 'Read about growing conditions, cultivation, and crop care.']],
+    question: 'What if I do not have a soil test?', answer: 'You can still explore the crop library and learn about growing conditions. For recommendations that depend on soil nutrients, a current local soil test provides better context than guessed values.',
+    closing: 'Give your next season', closingAccent: 'a stronger beginning.',
+  },
+  care: {
+    number: '02', label: 'Plant Care', title: 'Look closer.', accent: 'Care a little smarter.',
+    intro: 'From an unfamiliar mark on a leaf to a nutrient calculation, turn observations into a more informed next step.', image: 'cotton', theme: 'care',
+    statement: 'Small signs deserve', statementAccent: 'a closer look.',
+    description: 'Plant health is about patterns: where a mark appears, how quickly it spreads, and what has changed in the field. Combine a clear photo with field observations before making treatment decisions.',
+    primary: 'disease', primaryLabel: 'Check a leaf', secondary: 'fertilizer', secondaryLabel: 'Calculate fertilizer',
+    pillars: [
+      ['Observe before you act', 'Look at more than one plant. Note affected leaves, the pattern across the field, recent weather, and any changes in irrigation or inputs.'],
+      ['Capture useful evidence', 'Photograph the affected leaf in indirect daylight. Keep it sharp, fill the frame, and avoid heavy shadows or distracting backgrounds.'],
+      ['Choose a careful next step', 'Use the result to explore possible causes. Confirm important treatment decisions with local agricultural expertise and follow product labels.'],
+    ],
+    stages: [
+      { title: 'Observe the plant', eyebrow: 'START IN THE FIELD', description: 'A leaf photo is useful, but the surrounding story matters too. Make a few observations before opening the disease tool.', items: ['Check both sides of the affected leaf.', 'Look for a similar pattern on nearby plants.', 'Note when symptoms first appeared.'], route: 'library', cta: 'Read crop care guidance' },
+      { title: 'Check a leaf', eyebrow: 'MAKE THE PHOTO COUNT', description: 'A clear, well-lit photo gives the tool a better starting point. An uncertain result is a reason to gather more evidence.', items: ['Hold the camera steady and focus on the leaf.', 'Use natural light without harsh glare.', 'Treat a suggested cause as a lead to investigate.'], route: 'disease', cta: 'Open Disease Check' },
+      { title: 'Plan your inputs', eyebrow: 'CARE WITH CONTEXT', description: 'Use a recommended nutrient application rate to calculate fertilizer quantities for your farm.', items: ['Check the recommended rate and its units.', 'Use the correct field area and fertilizer product.', 'Follow local advice on timing and application.'], route: 'fertilizer', cta: 'Open Fertilizer Calculator' },
+    ],
+    featureTitle: 'Thoughtful care.', featureAccent: 'From leaf to root.',
+    features: [['disease', 'Disease Check', 'Share a leaf photo to explore a possible cause and next steps.'], ['fertilizer', 'Fertilizer Calculator', 'Turn nutrient recommendations into quantities for your field.'], ['library', 'Crop Library', 'Build context about cultivation and the crop you are caring for.']],
+    question: 'Is a photo enough to confirm a disease?', answer: 'No. Similar symptoms can have different causes, and photo quality affects the result. Use the tool to explore possibilities, then confirm significant treatment decisions with a qualified local expert.',
+    closing: 'A little attention.', closingAccent: 'A healthier way forward.',
+  },
+  season: {
+    number: '03', label: 'Season & Markets', title: 'Read the skies.', accent: 'See what comes next.',
+    intro: 'Bring forecasts, farm tasks, and mandi prices into view. Make room for a better-informed day on the farm.', image: 'sugarcane', theme: 'season',
+    statement: 'Every season moves.', statementAccent: 'Keep your context close.',
+    description: 'A changing forecast can reshape a day’s work. A quoted market price can help start a conversation. Look at location, timing, and source details before turning information into action.',
+    primary: 'weather', primaryLabel: 'See your forecast', secondary: 'market', secondaryLabel: 'Explore mandi prices',
+    pillars: [
+      ['Start with your location', 'Check that your forecast represents the place you farm. Local conditions and recent rainfall are important context for every outdoor task.'],
+      ['Look for a useful window', 'Use the forecast alongside field conditions when considering irrigation or other work. Check again before a weather-sensitive task.'],
+      ['Compare with care', 'Mandi prices depend on market, date, variety, quality, and units. A reference price is not a guaranteed offer for your produce.'],
+    ],
+    stages: [
+      { title: 'Check the forecast', eyebrow: 'BEFORE THE DAY BEGINS', description: 'Look ahead at the forecast and advisory for your location, then compare it with what you see in the field.', items: ['Confirm the location before reading the forecast.', 'Check rainfall, temperature, and relevant advisories.', 'Recheck when conditions change.'], route: 'weather', cta: 'Open Weather & Advisory' },
+      { title: 'Plan your work', eyebrow: 'FIND YOUR NEXT WINDOW', description: 'Use forecast context to consider your next farm task. Local conditions, product labels, and expert advice still matter.', items: ['Consider recent rain and soil moisture.', 'Read advisory details before acting.', 'Allow flexibility for unexpected weather.'], route: 'weather', cta: 'Review the advisory' },
+      { title: 'Explore the market', eyebrow: 'BEFORE YOU SELL', description: 'Compare available mandi information to prepare better questions about where and when to sell.', items: ['Match the crop and variety where available.', 'Check market, price date, and quoted units.', 'Consider quality, transport, fees, and actual buyer offers.'], route: 'market', cta: 'Open Market Prices' },
+    ],
+    featureTitle: 'A clearer view of', featureAccent: 'the days ahead.',
+    features: [['weather', 'Weather & Advisory', 'Explore a five-day forecast and practical advisory context.'], ['market', 'Market Prices', 'Look up available mandi prices and their reporting context.'], ['chat', 'Ask Assistant', 'Bring your crop, location, and question into one conversation.']],
+    question: 'Are market prices the amount I will receive?', answer: 'No. Reported prices are reference information from a particular market and date. Your actual offer can vary with quality, variety, transport costs, fees, and buyer demand. Confirm the details locally before selling.',
+    closing: 'Meet the next season', closingAccent: 'with a clearer view.',
+  },
+} as const
+export type ExperienceKey = keyof typeof experiences

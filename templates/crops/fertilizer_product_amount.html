@@ -1,0 +1,7 @@
+{% load i18n farm_i18n %}<div class="fertilizer-product-amount" role="group" aria-label="{{ product.short_name|ui_text }} ({{ product.grade }})">
+  <strong>{{ product.short_name|ui_text }}</strong>
+  <small>{{ product.grade }}</small>
+  <span class="fertilizer-product-weight">{{ product.total|floatformat:2 }} kg</span>
+  {% if show_per_unit %}<small>{{ product.per_unit|floatformat:4 }} {{ per_unit_label }}</small>{% endif %}
+  <small>{{ product.bags|floatformat:2 }} {% translate 'bags' %} · {{ product.bag_kg }} kg/{% translate 'bag' %}</small>
+</div>

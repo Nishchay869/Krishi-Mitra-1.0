@@ -1,0 +1,2 @@
+# Optional build-time tooling, separate from the Django runtime (Apple Silicon only).
+mlx-lm==0.32.2

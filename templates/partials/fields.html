@@ -1,9 +1,11 @@
-{% if form.non_field_errors %}<div class="alert alert-danger">{{ form.non_field_errors|join:" " }}</div>{% endif %}
+{% load i18n farm_i18n %}{% if form.non_field_errors %}<div class="alert alert-danger">{% translate form.non_field_errors|join:" " %}</div>{% endif %}
 {% for field in form %}
+{% if field.is_hidden %}{{ field }}{% else %}
 <div class="mb-3 {{ col|default:'' }}">
-  <label class="form-label" for="{{ field.id_for_label }}">{{ field.label }}</label>
+  <label class="form-label" for="{{ field.id_for_label }}">{% translate field.label %}</label>
   {{ field }}
-  {% if field.help_text %}<div class="form-text">{{ field.help_text|safe }}</div>{% endif %}
-  {% for e in field.errors %}<div class="invalid-feedback d-block">{{ e }}</div>{% endfor %}
+  {% if field.help_text %}<div class="form-text">{% translate field.help_text|safe %}</div>{% endif %}
+  {% for e in field.errors %}<div class="invalid-feedback d-block">{% translate e %}</div>{% endfor %}
 </div>
+{% endif %}
 {% endfor %}

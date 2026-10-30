@@ -1,0 +1,247 @@
+{
+  "Coffee": {
+    "url": "https://niphm.gov.in/IPMPackages/Coffee.pdf",
+    "sha256": "6a0d8d46fb233f7914a036c839d411f63b11ed56b98f9881e595234b0d457d85",
+    "retrieved": "2026-10-29"
+  },
+  "Papaya": {
+    "url": "https://niphm.gov.in/IPMPackages/Papaya.pdf",
+    "sha256": "8caf120e7c6fb372336b6a8481d73ad8b065d7879ea7750fd3c77e815353deb4",
+    "retrieved": "2026-10-29"
+  },
+  "Peach": {
+    "url": "https://niphm.gov.in/IPMPackages/Peach.pdf",
+    "sha256": "68a32ae91f9aa743752e355c8a087dfd40bed26835d37c3b82fd3b1980ae0ca4",
+    "retrieved": "2026-10-29"
+  },
+  "Sunflower": {
+    "url": "https://niphm.gov.in/IPMPackages/Sunflower.pdf",
+    "sha256": "59cf750c5c8cb6b8d3a5a47c411e47f3b1f70e04d92cb82bb98b116ee46a7a73",
+    "retrieved": "2026-10-29"
+  },
+  "Coriander": {
+    "url": "https://niphm.gov.in/IPMPackages/Coriander.pdf",
+    "sha256": "ce1aaf19695a06c01aadbd31e8680711c0891091b2d2e94a4c5418b872aada11",
+    "retrieved": "2026-10-29"
+  },
+  "Wheat": {
+    "url": "https://niphm.gov.in/IPMPackages/Wheat.pdf",
+    "sha256": "3d030296a548f2ba13294280bea643e183b67f12af7f2625be392091e6d863cc",
+    "retrieved": "2026-10-29"
+  },
+  "Potato": {
+    "url": "https://niphm.gov.in/IPMPackages/Potato.pdf",
+    "sha256": "945e25ae810528373388cd9c85273caac0a4af8e8896a247dff283115e84c074",
+    "retrieved": "2026-10-29"
+  },
+  "Ginger": {
+    "url": "https://niphm.gov.in/IPMPackages/Ginger.pdf",
+    "sha256": "63ac58fa5194537ac145d87557d5670a739a426c6cd049632f07cd6fca6c5ae2",
+    "retrieved": "2026-10-29"
+  },
+  "Mango": {
+    "url": "https://niphm.gov.in/IPMPackages/Mango.pdf",
+    "sha256": "ac5ef4f86038d19717c2eeaaa0624804d394c25e92e662143628334df55d4aca",
+    "retrieved": "2026-10-29"
+  },
+  "Pineapple": {
+    "url": "https://niphm.gov.in/IPMPackages/Pineapple.pdf",
+    "sha256": "dee4793d6e0cebdf102d25b3cc8bb34b3937086ab9e77fc24dde0c4f025af75e",
+    "retrieved": "2026-10-29"
+  },
+  "Coconut": {
+    "url": "https://niphm.gov.in/IPMPackages/Coconut.pdf",
+    "sha256": "3e7a4cea95124994e950a825b16805ac917180cdf8888a16b2b0dc08e9806476",
+    "retrieved": "2026-10-29"
+  },
+  "Pearlmillet": {
+    "url": "https://niphm.gov.in/IPMPackages/Pearlmillet.pdf",
+    "sha256": "95ce0479ac2fcb27c788c7e7a85327f0c62e7bb27421bf9a863b8e623918c569",
+    "retrieved": "2026-10-29"
+  },
+  "Cotton": {
+    "url": "https://niphm.gov.in/IPMPackages/Cotton.pdf",
+    "sha256": "5a507efe743b7f36dd987837bcf1be5b09c52c52c253e415ef04253f5f9c1599",
+    "retrieved": "2026-10-29"
+  },
+  "Sugarcane": {
+    "url": "https://niphm.gov.in/IPMPackages/Sugarcane.pdf",
+    "sha256": "0c1bfe634185444da43ff217c9910eed6dd1a5a356437f81cd16c0668a672609",
+    "retrieved": "2026-10-29"
+  },
+  "Maize": {
+    "url": "https://niphm.gov.in/IPMPackages/Maize.pdf",
+    "sha256": "14544b23523136d21f5338a92f539a69415ba20e07ffd8e5224405510d40f454",
+    "retrieved": "2026-10-29"
+  },
+  "Tomato": {
+    "url": "https://niphm.gov.in/IPMPackages/Tomato.pdf",
+    "sha256": "4eef1237a3b6a50cb4bdf86e644d7c2cebe35dd46a1566b6063c4a1dd018ad2a",
+    "retrieved": "2026-10-29"
+  },
+  "CucurbitaceousVegetable": {
+    "url": "https://niphm.gov.in/IPMPackages/CucurbitaceousVegetable.pdf",
+    "sha256": "f14caed826dde3b836233fa91f21b82cb9ad2eaf2de497fea27895eb19e9a791",
+    "retrieved": "2026-10-29"
+  },
+  "CabbageandCauliflower": {
+    "url": "https://niphm.gov.in/IPMPackages/CabbageandCauliflower.pdf",
+    "sha256": "7ba816a407bb0799d8fabf884fbf6037cbb0a01ff846cadcc79f4173e11949aa",
+    "retrieved": "2026-10-29"
+  },
+  "Onion": {
+    "url": "https://niphm.gov.in/IPMPackages/Onion.pdf",
+    "sha256": "c15f0e6c031315c5813b45d59daed225f53dd76f8b0bd6c7fbf0b9fbd08b49dc",
+    "retrieved": "2026-10-29"
+  },
+  "Safflower": {
+    "url": "https://niphm.gov.in/IPMPackages/Safflower.pdf",
+    "sha256": "3b53479cc12329f4b54284d808bf44aad92ad82af82160040f719d980eb80643",
+    "retrieved": "2026-10-29"
+  },
+  "Groundnut": {
+    "url": "https://niphm.gov.in/IPMPackages/Groundnut.pdf",
+    "sha256": "473df47e23dd395c5b38bcdda8dc6dc7a07b824fc0c714b1bb4ae3c3d8abe3a4",
+    "retrieved": "2026-10-29"
+  },
+  "Pomegranate": {
+    "url": "https://niphm.gov.in/IPMPackages/Pomegranate.pdf",
+    "sha256": "4a15333da85a646597cd762f284309d2ac1c9af671385e34104cdcdc9947680d",
+    "retrieved": "2026-10-29"
+  },
+  "Litchi": {
+    "url": "https://niphm.gov.in/IPMPackages/Litchi.pdf",
+    "sha256": "4d81dc081680d6482680c26dd4195126b636461cfae1d918c27537714d3cc8c5",
+    "retrieved": "2026-10-29"
+  },
+  "Apple": {
+    "url": "https://niphm.gov.in/IPMPackages/Apple.pdf",
+    "sha256": "2acf7a6e9b3a4b72117d9e42dfdb6044b43c21d0ac042176d05419e055eb2fbc",
+    "retrieved": "2026-10-29"
+  },
+  "Grapes": {
+    "url": "https://niphm.gov.in/IPMPackages/Grapes.pdf",
+    "sha256": "a11d8f6f5d90f1a878897694d823de8c44320ed1d9bca94a572d6d3fba8be4d0",
+    "retrieved": "2026-10-29"
+  },
+  "Watermelon": {
+    "url": "https://niphm.gov.in/IPMPackages/Watermelon.pdf",
+    "sha256": "b57cc4fb3bc8c0885eb6751779a7507ce5c0633168e168111d88e43e7bdc6ddd",
+    "retrieved": "2026-10-29"
+  },
+  "Chickpea": {
+    "url": "https://niphm.gov.in/IPMPackages/Chickpea.pdf",
+    "sha256": "f396c912b9e1c1971755b6058eb409f8eec1f9c4fe4f11b158044c14dbe88018",
+    "retrieved": "2026-10-29"
+  },
+  "BlackgramandGreengram": {
+    "url": "https://niphm.gov.in/IPMPackages/BlackgramandGreengram.pdf",
+    "sha256": "ad34eef023defa6c1e2bb260690d80ac9c48affa94c0c07c5a7a5e00ff400696",
+    "retrieved": "2026-10-29"
+  },
+  "Turmeric": {
+    "url": "https://niphm.gov.in/IPMPackages/Turmeric.pdf",
+    "sha256": "fa4f533ca15dd7ff9bb9c42b5b4ca100804731bf1336e6b089dbb745943ef9e0",
+    "retrieved": "2026-10-29"
+  },
+  "Blackpepper": {
+    "url": "https://niphm.gov.in/IPMPackages/Blackpepper.pdf",
+    "sha256": "9620453f6385337ee7d60804e221740a707914b282ea4a6db6bfac06e92e868d",
+    "retrieved": "2026-10-29"
+  },
+  "Lentil": {
+    "url": "https://niphm.gov.in/IPMPackages/Lentil.pdf",
+    "sha256": "2a84ac3c41f5a87f9a33c9f7fe9ef6ce7a507005b1c5c5c6d758bc6b0b18d48d",
+    "retrieved": "2026-10-29"
+  },
+  "Smallcardamom": {
+    "url": "https://niphm.gov.in/IPMPackages/Smallcardamom.pdf",
+    "sha256": "092c9ad95894206c1bba2c25b30cef95ef457f3f358ac7f6bea665e45d659d72",
+    "retrieved": "2026-10-29"
+  },
+  "Chilli": {
+    "url": "https://niphm.gov.in/IPMPackages/Chilli.pdf",
+    "sha256": "3191a2a994cf27f9ab87e7f67178d63925deb128bb6cb0a42f77ba145904c257",
+    "retrieved": "2026-10-29"
+  },
+  "Brinjal": {
+    "url": "https://niphm.gov.in/IPMPackages/Brinjal.pdf",
+    "sha256": "0407631c10ca87f7dc22d4a3c6642d486116af03ea5539c639286978731af8b7",
+    "retrieved": "2026-10-29"
+  },
+  "Arecanut": {
+    "url": "https://niphm.gov.in/IPMPackages/Arecanut.pdf",
+    "sha256": "5d2b4505198b2c34e054d5301d7df95e51322c8da6a6181e3795637dfcbd4964",
+    "retrieved": "2026-10-29"
+  },
+  "Redgram": {
+    "url": "https://niphm.gov.in/IPMPackages/Redgram.pdf",
+    "sha256": "6bb5dfe8568f599df1ce52866c19b2ec2c6653b9168cf52329210997da08509f",
+    "retrieved": "2026-10-29"
+  },
+  "Rice": {
+    "url": "https://niphm.gov.in/IPMPackages/Rice.pdf",
+    "sha256": "9d63c8d64e67ca08fc35a804df522f812e28ef479ebf9241eea42c20e6d7486f",
+    "retrieved": "2026-10-29"
+  },
+  "Garlic": {
+    "url": "https://niphm.gov.in/IPMPackages/Garlic.pdf",
+    "sha256": "97c368787c6a316bcc1e25666d5795825fe0e23b9607c21501229070cdf0f187",
+    "retrieved": "2026-10-29"
+  },
+  "Jackfruit": {
+    "url": "https://niphm.gov.in/IPMPackages/Jackfruit.pdf",
+    "sha256": "7d55b1cec5fa4cc73e57d62a80da60ac9d48d7ddaa26799f0d9e76116a33c41b",
+    "retrieved": "2026-10-29"
+  },
+  "Guava": {
+    "url": "https://niphm.gov.in/IPMPackages/Guava.pdf",
+    "sha256": "f77abd443f89bb98fa1a5697b369f610892b7ef0ee48da9f4863f19550db552d",
+    "retrieved": "2026-10-29"
+  },
+  "Castor": {
+    "url": "https://niphm.gov.in/IPMPackages/Castor.pdf",
+    "sha256": "2bba41b81cc5226bbc06c465755441733693bc1927f2a186ac657700195a7d25",
+    "retrieved": "2026-10-29"
+  },
+  "Mustard": {
+    "url": "https://niphm.gov.in/IPMPackages/Mustard.pdf",
+    "sha256": "ba427c75b1946f871b9f9ab4d62654fe3d18a5d4aa6c88a7ef53d5089df01e97",
+    "retrieved": "2026-10-29"
+  },
+  "Strawberry": {
+    "url": "https://niphm.gov.in/IPMPackages/Strawberry.pdf",
+    "sha256": "2f94ad2848fc047ee8c3b770d1654c52d2b1c543473ba5e74d5227ba36cccbc1",
+    "retrieved": "2026-10-29"
+  },
+  "Banana": {
+    "url": "https://niphm.gov.in/IPMPackages/Banana.pdf",
+    "sha256": "9b68c81ad6b556f6e013e23b04adf47b34cffa673a26c8cef268201325a1da94",
+    "retrieved": "2026-10-29"
+  },
+  "Sorghum": {
+    "url": "https://niphm.gov.in/IPMPackages/Sorghum.pdf",
+    "sha256": "d1c411d15cc19434b106cec810c07d21c135393ac1ba3b347805dfbfcfff9dc8",
+    "retrieved": "2026-10-29"
+  },
+  "Sesame": {
+    "url": "https://niphm.gov.in/IPMPackages/Sesame.pdf",
+    "sha256": "a306cda9bbe955a120935485f57bbf836311656da0c92d9b5485b1e7e7215ed2",
+    "retrieved": "2026-10-29"
+  },
+  "Citrus": {
+    "url": "https://niphm.gov.in/IPMPackages/Citrus.pdf",
+    "sha256": "878bdf45e9ae50a8846ab664853c545246dcf0aaf3d9bc2beeeff5a793c1f1dd",
+    "retrieved": "2026-10-29"
+  },
+  "Okra": {
+    "url": "https://niphm.gov.in/IPMPackages/Okra.pdf",
+    "sha256": "6c56d9c9f6a20c66a6b305bd4f84f564a4e66caf1978986edf641b88ff30becf",
+    "retrieved": "2026-10-29"
+  },
+  "Soyabean": {
+    "url": "https://niphm.gov.in/IPMPackages/Soyabean.pdf",
+    "sha256": "e9b86ca26849de28e8c56bed905129b181482f19c44f4c77341410bc96638c97",
+    "retrieved": "2026-10-29"
+  }
+}

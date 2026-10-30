@@ -1,0 +1,2411 @@
+{
+  "accessed": "2026-10-29",
+  "basis": "FAO EcoCrop optimal ecological ranges; historical species reference, not local prescription",
+  "species": {
+    "Lycopersicon esculentum": {
+      "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=1379",
+      "ecocrop_id": "1379",
+      "fields": {
+        "temperature": {
+          "optimal": [
+            20.0,
+            27.0
+          ],
+          "absolute": [
+            "7",
+            "35"
+          ]
+        },
+        "rainfall": {
+          "optimal": [
+            600.0,
+            1300.0
+          ],
+          "absolute": [
+            "400",
+            "1800"
+          ]
+        },
+        "ph": {
+          "optimal": [
+            5.5,
+            6.8
+          ],
+          "absolute": [
+            "5",
+            "7.5"
+          ]
+        }
+      },
+      "accessed": "2026-10-29"
+    },
+    "Capsicum annuum": {
+      "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=618",
+      "ecocrop_id": "618",
+      "fields": {
+        "temperature": {
+          "optimal": [
+            17.0,
+            30.0
+          ],
+          "absolute": [
+            "8",
+            "35"
+          ]
+        },
+        "rainfall": {
+          "optimal": [
+            600.0,
+            1250.0
+          ],
+          "absolute": [
+            "500",
+            "1700"
+          ]
+        },
+        "ph": {
+          "optimal": [
+            5.5,
+            6.8
+          ],
+          "absolute": [
+            "4.5",
+            "7"
+          ]
+        }
+      },
+      "accessed": "2026-10-29"
+    },
+    "Allium cepa": {
+      "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=364",
+      "ecocrop_id": "364",
+      "fields": {
+        "temperature": {
+          "optimal": [
+            12.0,
+            25.0
+          ],
+          "absolute": [
+            "4",
+            "30"
+          ]
+        },
+        "rainfall": {
+          "optimal": [
+            350.0,
+            600.0
+          ],
+          "absolute": [
+            "300",
+            "2800"
+          ]
+        },
+        "ph": {
+          "optimal": [
+            6.0,
+            7.0
+          ],
+          "absolute": [
+            "4.3",
+            "8.3"
+          ]
+        }
+      },
+      "accessed": "2026-10-29"
+    },
+    "Solanum tuberosum": {
+      "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=1971",
+      "ecocrop_id": "1971",
+      "fields": {
+        "temperature": {
+          "optimal": [
+            15.0,
+            25.0
+          ],
+          "absolute": [
+            "7",
+            "30"
+          ]
+        },
+        "rainfall": {
+          "optimal": [
+            500.0,
+            800.0
+          ],
+          "absolute": [
+            "250",
+            "2000"
+          ]
+        },
+        "ph": {
+          "optimal": [
+            5.0,
+            6.2
+          ],
+          "absolute": [
+            "4.2",
+            "8.5"
+          ]
+        }
+      },
+      "accessed": "2026-10-29"
+    },
+    "Allium sativum": {
+      "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=367",
+      "ecocrop_id": "367",
+      "fields": {
+        "temperature": {
+          "optimal": [
+            18.0,
+            30.0
+          ],
+          "absolute": [
+            "7",
+            "35"
+          ]
+        },
+        "rainfall": {
+          "optimal": [
+            750.0,
+            1600.0
+          ],
+          "absolute": [
+            "500",
+            "2700"
+          ]
+        },
+        "ph": {
+          "optimal": [
+            6.0,
+            6.6
+          ],
+          "absolute": [
+            "5",
+            "8.5"
+          ]
+        }
+      },
+      "accessed": "2026-10-29"
+    },
+    "Ipomoea batatas": {
+      "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=1265",
+      "ecocrop_id": "1265",
+      "fields": {
+        "temperature": {
+          "optimal": [
+            18.0,
+            28.0
+          ],
+          "absolute": [
+            "10",
+            "38"
+          ]
+        },
+        "rainfall": {
+          "optimal": [
+            750.0,
+            2000.0
+          ],
+          "absolute": [
+            "350",
+            "5000"
+          ]
+        },
+        "ph": {
+          "optimal": [
+            5.0,
+            7.0
+          ],
+          "absolute": [
+            "4",
+            "8.7"
+          ]
+        }
+      },
+      "accessed": "2026-10-29"
+    },
+    "Cucurbita pepo": {
+      "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=821",
+      "ecocrop_id": "821",
+      "fields": {
+        "temperature": {
+          "optimal": [
+            17.0,
+            30.0
+          ],
+          "absolute": [
+            "6",
+            "40"
+          ]
+        },
+        "rainfall": {
+          "optimal": [
+            600.0,
+            1500.0
+          ],
+          "absolute": [
+            "300",
+            "2800"
+          ]
+        },
+        "ph": {
+          "optimal": [
+            5.5,
+            6.8
+          ],
+          "absolute": [
+            "4.5",
+            "8.3"
+          ]
+        }
+      },
+      "accessed": "2026-10-29"
+    },
+    "Solanum melongena": {
+      "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=1965",
+      "ecocrop_id": "1965",
+      "fields": {
+        "temperature": {
+          "optimal": [
+            20.0,
+            35.0
+          ],
+          "absolute": [
+            "9",
+            "40"
+          ]
+        },
+        "rainfall": {
+          "optimal": [
+            1200.0,
+            1600.0
+          ],
+          "absolute": [
+            "800",
+            "4000"
+          ]
+        },
+        "ph": {
+          "optimal": [
+            5.5,
+            6.8
+          ],
+          "absolute": [
+            "4.3",
+            "8.5"
+          ]
+        }
+      },
+      "accessed": "2026-10-29"
+    },
+    "Abelmoschus esculentus": {
+      "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=289",
+      "ecocrop_id": "289",
+      "fields": {
+        "temperature": {
+          "optimal": [
+            20.0,
+            30.0
+          ],
+          "absolute": [
+            "12",
+            "35"
+          ]
+        },
+        "rainfall": {
+          "optimal": [
+            600.0,
+            1200.0
+          ],
+          "absolute": [
+            "300",
+            "2500"
+          ]
+        },
+        "ph": {
+          "optimal": [
+            5.5,
+            7.0
+          ],
+          "absolute": [
+            "4.5",
+            "8.7"
+          ]
+        }
+      },
+      "accessed": "2026-10-29"
+    },
+    "Cucumis sativus": {
+      "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=817",
+      "ecocrop_id": "817",
+      "fields": {
+        "temperature": {
+          "optimal": [
+            18.0,
+            32.0
+          ],
+          "absolute": [
+            "6",
+            "38"
+          ]
+        },
+        "rainfall": {
+          "optimal": [
+            1000.0,
+            1200.0
+          ],
+          "absolute": [
+            "400",
+            "4300"
+          ]
+        },
+        "ph": {
+          "optimal": [
+            6.0,
+            7.5
+          ],
+          "absolute": [
+            "4.5",
+            "8.7"
+          ]
+        }
+      },
+      "accessed": "2026-10-29"
+    },
+    "Brassica oleracea var. capitata": {
+      "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=554",
+      "ecocrop_id": "554",
+      "fields": {
+        "temperature": {
+          "optimal": [
+            15.0,
+            24.0
+          ],
+          "absolute": [
+            "7",
+            "32"
+          ]
+        },
+        "rainfall": {
+          "optimal": [
+            500.0,
+            1000.0
+          ],
+          "absolute": [
+            "300",
+            "2500"
+          ]
+        },
+        "ph": {
+          "optimal": [
+            6.0,
+            7.5
+          ],
+          "absolute": [
+            "5",
+            "8.3"
+          ]
+        }
+      },
+      "accessed": "2026-10-29"
+    },
+    "Brassica oleracea var. botrytis": {
+      "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=553",
+      "ecocrop_id": "553",
+      "fields": {
+        "temperature": {
+          "optimal": [
+            10.0,
+            25.0
+          ],
+          "absolute": [
+            "5",
+            "30"
+          ]
+        },
+        "rainfall": {
+          "optimal": [
+            600.0,
+            1100.0
+          ],
+          "absolute": [
+            "450",
+            "1900"
+          ]
+        },
+        "ph": {
+          "optimal": [
+            6.0,
+            7.0
+          ],
+          "absolute": [
+            "5.5",
+            "8.5"
+          ]
+        }
+      },
+      "accessed": "2026-10-29"
+    },
+    "Daucus carota": {
+      "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=871",
+      "ecocrop_id": "871",
+      "fields": {
+        "temperature": {
+          "optimal": [
+            15.0,
+            24.0
+          ],
+          "absolute": [
+            "3",
+            "30"
+          ]
+        },
+        "rainfall": {
+          "optimal": [
+            600.0,
+            1200.0
+          ],
+          "absolute": [
+            "400",
+            "4000"
+          ]
+        },
+        "ph": {
+          "optimal": [
+            5.8,
+            6.8
+          ],
+          "absolute": [
+            "4.2",
+            "8.7"
+          ]
+        }
+      },
+      "accessed": "2026-10-29"
+    },
+    "Cucurbita moschata": {
+      "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=820",
+      "ecocrop_id": "820",
+      "fields": {
+        "temperature": {
+          "optimal": [
+            20.0,
+            30.0
+          ],
+          "absolute": [
+            "10",
+            "40"
+          ]
+        },
+        "rainfall": {
+          "optimal": [
+            600.0,
+            1600.0
+          ],
+          "absolute": [
+            "300",
+            "2800"
+          ]
+        },
+        "ph": {
+          "optimal": [
+            5.5,
+            7.5
+          ],
+          "absolute": [
+            "4.5",
+            "8.3"
+          ]
+        }
+      },
+      "accessed": "2026-10-29"
+    },
+    "Oryza sativa": {
+      "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=1574",
+      "ecocrop_id": "1574",
+      "fields": {
+        "temperature": {
+          "optimal": [
+            20.0,
+            30.0
+          ],
+          "absolute": [
+            "10",
+            "36"
+          ]
+        },
+        "rainfall": {
+          "optimal": [
+            1500.0,
+            2000.0
+          ],
+          "absolute": [
+            "1000",
+            "4000"
+          ]
+        },
+        "ph": {
+          "optimal": [
+            5.5,
+            7.0
+          ],
+          "absolute": [
+            "4.5",
+            "9"
+          ]
+        }
+      },
+      "accessed": "2026-10-29"
+    },
+    "Triticum aestivum": {
+      "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=2114",
+      "ecocrop_id": "2114",
+      "fields": {
+        "temperature": {
+          "optimal": [
+            15.0,
+            23.0
+          ],
+          "absolute": [
+            "5",
+            "27"
+          ]
+        },
+        "rainfall": {
+          "optimal": [
+            750.0,
+            900.0
+          ],
+          "absolute": [
+            "300",
+            "1600"
+          ]
+        },
+        "ph": {
+          "optimal": [
+            6.0,
+            7.0
+          ],
+          "absolute": [
+            "5.5",
+            "8.5"
+          ]
+        }
+      },
+      "accessed": "2026-10-29"
+    },
+    "Zea mays": {
+      "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=2175",
+      "ecocrop_id": "2175",
+      "fields": {
+        "temperature": {
+          "optimal": [
+            18.0,
+            33.0
+          ],
+          "absolute": [
+            "10",
+            "47"
+          ]
+        },
+        "rainfall": {
+          "optimal": [
+            600.0,
+            1200.0
+          ],
+          "absolute": [
+            "400",
+            "1800"
+          ]
+        },
+        "ph": {
+          "optimal": [
+            5.0,
+            7.0
+          ],
+          "absolute": [
+            "4.5",
+            "8.5"
+          ]
+        }
+      },
+      "accessed": "2026-10-29"
+    },
+    "Pennisetum glaucum": {
+      "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=8418",
+      "ecocrop_id": "8418",
+      "fields": {
+        "temperature": {
+          "optimal": [
+            25.0,
+            35.0
+          ],
+          "absolute": [
+            "12",
+            "40"
+          ]
+        },
+        "rainfall": {
+          "optimal": [
+            400.0,
+            900.0
+          ],
+          "absolute": [
+            "200",
+            "1700"
+          ]
+        },
+        "ph": {
+          "optimal": [
+            5.0,
+            6.5
+          ],
+          "absolute": [
+            "4.5",
+            "8.3"
+          ]
+        }
+      },
+      "accessed": "2026-10-29"
+    },
+    "Eleusine coracana ssp. coracana": {
+      "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=5657",
+      "ecocrop_id": "5657",
+      "fields": {
+        "temperature": {
+          "optimal": [
+            18.0,
+            30.0
+          ],
+          "absolute": [
+            "8",
+            "35"
+          ]
+        },
+        "rainfall": {
+          "optimal": [
+            500.0,
+            1100.0
+          ],
+          "absolute": [
+            "300",
+            "4300"
+          ]
+        },
+        "ph": {
+          "optimal": [
+            6.0,
+            7.0
+          ],
+          "absolute": [
+            "5.5",
+            "8.2"
+          ]
+        }
+      },
+      "accessed": "2026-10-29"
+    },
+    "Hordeum vulgare": {
+      "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=1232",
+      "ecocrop_id": "1232",
+      "fields": {
+        "temperature": {
+          "optimal": [
+            15.0,
+            20.0
+          ],
+          "absolute": [
+            "2",
+            "40"
+          ]
+        },
+        "rainfall": {
+          "optimal": [
+            500.0,
+            1000.0
+          ],
+          "absolute": [
+            "200",
+            "2000"
+          ]
+        },
+        "ph": {
+          "optimal": [
+            6.5,
+            7.5
+          ],
+          "absolute": [
+            "6",
+            "8"
+          ]
+        }
+      },
+      "accessed": "2026-10-29"
+    },
+    "Sorghum bicolor": {
+      "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=48747",
+      "ecocrop_id": "48747",
+      "fields": {
+        "temperature": {
+          "optimal": [
+            22.0,
+            35.0
+          ],
+          "absolute": [
+            "8",
+            "40"
+          ]
+        },
+        "rainfall": {
+          "optimal": [
+            400.0,
+            600.0
+          ],
+          "absolute": [
+            "300",
+            "700"
+          ]
+        },
+        "ph": {
+          "optimal": [
+            5.5,
+            7.5
+          ],
+          "absolute": [
+            "5",
+            "8"
+          ]
+        }
+      },
+      "accessed": "2026-10-29"
+    },
+    "Cicer arietinum": {
+      "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=2479",
+      "ecocrop_id": "2479",
+      "fields": {
+        "temperature": {
+          "optimal": [
+            15.0,
+            29.0
+          ],
+          "absolute": [
+            "7",
+            "35"
+          ]
+        },
+        "rainfall": {
+          "optimal": [
+            600.0,
+            1000.0
+          ],
+          "absolute": [
+            "300",
+            "1800"
+          ]
+        },
+        "ph": {
+          "optimal": [
+            6.0,
+            8.5
+          ],
+          "absolute": [
+            "4.7",
+            "9.5"
+          ]
+        }
+      },
+      "accessed": "2026-10-29"
+    },
+    "Lens culinaris": {
+      "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=7209",
+      "ecocrop_id": "7209",
+      "fields": {
+        "temperature": {
+          "optimal": [
+            15.0,
+            29.0
+          ],
+          "absolute": [
+            "5",
+            "32"
+          ]
+        },
+        "rainfall": {
+          "optimal": [
+            600.0,
+            1000.0
+          ],
+          "absolute": [
+            "250",
+            "2500"
+          ]
+        },
+        "ph": {
+          "optimal": [
+            5.5,
+            7.5
+          ],
+          "absolute": [
+            "4.5",
+            "8.2"
+          ]
+        }
+      },
+      "accessed": "2026-10-29"
+    },
+    "Vigna radiata": {
+      "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=2150",
+      "ecocrop_id": "2150",
+      "fields": {
+        "temperature": {
+          "optimal": [
+            21.0,
+            36.0
+          ],
+          "absolute": [
+            "8",
+            "40"
+          ]
+        },
+        "rainfall": {
+          "optimal": [
+            650.0,
+            900.0
+          ],
+          "absolute": [
+            "500",
+            "1250"
+          ]
+        },
+        "ph": {
+          "optimal": [
+            5.5,
+            6.2
+          ],
+          "absolute": [
+            "4.3",
+            "8.3"
+          ]
+        }
+      },
+      "accessed": "2026-10-29"
+    },
+    "Vigna mungo": {
+      "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=2149",
+      "ecocrop_id": "2149",
+      "fields": {
+        "temperature": {
+          "optimal": [
+            22.0,
+            35.0
+          ],
+          "absolute": [
+            "8",
+            "40"
+          ]
+        },
+        "rainfall": {
+          "optimal": [
+            650.0,
+            900.0
+          ],
+          "absolute": [
+            "530",
+            "2430"
+          ]
+        },
+        "ph": {
+          "optimal": [
+            5.5,
+            6.5
+          ],
+          "absolute": [
+            "4.5",
+            "7.5"
+          ]
+        }
+      },
+      "accessed": "2026-10-29"
+    },
+    "Cajanus cajan": {
+      "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=576",
+      "ecocrop_id": "576",
+      "fields": {
+        "temperature": {
+          "optimal": [
+            18.0,
+            38.0
+          ],
+          "absolute": [
+            "10",
+            "45"
+          ]
+        },
+        "rainfall": {
+          "optimal": [
+            600.0,
+            1500.0
+          ],
+          "absolute": [
+            "400",
+            "4000"
+          ]
+        },
+        "ph": {
+          "optimal": [
+            5.0,
+            7.0
+          ],
+          "absolute": [
+            "4.5",
+            "8.4"
+          ]
+        }
+      },
+      "accessed": "2026-10-29"
+    },
+    "Phaseolus vulgaris": {
+      "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=1668",
+      "ecocrop_id": "1668",
+      "fields": {
+        "temperature": {
+          "optimal": [
+            16.0,
+            25.0
+          ],
+          "absolute": [
+            "7",
+            "32"
+          ]
+        },
+        "rainfall": {
+          "optimal": [
+            500.0,
+            2000.0
+          ],
+          "absolute": [
+            "300",
+            "4300"
+          ]
+        },
+        "ph": {
+          "optimal": [
+            5.5,
+            7.5
+          ],
+          "absolute": [
+            "4",
+            "9"
+          ]
+        }
+      },
+      "accessed": "2026-10-29"
+    },
+    "Vigna unguiculata": {
+      "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=2153",
+      "ecocrop_id": "2153",
+      "fields": {
+        "temperature": {
+          "optimal": [
+            25.0,
+            35.0
+          ],
+          "absolute": [
+            "15",
+            "40"
+          ]
+        },
+        "rainfall": {
+          "optimal": [
+            500.0,
+            1500.0
+          ],
+          "absolute": [
+            "300",
+            "4100"
+          ]
+        },
+        "ph": {
+          "optimal": [
+            5.5,
+            7.5
+          ],
+          "absolute": [
+            "4",
+            "8.8"
+          ]
+        }
+      },
+      "accessed": "2026-10-29"
+    },
+    "Mangifera indica": {
+      "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=1416",
+      "ecocrop_id": "1416",
+      "fields": {
+        "temperature": {
+          "optimal": [
+            24.0,
+            30.0
+          ],
+          "absolute": [
+            "8",
+            "48"
+          ]
+        },
+        "rainfall": {
+          "optimal": [
+            600.0,
+            1500.0
+          ],
+          "absolute": [
+            "300",
+            "2600"
+          ]
+        },
+        "ph": {
+          "optimal": [
+            5.5,
+            7.5
+          ],
+          "absolute": [
+            "4.3",
+            "8.5"
+          ]
+        }
+      },
+      "accessed": "2026-10-29"
+    },
+    "Citrus sinensis": {
+      "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=720",
+      "ecocrop_id": "720",
+      "fields": {
+        "temperature": {
+          "optimal": [
+            20.0,
+            30.0
+          ],
+          "absolute": [
+            "13",
+            "38"
+          ]
+        },
+        "rainfall": {
+          "optimal": [
+            1200.0,
+            2000.0
+          ],
+          "absolute": [
+            "450",
+            "2700"
+          ]
+        },
+        "ph": {
+          "optimal": [
+            5.0,
+            6.0
+          ],
+          "absolute": [
+            "4",
+            "8.3"
+          ]
+        }
+      },
+      "accessed": "2026-10-29"
+    },
+    "Carica papaya": {
+      "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=630",
+      "ecocrop_id": "630",
+      "fields": {
+        "temperature": {
+          "optimal": [
+            21.0,
+            30.0
+          ],
+          "absolute": [
+            "12",
+            "44"
+          ]
+        },
+        "rainfall": {
+          "optimal": [
+            1500.0,
+            2500.0
+          ],
+          "absolute": [
+            "1000",
+            "3000"
+          ]
+        },
+        "ph": {
+          "optimal": [
+            5.5,
+            7.0
+          ],
+          "absolute": [
+            "4.5",
+            "8"
+          ]
+        }
+      },
+      "accessed": "2026-10-29"
+    },
+    "Punica granatum": {
+      "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=1829",
+      "ecocrop_id": "1829",
+      "fields": {
+        "temperature": {
+          "optimal": [
+            23.0,
+            32.0
+          ],
+          "absolute": [
+            "8",
+            "40"
+          ]
+        },
+        "rainfall": {
+          "optimal": [
+            900.0,
+            1200.0
+          ],
+          "absolute": [
+            "400",
+            "4200"
+          ]
+        },
+        "ph": {
+          "optimal": [
+            6.5,
+            7.5
+          ],
+          "absolute": [
+            "5.8",
+            "8.5"
+          ]
+        }
+      },
+      "accessed": "2026-10-29"
+    },
+    "Vitis vinifera": {
+      "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=2160",
+      "ecocrop_id": "2160",
+      "fields": {
+        "temperature": {
+          "optimal": [
+            18.0,
+            30.0
+          ],
+          "absolute": [
+            "10",
+            "38"
+          ]
+        },
+        "rainfall": {
+          "optimal": [
+            700.0,
+            850.0
+          ],
+          "absolute": [
+            "400",
+            "1200"
+          ]
+        },
+        "ph": {
+          "optimal": [
+            5.5,
+            7.5
+          ],
+          "absolute": [
+            "4.5",
+            "8.5"
+          ]
+        }
+      },
+      "accessed": "2026-10-29"
+    },
+    "Citrullus lanatus": {
+      "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=708",
+      "ecocrop_id": "708",
+      "fields": {
+        "temperature": {
+          "optimal": [
+            20.0,
+            35.0
+          ],
+          "absolute": [
+            "15",
+            "40"
+          ]
+        },
+        "rainfall": {
+          "optimal": [
+            500.0,
+            700.0
+          ],
+          "absolute": [
+            "400",
+            "1800"
+          ]
+        },
+        "ph": {
+          "optimal": [
+            6.0,
+            7.0
+          ],
+          "absolute": [
+            "5.5",
+            "7.5"
+          ]
+        }
+      },
+      "accessed": "2026-10-29"
+    },
+    "Cucumis melo": {
+      "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=815",
+      "ecocrop_id": "815",
+      "fields": {
+        "temperature": {
+          "optimal": [
+            18.0,
+            30.0
+          ],
+          "absolute": [
+            "9",
+            "35"
+          ]
+        },
+        "rainfall": {
+          "optimal": [
+            1000.0,
+            1300.0
+          ],
+          "absolute": [
+            "900",
+            "2500"
+          ]
+        },
+        "ph": {
+          "optimal": [
+            6.0,
+            7.5
+          ],
+          "absolute": [
+            "5",
+            "8.7"
+          ]
+        }
+      },
+      "accessed": "2026-10-29"
+    },
+    "Malus domestica": {
+      "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=1407",
+      "ecocrop_id": "1407",
+      "fields": {
+        "temperature": {
+          "optimal": [
+            14.0,
+            27.0
+          ],
+          "absolute": [
+            "8",
+            "33"
+          ]
+        },
+        "rainfall": {
+          "optimal": [
+            700.0,
+            2500.0
+          ],
+          "absolute": [
+            "500",
+            "3200"
+          ]
+        },
+        "ph": {
+          "optimal": [
+            6.0,
+            7.0
+          ],
+          "absolute": [
+            "4.5",
+            "8"
+          ]
+        }
+      },
+      "accessed": "2026-10-29"
+    },
+    "Fragaria x ananassa": {
+      "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=1112",
+      "ecocrop_id": "1112",
+      "fields": {
+        "temperature": {
+          "optimal": [
+            11.0,
+            24.0
+          ],
+          "absolute": [
+            "6",
+            "28"
+          ]
+        },
+        "rainfall": {
+          "optimal": [
+            600.0,
+            900.0
+          ],
+          "absolute": [
+            "300",
+            "1700"
+          ]
+        },
+        "ph": {
+          "optimal": [
+            6.0,
+            6.8
+          ],
+          "absolute": [
+            "4.5",
+            "8.2"
+          ]
+        }
+      },
+      "accessed": "2026-10-29"
+    },
+    "Prunus persica": {
+      "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=1796",
+      "ecocrop_id": "1796",
+      "fields": {
+        "temperature": {
+          "optimal": [
+            20.0,
+            33.0
+          ],
+          "absolute": [
+            "7",
+            "35"
+          ]
+        },
+        "rainfall": {
+          "optimal": [
+            900.0,
+            1100.0
+          ],
+          "absolute": [
+            "750",
+            "1600"
+          ]
+        },
+        "ph": {
+          "optimal": [
+            5.5,
+            6.3
+          ],
+          "absolute": [
+            "4.5",
+            "7.5"
+          ]
+        }
+      },
+      "accessed": "2026-10-29"
+    },
+    "Cocos nucifera": {
+      "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=744",
+      "ecocrop_id": "744",
+      "fields": {
+        "temperature": {
+          "optimal": [
+            22.0,
+            34.0
+          ],
+          "absolute": [
+            "14",
+            "38"
+          ]
+        },
+        "rainfall": {
+          "optimal": [
+            1200.0,
+            2400.0
+          ],
+          "absolute": [
+            "650",
+            "4000"
+          ]
+        },
+        "ph": {
+          "optimal": [
+            5.0,
+            8.0
+          ],
+          "absolute": [
+            "4.3",
+            "8.7"
+          ]
+        }
+      },
+      "accessed": "2026-10-29"
+    },
+    "Psidium guajava": {
+      "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=1804",
+      "ecocrop_id": "1804",
+      "fields": {
+        "temperature": {
+          "optimal": [
+            20.0,
+            33.0
+          ],
+          "absolute": [
+            "10",
+            "45"
+          ]
+        },
+        "rainfall": {
+          "optimal": [
+            1000.0,
+            3000.0
+          ],
+          "absolute": [
+            "400",
+            "5000"
+          ]
+        },
+        "ph": {
+          "optimal": [
+            5.5,
+            7.5
+          ],
+          "absolute": [
+            "4",
+            "8.5"
+          ]
+        }
+      },
+      "accessed": "2026-10-29"
+    },
+    "Artocarpus heterophyllus": {
+      "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=459",
+      "ecocrop_id": "459",
+      "fields": {
+        "temperature": {
+          "optimal": [
+            20.0,
+            30.0
+          ],
+          "absolute": [
+            "16",
+            "34"
+          ]
+        },
+        "rainfall": {
+          "optimal": [
+            1500.0,
+            3000.0
+          ],
+          "absolute": [
+            "700",
+            "4200"
+          ]
+        },
+        "ph": {
+          "optimal": [
+            5.5,
+            7.5
+          ],
+          "absolute": [
+            "4.3",
+            "8"
+          ]
+        }
+      },
+      "accessed": "2026-10-29"
+    },
+    "Ananas comosus": {
+      "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=402",
+      "ecocrop_id": "402",
+      "fields": {
+        "temperature": {
+          "optimal": [
+            21.0,
+            30.0
+          ],
+          "absolute": [
+            "10",
+            "36"
+          ]
+        },
+        "rainfall": {
+          "optimal": [
+            800.0,
+            2500.0
+          ],
+          "absolute": [
+            "550",
+            "3500"
+          ]
+        },
+        "ph": {
+          "optimal": [
+            4.5,
+            8.0
+          ],
+          "absolute": [
+            "3.5",
+            "9"
+          ]
+        }
+      },
+      "accessed": "2026-10-29"
+    },
+    "Litchi chinensis": {
+      "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=1357",
+      "ecocrop_id": "1357",
+      "fields": {
+        "temperature": {
+          "optimal": [
+            20.0,
+            35.0
+          ],
+          "absolute": [
+            "15",
+            "40"
+          ]
+        },
+        "rainfall": {
+          "optimal": [
+            1000.0,
+            1700.0
+          ],
+          "absolute": [
+            "700",
+            "2800"
+          ]
+        },
+        "ph": {
+          "optimal": [
+            5.5,
+            6.5
+          ],
+          "absolute": [
+            "5",
+            "8.5"
+          ]
+        }
+      },
+      "accessed": "2026-10-29"
+    },
+    "Glycine max": {
+      "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=1150",
+      "ecocrop_id": "1150",
+      "fields": {
+        "temperature": {
+          "optimal": [
+            20.0,
+            33.0
+          ],
+          "absolute": [
+            "10",
+            "38"
+          ]
+        },
+        "rainfall": {
+          "optimal": [
+            600.0,
+            1500.0
+          ],
+          "absolute": [
+            "450",
+            "1800"
+          ]
+        },
+        "ph": {
+          "optimal": [
+            5.5,
+            6.5
+          ],
+          "absolute": [
+            "4.5",
+            "8.4"
+          ]
+        }
+      },
+      "accessed": "2026-10-29"
+    },
+    "Arachis hypogaea": {
+      "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=2199",
+      "ecocrop_id": "2199",
+      "fields": {
+        "temperature": {
+          "optimal": [
+            22.0,
+            32.0
+          ],
+          "absolute": [
+            "10",
+            "45"
+          ]
+        },
+        "rainfall": {
+          "optimal": [
+            600.0,
+            1500.0
+          ],
+          "absolute": [
+            "400",
+            "4000"
+          ]
+        },
+        "ph": {
+          "optimal": [
+            5.5,
+            6.5
+          ],
+          "absolute": [
+            "4.5",
+            "8.5"
+          ]
+        }
+      },
+      "accessed": "2026-10-29"
+    },
+    "Helianthus annuus": {
+      "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=1191",
+      "ecocrop_id": "1191",
+      "fields": {
+        "temperature": {
+          "optimal": [
+            17.0,
+            34.0
+          ],
+          "absolute": [
+            "5",
+            "45"
+          ]
+        },
+        "rainfall": {
+          "optimal": [
+            600.0,
+            1000.0
+          ],
+          "absolute": [
+            "300",
+            "1600"
+          ]
+        },
+        "ph": {
+          "optimal": [
+            6.0,
+            7.5
+          ],
+          "absolute": [
+            "5.5",
+            "8"
+          ]
+        }
+      },
+      "accessed": "2026-10-29"
+    },
+    "Sesamum indicum": {
+      "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=1937",
+      "ecocrop_id": "1937",
+      "fields": {
+        "temperature": {
+          "optimal": [
+            20.0,
+            30.0
+          ],
+          "absolute": [
+            "10",
+            "40"
+          ]
+        },
+        "rainfall": {
+          "optimal": [
+            500.0,
+            1000.0
+          ],
+          "absolute": [
+            "300",
+            "1500"
+          ]
+        },
+        "ph": {
+          "optimal": [
+            5.5,
+            7.5
+          ],
+          "absolute": [
+            "4.5",
+            "8"
+          ]
+        }
+      },
+      "accessed": "2026-10-29"
+    },
+    "Ricinus communis": {
+      "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=1866",
+      "ecocrop_id": "1866",
+      "fields": {
+        "temperature": {
+          "optimal": [
+            20.0,
+            30.0
+          ],
+          "absolute": [
+            "15",
+            "39"
+          ]
+        },
+        "rainfall": {
+          "optimal": [
+            600.0,
+            1000.0
+          ],
+          "absolute": [
+            "400",
+            "2000"
+          ]
+        },
+        "ph": {
+          "optimal": [
+            5.0,
+            6.5
+          ],
+          "absolute": [
+            "4.5",
+            "8"
+          ]
+        }
+      },
+      "accessed": "2026-10-29"
+    },
+    "Brassica juncea": {
+      "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=548",
+      "ecocrop_id": "548",
+      "fields": {
+        "temperature": {
+          "optimal": [
+            15.0,
+            28.0
+          ],
+          "absolute": [
+            "7",
+            "40"
+          ]
+        },
+        "rainfall": {
+          "optimal": [
+            700.0,
+            2400.0
+          ],
+          "absolute": [
+            "500",
+            "4200"
+          ]
+        },
+        "ph": {
+          "optimal": [
+            5.5,
+            6.5
+          ],
+          "absolute": [
+            "5",
+            "8"
+          ]
+        }
+      },
+      "accessed": "2026-10-29"
+    },
+    "Carthamus tinctorius": {
+      "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=2514",
+      "ecocrop_id": "2514",
+      "fields": {
+        "temperature": {
+          "optimal": [
+            20.0,
+            32.0
+          ],
+          "absolute": [
+            "5",
+            "45"
+          ]
+        },
+        "rainfall": {
+          "optimal": [
+            600.0,
+            1000.0
+          ],
+          "absolute": [
+            "300",
+            "1400"
+          ]
+        },
+        "ph": {
+          "optimal": [
+            6.5,
+            7.5
+          ],
+          "absolute": [
+            "5",
+            "8"
+          ]
+        }
+      },
+      "accessed": "2026-10-29"
+    },
+    "Linum usitatissimum": {
+      "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=7336",
+      "ecocrop_id": "7336",
+      "fields": {
+        "temperature": {
+          "optimal": [
+            16.0,
+            24.0
+          ],
+          "absolute": [
+            "5",
+            "30"
+          ]
+        },
+        "rainfall": {
+          "optimal": [
+            500.0,
+            800.0
+          ],
+          "absolute": [
+            "250",
+            "1300"
+          ]
+        },
+        "ph": {
+          "optimal": [
+            6.0,
+            6.5
+          ],
+          "absolute": [
+            "5.5",
+            "7"
+          ]
+        }
+      },
+      "accessed": "2026-10-29"
+    },
+    "Zingiber officinale": {
+      "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=2177",
+      "ecocrop_id": "2177",
+      "fields": {
+        "temperature": {
+          "optimal": [
+            19.0,
+            29.0
+          ],
+          "absolute": [
+            "13",
+            "35"
+          ]
+        },
+        "rainfall": {
+          "optimal": [
+            1400.0,
+            3000.0
+          ],
+          "absolute": [
+            "700",
+            "4000"
+          ]
+        },
+        "ph": {
+          "optimal": [
+            6.0,
+            7.0
+          ],
+          "absolute": [
+            "4.3",
+            "7.5"
+          ]
+        }
+      },
+      "accessed": "2026-10-29"
+    },
+    "Curcuma longa": {
+      "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=828",
+      "ecocrop_id": "828",
+      "fields": {
+        "temperature": {
+          "optimal": [
+            20.0,
+            28.0
+          ],
+          "absolute": [
+            "18",
+            "32"
+          ]
+        },
+        "rainfall": {
+          "optimal": [
+            1000.0,
+            2000.0
+          ],
+          "absolute": [
+            "800",
+            "3000"
+          ]
+        },
+        "ph": {
+          "optimal": [
+            6.0,
+            7.0
+          ],
+          "absolute": [
+            "5.5",
+            "7.5"
+          ]
+        }
+      },
+      "accessed": "2026-10-29"
+    },
+    "Piper nigrum": {
+      "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=1714",
+      "ecocrop_id": "1714",
+      "fields": {
+        "temperature": {
+          "optimal": [
+            22.0,
+            35.0
+          ],
+          "absolute": [
+            "10",
+            "40"
+          ]
+        },
+        "rainfall": {
+          "optimal": [
+            2500.0,
+            4000.0
+          ],
+          "absolute": [
+            "2000",
+            "5500"
+          ]
+        },
+        "ph": {
+          "optimal": [
+            6.0,
+            7.0
+          ],
+          "absolute": [
+            "5",
+            "7.5"
+          ]
+        }
+      },
+      "accessed": "2026-10-29"
+    },
+    "Elettaria cardamomum": {
+      "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=984",
+      "ecocrop_id": "984",
+      "fields": {
+        "temperature": {
+          "optimal": [
+            22.0,
+            30.0
+          ],
+          "absolute": [
+            "10",
+            "35"
+          ]
+        },
+        "rainfall": {
+          "optimal": [
+            3000.0,
+            6000.0
+          ],
+          "absolute": [
+            "1500",
+            "7000"
+          ]
+        },
+        "ph": {
+          "optimal": [
+            5.5,
+            6.0
+          ],
+          "absolute": [
+            "4.8",
+            "7"
+          ]
+        }
+      },
+      "accessed": "2026-10-29"
+    },
+    "Coriandrum sativum": {
+      "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=784",
+      "ecocrop_id": "784",
+      "fields": {
+        "temperature": {
+          "optimal": [
+            15.0,
+            25.0
+          ],
+          "absolute": [
+            "4",
+            "32"
+          ]
+        },
+        "rainfall": {
+          "optimal": [
+            500.0,
+            1400.0
+          ],
+          "absolute": [
+            "300",
+            "2600"
+          ]
+        },
+        "ph": {
+          "optimal": [
+            5.5,
+            7.5
+          ],
+          "absolute": [
+            "4",
+            "8"
+          ]
+        }
+      },
+      "accessed": "2026-10-29"
+    },
+    "Gossypium hirsutum": {
+      "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=1160",
+      "ecocrop_id": "1160",
+      "fields": {
+        "temperature": {
+          "optimal": [
+            22.0,
+            36.0
+          ],
+          "absolute": [
+            "15",
+            "42"
+          ]
+        },
+        "rainfall": {
+          "optimal": [
+            750.0,
+            1200.0
+          ],
+          "absolute": [
+            "450",
+            "1500"
+          ]
+        },
+        "ph": {
+          "optimal": [
+            6.0,
+            7.5
+          ],
+          "absolute": [
+            "5",
+            "9.5"
+          ]
+        }
+      },
+      "accessed": "2026-10-29"
+    },
+    "Saccharum officinarum": {
+      "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=1884",
+      "ecocrop_id": "1884",
+      "fields": {
+        "temperature": {
+          "optimal": [
+            24.0,
+            37.0
+          ],
+          "absolute": [
+            "15",
+            "41"
+          ]
+        },
+        "rainfall": {
+          "optimal": [
+            1500.0,
+            2000.0
+          ],
+          "absolute": [
+            "1000",
+            "5000"
+          ]
+        },
+        "ph": {
+          "optimal": [
+            5.0,
+            8.0
+          ],
+          "absolute": [
+            "4.5",
+            "9"
+          ]
+        }
+      },
+      "accessed": "2026-10-29"
+    },
+    "Coffea arabica": {
+      "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=749",
+      "ecocrop_id": "749",
+      "fields": {
+        "temperature": {
+          "optimal": [
+            14.0,
+            28.0
+          ],
+          "absolute": [
+            "10",
+            "34"
+          ]
+        },
+        "rainfall": {
+          "optimal": [
+            1400.0,
+            2300.0
+          ],
+          "absolute": [
+            "750",
+            "4200"
+          ]
+        },
+        "ph": {
+          "optimal": [
+            5.5,
+            7.0
+          ],
+          "absolute": [
+            "4.3",
+            "8.4"
+          ]
+        }
+      },
+      "accessed": "2026-10-29"
+    },
+    "Corchorus capsularis": {
+      "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=4849",
+      "ecocrop_id": "4849",
+      "fields": {
+        "temperature": {
+          "optimal": [
+            20.0,
+            37.0
+          ],
+          "absolute": [
+            "13",
+            "45"
+          ]
+        },
+        "rainfall": {
+          "optimal": [
+            1500.0,
+            3000.0
+          ],
+          "absolute": [
+            "900",
+            "3600"
+          ]
+        },
+        "ph": {
+          "optimal": [
+            6.5,
+            7.0
+          ],
+          "absolute": [
+            "5",
+            "8.6"
+          ]
+        }
+      },
+      "accessed": "2026-10-29"
+    },
+    "Areca catechu": {
+      "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=449",
+      "ecocrop_id": "449",
+      "fields": {
+        "temperature": {
+          "optimal": [
+            16.0,
+            33.0
+          ],
+          "absolute": [
+            "7",
+            "39"
+          ]
+        },
+        "rainfall": {
+          "optimal": [
+            1500.0,
+            3000.0
+          ],
+          "absolute": [
+            "750",
+            "5000"
+          ]
+        },
+        "ph": {
+          "optimal": [
+            5.5,
+            6.0
+          ],
+          "absolute": [
+            "4.5",
+            "6.8"
+          ]
+        }
+      },
+      "accessed": "2026-10-29"
+    },
+    "Anacardium occidentale": {
+      "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=401",
+      "ecocrop_id": "401",
+      "fields": {
+        "temperature": {
+          "optimal": [
+            15.0,
+            35.0
+          ],
+          "absolute": [
+            "5",
+            "46"
+          ]
+        },
+        "rainfall": {
+          "optimal": [
+            750.0,
+            1600.0
+          ],
+          "absolute": [
+            "400",
+            "4000"
+          ]
+        },
+        "ph": {
+          "optimal": [
+            4.5,
+            6.5
+          ],
+          "absolute": [
+            "3.8",
+            "8.7"
+          ]
+        }
+      },
+      "accessed": "2026-10-29"
+    },
+    "Nelumbo nucifera": {
+      "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=2359",
+      "ecocrop_id": "2359",
+      "fields": {
+        "temperature": {
+          "optimal": [
+            25.0,
+            30.0
+          ],
+          "absolute": [
+            "10",
+            "40"
+          ]
+        },
+        "rainfall": {
+          "optimal": [
+            2000.0,
+            2800.0
+          ],
+          "absolute": [
+            "700",
+            "4000"
+          ]
+        },
+        "ph": {
+          "optimal": [
+            6.0,
+            6.5
+          ],
+          "absolute": [
+            "5.5",
+            "7.3"
+          ]
+        }
+      },
+      "accessed": "2026-10-29"
+    },
+    "Coffea canephora": {
+      "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=750",
+      "ecocrop_id": "750",
+      "fields": {
+        "temperature": {
+          "optimal": [
+            20.0,
+            30.0
+          ],
+          "absolute": [
+            "12",
+            "36"
+          ]
+        },
+        "rainfall": {
+          "optimal": [
+            1700.0,
+            3000.0
+          ],
+          "absolute": [
+            "900",
+            "4000"
+          ]
+        },
+        "ph": {
+          "optimal": [
+            5.0,
+            6.3
+          ],
+          "absolute": [
+            "4",
+            "8"
+          ]
+        }
+      },
+      "accessed": "2026-10-29"
+    },
+    "Brassica napus": {
+      "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=549",
+      "ecocrop_id": "549",
+      "fields": {
+        "temperature": {
+          "optimal": [
+            15.0,
+            25.0
+          ],
+          "absolute": [
+            "5",
+            "41"
+          ]
+        },
+        "rainfall": {
+          "optimal": [
+            500.0,
+            1000.0
+          ],
+          "absolute": [
+            "400",
+            "2800"
+          ]
+        },
+        "ph": {
+          "optimal": [
+            6.5,
+            7.6
+          ],
+          "absolute": [
+            "5.5",
+            "8"
+          ]
+        }
+      },
+      "accessed": "2026-10-29"
+    }
+  }
+}

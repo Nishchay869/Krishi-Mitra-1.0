@@ -1,0 +1,9 @@
+.git/
+.venv/
+.venv-translate/
+.offline-models/
+frontend/node_modules/
+locale/drafts/
+__pycache__/
+*.pyc
+.env

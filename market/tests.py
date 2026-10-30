@@ -76,7 +76,7 @@ class MarketViewTests(TestCase):
     def test_page_defaults_to_profile_state_and_shows_arrows(self, mock_request):
         calls = []
         mock_request.side_effect = self._fake(calls)
-        resp = self.client.get(reverse('market:prices'))
+        resp = self.client.get(reverse('market:overview'))
         self.assertEqual(resp.status_code, 200)
         self.assertEqual(calls[-1][1]['state'], 16)
         html = resp.content.decode()
@@ -89,7 +89,7 @@ class MarketViewTests(TestCase):
     def test_all_india_selection(self, mock_request):
         calls = []
         mock_request.side_effect = self._fake(calls)
-        resp = self.client.get(reverse('market:prices'), {'state': '0'})
+        resp = self.client.get(reverse('market:overview'), {'state': '0'})
         self.assertNotIn('state', calls[-1][1])
         self.assertEqual(resp.context['state_name'], 'All India')
 
@@ -102,4 +102,4 @@ class MarketViewTests(TestCase):
         cache.clear()
         mock_request.side_effect = services.MarketError('down')
         self.assertEqual(self.client.get(reverse('market:api')).status_code, 502)
-        self.assertContains(self.client.get(reverse('market:prices')), 'down')
+        self.assertContains(self.client.get(reverse('market:overview')), 'down')

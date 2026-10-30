@@ -39,6 +39,7 @@ class ChatMessage(models.Model):
     language = models.CharField(max_length=10, default='en-IN')
     is_voice = models.BooleanField(default=False)
     response = models.TextField()
+    response_en = models.TextField(blank=True, help_text='English answer before translation (used for speech)')
     intent = models.CharField(max_length=20, blank=True)
     matched_entry = models.ForeignKey(KnowledgeEntry, on_delete=models.SET_NULL, null=True, blank=True)
     confidence = models.FloatField(default=0)

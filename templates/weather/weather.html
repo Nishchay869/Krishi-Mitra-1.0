@@ -1,32 +1,27 @@
-{% extends 'base.html' %}
-{% block title %}Weather{% endblock %}
-{% block content %}
-<h3>Weather & farm advisory</h3>
-<form method="get" class="row g-2 align-items-end mb-4">
-  <div class="col-sm-5"><label class="form-label small" for="loc">Location (district / town)</label><input id="loc" class="form-control" name="location" value="{{ location }}" placeholder="e.g. Mandya" required></div>
-  <div class="col-sm-4"><label class="form-label small" for="sm">Soil moisture % (optional, from sensor)</label><input id="sm" class="form-control" type="number" step="any" min="0" max="100" name="soil_moisture" value="{{ soil_moisture|default_if_none:'' }}"></div>
-  <div class="col-sm-3"><button class="btn btn-agri w-100">Get forecast</button></div>
-</form>
+{% extends 'base.html' %}{% load static i18n farm_i18n tz %}
+{% block title %}{% translate 'Weather' %}{% endblock %}
+{% block extra_head %}<link rel="stylesheet" href="{% static 'css/weather-planner.css' %}?v={{ STATIC_VERSION }}">{% endblock %}
+{% block content %}{% localtime off %}<div class="farm-weather">
+<header class="weather-heading"><span class="eyebrow">{% translate 'PLAN AROUND THE SKY' %}</span><h1>{% translate 'Farm activity planner' %}</h1><p>{% translate 'Weather for your working day.' %}</p></header>
+<form method="get" class="weather-controls">
+<div><label for="loc">{% translate 'Village / town' %}</label><input id="loc" class="form-control" name="location" value="{{ location }}" placeholder="{% translate 'Village, district, state' %}" required maxlength="350"></div>
+<div><label for="soil">{% translate 'Soil condition' %}</label><select id="soil" name="soil" class="form-select"><option value="unknown">{% translate '— select —' %}</option><option value="dry" {% if soil == 'dry' %}selected{% endif %}>{% translate 'Dry' %}</option><option value="moist" {% if soil == 'moist' %}selected{% endif %}>{% translate 'Moist' %}</option><option value="wet" {% if soil == 'wet' %}selected{% endif %}>{% translate 'Wet' %}</option></select></div><button class="btn btn-agri">{% translate 'Get forecast' %}</button></form>
+{% if needs_village and location %}<p><a href="{% url 'accounts:profile' %}">{% translate 'add your village to your profile' %}</a></p>{% endif %}
 {% if error %}<div class="alert alert-warning">{{ error }}</div>{% endif %}
-{% if notes %}
-<div class="mb-4">
-  <h5>Advisories</h5>
-  {% for level, text in notes %}<div class="alert alert-{{ level }} py-2 mb-2 small">{{ text }}</div>{% endfor %}
-</div>
+{% if not saved_crops %}<div class="alert alert-info"><a href="{% url 'accounts:profile' %}">{% translate 'Select your crops' %} →</a></div>{% else %}<div class="weather-crop-chips">{% for crop in saved_crops %}<span>{{ crop|ui_text }}</span>{% endfor %}<a href="{% url 'accounts:profile' %}">{% translate 'Change' %} ↗</a></div>{% endif %}
+{% if plan.next %}
+{% if village_forecast %}<p class="small text-muted">{% translate 'Forecast for the village area; local field conditions may differ.' %}</p>{% endif %}
+<section class="weather-now"><div><span>{{ location }} · {{ plan.next.when|date:'d M' }}</span><h2>{{ plan.next.temp|floatformat:0 }}<small> °C</small></h2><p>{% translate 'Next forecast' %} · {{ plan.next.when|date:'H:i' }}</p><p>{{ plan.next.description|ui_text }}</p></div><i class="bi {% if plan.next.rain > 0 %}bi-cloud-rain{% else %}bi-cloud-sun{% endif %}" aria-hidden="true"></i><div class="weather-measures"><span><i class="bi bi-cloud-rain"></i> {{ plan.next.rain }} mm</span><span><i class="bi bi-wind"></i> {{ plan.next.wind }} m/s</span><span><i class="bi bi-droplet"></i> {{ plan.next.humidity }}%</span></div></section>
+<div class="weather-guidance"><i class="bi bi-info-circle" aria-hidden="true"></i><div>{% translate 'Weather guidance only; check the product label and field conditions.' %}<small>{% translate 'Forecast every 3 hours; times are local.' %}</small></div></div>
+<section class="weather-section"><h2>{% translate 'Weather' %}</h2><div class="forecast-strip">{% for day in plan.daily %}<article><strong>{{ day.when|date:'D' }}</strong><small>{{ day.when|date:'d M' }}</small><i class="bi {% if day.rain_mm > 0 %}bi-cloud-rain{% else %}bi-cloud-sun{% endif %}" aria-hidden="true"></i><b>{{ day.temp_max|floatformat:0 }}° / {{ day.temp_min|floatformat:0 }}°</b><small>{{ day.rain_mm }} mm</small></article>{% endfor %}</div></section>
+{% if saved_crops %}
+<section class="weather-section"><h2>{% translate 'Your farm toolkit.' %}</h2><div class="crop-plans">{% for item in plan.crops %}<article class="crop-plan"><h3>{{ item.crop|ui_text }}</h3><p>{{ item.note|ui_text }}</p><div><i class="bi bi-moisture" aria-hidden="true"></i><strong>{% translate 'Spraying' %}</strong><span>{% if item.spray %}{{ item.spray.when|date:'D, d M · H:i' }}<small>{% translate 'Check conditions' %}</small>{% else %}{% translate 'No suitable window in this forecast.' %}{% endif %}</span></div><div><i class="bi bi-droplet" aria-hidden="true"></i><strong>{% translate 'Irrigation' %}</strong><span>{% if item.water %}{{ item.water.when|date:'D, d M · H:i' }}<small>{{ item.water.irrigation|ui_text }}</small>{% elif item.crop == 'Rice' %}{% translate 'Check paddy water level.' %}{% else %}{% translate 'No suitable window in this forecast.' %}{% endif %}</span></div></article>{% endfor %}</div></section>
+<section class="weather-section"><div class="activity-heading"><h2>{% translate 'Spraying' %}</h2><button type="button" class="spray-help" data-spray-open aria-haspopup="dialog">{% translate 'Why this rating?' %} <i class="bi bi-info-circle"></i></button></div><div class="activity-strip" tabindex="0" role="region" aria-label="{% translate 'Spraying' %}">{% for slot in plan.slots %}<button type="button" class="activity-slot {{ slot.spray_class }} spray-select" data-spray-slot="{{ forloop.counter0 }}" aria-haspopup="dialog"><small>{{ slot.when|date:'D, d M' }}</small><span class="activity-symbol" aria-hidden="true">{% if slot.spray_class == 'candidate' %}✓{% elif slot.spray_class == 'avoid' %}×{% else %}?{% endif %}</span><strong>{{ slot.when|date:'H:i' }}</strong><span>{{ slot.spray|ui_text }}</span><small>{{ slot.temp|floatformat:0 }}° · {{ slot.wind }} m/s</small></button>{% endfor %}</div></section>
+<section class="weather-section"><h2>{% translate 'Irrigation' %}</h2><div class="activity-strip" tabindex="0" role="region" aria-label="{% translate 'Irrigation' %}">{% for slot in plan.slots %}<article class="activity-slot {{ slot.irrigation_class }}"><small>{{ slot.when|date:'D, d M' }}</small><span class="activity-symbol" aria-hidden="true">{% if slot.irrigation_class == 'candidate' %}✓{% elif slot.irrigation_class == 'avoid' %}×{% else %}?{% endif %}</span><strong>{{ slot.when|date:'H:i' }}</strong><span>{{ slot.irrigation|ui_text }}</span><small>{{ slot.rain }} mm</small></article>{% endfor %}</div></section>
 {% endif %}
-{% if days %}
-<div class="row g-3">
-  {% for d in days %}
-  <div class="col-6 col-md-4 col-lg"><div class="card shadow-sm h-100 text-center"><div class="card-body">
-    <div class="fw-semibold">{{ d.date }}</div>
-    <div class="text-capitalize small text-muted mb-2">{{ d.description }}</div>
-    <div class="fs-5">{{ d.temp_max }}° / <span class="text-muted">{{ d.temp_min }}°</span></div>
-    <div class="small mt-2"><i class="bi bi-droplet"></i> {{ d.humidity }}% · <i class="bi bi-cloud-rain"></i> {{ d.rain_mm }} mm</div>
-    <div class="small"><i class="bi bi-wind"></i> {{ d.wind_speed }} m/s · {{ d.pressure }} hPa</div>
-  </div></div></div>
-  {% endfor %}
-</div>
-{% elif not error and not location %}
-<div class="alert alert-light border">Enter a location, or <a href="{% url 'accounts:profile' %}">add your district to your profile</a>.</div>
-{% endif %}
-{% endblock %}
+{% include 'weather/spray_details.html' %}
+<details class="weather-method"><summary>{% translate 'How accurate is it?' %}</summary><p>{% translate 'Weather guidance only; check the product label and field conditions.' %}</p><p>{% translate 'Spraying' %}: 08:00–17:00 · 10–28 °C · 1.5–3.3 m/s · RH 40–85% · 6 h: 0 mm, &lt;30%.</p><p>{% translate 'Irrigation' %}: 06:00–11:00 / 16:00–19:00 · {% translate 'Check soil first' %}.</p><p>{% translate 'Source:' %} <a href="https://extension.umn.edu/agriculture/crop-production/weed-management/avoiding-herbicide-drift" target="_blank" rel="noopener">UMN Extension</a> · <a href="https://extension.umn.edu/agriculture/specialty-crops/vegetable-farming/irrigation-strategies-for-vegetables" target="_blank" rel="noopener">Irrigation</a> · OpenWeather</p></details>
+{% elif not error %}<div class="alert alert-light border">{% if not location %}{% translate 'Enter a location, or' %} <a href="{% url 'accounts:profile' %}">{% translate 'add your village to your profile' %}</a>{% else %}{% translate 'Insufficient forecast' %}{% endif %}</div>{% endif %}
+</div>{% endlocaltime %}{% endblock %}
+
+{% block scripts %}<script src="{% static 'js/spray-details.js' %}?v={{ STATIC_VERSION }}" defer></script>{% endblock %}

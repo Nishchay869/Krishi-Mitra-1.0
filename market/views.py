@@ -1,4 +1,5 @@
 from datetime import date
+from django.utils.translation import gettext as _
 from itertools import groupby
 
 from django.contrib.auth.decorators import login_required
@@ -28,7 +29,7 @@ def prices_page(request):
         state_id = _state_id(request.GET.get('state')) if 'state' in request.GET else _profile_state_id(request.user, states)
         data = fetch_prices(state_id)
     except MarketError as exc:
-        state_id, error = None, str(exc)
+        state_id, error = None, _(str(exc))
 
     groups, summary, days_old = [], {}, None
     if data:

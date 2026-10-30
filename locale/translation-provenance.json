@@ -1,0 +1,107 @@
+{
+  "bn": {
+    "method": "local-model",
+    "model": "mlx-community/sarvam-translate-mlx-4bit",
+    "revision": "7c664b5203a0db7f6d1e8a0c0a2a0d76c8f41e64",
+    "source_messages": 831,
+    "api_calls": 0
+  },
+  "gu": {
+    "method": "local-model",
+    "model": "mlx-community/sarvam-translate-mlx-4bit",
+    "revision": "7c664b5203a0db7f6d1e8a0c0a2a0d76c8f41e64",
+    "source_messages": 831,
+    "api_calls": 0
+  },
+  "brx": {
+    "method": "local-model",
+    "model": "mlx-community/sarvam-translate-mlx-4bit",
+    "revision": "7c664b5203a0db7f6d1e8a0c0a2a0d76c8f41e64",
+    "source_messages": 831,
+    "api_calls": 0
+  },
+  "doi": {
+    "method": "local-model",
+    "model": "mlx-community/sarvam-translate-mlx-4bit",
+    "revision": "7c664b5203a0db7f6d1e8a0c0a2a0d76c8f41e64",
+    "source_messages": 831,
+    "api_calls": 0
+  },
+  "kok": {
+    "method": "local-model",
+    "model": "mlx-community/sarvam-translate-mlx-4bit",
+    "revision": "7c664b5203a0db7f6d1e8a0c0a2a0d76c8f41e64",
+    "source_messages": 831,
+    "api_calls": 0
+  },
+  "ks": {
+    "method": "local-model",
+    "model": "mlx-community/sarvam-translate-mlx-4bit",
+    "revision": "7c664b5203a0db7f6d1e8a0c0a2a0d76c8f41e64",
+    "source_messages": 831,
+    "api_calls": 0
+  },
+  "mai": {
+    "method": "local-model",
+    "model": "mlx-community/sarvam-translate-mlx-4bit",
+    "revision": "7c664b5203a0db7f6d1e8a0c0a2a0d76c8f41e64",
+    "source_messages": 831,
+    "api_calls": 0
+  },
+  "ml": {
+    "method": "local-model",
+    "model": "mlx-community/sarvam-translate-mlx-4bit",
+    "revision": "7c664b5203a0db7f6d1e8a0c0a2a0d76c8f41e64",
+    "source_messages": 831,
+    "api_calls": 0
+  },
+  "as": {
+    "method": "local-model",
+    "model": "mlx-community/sarvam-translate-mlx-4bit",
+    "revision": "7c664b5203a0db7f6d1e8a0c0a2a0d76c8f41e64",
+    "source_messages": 831,
+    "api_calls": 0
+  },
+  "hi": {
+    "method": "local-model",
+    "model": "mlx-community/sarvam-translate-mlx-4bit",
+    "revision": "7c664b5203a0db7f6d1e8a0c0a2a0d76c8f41e64",
+    "source_messages": 831,
+    "api_calls": 0
+  },
+  "kn": {
+    "method": "local-model",
+    "model": "mlx-community/sarvam-translate-mlx-4bit",
+    "revision": "7c664b5203a0db7f6d1e8a0c0a2a0d76c8f41e64",
+    "source_messages": 831,
+    "api_calls": 0
+  },
+  "ta": {
+    "method": "local-model",
+    "model": "mlx-community/sarvam-translate-mlx-4bit",
+    "revision": "7c664b5203a0db7f6d1e8a0c0a2a0d76c8f41e64",
+    "source_messages": 831,
+    "api_calls": 0
+  },
+  "te": {
+    "method": "local-model",
+    "model": "mlx-community/sarvam-translate-mlx-4bit",
+    "revision": "7c664b5203a0db7f6d1e8a0c0a2a0d76c8f41e64",
+    "source_messages": 831,
+    "api_calls": 0
+  },
+  "mni": {
+    "method": "local-model",
+    "model": "mlx-community/sarvam-translate-mlx-4bit",
+    "revision": "7c664b5203a0db7f6d1e8a0c0a2a0d76c8f41e64",
+    "source_messages": 831,
+    "api_calls": 0
+  },
+  "mr": {
+    "method": "local-model",
+    "model": "mlx-community/sarvam-translate-mlx-4bit",
+    "revision": "7c664b5203a0db7f6d1e8a0c0a2a0d76c8f41e64",
+    "source_messages": 831,
+    "api_calls": 0
+  }
+}

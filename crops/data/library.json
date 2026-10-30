@@ -1,0 +1,4410 @@
+{
+  "Tomato": {
+    "climate": "Warm season",
+    "temperature": "20–27 °C",
+    "sun": "Full sun",
+    "watering": "Regular moisture",
+    "planting": "Seedlings",
+    "soil": "Loamy soil",
+    "ph": "5.5–6.8",
+    "rainfall": "600–1300",
+    "humidity": "Allow airflow and avoid prolonged leaf wetness.",
+    "drainage": "Well-drained soil",
+    "sources": [
+      {
+        "label": "TNAU Agritech",
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_vegetables_tomato_Soil.html"
+      },
+      {
+        "label": "TNAU Agritech",
+        "url": "https://agritech.tnau.ac.in/org_farm/orgfarm_tomato_climate.html"
+      },
+      {
+        "label": "TNAU Agritech",
+        "url": "https://agritech.tnau.ac.in/govt_schemes_services/aas/tomato.html"
+      },
+      {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=1379",
+        "label": "FAO EcoCrop"
+      },
+      {
+        "url": "https://hort.extension.wisc.edu/water-water-everywhere-but-never-on-the-leaves/",
+        "label": "UW–Madison Extension"
+      },
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_FAQs_Vegetables.html",
+        "label": "TNAU Agritech"
+      }
+    ],
+    "companions": [
+      "Marigold"
+    ],
+    "practices": [
+      "Staking",
+      "Mulching",
+      "Crop rotation"
+    ],
+    "field_sources": {
+      "temperature": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=1379",
+        "label": "FAO EcoCrop"
+      },
+      "rainfall": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=1379",
+        "label": "FAO EcoCrop"
+      },
+      "ph": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=1379",
+        "label": "FAO EcoCrop"
+      },
+      "humidity": {
+        "url": "https://hort.extension.wisc.edu/water-water-everywhere-but-never-on-the-leaves/",
+        "label": "UW–Madison Extension"
+      },
+      "companions": {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_FAQs_Vegetables.html",
+        "label": "TNAU Agritech"
+      }
+    },
+    "researched_on": "2026-10-29",
+    "scientific_name": "Lycopersicon esculentum",
+    "rainfall_note": "",
+    "companion_note": "Companion suitability depends on spacing, shade and water availability.",
+    "companion_kind": "intercrop"
+  },
+  "Pepper bell": {
+    "climate": "Warm season",
+    "temperature": "17–30 °C",
+    "sun": "Full sun",
+    "watering": "Regular moisture",
+    "planting": "Seedlings",
+    "soil": "Loamy soil",
+    "ph": "5.5–6.8",
+    "rainfall": "600–1250",
+    "humidity": "Allow airflow and avoid prolonged leaf wetness.",
+    "drainage": "Well-drained soil",
+    "sources": [
+      {
+        "label": "TNAU Agritech",
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_spice%20crops_paprika.html"
+      },
+      {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=618",
+        "label": "FAO EcoCrop"
+      },
+      {
+        "url": "https://hort.extension.wisc.edu/water-water-everywhere-but-never-on-the-leaves/",
+        "label": "UW–Madison Extension"
+      },
+      {
+        "url": "https://extension.umd.edu/resource/vegetable-succession-and-companion-planting",
+        "label": "University of Maryland Extension"
+      }
+    ],
+    "companions": [
+      "Onion"
+    ],
+    "practices": [
+      "Raised beds",
+      "Weeding"
+    ],
+    "field_sources": {
+      "temperature": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=618",
+        "label": "FAO EcoCrop"
+      },
+      "rainfall": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=618",
+        "label": "FAO EcoCrop"
+      },
+      "ph": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=618",
+        "label": "FAO EcoCrop"
+      },
+      "humidity": {
+        "url": "https://hort.extension.wisc.edu/water-water-everywhere-but-never-on-the-leaves/",
+        "label": "UW–Madison Extension"
+      },
+      "companions": {
+        "url": "https://extension.umd.edu/resource/vegetable-succession-and-companion-planting",
+        "label": "University of Maryland Extension"
+      }
+    },
+    "researched_on": "2026-10-29",
+    "scientific_name": "Capsicum annuum",
+    "rainfall_note": "",
+    "companion_note": "Companion suitability depends on spacing, shade and water availability.",
+    "companion_kind": "intercrop"
+  },
+  "Onion": {
+    "climate": "Cool season",
+    "temperature": "12–25 °C",
+    "sun": "Full sun",
+    "watering": "Regular moisture",
+    "planting": "Seedlings",
+    "soil": "Loamy soil",
+    "ph": "6–7",
+    "rainfall": "350–600",
+    "humidity": "Allow airflow and avoid prolonged leaf wetness.",
+    "drainage": "Well-drained soil",
+    "sources": [
+      {
+        "label": "TNAU Agritech",
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_vegetables_bellaryonion.html"
+      },
+      {
+        "label": "Companion crop reference",
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_spice_turmeric_intercropping.html"
+      },
+      {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=364",
+        "label": "FAO EcoCrop"
+      },
+      {
+        "url": "https://hort.extension.wisc.edu/water-water-everywhere-but-never-on-the-leaves/",
+        "label": "UW–Madison Extension"
+      }
+    ],
+    "companions": [
+      "Turmeric"
+    ],
+    "practices": [
+      "Raised beds",
+      "Weeding"
+    ],
+    "field_sources": {
+      "temperature": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=364",
+        "label": "FAO EcoCrop"
+      },
+      "rainfall": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=364",
+        "label": "FAO EcoCrop"
+      },
+      "ph": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=364",
+        "label": "FAO EcoCrop"
+      },
+      "humidity": {
+        "url": "https://hort.extension.wisc.edu/water-water-everywhere-but-never-on-the-leaves/",
+        "label": "UW–Madison Extension"
+      },
+      "companions": {
+        "label": "Companion crop reference",
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_spice_turmeric_intercropping.html"
+      }
+    },
+    "researched_on": "2026-10-29",
+    "scientific_name": "Allium cepa",
+    "rainfall_note": "",
+    "companion_note": "Companion suitability depends on spacing, shade and water availability.",
+    "companion_kind": "intercrop"
+  },
+  "Potato": {
+    "climate": "Cool season",
+    "temperature": "15–25 °C",
+    "sun": "Full sun",
+    "watering": "Regular moisture",
+    "planting": "Tubers",
+    "soil": "Sandy loam",
+    "ph": "5–6.2",
+    "rainfall": "500–800",
+    "humidity": "Allow airflow and avoid prolonged leaf wetness.",
+    "drainage": "Well-drained soil",
+    "sources": [
+      {
+        "label": "TNAU Agritech",
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_vegetables_potato.html"
+      },
+      {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=1971",
+        "label": "FAO EcoCrop"
+      },
+      {
+        "url": "https://hort.extension.wisc.edu/water-water-everywhere-but-never-on-the-leaves/",
+        "label": "UW–Madison Extension"
+      },
+      {
+        "url": "https://csauk.ac.in/en/article/cropping-system",
+        "label": "CSA University of Agriculture & Technology"
+      }
+    ],
+    "companions": [
+      "Coriander",
+      "Linseed"
+    ],
+    "practices": [
+      "Earthing up",
+      "Weeding"
+    ],
+    "field_sources": {
+      "temperature": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=1971",
+        "label": "FAO EcoCrop"
+      },
+      "rainfall": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=1971",
+        "label": "FAO EcoCrop"
+      },
+      "ph": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=1971",
+        "label": "FAO EcoCrop"
+      },
+      "humidity": {
+        "url": "https://hort.extension.wisc.edu/water-water-everywhere-but-never-on-the-leaves/",
+        "label": "UW–Madison Extension"
+      },
+      "companions": {
+        "url": "https://csauk.ac.in/en/article/cropping-system",
+        "label": "CSA University of Agriculture & Technology"
+      }
+    },
+    "researched_on": "2026-10-29",
+    "scientific_name": "Solanum tuberosum",
+    "rainfall_note": "",
+    "companion_note": "Companion suitability depends on spacing, shade and water availability.",
+    "companion_kind": "intercrop"
+  },
+  "Garlic": {
+    "climate": "Cool season",
+    "temperature": "18–30 °C",
+    "sun": "Full sun",
+    "watering": "Regular moisture",
+    "planting": "Bulbs",
+    "soil": "Loamy soil",
+    "ph": "6–6.6",
+    "rainfall": "750–1600",
+    "humidity": "Allow airflow and avoid prolonged leaf wetness.",
+    "drainage": "Well-drained soil",
+    "sources": [
+      {
+        "label": "TNAU Agritech",
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_vegetables_garlic.html"
+      },
+      {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=367",
+        "label": "FAO EcoCrop"
+      },
+      {
+        "url": "https://hort.extension.wisc.edu/water-water-everywhere-but-never-on-the-leaves/",
+        "label": "UW–Madison Extension"
+      },
+      {
+        "url": "https://www.pubs.ext.vt.edu/content/pubs_ext_vt_edu/en/SPES/spes-620.html",
+        "label": "Virginia Cooperative Extension"
+      }
+    ],
+    "companions": [
+      "Carrot"
+    ],
+    "practices": [
+      "Raised beds",
+      "Weeding"
+    ],
+    "field_sources": {
+      "temperature": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=367",
+        "label": "FAO EcoCrop"
+      },
+      "rainfall": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=367",
+        "label": "FAO EcoCrop"
+      },
+      "ph": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=367",
+        "label": "FAO EcoCrop"
+      },
+      "humidity": {
+        "url": "https://hort.extension.wisc.edu/water-water-everywhere-but-never-on-the-leaves/",
+        "label": "UW–Madison Extension"
+      },
+      "companions": {
+        "url": "https://www.pubs.ext.vt.edu/content/pubs_ext_vt_edu/en/SPES/spes-620.html",
+        "label": "Virginia Cooperative Extension"
+      }
+    },
+    "researched_on": "2026-10-29",
+    "scientific_name": "Allium sativum",
+    "rainfall_note": "",
+    "companion_note": "Companion suitability depends on spacing, shade and water availability.",
+    "companion_kind": "intercrop"
+  },
+  "Sweet potato": {
+    "climate": "Warm season",
+    "temperature": "18–28 °C",
+    "sun": "Full sun",
+    "watering": "Drought tolerant once established",
+    "planting": "Cuttings",
+    "soil": "Sandy loam",
+    "ph": "5–7",
+    "rainfall": "750–2000",
+    "humidity": "Allow airflow and avoid prolonged leaf wetness.",
+    "drainage": "Well-drained soil",
+    "sources": [
+      {
+        "label": "TNAU Agritech",
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_vegetables_sweet%20potato.html"
+      },
+      {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=1265",
+        "label": "FAO EcoCrop"
+      },
+      {
+        "url": "https://hort.extension.wisc.edu/water-water-everywhere-but-never-on-the-leaves/",
+        "label": "UW–Madison Extension"
+      },
+      {
+        "url": "https://extension.umd.edu/resource/vegetable-succession-and-companion-planting",
+        "label": "University of Maryland Extension"
+      }
+    ],
+    "companions": [
+      "Okra"
+    ],
+    "practices": [
+      "Weeding",
+      "Crop rotation"
+    ],
+    "field_sources": {
+      "temperature": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=1265",
+        "label": "FAO EcoCrop"
+      },
+      "rainfall": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=1265",
+        "label": "FAO EcoCrop"
+      },
+      "ph": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=1265",
+        "label": "FAO EcoCrop"
+      },
+      "humidity": {
+        "url": "https://hort.extension.wisc.edu/water-water-everywhere-but-never-on-the-leaves/",
+        "label": "UW–Madison Extension"
+      },
+      "companions": {
+        "url": "https://extension.umd.edu/resource/vegetable-succession-and-companion-planting",
+        "label": "University of Maryland Extension"
+      }
+    },
+    "researched_on": "2026-10-29",
+    "scientific_name": "Ipomoea batatas",
+    "rainfall_note": "",
+    "companion_note": "Companion suitability depends on spacing, shade and water availability.",
+    "companion_kind": "intercrop"
+  },
+  "Squash": {
+    "climate": "Warm season",
+    "temperature": "17–30 °C",
+    "sun": "Full sun",
+    "watering": "Regular moisture",
+    "planting": "Seeds",
+    "soil": "Loamy soil",
+    "ph": "5.5–6.8",
+    "rainfall": "600–1500",
+    "humidity": "Allow airflow and avoid prolonged leaf wetness.",
+    "drainage": "Well-drained soil",
+    "sources": [
+      {
+        "label": "TNAU Agritech",
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_vegetables_minor%20vegetables.html"
+      },
+      {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=821",
+        "label": "FAO EcoCrop"
+      },
+      {
+        "url": "https://hort.extension.wisc.edu/water-water-everywhere-but-never-on-the-leaves/",
+        "label": "UW–Madison Extension"
+      },
+      {
+        "url": "https://extension.illinois.edu/blogs/good-growing/2025-03-07-companion-planting-combining-plants-healthy-well-balanced-garden",
+        "label": "Illinois Extension"
+      }
+    ],
+    "companions": [
+      "Maize",
+      "Kidneybeans"
+    ],
+    "practices": [
+      "Weeding",
+      "Crop rotation"
+    ],
+    "field_sources": {
+      "temperature": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=821",
+        "label": "FAO EcoCrop"
+      },
+      "rainfall": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=821",
+        "label": "FAO EcoCrop"
+      },
+      "ph": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=821",
+        "label": "FAO EcoCrop"
+      },
+      "humidity": {
+        "url": "https://hort.extension.wisc.edu/water-water-everywhere-but-never-on-the-leaves/",
+        "label": "UW–Madison Extension"
+      },
+      "companions": {
+        "url": "https://extension.illinois.edu/blogs/good-growing/2025-03-07-companion-planting-combining-plants-healthy-well-balanced-garden",
+        "label": "Illinois Extension"
+      }
+    },
+    "researched_on": "2026-10-29",
+    "scientific_name": "Cucurbita pepo",
+    "rainfall_note": "",
+    "companion_note": "Use climbing bean varieties in maize–bean–squash systems; allow space for each crop.",
+    "companion_kind": "intercrop"
+  },
+  "Brinjal": {
+    "climate": "Warm season",
+    "temperature": "20–35 °C",
+    "sun": "Full sun",
+    "watering": "Regular moisture",
+    "planting": "Seedlings",
+    "soil": "Loamy soil",
+    "ph": "5.5–6.8",
+    "rainfall": "1200–1600",
+    "humidity": "Allow airflow and avoid prolonged leaf wetness.",
+    "drainage": "Well-drained soil",
+    "sources": [
+      {
+        "label": "National Horticulture Board",
+        "url": "https://nhb.gov.in/pdf/vegetable/brinjal/bri011.pdf"
+      },
+      {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=1965",
+        "label": "FAO EcoCrop"
+      },
+      {
+        "url": "https://hort.extension.wisc.edu/water-water-everywhere-but-never-on-the-leaves/",
+        "label": "UW–Madison Extension"
+      },
+      {
+        "url": "https://www.pubs.ext.vt.edu/content/pubs_ext_vt_edu/en/SPES/spes-620.html",
+        "label": "Virginia Cooperative Extension"
+      }
+    ],
+    "companions": [
+      "Marigold"
+    ],
+    "practices": [
+      "Weeding",
+      "Crop rotation"
+    ],
+    "field_sources": {
+      "temperature": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=1965",
+        "label": "FAO EcoCrop"
+      },
+      "rainfall": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=1965",
+        "label": "FAO EcoCrop"
+      },
+      "ph": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=1965",
+        "label": "FAO EcoCrop"
+      },
+      "humidity": {
+        "url": "https://hort.extension.wisc.edu/water-water-everywhere-but-never-on-the-leaves/",
+        "label": "UW–Madison Extension"
+      },
+      "companions": {
+        "url": "https://www.pubs.ext.vt.edu/content/pubs_ext_vt_edu/en/SPES/spes-620.html",
+        "label": "Virginia Cooperative Extension"
+      }
+    },
+    "researched_on": "2026-10-29",
+    "scientific_name": "Solanum melongena",
+    "rainfall_note": "",
+    "companion_note": "Companion suitability depends on spacing, shade and water availability.",
+    "companion_kind": "intercrop"
+  },
+  "Okra": {
+    "climate": "Warm season",
+    "temperature": "20–30 °C",
+    "sun": "Full sun",
+    "watering": "Regular moisture",
+    "planting": "Seeds",
+    "soil": "Loamy soil",
+    "ph": "5.5–7",
+    "rainfall": "600–1200",
+    "humidity": "Humid",
+    "drainage": "Well-drained soil",
+    "sources": [
+      {
+        "label": "TNAU Agritech",
+        "url": "https://www.agritech.tnau.ac.in/org_farm/orgfarm_bhendi_climate.html"
+      },
+      {
+        "label": "Companion crop reference",
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_spice_turmeric_intercropping.html"
+      },
+      {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=289",
+        "label": "FAO EcoCrop"
+      }
+    ],
+    "companions": [
+      "Turmeric"
+    ],
+    "practices": [
+      "Weeding",
+      "Crop rotation"
+    ],
+    "field_sources": {
+      "temperature": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=289",
+        "label": "FAO EcoCrop"
+      },
+      "rainfall": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=289",
+        "label": "FAO EcoCrop"
+      },
+      "ph": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=289",
+        "label": "FAO EcoCrop"
+      },
+      "humidity": {
+        "label": "TNAU Agritech",
+        "url": "https://www.agritech.tnau.ac.in/org_farm/orgfarm_bhendi_climate.html"
+      },
+      "companions": {
+        "label": "Companion crop reference",
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_spice_turmeric_intercropping.html"
+      }
+    },
+    "researched_on": "2026-10-29",
+    "scientific_name": "Abelmoschus esculentus",
+    "rainfall_note": "",
+    "companion_note": "Companion suitability depends on spacing, shade and water availability.",
+    "companion_kind": "intercrop"
+  },
+  "Cucumber": {
+    "climate": "Warm season",
+    "temperature": "18–32 °C",
+    "sun": "Full sun",
+    "watering": "Regular moisture",
+    "planting": "Seeds",
+    "soil": "Sandy loam",
+    "ph": "6–7.5",
+    "rainfall": "1000–1200",
+    "humidity": "Allow airflow and avoid prolonged leaf wetness.",
+    "drainage": "Well-drained soil",
+    "sources": [
+      {
+        "label": "TNAU Agritech",
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_vegetables_cucumber.html"
+      },
+      {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=817",
+        "label": "FAO EcoCrop"
+      },
+      {
+        "url": "https://hort.extension.wisc.edu/water-water-everywhere-but-never-on-the-leaves/",
+        "label": "UW–Madison Extension"
+      },
+      {
+        "url": "https://www.pubs.ext.vt.edu/content/pubs_ext_vt_edu/en/SPES/spes-620.html",
+        "label": "Virginia Cooperative Extension"
+      }
+    ],
+    "companions": [
+      "Maize",
+      "Sunflower"
+    ],
+    "practices": [
+      "Trellis",
+      "Mulching"
+    ],
+    "field_sources": {
+      "temperature": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=817",
+        "label": "FAO EcoCrop"
+      },
+      "rainfall": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=817",
+        "label": "FAO EcoCrop"
+      },
+      "ph": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=817",
+        "label": "FAO EcoCrop"
+      },
+      "humidity": {
+        "url": "https://hort.extension.wisc.edu/water-water-everywhere-but-never-on-the-leaves/",
+        "label": "UW–Madison Extension"
+      },
+      "companions": {
+        "url": "https://www.pubs.ext.vt.edu/content/pubs_ext_vt_edu/en/SPES/spes-620.html",
+        "label": "Virginia Cooperative Extension"
+      }
+    },
+    "researched_on": "2026-10-29",
+    "scientific_name": "Cucumis sativus",
+    "rainfall_note": "",
+    "companion_note": "Companion suitability depends on spacing, shade and water availability.",
+    "companion_kind": "intercrop"
+  },
+  "Cabbage": {
+    "climate": "Cool season",
+    "temperature": "15–24 °C",
+    "sun": "Full sun",
+    "watering": "Regular moisture",
+    "planting": "Seedlings",
+    "soil": "Loamy soil",
+    "ph": "6–7.5",
+    "rainfall": "500–1000",
+    "humidity": "Allow airflow and avoid prolonged leaf wetness.",
+    "drainage": "Well-drained soil",
+    "sources": [
+      {
+        "label": "TNAU Agritech",
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_vegetables_cabbage.html"
+      },
+      {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=554",
+        "label": "FAO EcoCrop"
+      },
+      {
+        "url": "https://hort.extension.wisc.edu/water-water-everywhere-but-never-on-the-leaves/",
+        "label": "UW–Madison Extension"
+      },
+      {
+        "url": "https://www.pubs.ext.vt.edu/content/pubs_ext_vt_edu/en/SPES/spes-620.html",
+        "label": "Virginia Cooperative Extension"
+      }
+    ],
+    "companions": [
+      "Onion"
+    ],
+    "practices": [
+      "Raised beds",
+      "Weeding"
+    ],
+    "field_sources": {
+      "temperature": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=554",
+        "label": "FAO EcoCrop"
+      },
+      "rainfall": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=554",
+        "label": "FAO EcoCrop"
+      },
+      "ph": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=554",
+        "label": "FAO EcoCrop"
+      },
+      "humidity": {
+        "url": "https://hort.extension.wisc.edu/water-water-everywhere-but-never-on-the-leaves/",
+        "label": "UW–Madison Extension"
+      },
+      "companions": {
+        "url": "https://www.pubs.ext.vt.edu/content/pubs_ext_vt_edu/en/SPES/spes-620.html",
+        "label": "Virginia Cooperative Extension"
+      }
+    },
+    "researched_on": "2026-10-29",
+    "scientific_name": "Brassica oleracea var. capitata",
+    "rainfall_note": "",
+    "companion_note": "Companion suitability depends on spacing, shade and water availability.",
+    "companion_kind": "intercrop"
+  },
+  "Cauliflower": {
+    "climate": "Cool season",
+    "temperature": "10–25 °C",
+    "sun": "Full sun",
+    "watering": "Regular moisture",
+    "planting": "Seedlings",
+    "soil": "Loamy soil",
+    "ph": "6–7",
+    "rainfall": "600–1100",
+    "humidity": "Allow airflow and avoid prolonged leaf wetness.",
+    "drainage": "Well-drained soil",
+    "sources": [
+      {
+        "label": "TNAU Agritech",
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_vegetables_cauliflower.html"
+      },
+      {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=553",
+        "label": "FAO EcoCrop"
+      },
+      {
+        "url": "https://hort.extension.wisc.edu/water-water-everywhere-but-never-on-the-leaves/",
+        "label": "UW–Madison Extension"
+      },
+      {
+        "url": "https://www.pubs.ext.vt.edu/content/pubs_ext_vt_edu/en/SPES/spes-620.html",
+        "label": "Virginia Cooperative Extension"
+      }
+    ],
+    "companions": [
+      "Onion"
+    ],
+    "practices": [
+      "Raised beds",
+      "Weeding"
+    ],
+    "field_sources": {
+      "temperature": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=553",
+        "label": "FAO EcoCrop"
+      },
+      "rainfall": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=553",
+        "label": "FAO EcoCrop"
+      },
+      "ph": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=553",
+        "label": "FAO EcoCrop"
+      },
+      "humidity": {
+        "url": "https://hort.extension.wisc.edu/water-water-everywhere-but-never-on-the-leaves/",
+        "label": "UW–Madison Extension"
+      },
+      "companions": {
+        "url": "https://www.pubs.ext.vt.edu/content/pubs_ext_vt_edu/en/SPES/spes-620.html",
+        "label": "Virginia Cooperative Extension"
+      }
+    },
+    "researched_on": "2026-10-29",
+    "scientific_name": "Brassica oleracea var. botrytis",
+    "rainfall_note": "",
+    "companion_note": "Companion suitability depends on spacing, shade and water availability.",
+    "companion_kind": "intercrop"
+  },
+  "Carrot": {
+    "climate": "Cool season",
+    "temperature": "15–24 °C",
+    "sun": "Full sun",
+    "watering": "Regular moisture",
+    "planting": "Seeds",
+    "soil": "Sandy loam",
+    "ph": "5.8–6.8",
+    "rainfall": "600–1200",
+    "humidity": "Allow airflow and avoid prolonged leaf wetness.",
+    "drainage": "Well-drained soil",
+    "sources": [
+      {
+        "label": "TNAU Agritech",
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_vegetables_carrot.html"
+      },
+      {
+        "label": "TNAU Agritech",
+        "url": "https://agritech.tnau.ac.in/ta/org_farm/orgfarm_carrot.html"
+      },
+      {
+        "label": "National Horticulture Board",
+        "url": "https://nhb.gov.in/pdf/vegetable/carrot/car011.pdf"
+      },
+      {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=871",
+        "label": "FAO EcoCrop"
+      },
+      {
+        "url": "https://hort.extension.wisc.edu/water-water-everywhere-but-never-on-the-leaves/",
+        "label": "UW–Madison Extension"
+      },
+      {
+        "url": "https://www.pubs.ext.vt.edu/content/pubs_ext_vt_edu/en/SPES/spes-620.html",
+        "label": "Virginia Cooperative Extension"
+      }
+    ],
+    "companions": [
+      "Onion",
+      "Garlic"
+    ],
+    "practices": [
+      "Thinning",
+      "Weeding"
+    ],
+    "field_sources": {
+      "temperature": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=871",
+        "label": "FAO EcoCrop"
+      },
+      "rainfall": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=871",
+        "label": "FAO EcoCrop"
+      },
+      "ph": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=871",
+        "label": "FAO EcoCrop"
+      },
+      "humidity": {
+        "url": "https://hort.extension.wisc.edu/water-water-everywhere-but-never-on-the-leaves/",
+        "label": "UW–Madison Extension"
+      },
+      "companions": {
+        "url": "https://www.pubs.ext.vt.edu/content/pubs_ext_vt_edu/en/SPES/spes-620.html",
+        "label": "Virginia Cooperative Extension"
+      }
+    },
+    "researched_on": "2026-10-29",
+    "scientific_name": "Daucus carota",
+    "rainfall_note": "",
+    "companion_note": "Companion suitability depends on spacing, shade and water availability.",
+    "companion_kind": "intercrop"
+  },
+  "Pumpkin": {
+    "climate": "Warm season",
+    "temperature": "20–30 °C",
+    "sun": "Full sun",
+    "watering": "Regular moisture",
+    "planting": "Seeds",
+    "soil": "Loamy soil",
+    "ph": "5.5–7.5",
+    "rainfall": "600–1600",
+    "humidity": "Allow airflow and avoid prolonged leaf wetness.",
+    "drainage": "Well-drained soil",
+    "sources": [
+      {
+        "label": "TNAU Agritech",
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_vegetables_pumpkin.html"
+      },
+      {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=820",
+        "label": "FAO EcoCrop"
+      },
+      {
+        "url": "https://hort.extension.wisc.edu/water-water-everywhere-but-never-on-the-leaves/",
+        "label": "UW–Madison Extension"
+      },
+      {
+        "url": "https://extension.illinois.edu/blogs/good-growing/2025-03-07-companion-planting-combining-plants-healthy-well-balanced-garden",
+        "label": "Illinois Extension"
+      }
+    ],
+    "companions": [
+      "Maize"
+    ],
+    "practices": [
+      "Weeding",
+      "Crop rotation"
+    ],
+    "field_sources": {
+      "temperature": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=820",
+        "label": "FAO EcoCrop"
+      },
+      "rainfall": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=820",
+        "label": "FAO EcoCrop"
+      },
+      "ph": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=820",
+        "label": "FAO EcoCrop"
+      },
+      "humidity": {
+        "url": "https://hort.extension.wisc.edu/water-water-everywhere-but-never-on-the-leaves/",
+        "label": "UW–Madison Extension"
+      },
+      "companions": {
+        "url": "https://extension.illinois.edu/blogs/good-growing/2025-03-07-companion-planting-combining-plants-healthy-well-balanced-garden",
+        "label": "Illinois Extension"
+      }
+    },
+    "researched_on": "2026-10-29",
+    "scientific_name": "Cucurbita moschata",
+    "rainfall_note": "",
+    "companion_note": "Use climbing bean varieties in maize–bean–squash systems; allow space for each crop.",
+    "companion_kind": "intercrop"
+  },
+  "Rice": {
+    "climate": "Warm season",
+    "temperature": "20–30 °C",
+    "sun": "Full sun",
+    "watering": "Check paddy water level.",
+    "planting": "Seeds",
+    "soil": "Clay loam",
+    "ph": "5.5–7",
+    "rainfall": "1500–2000",
+    "humidity": "Allow airflow and avoid prolonged leaf wetness.",
+    "drainage": "Well-drained soil",
+    "sources": [
+      {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=1574",
+        "label": "FAO EcoCrop"
+      },
+      {
+        "url": "https://hort.extension.wisc.edu/water-water-everywhere-but-never-on-the-leaves/",
+        "label": "UW–Madison Extension"
+      },
+      {
+        "url": "https://agritech.tnau.ac.in/agriculture/agri_agrometeorology_croppingpattern_westernzone.html",
+        "label": "TNAU Agritech"
+      }
+    ],
+    "companions": [
+      "Groundnut",
+      "Ragi"
+    ],
+    "practices": [
+      "Paddy water management",
+      "Weeding"
+    ],
+    "field_sources": {
+      "temperature": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=1574",
+        "label": "FAO EcoCrop"
+      },
+      "rainfall": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=1574",
+        "label": "FAO EcoCrop"
+      },
+      "ph": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=1574",
+        "label": "FAO EcoCrop"
+      },
+      "humidity": {
+        "url": "https://hort.extension.wisc.edu/water-water-everywhere-but-never-on-the-leaves/",
+        "label": "UW–Madison Extension"
+      },
+      "companions": {
+        "url": "https://agritech.tnau.ac.in/agriculture/agri_agrometeorology_croppingpattern_westernzone.html",
+        "label": "TNAU Agritech"
+      }
+    },
+    "researched_on": "2026-10-29",
+    "scientific_name": "Oryza sativa",
+    "rainfall_note": "",
+    "companion_note": "Grow these crops in sequence after harvest, not together in the same standing crop.",
+    "companion_kind": "rotation"
+  },
+  "Wheat": {
+    "climate": "Cool season",
+    "temperature": "15–23 °C",
+    "sun": "Full sun",
+    "watering": "Regular moisture",
+    "planting": "Seeds",
+    "soil": "Loamy soil",
+    "ph": "6–7",
+    "rainfall": "750–900",
+    "humidity": "Allow airflow and avoid prolonged leaf wetness.",
+    "drainage": "Well-drained soil",
+    "sources": [
+      {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=2114",
+        "label": "FAO EcoCrop"
+      },
+      {
+        "url": "https://hort.extension.wisc.edu/water-water-everywhere-but-never-on-the-leaves/",
+        "label": "UW–Madison Extension"
+      },
+      {
+        "url": "https://www.agritech.tnau.ac.in/crop_protection/safflower/crop_prot_crop_insect_oil_safflower_1.html",
+        "label": "TNAU Agritech"
+      }
+    ],
+    "companions": [
+      "Safflower"
+    ],
+    "practices": [
+      "Weeding",
+      "Crop rotation"
+    ],
+    "field_sources": {
+      "temperature": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=2114",
+        "label": "FAO EcoCrop"
+      },
+      "rainfall": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=2114",
+        "label": "FAO EcoCrop"
+      },
+      "ph": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=2114",
+        "label": "FAO EcoCrop"
+      },
+      "humidity": {
+        "url": "https://hort.extension.wisc.edu/water-water-everywhere-but-never-on-the-leaves/",
+        "label": "UW–Madison Extension"
+      },
+      "companions": {
+        "url": "https://www.agritech.tnau.ac.in/crop_protection/safflower/crop_prot_crop_insect_oil_safflower_1.html",
+        "label": "TNAU Agritech"
+      }
+    },
+    "researched_on": "2026-10-29",
+    "scientific_name": "Triticum aestivum",
+    "rainfall_note": "",
+    "companion_note": "Companion suitability depends on spacing, shade and water availability.",
+    "companion_kind": "intercrop"
+  },
+  "Maize": {
+    "climate": "Warm season",
+    "temperature": "18–33 °C",
+    "sun": "Full sun",
+    "watering": "Regular moisture",
+    "planting": "Seeds",
+    "soil": "Loamy soil",
+    "ph": "5–7",
+    "rainfall": "600–1200",
+    "humidity": "Allow airflow and avoid prolonged leaf wetness.",
+    "drainage": "Well-drained soil",
+    "sources": [
+      {
+        "label": "Companion crop reference",
+        "url": "https://www.agritech.tnau.ac.in/agriculture/CropProduction/Pulses/BlackgramIntercropping.html"
+      },
+      {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=2175",
+        "label": "FAO EcoCrop"
+      },
+      {
+        "url": "https://hort.extension.wisc.edu/water-water-everywhere-but-never-on-the-leaves/",
+        "label": "UW–Madison Extension"
+      }
+    ],
+    "companions": [
+      "Blackgram"
+    ],
+    "practices": [
+      "Weeding",
+      "Crop rotation"
+    ],
+    "field_sources": {
+      "temperature": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=2175",
+        "label": "FAO EcoCrop"
+      },
+      "rainfall": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=2175",
+        "label": "FAO EcoCrop"
+      },
+      "ph": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=2175",
+        "label": "FAO EcoCrop"
+      },
+      "humidity": {
+        "url": "https://hort.extension.wisc.edu/water-water-everywhere-but-never-on-the-leaves/",
+        "label": "UW–Madison Extension"
+      },
+      "companions": {
+        "label": "Companion crop reference",
+        "url": "https://www.agritech.tnau.ac.in/agriculture/CropProduction/Pulses/BlackgramIntercropping.html"
+      }
+    },
+    "researched_on": "2026-10-29",
+    "scientific_name": "Zea mays",
+    "rainfall_note": "",
+    "companion_note": "Companion suitability depends on spacing, shade and water availability.",
+    "companion_kind": "intercrop"
+  },
+  "Bajra": {
+    "climate": "Warm season",
+    "temperature": "25–35 °C",
+    "sun": "Full sun",
+    "watering": "Drought tolerant once established",
+    "planting": "Seeds",
+    "soil": "Sandy loam",
+    "ph": "5–6.5",
+    "rainfall": "400–900",
+    "humidity": "Allow airflow and avoid prolonged leaf wetness.",
+    "drainage": "Well-drained soil",
+    "sources": [
+      {
+        "label": "Companion crop reference",
+        "url": "https://www.agritech.tnau.ac.in/agriculture/CropProduction/Pulses/BlackgramIntercropping.html"
+      },
+      {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=8418",
+        "label": "FAO EcoCrop"
+      },
+      {
+        "url": "https://hort.extension.wisc.edu/water-water-everywhere-but-never-on-the-leaves/",
+        "label": "UW–Madison Extension"
+      }
+    ],
+    "companions": [
+      "Blackgram"
+    ],
+    "practices": [
+      "Weeding",
+      "Crop rotation"
+    ],
+    "field_sources": {
+      "temperature": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=8418",
+        "label": "FAO EcoCrop"
+      },
+      "rainfall": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=8418",
+        "label": "FAO EcoCrop"
+      },
+      "ph": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=8418",
+        "label": "FAO EcoCrop"
+      },
+      "humidity": {
+        "url": "https://hort.extension.wisc.edu/water-water-everywhere-but-never-on-the-leaves/",
+        "label": "UW–Madison Extension"
+      },
+      "companions": {
+        "label": "Companion crop reference",
+        "url": "https://www.agritech.tnau.ac.in/agriculture/CropProduction/Pulses/BlackgramIntercropping.html"
+      }
+    },
+    "researched_on": "2026-10-29",
+    "scientific_name": "Pennisetum glaucum",
+    "rainfall_note": "",
+    "companion_note": "Companion suitability depends on spacing, shade and water availability.",
+    "companion_kind": "intercrop"
+  },
+  "Ragi": {
+    "climate": "Warm season",
+    "temperature": "18–30 °C",
+    "sun": "Full sun",
+    "watering": "Regular moisture",
+    "planting": "Seeds",
+    "soil": "Loamy soil",
+    "ph": "6–7",
+    "rainfall": "500–1100",
+    "humidity": "Allow airflow and avoid prolonged leaf wetness.",
+    "drainage": "Well-drained soil",
+    "sources": [
+      {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=5657",
+        "label": "FAO EcoCrop"
+      },
+      {
+        "url": "https://hort.extension.wisc.edu/water-water-everywhere-but-never-on-the-leaves/",
+        "label": "UW–Madison Extension"
+      },
+      {
+        "url": "https://agritech.tnau.ac.in/agriculture/millets_ragi.html",
+        "label": "TNAU Agritech"
+      }
+    ],
+    "companions": [
+      "Maize",
+      "Cowpea(Lobia)"
+    ],
+    "practices": [
+      "Weeding",
+      "Crop rotation"
+    ],
+    "field_sources": {
+      "temperature": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=5657",
+        "label": "FAO EcoCrop"
+      },
+      "rainfall": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=5657",
+        "label": "FAO EcoCrop"
+      },
+      "ph": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=5657",
+        "label": "FAO EcoCrop"
+      },
+      "humidity": {
+        "url": "https://hort.extension.wisc.edu/water-water-everywhere-but-never-on-the-leaves/",
+        "label": "UW–Madison Extension"
+      },
+      "companions": {
+        "url": "https://agritech.tnau.ac.in/agriculture/millets_ragi.html",
+        "label": "TNAU Agritech"
+      }
+    },
+    "researched_on": "2026-10-29",
+    "scientific_name": "Eleusine coracana ssp. coracana",
+    "rainfall_note": "",
+    "companion_note": "Grow these crops in sequence after harvest, not together in the same standing crop.",
+    "companion_kind": "rotation"
+  },
+  "Barley": {
+    "climate": "Cool season",
+    "temperature": "15–20 °C",
+    "sun": "Full sun",
+    "watering": "Drought tolerant once established",
+    "planting": "Seeds",
+    "soil": "Loamy soil",
+    "ph": "6.5–7.5",
+    "rainfall": "500–1000",
+    "humidity": "Allow airflow and avoid prolonged leaf wetness.",
+    "drainage": "Well-drained soil",
+    "sources": [
+      {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=1232",
+        "label": "FAO EcoCrop"
+      },
+      {
+        "url": "https://hort.extension.wisc.edu/water-water-everywhere-but-never-on-the-leaves/",
+        "label": "UW–Madison Extension"
+      },
+      {
+        "url": "https://www.agritech.tnau.ac.in/crop_protection/safflower/crop_prot_crop_insect_oil_safflower_1.html",
+        "label": "TNAU Agritech"
+      }
+    ],
+    "companions": [
+      "Safflower"
+    ],
+    "practices": [
+      "Weeding",
+      "Crop rotation"
+    ],
+    "field_sources": {
+      "temperature": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=1232",
+        "label": "FAO EcoCrop"
+      },
+      "rainfall": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=1232",
+        "label": "FAO EcoCrop"
+      },
+      "ph": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=1232",
+        "label": "FAO EcoCrop"
+      },
+      "humidity": {
+        "url": "https://hort.extension.wisc.edu/water-water-everywhere-but-never-on-the-leaves/",
+        "label": "UW–Madison Extension"
+      },
+      "companions": {
+        "url": "https://www.agritech.tnau.ac.in/crop_protection/safflower/crop_prot_crop_insect_oil_safflower_1.html",
+        "label": "TNAU Agritech"
+      }
+    },
+    "researched_on": "2026-10-29",
+    "scientific_name": "Hordeum vulgare",
+    "rainfall_note": "",
+    "companion_note": "Companion suitability depends on spacing, shade and water availability.",
+    "companion_kind": "intercrop"
+  },
+  "Jowar": {
+    "climate": "Warm season",
+    "temperature": "22–35 °C",
+    "sun": "Full sun",
+    "watering": "Drought tolerant once established",
+    "planting": "Seeds",
+    "soil": "Loamy soil",
+    "ph": "5.5–7.5",
+    "rainfall": "400–600",
+    "humidity": "Allow airflow and avoid prolonged leaf wetness.",
+    "drainage": "Well-drained soil",
+    "sources": [
+      {
+        "label": "Companion crop reference",
+        "url": "https://www.agritech.tnau.ac.in/agriculture/CropProduction/Pulses/BlackgramIntercropping.html"
+      },
+      {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=48747",
+        "label": "FAO EcoCrop"
+      },
+      {
+        "url": "https://hort.extension.wisc.edu/water-water-everywhere-but-never-on-the-leaves/",
+        "label": "UW–Madison Extension"
+      }
+    ],
+    "companions": [
+      "Blackgram"
+    ],
+    "practices": [
+      "Weeding",
+      "Crop rotation"
+    ],
+    "field_sources": {
+      "temperature": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=48747",
+        "label": "FAO EcoCrop"
+      },
+      "rainfall": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=48747",
+        "label": "FAO EcoCrop"
+      },
+      "ph": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=48747",
+        "label": "FAO EcoCrop"
+      },
+      "humidity": {
+        "url": "https://hort.extension.wisc.edu/water-water-everywhere-but-never-on-the-leaves/",
+        "label": "UW–Madison Extension"
+      },
+      "companions": {
+        "label": "Companion crop reference",
+        "url": "https://www.agritech.tnau.ac.in/agriculture/CropProduction/Pulses/BlackgramIntercropping.html"
+      }
+    },
+    "researched_on": "2026-10-29",
+    "scientific_name": "Sorghum bicolor",
+    "rainfall_note": "",
+    "companion_note": "Companion suitability depends on spacing, shade and water availability.",
+    "companion_kind": "intercrop"
+  },
+  "Chickpea": {
+    "climate": "Cool season",
+    "temperature": "15–29 °C",
+    "sun": "Full sun",
+    "watering": "Drought tolerant once established",
+    "planting": "Seeds",
+    "soil": "Loamy soil",
+    "ph": "6–8.5",
+    "rainfall": "600–1000",
+    "humidity": "Allow airflow and avoid prolonged leaf wetness.",
+    "drainage": "Well-drained soil",
+    "sources": [
+      {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=2479",
+        "label": "FAO EcoCrop"
+      },
+      {
+        "url": "https://hort.extension.wisc.edu/water-water-everywhere-but-never-on-the-leaves/",
+        "label": "UW–Madison Extension"
+      },
+      {
+        "url": "https://csauk.ac.in/en/article/cropping-system",
+        "label": "CSA University of Agriculture & Technology"
+      }
+    ],
+    "companions": [
+      "Rapeseed &Mustard"
+    ],
+    "practices": [
+      "Weeding",
+      "Crop rotation"
+    ],
+    "field_sources": {
+      "temperature": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=2479",
+        "label": "FAO EcoCrop"
+      },
+      "rainfall": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=2479",
+        "label": "FAO EcoCrop"
+      },
+      "ph": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=2479",
+        "label": "FAO EcoCrop"
+      },
+      "humidity": {
+        "url": "https://hort.extension.wisc.edu/water-water-everywhere-but-never-on-the-leaves/",
+        "label": "UW–Madison Extension"
+      },
+      "companions": {
+        "url": "https://csauk.ac.in/en/article/cropping-system",
+        "label": "CSA University of Agriculture & Technology"
+      }
+    },
+    "researched_on": "2026-10-29",
+    "scientific_name": "Cicer arietinum",
+    "rainfall_note": "",
+    "companion_note": "Companion suitability depends on spacing, shade and water availability.",
+    "companion_kind": "intercrop"
+  },
+  "Lentil": {
+    "climate": "Cool season",
+    "temperature": "15–29 °C",
+    "sun": "Full sun",
+    "watering": "Drought tolerant once established",
+    "planting": "Seeds",
+    "soil": "Loamy soil",
+    "ph": "5.5–7.5",
+    "rainfall": "600–1000",
+    "humidity": "Allow airflow and avoid prolonged leaf wetness.",
+    "drainage": "Well-drained soil",
+    "sources": [
+      {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=7209",
+        "label": "FAO EcoCrop"
+      },
+      {
+        "url": "https://hort.extension.wisc.edu/water-water-everywhere-but-never-on-the-leaves/",
+        "label": "UW–Madison Extension"
+      },
+      {
+        "url": "https://csauk.ac.in/en/article/cropping-system",
+        "label": "CSA University of Agriculture & Technology"
+      }
+    ],
+    "companions": [
+      "Rapeseed &Mustard"
+    ],
+    "practices": [
+      "Weeding",
+      "Crop rotation"
+    ],
+    "field_sources": {
+      "temperature": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=7209",
+        "label": "FAO EcoCrop"
+      },
+      "rainfall": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=7209",
+        "label": "FAO EcoCrop"
+      },
+      "ph": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=7209",
+        "label": "FAO EcoCrop"
+      },
+      "humidity": {
+        "url": "https://hort.extension.wisc.edu/water-water-everywhere-but-never-on-the-leaves/",
+        "label": "UW–Madison Extension"
+      },
+      "companions": {
+        "url": "https://csauk.ac.in/en/article/cropping-system",
+        "label": "CSA University of Agriculture & Technology"
+      }
+    },
+    "researched_on": "2026-10-29",
+    "scientific_name": "Lens culinaris",
+    "rainfall_note": "",
+    "companion_note": "Companion suitability depends on spacing, shade and water availability.",
+    "companion_kind": "intercrop"
+  },
+  "Mungbean": {
+    "climate": "Warm season",
+    "temperature": "21–36 °C",
+    "sun": "Full sun",
+    "watering": "Regular moisture",
+    "planting": "Seeds",
+    "soil": "Loamy soil",
+    "ph": "5.5–6.2",
+    "rainfall": "650–900",
+    "humidity": "Allow airflow and avoid prolonged leaf wetness.",
+    "drainage": "Well-drained soil",
+    "sources": [
+      {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=2150",
+        "label": "FAO EcoCrop"
+      },
+      {
+        "url": "https://hort.extension.wisc.edu/water-water-everywhere-but-never-on-the-leaves/",
+        "label": "UW–Madison Extension"
+      },
+      {
+        "url": "https://www.agritech.tnau.ac.in/ta/govt_schemes_services/pdf/Notes%20for%20kharif%20camp.pdf",
+        "label": "Government crop-system guidance"
+      }
+    ],
+    "companions": [
+      "Pigeonpeas",
+      "Sugarcane"
+    ],
+    "practices": [
+      "Weeding",
+      "Crop rotation"
+    ],
+    "field_sources": {
+      "temperature": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=2150",
+        "label": "FAO EcoCrop"
+      },
+      "rainfall": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=2150",
+        "label": "FAO EcoCrop"
+      },
+      "ph": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=2150",
+        "label": "FAO EcoCrop"
+      },
+      "humidity": {
+        "url": "https://hort.extension.wisc.edu/water-water-everywhere-but-never-on-the-leaves/",
+        "label": "UW–Madison Extension"
+      },
+      "companions": {
+        "url": "https://www.agritech.tnau.ac.in/ta/govt_schemes_services/pdf/Notes%20for%20kharif%20camp.pdf",
+        "label": "Government crop-system guidance"
+      }
+    },
+    "researched_on": "2026-10-29",
+    "scientific_name": "Vigna radiata",
+    "rainfall_note": "",
+    "companion_note": "Companion suitability depends on spacing, shade and water availability.",
+    "companion_kind": "intercrop"
+  },
+  "Blackgram": {
+    "climate": "Warm season",
+    "temperature": "22–35 °C",
+    "sun": "Full sun",
+    "watering": "Regular moisture",
+    "planting": "Seeds",
+    "soil": "Loamy soil",
+    "ph": "5.5–6.5",
+    "rainfall": "650–900",
+    "humidity": "Allow airflow and avoid prolonged leaf wetness.",
+    "drainage": "Well-drained soil",
+    "sources": [
+      {
+        "label": "Companion crop reference",
+        "url": "https://www.agritech.tnau.ac.in/agriculture/CropProduction/Pulses/BlackgramIntercropping.html"
+      },
+      {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=2149",
+        "label": "FAO EcoCrop"
+      },
+      {
+        "url": "https://hort.extension.wisc.edu/water-water-everywhere-but-never-on-the-leaves/",
+        "label": "UW–Madison Extension"
+      }
+    ],
+    "companions": [
+      "Maize",
+      "Jowar",
+      "Bajra",
+      "Sugarcane"
+    ],
+    "practices": [
+      "Weeding",
+      "Crop rotation"
+    ],
+    "field_sources": {
+      "temperature": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=2149",
+        "label": "FAO EcoCrop"
+      },
+      "rainfall": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=2149",
+        "label": "FAO EcoCrop"
+      },
+      "ph": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=2149",
+        "label": "FAO EcoCrop"
+      },
+      "humidity": {
+        "url": "https://hort.extension.wisc.edu/water-water-everywhere-but-never-on-the-leaves/",
+        "label": "UW–Madison Extension"
+      },
+      "companions": {
+        "label": "Companion crop reference",
+        "url": "https://www.agritech.tnau.ac.in/agriculture/CropProduction/Pulses/BlackgramIntercropping.html"
+      }
+    },
+    "researched_on": "2026-10-29",
+    "scientific_name": "Vigna mungo",
+    "rainfall_note": "",
+    "companion_note": "Companion suitability depends on spacing, shade and water availability.",
+    "companion_kind": "intercrop"
+  },
+  "Pigeonpeas": {
+    "climate": "Warm season",
+    "temperature": "18–38 °C",
+    "sun": "Full sun",
+    "watering": "Drought tolerant once established",
+    "planting": "Seeds",
+    "soil": "Loamy soil",
+    "ph": "5–7",
+    "rainfall": "600–1500",
+    "humidity": "Allow airflow and avoid prolonged leaf wetness.",
+    "drainage": "Well-drained soil",
+    "sources": [
+      {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=576",
+        "label": "FAO EcoCrop"
+      },
+      {
+        "url": "https://hort.extension.wisc.edu/water-water-everywhere-but-never-on-the-leaves/",
+        "label": "UW–Madison Extension"
+      },
+      {
+        "url": "https://agritech.tnau.ac.in/agriculture/agri_majorareas_dryland_agromeasures_intercropping.html",
+        "label": "TNAU Agritech"
+      }
+    ],
+    "companions": [
+      "Groundnut",
+      "Jowar"
+    ],
+    "practices": [
+      "Weeding",
+      "Crop rotation"
+    ],
+    "field_sources": {
+      "temperature": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=576",
+        "label": "FAO EcoCrop"
+      },
+      "rainfall": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=576",
+        "label": "FAO EcoCrop"
+      },
+      "ph": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=576",
+        "label": "FAO EcoCrop"
+      },
+      "humidity": {
+        "url": "https://hort.extension.wisc.edu/water-water-everywhere-but-never-on-the-leaves/",
+        "label": "UW–Madison Extension"
+      },
+      "companions": {
+        "url": "https://agritech.tnau.ac.in/agriculture/agri_majorareas_dryland_agromeasures_intercropping.html",
+        "label": "TNAU Agritech"
+      }
+    },
+    "researched_on": "2026-10-29",
+    "scientific_name": "Cajanus cajan",
+    "rainfall_note": "",
+    "companion_note": "Companion suitability depends on spacing, shade and water availability.",
+    "companion_kind": "intercrop"
+  },
+  "Kidneybeans": {
+    "climate": "Cool season",
+    "temperature": "16–25 °C",
+    "sun": "Full sun",
+    "watering": "Regular moisture",
+    "planting": "Seeds",
+    "soil": "Loamy soil",
+    "ph": "5.5–7.5",
+    "rainfall": "500–2000",
+    "humidity": "Allow airflow and avoid prolonged leaf wetness.",
+    "drainage": "Well-drained soil",
+    "sources": [
+      {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=1668",
+        "label": "FAO EcoCrop"
+      },
+      {
+        "url": "https://hort.extension.wisc.edu/water-water-everywhere-but-never-on-the-leaves/",
+        "label": "UW–Madison Extension"
+      },
+      {
+        "url": "https://extension.illinois.edu/blogs/good-growing/2025-03-07-companion-planting-combining-plants-healthy-well-balanced-garden",
+        "label": "Illinois Extension"
+      }
+    ],
+    "companions": [
+      "Maize",
+      "Squash"
+    ],
+    "practices": [
+      "Weeding",
+      "Crop rotation"
+    ],
+    "field_sources": {
+      "temperature": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=1668",
+        "label": "FAO EcoCrop"
+      },
+      "rainfall": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=1668",
+        "label": "FAO EcoCrop"
+      },
+      "ph": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=1668",
+        "label": "FAO EcoCrop"
+      },
+      "humidity": {
+        "url": "https://hort.extension.wisc.edu/water-water-everywhere-but-never-on-the-leaves/",
+        "label": "UW–Madison Extension"
+      },
+      "companions": {
+        "url": "https://extension.illinois.edu/blogs/good-growing/2025-03-07-companion-planting-combining-plants-healthy-well-balanced-garden",
+        "label": "Illinois Extension"
+      }
+    },
+    "researched_on": "2026-10-29",
+    "scientific_name": "Phaseolus vulgaris",
+    "rainfall_note": "",
+    "companion_note": "Use climbing bean varieties in maize–bean–squash systems; allow space for each crop.",
+    "companion_kind": "intercrop"
+  },
+  "Cowpea(Lobia)": {
+    "climate": "Warm season",
+    "temperature": "25–35 °C",
+    "sun": "Full sun",
+    "watering": "Drought tolerant once established",
+    "planting": "Seeds",
+    "soil": "Sandy loam",
+    "ph": "5.5–7.5",
+    "rainfall": "500–1500",
+    "humidity": "Allow airflow and avoid prolonged leaf wetness.",
+    "drainage": "Well-drained soil",
+    "sources": [
+      {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=2153",
+        "label": "FAO EcoCrop"
+      },
+      {
+        "url": "https://hort.extension.wisc.edu/water-water-everywhere-but-never-on-the-leaves/",
+        "label": "UW–Madison Extension"
+      },
+      {
+        "url": "https://www.agritech.tnau.ac.in/agriculture/foragecrops_foddermaize.html",
+        "label": "TNAU Agritech"
+      }
+    ],
+    "companions": [
+      "Maize"
+    ],
+    "practices": [
+      "Weeding",
+      "Crop rotation"
+    ],
+    "field_sources": {
+      "temperature": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=2153",
+        "label": "FAO EcoCrop"
+      },
+      "rainfall": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=2153",
+        "label": "FAO EcoCrop"
+      },
+      "ph": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=2153",
+        "label": "FAO EcoCrop"
+      },
+      "humidity": {
+        "url": "https://hort.extension.wisc.edu/water-water-everywhere-but-never-on-the-leaves/",
+        "label": "UW–Madison Extension"
+      },
+      "companions": {
+        "url": "https://www.agritech.tnau.ac.in/agriculture/foragecrops_foddermaize.html",
+        "label": "TNAU Agritech"
+      }
+    },
+    "researched_on": "2026-10-29",
+    "scientific_name": "Vigna unguiculata",
+    "rainfall_note": "",
+    "companion_note": "For fodder systems, use compatible fodder varieties and coordinate harvest.",
+    "companion_kind": "intercrop"
+  },
+  "Mango": {
+    "climate": "Tropical",
+    "temperature": "24–30 °C",
+    "sun": "Full sun",
+    "watering": "Drought tolerant once established",
+    "planting": "Grafted plants",
+    "soil": "Loamy soil",
+    "ph": "5.5–7.5",
+    "rainfall": "600–1500",
+    "humidity": "Humid",
+    "drainage": "Well-drained soil",
+    "sources": [
+      {
+        "label": "TNAU Agritech",
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_fruits_mango.html"
+      },
+      {
+        "label": "National Horticulture Board",
+        "url": "https://www.nhb.gov.in/pdf/fruits/mango/man012.pdf"
+      },
+      {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=1416",
+        "label": "FAO EcoCrop"
+      },
+      {
+        "url": "https://nhb.gov.in/Horticulture%20Crops%5CMango%5CMango1.htm",
+        "label": "National Horticulture Board"
+      }
+    ],
+    "companions": [
+      "Papaya",
+      "Guava",
+      "Peach"
+    ],
+    "practices": [
+      "Pruning",
+      "Mulching"
+    ],
+    "field_sources": {
+      "temperature": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=1416",
+        "label": "FAO EcoCrop"
+      },
+      "rainfall": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=1416",
+        "label": "FAO EcoCrop"
+      },
+      "ph": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=1416",
+        "label": "FAO EcoCrop"
+      },
+      "humidity": {
+        "label": "TNAU Agritech",
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_fruits_mango.html"
+      },
+      "companions": {
+        "url": "https://nhb.gov.in/Horticulture%20Crops%5CMango%5CMango1.htm",
+        "label": "National Horticulture Board"
+      }
+    },
+    "researched_on": "2026-10-29",
+    "scientific_name": "Mangifera indica",
+    "rainfall_note": "",
+    "companion_note": "Use young, open orchards; protect tree roots and stop intercropping when canopies close.",
+    "companion_kind": "intercrop"
+  },
+  "Banana": {
+    "climate": "Tropical",
+    "temperature": "15–35 °C",
+    "sun": "Full sun",
+    "watering": "Regular moisture",
+    "planting": "Suckers",
+    "soil": "Loamy soil",
+    "ph": "6.5–7.5",
+    "rainfall": "1,700",
+    "humidity": "75–85%",
+    "drainage": "Well-drained soil",
+    "sources": [
+      {
+        "label": "TNAU Agritech",
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_fruits_banana.html"
+      },
+      {
+        "label": "Companion crop reference",
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_pcrops_coconut_intercropping.html"
+      },
+      {
+        "label": "National Horticulture Board",
+        "url": "https://nhb.gov.in/report_files/banana/BANANA.htm"
+      },
+      {
+        "label": "TNAU Agritech",
+        "url": "https://agritech.tnau.ac.in/expert_system/banana/cli.html"
+      }
+    ],
+    "companions": [
+      "Coconut"
+    ],
+    "practices": [
+      "Desuckering",
+      "Staking",
+      "Mulching"
+    ],
+    "field_sources": {
+      "temperature": {
+        "url": "https://nhb.gov.in/report_files/banana/BANANA.htm",
+        "label": "National Horticulture Board"
+      },
+      "ph": {
+        "url": "https://nhb.gov.in/report_files/banana/BANANA.htm",
+        "label": "National Horticulture Board"
+      },
+      "humidity": {
+        "url": "https://nhb.gov.in/report_files/banana/BANANA.htm",
+        "label": "National Horticulture Board"
+      },
+      "rainfall": {
+        "url": "https://agritech.tnau.ac.in/expert_system/banana/cli.html",
+        "label": "TNAU Agritech"
+      },
+      "companions": {
+        "label": "Companion crop reference",
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_pcrops_coconut_intercropping.html"
+      }
+    },
+    "researched_on": "2026-10-29",
+    "scientific_name": "Musa spp. (edible cultivars)",
+    "rainfall_note": "",
+    "companion_note": "Companion suitability depends on spacing, shade and water availability.",
+    "companion_kind": "intercrop"
+  },
+  "Orange": {
+    "climate": "Warm season",
+    "temperature": "20–30 °C",
+    "sun": "Full sun",
+    "watering": "Regular moisture",
+    "planting": "Grafted plants",
+    "soil": "Loamy soil",
+    "ph": "5–6",
+    "rainfall": "1200–2000",
+    "humidity": "Allow airflow and avoid prolonged leaf wetness.",
+    "drainage": "Well-drained soil",
+    "sources": [
+      {
+        "label": "TNAU Agritech",
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_fruits_sweetorange.html"
+      },
+      {
+        "label": "Companion crop reference",
+        "url": "https://coffeeboard.gov.in/coffee-regions-india.html?page=CoffeeRegionsIndia"
+      },
+      {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=720",
+        "label": "FAO EcoCrop"
+      },
+      {
+        "url": "https://hort.extension.wisc.edu/water-water-everywhere-but-never-on-the-leaves/",
+        "label": "UW–Madison Extension"
+      }
+    ],
+    "companions": [
+      "Coffee"
+    ],
+    "practices": [
+      "Pruning",
+      "Mulching"
+    ],
+    "field_sources": {
+      "temperature": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=720",
+        "label": "FAO EcoCrop"
+      },
+      "rainfall": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=720",
+        "label": "FAO EcoCrop"
+      },
+      "ph": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=720",
+        "label": "FAO EcoCrop"
+      },
+      "humidity": {
+        "url": "https://hort.extension.wisc.edu/water-water-everywhere-but-never-on-the-leaves/",
+        "label": "UW–Madison Extension"
+      },
+      "companions": {
+        "label": "Companion crop reference",
+        "url": "https://coffeeboard.gov.in/coffee-regions-india.html?page=CoffeeRegionsIndia"
+      }
+    },
+    "researched_on": "2026-10-29",
+    "scientific_name": "Citrus sinensis",
+    "rainfall_note": "",
+    "companion_note": "Companion suitability depends on spacing, shade and water availability.",
+    "companion_kind": "intercrop"
+  },
+  "Papaya": {
+    "climate": "Tropical",
+    "temperature": "21–30 °C",
+    "sun": "Full sun",
+    "watering": "Regular moisture",
+    "planting": "Seedlings",
+    "soil": "Loamy soil",
+    "ph": "5.5–7",
+    "rainfall": "1500–2500",
+    "humidity": "Allow airflow and avoid prolonged leaf wetness.",
+    "drainage": "Well-drained soil",
+    "sources": [
+      {
+        "label": "TNAU Agritech",
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_fruits_papaya.html"
+      },
+      {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=630",
+        "label": "FAO EcoCrop"
+      },
+      {
+        "url": "https://hort.extension.wisc.edu/water-water-everywhere-but-never-on-the-leaves/",
+        "label": "UW–Madison Extension"
+      },
+      {
+        "url": "https://nhb.gov.in/Horticulture%20Crops%5CMango%5CMango1.htm",
+        "label": "National Horticulture Board"
+      }
+    ],
+    "companions": [
+      "Mango"
+    ],
+    "practices": [
+      "Weeding",
+      "Crop rotation"
+    ],
+    "field_sources": {
+      "temperature": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=630",
+        "label": "FAO EcoCrop"
+      },
+      "rainfall": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=630",
+        "label": "FAO EcoCrop"
+      },
+      "ph": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=630",
+        "label": "FAO EcoCrop"
+      },
+      "humidity": {
+        "url": "https://hort.extension.wisc.edu/water-water-everywhere-but-never-on-the-leaves/",
+        "label": "UW–Madison Extension"
+      },
+      "companions": {
+        "url": "https://nhb.gov.in/Horticulture%20Crops%5CMango%5CMango1.htm",
+        "label": "National Horticulture Board"
+      }
+    },
+    "researched_on": "2026-10-29",
+    "scientific_name": "Carica papaya",
+    "rainfall_note": "",
+    "companion_note": "Use young, open orchards; protect tree roots and stop intercropping when canopies close.",
+    "companion_kind": "intercrop"
+  },
+  "Pomegranate": {
+    "climate": "Warm season",
+    "temperature": "23–32 °C",
+    "sun": "Full sun",
+    "watering": "Drought tolerant once established",
+    "planting": "Cuttings",
+    "soil": "Loamy soil",
+    "ph": "6.5–7.5",
+    "rainfall": "900–1200",
+    "humidity": "Dry",
+    "drainage": "Well-drained soil",
+    "sources": [
+      {
+        "label": "TNAU Agritech",
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_fruits_pomegranate.html"
+      },
+      {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=1829",
+        "label": "FAO EcoCrop"
+      },
+      {
+        "url": "https://extension.umd.edu/resource/vegetable-succession-and-companion-planting",
+        "label": "University of Maryland Extension"
+      }
+    ],
+    "companions": [
+      "Coriander"
+    ],
+    "practices": [
+      "Pruning",
+      "Mulching"
+    ],
+    "field_sources": {
+      "temperature": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=1829",
+        "label": "FAO EcoCrop"
+      },
+      "rainfall": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=1829",
+        "label": "FAO EcoCrop"
+      },
+      "ph": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=1829",
+        "label": "FAO EcoCrop"
+      },
+      "humidity": {
+        "label": "TNAU Agritech",
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_fruits_pomegranate.html"
+      },
+      "companions": {
+        "url": "https://extension.umd.edu/resource/vegetable-succession-and-companion-planting",
+        "label": "University of Maryland Extension"
+      }
+    },
+    "researched_on": "2026-10-29",
+    "scientific_name": "Punica granatum",
+    "rainfall_note": "",
+    "companion_note": "Flowering coriander can form a separate insect-habitat strip; this is not a crop-specific pest-control guarantee.",
+    "companion_kind": "habitat"
+  },
+  "Grapes": {
+    "climate": "Warm season",
+    "temperature": "18–30 °C",
+    "sun": "Full sun",
+    "watering": "Regular moisture",
+    "planting": "Cuttings",
+    "soil": "Loamy soil",
+    "ph": "5.5–7.5",
+    "rainfall": "700–850",
+    "humidity": "Dry",
+    "drainage": "Well-drained soil",
+    "sources": [
+      {
+        "label": "TNAU Agritech",
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_fruits_grapes.html"
+      },
+      {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=2160",
+        "label": "FAO EcoCrop"
+      },
+      {
+        "url": "https://extension.umd.edu/resource/vegetable-succession-and-companion-planting",
+        "label": "University of Maryland Extension"
+      }
+    ],
+    "companions": [
+      "Coriander"
+    ],
+    "practices": [
+      "Trellis",
+      "Pruning"
+    ],
+    "field_sources": {
+      "temperature": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=2160",
+        "label": "FAO EcoCrop"
+      },
+      "rainfall": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=2160",
+        "label": "FAO EcoCrop"
+      },
+      "ph": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=2160",
+        "label": "FAO EcoCrop"
+      },
+      "humidity": {
+        "label": "TNAU Agritech",
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_fruits_grapes.html"
+      },
+      "companions": {
+        "url": "https://extension.umd.edu/resource/vegetable-succession-and-companion-planting",
+        "label": "University of Maryland Extension"
+      }
+    },
+    "researched_on": "2026-10-29",
+    "scientific_name": "Vitis vinifera",
+    "rainfall_note": "",
+    "companion_note": "Flowering coriander can form a separate insect-habitat strip; this is not a crop-specific pest-control guarantee.",
+    "companion_kind": "habitat"
+  },
+  "Watermelon": {
+    "climate": "Warm season",
+    "temperature": "20–35 °C",
+    "sun": "Full sun",
+    "watering": "Regular moisture",
+    "planting": "Seeds",
+    "soil": "Sandy loam",
+    "ph": "6–7",
+    "rainfall": "500–700",
+    "humidity": "Allow airflow and avoid prolonged leaf wetness.",
+    "drainage": "Well-drained soil",
+    "sources": [
+      {
+        "label": "TNAU Agritech",
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_vegetables_watermelon.html"
+      },
+      {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=708",
+        "label": "FAO EcoCrop"
+      },
+      {
+        "url": "https://hort.extension.wisc.edu/water-water-everywhere-but-never-on-the-leaves/",
+        "label": "UW–Madison Extension"
+      },
+      {
+        "url": "https://extension.umd.edu/resource/vegetable-succession-and-companion-planting",
+        "label": "University of Maryland Extension"
+      }
+    ],
+    "companions": [
+      "Coriander"
+    ],
+    "practices": [
+      "Weeding",
+      "Crop rotation"
+    ],
+    "field_sources": {
+      "temperature": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=708",
+        "label": "FAO EcoCrop"
+      },
+      "rainfall": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=708",
+        "label": "FAO EcoCrop"
+      },
+      "ph": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=708",
+        "label": "FAO EcoCrop"
+      },
+      "humidity": {
+        "url": "https://hort.extension.wisc.edu/water-water-everywhere-but-never-on-the-leaves/",
+        "label": "UW–Madison Extension"
+      },
+      "companions": {
+        "url": "https://extension.umd.edu/resource/vegetable-succession-and-companion-planting",
+        "label": "University of Maryland Extension"
+      }
+    },
+    "researched_on": "2026-10-29",
+    "scientific_name": "Citrullus lanatus",
+    "rainfall_note": "",
+    "companion_note": "Flowering coriander can form a separate insect-habitat strip; this is not a crop-specific pest-control guarantee.",
+    "companion_kind": "habitat"
+  },
+  "Muskmelon": {
+    "climate": "Warm season",
+    "temperature": "18–30 °C",
+    "sun": "Full sun",
+    "watering": "Regular moisture",
+    "planting": "Seeds",
+    "soil": "Sandy loam",
+    "ph": "6–7.5",
+    "rainfall": "1000–1300",
+    "humidity": "Allow airflow and avoid prolonged leaf wetness.",
+    "drainage": "Well-drained soil",
+    "sources": [
+      {
+        "label": "TNAU Agritech",
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_vegetables_minor%20vegetables.html"
+      },
+      {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=815",
+        "label": "FAO EcoCrop"
+      },
+      {
+        "url": "https://hort.extension.wisc.edu/water-water-everywhere-but-never-on-the-leaves/",
+        "label": "UW–Madison Extension"
+      },
+      {
+        "url": "https://extension.umd.edu/resource/vegetable-succession-and-companion-planting",
+        "label": "University of Maryland Extension"
+      }
+    ],
+    "companions": [
+      "Coriander"
+    ],
+    "practices": [
+      "Weeding",
+      "Crop rotation"
+    ],
+    "field_sources": {
+      "temperature": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=815",
+        "label": "FAO EcoCrop"
+      },
+      "rainfall": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=815",
+        "label": "FAO EcoCrop"
+      },
+      "ph": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=815",
+        "label": "FAO EcoCrop"
+      },
+      "humidity": {
+        "url": "https://hort.extension.wisc.edu/water-water-everywhere-but-never-on-the-leaves/",
+        "label": "UW–Madison Extension"
+      },
+      "companions": {
+        "url": "https://extension.umd.edu/resource/vegetable-succession-and-companion-planting",
+        "label": "University of Maryland Extension"
+      }
+    },
+    "researched_on": "2026-10-29",
+    "scientific_name": "Cucumis melo",
+    "rainfall_note": "",
+    "companion_note": "Flowering coriander can form a separate insect-habitat strip; this is not a crop-specific pest-control guarantee.",
+    "companion_kind": "habitat"
+  },
+  "Apple": {
+    "climate": "Temperate",
+    "temperature": "14–27 °C",
+    "sun": "Full sun",
+    "watering": "Regular moisture",
+    "planting": "Grafted plants",
+    "soil": "Loamy soil",
+    "ph": "6–7",
+    "rainfall": "700–2500",
+    "humidity": "Allow airflow and avoid prolonged leaf wetness.",
+    "drainage": "Well-drained soil",
+    "sources": [
+      {
+        "label": "TNAU Agritech",
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_fruits_apple.html"
+      },
+      {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=1407",
+        "label": "FAO EcoCrop"
+      },
+      {
+        "url": "https://hort.extension.wisc.edu/water-water-everywhere-but-never-on-the-leaves/",
+        "label": "UW–Madison Extension"
+      },
+      {
+        "url": "https://www.nhb.gov.in/report_files/apple/APPLE.htm",
+        "label": "National Horticulture Board"
+      }
+    ],
+    "companions": [
+      "Sunflower",
+      "Kidneybeans"
+    ],
+    "practices": [
+      "Pruning",
+      "Mulching"
+    ],
+    "field_sources": {
+      "temperature": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=1407",
+        "label": "FAO EcoCrop"
+      },
+      "rainfall": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=1407",
+        "label": "FAO EcoCrop"
+      },
+      "ph": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=1407",
+        "label": "FAO EcoCrop"
+      },
+      "humidity": {
+        "url": "https://hort.extension.wisc.edu/water-water-everywhere-but-never-on-the-leaves/",
+        "label": "UW–Madison Extension"
+      },
+      "companions": {
+        "url": "https://www.nhb.gov.in/report_files/apple/APPLE.htm",
+        "label": "National Horticulture Board"
+      }
+    },
+    "researched_on": "2026-10-29",
+    "scientific_name": "Malus domestica",
+    "rainfall_note": "",
+    "companion_note": "Use young, open orchards; protect tree roots and stop intercropping when canopies close.",
+    "companion_kind": "intercrop"
+  },
+  "Strawberry": {
+    "climate": "Cool season",
+    "temperature": "11–24 °C",
+    "sun": "Full sun",
+    "watering": "Regular moisture",
+    "planting": "Runners",
+    "soil": "Loamy soil",
+    "ph": "6–6.8",
+    "rainfall": "600–900",
+    "humidity": "Allow airflow and avoid prolonged leaf wetness.",
+    "drainage": "Well-drained soil",
+    "sources": [
+      {
+        "label": "TNAU Agritech",
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_fruits_minorfruits.html"
+      },
+      {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=1112",
+        "label": "FAO EcoCrop"
+      },
+      {
+        "url": "https://hort.extension.wisc.edu/water-water-everywhere-but-never-on-the-leaves/",
+        "label": "UW–Madison Extension"
+      },
+      {
+        "url": "https://www.pubs.ext.vt.edu/content/pubs_ext_vt_edu/en/SPES/spes-620.html",
+        "label": "Virginia Cooperative Extension"
+      }
+    ],
+    "companions": [
+      "Kidneybeans"
+    ],
+    "practices": [
+      "Raised beds",
+      "Weeding"
+    ],
+    "field_sources": {
+      "temperature": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=1112",
+        "label": "FAO EcoCrop"
+      },
+      "rainfall": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=1112",
+        "label": "FAO EcoCrop"
+      },
+      "ph": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=1112",
+        "label": "FAO EcoCrop"
+      },
+      "humidity": {
+        "url": "https://hort.extension.wisc.edu/water-water-everywhere-but-never-on-the-leaves/",
+        "label": "UW–Madison Extension"
+      },
+      "companions": {
+        "url": "https://www.pubs.ext.vt.edu/content/pubs_ext_vt_edu/en/SPES/spes-620.html",
+        "label": "Virginia Cooperative Extension"
+      }
+    },
+    "researched_on": "2026-10-29",
+    "scientific_name": "Fragaria x ananassa",
+    "rainfall_note": "",
+    "companion_note": "Companion suitability depends on spacing, shade and water availability.",
+    "companion_kind": "intercrop"
+  },
+  "Peach": {
+    "climate": "Temperate",
+    "temperature": "20–33 °C",
+    "sun": "Full sun",
+    "watering": "Regular moisture",
+    "planting": "Grafted plants",
+    "soil": "Loamy soil",
+    "ph": "5.5–6.3",
+    "rainfall": "900–1100",
+    "humidity": "Allow airflow and avoid prolonged leaf wetness.",
+    "drainage": "Well-drained soil",
+    "sources": [
+      {
+        "label": "TNAU Agritech",
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_fruits_peach.html"
+      },
+      {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=1796",
+        "label": "FAO EcoCrop"
+      },
+      {
+        "url": "https://hort.extension.wisc.edu/water-water-everywhere-but-never-on-the-leaves/",
+        "label": "UW–Madison Extension"
+      },
+      {
+        "url": "https://nhb.gov.in/Horticulture%20Crops%5CMango%5CMango1.htm",
+        "label": "National Horticulture Board"
+      }
+    ],
+    "companions": [
+      "Mango"
+    ],
+    "practices": [
+      "Pruning",
+      "Mulching"
+    ],
+    "field_sources": {
+      "temperature": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=1796",
+        "label": "FAO EcoCrop"
+      },
+      "rainfall": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=1796",
+        "label": "FAO EcoCrop"
+      },
+      "ph": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=1796",
+        "label": "FAO EcoCrop"
+      },
+      "humidity": {
+        "url": "https://hort.extension.wisc.edu/water-water-everywhere-but-never-on-the-leaves/",
+        "label": "UW–Madison Extension"
+      },
+      "companions": {
+        "url": "https://nhb.gov.in/Horticulture%20Crops%5CMango%5CMango1.htm",
+        "label": "National Horticulture Board"
+      }
+    },
+    "researched_on": "2026-10-29",
+    "scientific_name": "Prunus persica",
+    "rainfall_note": "",
+    "companion_note": "Use young, open orchards; protect tree roots and stop intercropping when canopies close.",
+    "companion_kind": "intercrop"
+  },
+  "Coconut": {
+    "climate": "Tropical",
+    "temperature": "22–34 °C",
+    "sun": "Full sun",
+    "watering": "Regular moisture",
+    "planting": "Seedlings",
+    "soil": "Sandy loam",
+    "ph": "5–8",
+    "rainfall": "1200–2400",
+    "humidity": "Allow airflow and avoid prolonged leaf wetness.",
+    "drainage": "Well-drained soil",
+    "sources": [
+      {
+        "label": "TNAU Agritech",
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_plantation%20crops_coconut.html"
+      },
+      {
+        "label": "Companion crop reference",
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_pcrops_coconut_intercropping.html"
+      },
+      {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=744",
+        "label": "FAO EcoCrop"
+      },
+      {
+        "url": "https://hort.extension.wisc.edu/water-water-everywhere-but-never-on-the-leaves/",
+        "label": "UW–Madison Extension"
+      }
+    ],
+    "companions": [
+      "Banana",
+      "Turmeric",
+      "Ginger",
+      "Pineapple",
+      "Groundnut"
+    ],
+    "practices": [
+      "Mulching",
+      "Weeding"
+    ],
+    "field_sources": {
+      "temperature": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=744",
+        "label": "FAO EcoCrop"
+      },
+      "rainfall": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=744",
+        "label": "FAO EcoCrop"
+      },
+      "ph": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=744",
+        "label": "FAO EcoCrop"
+      },
+      "humidity": {
+        "url": "https://hort.extension.wisc.edu/water-water-everywhere-but-never-on-the-leaves/",
+        "label": "UW–Madison Extension"
+      },
+      "companions": {
+        "label": "Companion crop reference",
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_pcrops_coconut_intercropping.html"
+      }
+    },
+    "researched_on": "2026-10-29",
+    "scientific_name": "Cocos nucifera",
+    "rainfall_note": "",
+    "companion_note": "Companion suitability depends on spacing, shade and water availability.",
+    "companion_kind": "intercrop"
+  },
+  "Guava": {
+    "climate": "Tropical",
+    "temperature": "20–33 °C",
+    "sun": "Full sun",
+    "watering": "Drought tolerant once established",
+    "planting": "Grafted plants",
+    "soil": "Loamy soil",
+    "ph": "5.5–7.5",
+    "rainfall": "1000–3000",
+    "humidity": "Allow airflow and avoid prolonged leaf wetness.",
+    "drainage": "Well-drained soil",
+    "sources": [
+      {
+        "label": "TNAU Agritech",
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_fruits_guava.html"
+      },
+      {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=1804",
+        "label": "FAO EcoCrop"
+      },
+      {
+        "url": "https://hort.extension.wisc.edu/water-water-everywhere-but-never-on-the-leaves/",
+        "label": "UW–Madison Extension"
+      },
+      {
+        "url": "https://nhb.gov.in/Horticulture%20Crops%5CMango%5CMango1.htm",
+        "label": "National Horticulture Board"
+      }
+    ],
+    "companions": [
+      "Mango"
+    ],
+    "practices": [
+      "Pruning",
+      "Mulching"
+    ],
+    "field_sources": {
+      "temperature": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=1804",
+        "label": "FAO EcoCrop"
+      },
+      "rainfall": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=1804",
+        "label": "FAO EcoCrop"
+      },
+      "ph": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=1804",
+        "label": "FAO EcoCrop"
+      },
+      "humidity": {
+        "url": "https://hort.extension.wisc.edu/water-water-everywhere-but-never-on-the-leaves/",
+        "label": "UW–Madison Extension"
+      },
+      "companions": {
+        "url": "https://nhb.gov.in/Horticulture%20Crops%5CMango%5CMango1.htm",
+        "label": "National Horticulture Board"
+      }
+    },
+    "researched_on": "2026-10-29",
+    "scientific_name": "Psidium guajava",
+    "rainfall_note": "",
+    "companion_note": "Use young, open orchards; protect tree roots and stop intercropping when canopies close.",
+    "companion_kind": "intercrop"
+  },
+  "Jackfruit": {
+    "climate": "Tropical",
+    "temperature": "20–30 °C",
+    "sun": "Full sun",
+    "watering": "Regular moisture",
+    "planting": "Grafted plants",
+    "soil": "Loamy soil",
+    "ph": "5.5–7.5",
+    "rainfall": "1500–3000",
+    "humidity": "Allow airflow and avoid prolonged leaf wetness.",
+    "drainage": "Well-drained soil",
+    "sources": [
+      {
+        "label": "TNAU Agritech",
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_fruits_jack.html"
+      },
+      {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=459",
+        "label": "FAO EcoCrop"
+      },
+      {
+        "url": "https://hort.extension.wisc.edu/water-water-everywhere-but-never-on-the-leaves/",
+        "label": "UW–Madison Extension"
+      },
+      {
+        "url": "https://cpcri.gov.in/filemgr/webfs/publication/calareca012.pdf",
+        "label": "ICAR–CPCRI"
+      }
+    ],
+    "companions": [
+      "Arecanut"
+    ],
+    "practices": [
+      "Pruning",
+      "Mulching"
+    ],
+    "field_sources": {
+      "temperature": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=459",
+        "label": "FAO EcoCrop"
+      },
+      "rainfall": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=459",
+        "label": "FAO EcoCrop"
+      },
+      "ph": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=459",
+        "label": "FAO EcoCrop"
+      },
+      "humidity": {
+        "url": "https://hort.extension.wisc.edu/water-water-everywhere-but-never-on-the-leaves/",
+        "label": "UW–Madison Extension"
+      },
+      "companions": {
+        "url": "https://cpcri.gov.in/filemgr/webfs/publication/calareca012.pdf",
+        "label": "ICAR–CPCRI"
+      }
+    },
+    "researched_on": "2026-10-29",
+    "scientific_name": "Artocarpus heterophyllus",
+    "rainfall_note": "",
+    "companion_note": "Use young, open orchards; protect tree roots and stop intercropping when canopies close.",
+    "companion_kind": "intercrop"
+  },
+  "Pineapple": {
+    "climate": "Tropical",
+    "temperature": "21–30 °C",
+    "sun": "Partial shade",
+    "watering": "Regular moisture",
+    "planting": "Suckers",
+    "soil": "Sandy loam",
+    "ph": "4.5–8",
+    "rainfall": "800–2500",
+    "humidity": "Humid",
+    "drainage": "Well-drained soil",
+    "sources": [
+      {
+        "label": "TNAU Agritech",
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_fruits_pineapple.html"
+      },
+      {
+        "label": "Companion crop reference",
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_pcrops_coconut_intercropping.html"
+      },
+      {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=402",
+        "label": "FAO EcoCrop"
+      }
+    ],
+    "companions": [
+      "Coconut"
+    ],
+    "practices": [
+      "Weeding",
+      "Crop rotation"
+    ],
+    "field_sources": {
+      "temperature": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=402",
+        "label": "FAO EcoCrop"
+      },
+      "rainfall": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=402",
+        "label": "FAO EcoCrop"
+      },
+      "ph": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=402",
+        "label": "FAO EcoCrop"
+      },
+      "humidity": {
+        "label": "TNAU Agritech",
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_fruits_pineapple.html"
+      },
+      "companions": {
+        "label": "Companion crop reference",
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_pcrops_coconut_intercropping.html"
+      }
+    },
+    "researched_on": "2026-10-29",
+    "scientific_name": "Ananas comosus",
+    "rainfall_note": "",
+    "companion_note": "Companion suitability depends on spacing, shade and water availability.",
+    "companion_kind": "intercrop"
+  },
+  "Litchi": {
+    "climate": "Warm season",
+    "temperature": "20–35 °C",
+    "sun": "Full sun",
+    "watering": "Regular moisture",
+    "planting": "Layers",
+    "soil": "Loamy soil",
+    "ph": "5.5–6.5",
+    "rainfall": "1000–1700",
+    "humidity": "Allow airflow and avoid prolonged leaf wetness.",
+    "drainage": "Well-drained soil",
+    "sources": [
+      {
+        "label": "TNAU Agritech",
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_fruits_minorfruits.html"
+      },
+      {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=1357",
+        "label": "FAO EcoCrop"
+      },
+      {
+        "url": "https://hort.extension.wisc.edu/water-water-everywhere-but-never-on-the-leaves/",
+        "label": "UW–Madison Extension"
+      },
+      {
+        "url": "https://indianjournals.com/article/vgt-39-2-004",
+        "label": "Vegetable Science"
+      }
+    ],
+    "companions": [
+      "Okra"
+    ],
+    "practices": [
+      "Pruning",
+      "Mulching"
+    ],
+    "field_sources": {
+      "temperature": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=1357",
+        "label": "FAO EcoCrop"
+      },
+      "rainfall": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=1357",
+        "label": "FAO EcoCrop"
+      },
+      "ph": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=1357",
+        "label": "FAO EcoCrop"
+      },
+      "humidity": {
+        "url": "https://hort.extension.wisc.edu/water-water-everywhere-but-never-on-the-leaves/",
+        "label": "UW–Madison Extension"
+      },
+      "companions": {
+        "url": "https://indianjournals.com/article/vgt-39-2-004",
+        "label": "Vegetable Science"
+      }
+    },
+    "researched_on": "2026-10-29",
+    "scientific_name": "Litchi chinensis",
+    "rainfall_note": "",
+    "companion_note": "Use young, open orchards; protect tree roots and stop intercropping when canopies close.",
+    "companion_kind": "intercrop"
+  },
+  "Soybean": {
+    "climate": "Warm season",
+    "temperature": "20–33 °C",
+    "sun": "Full sun",
+    "watering": "Regular moisture",
+    "planting": "Seeds",
+    "soil": "Loamy soil",
+    "ph": "5.5–6.5",
+    "rainfall": "600–1500",
+    "humidity": "Allow airflow and avoid prolonged leaf wetness.",
+    "drainage": "Well-drained soil",
+    "sources": [
+      {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=1150",
+        "label": "FAO EcoCrop"
+      },
+      {
+        "url": "https://hort.extension.wisc.edu/water-water-everywhere-but-never-on-the-leaves/",
+        "label": "UW–Madison Extension"
+      },
+      {
+        "url": "https://csauk.ac.in/en/article/cropping-system",
+        "label": "CSA University of Agriculture & Technology"
+      }
+    ],
+    "companions": [
+      "Pigeonpeas"
+    ],
+    "practices": [
+      "Weeding",
+      "Crop rotation"
+    ],
+    "field_sources": {
+      "temperature": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=1150",
+        "label": "FAO EcoCrop"
+      },
+      "rainfall": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=1150",
+        "label": "FAO EcoCrop"
+      },
+      "ph": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=1150",
+        "label": "FAO EcoCrop"
+      },
+      "humidity": {
+        "url": "https://hort.extension.wisc.edu/water-water-everywhere-but-never-on-the-leaves/",
+        "label": "UW–Madison Extension"
+      },
+      "companions": {
+        "url": "https://csauk.ac.in/en/article/cropping-system",
+        "label": "CSA University of Agriculture & Technology"
+      }
+    },
+    "researched_on": "2026-10-29",
+    "scientific_name": "Glycine max",
+    "rainfall_note": "",
+    "companion_note": "Companion suitability depends on spacing, shade and water availability.",
+    "companion_kind": "intercrop"
+  },
+  "Groundnut": {
+    "climate": "Warm season",
+    "temperature": "22–32 °C",
+    "sun": "Full sun",
+    "watering": "Regular moisture",
+    "planting": "Seeds",
+    "soil": "Sandy loam",
+    "ph": "5.5–6.5",
+    "rainfall": "600–1500",
+    "humidity": "Allow airflow and avoid prolonged leaf wetness.",
+    "drainage": "Well-drained soil",
+    "sources": [
+      {
+        "label": "Companion crop reference",
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_pcrops_coconut_intercropping.html"
+      },
+      {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=2199",
+        "label": "FAO EcoCrop"
+      },
+      {
+        "url": "https://hort.extension.wisc.edu/water-water-everywhere-but-never-on-the-leaves/",
+        "label": "UW–Madison Extension"
+      }
+    ],
+    "companions": [
+      "Coconut"
+    ],
+    "practices": [
+      "Weeding",
+      "Crop rotation"
+    ],
+    "field_sources": {
+      "temperature": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=2199",
+        "label": "FAO EcoCrop"
+      },
+      "rainfall": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=2199",
+        "label": "FAO EcoCrop"
+      },
+      "ph": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=2199",
+        "label": "FAO EcoCrop"
+      },
+      "humidity": {
+        "url": "https://hort.extension.wisc.edu/water-water-everywhere-but-never-on-the-leaves/",
+        "label": "UW–Madison Extension"
+      },
+      "companions": {
+        "label": "Companion crop reference",
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_pcrops_coconut_intercropping.html"
+      }
+    },
+    "researched_on": "2026-10-29",
+    "scientific_name": "Arachis hypogaea",
+    "rainfall_note": "",
+    "companion_note": "Companion suitability depends on spacing, shade and water availability.",
+    "companion_kind": "intercrop"
+  },
+  "Sunflower": {
+    "climate": "Warm season",
+    "temperature": "17–34 °C",
+    "sun": "Full sun",
+    "watering": "Drought tolerant once established",
+    "planting": "Seeds",
+    "soil": "Loamy soil",
+    "ph": "6–7.5",
+    "rainfall": "600–1000",
+    "humidity": "Allow airflow and avoid prolonged leaf wetness.",
+    "drainage": "Well-drained soil",
+    "sources": [
+      {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=1191",
+        "label": "FAO EcoCrop"
+      },
+      {
+        "url": "https://hort.extension.wisc.edu/water-water-everywhere-but-never-on-the-leaves/",
+        "label": "UW–Madison Extension"
+      },
+      {
+        "url": "https://agritech.tnau.ac.in/agriculture/agri_majorareas_dryland_agromeasures_intercropping.html",
+        "label": "TNAU Agritech"
+      }
+    ],
+    "companions": [
+      "Groundnut",
+      "Jowar"
+    ],
+    "practices": [
+      "Weeding",
+      "Crop rotation"
+    ],
+    "field_sources": {
+      "temperature": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=1191",
+        "label": "FAO EcoCrop"
+      },
+      "rainfall": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=1191",
+        "label": "FAO EcoCrop"
+      },
+      "ph": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=1191",
+        "label": "FAO EcoCrop"
+      },
+      "humidity": {
+        "url": "https://hort.extension.wisc.edu/water-water-everywhere-but-never-on-the-leaves/",
+        "label": "UW–Madison Extension"
+      },
+      "companions": {
+        "url": "https://agritech.tnau.ac.in/agriculture/agri_majorareas_dryland_agromeasures_intercropping.html",
+        "label": "TNAU Agritech"
+      }
+    },
+    "researched_on": "2026-10-29",
+    "scientific_name": "Helianthus annuus",
+    "rainfall_note": "",
+    "companion_note": "Companion suitability depends on spacing, shade and water availability.",
+    "companion_kind": "intercrop"
+  },
+  "Sesamum": {
+    "climate": "Warm season",
+    "temperature": "20–30 °C",
+    "sun": "Full sun",
+    "watering": "Drought tolerant once established",
+    "planting": "Seeds",
+    "soil": "Sandy loam",
+    "ph": "5.5–7.5",
+    "rainfall": "500–1000",
+    "humidity": "Allow airflow and avoid prolonged leaf wetness.",
+    "drainage": "Well-drained soil",
+    "sources": [
+      {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=1937",
+        "label": "FAO EcoCrop"
+      },
+      {
+        "url": "https://hort.extension.wisc.edu/water-water-everywhere-but-never-on-the-leaves/",
+        "label": "UW–Madison Extension"
+      },
+      {
+        "url": "https://csauk.ac.in/en/article/cropping-system",
+        "label": "CSA University of Agriculture & Technology"
+      }
+    ],
+    "companions": [
+      "Mungbean"
+    ],
+    "practices": [
+      "Weeding",
+      "Crop rotation"
+    ],
+    "field_sources": {
+      "temperature": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=1937",
+        "label": "FAO EcoCrop"
+      },
+      "rainfall": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=1937",
+        "label": "FAO EcoCrop"
+      },
+      "ph": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=1937",
+        "label": "FAO EcoCrop"
+      },
+      "humidity": {
+        "url": "https://hort.extension.wisc.edu/water-water-everywhere-but-never-on-the-leaves/",
+        "label": "UW–Madison Extension"
+      },
+      "companions": {
+        "url": "https://csauk.ac.in/en/article/cropping-system",
+        "label": "CSA University of Agriculture & Technology"
+      }
+    },
+    "researched_on": "2026-10-29",
+    "scientific_name": "Sesamum indicum",
+    "rainfall_note": "",
+    "companion_note": "Companion suitability depends on spacing, shade and water availability.",
+    "companion_kind": "intercrop"
+  },
+  "Castor seed": {
+    "climate": "Warm season",
+    "temperature": "20–30 °C",
+    "sun": "Full sun",
+    "watering": "Drought tolerant once established",
+    "planting": "Seeds",
+    "soil": "Loamy soil",
+    "ph": "5–6.5",
+    "rainfall": "600–1000",
+    "humidity": "Allow airflow and avoid prolonged leaf wetness.",
+    "drainage": "Well-drained soil",
+    "sources": [
+      {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=1866",
+        "label": "FAO EcoCrop"
+      },
+      {
+        "url": "https://hort.extension.wisc.edu/water-water-everywhere-but-never-on-the-leaves/",
+        "label": "UW–Madison Extension"
+      },
+      {
+        "url": "https://agritech.tnau.ac.in/agriculture/agri_majorareas_dryland_agromeasures_intercropping.html",
+        "label": "TNAU Agritech"
+      }
+    ],
+    "companions": [
+      "Groundnut"
+    ],
+    "practices": [
+      "Weeding",
+      "Crop rotation"
+    ],
+    "field_sources": {
+      "temperature": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=1866",
+        "label": "FAO EcoCrop"
+      },
+      "rainfall": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=1866",
+        "label": "FAO EcoCrop"
+      },
+      "ph": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=1866",
+        "label": "FAO EcoCrop"
+      },
+      "humidity": {
+        "url": "https://hort.extension.wisc.edu/water-water-everywhere-but-never-on-the-leaves/",
+        "label": "UW–Madison Extension"
+      },
+      "companions": {
+        "url": "https://agritech.tnau.ac.in/agriculture/agri_majorareas_dryland_agromeasures_intercropping.html",
+        "label": "TNAU Agritech"
+      }
+    },
+    "researched_on": "2026-10-29",
+    "scientific_name": "Ricinus communis",
+    "rainfall_note": "",
+    "companion_note": "Companion suitability depends on spacing, shade and water availability.",
+    "companion_kind": "intercrop"
+  },
+  "Rapeseed &Mustard": {
+    "climate": "Cool season",
+    "temperature": "15–28 °C",
+    "sun": "Full sun",
+    "watering": "Regular moisture",
+    "planting": "Seeds",
+    "soil": "Loamy soil",
+    "ph": "5.5–6.5",
+    "rainfall": "700–2400",
+    "humidity": "Allow airflow and avoid prolonged leaf wetness.",
+    "drainage": "Well-drained soil",
+    "sources": [
+      {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=548",
+        "label": "FAO EcoCrop"
+      },
+      {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=549",
+        "label": "FAO EcoCrop"
+      },
+      {
+        "url": "https://hort.extension.wisc.edu/water-water-everywhere-but-never-on-the-leaves/",
+        "label": "UW–Madison Extension"
+      },
+      {
+        "url": "https://csauk.ac.in/en/article/cropping-system",
+        "label": "CSA University of Agriculture & Technology"
+      }
+    ],
+    "companions": [
+      "Chickpea",
+      "Lentil"
+    ],
+    "practices": [
+      "Weeding",
+      "Crop rotation"
+    ],
+    "field_sources": {
+      "temperature": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=548",
+        "label": "FAO EcoCrop"
+      },
+      "rainfall": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=548",
+        "label": "FAO EcoCrop"
+      },
+      "ph": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=548",
+        "label": "FAO EcoCrop"
+      },
+      "humidity": {
+        "url": "https://hort.extension.wisc.edu/water-water-everywhere-but-never-on-the-leaves/",
+        "label": "UW–Madison Extension"
+      },
+      "companions": {
+        "url": "https://csauk.ac.in/en/article/cropping-system",
+        "label": "CSA University of Agriculture & Technology"
+      }
+    },
+    "researched_on": "2026-10-29",
+    "scientific_name": "Brassica juncea / Brassica napus",
+    "rainfall_note": "",
+    "companion_note": "Companion suitability depends on spacing, shade and water availability.",
+    "variants": [
+      {
+        "taxon": "Brassica juncea",
+        "source": {
+          "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=548",
+          "label": "FAO EcoCrop"
+        },
+        "temperature": "15–28 °C",
+        "rainfall": "700–2400",
+        "ph": "5.5–6.5"
+      },
+      {
+        "taxon": "Brassica napus",
+        "source": {
+          "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=549",
+          "label": "FAO EcoCrop"
+        },
+        "temperature": "15–25 °C",
+        "rainfall": "500–1000",
+        "ph": "6.5–7.6"
+      }
+    ],
+    "companion_kind": "intercrop"
+  },
+  "Safflower": {
+    "climate": "Cool season",
+    "temperature": "20–32 °C",
+    "sun": "Full sun",
+    "watering": "Drought tolerant once established",
+    "planting": "Seeds",
+    "soil": "Clay loam",
+    "ph": "6.5–7.5",
+    "rainfall": "600–1000",
+    "humidity": "Allow airflow and avoid prolonged leaf wetness.",
+    "drainage": "Well-drained soil",
+    "sources": [
+      {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=2514",
+        "label": "FAO EcoCrop"
+      },
+      {
+        "url": "https://hort.extension.wisc.edu/water-water-everywhere-but-never-on-the-leaves/",
+        "label": "UW–Madison Extension"
+      },
+      {
+        "url": "https://www.agritech.tnau.ac.in/crop_protection/safflower/crop_prot_crop_insect_oil_safflower_1.html",
+        "label": "TNAU Agritech"
+      }
+    ],
+    "companions": [
+      "Wheat",
+      "Barley"
+    ],
+    "practices": [
+      "Weeding",
+      "Crop rotation"
+    ],
+    "field_sources": {
+      "temperature": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=2514",
+        "label": "FAO EcoCrop"
+      },
+      "rainfall": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=2514",
+        "label": "FAO EcoCrop"
+      },
+      "ph": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=2514",
+        "label": "FAO EcoCrop"
+      },
+      "humidity": {
+        "url": "https://hort.extension.wisc.edu/water-water-everywhere-but-never-on-the-leaves/",
+        "label": "UW–Madison Extension"
+      },
+      "companions": {
+        "url": "https://www.agritech.tnau.ac.in/crop_protection/safflower/crop_prot_crop_insect_oil_safflower_1.html",
+        "label": "TNAU Agritech"
+      }
+    },
+    "researched_on": "2026-10-29",
+    "scientific_name": "Carthamus tinctorius",
+    "rainfall_note": "",
+    "companion_note": "Companion suitability depends on spacing, shade and water availability.",
+    "companion_kind": "intercrop"
+  },
+  "Linseed": {
+    "climate": "Cool season",
+    "temperature": "16–24 °C",
+    "sun": "Full sun",
+    "watering": "Regular moisture",
+    "planting": "Seeds",
+    "soil": "Loamy soil",
+    "ph": "6–6.5",
+    "rainfall": "500–800",
+    "humidity": "Allow airflow and avoid prolonged leaf wetness.",
+    "drainage": "Well-drained soil",
+    "sources": [
+      {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=7336",
+        "label": "FAO EcoCrop"
+      },
+      {
+        "url": "https://hort.extension.wisc.edu/water-water-everywhere-but-never-on-the-leaves/",
+        "label": "UW–Madison Extension"
+      },
+      {
+        "url": "https://csauk.ac.in/en/article/cropping-system",
+        "label": "CSA University of Agriculture & Technology"
+      }
+    ],
+    "companions": [
+      "Potato"
+    ],
+    "practices": [
+      "Weeding",
+      "Crop rotation"
+    ],
+    "field_sources": {
+      "temperature": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=7336",
+        "label": "FAO EcoCrop"
+      },
+      "rainfall": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=7336",
+        "label": "FAO EcoCrop"
+      },
+      "ph": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=7336",
+        "label": "FAO EcoCrop"
+      },
+      "humidity": {
+        "url": "https://hort.extension.wisc.edu/water-water-everywhere-but-never-on-the-leaves/",
+        "label": "UW–Madison Extension"
+      },
+      "companions": {
+        "url": "https://csauk.ac.in/en/article/cropping-system",
+        "label": "CSA University of Agriculture & Technology"
+      }
+    },
+    "researched_on": "2026-10-29",
+    "scientific_name": "Linum usitatissimum",
+    "rainfall_note": "",
+    "companion_note": "Companion suitability depends on spacing, shade and water availability.",
+    "companion_kind": "intercrop"
+  },
+  "Ginger": {
+    "climate": "Tropical",
+    "temperature": "19–29 °C",
+    "sun": "Partial shade",
+    "watering": "Regular moisture",
+    "planting": "Rhizomes",
+    "soil": "Loamy soil",
+    "ph": "6–7",
+    "rainfall": "1400–3000",
+    "humidity": "Humid",
+    "drainage": "Well-drained soil",
+    "sources": [
+      {
+        "label": "TNAU Agritech",
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_spice%20crops_ginger.html"
+      },
+      {
+        "label": "Companion crop reference",
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_pcrops_coconut_intercropping.html"
+      },
+      {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=2177",
+        "label": "FAO EcoCrop"
+      }
+    ],
+    "companions": [
+      "Coconut"
+    ],
+    "practices": [
+      "Earthing up",
+      "Weeding"
+    ],
+    "field_sources": {
+      "temperature": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=2177",
+        "label": "FAO EcoCrop"
+      },
+      "rainfall": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=2177",
+        "label": "FAO EcoCrop"
+      },
+      "ph": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=2177",
+        "label": "FAO EcoCrop"
+      },
+      "humidity": {
+        "label": "TNAU Agritech",
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_spice%20crops_ginger.html"
+      },
+      "companions": {
+        "label": "Companion crop reference",
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_pcrops_coconut_intercropping.html"
+      }
+    },
+    "researched_on": "2026-10-29",
+    "scientific_name": "Zingiber officinale",
+    "rainfall_note": "",
+    "companion_note": "Companion suitability depends on spacing, shade and water availability.",
+    "companion_kind": "intercrop"
+  },
+  "Turmeric": {
+    "climate": "Tropical",
+    "temperature": "20–28 °C",
+    "sun": "Partial shade",
+    "watering": "Regular moisture",
+    "planting": "Rhizomes",
+    "soil": "Loamy soil",
+    "ph": "6–7",
+    "rainfall": "1000–2000",
+    "humidity": "Allow airflow and avoid prolonged leaf wetness.",
+    "drainage": "Well-drained soil",
+    "sources": [
+      {
+        "label": "TNAU Agritech",
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_spice%20crops_turmeric.html"
+      },
+      {
+        "label": "Companion crop reference",
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_spice_turmeric_intercropping.html"
+      },
+      {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=828",
+        "label": "FAO EcoCrop"
+      },
+      {
+        "url": "https://hort.extension.wisc.edu/water-water-everywhere-but-never-on-the-leaves/",
+        "label": "UW–Madison Extension"
+      }
+    ],
+    "companions": [
+      "Coconut",
+      "Onion",
+      "Okra",
+      "Dry chillies"
+    ],
+    "practices": [
+      "Earthing up",
+      "Weeding"
+    ],
+    "field_sources": {
+      "temperature": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=828",
+        "label": "FAO EcoCrop"
+      },
+      "rainfall": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=828",
+        "label": "FAO EcoCrop"
+      },
+      "ph": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=828",
+        "label": "FAO EcoCrop"
+      },
+      "humidity": {
+        "url": "https://hort.extension.wisc.edu/water-water-everywhere-but-never-on-the-leaves/",
+        "label": "UW–Madison Extension"
+      },
+      "companions": {
+        "label": "Companion crop reference",
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_spice_turmeric_intercropping.html"
+      }
+    },
+    "researched_on": "2026-10-29",
+    "scientific_name": "Curcuma longa",
+    "rainfall_note": "",
+    "companion_note": "Companion suitability depends on spacing, shade and water availability.",
+    "companion_kind": "intercrop"
+  },
+  "Black pepper": {
+    "climate": "Tropical",
+    "temperature": "22–35 °C",
+    "sun": "Partial shade",
+    "watering": "Regular moisture",
+    "planting": "Cuttings",
+    "soil": "Loamy soil",
+    "ph": "6–7",
+    "rainfall": "2500–4000",
+    "humidity": "Humid",
+    "drainage": "Well-drained soil",
+    "sources": [
+      {
+        "label": "TNAU Agritech",
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_spice%20crops_pepper.html"
+      },
+      {
+        "label": "Companion crop reference",
+        "url": "https://coffeeboard.gov.in/coffee-regions-india.html?page=CoffeeRegionsIndia"
+      },
+      {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=1714",
+        "label": "FAO EcoCrop"
+      }
+    ],
+    "companions": [
+      "Coffee"
+    ],
+    "practices": [
+      "Staking",
+      "Shade management",
+      "Mulching"
+    ],
+    "field_sources": {
+      "temperature": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=1714",
+        "label": "FAO EcoCrop"
+      },
+      "rainfall": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=1714",
+        "label": "FAO EcoCrop"
+      },
+      "ph": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=1714",
+        "label": "FAO EcoCrop"
+      },
+      "humidity": {
+        "label": "TNAU Agritech",
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_spice%20crops_pepper.html"
+      },
+      "companions": {
+        "label": "Companion crop reference",
+        "url": "https://coffeeboard.gov.in/coffee-regions-india.html?page=CoffeeRegionsIndia"
+      }
+    },
+    "researched_on": "2026-10-29",
+    "scientific_name": "Piper nigrum",
+    "rainfall_note": "",
+    "companion_note": "Companion suitability depends on spacing, shade and water availability.",
+    "companion_kind": "intercrop"
+  },
+  "Cardamom": {
+    "climate": "Tropical",
+    "temperature": "22–30 °C",
+    "sun": "Partial shade",
+    "watering": "Regular moisture",
+    "planting": "Suckers",
+    "soil": "Loamy soil",
+    "ph": "5.5–6",
+    "rainfall": "3000–6000",
+    "humidity": "Humid",
+    "drainage": "Well-drained soil",
+    "sources": [
+      {
+        "label": "TNAU Agritech",
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_spice%20crops_cardamom.html"
+      },
+      {
+        "label": "Companion crop reference",
+        "url": "https://coffeeboard.gov.in/coffee-regions-india.html?page=CoffeeRegionsIndia"
+      },
+      {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=984",
+        "label": "FAO EcoCrop"
+      }
+    ],
+    "companions": [
+      "Coffee"
+    ],
+    "practices": [
+      "Shade management",
+      "Mulching"
+    ],
+    "field_sources": {
+      "temperature": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=984",
+        "label": "FAO EcoCrop"
+      },
+      "rainfall": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=984",
+        "label": "FAO EcoCrop"
+      },
+      "ph": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=984",
+        "label": "FAO EcoCrop"
+      },
+      "humidity": {
+        "label": "TNAU Agritech",
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_spice%20crops_cardamom.html"
+      },
+      "companions": {
+        "label": "Companion crop reference",
+        "url": "https://coffeeboard.gov.in/coffee-regions-india.html?page=CoffeeRegionsIndia"
+      }
+    },
+    "researched_on": "2026-10-29",
+    "scientific_name": "Elettaria cardamomum",
+    "rainfall_note": "",
+    "companion_note": "Companion suitability depends on spacing, shade and water availability.",
+    "companion_kind": "intercrop"
+  },
+  "Coriander": {
+    "climate": "Cool season",
+    "temperature": "15–25 °C",
+    "sun": "Full sun",
+    "watering": "Regular moisture",
+    "planting": "Seeds",
+    "soil": "Loamy soil",
+    "ph": "5.5–7.5",
+    "rainfall": "500–1400",
+    "humidity": "Dry",
+    "drainage": "Well-drained soil",
+    "sources": [
+      {
+        "label": "TNAU Agritech",
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_spice%20crops_corinader.html"
+      },
+      {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=784",
+        "label": "FAO EcoCrop"
+      },
+      {
+        "url": "https://csauk.ac.in/en/article/cropping-system",
+        "label": "CSA University of Agriculture & Technology"
+      }
+    ],
+    "companions": [
+      "Potato"
+    ],
+    "practices": [
+      "Weeding",
+      "Crop rotation"
+    ],
+    "field_sources": {
+      "temperature": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=784",
+        "label": "FAO EcoCrop"
+      },
+      "rainfall": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=784",
+        "label": "FAO EcoCrop"
+      },
+      "ph": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=784",
+        "label": "FAO EcoCrop"
+      },
+      "humidity": {
+        "label": "TNAU Agritech",
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_spice%20crops_corinader.html"
+      },
+      "companions": {
+        "url": "https://csauk.ac.in/en/article/cropping-system",
+        "label": "CSA University of Agriculture & Technology"
+      }
+    },
+    "researched_on": "2026-10-29",
+    "scientific_name": "Coriandrum sativum",
+    "rainfall_note": "",
+    "companion_note": "Companion suitability depends on spacing, shade and water availability.",
+    "companion_kind": "intercrop"
+  },
+  "Dry chillies": {
+    "climate": "Warm season",
+    "temperature": "17–30 °C",
+    "sun": "Full sun",
+    "watering": "Regular moisture",
+    "planting": "Seedlings",
+    "soil": "Loamy soil",
+    "ph": "5.5–6.8",
+    "rainfall": "600–1250",
+    "humidity": "Allow airflow and avoid prolonged leaf wetness.",
+    "drainage": "Well-drained soil",
+    "sources": [
+      {
+        "label": "TNAU Agritech",
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_vegetables_chilli.html"
+      },
+      {
+        "label": "Companion crop reference",
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_spice_turmeric_intercropping.html"
+      },
+      {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=618",
+        "label": "FAO EcoCrop"
+      },
+      {
+        "url": "https://hort.extension.wisc.edu/water-water-everywhere-but-never-on-the-leaves/",
+        "label": "UW–Madison Extension"
+      }
+    ],
+    "companions": [
+      "Turmeric"
+    ],
+    "practices": [
+      "Weeding",
+      "Crop rotation"
+    ],
+    "field_sources": {
+      "temperature": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=618",
+        "label": "FAO EcoCrop"
+      },
+      "rainfall": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=618",
+        "label": "FAO EcoCrop"
+      },
+      "ph": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=618",
+        "label": "FAO EcoCrop"
+      },
+      "humidity": {
+        "url": "https://hort.extension.wisc.edu/water-water-everywhere-but-never-on-the-leaves/",
+        "label": "UW–Madison Extension"
+      },
+      "companions": {
+        "label": "Companion crop reference",
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_spice_turmeric_intercropping.html"
+      }
+    },
+    "researched_on": "2026-10-29",
+    "scientific_name": "Capsicum annuum",
+    "rainfall_note": "",
+    "companion_note": "Companion suitability depends on spacing, shade and water availability.",
+    "companion_kind": "intercrop"
+  },
+  "Cotton": {
+    "climate": "Warm season",
+    "temperature": "22–36 °C",
+    "sun": "Full sun",
+    "watering": "Regular moisture",
+    "planting": "Seeds",
+    "soil": "Clay loam",
+    "ph": "6–7.5",
+    "rainfall": "750–1200",
+    "humidity": "Allow airflow and avoid prolonged leaf wetness.",
+    "drainage": "Well-drained soil",
+    "sources": [
+      {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=1160",
+        "label": "FAO EcoCrop"
+      },
+      {
+        "url": "https://hort.extension.wisc.edu/water-water-everywhere-but-never-on-the-leaves/",
+        "label": "UW–Madison Extension"
+      },
+      {
+        "url": "https://agritech.tnau.ac.in/agriculture/agri_majorareas_dryland_agromeasures_intercropping.html",
+        "label": "TNAU Agritech"
+      }
+    ],
+    "companions": [
+      "Blackgram"
+    ],
+    "practices": [
+      "Weeding",
+      "Crop rotation"
+    ],
+    "field_sources": {
+      "temperature": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=1160",
+        "label": "FAO EcoCrop"
+      },
+      "rainfall": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=1160",
+        "label": "FAO EcoCrop"
+      },
+      "ph": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=1160",
+        "label": "FAO EcoCrop"
+      },
+      "humidity": {
+        "url": "https://hort.extension.wisc.edu/water-water-everywhere-but-never-on-the-leaves/",
+        "label": "UW–Madison Extension"
+      },
+      "companions": {
+        "url": "https://agritech.tnau.ac.in/agriculture/agri_majorareas_dryland_agromeasures_intercropping.html",
+        "label": "TNAU Agritech"
+      }
+    },
+    "researched_on": "2026-10-29",
+    "scientific_name": "Gossypium hirsutum",
+    "rainfall_note": "",
+    "companion_note": "Companion suitability depends on spacing, shade and water availability.",
+    "companion_kind": "intercrop"
+  },
+  "Sugarcane": {
+    "climate": "Tropical",
+    "temperature": "24–37 °C",
+    "sun": "Full sun",
+    "watering": "Regular moisture",
+    "planting": "Stem cuttings",
+    "soil": "Loamy soil",
+    "ph": "5–8",
+    "rainfall": "1500–2000",
+    "humidity": "Allow airflow and avoid prolonged leaf wetness.",
+    "drainage": "Well-drained soil",
+    "sources": [
+      {
+        "label": "Companion crop reference",
+        "url": "https://www.agritech.tnau.ac.in/agriculture/CropProduction/Pulses/BlackgramIntercropping.html"
+      },
+      {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=1884",
+        "label": "FAO EcoCrop"
+      },
+      {
+        "url": "https://hort.extension.wisc.edu/water-water-everywhere-but-never-on-the-leaves/",
+        "label": "UW–Madison Extension"
+      }
+    ],
+    "companions": [
+      "Blackgram"
+    ],
+    "practices": [
+      "Earthing up",
+      "Weeding"
+    ],
+    "field_sources": {
+      "temperature": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=1884",
+        "label": "FAO EcoCrop"
+      },
+      "rainfall": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=1884",
+        "label": "FAO EcoCrop"
+      },
+      "ph": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=1884",
+        "label": "FAO EcoCrop"
+      },
+      "humidity": {
+        "url": "https://hort.extension.wisc.edu/water-water-everywhere-but-never-on-the-leaves/",
+        "label": "UW–Madison Extension"
+      },
+      "companions": {
+        "label": "Companion crop reference",
+        "url": "https://www.agritech.tnau.ac.in/agriculture/CropProduction/Pulses/BlackgramIntercropping.html"
+      }
+    },
+    "researched_on": "2026-10-29",
+    "scientific_name": "Saccharum officinarum",
+    "rainfall_note": "",
+    "companion_note": "Companion suitability depends on spacing, shade and water availability.",
+    "companion_kind": "intercrop"
+  },
+  "Coffee": {
+    "climate": "Tropical",
+    "temperature": "14–28 °C",
+    "sun": "Partial shade",
+    "watering": "Regular moisture",
+    "planting": "Seedlings",
+    "soil": "Loamy soil",
+    "ph": "5.5–7",
+    "rainfall": "1400–2300",
+    "humidity": "Allow airflow and avoid prolonged leaf wetness.",
+    "drainage": "Well-drained soil",
+    "sources": [
+      {
+        "label": "TNAU Agritech",
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_plantation%20crops_coffee.html"
+      },
+      {
+        "label": "Companion crop reference",
+        "url": "https://coffeeboard.gov.in/coffee-regions-india.html?page=CoffeeRegionsIndia"
+      },
+      {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=749",
+        "label": "FAO EcoCrop"
+      },
+      {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=750",
+        "label": "FAO EcoCrop"
+      },
+      {
+        "url": "https://hort.extension.wisc.edu/water-water-everywhere-but-never-on-the-leaves/",
+        "label": "UW–Madison Extension"
+      }
+    ],
+    "companions": [
+      "Black pepper",
+      "Cardamom",
+      "Orange",
+      "Banana"
+    ],
+    "practices": [
+      "Pruning",
+      "Shade management",
+      "Mulching"
+    ],
+    "field_sources": {
+      "temperature": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=749",
+        "label": "FAO EcoCrop"
+      },
+      "rainfall": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=749",
+        "label": "FAO EcoCrop"
+      },
+      "ph": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=749",
+        "label": "FAO EcoCrop"
+      },
+      "humidity": {
+        "url": "https://hort.extension.wisc.edu/water-water-everywhere-but-never-on-the-leaves/",
+        "label": "UW–Madison Extension"
+      },
+      "companions": {
+        "label": "Companion crop reference",
+        "url": "https://coffeeboard.gov.in/coffee-regions-india.html?page=CoffeeRegionsIndia"
+      }
+    },
+    "researched_on": "2026-10-29",
+    "scientific_name": "Coffea arabica / Coffea canephora",
+    "rainfall_note": "",
+    "companion_note": "Companion suitability depends on spacing, shade and water availability.",
+    "variants": [
+      {
+        "taxon": "Coffea arabica",
+        "source": {
+          "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=749",
+          "label": "FAO EcoCrop"
+        },
+        "temperature": "14–28 °C",
+        "rainfall": "1400–2300",
+        "ph": "5.5–7"
+      },
+      {
+        "taxon": "Coffea canephora",
+        "source": {
+          "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=750",
+          "label": "FAO EcoCrop"
+        },
+        "temperature": "20–30 °C",
+        "rainfall": "1700–3000",
+        "ph": "5–6.3"
+      }
+    ],
+    "companion_kind": "intercrop"
+  },
+  "Jute": {
+    "climate": "Warm season",
+    "temperature": "20–37 °C",
+    "sun": "Full sun",
+    "watering": "Regular moisture",
+    "planting": "Seeds",
+    "soil": "Loamy soil",
+    "ph": "6.5–7",
+    "rainfall": "1500–3000",
+    "humidity": "Humid",
+    "drainage": "Well-drained soil",
+    "sources": [
+      {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=4849",
+        "label": "FAO EcoCrop"
+      },
+      {
+        "url": "https://www.agritech.tnau.ac.in/ta/govt_schemes_services/pdf/Notes%20for%20kharif%20camp.pdf",
+        "label": "Government crop-system guidance"
+      }
+    ],
+    "companions": [
+      "Blackgram"
+    ],
+    "practices": [
+      "Weeding",
+      "Crop rotation"
+    ],
+    "field_sources": {
+      "temperature": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=4849",
+        "label": "FAO EcoCrop"
+      },
+      "rainfall": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=4849",
+        "label": "FAO EcoCrop"
+      },
+      "ph": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=4849",
+        "label": "FAO EcoCrop"
+      },
+      "humidity": {
+        "label": "TNAU crop guides",
+        "url": "https://agritech.tnau.ac.in/agriculture/agri_index.html"
+      },
+      "companions": {
+        "url": "https://www.agritech.tnau.ac.in/ta/govt_schemes_services/pdf/Notes%20for%20kharif%20camp.pdf",
+        "label": "Government crop-system guidance"
+      }
+    },
+    "researched_on": "2026-10-29",
+    "scientific_name": "Corchorus capsularis",
+    "rainfall_note": "",
+    "companion_note": "Companion suitability depends on spacing, shade and water availability.",
+    "companion_kind": "intercrop"
+  },
+  "Arecanut": {
+    "climate": "Tropical",
+    "temperature": "16–33 °C",
+    "sun": "Partial shade",
+    "watering": "Regular moisture",
+    "planting": "Seedlings",
+    "soil": "Loamy soil",
+    "ph": "5.5–6",
+    "rainfall": "1500–3000",
+    "humidity": "Allow airflow and avoid prolonged leaf wetness.",
+    "drainage": "Well-drained soil",
+    "sources": [
+      {
+        "label": "TNAU Agritech",
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_plantation%20crops_arecanut.html"
+      },
+      {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=449",
+        "label": "FAO EcoCrop"
+      },
+      {
+        "url": "https://hort.extension.wisc.edu/water-water-everywhere-but-never-on-the-leaves/",
+        "label": "UW–Madison Extension"
+      },
+      {
+        "url": "https://cpcri.gov.in/filemgr/webfs/publication/calareca012.pdf",
+        "label": "ICAR–CPCRI"
+      }
+    ],
+    "companions": [
+      "Banana",
+      "Pineapple",
+      "Black pepper",
+      "Jackfruit"
+    ],
+    "practices": [
+      "Shade management",
+      "Mulching"
+    ],
+    "field_sources": {
+      "temperature": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=449",
+        "label": "FAO EcoCrop"
+      },
+      "rainfall": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=449",
+        "label": "FAO EcoCrop"
+      },
+      "ph": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=449",
+        "label": "FAO EcoCrop"
+      },
+      "humidity": {
+        "url": "https://hort.extension.wisc.edu/water-water-everywhere-but-never-on-the-leaves/",
+        "label": "UW–Madison Extension"
+      },
+      "companions": {
+        "url": "https://cpcri.gov.in/filemgr/webfs/publication/calareca012.pdf",
+        "label": "ICAR–CPCRI"
+      }
+    },
+    "researched_on": "2026-10-29",
+    "scientific_name": "Areca catechu",
+    "rainfall_note": "",
+    "companion_note": "Companion suitability depends on spacing, shade and water availability.",
+    "companion_kind": "intercrop"
+  },
+  "Cashewnut": {
+    "climate": "Tropical",
+    "temperature": "15–35 °C",
+    "sun": "Full sun",
+    "watering": "Drought tolerant once established",
+    "planting": "Grafted plants",
+    "soil": "Sandy loam",
+    "ph": "4.5–6.5",
+    "rainfall": "750–1600",
+    "humidity": "Allow airflow and avoid prolonged leaf wetness.",
+    "drainage": "Well-drained soil",
+    "sources": [
+      {
+        "label": "TNAU Agritech",
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_plantation%20crops_cashewnut.html"
+      },
+      {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=401",
+        "label": "FAO EcoCrop"
+      },
+      {
+        "url": "https://hort.extension.wisc.edu/water-water-everywhere-but-never-on-the-leaves/",
+        "label": "UW–Madison Extension"
+      },
+      {
+        "url": "https://agritech.tnau.ac.in/pdf/2013/Cashew_english.pdf",
+        "label": "TNAU Agritech"
+      }
+    ],
+    "companions": [
+      "Groundnut"
+    ],
+    "practices": [
+      "Pruning",
+      "Mulching"
+    ],
+    "field_sources": {
+      "temperature": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=401",
+        "label": "FAO EcoCrop"
+      },
+      "rainfall": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=401",
+        "label": "FAO EcoCrop"
+      },
+      "ph": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=401",
+        "label": "FAO EcoCrop"
+      },
+      "humidity": {
+        "url": "https://hort.extension.wisc.edu/water-water-everywhere-but-never-on-the-leaves/",
+        "label": "UW–Madison Extension"
+      },
+      "companions": {
+        "url": "https://agritech.tnau.ac.in/pdf/2013/Cashew_english.pdf",
+        "label": "TNAU Agritech"
+      }
+    },
+    "researched_on": "2026-10-29",
+    "scientific_name": "Anacardium occidentale",
+    "rainfall_note": "",
+    "companion_note": "Use young, open orchards; protect tree roots and stop intercropping when canopies close.",
+    "companion_kind": "intercrop"
+  },
+  "Rose": {
+    "climate": "Warm season",
+    "temperature": "15–26 °C",
+    "sun": "Full sun",
+    "watering": "Regular moisture",
+    "planting": "Cuttings",
+    "soil": "Sandy loam",
+    "ph": "6–7",
+    "rainfall": null,
+    "humidity": "Allow airflow and avoid prolonged leaf wetness.",
+    "drainage": "Well-drained soil",
+    "sources": [
+      {
+        "label": "TNAU Agritech",
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_flower%20crops_commercial%20rose.html"
+      },
+      {
+        "url": "https://hort.extension.wisc.edu/water-water-everywhere-but-never-on-the-leaves/",
+        "label": "UW–Madison Extension"
+      }
+    ],
+    "companions": [],
+    "practices": [
+      "Pruning",
+      "Mulching"
+    ],
+    "field_sources": {
+      "temperature": {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_flower%20crops_commercial%20rose.html",
+        "label": "TNAU Agritech"
+      },
+      "ph": {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_flower%20crops_commercial%20rose.html",
+        "label": "TNAU Agritech"
+      },
+      "rainfall_note": {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_flower%20crops_commercial%20rose.html",
+        "label": "TNAU Agritech"
+      },
+      "humidity": {
+        "url": "https://hort.extension.wisc.edu/water-water-everywhere-but-never-on-the-leaves/",
+        "label": "UW–Madison Extension"
+      },
+      "companions": {
+        "label": "TNAU Agritech",
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_flower%20crops_commercial%20rose.html"
+      }
+    },
+    "researched_on": "2026-10-29",
+    "scientific_name": "Rosa spp. (commercial loose-flower cultivars)",
+    "rainfall_note": "Supplement rainfall with irrigation; keep soil moist and well drained.",
+    "companion_note": "Keep a dedicated, sunny bed with access for pruning, watering and flower harvest.",
+    "companion_kind": "layout"
+  },
+  "Marigold": {
+    "climate": "Warm season",
+    "temperature": "15–21 °C",
+    "sun": "Full sun",
+    "watering": "Regular moisture",
+    "planting": "Seedlings",
+    "soil": "Loamy soil",
+    "ph": "7.5",
+    "rainfall": null,
+    "humidity": "Allow airflow and avoid prolonged leaf wetness.",
+    "drainage": "Well-drained soil",
+    "sources": [
+      {
+        "label": "TNAU Agritech",
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_flower%20crops_marigold.html"
+      },
+      {
+        "url": "https://www.agritech.tnau.ac.in/pdf/2013/Marigold_english.pdf",
+        "label": "TNAU Agritech"
+      },
+      {
+        "url": "https://hort.extension.wisc.edu/water-water-everywhere-but-never-on-the-leaves/",
+        "label": "UW–Madison Extension"
+      },
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_FAQs_Vegetables.html",
+        "label": "TNAU Agritech"
+      }
+    ],
+    "companions": [
+      "Tomato"
+    ],
+    "practices": [
+      "Weeding",
+      "Crop rotation"
+    ],
+    "field_sources": {
+      "temperature": {
+        "url": "https://www.agritech.tnau.ac.in/pdf/2013/Marigold_english.pdf",
+        "label": "TNAU Agritech"
+      },
+      "ph": {
+        "url": "https://www.agritech.tnau.ac.in/pdf/2013/Marigold_english.pdf",
+        "label": "TNAU Agritech"
+      },
+      "rainfall_note": {
+        "url": "https://www.agritech.tnau.ac.in/pdf/2013/Marigold_english.pdf",
+        "label": "TNAU Agritech"
+      },
+      "humidity": {
+        "url": "https://hort.extension.wisc.edu/water-water-everywhere-but-never-on-the-leaves/",
+        "label": "UW–Madison Extension"
+      },
+      "companions": {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_FAQs_Vegetables.html",
+        "label": "TNAU Agritech"
+      }
+    },
+    "researched_on": "2026-10-29",
+    "scientific_name": "Tagetes erecta",
+    "rainfall_note": "Supplement rainfall with irrigation; keep soil moist and well drained.",
+    "companion_note": "Companion suitability depends on spacing, shade and water availability.",
+    "companion_kind": "intercrop"
+  },
+  "Jasmine": {
+    "climate": "Warm season",
+    "temperature": "Warm summers and mild winters",
+    "sun": "Full sun",
+    "watering": "Regular moisture",
+    "planting": "Cuttings",
+    "soil": "Loamy soil",
+    "ph": "6.5–7.5",
+    "rainfall": "800–1,000",
+    "humidity": "Allow airflow and avoid prolonged leaf wetness.",
+    "drainage": "Well-drained soil",
+    "sources": [
+      {
+        "label": "TNAU Agritech",
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_flower%20crops_malligai.html"
+      },
+      {
+        "url": "https://nhb.gov.in/bulletin_files/flowers/jasmine/jas011.pdf",
+        "label": "National Horticulture Board"
+      },
+      {
+        "url": "https://hort.extension.wisc.edu/water-water-everywhere-but-never-on-the-leaves/",
+        "label": "UW–Madison Extension"
+      }
+    ],
+    "companions": [],
+    "practices": [
+      "Pruning",
+      "Mulching"
+    ],
+    "field_sources": {
+      "temperature": {
+        "url": "https://nhb.gov.in/bulletin_files/flowers/jasmine/jas011.pdf",
+        "label": "National Horticulture Board"
+      },
+      "ph": {
+        "url": "https://nhb.gov.in/bulletin_files/flowers/jasmine/jas011.pdf",
+        "label": "National Horticulture Board"
+      },
+      "rainfall": {
+        "url": "https://nhb.gov.in/bulletin_files/flowers/jasmine/jas011.pdf",
+        "label": "National Horticulture Board"
+      },
+      "humidity": {
+        "url": "https://hort.extension.wisc.edu/water-water-everywhere-but-never-on-the-leaves/",
+        "label": "UW–Madison Extension"
+      },
+      "companions": {
+        "label": "TNAU Agritech",
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_flower%20crops_malligai.html"
+      }
+    },
+    "researched_on": "2026-10-29",
+    "scientific_name": "Jasminum sambac / J. grandiflorum / J. auriculatum",
+    "rainfall_note": "",
+    "companion_note": "Keep a dedicated, sunny bed with access for pruning, watering and flower harvest.",
+    "companion_kind": "layout"
+  },
+  "Hibiscus": {
+    "climate": "Tropical",
+    "temperature": "Warm season",
+    "sun": "Full sun",
+    "watering": "Regular moisture",
+    "planting": "Cuttings",
+    "soil": "Loamy soil",
+    "ph": "6.5–6.8",
+    "rainfall": null,
+    "humidity": "Humid",
+    "drainage": "Well-drained soil",
+    "sources": [
+      {
+        "label": "NC State Extension",
+        "url": "https://plants.ces.ncsu.edu/plants/hibiscus-rosa-sinensis/"
+      },
+      {
+        "url": "https://sfyl.ifas.ufl.edu/media/sfylifasufledu/lake/docs/residential-horticulture/lawn-and-garden---florida-friendly-landscaping/MGV-Garden-Scoop-Newsletter-May-2021.pdf",
+        "label": "UF/IFAS Extension"
+      }
+    ],
+    "companions": [],
+    "practices": [
+      "Pruning",
+      "Mulching"
+    ],
+    "field_sources": {
+      "temperature": {
+        "url": "https://plants.ces.ncsu.edu/plants/hibiscus-rosa-sinensis/",
+        "label": "NC State Extension"
+      },
+      "ph": {
+        "url": "https://sfyl.ifas.ufl.edu/media/sfylifasufledu/lake/docs/residential-horticulture/lawn-and-garden---florida-friendly-landscaping/MGV-Garden-Scoop-Newsletter-May-2021.pdf",
+        "label": "UF/IFAS Extension"
+      },
+      "humidity": {
+        "url": "https://plants.ces.ncsu.edu/plants/hibiscus-rosa-sinensis/",
+        "label": "NC State Extension"
+      },
+      "rainfall_note": {
+        "url": "https://plants.ces.ncsu.edu/plants/hibiscus-rosa-sinensis/",
+        "label": "NC State Extension"
+      },
+      "companions": {
+        "label": "NC State Extension",
+        "url": "https://plants.ces.ncsu.edu/plants/hibiscus-rosa-sinensis/"
+      }
+    },
+    "researched_on": "2026-10-29",
+    "scientific_name": "Hibiscus rosa-sinensis",
+    "rainfall_note": "Supplement rainfall with irrigation; keep soil moist and well drained.",
+    "companion_note": "Keep a dedicated, sunny bed with access for pruning, watering and flower harvest.",
+    "companion_kind": "layout"
+  },
+  "Tuberose": {
+    "climate": "Tropical",
+    "temperature": "20–30 °C",
+    "sun": "Full sun",
+    "watering": "Regular moisture",
+    "planting": "Bulbs",
+    "soil": "Loamy soil",
+    "ph": "6.5–7.5",
+    "rainfall": null,
+    "humidity": "Humid",
+    "drainage": "Well-drained soil",
+    "sources": [
+      {
+        "label": "TNAU Agritech",
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_flower%20crops_tuberose.html"
+      },
+      {
+        "url": "https://nhb.gov.in/pdf/flowers/tuberose/tub011.pdf",
+        "label": "National Horticulture Board"
+      }
+    ],
+    "companions": [],
+    "practices": [
+      "Weeding",
+      "Crop rotation"
+    ],
+    "field_sources": {
+      "temperature": {
+        "url": "https://nhb.gov.in/pdf/flowers/tuberose/tub011.pdf",
+        "label": "National Horticulture Board"
+      },
+      "ph": {
+        "url": "https://nhb.gov.in/pdf/flowers/tuberose/tub011.pdf",
+        "label": "National Horticulture Board"
+      },
+      "humidity": {
+        "url": "https://nhb.gov.in/pdf/flowers/tuberose/tub011.pdf",
+        "label": "National Horticulture Board"
+      },
+      "rainfall_note": {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_flower%20crops_tuberose.html",
+        "label": "TNAU Agritech"
+      },
+      "companions": {
+        "label": "TNAU Agritech",
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_flower%20crops_tuberose.html"
+      }
+    },
+    "researched_on": "2026-10-29",
+    "scientific_name": "Polianthes tuberosa",
+    "rainfall_note": "Supplement rainfall with irrigation; keep soil moist and well drained.",
+    "companion_note": "Keep a dedicated, sunny bed with access for pruning, watering and flower harvest.",
+    "companion_kind": "layout"
+  },
+  "Lotus": {
+    "climate": "Warm season",
+    "temperature": "25–30 °C",
+    "sun": "Full sun",
+    "watering": "Standing water",
+    "planting": "Rhizomes",
+    "soil": "Clay loam",
+    "ph": "6–6.5",
+    "rainfall": null,
+    "humidity": "Manage pond water level and leave room for leaves to spread.",
+    "drainage": "Standing water",
+    "sources": [
+      {
+        "label": "NC State Extension",
+        "url": "https://plants.ces.ncsu.edu/plants/nelumbo-nucifera/"
+      },
+      {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=2359",
+        "label": "FAO EcoCrop"
+      },
+      {
+        "url": "https://hort.extension.wisc.edu/water-water-everywhere-but-never-on-the-leaves/",
+        "label": "UW–Madison Extension"
+      }
+    ],
+    "companions": [],
+    "practices": [
+      "Thinning"
+    ],
+    "field_sources": {
+      "temperature": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=2359",
+        "label": "FAO EcoCrop"
+      },
+      "rainfall": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=2359",
+        "label": "FAO EcoCrop"
+      },
+      "ph": {
+        "url": "https://ecocrop.apps.fao.org/ecocrop/srv/en/dataSheet?id=2359",
+        "label": "FAO EcoCrop"
+      },
+      "rainfall_note": {
+        "url": "https://plants.ces.ncsu.edu/plants/nelumbo-nucifera/",
+        "label": "NC State Extension"
+      },
+      "humidity": {
+        "url": "https://plants.ces.ncsu.edu/plants/nelumbo-nucifera/",
+        "label": "NC State Extension"
+      },
+      "companions": {
+        "url": "https://plants.ces.ncsu.edu/plants/nelumbo-nucifera/",
+        "label": "NC State Extension"
+      }
+    },
+    "researched_on": "2026-10-29",
+    "scientific_name": "Nelumbo nucifera",
+    "rainfall_note": "Maintain pond water; rainfall alone does not determine water supply.",
+    "companion_note": "Use a separate pond container; spreading rhizomes can crowd other water plants.",
+    "companion_kind": "layout"
+  }
+}

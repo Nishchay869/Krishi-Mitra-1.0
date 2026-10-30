@@ -1,31 +1,139 @@
-# Python / virtualenv
-.venv/
-__pycache__/
-*.pyc
-*.egg-info/
-.pytest_cache/
+# ==============================================================================
+# KrishiMitra .gitignore
+# ==============================================================================
 
-# Secrets — API keys live in .env (copy .env.example to create it)
+# ------------------------------------------------------------------------------
+# Secrets & Credentials
+# ------------------------------------------------------------------------------
 .env
+.env.*
+!.env.example
 kaggle.json
+*.pem
+*.key
+*.cert
+*.p12
+*.id_rsa
+*.id_ed25519
+credentials.json
+client_secret*.json
+service-account*.json
+.local/
+*.local
+*login*.txt
+*credential*.txt
 
-# Local database and user uploads
-db.sqlite3
-db.sqlite3-journal
+# ------------------------------------------------------------------------------
+# Python & Virtual Environments
+# ------------------------------------------------------------------------------
+.venv/
+venv/
+env/
+ENV/
+.venv*/
+.venv-translate/
+.offline-models/
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+develop-eggs/
+downloads/
+eggs/
+.eggs/
+parts/
+var/
+wheels/
+*.manifest
+*.spec
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Testing & Linting Caches
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.nox/
+.mypy_cache/
+.ruff_cache/
+
+# ------------------------------------------------------------------------------
+# Node & Frontend
+# ------------------------------------------------------------------------------
+node_modules/
+frontend/node_modules/
+frontend/dist/
+frontend/dist-ssr/
+frontend/.vite/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+.turbo/
+.parcel-cache/
+
+# ------------------------------------------------------------------------------
+# Databases & User Uploads
+# ------------------------------------------------------------------------------
+*.sqlite3
+*.sqlite3-journal
+*.sqlite3-shm
+*.sqlite3-wal
 media/
 staticfiles/
+static/collected/
 
-# Datasets too large for git (re-download with the Kaggle CLI, see README)
+# ------------------------------------------------------------------------------
+# Large Datasets & Machine Learning Artifacts (>100MB blocked by GitHub)
+# ------------------------------------------------------------------------------
+# yield_rf.joblib is ~215 MB (exceeds GitHub 100 MB limit); regenerate with `python -m ml.train_yield`
+ml/models/yield_rf.joblib
+ml/models/*.log
+*.log
+
+# Heavy raw datasets & archives (re-download via Kaggle CLI)
 data/plantvillage/
 data/_download/
 *.zip
+*.tar
+*.tar.gz
+*.tgz
+*.gz
 
-# ML artifacts: yield_rf.joblib is ~215 MB (GitHub limit is 100 MB);
-# regenerate it with `python -m ml.train_yield` (~30 s). Training logs are noise.
-ml/models/yield_rf.joblib
-ml/models/*.log
+# Field Vision runs and model weights
+field_vision/.venv/
+field_vision/runs/
+field_vision/artifacts/
+field_vision/*.pt
+field_vision/*.pth
 
-# Editor / OS
-.vscode/
-.idea/
+# Local translation drafts
+locale/drafts/
+
+# ------------------------------------------------------------------------------
+# Operating System & Editor Files
+# ------------------------------------------------------------------------------
 .DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+[Dd]esktop.ini
+
+# Editors & IDEs
+.idea/
+.vscode/*
+!.vscode/extensions.json
+*.swp
+*.swo
+*~
+*.bak
