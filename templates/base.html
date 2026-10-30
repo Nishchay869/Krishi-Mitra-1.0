@@ -6,7 +6,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{% block title %}{% translate "Krishi Mitra" %}{% endblock %} {% translate "· AI Agriculture Assistant" %}</title>
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Ctext y=%27.9em%27 font-size=%2790%27%3E%F0%9F%8C%BE%3C/text%3E%3C/svg%3E">
+  <link rel="icon" type="image/x-icon" href="{% static 'favicon.ico' %}">
+  <link rel="icon" type="image/png" sizes="64x64" href="{% static 'favicon.png' %}">
+  <link rel="apple-touch-icon" href="{% static 'images/logo-icon.png' %}">
   <link href="{% if LANGUAGE_BIDI %}{% static 'vendor/bootstrap/bootstrap.rtl.min.css' %}{% else %}{% static 'vendor/bootstrap/bootstrap.min.css' %}{% endif %}" rel="stylesheet">
   <link href="{% static 'vendor/bootstrap-icons/bootstrap-icons.min.css' %}" rel="stylesheet">
   <link href="{% static 'css/app.css' %}?v={{ STATIC_VERSION }}" rel="stylesheet">
@@ -17,6 +19,62 @@
   {% block extra_head %}{% endblock %}
 </head>
 <body class="{% block body_class %}{% endblock %}">
+<div id="site-intro-loader" class="site-intro-loader" style="background: #d0e7d3;" aria-label="{% translate 'Loading Krishi Mitra' %}">
+  <div class="intro-loader-content">
+    <div class="intro-video-wrapper">
+      <video id="intro-loader-video"
+             src="{% static 'videos/intro-loader.mp4' %}"
+             autoplay
+             muted
+             playsinline
+             preload="auto">
+      </video>
+    </div>
+  </div>
+  <button type="button" class="intro-skip-btn" id="intro-skip-btn" aria-label="{% translate 'Skip intro' %}">
+    <span>{% translate "Skip" %}</span> <i class="bi bi-arrow-right" aria-hidden="true"></i>
+  </button>
+</div>
+<script>
+(function() {
+  var loader = document.getElementById('site-intro-loader');
+  if (!loader) return;
+  var video = document.getElementById('intro-loader-video');
+  var skipBtn = document.getElementById('intro-skip-btn');
+  var dismissed = false;
+
+  function dismiss() {
+    if (dismissed) return;
+    dismissed = true;
+    loader.classList.add('fade-out');
+    setTimeout(function() {
+      if (loader && loader.parentNode) {
+        loader.parentNode.removeChild(loader);
+      }
+    }, 650);
+  }
+
+  if (video) {
+    video.addEventListener('ended', dismiss);
+    video.addEventListener('error', dismiss);
+    var p = video.play();
+    if (p && typeof p.catch === 'function') {
+      p.catch(function() {});
+    }
+  }
+
+  if (skipBtn) {
+    skipBtn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      dismiss();
+    });
+  }
+
+  loader.addEventListener('click', dismiss);
+
+  setTimeout(dismiss, 3300);
+})();
+</script>
 <div id="connection-status" class="alert alert-info m-3" role="status" hidden>
   <strong>{% translate 'You’re offline.' %}</strong>
   {% translate 'Reconnect to use account tools, weather, and live market prices.' %}
@@ -24,7 +82,9 @@
 <a class="skip-link" href="#main-content">{% translate "Skip to content" %}</a>
 <nav class="navbar navbar-expand-xl navbar-light site-nav">
   <div class="container">
-    <a class="navbar-brand fw-semibold" href="{% url 'home' %}"><span class="brand-symbol"><i class="bi bi-flower1"></i></span> <span>krishi<span class="brand-light">mitra</span><small>{% translate "YOUR FARMING COMPANION" %}</small></span></a>
+    <a class="navbar-brand fw-semibold d-inline-flex align-items-center" href="{% url 'home' %}" aria-label="{% translate 'Krishi Mitra Home' %}">
+      <img src="{% static 'images/logo.png' %}?v={{ STATIC_VERSION }}" alt="Krishi Mitra" class="brand-logo" height="42">
+    </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav" aria-controls="nav" aria-expanded="false" aria-label="{% translate 'Toggle navigation' %}"><span class="navbar-toggler-icon"></span></button>
     <div class="collapse navbar-collapse" id="nav">
       {% if user.is_authenticated %}
@@ -65,7 +125,7 @@
   {% block content %}{% endblock %}
 </main>
 
-<footer class="site-footer"><div class="container footer-inner"><div><a class="footer-brand" href="{% url 'home' %}"><i class="bi bi-flower1"></i> krishimitra</a><p>{% translate "Better decisions. Healthier farms." %}</p></div><div class="footer-help"><span>{% translate "Need a helping hand?" %}</span><a href="tel:18001801551">{% translate "Kisan Call Centre · 1800-180-1551" %} <i class="bi bi-arrow-up-right"></i></a><small>{% translate "Advice grounded in Indian public agricultural sources." %}</small></div></div></footer>
+<footer class="site-footer"><div class="container footer-inner"><div><a class="footer-brand d-inline-block" href="{% url 'home' %}"><img src="{% static 'images/logo.png' %}?v={{ STATIC_VERSION }}" alt="Krishi Mitra" class="footer-logo" height="38"></a><p>{% translate "Better decisions. Healthier farms." %}</p></div><div class="footer-help"><span>{% translate "Need a helping hand?" %}</span><a href="tel:18001801551">{% translate "Kisan Call Centre · 1800-180-1551" %} <i class="bi bi-arrow-up-right"></i></a><small>{% translate "Advice grounded in Indian public agricultural sources." %}</small></div></div></footer>
 
 {% if user.is_authenticated %}
 {% if VOICE_ENABLED %}

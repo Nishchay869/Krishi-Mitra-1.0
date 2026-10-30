@@ -294,6 +294,115 @@ p {
   letter-spacing: -1px;
   line-height: 1;
 }
+.brand-logo {
+  height: 44px;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+  vertical-align: middle;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+.navbar-brand:hover .brand-logo,
+.footer-brand:hover .footer-logo,
+.welcome-brand:hover .brand-logo {
+  transform: scale(1.03);
+}
+.footer-logo {
+  height: 38px;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+  vertical-align: middle;
+}
+/* Site Intro Video Preloader */
+.site-intro-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 9999999;
+  background: #d0e7d3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.65s ease;
+  overflow: hidden;
+  user-select: none;
+}
+.site-intro-loader.fade-out {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+.intro-loader-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  max-width: 92vw;
+  animation: introPopIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+@keyframes introPopIn {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+.intro-video-wrapper {
+  width: min(560px, 88vw);
+  max-height: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: transparent;
+}
+.intro-video-wrapper video {
+  width: 100%;
+  height: auto;
+  max-height: 100%;
+  display: block;
+  object-fit: contain;
+  mix-blend-mode: darken;
+}
+.intro-skip-btn {
+  position: absolute;
+  bottom: 28px;
+  right: 28px;
+  background: rgba(18, 55, 30, 0.08);
+  border: 1px solid rgba(18, 55, 30, 0.16);
+  color: #1a4d2e;
+  border-radius: 999px;
+  padding: 7px 18px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  backdrop-filter: blur(8px);
+  transition: all 0.2s ease;
+  z-index: 10;
+}
+.intro-skip-btn:hover {
+  background: rgba(18, 55, 30, 0.15);
+  transform: translateY(-1px);
+}
+@media (max-width: 767px) {
+  .intro-skip-btn {
+    bottom: 20px;
+    right: 20px;
+    padding: 6px 14px;
+    font-size: 11px;
+  }
+}
+
 .brand-symbol {
   display: grid;
   place-items: center;
