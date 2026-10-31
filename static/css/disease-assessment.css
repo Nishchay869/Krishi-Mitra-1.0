@@ -1,116 +1,345 @@
-.disease-assessment{padding-bottom:35px}
-.disease-upload h2{font-size:1.15rem;letter-spacing:-.025em;margin-bottom:12px}
-.disease-intro{font-size:.8rem;line-height:1.9;color:#718368;margin-bottom:25px}
-.disease-upload-notice{display:flex;gap:10px;font-size:.72rem;line-height:1.85;padding:14px;background:#edf3e5;border:1px solid #dce7d1;border-radius:10px;color:#71845d;margin-block:18px}
-.disease-upload-notice>i{flex-shrink:0}
+.disease-assessment {
+  padding-bottom: 35px;
+}
+
+.disease-upload {
+  background: #ffffff !important;
+  border-radius: 22px !important;
+  border: 1px solid #edf2f7 !important;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.03) !important;
+}
+
+.disease-upload h2 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #0f172a;
+  margin-bottom: 10px;
+}
+
+.disease-intro {
+  font-size: 13px;
+  line-height: 1.7;
+  color: #64748b;
+  margin-bottom: 22px;
+}
+
+.disease-upload-notice {
+  display: flex;
+  gap: 12px;
+  font-size: 12px;
+  line-height: 1.7;
+  padding: 14px 16px;
+  background: #edf2fe;
+  border: 1px solid #dbeafe;
+  border-radius: 14px;
+  color: #1e40af;
+  margin-block: 18px;
+}
+
+.disease-upload-notice > i {
+  flex-shrink: 0;
+  color: #005bf6;
+  font-size: 1.1rem;
+}
 
 /* ─── Status banner ─── */
-.assessment-summary{padding:27px;background:#edf3e5;border:1px solid #d9e4cc;border-radius:17px;margin-bottom:18px}
-.assessment-top{display:flex;justify-content:space-between;align-items:center;gap:15px;flex-wrap:wrap}
-.assessment-top .eyebrow{font-size:.59rem;letter-spacing:.13em}
-.assessment-state{font-size:.65rem;padding:5px 9px;background:#dde9cc;border:1px solid #cdddb8;border-radius:20px;color:#59763c}
-.assessment-plant{font-size:.8rem;color:#7b8e65;margin:23px 0 8px}
-.assessment-summary h2{font-size:1.7rem;letter-spacing:-.04em;color:#2e4722;line-height:1.35;margin-bottom:16px}
-.assessment-summary>p:last-of-type{font-size:.84rem;line-height:1.95;color:#667c52;white-space:pre-line}
-.assessment-certainty{display:flex;gap:10px;align-items:start;border-top:1px solid #d7e2ca;margin-top:23px;padding-top:16px;font-size:.68rem;line-height:1.85;color:#81956b}
-.assessment-summary.uncertain,.assessment-summary.not_leaf{background:#f6f2e7;border-color:#e4d8be}
-.uncertain .assessment-state,.not_leaf .assessment-state{background:#efe5ce;border-color:#e3d1aa;color:#8a6e37}
+.assessment-summary {
+  padding: 24px 26px;
+  background: #ffffff;
+  border: 1.5px solid #edf2f7;
+  border-radius: 22px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.03);
+  margin-bottom: 18px;
+}
+
+.assessment-summary.likely_disease {
+  border-color: #fca5a5;
+  background: linear-gradient(135deg, #fff5f5 0%, #ffffff 100%);
+}
+
+.assessment-summary.healthy {
+  border-color: #86efac;
+  background: linear-gradient(135deg, #f0fdf4 0%, #ffffff 100%);
+}
+
+.assessment-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.assessment-top .eyebrow {
+  margin-bottom: 0;
+}
+
+.assessment-state {
+  font-size: 12px;
+  font-weight: 700;
+  padding: 5px 14px;
+  background: #fee2e2;
+  border: 1px solid #fca5a5;
+  border-radius: 9999px;
+  color: #b91c1c;
+}
+
+.assessment-summary.healthy .assessment-state {
+  background: #dcfce7;
+  border-color: #86efac;
+  color: #15803d;
+}
+
+.assessment-plant {
+  font-size: 13px;
+  font-weight: 600;
+  color: #64748b;
+  margin: 18px 0 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.assessment-summary h2 {
+  font-size: 1.75rem;
+  letter-spacing: -0.03em;
+  font-weight: 800;
+  color: #0f172a;
+  line-height: 1.3;
+  margin-bottom: 12px;
+}
+
+.assessment-summary > p:last-of-type {
+  font-size: 14px;
+  line-height: 1.75;
+  color: #334155;
+  white-space: pre-line;
+}
+
+.assessment-certainty {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  border-top: 1px solid #edf2f7;
+  margin-top: 20px;
+  padding-top: 14px;
+  font-size: 12px;
+  line-height: 1.7;
+  color: #64748b;
+}
+
+.assessment-certainty i {
+  color: #005bf6;
+}
+
+.assessment-summary.uncertain,
+.assessment-summary.not_leaf {
+  background: #fffbeb;
+  border-color: #fde68a;
+}
+
+.uncertain .assessment-state,
+.not_leaf .assessment-state {
+  background: #fef3c7;
+  border-color: #fcd34d;
+  color: #92400e;
+}
 
 /* ─── Disease type badge ─── */
-.disease-type-badge{display:inline-flex;align-items:center;gap:7px;font-size:.68rem;font-weight:600;padding:5px 11px;border-radius:20px;margin:10px 0 14px;letter-spacing:.02em}
-.disease-type-fungal{background:#e8f0ff;color:#3355bb;border:1px solid #c5d4f5}
-.disease-type-bacterial{background:#fff0e8;color:#b84a00;border:1px solid #f5cdb5}
-.disease-type-viral{background:#fde8f5;color:#8b2d6e;border:1px solid #f0c0de}
-.disease-type-pest{background:#fff8e0;color:#7a5c00;border:1px solid #e8d07a}
-.disease-type-nutritional{background:#e8f8f0;color:#1a7a4a;border:1px solid #b5e4cc}
-.disease-type-environmental{background:#f5f5f5;color:#555;border:1px solid #ddd}
+.disease-type-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 5px 14px;
+  border-radius: 9999px;
+  margin: 10px 0 14px;
+  letter-spacing: 0.02em;
+}
+
+.disease-type-fungal { background: #eff6ff; color: #1d4ed8; border: 1px solid #bfdbfe; }
+.disease-type-bacterial { background: #fff7ed; color: #c2410c; border: 1px solid #fed7aa; }
+.disease-type-viral { background: #fdf2f8; color: #be185d; border: 1px solid #fbcfe8; }
+.disease-type-pest { background: #fefce8; color: #a16207; border: 1px solid #fef08a; }
+.disease-type-nutritional { background: #ecfdf5; color: #047857; border: 1px solid #a7f3d0; }
+.disease-type-environmental { background: #f8fafc; color: #475569; border: 1px solid #e2e8f0; }
 
 /* ─── Assessment sections ─── */
-.assessment-section{display:flex;gap:16px;padding:25px 23px;background:#fff;border:1px solid #dfe7d5;border-radius:13px;margin-bottom:14px}
-.assessment-section>div{min-width:0;width:100%}
-.assessment-number{flex-shrink:0;font-size:.65rem;color:#8c9d78;padding-top:3px}
-.assessment-section h3{font-size:1rem;font-weight:600;letter-spacing:-.025em;margin:0 0 15px;color:#3f5a2d}
-.assessment-section h4{font-size:.88rem;font-weight:600;letter-spacing:-.02em;margin:20px 0 12px;color:#4a6535;display:flex;align-items:center;gap:8px}
-.assessment-section :is(ul,ol){padding-inline-start:19px;margin:0;display:grid;gap:12px}
-.assessment-section li{padding-inline-start:3px;font-size:.79rem;line-height:1.95;color:#718460}
-.assessment-section p{font-size:.78rem;line-height:1.95;color:#718460;margin:0 0 16px}
+.assessment-section {
+  display: flex;
+  gap: 16px;
+  padding: 22px 24px;
+  background: #ffffff;
+  border: 1px solid #edf2f7;
+  border-radius: 20px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.02);
+  margin-bottom: 14px;
+}
 
-/* ─── Description section ─── */
-.assessment-description{background:#f8fbf5;border-color:#d4e4c8}
-.assessment-description p{font-size:.82rem;line-height:2;color:#4a6035}
+.assessment-section > div {
+  min-width: 0;
+  width: 100%;
+}
 
-/* ─── Urgent / immediate actions ─── */
-.assessment-urgent{background:#fff9f0;border-color:#f0dcbc}
-.assessment-urgent h3{color:#7a4a10}
-.assessment-urgent .assessment-number i{color:#c8721a;font-size:1rem}
-.assessment-urgent li{color:#7a5020}
+.assessment-number {
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #edf2fe;
+  color: #005bf6;
+  font-size: 13px;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.assessment-section h3 {
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  margin: 0 0 12px;
+  color: #0f172a;
+}
+
+.assessment-section h4 {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin: 18px 0 10px;
+  color: #1e293b;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.assessment-section :is(ul, ol) {
+  padding-inline-start: 18px;
+  margin: 0;
+  display: grid;
+  gap: 10px;
+}
+
+.assessment-section li {
+  font-size: 13px;
+  line-height: 1.7;
+  color: #475569;
+}
+
+.assessment-section p {
+  font-size: 13px;
+  line-height: 1.7;
+  color: #475569;
+  margin: 0 0 14px;
+}
+
+/* ─── Urgent actions ─── */
+.assessment-urgent {
+  background: #fffbeb;
+  border-color: #fde68a;
+}
+
+.assessment-urgent h3 {
+  color: #92400e;
+}
+
+.assessment-urgent .assessment-number {
+  background: #fef3c7;
+  color: #b45309;
+}
+
+.assessment-urgent li {
+  color: #92400e;
+}
 
 /* ─── Biological control ─── */
-.assessment-bio{background:#f3faf5;border-color:#c8e4d0}
-.assessment-bio h3{color:#1d6b3e}
-.assessment-bio .assessment-number i{color:#2a8a50;font-size:1rem}
+.assessment-bio {
+  background: #f0fdf4;
+  border-color: #bbf7d0;
+}
 
-/* ─── Chemical / pesticide section ─── */
-.assessment-chemicals{background:#f5f7f0;border-color:#d8e1c8}
-.assessment-section .assessment-chemical-context{font-size:.74rem;color:#8b805b;margin-bottom:18px}
-.assessment-chemical{background:#fff;border:1px solid #dfe5d5;border-radius:9px;padding:17px;margin-bottom:14px}
-.chemical-header{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:8px}
-.assessment-chemical strong{font-size:.9rem;color:#566f3e;font-weight:600}
-.chemical-group{font-size:.64rem;padding:3px 9px;background:#e8f0dd;border:1px solid #cdddb0;border-radius:20px;color:#607040}
-.chemical-purpose{font-size:.78rem;line-height:1.9;color:#718460;margin:0 0 12px}
-.chemical-detail{display:flex;gap:9px;align-items:flex-start;font-size:.75rem;line-height:1.85;color:#7a8870;margin-bottom:8px}
-.chemical-detail i{flex-shrink:0;padding-top:2px;color:#8aaa6a}
-.chemical-precautions{background:#fff8ee;padding:8px 10px;border-radius:7px;border:1px solid #ecd8b0}
-.chemical-precautions i{color:#c08030}
-.chemical-precautions span{color:#8a6030}
+.assessment-bio h3 {
+  color: #15803d;
+}
 
-/* ─── Spray schedule ─── */
-.spray-schedule{background:#f0f8ee;border:1px solid #c8ddb8;border-radius:9px;padding:16px;margin:18px 0 14px}
-.spray-schedule h4{color:#3a6828;margin-top:0}
-.spray-schedule ol{padding-inline-start:19px;display:grid;gap:10px}
-.spray-schedule li{font-size:.77rem;line-height:1.9;color:#4a6a35}
+.assessment-bio .assessment-number {
+  background: #dcfce7;
+  color: #15803d;
+}
 
-/* ─── Resistance management ─── */
-.resistance-management{background:#fff5f0;border:1px solid #eac8b8;border-radius:9px;padding:16px;margin-bottom:14px}
-.resistance-management h4{color:#7a3820;margin-top:0}
-.resistance-management ul{padding-inline-start:19px;display:grid;gap:10px}
-.resistance-management li{font-size:.77rem;line-height:1.9;color:#7a4832}
+/* ─── Chemical / spray section ─── */
+.assessment-chemicals {
+  background: #ffffff;
+  border-color: #edf2f7;
+}
 
-.assessment-section .assessment-label-rule{font-size:.73rem;padding-top:15px;border-top:1px solid #dfe6d5;margin-top:20px;color:#778865}
-.assessment-chemicals a{font-size:.7rem;color:#5b7c3e;text-underline-offset:4px}
+.assessment-chemical {
+  background: #f8fafc;
+  border: 1px solid #edf2f7;
+  border-radius: 16px;
+  padding: 16px;
+  margin-bottom: 12px;
+}
 
-/* ─── Footer ─── */
-.assessment-footer{display:flex;gap:12px;padding:16px 3px;color:#8a9b77}
-.assessment-footer p{font-size:.72rem;line-height:1.9;margin:0}
-.assessment-footer>i{flex-shrink:0}
+.chemical-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 6px;
+}
+
+.assessment-chemical strong {
+  font-size: 15px;
+  color: #0f172a;
+  font-weight: 700;
+}
+
+.chemical-group {
+  font-size: 11px;
+  padding: 3px 10px;
+  background: #edf2fe;
+  border-radius: 9999px;
+  color: #005bf6;
+  font-weight: 600;
+}
 
 /* ─── Empty state ─── */
-.assessment-empty{border:1px dashed #cfdcc0;border-radius:17px;background:#f3f7ed;padding:40px 33px}
-.assessment-empty>span{width:53px;height:53px;border-radius:14px;background:#e2ecd4;display:grid;place-items:center;color:#7d985b;font-size:25px;margin-bottom:25px}
-.assessment-empty h2{font-size:1.6rem;letter-spacing:-.04em;line-height:1.4;margin-bottom:15px}
-.assessment-empty p{font-size:.82rem;line-height:1.95;color:#7e916d;margin-bottom:25px}
-.assessment-empty>div{display:flex;align-items:center;gap:10px;font-size:.75rem;color:#7e9469;margin-top:14px}
+.assessment-empty {
+  border: 2px dashed #cbd5e1;
+  border-radius: 22px;
+  background: #ffffff;
+  padding: 48px 32px;
+  text-align: center;
+}
 
-.disease-result:focus{outline:none}
-.disease-result{scroll-margin-top:30px}
-.disease-assessment [hidden]{display:none}
+.assessment-empty > span {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: #edf2fe;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #005bf6;
+  font-size: 28px;
+  margin-bottom: 20px;
+}
 
-/* ─── AJAX loading state ─── */
-.assessment-loading{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:60px 30px;border:1px dashed #cfdcc0;border-radius:17px;background:#f3f7ed;text-align:center}
-.assessment-loading-spinner{margin-bottom:24px}
-.assessment-loading-text{font-size:.95rem;font-weight:600;color:#4a6a35;margin:0 0 8px}
-.assessment-loading-sub{font-size:.78rem;color:#7e916d;margin:0}
+.assessment-empty h2 {
+  font-size: 1.6rem;
+  letter-spacing: -0.025em;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 12px;
+}
 
-@media(max-width:600px){
-  .assessment-summary{padding:23px 20px}
-  .assessment-summary h2{font-size:1.5rem}
-  .assessment-section{padding:22px 18px;gap:12px}
-  .assessment-section h3{font-size:.95rem}
-  .assessment-section li,.assessment-section p{font-size:.75rem}
-  .assessment-section .assessment-label-rule{font-size:.7rem}
-  .assessment-empty{padding:28px 23px}
-  .assessment-empty h2{font-size:1.45rem}
-  .assessment-footer p{font-size:.68rem}
-  .assessment-top .eyebrow{font-size:.55rem}
-  .chemical-header{flex-direction:column;align-items:flex-start;gap:5px}
+.assessment-empty p {
+  font-size: 14px;
+  line-height: 1.7;
+  color: #64748b;
+  max-width: 480px;
+  margin: 0 auto 20px;
 }

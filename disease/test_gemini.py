@@ -119,7 +119,7 @@ class GeminiAssessmentTests(SimpleTestCase):
         html = render_to_string('disease/detect.html', {'result': result, 'user': AnonymousUser()})
         self.assertNotIn('<script>alert(1)</script>', html)
         self.assertIn('&lt;script&gt;', html)
-        self.assertIn('Pesticide & spray guidance', html)
+        self.assertIn('Pesticide & spray recommendations', html)
 
 
 class GeminiViewTests(SimpleTestCase):

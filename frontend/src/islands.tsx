@@ -44,8 +44,56 @@ import "./experience"
 // Keep the translated server fallback if the landing chunk cannot load.
 const landing = document.querySelector<HTMLElement>('[data-agro-landing]')
 if (landing) {
+  let userCrops: any[] | undefined
+  const cropsScript = document.getElementById('user-crops-data')
+  if (cropsScript && cropsScript.textContent) {
+    try {
+      userCrops = JSON.parse(cropsScript.textContent)
+    } catch (e) {
+      console.error('Failed to parse user-crops-data script:', e)
+    }
+  } else if (landing.dataset.userCrops) {
+    try {
+      userCrops = JSON.parse(landing.dataset.userCrops)
+    } catch (e) {
+      console.error('Failed to parse userCrops dataset:', e)
+    }
+  }
+
+  let weatherData: any | undefined
+  const weatherScript = document.getElementById('weather-data')
+  if (weatherScript && weatherScript.textContent) {
+    try {
+      weatherData = JSON.parse(weatherScript.textContent)
+    } catch (e) {
+      console.error('Failed to parse weather-data script:', e)
+    }
+  } else if (landing.dataset.weather) {
+    try {
+      weatherData = JSON.parse(landing.dataset.weather)
+    } catch (e) {
+      console.error('Failed to parse weather dataset:', e)
+    }
+  }
+
+  let diagnoses: any[] | undefined
+  const diagScript = document.getElementById('diagnoses-data')
+  if (diagScript && diagScript.textContent) {
+    try {
+      diagnoses = JSON.parse(diagScript.textContent)
+    } catch (e) {
+      console.error('Failed to parse diagnoses-data script:', e)
+    }
+  } else if (landing.dataset.diagnoses) {
+    try {
+      diagnoses = JSON.parse(landing.dataset.diagnoses)
+    } catch (e) {
+      console.error('Failed to parse diagnoses dataset:', e)
+    }
+  }
+
   const { assetBase = '/static/images', ...routes } = landing.dataset
-  void mount(landing, 'AgroLanding', { routes, assetBase }).catch((err) => {
+  void mount(landing, 'AgroLanding', { routes, assetBase, userCrops, weatherData, diagnoses }).catch((err) => {
     console.error('Failed to mount AgroLanding island:', err)
   })
 

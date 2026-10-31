@@ -1,0 +1,328 @@
+<!-- Krishi Mitra Recommend & Share Modal -->
+<div class="modal fade" id="recommendModal" tabindex="-1" aria-labelledby="recommendModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered recommend-modal-dialog">
+    <div class="modal-content recommend-modal-content border-0 shadow-lg">
+      
+      <!-- Modal Header -->
+      <div class="modal-header border-0 pb-1 px-4 pt-4 align-items-start">
+        <div class="d-flex align-items-center gap-3">
+          <div class="recommend-header-icon shadow-xs">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm1 14.93V17a1 1 0 0 1-2 0v-.07A7.003 7.003 0 0 1 5.07 11H5a1 1 0 0 1 0-2h.07A7.003 7.003 0 0 1 11 3.07V3a1 1 0 0 1 2 0v.07A7.003 7.003 0 0 1 18.93 9H19a1 1 0 0 1 0 2h-.07A7.003 7.003 0 0 1 13 16.93zM12 6a5 5 0 0 0-5 5h10a5 5 0 0 0-5-5z"/>
+            </svg>
+          </div>
+          <div>
+            <h5 class="recommend-modal-title fw-bold text-dark m-0" id="recommendModalLabel">
+              Recommend Krishi Mitra
+            </h5>
+            <p class="text-muted small mt-1 mb-0">Share with fellow farmers, friends & family</p>
+          </div>
+        </div>
+        <button type="button" class="btn-close shadow-none" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+
+      <!-- Modal Body -->
+      <div class="modal-body px-4 py-3">
+        <!-- App Feature Card Preview -->
+        <div class="recommend-preview-card p-3 mb-3 rounded-4 border">
+          <div class="d-flex align-items-center gap-3 mb-2">
+            <div class="recommend-app-logo shadow-xs">
+              <img src="/static/images/logo-icon.png" alt="Krishi Mitra" width="40" height="40" onerror="this.src='/static/favicon.png'">
+            </div>
+            <div>
+              <div class="fw-bold text-dark fs-6">Krishi Mitra (कृषि मित्र)</div>
+              <div class="text-muted small">Your Smart AI Farming Companion</div>
+            </div>
+          </div>
+          <div class="recommend-feature-tags d-flex flex-wrap gap-1 mt-2">
+            <span class="recommend-tag">🌱 Leaf Disease Check</span>
+            <span class="recommend-tag">🌧️ Spraying Time</span>
+            <span class="recommend-tag">📊 Mandi Prices</span>
+            <span class="recommend-tag">🌾 Crop Advisor</span>
+          </div>
+        </div>
+
+        <!-- Shareable Link Field with 1-Click Copy -->
+        <div class="recommend-link-section mb-4">
+          <label for="shareLinkInput" class="form-label text-muted small fw-semibold mb-1">
+            Generated Shareable Link
+          </label>
+          <div class="input-group recommend-input-group">
+            <input type="text" id="shareLinkInput" class="form-control recommend-link-input" readonly value="">
+            <button class="btn btn-primary fw-semibold px-3 recommend-copy-btn" id="recommendCopyBtn" type="button">
+              <i class="bi bi-link-45deg me-1 fs-6" id="copyBtnIcon"></i>
+              <span id="copyBtnText">Copy Link</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Social Sharing Channels -->
+        <div class="recommend-channels-title text-muted small fw-semibold mb-2">
+          Share directly via
+        </div>
+        
+        <div class="recommend-channels-grid">
+          <!-- 1. WhatsApp -->
+          <button type="button" class="recommend-channel-item" id="shareWhatsAppBtn" title="Share via WhatsApp">
+            <div class="recommend-channel-icon is-whatsapp">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="#ffffff" aria-hidden="true">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+              </svg>
+            </div>
+            <span class="recommend-channel-label">WhatsApp</span>
+          </button>
+
+          <!-- 2. Instagram -->
+          <button type="button" class="recommend-channel-item" id="shareInstagramBtn" title="Share on Instagram">
+            <div class="recommend-channel-icon is-instagram">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="#ffffff" aria-hidden="true">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+              </svg>
+            </div>
+            <span class="recommend-channel-label">Instagram</span>
+          </button>
+
+          <!-- 3. Telegram -->
+          <button type="button" class="recommend-channel-item" id="shareTelegramBtn" title="Share via Telegram">
+            <div class="recommend-channel-icon is-telegram">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="#ffffff" aria-hidden="true">
+                <path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zm5.56 8.16l-1.97 9.28c-.15.65-.53.81-1.08.51l-3-2.21-1.45 1.39c-.16.16-.3.3-.61.3l.21-3.05 5.56-5.02c.24-.22-.05-.34-.38-.13l-6.87 4.33-2.95-.92c-.64-.2-.65-.64.13-.95l11.55-4.45c.53-.2 1 .12.86.92z"/>
+              </svg>
+            </div>
+            <span class="recommend-channel-label">Telegram</span>
+          </button>
+
+          <!-- 4. Facebook -->
+          <button type="button" class="recommend-channel-item" id="shareFacebookBtn" title="Share on Facebook">
+            <div class="recommend-channel-icon is-facebook">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="#ffffff" aria-hidden="true">
+                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+              </svg>
+            </div>
+            <span class="recommend-channel-label">Facebook</span>
+          </button>
+
+          <!-- 5. X / Twitter -->
+          <button type="button" class="recommend-channel-item" id="shareTwitterBtn" title="Share on X">
+            <div class="recommend-channel-icon is-twitter">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="#ffffff" aria-hidden="true">
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+              </svg>
+            </div>
+            <span class="recommend-channel-label">X</span>
+          </button>
+
+          <!-- 6. SMS -->
+          <button type="button" class="recommend-channel-item" id="shareSmsBtn" title="Share via SMS">
+            <div class="recommend-channel-icon is-sms">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+              </svg>
+            </div>
+            <span class="recommend-channel-label">SMS</span>
+          </button>
+
+          <!-- 7. Native More / System Share -->
+          <button type="button" class="recommend-channel-item" id="shareNativeBtn" title="More share options">
+            <div class="recommend-channel-icon is-more">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="18" cy="5" r="3"/>
+                <circle cx="6" cy="12" r="3"/>
+                <circle cx="18" cy="19" r="3"/>
+                <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/>
+                <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
+              </svg>
+            </div>
+            <span class="recommend-channel-label">More</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Modal Footer -->
+      <div class="modal-footer border-0 pt-0 pb-3 px-4 d-flex justify-content-end">
+        <button type="button" class="btn text-secondary fw-semibold px-3" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function() {
+  function getShareData() {
+    const origin = window.location.origin || (window.location.protocol + '//' + window.location.host);
+    const shareUrl = origin + '/?ref=recommend';
+    const shareTitle = 'Krishi Mitra - Your Smart AI Farming Companion';
+    const shareMessage = '🌾 Namaste! Check out Krishi Mitra - a free AI companion for Indian farmers. Diagnose plant diseases from photos, check optimal crop spraying times, daily weather, and live mandi prices:';
+    const fullText = shareMessage + ' ' + shareUrl;
+
+    return { shareUrl, shareTitle, shareMessage, fullText };
+  }
+
+  function copyTextToClipboard(text, onSuccess) {
+    if (navigator.clipboard && window.isSecureContext) {
+      navigator.clipboard.writeText(text).then(onSuccess).catch(function() {
+        fallbackCopyText(text, onSuccess);
+      });
+    } else {
+      fallbackCopyText(text, onSuccess);
+    }
+  }
+
+  function fallbackCopyText(text, onSuccess) {
+    try {
+      const textArea = document.createElement('textarea');
+      textArea.value = text;
+      textArea.style.position = 'fixed';
+      textArea.style.left = '-9999px';
+      document.body.appendChild(textArea);
+      textArea.focus();
+      textArea.select();
+      const successful = document.execCommand('copy');
+      document.body.removeChild(textArea);
+      if (successful && onSuccess) onSuccess();
+    } catch (err) {
+      console.warn('Copy command failed', err);
+    }
+  }
+
+  function initRecommendModal() {
+    const modalEl = document.getElementById('recommendModal');
+    if (!modalEl) return;
+
+    const linkInput = document.getElementById('shareLinkInput');
+    const copyBtn = document.getElementById('recommendCopyBtn');
+    const copyBtnIcon = document.getElementById('copyBtnIcon');
+    const copyBtnText = document.getElementById('copyBtnText');
+
+    // Populate generated link whenever modal is opened
+    modalEl.addEventListener('show.bs.modal', function() {
+      const data = getShareData();
+      if (linkInput) linkInput.value = data.shareUrl;
+    });
+
+    // Copy link button handler
+    if (copyBtn && linkInput) {
+      copyBtn.addEventListener('click', function() {
+        const data = getShareData();
+        copyTextToClipboard(data.shareUrl, function() {
+          if (copyBtnText) copyBtnText.textContent = 'Copied!';
+          if (copyBtnIcon) copyBtnIcon.className = 'bi bi-check2 me-1 fs-6 text-success';
+          copyBtn.classList.remove('btn-primary');
+          copyBtn.classList.add('btn-success');
+
+          if (typeof window.showKrishiToast === 'function') {
+            window.showKrishiToast('Link copied to clipboard! Share it with fellow farmers.');
+          }
+
+          setTimeout(function() {
+            if (copyBtnText) copyBtnText.textContent = 'Copy Link';
+            if (copyBtnIcon) copyBtnIcon.className = 'bi bi-link-45deg me-1 fs-6';
+            copyBtn.classList.remove('btn-success');
+            copyBtn.classList.add('btn-primary');
+          }, 2200);
+        });
+      });
+    }
+
+    // WhatsApp Sharing
+    const waBtn = document.getElementById('shareWhatsAppBtn');
+    if (waBtn) {
+      waBtn.addEventListener('click', function() {
+        const data = getShareData();
+        const waUrl = 'https://api.whatsapp.com/send?text=' + encodeURIComponent(data.fullText);
+        window.open(waUrl, '_blank', 'noopener,noreferrer');
+      });
+    }
+
+    // Instagram Sharing (Copies text and opens Instagram with guidance)
+    const igBtn = document.getElementById('shareInstagramBtn');
+    if (igBtn) {
+      igBtn.addEventListener('click', function() {
+        const data = getShareData();
+        copyTextToClipboard(data.fullText, function() {
+          if (typeof window.showKrishiToast === 'function') {
+            window.showKrishiToast('Link copied! Opening Instagram to share via DM or Story.');
+          }
+          setTimeout(function() {
+            window.open('https://www.instagram.com/', '_blank', 'noopener,noreferrer');
+          }, 600);
+        });
+      });
+    }
+
+    // Telegram Sharing
+    const tgBtn = document.getElementById('shareTelegramBtn');
+    if (tgBtn) {
+      tgBtn.addEventListener('click', function() {
+        const data = getShareData();
+        const tgUrl = 'https://t.me/share/url?url=' + encodeURIComponent(data.shareUrl) + '&text=' + encodeURIComponent(data.shareMessage);
+        window.open(tgUrl, '_blank', 'noopener,noreferrer');
+      });
+    }
+
+    // Facebook Sharing
+    const fbBtn = document.getElementById('shareFacebookBtn');
+    if (fbBtn) {
+      fbBtn.addEventListener('click', function() {
+        const data = getShareData();
+        const fbUrl = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(data.shareUrl) + '&quote=' + encodeURIComponent(data.fullText);
+        window.open(fbUrl, '_blank', 'noopener,noreferrer');
+      });
+    }
+
+    // X / Twitter Sharing
+    const twBtn = document.getElementById('shareTwitterBtn');
+    if (twBtn) {
+      twBtn.addEventListener('click', function() {
+        const data = getShareData();
+        const twUrl = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(data.fullText);
+        window.open(twUrl, '_blank', 'noopener,noreferrer');
+      });
+    }
+
+    // SMS Sharing
+    const smsBtn = document.getElementById('shareSmsBtn');
+    if (smsBtn) {
+      smsBtn.addEventListener('click', function() {
+        const data = getShareData();
+        const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+        const smsUrl = (isIOS ? 'sms:&body=' : 'sms:?body=') + encodeURIComponent(data.fullText);
+        window.location.href = smsUrl;
+      });
+    }
+
+    // Native System Share Sheet
+    const nativeBtn = document.getElementById('shareNativeBtn');
+    if (nativeBtn) {
+      nativeBtn.addEventListener('click', function() {
+        const data = getShareData();
+        if (navigator.share) {
+          navigator.share({
+            title: data.shareTitle,
+            text: data.shareMessage,
+            url: data.shareUrl,
+          }).catch(function(err) {
+            if (err.name !== 'AbortError') {
+              console.warn('Share error', err);
+            }
+          });
+        } else {
+          // Fallback if system share is not supported
+          copyTextToClipboard(data.fullText, function() {
+            if (typeof window.showKrishiToast === 'function') {
+              window.showKrishiToast('Share text & link copied to clipboard!');
+            }
+          });
+        }
+      });
+    }
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initRecommendModal);
+  } else {
+    initRecommendModal();
+  }
+})();
+</script>
+

@@ -1,0 +1,292 @@
+<!-- Krishi Mitra Settings Modal -->
+<div class="modal fade" id="settingsModal" tabindex="-1" aria-labelledby="settingsModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content settings-modal-content border-0 shadow-lg">
+      <div class="modal-header border-0 pb-0">
+        <div class="d-flex align-items-center gap-2">
+          <div class="settings-header-icon">
+            <i class="bi bi-gear-fill"></i>
+          </div>
+          <div>
+            <h5 class="modal-title fw-bold text-dark m-0" id="settingsModalLabel">Settings</h5>
+            <span class="text-muted small">Manage your Krishi Mitra preferences</span>
+          </div>
+        </div>
+        <button type="button" class="btn-close shadow-none" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+
+      <div class="modal-body pt-3 pb-2 px-4">
+        <!-- 1. General Section -->
+        <div class="settings-section mb-4">
+          <div class="settings-section-header mb-2">
+            <span class="settings-section-badge">General</span>
+          </div>
+
+          <div class="settings-card shadow-sm rounded-3 p-3 mb-3">
+            <!-- Language Selection -->
+            <div class="settings-field mb-3">
+              <div class="d-flex align-items-center gap-2 mb-1">
+                <i class="bi bi-translate text-primary"></i>
+                <label for="kmLanguageSelect" class="settings-field-label m-0 fw-semibold">Select your Krishi Mitra Language</label>
+              </div>
+              <p class="settings-field-hint text-muted small mb-2">Choose the display and speech language for Krishi Mitra</p>
+              <select id="kmLanguageSelect" class="form-select form-select-sm settings-select" aria-label="Select your Krishi Mitra Language">
+                {% if AVAILABLE_LANGUAGES %}
+                  {% for code, label in AVAILABLE_LANGUAGES %}
+                    <option value="{{ code }}" {% if request.LANGUAGE_CODE == code %}selected{% endif %}>{{ label }} ({{ code }})</option>
+                  {% endfor %}
+                {% else %}
+                  <option value="en" {% if request.LANGUAGE_CODE == 'en' %}selected{% endif %}>English</option>
+                  <option value="kn" {% if request.LANGUAGE_CODE == 'kn' %}selected{% endif %}>ಕನ್ನಡ (Kannada)</option>
+                  <option value="hi" {% if request.LANGUAGE_CODE == 'hi' %}selected{% endif %}>हिन्दी (Hindi)</option>
+                  <option value="ta" {% if request.LANGUAGE_CODE == 'ta' %}selected{% endif %}>தமிழ் (Tamil)</option>
+                  <option value="te" {% if request.LANGUAGE_CODE == 'te' %}selected{% endif %}>తెలుగు (Telugu)</option>
+                  <option value="mr" {% if request.LANGUAGE_CODE == 'mr' %}selected{% endif %}>मराठी (Marathi)</option>
+                  <option value="bn" {% if request.LANGUAGE_CODE == 'bn' %}selected{% endif %}>বাংলা (Bengali)</option>
+                  <option value="gu" {% if request.LANGUAGE_CODE == 'gu' %}selected{% endif %}>ગુજરાતી (Gujarati)</option>
+                  <option value="pa" {% if request.LANGUAGE_CODE == 'pa' %}selected{% endif %}>ਪੰਜਾਬੀ (Punjabi)</option>
+                  <option value="ml" {% if request.LANGUAGE_CODE == 'ml' %}selected{% endif %}>മലയാളം (Malayalam)</option>
+                {% endif %}
+              </select>
+            </div>
+
+            <!-- App Country -->
+            <div class="settings-field">
+              <div class="d-flex align-items-center gap-2 mb-1">
+                <i class="bi bi-geo-alt text-primary"></i>
+                <label for="kmCountrySelect" class="settings-field-label m-0 fw-semibold">App Country</label>
+              </div>
+              <p class="settings-field-hint text-muted small mb-2">Used for regional agricultural standards, mandi currency, and weather</p>
+              <select id="kmCountrySelect" class="form-select form-select-sm settings-select" aria-label="App Country">
+                <option value="IN" selected>India (₹ INR)</option>
+                <option value="US">United States ($ USD)</option>
+                <option value="GB">United Kingdom (£ GBP)</option>
+                <option value="CA">Canada ($ CAD)</option>
+                <option value="AU">Australia ($ AUD)</option>
+                <option value="BR">Brazil (R$ BRL)</option>
+                <option value="KE">Kenya (KSh KES)</option>
+                <option value="NG">Nigeria (₦ NGN)</option>
+                <option value="PH">Philippines (₱ PHP)</option>
+                <option value="ID">Indonesia (Rp IDR)</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. Notifications Section -->
+        <div class="settings-section mb-4">
+          <div class="settings-section-header mb-2">
+            <span class="settings-section-badge">Notifications</span>
+          </div>
+
+          <div class="settings-card shadow-sm rounded-3 p-3">
+            <!-- Information about my crops -->
+            <div class="d-flex align-items-start justify-content-between gap-3 mb-3">
+              <div>
+                <div class="d-flex align-items-center gap-2 mb-1">
+                  <i class="bi bi-sprout text-success"></i>
+                  <span class="settings-field-label fw-semibold">Information about my crops</span>
+                </div>
+                <p class="settings-field-hint text-muted small m-0">Receive advisory alerts, disease warnings, and growth updates for your saved crops</p>
+              </div>
+              <div class="form-check form-switch m-0 pt-1">
+                <input class="form-check-input settings-switch" type="checkbox" role="switch" id="kmNotifCrops" checked>
+              </div>
+            </div>
+
+            <hr class="settings-divider my-2">
+
+            <!-- Receive push notification -->
+            <div class="d-flex align-items-start justify-content-between gap-3 mt-3">
+              <div>
+                <div class="d-flex align-items-center gap-2 mb-1">
+                  <i class="bi bi-bell text-warning"></i>
+                  <span class="settings-field-label fw-semibold">Receive push notification</span>
+                </div>
+                <p class="settings-field-hint text-muted small m-0">Enable push notifications for severe weather alerts, pest outbreaks, and timely spraying windows</p>
+              </div>
+              <div class="form-check form-switch m-0 pt-1">
+                <input class="form-check-input settings-switch" type="checkbox" role="switch" id="kmNotifPush" checked>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. Weather Section -->
+        <div class="settings-section mb-3">
+          <div class="settings-section-header mb-2">
+            <span class="settings-section-badge">Weather</span>
+          </div>
+
+          <div class="settings-card shadow-sm rounded-3 p-3">
+            <div class="d-flex align-items-center gap-2 mb-1">
+              <i class="bi bi-thermometer-half text-danger"></i>
+              <span class="settings-field-label fw-semibold">Weather temperature units</span>
+            </div>
+            <p class="settings-field-hint text-muted small mb-3">Choose the temperature unit displayed across weather forecasts, spray conditions, and advisories</p>
+
+            <!-- Temperature unit options: Fahrenheit, Celsius, Kelvin -->
+            <div class="settings-temp-btn-group btn-group w-100" role="group" aria-label="Temperature unit selection">
+              <input type="radio" class="btn-check" name="kmTempUnit" id="kmUnitCelsius" value="C" autocomplete="off" checked>
+              <label class="btn btn-outline-primary settings-temp-btn py-2" for="kmUnitCelsius">
+                <span class="fw-bold fs-6">°C</span>
+                <span class="d-block small text-muted">Celsius</span>
+              </label>
+
+              <input type="radio" class="btn-check" name="kmTempUnit" id="kmUnitFahrenheit" value="F" autocomplete="off">
+              <label class="btn btn-outline-primary settings-temp-btn py-2" for="kmUnitFahrenheit">
+                <span class="fw-bold fs-6">°F</span>
+                <span class="d-block small text-muted">Fahrenheit</span>
+              </label>
+
+              <input type="radio" class="btn-check" name="kmTempUnit" id="kmUnitKelvin" value="K" autocomplete="off">
+              <label class="btn btn-outline-primary settings-temp-btn py-2" for="kmUnitKelvin">
+                <span class="fw-bold fs-6">K</span>
+                <span class="d-block small text-muted">Kelvin</span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div id="settingsFeedback" class="alert alert-success d-none py-2 px-3 small rounded-3" role="status">
+          <i class="bi bi-check-circle-fill me-1"></i> Settings saved successfully.
+        </div>
+      </div>
+
+      <div class="modal-footer border-0 pt-0 pb-3 px-4">
+        <button type="button" class="btn btn-light rounded-pill px-4" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary rounded-pill px-4" id="saveSettingsBtn">Save Settings</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function() {
+  function initSettings() {
+    const langSelect = document.getElementById('kmLanguageSelect');
+    const countrySelect = document.getElementById('kmCountrySelect');
+    const notifCrops = document.getElementById('kmNotifCrops');
+    const notifPush = document.getElementById('kmNotifPush');
+    const saveBtn = document.getElementById('saveSettingsBtn');
+    const feedback = document.getElementById('settingsFeedback');
+
+    if (!langSelect || !countrySelect || !saveBtn) return;
+
+    // Load saved settings from localStorage
+    const savedCountry = localStorage.getItem('km_app_country') || 'IN';
+    countrySelect.value = savedCountry;
+
+    const savedNotifCrops = localStorage.getItem('km_notif_crops');
+    if (savedNotifCrops !== null && notifCrops) {
+      notifCrops.checked = savedNotifCrops === 'true';
+    }
+
+    const savedNotifPush = localStorage.getItem('km_notif_push');
+    if (savedNotifPush !== null && notifPush) {
+      notifPush.checked = savedNotifPush === 'true';
+    }
+
+    const savedUnit = localStorage.getItem('km_temp_unit') || 'C';
+    const unitRadio = document.querySelector(`input[name="kmTempUnit"][value="${savedUnit}"]`);
+    if (unitRadio) {
+      unitRadio.checked = true;
+    }
+
+    // Handle immediate temperature unit radio clicks
+    document.querySelectorAll('input[name="kmTempUnit"]').forEach(function(radio) {
+      radio.addEventListener('change', function() {
+        const unit = this.value;
+        localStorage.setItem('km_temp_unit', unit);
+        window.dispatchEvent(new CustomEvent('km:temp_unit_change', { detail: { unit: unit } }));
+        updateStaticWeatherTemps(unit);
+      });
+    });
+
+    // Save button click
+    saveBtn.addEventListener('click', async function() {
+      const selectedLang = langSelect.value;
+      const selectedCountry = countrySelect.value;
+      const cropsChecked = notifCrops ? notifCrops.checked : true;
+      const pushChecked = notifPush ? notifPush.checked : true;
+      const selectedUnitRadio = document.querySelector('input[name="kmTempUnit"]:checked');
+      const selectedUnit = selectedUnitRadio ? selectedUnitRadio.value : 'C';
+
+      // Save to localStorage
+      localStorage.setItem('km_app_country', selectedCountry);
+      localStorage.setItem('km_notif_crops', String(cropsChecked));
+      localStorage.setItem('km_notif_push', String(pushChecked));
+      localStorage.setItem('km_temp_unit', selectedUnit);
+
+      // Broadcast temperature unit change
+      window.dispatchEvent(new CustomEvent('km:temp_unit_change', { detail: { unit: selectedUnit } }));
+      updateStaticWeatherTemps(selectedUnit);
+
+      // Save language via backend API
+      const csrf = document.querySelector('[name=csrfmiddlewaretoken]')?.value || '';
+      try {
+        await fetch('/accounts/settings/api/', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'X-CSRFToken': csrf,
+          },
+          body: JSON.stringify({ preferred_language: selectedLang }),
+        });
+      } catch (e) {
+        // Fallback or offline
+      }
+
+      // Close the settings modal immediately
+      const modalEl = document.getElementById('settingsModal');
+      if (modalEl && window.bootstrap && window.bootstrap.Modal) {
+        const modalInstance = bootstrap.Modal.getInstance(modalEl) || new bootstrap.Modal(modalEl);
+        modalInstance.hide();
+      }
+
+      // Show toast notification
+      if (typeof window.showKrishiToast === 'function') {
+        window.showKrishiToast('Settings saved successfully.');
+      } else if (feedback) {
+        feedback.classList.remove('d-none');
+        setTimeout(function() {
+          feedback.classList.add('d-none');
+        }, 2500);
+      }
+
+      // If language changed from current language, reload page to apply translations
+      const currentDocLang = document.documentElement.lang || 'en';
+      if (selectedLang && selectedLang !== currentDocLang) {
+        setTimeout(function() {
+          window.location.reload();
+        }, 400);
+      }
+    });
+
+    // Function to convert static weather temperatures on the page
+    function updateStaticWeatherTemps(unit) {
+      document.querySelectorAll('[data-weather-temp-celsius]').forEach(function(el) {
+        const c = parseFloat(el.getAttribute('data-weather-temp-celsius'));
+        if (isNaN(c)) return;
+        if (unit === 'F') {
+          el.textContent = Math.round(c * 1.8 + 32) + ' °F';
+        } else if (unit === 'K') {
+          el.textContent = Math.round(c + 273.15) + ' K';
+        } else {
+          el.textContent = Math.round(c) + ' °C';
+        }
+      });
+    }
+
+    // Initialize static weather temps on page load
+    updateStaticWeatherTemps(savedUnit);
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initSettings);
+  } else {
+    initSettings();
+  }
+})();
+</script>
+

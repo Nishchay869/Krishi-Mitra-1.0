@@ -4,7 +4,10 @@
 {% block content %}
 <div class="d-flex flex-wrap gap-3 justify-content-between align-items-center mb-3">
   <header class="page-intro"><span class="page-heading-icon"><i class="bi bi-sliders"></i></span><span class="eyebrow">{% translate "FARM MANAGEMENT" %}</span><h1>{% translate "Administrator dashboard" %}</h1></header>
-  <a class="btn btn-outline-success btn-sm" href="{% url 'admin:chatbot_knowledgeentry_changelist' %}">{% translate "Manage knowledge base" %}</a>
+  <div class="d-flex gap-2">
+    <a class="btn btn-outline-primary btn-sm" href="{% url 'admin:accounts_feedback_changelist' %}"><i class="bi bi-chat-heart me-1"></i>Feedback admin</a>
+    <a class="btn btn-outline-success btn-sm" href="{% url 'admin:chatbot_knowledgeentry_changelist' %}">{% translate "Manage knowledge base" %}</a>
+  </div>
 </div>
 <section class="card mb-4"><div class="card-body d-flex flex-wrap gap-3 align-items-center justify-content-between"><div><h2 class="h5">Pests &amp; diseases</h2><p class="mb-0 text-muted">Edit crop cards, upload photographs and publish treatment details.</p></div><a class="btn btn-agri" href="{% url 'crops:pest_admin' %}">Manage pests &amp; diseases →</a></div></section>
 <div class="row g-3 mb-4">
@@ -13,6 +16,7 @@
   <div class="col-6 col-lg"><div class="card shadow-sm"><div class="card-body"><div class="text-muted small">{% translate "Crop predictions" %}</div><div class="fs-3 fw-semibold">{{ prediction_counts.crop|default:0 }}</div></div></div></div>
   <div class="col-6 col-lg"><div class="card shadow-sm"><div class="card-body"><div class="text-muted small">{% translate "Yield estimates" %}</div><div class="fs-3 fw-semibold">{{ prediction_counts.yield|default:0 }}</div></div></div></div>
   <div class="col-6 col-lg"><div class="card shadow-sm"><div class="card-body"><div class="text-muted small">{% translate "Disease checks" %}</div><div class="fs-3 fw-semibold">{{ prediction_counts.disease|default:0 }}</div></div></div></div>
+  <div class="col-6 col-lg"><div class="card shadow-sm bg-light-subtle"><div class="card-body"><div class="text-muted small">User Feedbacks</div><div class="fs-3 fw-semibold text-primary">{{ feedback_count|default:0 }}</div></div></div></div>
 </div>
 <div class="row g-3">
   <div class="col-lg-6"><div class="card shadow-sm h-100"><div class="card-header bg-white fw-semibold">{% translate "Unanswered questions" %} <span class="text-muted fw-normal small">{% translate "(knowledge gaps —" %} {{ kb_count }} {% translate "active entries)" %}</span></div>
@@ -25,6 +29,66 @@
       {% for t in top_intents %}<li class="list-group-item small d-flex justify-content-between"><span>{{ t.intent|default:'—' }}</span><span class="badge text-bg-success">{{ t.n }}</span></li>
       {% empty %}<li class="list-group-item text-muted small">{% translate "No chat data yet." %}</li>{% endfor %}
     </ul></div></div>
+
+  <!-- User Feedback Overview & Submissions -->
+  <div class="col-12">
+    <div class="card shadow-sm">
+      <div class="card-header bg-white d-flex justify-content-between align-items-center">
+        <span class="fw-semibold"><i class="bi bi-chat-heart text-primary me-2"></i>User App Experience Feedback</span>
+        <div class="d-flex gap-2">
+          <span class="badge bg-success-subtle text-success border border-success-subtle px-2 py-1">😀 Good: {{ feedback_ratings.good|default:0 }}</span>
+          <span class="badge bg-warning-subtle text-warning border border-warning-subtle px-2 py-1">😐 Average: {{ feedback_ratings.average|default:0 }}</span>
+          <span class="badge bg-danger-subtle text-danger border border-danger-subtle px-2 py-1">🙁 Bad: {{ feedback_ratings.bad|default:0 }}</span>
+        </div>
+      </div>
+      <div class="table-responsive">
+        <table class="table table-sm mb-0 small">
+          <thead>
+            <tr>
+              <th>{% translate "When" %}</th>
+              <th>{% translate "User" %}</th>
+              <th>Rating</th>
+              <th>Comment</th>
+              <th class="text-end">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for f in recent_feedbacks %}
+            <tr>
+              <td>{{ f.created_at|date:'d M Y H:i' }}</td>
+              <td>
+                {% if f.user %}
+                  <span class="fw-semibold">{{ f.user.username }}</span>
+                  {% if f.user.profile.district %}<span class="text-muted small">({{ f.user.profile.district }})</span>{% endif %}
+                {% else %}
+                  <span class="text-muted">Anonymous</span>
+                {% endif %}
+              </td>
+              <td>
+                {% if f.rating == 'good' %}
+                  <span class="badge bg-success text-white px-2 py-1">😀 Good</span>
+                {% elif f.rating == 'average' %}
+                  <span class="badge bg-warning text-dark px-2 py-1">😐 Average</span>
+                {% else %}
+                  <span class="badge bg-danger text-white px-2 py-1">🙁 Bad</span>
+                {% endif %}
+              </td>
+              <td>{{ f.comment|default:"—"|truncatechars:100 }}</td>
+              <td class="text-end">
+                <a href="{% url 'admin:accounts_feedback_change' f.id %}" class="btn btn-sm btn-link py-0 text-decoration-none">
+                  View →
+                </a>
+              </td>
+            </tr>
+            {% empty %}
+            <tr><td colspan="5" class="text-muted py-3 text-center">No feedback submissions yet.</td></tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
   <div class="col-12"><div class="card shadow-sm"><div class="card-header bg-white fw-semibold">{% translate "Recent predictions" %}</div>
     <div class="table-responsive"><table class="table table-sm mb-0 small">
       <thead><tr><th>{% translate "When" %}</th><th>{% translate "User" %}</th><th>{% translate "Type" %}</th><th>{% translate "Result" %}</th></tr></thead>

@@ -1,0 +1,289 @@
+<!-- Krishi Mitra Spraying Time Modal (Matching Exact Plantix Diagram & Rules) -->
+<div class="modal fade" id="sprayingTimeModal" tabindex="-1" aria-labelledby="sprayingTimeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered spray-modal-dialog">
+    <div class="modal-content spray-modal-content border-0 shadow-lg">
+      <div class="modal-header border-0 pb-1 px-4 pt-4">
+        <div>
+          <h4 class="modal-title fw-bold text-dark m-0" id="sprayingTimeModalLabel">Spraying time</h4>
+          <p class="text-muted small mt-1 mb-0">Check the graph below for the best conditions, where current humidity and temperature meet in the green area.</p>
+        </div>
+        <button type="button" class="btn-close shadow-none align-self-start" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+
+      <div class="modal-body px-4 py-2">
+        <!-- 1. Stull Wet Bulb & Delta-T Graph -->
+        <div class="spray-chart-container mb-3 p-2 bg-light-subtle rounded-3 border">
+          <svg viewBox="0 0 420 270" class="spray-graph-svg w-100" style="max-height: 250px;" role="img" aria-label="Spraying conditions chart">
+            <defs>
+              <!-- Zone colors matching photo -->
+              <!-- Top Orange Zone: Delta T < 2 -->
+              <!-- Green Zone: Delta T 2 to 8 -->
+              <!-- Yellow Zone: Delta T 8 to 10 -->
+              <!-- Pink/Red Zone: Delta T > 10 -->
+            </defs>
+
+            <!-- Background Grid Area (x: 50 to 380, y: 20 to 230) -->
+            <!-- 1. Zone Fills -->
+            <!-- Pink / Red Area: Delta T > 10 (Bottom-Right) -->
+            <polygon points="149,218 182,195 215,178 248,164 281,155 314,146 347,139 380,132 380,230 149,230" fill="#fecdd3" />
+
+            <!-- Yellow Area: Delta T 8 to 10 (Marginal) -->
+            <polygon points="116,213 149,183 182,164 215,150 248,141 281,132 314,125 347,118 380,113 380,132 347,139 314,146 281,155 248,164 215,178 182,195 149,218 116,230" fill="#fef08a" />
+
+            <!-- Green Area: Delta T 2 to 8 (Optimal) -->
+            <polygon points="50,78 83,71 116,64 149,62 182,57 215,55 248,52 281,50 314,50 347,48 380,48 380,113 347,118 314,125 281,132 248,141 215,150 182,164 149,183 116,213 116,230 50,230" fill="#dcfce7" />
+
+            <!-- Top Orange Area: Delta T < 2 (High Humidity) -->
+            <polygon points="50,20 380,20 380,48 347,48 314,50 281,50 248,52 215,55 182,57 149,62 116,64 83,71 50,78" fill="#fed7aa" />
+
+            <!-- Grid Lines -->
+            <!-- Horizontal humidity lines (10% to 100%) -->
+            <g stroke="#e2e8f0" stroke-width="0.8">
+              <line x1="50" y1="20" x2="380" y2="20" />
+              <line x1="50" y1="43" x2="380" y2="43" />
+              <line x1="50" y1="66" x2="380" y2="66" />
+              <line x1="50" y1="90" x2="380" y2="90" />
+              <line x1="50" y1="113" x2="380" y2="113" />
+              <line x1="50" y1="136" x2="380" y2="136" />
+              <line x1="50" y1="160" x2="380" y2="160" />
+              <line x1="50" y1="183" x2="380" y2="183" />
+              <line x1="50" y1="206" x2="380" y2="206" />
+              <line x1="50" y1="230" x2="380" y2="230" />
+
+              <!-- Vertical temperature lines (0 to 50 °C) -->
+              <line x1="50" y1="20" x2="50" y2="230" />
+              <line x1="83" y1="20" x2="83" y2="230" />
+              <line x1="116" y1="20" x2="116" y2="230" />
+              <line x1="149" y1="20" x2="149" y2="230" />
+              <line x1="182" y1="20" x2="182" y2="230" />
+              <line x1="215" y1="20" x2="215" y2="230" />
+              <line x1="248" y1="20" x2="248" y2="230" />
+              <line x1="281" y1="20" x2="281" y2="230" />
+              <line x1="314" y1="20" x2="314" y2="230" />
+              <line x1="347" y1="20" x2="347" y2="230" />
+              <line x1="380" y1="20" x2="380" y2="230" />
+            </g>
+
+            <!-- Delta T Curves -->
+            <!-- Curve 2: Brown/Orange -->
+            <polyline points="50,78 83,71 116,64 149,62 182,57 215,55 248,52 281,50 314,50 347,48 380,48" fill="none" stroke="#9a3412" stroke-width="1.8" />
+            <!-- Curve 4: Teal -->
+            <polyline points="50,162 83,129 116,113 149,104 182,95 215,90 248,83 281,81 314,76 347,74 380,72" fill="none" stroke="#0f766e" stroke-width="1.6" />
+            <!-- Curve 6: Green -->
+            <polyline points="83,202 116,165 149,146 182,132 215,120 248,113 281,106 314,102 347,97 380,92" fill="none" stroke="#047857" stroke-width="1.6" />
+            <!-- Curve 8: Dark Gold/Green -->
+            <polyline points="116,213 149,183 182,164 215,150 248,141 281,132 314,125 347,118 380,113" fill="none" stroke="#854d0e" stroke-width="1.8" />
+            <!-- Curve 10: Maroon/Red -->
+            <polyline points="149,218 182,195 215,178 248,164 281,155 314,146 347,139 380,132" fill="none" stroke="#9f1239" stroke-width="1.8" />
+
+            <!-- Axes Ticks and Labels -->
+            <!-- Y-Axis (Humidity %) -->
+            <g font-size="9" fill="#64748b" text-anchor="end">
+              <text x="44" y="24">100</text>
+              <text x="44" y="47">90</text>
+              <text x="44" y="70">80</text>
+              <text x="44" y="94">70</text>
+              <text x="44" y="117">60</text>
+              <text x="44" y="140">50</text>
+              <text x="44" y="164">40</text>
+              <text x="44" y="187">30</text>
+              <text x="44" y="210">20</text>
+              <text x="44" y="233">10</text>
+            </g>
+            <text transform="translate(14, 125) rotate(-90)" font-size="10" fill="#475569" font-weight="600" text-anchor="middle">Humidity (%)</text>
+
+            <!-- X-Axis (Temperature °C) -->
+            <g font-size="9" fill="#64748b" text-anchor="middle">
+              <text x="50" y="244">0</text>
+              <text x="83" y="244">5</text>
+              <text x="116" y="244">10</text>
+              <text x="149" y="244">15</text>
+              <text x="182" y="244">20</text>
+              <text x="215" y="244">25</text>
+              <text x="248" y="244">30</text>
+              <text x="281" y="244">35</text>
+              <text x="314" y="244">40</text>
+              <text x="347" y="244">45</text>
+              <text x="380" y="244">50</text>
+            </g>
+            <text x="215" y="260" font-size="10" fill="#475569" font-weight="600" text-anchor="middle">Temperature (°C)</text>
+
+            <!-- Legend Box (Top Right) -->
+            <rect x="325" y="24" width="52" height="66" rx="4" fill="#ffffff" stroke="#cbd5e1" stroke-width="0.8" opacity="0.95" />
+            <text x="351" y="35" font-size="8" fill="#334155" font-weight="700" text-anchor="middle">Delta T (°C)</text>
+            <circle cx="333" cy="44" r="2.5" fill="#9a3412" />
+            <text x="345" y="47" font-size="8" fill="#1e293b">2</text>
+            <rect x="331" y="52" width="4" height="4" fill="#0f766e" />
+            <text x="345" y="56" font-size="8" fill="#1e293b">4</text>
+            <circle cx="333" cy="62" r="2" fill="#047857" />
+            <text x="345" y="65" font-size="8" fill="#1e293b">6</text>
+            <line x1="331" y1="71" x2="335" y2="71" stroke="#854d0e" stroke-width="1.5" />
+            <text x="345" y="74" font-size="8" fill="#1e293b">8</text>
+            <line x1="331" y1="80" x2="335" y2="80" stroke="#9f1239" stroke-width="1.5" />
+            <text x="345" y="83" font-size="8" fill="#1e293b">10</text>
+
+            <!-- Live Condition Marker on Graph -->
+            <g id="sprayCurrentPointGroup">
+              <circle id="sprayCurrentPulse" cx="208" cy="113" r="10" fill="#005bf6" opacity="0.25" />
+              <circle id="sprayCurrentMarker" cx="208" cy="113" r="5" fill="#005bf6" stroke="#ffffff" stroke-width="2" />
+            </g>
+          </svg>
+        </div>
+
+        <!-- 2. Parameter Cards (Delta T, Rain, Wind) -->
+        <div class="spray-params-list d-flex flex-column gap-3 mb-2">
+          <!-- Parameter 1: Delta T -->
+          <div class="spray-param-card p-3 rounded-3 border bg-white shadow-sm">
+            <div class="d-flex justify-content-between align-items-center mb-2">
+              <span class="spray-param-title fw-bold text-dark">Delta T</span>
+              <span class="spray-param-unit text-muted small">°C</span>
+            </div>
+            <div class="spray-param-badges d-flex justify-content-around align-items-center">
+              <!-- 0-2 (Warning) -->
+              <div class="spray-badge-item {% if weather_data.delta_t_range == '0-2' %}is-active{% endif %}" id="dtBadge02">
+                <div class="spray-badge-circle is-warning">
+                  <i class="bi bi-exclamation-triangle"></i>
+                </div>
+                <span class="spray-badge-label">0–2</span>
+              </div>
+              <!-- 2-8 (Optimal) -->
+              <div class="spray-badge-item {% if weather_data.delta_t_range == '2-8' %}is-active{% endif %}" id="dtBadge28">
+                <div class="spray-badge-circle is-optimal">
+                  <i class="bi bi-check2"></i>
+                </div>
+                <span class="spray-badge-label">2–8</span>
+              </div>
+              <!-- 8-10 (Warning) -->
+              <div class="spray-badge-item {% if weather_data.delta_t_range == '8-10' %}is-active{% endif %}" id="dtBadge810">
+                <div class="spray-badge-circle is-warning">
+                  <i class="bi bi-exclamation-triangle"></i>
+                </div>
+                <span class="spray-badge-label">8–10</span>
+              </div>
+              <!-- > 10 (Cross) -->
+              <div class="spray-badge-item {% if weather_data.delta_t_range == '>10' %}is-active{% endif %}" id="dtBadgeGt10">
+                <div class="spray-badge-circle is-danger">
+                  <i class="bi bi-x-lg"></i>
+                </div>
+                <span class="spray-badge-label">&gt; 10</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Parameter 2: Rain -->
+          <div class="spray-param-card p-3 rounded-3 border bg-white shadow-sm">
+            <div class="d-flex justify-content-between align-items-center mb-2">
+              <span class="spray-param-title fw-bold text-dark">Rain</span>
+              <span class="spray-param-unit text-muted small">mm</span>
+            </div>
+            <div class="spray-param-badges d-flex justify-content-around align-items-center mb-1">
+              <!-- No rain -->
+              <div class="spray-badge-item {% if weather_data.rain_range == 'no_rain' %}is-active{% endif %}" id="rainBadgeNone">
+                <div class="spray-badge-circle is-optimal">
+                  <i class="bi bi-check2"></i>
+                </div>
+                <span class="spray-badge-label">No rain</span>
+              </div>
+              <!-- < 0.1 -->
+              <div class="spray-badge-item {% if weather_data.rain_range == '<0.1' %}is-active{% endif %}" id="rainBadgeLt01">
+                <div class="spray-badge-circle is-warning">
+                  <i class="bi bi-exclamation-triangle"></i>
+                </div>
+                <span class="spray-badge-label">&lt; 0.1</span>
+              </div>
+              <!-- > 0.1 -->
+              <div class="spray-badge-item {% if weather_data.rain_range == '>0.1' %}is-active{% endif %}" id="rainBadgeGt01">
+                <div class="spray-badge-circle is-danger">
+                  <i class="bi bi-x-lg"></i>
+                </div>
+                <span class="spray-badge-label">&gt; 0.1</span>
+              </div>
+            </div>
+            <div class="spray-param-hint text-muted small">Dry weather prevents wash-off</div>
+          </div>
+
+          <!-- Parameter 3: Wind -->
+          <div class="spray-param-card p-3 rounded-3 border bg-white shadow-sm">
+            <div class="d-flex justify-content-between align-items-center mb-2">
+              <span class="spray-param-title fw-bold text-dark">Wind</span>
+              <span class="spray-param-unit text-muted small">km/h</span>
+            </div>
+            <div class="spray-param-badges d-flex justify-content-around align-items-center mb-1">
+              <!-- < 12 -->
+              <div class="spray-badge-item {% if weather_data.wind_range == '<12' %}is-active{% endif %}" id="windBadgeLt12">
+                <div class="spray-badge-circle is-optimal">
+                  <i class="bi bi-check2"></i>
+                </div>
+                <span class="spray-badge-label">&lt; 12</span>
+              </div>
+              <!-- 12-25 -->
+              <div class="spray-badge-item {% if weather_data.wind_range == '12-25' %}is-active{% endif %}" id="windBadge1225">
+                <div class="spray-badge-circle is-warning">
+                  <i class="bi bi-exclamation-triangle"></i>
+                </div>
+                <span class="spray-badge-label">12–25</span>
+              </div>
+              <!-- > 25 -->
+              <div class="spray-badge-item {% if weather_data.wind_range == '>25' %}is-active{% endif %}" id="windBadgeGt25">
+                <div class="spray-badge-circle is-danger">
+                  <i class="bi bi-x-lg"></i>
+                </div>
+                <span class="spray-badge-label">&gt; 25</span>
+              </div>
+            </div>
+            <div class="spray-param-hint text-muted small">Lower wind speeds are ideal for better coverage and less spray drift</div>
+          </div>
+        </div>
+
+        <!-- Can I trust this? Collapsible -->
+        <details class="spray-trust-details mt-2 text-muted small">
+          <summary class="fw-semibold text-dark mb-1" style="cursor: pointer;">Can I trust this?</summary>
+          <p class="mb-1">Delta-T indicates the evaporation rate and droplet lifetime. When Delta-T is between 2°C and 8°C, spray droplets survive and settle effectively onto plant foliage without drifting or washing off.</p>
+          <p class="mb-0">Weather guidance only; always review the pesticide product label and local field conditions before application.</p>
+        </details>
+      </div>
+
+      <div class="modal-footer border-0 pt-1 pb-3 px-4 d-flex justify-content-end">
+        <button type="button" class="btn text-primary fw-bold text-decoration-none px-3" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function() {
+  function updateSprayGraphPoint(temp, rh) {
+    const pulse = document.getElementById('sprayCurrentPulse');
+    const marker = document.getElementById('sprayCurrentMarker');
+    if (!pulse || !marker) return;
+
+    // x: 50 + (t / 50) * 330
+    const clampedT = Math.max(0, Math.min(50, temp));
+    const cx = 50 + (clampedT / 50) * 330;
+
+    // y: 230 - ((rh - 10) / 90) * 210
+    const clampedRh = Math.max(10, Math.min(100, rh));
+    const cy = 230 - ((clampedRh - 10) / 90) * 210;
+
+    pulse.setAttribute('cx', String(cx));
+    pulse.setAttribute('cy', String(cy));
+    marker.setAttribute('cx', String(cx));
+    marker.setAttribute('cy', String(cy));
+  }
+
+  // Initial update from rendered weather data if present
+  window.initSprayModalWeather = function(temp, rh) {
+    updateSprayGraphPoint(temp, rh);
+  };
+
+  const modalEl = document.getElementById('sprayingTimeModal');
+  if (modalEl) {
+    modalEl.addEventListener('show.bs.modal', function() {
+      const temp = parseFloat('{{ weather_data.temp|default:"24" }}');
+      const rh = parseFloat('{{ weather_data.humidity|default:"60" }}');
+      updateSprayGraphPoint(temp, rh);
+    });
+  }
+})();
+</script>
+

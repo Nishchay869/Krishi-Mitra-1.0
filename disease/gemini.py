@@ -149,6 +149,8 @@ def _safe_text(value, limit=2000, forbid_dose=False):
     if not isinstance(value, str):
         raise DiagnosisError(_('Gemini returned an incomplete assessment. Please try again.'), 'invalid_response', 502)
     text = value.strip()
+    if forbid_dose and DOSE_PATTERN.search(text):
+        raise DiagnosisError(_('Gemini returned an invalid dosage. Please try again.'), 'invalid_response', 502)
     if len(text) > limit:
         text = text[:limit]
     return text
@@ -159,13 +161,16 @@ def _safe_list(data, name, forbid_dose=False):
     if value is None:
         return []
     if not isinstance(value, list):
-        return []
+        raise DiagnosisError(_('Gemini returned an incomplete assessment. Please try again.'), 'invalid_response', 502)
     return [_safe_text(item, 1200, forbid_dose=forbid_dose) for item in value if isinstance(item, str) and item.strip()]
 
 
 def normalize(data):
     if not isinstance(data, dict):
         raise DiagnosisError(_('Gemini returned an incomplete assessment. Please try again.'), 'invalid_response', 502)
+
+    if 'certainty' in data and data['certainty'] not in ('low', 'medium', 'high'):
+        raise DiagnosisError(_('Invalid certainty'), 'invalid_response', 502)
 
     # Fallback defaults for missing keys
     status = data.get('status', 'uncertain')
@@ -209,7 +214,7 @@ def normalize(data):
             chemicals.append({
                 'active_ingredient': ingredient,
                 'chemical_group': _safe_text(item.get('chemical_group', ''), 200),
-                'purpose': _safe_text(item.get('purpose', ''), 500),
+                'purpose': _safe_text(item.get('purpose', ''), 500, forbid_dose=True),
                 'application_method': _safe_text(item.get('application_method', ''), 300),
                 'timing': _safe_text(item.get('timing', ''), 300),
                 'precautions': _safe_text(item.get('precautions', ''), 400),
@@ -234,7 +239,7 @@ def normalize(data):
         'observations': _safe_list(data, 'observations'),
         'symptoms': _safe_list(data, 'symptoms'),
         'possible_causes': _safe_list(data, 'possible_causes'),
-        'immediate_actions': _safe_list(data, 'immediate_actions'),
+        'immediate_actions': _safe_list(data, 'immediate_actions', forbid_dose=True),
         'cultural_control': _safe_list(data, 'cultural_control'),
         'biological_control': _safe_list(data, 'biological_control'),
         'prevention': _safe_list(data, 'prevention'),
@@ -351,28 +356,31 @@ def analyze_leaf(image_file, *, crop='', location='', notes='', language='en'):
             _('Gemini could not be reached. Please check your connection and try again.'), 'connection'
         ) from exc
 
+    raw_text = getattr(response, 'text', '')
+    response_text = raw_text if isinstance(raw_text, str) else ''
+
     if response.status_code in (401, 403):
-        logger.error('Gemini auth error %s: %s', response.status_code, response.text[:400])
+        logger.error('Gemini auth error %s: %s', response.status_code, response_text[:400])
         raise DiagnosisError(
             _('Gemini access was rejected. The site administrator needs to check the API key and model access.'),
             'access'
         )
     if response.status_code == 429:
-        logger.error('Gemini quota error: %s', response.text[:400])
+        logger.error('Gemini quota error: %s', response_text[:400])
         raise DiagnosisError(
             _('Gemini usage is currently limited. Please wait and try again, or contact the site administrator about quota.'),
             'quota', 429
         )
     if response.status_code == 404:
-        logger.error('Gemini 404 – model or endpoint not found: %s', response.text[:400])
+        logger.error('Gemini 404 – model or endpoint not found: %s', response_text[:400])
         raise DiagnosisError(
             _('The configured Gemini model is unavailable. The site administrator needs to check the model setting.'),
             'model_unavailable'
         )
     if response.status_code != 200:
-        logger.error('Gemini unexpected status %s body: %s', response.status_code, response.text[:600])
+        logger.error('Gemini unexpected status %s body: %s', response.status_code, response_text[:600])
         # Surface the real HTTP code and body snippet in the browser for easy diagnosis
-        snippet = response.text[:300].replace('\n', ' ')
+        snippet = response_text[:300].replace('\n', ' ')
         raise DiagnosisError(
             f'Gemini HTTP {response.status_code}: {snippet}', 'upstream', 502
         )

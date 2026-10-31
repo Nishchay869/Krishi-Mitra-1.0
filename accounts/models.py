@@ -49,3 +49,30 @@ class PredictionLog(models.Model):
 
     def __str__(self):
         return f'{self.get_kind_display()} @ {self.created_at:%Y-%m-%d %H:%M}'
+
+
+class Feedback(models.Model):
+    """User experience feedback for Krishi Mitra app."""
+    RATING_BAD = 'bad'
+    RATING_AVERAGE = 'average'
+    RATING_GOOD = 'good'
+    RATING_CHOICES = [
+        (RATING_BAD, 'Bad'),
+        (RATING_AVERAGE, 'Average'),
+        (RATING_GOOD, 'Good'),
+    ]
+
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.SET_NULL, null=True, blank=True, related_name='feedbacks')
+    rating = models.CharField(max_length=10, choices=RATING_CHOICES)
+    comment = models.TextField(blank=True, default='')
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ['-created_at']
+        verbose_name = 'User Feedback'
+        verbose_name_plural = 'User Feedbacks'
+
+    def __str__(self):
+        user_str = self.user.username if self.user else 'Anonymous'
+        return f'{user_str} — {self.get_rating_display()} ({self.created_at:%d %b %Y})'
+

@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import PredictionLog, Profile
+from .models import Feedback, PredictionLog, Profile
 
 
 @admin.register(Profile)
@@ -15,3 +15,11 @@ class PredictionLogAdmin(admin.ModelAdmin):
     list_display = ('kind', 'user', 'created_at')
     list_filter = ('kind',)
     readonly_fields = ('user', 'kind', 'inputs', 'result', 'created_at')
+
+
+@admin.register(Feedback)
+class FeedbackAdmin(admin.ModelAdmin):
+    list_display = ('id', 'user', 'rating', 'created_at')
+    list_filter = ('rating', 'created_at')
+    search_fields = ('user__username', 'comment')
+    readonly_fields = ('user', 'rating', 'comment', 'created_at')

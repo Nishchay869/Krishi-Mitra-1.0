@@ -1,0 +1,166 @@
+<!-- Krishi Mitra Experience Feedback Modal -->
+<div class="modal fade" id="feedbackModal" tabindex="-1" aria-labelledby="feedbackModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered feedback-modal-dialog">
+    <div class="modal-content feedback-modal-content border-0 shadow-lg">
+      <div class="modal-body p-4 text-center">
+        {% csrf_token %}
+        <!-- Question Title -->
+        <h5 class="feedback-modal-title fw-bold mb-4" id="feedbackModalLabel">
+          How is your experience with Krishi Mitra app?
+        </h5>
+
+        <!-- 3 Emoji Rating Options (Bad, Average, Good) -->
+        <div class="feedback-reactions-group d-flex justify-content-center align-items-center gap-3 mb-4" role="radiogroup" aria-label="Experience rating">
+          <!-- 1. Bad -->
+          <button type="button" class="feedback-reaction-btn" data-rating="bad" role="radio" aria-checked="false" aria-label="Bad experience">
+            <div class="feedback-reaction-box">
+              <svg width="42" height="42" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <circle cx="24" cy="24" r="21" fill="#FFC83B"/>
+                <circle cx="17" cy="19.5" r="3" fill="#3D3000"/>
+                <circle cx="31" cy="19.5" r="3" fill="#3D3000"/>
+                <path d="M16 32.5C18.5 28 29.5 28 32 32.5" stroke="#3D3000" stroke-width="3" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <span class="feedback-reaction-label">Bad</span>
+          </button>
+
+          <!-- 2. Average -->
+          <button type="button" class="feedback-reaction-btn" data-rating="average" role="radio" aria-checked="false" aria-label="Average experience">
+            <div class="feedback-reaction-box">
+              <svg width="42" height="42" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <circle cx="24" cy="24" r="21" fill="#FFC83B"/>
+                <circle cx="17" cy="19.5" r="3" fill="#3D3000"/>
+                <circle cx="31" cy="19.5" r="3" fill="#3D3000"/>
+                <path d="M17 30.5H31" stroke="#3D3000" stroke-width="3.2" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <span class="feedback-reaction-label">Average</span>
+          </button>
+
+          <!-- 3. Good -->
+          <button type="button" class="feedback-reaction-btn" data-rating="good" role="radio" aria-checked="false" aria-label="Good experience">
+            <div class="feedback-reaction-box">
+              <svg width="42" height="42" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <circle cx="24" cy="24" r="21" fill="#FFC83B"/>
+                <circle cx="17" cy="18.5" r="3" fill="#3D3000"/>
+                <circle cx="31" cy="18.5" r="3" fill="#3D3000"/>
+                <path d="M16 26.5C16 33.5 32 33.5 32 26.5H16Z" fill="#FFFFFF" stroke="#3D3000" stroke-width="2.5" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <span class="feedback-reaction-label">Good</span>
+          </button>
+        </div>
+
+        <!-- Submit Button (Disabled until rated) -->
+        <button type="button" class="btn feedback-submit-btn w-100 rounded-pill mb-2" id="feedbackSubmitBtn" disabled>
+          Submit
+        </button>
+
+        <!-- Cancel Link Button -->
+        <button type="button" class="btn feedback-cancel-btn w-100" data-bs-dismiss="modal">
+          Cancel
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function() {
+  function initFeedbackModal() {
+    const modalEl = document.getElementById('feedbackModal');
+    if (!modalEl) return;
+
+    const reactionBtns = modalEl.querySelectorAll('.feedback-reaction-btn');
+    const submitBtn = modalEl.getElementById ? modalEl.getElementById('feedbackSubmitBtn') : document.getElementById('feedbackSubmitBtn');
+    let selectedRating = null;
+
+    reactionBtns.forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        const rating = this.getAttribute('data-rating');
+        selectedRating = rating;
+
+        reactionBtns.forEach(function(b) {
+          b.classList.remove('is-selected');
+          b.setAttribute('aria-checked', 'false');
+        });
+
+        this.classList.add('is-selected');
+        this.setAttribute('aria-checked', 'true');
+
+        if (submitBtn) {
+          submitBtn.disabled = false;
+        }
+      });
+    });
+
+    if (submitBtn) {
+      submitBtn.addEventListener('click', async function() {
+        if (!selectedRating) return;
+
+        submitBtn.disabled = true;
+        const originalText = submitBtn.textContent;
+        submitBtn.textContent = 'Submitting...';
+
+        const csrf = modalEl.querySelector('[name=csrfmiddlewaretoken]')?.value ||
+                     document.querySelector('[name=csrfmiddlewaretoken]')?.value || '';
+
+        try {
+          const res = await fetch('/accounts/feedback/', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'X-CSRFToken': csrf,
+            },
+            body: JSON.stringify({ rating: selectedRating })
+          });
+          const data = await res.json();
+          if (data.success) {
+            // Dismiss modal
+            if (window.bootstrap && window.bootstrap.Modal) {
+              const modalInstance = bootstrap.Modal.getInstance(modalEl) || new bootstrap.Modal(modalEl);
+              modalInstance.hide();
+            }
+
+            if (typeof window.showKrishiToast === 'function') {
+              window.showKrishiToast('Thank you for your feedback!');
+            }
+
+            // Reset state
+            selectedRating = null;
+            reactionBtns.forEach(function(b) {
+              b.classList.remove('is-selected');
+              b.setAttribute('aria-checked', 'false');
+            });
+          } else {
+            alert(data.error || 'Failed to submit feedback.');
+          }
+        } catch (err) {
+          console.error('Feedback submit error:', err);
+        } finally {
+          submitBtn.textContent = originalText;
+          submitBtn.disabled = selectedRating === null;
+        }
+      });
+    }
+
+    // Reset when modal hidden
+    modalEl.addEventListener('hidden.bs.modal', function () {
+      selectedRating = null;
+      reactionBtns.forEach(function(b) {
+        b.classList.remove('is-selected');
+        b.setAttribute('aria-checked', 'false');
+      });
+      if (submitBtn) {
+        submitBtn.disabled = true;
+      }
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initFeedbackModal);
+  } else {
+    initFeedbackModal();
+  }
+})();
+</script>

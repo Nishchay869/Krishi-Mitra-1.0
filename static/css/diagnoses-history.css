@@ -1,0 +1,341 @@
+/* Plantix-Style "Your Diagnoses" History Page */
+
+.diagnoses-history-page {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 12px 16px 80px;
+  min-height: calc(100vh - 120px);
+}
+
+/* ─── Header ─── */
+.diagnoses-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 0 18px;
+  border-bottom: 1px solid #f1f5f9;
+  margin-bottom: 16px;
+}
+
+.diagnoses-header-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.diagnoses-back-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #0f172a;
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  text-decoration: none;
+  transition: all 0.15s ease;
+}
+
+.diagnoses-back-btn:hover {
+  background-color: #f1f5f9;
+  color: #005bf6;
+}
+
+.diagnoses-title {
+  font-size: 20px;
+  font-weight: 800;
+  color: #0f172a;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+.diagnoses-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn-select-toggle {
+  background: transparent;
+  border: 1px solid #e2e8f0;
+  border-radius: 20px;
+  padding: 6px 14px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #0f172a;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.btn-select-toggle:hover {
+  background-color: #f8fafc;
+  border-color: #cbd5e1;
+}
+
+.btn-diagnoses-menu {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: transparent;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #475569;
+  cursor: pointer;
+}
+
+.btn-diagnoses-menu:hover {
+  background-color: #f1f5f9;
+}
+
+/* ─── Selection Bar ─── */
+.diagnoses-selection-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #edf2fe;
+  border: 1px solid #dbeafe;
+  border-radius: 16px;
+  padding: 10px 16px;
+  margin-bottom: 16px;
+  animation: fadeIn 0.2s ease-in-out;
+}
+
+.selection-bar-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #1e3a8a;
+}
+
+.selection-count-badge {
+  background-color: #005bf6;
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 12px;
+}
+
+.btn-delete-selected {
+  background: transparent;
+  border: none;
+  font-size: 13px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  padding: 6px 10px;
+  border-radius: 10px;
+  transition: all 0.15s ease;
+}
+
+.btn-delete-selected:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.btn-delete-selected:not(:disabled):hover {
+  background-color: #fee2e2;
+}
+
+/* ─── List of Diagnoses ─── */
+.diagnoses-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.diagnosis-row-item {
+  display: flex;
+  align-items: center;
+  padding: 14px 0;
+  border-bottom: 1px solid #f1f5f9;
+  transition: background-color 0.15s ease;
+  position: relative;
+}
+
+.diagnosis-row-item:hover {
+  background-color: #fcfcfd;
+}
+
+.diagnosis-checkbox-wrap {
+  padding-right: 12px;
+  display: flex;
+  align-items: center;
+}
+
+.diagnosis-row-link {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-grow: 1;
+  text-decoration: none;
+  color: inherit;
+}
+
+.diagnosis-photo-wrap {
+  width: 68px;
+  height: 68px;
+  border-radius: 16px;
+  overflow: hidden;
+  flex-shrink: 0;
+  background-color: #f1f5f9;
+  border: 1px solid #f1f5f9;
+}
+
+.diagnosis-leaf-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.diagnosis-row-info {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  flex-grow: 1;
+  min-width: 0;
+}
+
+.diagnosis-row-date {
+  font-size: 12px;
+  font-weight: 500;
+  color: #64748b;
+}
+
+.diagnosis-row-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: #0f172a;
+  letter-spacing: -0.01em;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.diagnosis-status-pill {
+  display: inline-flex;
+  align-items: center;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 10px;
+  border-radius: 12px;
+  width: fit-content;
+  margin-top: 2px;
+}
+
+.diagnosis-status-pill.complete,
+.diagnosis-status-pill.is-complete {
+  background-color: #dcfce7;
+  color: #16a34a;
+}
+
+.diagnosis-status-pill.incomplete,
+.diagnosis-status-pill.is-incomplete {
+  background-color: #fee2e2;
+  color: #e11d48;
+}
+
+.diagnosis-row-arrow {
+  padding: 0 8px;
+  color: #94a3b8;
+  display: flex;
+  align-items: center;
+}
+
+.btn-quick-delete {
+  background: transparent;
+  border: none;
+  color: #cbd5e1;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  margin-left: 4px;
+}
+
+.btn-quick-delete:hover {
+  color: #dc2626;
+  background-color: #fee2e2;
+}
+
+/* ─── Empty State ─── */
+.diagnoses-empty-state {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.empty-icon-circle {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background-color: #edf2fe;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+}
+
+.diagnoses-empty-state h2 {
+  font-size: 20px;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 8px;
+}
+
+.diagnoses-empty-state p {
+  font-size: 14px;
+  color: #64748b;
+  max-width: 360px;
+  margin: 0 auto 24px;
+  line-height: 1.6;
+}
+
+.btn-take-picture-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #005bf6;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 15px;
+  padding: 12px 28px;
+  border-radius: 30px;
+  text-decoration: none;
+  box-shadow: 0 4px 16px rgba(0, 91, 246, 0.25);
+  transition: all 0.2s ease;
+}
+
+.btn-take-picture-cta:hover {
+  background-color: #004ecc;
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+.modal-warning-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background-color: #fee2e2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+

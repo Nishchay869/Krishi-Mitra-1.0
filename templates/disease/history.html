@@ -1,0 +1,254 @@
+{% extends 'base.html' %}
+{% load i18n farm_i18n static %}
+{% block title %}Your diagnoses · Krishi Mitra{% endblock %}
+{% block extra_head %}
+<link rel="stylesheet" href="{% static 'css/diagnoses-history.css' %}?v={{ STATIC_VERSION }}">
+{% endblock %}
+
+{% block content %}
+<div class="diagnoses-history-page">
+  <!-- Top Navigation Header -->
+  <header class="diagnoses-header">
+    <div class="diagnoses-header-left">
+      <a href="{% url 'home' %}" class="diagnoses-back-btn" aria-label="Back to home">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+      </a>
+      <h1 class="diagnoses-title">Your diagnoses</h1>
+    </div>
+
+    <div class="diagnoses-header-actions">
+      {% if diagnoses %}
+      <button type="button" class="btn-select-toggle" id="btn-toggle-select">
+        <span class="select-text">Select</span>
+        <span class="cancel-text d-none">Cancel</span>
+      </button>
+
+      <div class="dropdown">
+        <button class="btn-diagnoses-menu" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="More options">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="1.5"></circle><circle cx="12" cy="5" r="1.5"></circle><circle cx="12" cy="19" r="1.5"></circle></svg>
+        </button>
+        <ul class="dropdown-menu dropdown-menu-end shadow-sm border-0 diagnoses-dropdown">
+          <li>
+            <button class="dropdown-item text-danger d-flex align-items-center gap-2" type="button" data-bs-toggle="modal" data-bs-target="#deleteAllModal">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
+              Delete all history
+            </button>
+          </li>
+        </ul>
+      </div>
+      {% endif %}
+    </div>
+  </header>
+
+  <!-- Selection Toolbar (hidden until Select is active) -->
+  <form id="delete-selected-form" method="post" action="{% url 'disease:delete_selected' %}">
+    {% csrf_token %}
+    <div class="diagnoses-selection-bar d-none" id="selection-bar">
+      <div class="selection-bar-left">
+        <label class="custom-control-label d-flex align-items-center gap-2 cursor-pointer">
+          <input type="checkbox" id="select-all-checkbox" class="form-check-input my-0">
+          <span>Select all</span>
+        </label>
+        <span class="selection-count-badge" id="selected-count">0 selected</span>
+      </div>
+      <div class="selection-bar-actions">
+        <button type="button" class="btn-delete-selected text-danger" id="btn-delete-selected" disabled data-bs-toggle="modal" data-bs-target="#deleteSelectedModal">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
+          Delete selected
+        </button>
+      </div>
+    </div>
+
+    <!-- Diagnoses List -->
+    <div class="diagnoses-list-wrap">
+      {% if diagnoses %}
+        <div class="diagnoses-list" id="diagnoses-list">
+          {% for item in diagnoses %}
+          <div class="diagnosis-row-item" data-id="{{ item.id }}">
+            <div class="diagnosis-checkbox-wrap d-none">
+              <input type="checkbox" name="selected_ids" value="{{ item.id }}" class="form-check-input item-checkbox">
+            </div>
+
+            <a href="{{ item.url }}" class="diagnosis-row-link">
+              <div class="diagnosis-photo-wrap">
+                <img src="{{ item.image_url }}" alt="{{ item.disease }}" class="diagnosis-leaf-photo" loading="lazy">
+              </div>
+
+              <div class="diagnosis-row-info">
+                <span class="diagnosis-row-date">{{ item.date }}</span>
+                <h3 class="diagnosis-row-title">{{ item.disease }}</h3>
+                <span class="diagnosis-status-pill {{ item.status_type }}">
+                  {{ item.status_label }}
+                </span>
+              </div>
+
+              <div class="diagnosis-row-arrow">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg>
+              </div>
+            </a>
+
+            <!-- Quick Delete Single Button -->
+            <button type="button" class="btn-quick-delete" data-bs-toggle="modal" data-bs-target="#deleteSingleModal" data-id="{{ item.id }}" data-title="{{ item.disease }}" title="Delete" aria-label="Delete diagnosis">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
+            </button>
+          </div>
+          {% endfor %}
+        </div>
+      {% else %}
+        <!-- Empty State -->
+        <div class="diagnoses-empty-state">
+          <div class="empty-icon-circle">
+            <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="#005bf6" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20"></path><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+          </div>
+          <h2>No diagnoses yet</h2>
+          <p>Capture a leaf photo to diagnose plant diseases, identify pests, and receive expert pesticide recommendations.</p>
+          <a href="{% url 'disease:detect' %}" class="btn-take-picture-cta">
+            Take a picture
+          </a>
+        </div>
+      {% endif %}
+    </div>
+  </form>
+</div>
+
+<!-- Modal: Delete Selected Confirmation -->
+<div class="modal fade" id="deleteSelectedModal" tabindex="-1" aria-labelledby="deleteSelectedModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-sm">
+    <div class="modal-content border-0 shadow-lg" style="border-radius: 20px;">
+      <div class="modal-body p-4 text-center">
+        <div class="modal-warning-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
+        </div>
+        <h5 class="fw-bold mb-2">Delete selected diagnoses?</h5>
+        <p class="text-muted small mb-4">The selected diagnosis history and photos will be permanently deleted.</p>
+        <div class="d-flex gap-2">
+          <button type="button" class="btn btn-light flex-grow-1 rounded-pill" data-bs-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-danger flex-grow-1 rounded-pill" id="confirm-delete-selected">Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal: Delete All Confirmation -->
+<div class="modal fade" id="deleteAllModal" tabindex="-1" aria-labelledby="deleteAllModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-sm">
+    <div class="modal-content border-0 shadow-lg" style="border-radius: 20px;">
+      <div class="modal-body p-4 text-center">
+        <div class="modal-warning-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+        </div>
+        <h5 class="fw-bold mb-2">Delete all history?</h5>
+        <p class="text-muted small mb-4">All saved leaf photos and diagnoses will be permanently removed. This cannot be undone.</p>
+        <form method="post" action="{% url 'disease:delete_all' %}">
+          {% csrf_token %}
+          <div class="d-flex gap-2">
+            <button type="button" class="btn btn-light flex-grow-1 rounded-pill" data-bs-dismiss="modal">Cancel</button>
+            <button type="submit" class="btn btn-danger flex-grow-1 rounded-pill">Delete all</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal: Delete Single Item Confirmation -->
+<div class="modal fade" id="deleteSingleModal" tabindex="-1" aria-labelledby="deleteSingleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-sm">
+    <div class="modal-content border-0 shadow-lg" style="border-radius: 20px;">
+      <div class="modal-body p-4 text-center">
+        <div class="modal-warning-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
+        </div>
+        <h5 class="fw-bold mb-2">Delete diagnosis?</h5>
+        <p class="text-muted small mb-4" id="deleteSingleItemTitle">This diagnosis record will be deleted.</p>
+        <form method="post" id="delete-single-form" action="">
+          {% csrf_token %}
+          <div class="d-flex gap-2">
+            <button type="button" class="btn btn-light flex-grow-1 rounded-pill" data-bs-dismiss="modal">Cancel</button>
+            <button type="submit" class="btn btn-danger flex-grow-1 rounded-pill">Delete</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const toggleSelectBtn = document.getElementById('btn-toggle-select');
+    const selectionBar = document.getElementById('selection-bar');
+    const selectAllCheckbox = document.getElementById('select-all-checkbox');
+    const itemCheckboxes = document.querySelectorAll('.item-checkbox');
+    const countBadge = document.getElementById('selected-count');
+    const deleteSelectedBtn = document.getElementById('btn-delete-selected');
+    const confirmDeleteBtn = document.getElementById('confirm-delete-selected');
+    const deleteSelectedForm = document.getElementById('delete-selected-form');
+
+    let selectMode = false;
+
+    if (toggleSelectBtn) {
+      toggleSelectBtn.addEventListener('click', function() {
+        selectMode = !selectMode;
+        document.querySelectorAll('.diagnosis-checkbox-wrap').forEach(el => {
+          el.classList.toggle('d-none', !selectMode);
+        });
+        selectionBar.classList.toggle('d-none', !selectMode);
+        toggleSelectBtn.querySelector('.select-text').classList.toggle('d-none', selectMode);
+        toggleSelectBtn.querySelector('.cancel-text').classList.toggle('d-none', !selectMode);
+
+        if (!selectMode) {
+          // Reset selection
+          itemCheckboxes.forEach(cb => cb.checked = false);
+          if (selectAllCheckbox) selectAllCheckbox.checked = false;
+          updateSelectedCount();
+        }
+      });
+    }
+
+    function updateSelectedCount() {
+      const checkedCount = document.querySelectorAll('.item-checkbox:checked').length;
+      if (countBadge) {
+        countBadge.textContent = checkedCount + ' ' + (checkedCount === 1 ? 'selected' : 'selected');
+      }
+      if (deleteSelectedBtn) {
+        deleteSelectedBtn.disabled = checkedCount === 0;
+      }
+      if (selectAllCheckbox) {
+        selectAllCheckbox.checked = checkedCount > 0 && checkedCount === itemCheckboxes.length;
+      }
+    }
+
+    if (selectAllCheckbox) {
+      selectAllCheckbox.addEventListener('change', function() {
+        itemCheckboxes.forEach(cb => cb.checked = selectAllCheckbox.checked);
+        updateSelectedCount();
+      });
+    }
+
+    itemCheckboxes.forEach(cb => {
+      cb.addEventListener('change', updateSelectedCount);
+    });
+
+    if (confirmDeleteBtn && deleteSelectedForm) {
+      confirmDeleteBtn.addEventListener('click', function() {
+        deleteSelectedForm.submit();
+      });
+    }
+
+    // Single item delete modal setup
+    const singleModal = document.getElementById('deleteSingleModal');
+    if (singleModal) {
+      singleModal.addEventListener('show.bs.modal', function(event) {
+        const button = event.relatedTarget;
+        const id = button.getAttribute('data-id');
+        const title = button.getAttribute('data-title');
+        const form = document.getElementById('delete-single-form');
+        form.action = '/disease/history/' + id + '/delete/';
+        document.getElementById('deleteSingleItemTitle').textContent = title || 'This diagnosis record will be deleted.';
+      });
+    }
+  });
+</script>
+{% endblock %}
+

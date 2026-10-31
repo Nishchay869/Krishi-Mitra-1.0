@@ -8,13 +8,23 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 {% endblock %}
 {% block content %}
+{{ user_crops|json_script:"user-crops-data" }}
+{{ weather_data|json_script:"weather-data" }}
+{{ recent_diagnoses|json_script:"diagnoses-data" }}
 <div data-agro-landing data-asset-base="{% static 'images' %}"
  data-start="{% if user.is_authenticated %}{% url 'accounts:dashboard' %}{% else %}{% url 'accounts:register' %}{% endif %}"
  data-dashboard="{% url 'accounts:dashboard' %}" data-profile="{% url 'accounts:profile' %}"
  data-chat="{% url 'chatbot:chat' %}" data-crop="{% url 'crops:recommend' %}"
  data-disease="{% url 'disease:detect' %}" data-weather="{% url 'weather:forecast' %}"
  data-fertilizer="{% url 'crops:fertilizer' %}" data-market="{% url 'market:prices' %}"
- data-yield="{% url 'crops:yield' %}" data-library="{% url 'crops:library' %}">
+ data-yield="{% url 'crops:yield' %}" data-library="{% url 'crops:library' %}"
+ data-pests="{% url 'crops:pests' %}"
+ data-history="{% url 'disease:history' %}"
+ data-iot="{% url 'home' %}?experience=iot"
+ data-has-user-crops="{% if has_user_crops %}true{% else %}false{% endif %}"
+ data-user-crops="{{ user_crops_json|escape }}"
+ data-weather="{{ weather_json|escape }}"
+ data-diagnoses="{{ diagnoses_json|escape }}">
 {% include 'partials/home_fallback.html' %}
 </div>
 {% endblock %}

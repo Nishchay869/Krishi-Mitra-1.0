@@ -1,0 +1,191 @@
+{% extends 'base.html' %}
+{% load i18n farm_i18n static %}
+{% block title %}Settings · Krishi Mitra{% endblock %}
+
+{% block content %}
+<div class="settings-page max-w-720 mx-auto py-3">
+  <!-- Back navigation header -->
+  <div class="d-flex align-items-center justify-content-between mb-4">
+    <a href="{% url 'home' %}" class="btn btn-light rounded-pill px-3 py-1 d-inline-flex align-items-center gap-1" aria-label="Back to home">
+      <i class="bi bi-arrow-left"></i>
+      <span>Back</span>
+    </a>
+    <h4 class="fw-bold m-0 text-dark">Settings</h4>
+    <div style="width: 70px;"></div>
+  </div>
+
+  <form method="post" action="{% url 'accounts:settings' %}" id="pageSettingsForm">
+    {% csrf_token %}
+
+    <!-- 1. General Section -->
+    <div class="settings-section mb-4">
+      <div class="settings-section-header mb-2">
+        <span class="settings-section-badge">General</span>
+      </div>
+
+      <div class="settings-card shadow-sm rounded-3 p-3 mb-3 bg-white">
+        <!-- Language Selection -->
+        <div class="settings-field mb-3">
+          <div class="d-flex align-items-center gap-2 mb-1">
+            <i class="bi bi-translate text-primary"></i>
+            <label for="pageLanguageSelect" class="settings-field-label m-0 fw-semibold">Select your Krishi Mitra Language</label>
+          </div>
+          <p class="settings-field-hint text-muted small mb-2">Choose the display and speech language for Krishi Mitra</p>
+          <select id="pageLanguageSelect" name="preferred_language" class="form-select form-select-sm settings-select" aria-label="Select your Krishi Mitra Language">
+            {% for code, label in available_languages %}
+              <option value="{{ code }}" {% if current_language == code %}selected{% endif %}>{{ label }} ({{ code }})</option>
+            {% endfor %}
+          </select>
+        </div>
+
+        <!-- App Country -->
+        <div class="settings-field">
+          <div class="d-flex align-items-center gap-2 mb-1">
+            <i class="bi bi-geo-alt text-primary"></i>
+            <label for="pageCountrySelect" class="settings-field-label m-0 fw-semibold">App Country</label>
+          </div>
+          <p class="settings-field-hint text-muted small mb-2">Used for regional agricultural standards, mandi currency, and weather</p>
+          <select id="pageCountrySelect" name="app_country" class="form-select form-select-sm settings-select" aria-label="App Country">
+            <option value="IN" selected>India (₹ INR)</option>
+            <option value="US">United States ($ USD)</option>
+            <option value="GB">United Kingdom (£ GBP)</option>
+            <option value="CA">Canada ($ CAD)</option>
+            <option value="AU">Australia ($ AUD)</option>
+            <option value="BR">Brazil (R$ BRL)</option>
+            <option value="KE">Kenya (KSh KES)</option>
+            <option value="NG">Nigeria (₦ NGN)</option>
+            <option value="PH">Philippines (₱ PHP)</option>
+            <option value="ID">Indonesia (Rp IDR)</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. Notifications Section -->
+    <div class="settings-section mb-4">
+      <div class="settings-section-header mb-2">
+        <span class="settings-section-badge">Notifications</span>
+      </div>
+
+      <div class="settings-card shadow-sm rounded-3 p-3 bg-white">
+        <!-- Information about my crops -->
+        <div class="d-flex align-items-start justify-content-between gap-3 mb-3">
+          <div>
+            <div class="d-flex align-items-center gap-2 mb-1">
+              <i class="bi bi-sprout text-success"></i>
+              <span class="settings-field-label fw-semibold">Information about my crops</span>
+            </div>
+            <p class="settings-field-hint text-muted small m-0">Receive advisory alerts, disease warnings, and growth updates for your saved crops</p>
+          </div>
+          <div class="form-check form-switch m-0 pt-1">
+            <input class="form-check-input settings-switch" type="checkbox" role="switch" id="pageNotifCrops" checked>
+          </div>
+        </div>
+
+        <hr class="settings-divider my-2">
+
+        <!-- Receive push notification -->
+        <div class="d-flex align-items-start justify-content-between gap-3 mt-3">
+          <div>
+            <div class="d-flex align-items-center gap-2 mb-1">
+              <i class="bi bi-bell text-warning"></i>
+              <span class="settings-field-label fw-semibold">Receive push notification</span>
+            </div>
+            <p class="settings-field-hint text-muted small m-0">Enable push notifications for severe weather alerts, pest outbreaks, and timely spraying windows</p>
+          </div>
+          <div class="form-check form-switch m-0 pt-1">
+            <input class="form-check-input settings-switch" type="checkbox" role="switch" id="pageNotifPush" checked>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. Weather Section -->
+    <div class="settings-section mb-4">
+      <div class="settings-section-header mb-2">
+        <span class="settings-section-badge">Weather</span>
+      </div>
+
+      <div class="settings-card shadow-sm rounded-3 p-3 bg-white">
+        <div class="d-flex align-items-center gap-2 mb-1">
+          <i class="bi bi-thermometer-half text-danger"></i>
+          <span class="settings-field-label fw-semibold">Weather temperature units</span>
+        </div>
+        <p class="settings-field-hint text-muted small mb-3">Choose the temperature unit displayed across weather forecasts, spray conditions, and advisories</p>
+
+        <!-- Temperature unit options: Fahrenheit, Celsius, Kelvin -->
+        <div class="settings-temp-btn-group btn-group w-100" role="group" aria-label="Temperature unit selection">
+          <input type="radio" class="btn-check" name="pageTempUnit" id="pageUnitCelsius" value="C" autocomplete="off" checked>
+          <label class="btn btn-outline-primary settings-temp-btn py-2" for="pageUnitCelsius">
+            <span class="fw-bold fs-6">°C</span>
+            <span class="d-block small text-muted">Celsius</span>
+          </label>
+
+          <input type="radio" class="btn-check" name="pageTempUnit" id="pageUnitFahrenheit" value="F" autocomplete="off">
+          <label class="btn btn-outline-primary settings-temp-btn py-2" for="pageUnitFahrenheit">
+            <span class="fw-bold fs-6">°F</span>
+            <span class="d-block small text-muted">Fahrenheit</span>
+          </label>
+
+          <input type="radio" class="btn-check" name="pageTempUnit" id="pageUnitKelvin" value="K" autocomplete="off">
+          <label class="btn btn-outline-primary settings-temp-btn py-2" for="pageUnitKelvin">
+            <span class="fw-bold fs-6">K</span>
+            <span class="d-block small text-muted">Kelvin</span>
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <div class="d-flex justify-content-end gap-2 mb-5">
+      <a href="{% url 'home' %}" class="btn btn-light rounded-pill px-4">Cancel</a>
+      <button type="submit" class="btn btn-primary rounded-pill px-4 shadow-sm" id="pageSaveBtn">Save Settings</button>
+    </div>
+  </form>
+</div>
+
+<script>
+(function() {
+  const cSelect = document.getElementById('pageCountrySelect');
+  const nCrops = document.getElementById('pageNotifCrops');
+  const nPush = document.getElementById('pageNotifPush');
+  const form = document.getElementById('pageSettingsForm');
+
+  if (cSelect) {
+    cSelect.value = localStorage.getItem('km_app_country') || 'IN';
+  }
+  if (nCrops) {
+    nCrops.checked = localStorage.getItem('km_notif_crops') !== 'false';
+  }
+  if (nPush) {
+    nPush.checked = localStorage.getItem('km_notif_push') !== 'false';
+  }
+
+  const savedUnit = localStorage.getItem('km_temp_unit') || 'C';
+  const uRadio = document.querySelector(`input[name="pageTempUnit"][value="${savedUnit}"]`);
+  if (uRadio) {
+    uRadio.checked = true;
+  }
+
+  document.querySelectorAll('input[name="pageTempUnit"]').forEach(function(r) {
+    r.addEventListener('change', function() {
+      localStorage.setItem('km_temp_unit', this.value);
+      window.dispatchEvent(new CustomEvent('km:temp_unit_change', { detail: { unit: this.value } }));
+    });
+  });
+
+  if (form) {
+    form.addEventListener('submit', function() {
+      if (cSelect) localStorage.setItem('km_app_country', cSelect.value);
+      if (nCrops) localStorage.setItem('km_notif_crops', String(nCrops.checked));
+      if (nPush) localStorage.setItem('km_notif_push', String(nPush.checked));
+      const u = document.querySelector('input[name="pageTempUnit"]:checked');
+      if (u) {
+        localStorage.setItem('km_temp_unit', u.value);
+        window.dispatchEvent(new CustomEvent('km:temp_unit_change', { detail: { unit: u.value } }));
+      }
+    });
+  }
+})();
+</script>
+{% endblock %}
+

@@ -1,6 +1,7 @@
 """Conservative weather screening, not a pesticide recommendation or water prescription."""
 from datetime import datetime, timedelta, timezone
 import math
+from .spray import calculate_wet_bulb, evaluate_spray_condition
 
 
 def number(value):
@@ -23,13 +24,22 @@ def build_plan(days, crops, growing_place='', soil='unknown', now=None):
         complete=(len(horizon)>=3 and all(horizon[n+1]['when']-horizon[n]['when']==timedelta(hours=3) for n in range(len(horizon)-1)))
         valid=complete and all(number(s.get(k)) for s in horizon for k in ('temp','humidity','wind','pop','rain','code'))
         spray='Insufficient forecast'
+        delta_t_val='—'
+        delta_t_ok=False
+        spray_reason=''
         if valid:
-            risky=any(s['rain']>0 or s['pop']>=.3 or s.get('code',800)<600 for s in horizon)
-            unsafe=(not slot['daylight'] or not 8<=slot['when'].hour<17 or not 1.5<=slot['wind']<=3.3
-                    or (number(slot.get('gust')) and slot['gust']>4.5)
-                    or not 10<=slot['temp']<=28 or not 40<=slot['humidity']<=85 or risky
-                    or slot.get('code') in (701,741))
-            spray='Avoid' if unsafe else 'Check conditions'
+            wind_kmh = slot['wind'] * 3.6
+            rain_3h = (slot.get('rain', 0) > 0) or (slot.get('pop', 0) >= 0.3) or (slot.get('code', 800) < 600) or any(s['rain'] > 0 or s['pop'] >= 0.3 or s.get('code', 800) < 600 for s in horizon)
+            eval_res = evaluate_spray_condition(slot['temp'], slot['humidity'], wind_kmh, rain_3h)
+            delta_t_val = f"{eval_res['delta_t']} °C"
+            delta_t_ok = (2 <= eval_res['delta_t'] <= 8)
+            spray_reason = eval_res['reason']
+
+            daylight_ok = slot.get('daylight', False) and 8 <= slot['when'].hour < 17
+            gust_ok = not (number(slot.get('gust')) and slot['gust'] > 4.5)
+            fog_ok = slot.get('code') not in (701, 741)
+            unsafe = (not daylight_ok or not gust_ok or not fog_ok or eval_res['status'] in ('DO_NOT_SPRAY', 'POOR_CONDITIONS'))
+            spray = 'Avoid' if unsafe else 'Check conditions'
         irrigation='Insufficient forecast'
         if valid:
             if soil=='wet' or any(s['rain']>=1 or s['pop']>=.5 for s in horizon) or slot['temp']<=4:
@@ -48,6 +58,8 @@ def build_plan(days, crops, growing_place='', soil='unknown', now=None):
              'ok':number(slot.get('temp')) and 10<=slot['temp']<=28},
             {'label':'Relative humidity (%)','value':f"{slot.get('humidity')}%" if number(slot.get('humidity')) else '—',
              'ok':number(slot.get('humidity')) and 40<=slot['humidity']<=85},
+            {'label':'Delta T (°C)','value':delta_t_val,
+             'ok':delta_t_ok},
             {'label':'Wind speed','value':f"{slot.get('wind')} m/s" if number(slot.get('wind')) else '—',
              'ok':number(slot.get('wind')) and 1.5<=slot['wind']<=3.3},
             {'label':'Rainfall (mm)','value':f"{sum(s['rain'] for s in horizon):.1f} mm" if valid else '—',
@@ -60,6 +72,7 @@ def build_plan(days, crops, growing_place='', soil='unknown', now=None):
         if number(slot.get('gust')):
             checks.append({'label':'Wind gust','value':f"{slot['gust']} m/s",'ok':slot['gust']<=4.5})
         planned.append({**slot,'checks':checks,'spray':spray,'irrigation':irrigation,
+                        'delta_t':delta_t_val,'spray_reason':spray_reason,
                         'spray_class':'candidate' if spray=='Check conditions' else ('avoid' if spray=='Avoid' else 'unknown'),
                         'irrigation_class':'candidate' if irrigation=='Check conditions' else ('avoid' if irrigation=='Avoid' else 'unknown')})
     daily=[]

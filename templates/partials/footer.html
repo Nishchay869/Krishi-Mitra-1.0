@@ -1,0 +1,160 @@
+{% load static i18n farm_i18n %}
+<!-- Krishi Mitra Modern 4-Column Footer (Mobile & Tablet Optimized) -->
+<footer class="app-footer-4col mt-5 w-100">
+  <div class="footer-container mx-auto px-4 pt-5 pb-5">
+    <div class="footer-main-grid">
+      
+      <!-- Brand & Mission Column -->
+      <div class="footer-brand-col">
+        <div class="footer-brand-header d-flex align-items-center gap-2">
+          <img
+            src="{% static 'images/logo-icon.png' %}?v={{ STATIC_VERSION }}"
+            alt="Krishi Mitra"
+            class="footer-brand-logo rounded-circle"
+            width="34"
+            height="34"
+            onerror="this.src='{% static 'favicon.png' %}'"
+          >
+          <span class="footer-brand-title fw-bold">Krishi Mitra</span>
+        </div>
+
+        <p class="footer-brand-desc mt-3">
+          AI-powered farming companion designed for Indian farmers. Diagnose crop diseases with AI, get accurate spraying time windows, daily weather, and real-time mandi prices.
+        </p>
+
+        <!-- Social Media Icons List -->
+        <ul class="footer-social-list list-unstyled d-flex gap-3 mt-4 mb-0">
+          <li>
+            <a href="https://facebook.com/krishimitra" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Facebook">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+              </svg>
+            </a>
+          </li>
+          <li>
+            <a href="https://instagram.com/krishimitra" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Instagram">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+              </svg>
+            </a>
+          </li>
+          <li>
+            <a href="https://twitter.com/krishimitra" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Twitter">
+              <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+              </svg>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/krishimitra" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="GitHub">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+              </svg>
+            </a>
+          </li>
+          <li>
+            <a href="https://dribbble.com/krishimitra" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Dribbble">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm9.885 11.441c-2.574-.117-4.945.419-7.07 1.343-.328-.75-.688-1.503-1.077-2.247 2.656-1.123 4.887-2.738 6.44-4.832 1.109 1.644 1.707 3.593 1.707 5.736zm-3.08-7.391c-1.391 1.936-3.414 3.439-5.836 4.472-1.189-2.225-2.183-4.498-2.909-6.671 1.28-.431 2.651-.671 4.076-.671 1.75 0 3.398.423 4.669 1.17zm-9.014-1.139c.753 2.152 1.764 4.398 2.969 6.595-2.937 1.002-6.19 1.455-9.615 1.408.824-3.568 3.518-6.49 6.646-8.003zm-7.791 10.089c3.743.05 7.291-.452 10.485-1.57.362.709.7 1.434 1.009 2.155-3.324 1.954-5.69 4.962-6.845 8.784-2.821-1.802-4.649-4.877-4.649-8.369v-1zm9.645 10.669c1.075-3.642 3.308-6.486 6.467-8.312.87 2.378 1.31 4.954 1.188 7.551-2.151 1.347-4.708 2.053-7.406 2.053-.083 0-.166-.002-.249-.005v-.287zm9.034-2.483c.121-2.434-.301-4.856-1.134-7.094 1.921-.861 4.022-1.353 6.302-1.258-.231 3.253-1.898 6.13-4.453 8.352h-.715z"/>
+              </svg>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- 4-Column Navigation Links Grid -->
+      <div class="footer-columns-grid">
+        
+        <!-- Column 1: About Us -->
+        <div class="footer-col">
+          <p class="footer-col-title fw-semibold">About Us</p>
+          <ul class="footer-links-list list-unstyled mt-3">
+            <li><a href="{% url 'home' %}#about" class="footer-nav-link">Project Mission</a></li>
+            <li><a href="{% url 'home' %}#team" class="footer-nav-link">Meet the Team</a></li>
+            <li><a href="{% url 'crops:pests' %}" class="footer-nav-link">Pest & Advisory Guide</a></li>
+            <li><a href="{% url 'crops:library' %}" class="footer-nav-link">Cultivation Guides</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 2: Our Services -->
+        <div class="footer-col">
+          <p class="footer-col-title fw-semibold">Our Services</p>
+          <ul class="footer-links-list list-unstyled mt-3">
+            <li><a href="{% url 'disease:detect' %}" class="footer-nav-link">Disease Diagnosis</a></li>
+            <li><a href="{% url 'weather:forecast' %}" class="footer-nav-link">Spraying Advisory</a></li>
+            <li><a href="{% url 'market:prices' %}" class="footer-nav-link">Mandi Market Prices</a></li>
+            <li><a href="{% url 'crops:recommend' %}" class="footer-nav-link">Crop Advisor & Yield</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 3: Helpful Links (with Live Indicator) -->
+        <div class="footer-col">
+          <p class="footer-col-title fw-semibold">Helpful Links</p>
+          <ul class="footer-links-list list-unstyled mt-3">
+            <li><a href="tel:18001801551" class="footer-nav-link">Kisan Call Centre</a></li>
+            <li><a href="{% url 'crops:fertilizer' %}" class="footer-nav-link">Fertilizer Calculator</a></li>
+            <li>
+              <a href="{% url 'chatbot:chat' %}" class="footer-nav-link d-inline-flex align-items-center gap-2">
+                <span>AI Live Chat</span>
+                <!-- Glowing Live Ping Indicator -->
+                <span class="live-indicator-wrapper" aria-hidden="true" title="Live AI Assistant Online">
+                  <span class="live-indicator-ping"></span>
+                  <span class="live-indicator-dot"></span>
+                </span>
+              </a>
+            </li>
+            <li><a href="{% url 'accounts:profile' %}" class="footer-nav-link">My Farm Profile</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 4: Contact Us -->
+        <div class="footer-col">
+          <p class="footer-col-title fw-semibold">Contact Us</p>
+          <ul class="footer-contact-list list-unstyled mt-3">
+            <li>
+              <a href="mailto:hello@krishimitra.in" class="footer-contact-link d-flex align-items-center gap-2">
+                <svg class="footer-contact-icon text-primary flex-shrink-0" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect width="20" height="16" x="2" y="4" rx="2"/>
+                  <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+                </svg>
+                <span>hello@krishimitra.in</span>
+              </a>
+            </li>
+            <li>
+              <a href="tel:18001801551" class="footer-contact-link d-flex align-items-center gap-2">
+                <svg class="footer-contact-icon text-primary flex-shrink-0" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                </svg>
+                <span>1800-180-1551</span>
+              </a>
+            </li>
+            <li>
+              <div class="footer-contact-link d-flex align-items-start gap-2">
+                <svg class="footer-contact-icon text-primary flex-shrink-0 mt-1" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/>
+                  <circle cx="12" cy="10" r="3"/>
+                </svg>
+                <address class="footer-address-text m-0 not-italic">
+                  Kolkata, West Bengal, India
+                </address>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Bottom Bar (Copyright & Agricultural sources note) -->
+    <div class="footer-bottom-bar mt-5 pt-4 border-top">
+      <div class="d-flex flex-column flex-sm-row justify-content-between align-items-center gap-2 text-center text-sm-start">
+        <p class="footer-copyright-text m-0 small">
+          &copy; 2025 Krishi Mitra. All rights reserved.
+        </p>
+        <p class="footer-disclaimer-text m-0 small">
+          {% translate "Better decisions. Healthier farms." %} {% translate "Advice grounded in Indian public agricultural sources." %}
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>

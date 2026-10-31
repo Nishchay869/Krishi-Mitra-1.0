@@ -72,7 +72,7 @@
   function setLoading(on) {
     button.disabled = on;
     button.innerHTML = on
-      ? `<span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>${t('Analyzing with Gemini…')}`
+      ? `<span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>${t('Analyzing leaf photo…')}`
       : origLabel;
     if (on) showLoader();
   }
@@ -88,8 +88,8 @@
         <div class="assessment-loading-spinner">
           <span class="spinner-border" style="width:2.5rem;height:2.5rem;color:#6a9a4a" role="status"></span>
         </div>
-        <p class="assessment-loading-text">${t('Gemini is analyzing your leaf photo…')}</p>
-        <p class="assessment-loading-sub">${t('This usually takes 10–30 seconds.')}</p>
+        <p class="assessment-loading-text">${t('ML model is analyzing your leaf photo…')}</p>
+        <p class="assessment-loading-sub">${t('Running deep learning disease classification…')}</p>
       </div>`;
   }
 
@@ -206,7 +206,7 @@
 
         <header class="assessment-summary ${esc(r.status)}">
           <div class="assessment-top">
-            <span class="eyebrow">${t('GEMINI · AI PHOTO ASSESSMENT')}</span>
+            <span class="eyebrow">${t('ML MODEL · LEAF PHOTO ASSESSMENT')}</span>
             <span class="assessment-state">${statusLabel(r.status)}</span>
           </div>
           <p class="assessment-plant">${esc(r.plant || '')}</p>

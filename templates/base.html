@@ -1,15 +1,20 @@
-{% load i18n farm_i18n %}{% load static %}<!doctype html>
+{% load i18n farm_i18n %}{% load static %}
+<!doctype html>
 {% get_current_language as LANGUAGE_CODE %}
 {% get_current_language_bidi as LANGUAGE_BIDI %}
 <html lang="{{ LANGUAGE_CODE }}" dir="{% if LANGUAGE_BIDI %}rtl{% else %}ltr{% endif %}">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{% block title %}{% translate "Krishi Mitra" %}{% endblock %} {% translate "· AI Agriculture Assistant" %}</title>
+  <title>{% block title %}{% translate "Krishi Mitra" %}{% endblock %} {% translate "· AI Agriculture Assistant" %}
+  </title>
   <link rel="icon" type="image/x-icon" href="{% static 'favicon.ico' %}">
   <link rel="icon" type="image/png" sizes="64x64" href="{% static 'favicon.png' %}">
   <link rel="apple-touch-icon" href="{% static 'images/logo-icon.png' %}">
-  <link href="{% if LANGUAGE_BIDI %}{% static 'vendor/bootstrap/bootstrap.rtl.min.css' %}{% else %}{% static 'vendor/bootstrap/bootstrap.min.css' %}{% endif %}" rel="stylesheet">
+  <link
+    href="{% if LANGUAGE_BIDI %}{% static 'vendor/bootstrap/bootstrap.rtl.min.css' %}{% else %}{% static 'vendor/bootstrap/bootstrap.min.css' %}{% endif %}"
+    rel="stylesheet">
   <link href="{% static 'vendor/bootstrap-icons/bootstrap-icons.min.css' %}" rel="stylesheet">
   <link href="{% static 'css/app.css' %}?v={{ STATIC_VERSION }}" rel="stylesheet">
   <link href="{% static 'frontend/islands.css' %}?v={{ STATIC_VERSION }}" rel="stylesheet">
@@ -17,155 +22,291 @@
   <link href="{% static 'css/premium.css' %}?v={{ STATIC_VERSION }}" rel="stylesheet">
   <link href="{% static 'css/coming-soon.css' %}?v={{ STATIC_VERSION }}" rel="stylesheet">
   {% block extra_head %}{% endblock %}
+  <script>
+    (function () {
+      try {
+        var params = new URLSearchParams(window.location.search);
+        if (params.has('intro')) {
+          sessionStorage.removeItem('km_intro_played');
+        }
+        if (sessionStorage.getItem('km_intro_played')) {
+          document.documentElement.classList.add('no-intro-loader');
+        }
+      } catch (e) { }
+    })();
+  </script>
 </head>
+
 <body class="{% block body_class %}{% endblock %}">
-<div id="site-intro-loader" class="site-intro-loader" style="background: #d0e7d3;" aria-label="{% translate 'Loading Krishi Mitra' %}">
-  <div class="intro-loader-content">
-    <div class="intro-video-wrapper">
-      <video id="intro-loader-video"
-             src="{% static 'videos/intro-loader.mp4' %}"
-             autoplay
-             muted
-             playsinline
-             preload="auto">
-      </video>
+  <div id="site-intro-loader" class="site-intro-loader" style="background: #c9e5cb;"
+    aria-label="Krishi Mitra">
+    <div class="intro-loader-content">
+      <div class="intro-video-wrapper">
+        <video id="intro-loader-video" src="{% static 'videos/intro-loader.mp4' %}" autoplay muted playsinline
+          preload="auto">
+        </video>
+      </div>
     </div>
+    <button type="button" class="intro-skip-btn" id="intro-skip-btn" aria-label="Skip">
+      <span>Skip</span> <i class="bi bi-arrow-right" aria-hidden="true"></i>
+    </button>
   </div>
-  <button type="button" class="intro-skip-btn" id="intro-skip-btn" aria-label="{% translate 'Skip intro' %}">
-    <span>{% translate "Skip" %}</span> <i class="bi bi-arrow-right" aria-hidden="true"></i>
-  </button>
-</div>
-<script>
-(function() {
-  var loader = document.getElementById('site-intro-loader');
-  if (!loader) return;
-  var video = document.getElementById('intro-loader-video');
-  var skipBtn = document.getElementById('intro-skip-btn');
-  var dismissed = false;
+  <script>
+    (function () {
+      var loader = document.getElementById('site-intro-loader');
+      if (!loader) return;
 
-  function dismiss() {
-    if (dismissed) return;
-    dismissed = true;
-    loader.classList.add('fade-out');
-    setTimeout(function() {
-      if (loader && loader.parentNode) {
-        loader.parentNode.removeChild(loader);
+      try {
+        if (sessionStorage.getItem('km_intro_played')) {
+          if (loader.parentNode) loader.parentNode.removeChild(loader);
+          return;
+        }
+        // Mark as played so it only appears once when starting the app
+        sessionStorage.setItem('km_intro_played', '1');
+      } catch (e) { }
+
+      var video = document.getElementById('intro-loader-video');
+      var skipBtn = document.getElementById('intro-skip-btn');
+      var dismissed = false;
+
+      function matchBg() {
+        try {
+          var c = document.createElement('canvas');
+          c.width = 4;
+          c.height = 4;
+          var ctx = c.getContext('2d');
+          ctx.drawImage(video, 0, 0, 4, 4);
+          var p = ctx.getImageData(1, 1, 1, 1).data;
+          if (p && p[3] > 0) {
+            var col = 'rgb(' + p[0] + ',' + p[1] + ',' + p[2] + ')';
+            loader.style.backgroundColor = col;
+            var wrapper = document.querySelector('.intro-video-wrapper');
+            if (wrapper) wrapper.style.backgroundColor = col;
+          }
+        } catch (e) { }
       }
-    }, 650);
-  }
 
-  if (video) {
-    video.addEventListener('ended', dismiss);
-    video.addEventListener('error', dismiss);
-    var p = video.play();
-    if (p && typeof p.catch === 'function') {
-      p.catch(function() {});
-    }
-  }
+      function dismiss() {
+        if (dismissed) return;
+        dismissed = true;
+        loader.classList.add('fade-out');
+        setTimeout(function () {
+          if (loader && loader.parentNode) {
+            loader.parentNode.removeChild(loader);
+          }
+        }, 550);
+      }
 
-  if (skipBtn) {
-    skipBtn.addEventListener('click', function(e) {
-      e.stopPropagation();
-      dismiss();
-    });
-  }
+      if (video) {
+        video.addEventListener('loadeddata', matchBg);
+        video.addEventListener('canplay', matchBg);
+        video.addEventListener('playing', matchBg);
+        video.addEventListener('ended', dismiss);
+        video.addEventListener('error', dismiss);
+        var p = video.play();
+        if (p && typeof p.catch === 'function') {
+          p.catch(function () { });
+        }
+      }
 
-  loader.addEventListener('click', dismiss);
+      if (skipBtn) {
+        skipBtn.addEventListener('click', function (e) {
+          e.stopPropagation();
+          dismiss();
+        });
+      }
 
-  setTimeout(dismiss, 3300);
-})();
-</script>
-<div id="connection-status" class="alert alert-info m-3" role="status" hidden>
-  <strong>{% translate 'You’re offline.' %}</strong>
-  {% translate 'Reconnect to use account tools, weather, and live market prices.' %}
-</div>
-<a class="skip-link" href="#main-content">{% translate "Skip to content" %}</a>
-<nav class="navbar navbar-expand-xl navbar-light site-nav">
-  <div class="container">
-    <a class="navbar-brand fw-semibold d-inline-flex align-items-center" href="{% url 'home' %}" aria-label="{% translate 'Krishi Mitra Home' %}">
-      <img src="{% static 'images/logo.png' %}?v={{ STATIC_VERSION }}" alt="Krishi Mitra" class="brand-logo" height="42">
-    </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav" aria-controls="nav" aria-expanded="false" aria-label="{% translate 'Toggle navigation' %}"><span class="navbar-toggler-icon"></span></button>
-    <div class="collapse navbar-collapse" id="nav">
-      {% if user.is_authenticated %}
-      <ul class="navbar-nav me-auto">
-        <li class="nav-item"><a class="nav-link" href="{% url 'home' %}?experience=iot&amp;view=analytics"><i class="bi bi-bar-chart-line" aria-hidden="true"></i> {% translate "IoT Analytics" %}</a></li>
-        <li class="nav-item"><a class="nav-link" href="{% url 'accounts:dashboard' %}">{% translate "Dashboard" %}</a></li>
-        <li class="nav-item"><a class="nav-link" href="{% url 'chatbot:chat' %}">{% translate "Ask Assistant" %}</a></li>
-        <li class="nav-item"><a class="nav-link" href="{% url 'crops:recommend' %}">{% translate "Crop Advisor" %}</a></li>
-        <li class="nav-item"><a class="nav-link" href="{% url 'crops:yield' %}">{% translate "Yield Estimate" %}</a></li>
-        <li class="nav-item"><a class="nav-link" href="{% url 'disease:detect' %}">{% translate "Disease Check" %}</a></li>
-        <li class="nav-item"><a class="nav-link" href="{% url 'weather:forecast' %}">{% translate "Weather" %}</a></li>
-        <li class="nav-item"><a class="nav-link" href="{% url 'crops:library' %}">{% translate "Library" %}</a></li>
-        <li class="nav-item"><a class="nav-link" href="{% url 'market:prices' %}">{% translate "Market Prices" %}</a></li>
-      </ul>
-      <ul class="navbar-nav">
-        {% if user.profile.is_admin %}<li class="nav-item"><a class="nav-link" href="{% url 'admin:index' %}">{% translate "Admin panel" %}</a></li>{% endif %}
-        <li class="nav-item"><a class="nav-link" href="{% url 'accounts:profile' %}"><i class="bi bi-person-circle"></i> {{ user.first_name|default:user.email }}</a></li>
-        <li class="nav-item">
-          <form method="post" action="{% url 'accounts:logout' %}">{% csrf_token %}<button class="btn btn-link nav-link">{% translate "Logout" %}</button></form>
-        </li>
-      </ul>
-      {% else %}
-      <ul class="navbar-nav ms-auto">
-        <li class="nav-item"><a class="nav-link" href="{% url 'home' %}?experience=iot&amp;view=analytics"><i class="bi bi-bar-chart-line" aria-hidden="true"></i> {% translate "IoT Analytics" %}</a></li>
-        <li class="nav-item"><a class="nav-link" href="{% url 'crops:library' %}">{% translate "Library" %}</a></li>
-        <li class="nav-item"><a class="nav-link" href="{% url 'home' %}#tools">{% translate "Explore tools" %}</a></li><li class="nav-item"><a class="nav-link" href="{% url 'accounts:login' %}">{% translate "Log in" %}</a></li>
-        <li class="nav-item"><a class="btn btn-agri" href="{% url 'accounts:register' %}">{% translate "Get started" %} <i class="bi bi-arrow-up-right"></i></a></li>
-      </ul>
-      {% endif %}
+      loader.addEventListener('click', dismiss);
+
+      setTimeout(dismiss, 3200);
+    })();
+  </script>
+  <div id="connection-status" class="alert alert-info m-3" role="status" hidden>
+    <strong>{% translate 'You’re offline.' %}</strong>
+    {% translate 'Reconnect to use account tools, weather, and live market prices.' %}
+  </div>
+  <a class="skip-link" href="#main-content">{% translate "Skip to content" %}</a>
+  <span class="visually-hidden">{% translate "Dashboard" %}</span>
+  <header class="site-header">
+    <div class="site-header-container">
+      <a class="site-header-brand" href="{% url 'home' %}" aria-label="Krishi Mitra Home">
+        <img src="{% static 'images/logo.png' %}?v={{ STATIC_VERSION }}" alt="Krishi Mitra" class="brand-logo"
+          height="38">
+      </a>
+
+      <div class="site-header-actions">
+        <!-- 3-dots Menu Dropdown -->
+        <div class="dropdown">
+          <button class="site-header-more-btn" type="button" id="siteMenuBtn" data-bs-toggle="dropdown"
+            aria-expanded="false" aria-label="More options">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <circle cx="12" cy="5" r="2"></circle>
+              <circle cx="12" cy="12" r="2"></circle>
+              <circle cx="12" cy="19" r="2"></circle>
+            </svg>
+          </button>
+          <ul class="dropdown-menu dropdown-menu-end shadow-sm site-header-dropdown" aria-labelledby="siteMenuBtn">
+            <li><a class="dropdown-item" href="{% url 'accounts:settings' %}" data-bs-toggle="modal" data-bs-target="#settingsModal"><i class="bi bi-gear me-2 text-muted" aria-hidden="true"></i> Settings</a></li>
+            <li><a class="dropdown-item" href="#give-feedback" data-bs-toggle="modal" data-bs-target="#feedbackModal"><i class="bi bi-chat-square-text me-2 text-muted" aria-hidden="true"></i> Give Feedback</a></li>
+            <li><a class="dropdown-item" href="#recommend" data-bs-toggle="modal" data-bs-target="#recommendModal"><i class="bi bi-share me-2 text-muted" aria-hidden="true"></i> Recommend Krishi Mitra</a></li>
+            <li><a class="dropdown-item" href="#contact-social"><i class="bi bi-people me-2 text-muted" aria-hidden="true"></i> Contact and Social</a></li>
+            <li><a class="dropdown-item" href="#legal-notices"><i class="bi bi-shield-check me-2 text-muted" aria-hidden="true"></i> Legal Notices</a></li>
+            <li><a class="dropdown-item" href="#quickstart"><i class="bi bi-lightning-charge me-2 text-muted" aria-hidden="true"></i> Quickstart</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content" class="container site-main" tabindex="-1">
+    {% for message in messages %}
+    <div class="alert alert-{{ message.tags|default:'info' }} alert-dismissible fade show">{{ message }}<button
+        type="button" class="btn-close" aria-label="{% translate 'Dismiss notification' %}"
+        data-bs-dismiss="alert"></button></div>
+    {% endfor %}
+    {% block content %}{% endblock %}
+  </main>
+
+  {% include 'partials/footer.html' %}
+
+  {% if user.is_authenticated %}
+  {% if VOICE_ENABLED %}
+  {# Floating launcher: live voice conversation on every page, including Ask Assistant. #}
+  <button id="chat-toggle" class="btn btn-agri rounded-circle shadow chat-toggle-voice"
+    aria-label="{% translate 'Talk to Farm Assistant (live voice)' %}"
+    title="{% translate 'Talk to Farm Assistant' %}"><i class="bi bi-mic-fill"></i></button>
+  {% elif request.resolver_match.url_name != 'chat' %}
+  <button id="chat-toggle" class="btn btn-agri rounded-circle shadow" aria-label="{% translate 'Open assistant' %}"><i
+      class="bi bi-chat-dots-fill"></i></button>
+  {% endif %}
+  {% if request.resolver_match.url_name != 'chat' %}
+  <div id="chat-widget" class="card shadow d-none">
+    <div class="card-header bg-agri text-white d-flex justify-content-between align-items-center">
+      <span><i class="bi bi-robot"></i> {% translate "Farm Assistant" %}</span>
+      <span class="d-flex align-items-center gap-2">
+        {% if VOICE_ENABLED %}<button type="button" class="btn btn-sm text-white p-0" data-voice-toggle
+          aria-label="{% translate 'Voice replies' %}"></button>{% endif %}
+        <button id="chat-close" class="btn-close btn-close-white" aria-label="{% translate 'Close' %}"></button>
+      </span>
+    </div>
+    <div class="card-body chat-log" data-chat-log></div>
+    <form class="card-footer d-flex gap-2" data-chat-form>
+      <input class="form-control" name="message" aria-label="{% translate 'Your farming question' %}"
+        placeholder="{% translate 'Ask in any language…' %}" autocomplete="off" required maxlength="1000">
+      {% if VOICE_ENABLED %}<button type="button" class="btn btn-outline-secondary mic-dictate" data-mic
+        title="{% translate 'Dictate: speak and the words appear in the box' %}"
+        aria-label="{% translate 'Dictate your question' %}"><i class="bi bi-mic-fill"></i></button>{% endif %}
+      <button class="btn btn-agri" aria-label="{% translate 'Send' %}"><i class="bi bi-send"></i></button>
+    </form>
+  </div>
+  {% endif %}
+  {% endif %}
+
+  {% csrf_token %}
+  <script>
+    window.CHAT_API_URL = "{% url 'chatbot:api' %}";
+    window.CHAT_VOICE_URL = "{% url 'chatbot:voice' %}";
+    window.CHAT_TRANSCRIBE_URL = "{% url 'chatbot:transcribe' %}";
+    {% if VOICE_ENABLED %} window.CHAT_SPEAK_URL = "{% url 'chatbot:speak' 0 %}";
+    window.CHAT_GREETING_URL = "{% url 'chatbot:greeting' %}"; {% endif %}
+  </script>
+  <script src="{% static 'vendor/bootstrap/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% url 'javascript-catalog' %}"></script>
+  <script src="{% static 'js/chat.js' %}?v={{ STATIC_VERSION }}"></script>
+  <script type="module" src="{% static 'frontend/islands.js' %}?v={{ STATIC_VERSION }}"></script>
+  <script src="{% static 'js/offline-client.js' %}?v={{ STATIC_VERSION }}"></script>
+  <!-- Global Plantix-Style Bottom Navigation Bar -->
+  <nav class="site-bottom-nav" aria-label="Mobile Navigation">
+    <div class="bottom-nav-inner">
+      {# 1. Your crops (Home) #}
+      <a href="{% url 'home' %}"
+        class="bottom-nav-item {% if request.resolver_match.url_name == 'home' and not request.GET.experience %}is-active{% endif %}">
+        <div class="bottom-nav-icon-wrap">
+          <svg class="bottom-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M7 20h10" />
+            <path d="M10 20c5.5-2.5.8-6.4 3-10" />
+            <path d="M9.5 9.4c1.1.8 1.8 2.2 2.3 3.7-2 .4-3.5.4-4.8-.3-1.2-.6-2.3-1.9-3-4.2 2.8-.5 4.4 0 5.5.8z" />
+            <path d="M14.1 6a7 7 0 0 0-1.1 4c1.9-.1 3.3-.6 4.3-1.4 1-1 1.6-2.3 1.7-4.6-2.7.1-4 1-4.9 2z" />
+          </svg>
+        </div>
+        <span class="bottom-nav-label">Your crops</span>
+      </a>
+
+      {# 2. Community (Chat / Assistant) #}
+      <a href="{% url 'chatbot:chat' %}"
+        class="bottom-nav-item {% if request.resolver_match.app_name == 'chatbot' %}is-active{% endif %}">
+        <div class="bottom-nav-icon-wrap">
+          <svg class="bottom-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+            <path d="M9 10h.01"></path>
+            <path d="M15 10h.01"></path>
+            <path d="M12 10h.01"></path>
+          </svg>
+        </div>
+        <span class="bottom-nav-label">Community</span>
+      </a>
+
+      {# 3. Market (Prices) #}
+      <a href="{% url 'market:prices' %}"
+        class="bottom-nav-item {% if request.resolver_match.app_name == 'market' %}is-active{% endif %}">
+        <div class="bottom-nav-icon-wrap">
+          <svg class="bottom-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+          </svg>
+        </div>
+        <span class="bottom-nav-label">Market</span>
+      </a>
+
+      {# 4. You (Dashboard / Profile) #}
+      <a href="{% if user.is_authenticated %}{% url 'accounts:dashboard' %}{% else %}{% url 'accounts:login' %}{% endif %}"
+        class="bottom-nav-item {% if request.resolver_match.app_name == 'accounts' %}is-active{% endif %}">
+        <div class="bottom-nav-icon-wrap">
+          <span class="bottom-nav-dot" aria-hidden="true"></span>
+          <svg class="bottom-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+        </div>
+        <span class="bottom-nav-label">You</span>
+      </a>
+    </div>
+  </nav>
+
+  {% include 'partials/settings_modal.html' %}
+  {% include 'partials/feedback_modal.html' %}
+  {% include 'partials/spray_time_modal.html' %}
+  {% include 'partials/recommend_modal.html' %}
+
+  <div id="kmFloatingToast" class="km-floating-toast d-none" role="status" aria-live="polite">
+    <div class="km-floating-toast-body">
+      <i class="bi bi-check-circle-fill km-toast-icon"></i>
+      <span class="km-toast-message"></span>
     </div>
   </div>
-</nav>
+  <script>
+    window.showKrishiToast = function(message, isSuccess = true) {
+      const toastEl = document.getElementById('kmFloatingToast');
+      if (!toastEl) return;
+      const msgEl = toastEl.querySelector('.km-toast-message');
+      const iconEl = toastEl.querySelector('.km-toast-icon');
+      if (msgEl) msgEl.textContent = message;
+      if (iconEl) {
+        iconEl.className = isSuccess ? 'bi bi-check-circle-fill km-toast-icon text-success' : 'bi bi-exclamation-circle-fill km-toast-icon text-warning';
+      }
+      toastEl.classList.remove('d-none');
+      if (window._kmToastTimeout) clearTimeout(window._kmToastTimeout);
+      window._kmToastTimeout = setTimeout(() => {
+        toastEl.classList.add('d-none');
+      }, 2500);
+    };
+  </script>
 
-<main id="main-content" class="container site-main" tabindex="-1">
-  {% for message in messages %}
-  <div class="alert alert-{{ message.tags|default:'info' }} alert-dismissible fade show">{{ message }}<button type="button" class="btn-close" aria-label="{% translate 'Dismiss notification' %}" data-bs-dismiss="alert"></button></div>
-  {% endfor %}
-  {% block content %}{% endblock %}
-</main>
-
-<footer class="site-footer"><div class="container footer-inner"><div><a class="footer-brand d-inline-block" href="{% url 'home' %}"><img src="{% static 'images/logo.png' %}?v={{ STATIC_VERSION }}" alt="Krishi Mitra" class="footer-logo" height="38"></a><p>{% translate "Better decisions. Healthier farms." %}</p></div><div class="footer-help"><span>{% translate "Need a helping hand?" %}</span><a href="tel:18001801551">{% translate "Kisan Call Centre · 1800-180-1551" %} <i class="bi bi-arrow-up-right"></i></a><small>{% translate "Advice grounded in Indian public agricultural sources." %}</small></div></div></footer>
-
-{% if user.is_authenticated %}
-{% if VOICE_ENABLED %}
-{# Floating launcher: live voice conversation on every page, including Ask Assistant. #}
-<button id="chat-toggle" class="btn btn-agri rounded-circle shadow chat-toggle-voice" aria-label="{% translate 'Talk to Farm Assistant (live voice)' %}" title="{% translate 'Talk to Farm Assistant' %}"><i class="bi bi-mic-fill"></i></button>
-{% elif request.resolver_match.url_name != 'chat' %}
-<button id="chat-toggle" class="btn btn-agri rounded-circle shadow" aria-label="{% translate 'Open assistant' %}"><i class="bi bi-chat-dots-fill"></i></button>
-{% endif %}
-{% if request.resolver_match.url_name != 'chat' %}
-<div id="chat-widget" class="card shadow d-none">
-  <div class="card-header bg-agri text-white d-flex justify-content-between align-items-center">
-    <span><i class="bi bi-robot"></i> {% translate "Farm Assistant" %}</span>
-    <span class="d-flex align-items-center gap-2">
-      {% if VOICE_ENABLED %}<button type="button" class="btn btn-sm text-white p-0" data-voice-toggle aria-label="{% translate 'Voice replies' %}"></button>{% endif %}
-      <button id="chat-close" class="btn-close btn-close-white" aria-label="{% translate 'Close' %}"></button>
-    </span>
-  </div>
-  <div class="card-body chat-log" data-chat-log></div>
-  <form class="card-footer d-flex gap-2" data-chat-form>
-    <input class="form-control" name="message" aria-label="{% translate 'Your farming question' %}" placeholder="{% translate 'Ask in any language…' %}" autocomplete="off" required maxlength="1000">
-    {% if VOICE_ENABLED %}<button type="button" class="btn btn-outline-secondary mic-dictate" data-mic title="{% translate 'Dictate: speak and the words appear in the box' %}" aria-label="{% translate 'Dictate your question' %}"><i class="bi bi-mic-fill"></i></button>{% endif %}
-    <button class="btn btn-agri" aria-label="{% translate 'Send' %}"><i class="bi bi-send"></i></button>
-  </form>
-</div>
-{% endif %}
-{% endif %}
-
-{% csrf_token %}
-<script>
-  window.CHAT_API_URL = "{% url 'chatbot:api' %}";
-  window.CHAT_VOICE_URL = "{% url 'chatbot:voice' %}";
-  window.CHAT_TRANSCRIBE_URL = "{% url 'chatbot:transcribe' %}";
-  {% if VOICE_ENABLED %}window.CHAT_SPEAK_URL = "{% url 'chatbot:speak' 0 %}";
-  window.CHAT_GREETING_URL = "{% url 'chatbot:greeting' %}";{% endif %}
-</script>
-<script src="{% static 'vendor/bootstrap/bootstrap.bundle.min.js' %}"></script>
-<script src="{% url 'javascript-catalog' %}"></script>
-<script src="{% static 'js/chat.js' %}?v={{ STATIC_VERSION }}"></script>
-<script type="module" src="{% static 'frontend/islands.js' %}?v={{ STATIC_VERSION }}"></script>
-<script src="{% static 'js/offline-client.js' %}?v={{ STATIC_VERSION }}"></script>
-{% block scripts %}{% endblock %}
+  {% block scripts %}{% endblock %}
 </body>
+
 </html>

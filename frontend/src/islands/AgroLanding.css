@@ -1,10 +1,751 @@
-@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
-.agro-landing{--forest:#121b0e;--lime:#c8f53b;--paper:#e6e7e5;color:var(--forest);background:#f8f9f5;font-family:'Plus Jakarta Sans',sans-serif;font-size:15px;line-height:1.6;overflow:clip}.agro-landing *{box-sizing:border-box}.agro-landing a{color:inherit;text-decoration:none}.agro-landing button{font:inherit;cursor:pointer}.agro-landing a:focus-visible,.agro-landing button:focus-visible{outline:3px solid #809d59;outline-offset:6px}.agro-landing h1,.agro-landing h2,.agro-landing h3,.agro-landing p{margin:0}.agro-landing h1,.agro-landing h2{font-family:'Plus Jakarta Sans',sans-serif;letter-spacing:-.055em;font-weight:500}.agro-landing em{font-family:'Instrument Serif',Georgia,serif;font-weight:400;letter-spacing:-.025em}.agro-wrap{width:min(1280px,calc(100% - 112px));margin-inline:auto}.agro-section{padding-block:100px;scroll-margin-top:100px}.agro-eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:10px;font-weight:600;letter-spacing:.15em;line-height:1.6}.agro-dot{width:6px;height:6px;background:var(--lime);border-radius:50%;box-shadow:0 0 0 5px #c8f53b20}.agro-hero{position:relative;min-height:810px;min-height:min(960px,100svh);display:flex;align-items:center;background:#283e27;color:#fff;padding-top:110px;isolation:isolate}.agro-hero-image,.agro-shade{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}.agro-hero-image{height:118%;top:-9%;object-position:50% 55%}.agro-shade{z-index:-1;background:linear-gradient(90deg,#101c1499 0%,#101c1440 65%,#101c1410),linear-gradient(0deg,#121b0ee8,transparent 55%,#121b0e55)}.agro-hero-content{padding-block:90px 145px}.agro-hero h1{font-size:clamp(48px,5.9vw,88px);line-height:1.08;max-width:1000px;color:white;margin-top:26px}.agro-hero h1 em{display:block}.agro-hero-content p{max-width:435px;color:#ffffffc9;font-size:14px;line-height:1.9;margin-top:26px}.agro-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:32px}.agro-button{border-radius:999px;display:inline-flex;align-items:center;justify-content:center;gap:26px;padding:15px 23px;font-size:12px;font-weight:700;border:1px solid transparent;transition:background .2s,transform .2s;min-height:50px}.agro-button:hover{transform:translateY(-3px)}.agro-button.lime{background:var(--lime);color:var(--forest)}.agro-button.lime:hover{background:#b8e629}.agro-button.glass{background:#ffffff12;border-color:#ffffff65;backdrop-filter:blur(12px);color:white}.agro-button.glass:hover{background:#ffffff28}.agro-button.forest{background:var(--forest);color:#fff}.agro-hero-bottom{position:absolute;bottom:0;inset-inline:0;display:flex;align-items:center;justify-content:space-between;padding-block:23px;border-top:1px solid #ffffff35;font-size:9px;letter-spacing:.13em}.agro-hero-bottom>a{display:flex;align-items:center;gap:20px}.agro-hero-note{display:flex;align-items:center;gap:12px;font-size:11px;letter-spacing:0;line-height:1.6}.agro-hero-note strong{font-weight:500}.agro-round-icon{width:44px;height:44px;border:1px solid #ffffff45;border-radius:50%;display:grid;place-items:center;color:var(--lime)}.agro-coordinate{font-size:9px;color:#ffffffb5}.agro-trust{display:flex;justify-content:space-between;align-items:center;gap:25px;padding-block:30px;border-bottom:1px solid #dfe3d8}.agro-trust p{font-size:11px;color:#68725f;line-height:1.6}.agro-trust strong{font-weight:600;color:#263222}.agro-trust>span{display:flex;align-items:center;gap:10px;color:#65705d;font-size:12px;font-weight:500}.agro-trust svg{width:23px;stroke-width:1.3}.agro-section-top{display:flex;justify-content:space-between;gap:20px;align-items:center;margin-bottom:37px}.agro-small{font-size:11px;color:#78806e}.agro-landing h2{font-size:clamp(36px,4.3vw,62px);line-height:1.15}.agro-mission-bottom{display:grid;grid-template-columns:.8fr 1.2fr 1fr;align-items:end;gap:45px;margin-top:35px}.agro-leaf-mark svg{width:85px;height:85px;color:#809d59}.agro-mission-bottom p{font-size:13px;color:#697160;max-width:430px;line-height:1.9}.agro-text-link{font-size:11px;font-weight:600;display:inline-flex;gap:25px;align-items:center;padding-block:12px;border-bottom:1px solid #adb5a3;justify-self:end}.agro-text-link:hover{color:#648034}.agro-metrics{display:grid;grid-template-columns:repeat(3,1fr);margin-top:54px;border-top:1px solid #cfd4c9;padding-top:30px;gap:25px}.agro-metrics>div{border-inline-end:1px solid #cfd4c9}.agro-metrics>div:last-child{border:0}.agro-metrics strong{font-size:clamp(22px,3vw,40px);font-weight:500;letter-spacing:-.05em}.agro-metrics strong span{color:#9ba68d;padding-inline:10px}.agro-metrics p{font-size:11px;color:#707965;margin-top:7px}.agro-solutions{background:var(--forest);color:#fff}.agro-solutions .agro-eyebrow{color:#b6c5a4}.agro-solutions .agro-small{color:#9fa995}.agro-heading-row{display:flex;justify-content:space-between;align-items:end;gap:35px;margin-bottom:38px}.agro-heading-row>div p{font-size:12px;color:#a4a99f;line-height:1.8}.agro-filters{display:flex;gap:6px;margin-top:20px}.agro-filters button{background:transparent;color:#c5ccbd;font-size:10px;border:1px solid #ffffff30;border-radius:30px;padding:9px 14px;min-height:38px}.agro-filters button[aria-pressed=true]{background:var(--lime);color:var(--forest);border-color:var(--lime)}.agro-bento{display:grid;grid-template-columns:1.25fr 1fr 1fr;grid-template-rows:240px 240px;gap:16px}.agro-solution{border:1px solid #ffffff25;border-radius:14px;overflow:hidden;position:relative;background:#34412a;min-height:230px}.agro-solution.featured{grid-row:span 2}.agro-solution:last-child{grid-column:span 2}.agro-solution a{display:block;width:100%;height:100%;position:relative}.agro-solution img,.agro-card-shade{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}.agro-solution img{transition:transform .6s}.agro-solution:hover img{transform:scale(1.04)}.agro-card-shade{background:linear-gradient(0deg,#121b0ef5,#121b0e10 100%)}.agro-card-top{position:absolute;top:20px;inset-inline:20px;display:flex;justify-content:space-between;align-items:center;gap:12px}.agro-card-tag{display:flex;gap:7px;align-items:center;font-size:8px;letter-spacing:.07em;background:#121b0e90;backdrop-filter:blur(10px);border:1px solid #ffffff25;padding:7px 10px;border-radius:20px}.agro-card-tag svg{color:var(--lime)}.agro-card-arrow{border:1px solid #ffffff50;border-radius:50%;width:34px;height:34px;display:grid;place-items:center}.agro-card-copy{position:absolute;bottom:23px;inset-inline:22px}.agro-card-copy h3{font-size:20px;color:#fff;letter-spacing:-.04em;font-weight:500}.agro-card-copy p{font-size:11px;line-height:1.8;color:#e0e5d7;max-width:350px;margin-top:9px}.featured .agro-card-copy h3{font-size:30px}.agro-tool-links{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:29px}.agro-tool-links a{font-size:11px;display:flex;align-items:center;gap:10px;padding:13px 0;border-bottom:1px solid #ffffff30}.agro-tool-links a>svg:first-child{color:var(--lime)}.agro-tool-links a>svg:last-child{margin-inline-start:auto}.agro-tool-links a:hover{color:var(--lime)}.agro-growing{display:grid;grid-template-columns:1fr 1fr;gap:90px;align-items:center}.agro-growing-photo{height:590px;position:relative;border-radius:16px;overflow:hidden;background:#5e7747}.agro-growing-photo>img{width:100%;height:100%;object-fit:cover}.agro-growing-photo>span{position:absolute;bottom:25px;inset-inline:25px;background:#f8f9f5ed;backdrop-filter:blur(12px);padding:20px;border-radius:9px;font-family:'Instrument Serif',serif;font-style:italic;font-size:25px;display:flex;align-items:center;gap:15px}.agro-growing h2{margin-top:25px}.agro-growing ol{list-style:none;padding:0;margin:30px 0}.agro-growing li{display:flex;gap:20px;padding:16px 0;border-bottom:1px solid #dce0d4}.agro-growing li>span{font-size:10px;color:#809d59;padding-top:3px}.agro-growing li h3{font-size:12px;font-weight:600}.agro-growing li p{font-size:11px;color:#737b68;margin-top:5px}.agro-library{background:var(--paper)}.agro-crops{display:grid;grid-template-columns:repeat(3,1fr);gap:25px;margin-top:40px}.agro-crop-image{height:280px;border-radius:12px;overflow:hidden;position:relative;background:#748f58}.agro-crop-image img{width:100%;height:100%;object-fit:cover;transition:transform .5s}.agro-crops a:hover img{transform:scale(1.04)}.agro-crop-image>span{position:absolute;bottom:17px;inset-inline-end:17px;display:grid;place-items:center;width:39px;height:39px;border-radius:50%;background:var(--lime)}.agro-crops h3{font-size:19px;letter-spacing:-.03em;margin-top:19px;font-weight:500}.agro-crops p{font-size:11px;color:#6c7562;margin-top:6px}.agro-faq-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:70px;margin-top:32px}.agro-faq-item{border-bottom:1px solid #d9ded1}.agro-faq-item h3{font-size:13px;font-weight:500}.agro-faq-item button{width:100%;display:flex;align-items:center;justify-content:space-between;gap:20px;text-align:start;border:0;background:transparent;color:var(--forest);padding:20px 0}.agro-faq-item svg{flex-shrink:0}.agro-faq-item p{font-size:12px;line-height:1.9;color:#737b68;padding-bottom:22px;max-width:500px}.agro-cta{padding-block:75px;background:var(--forest);color:#fff;overflow:hidden}.agro-cta>.agro-wrap{position:relative}.agro-cta h2{margin-block:25px 28px;font-size:clamp(38px,4.5vw,67px)}.agro-cta .agro-eyebrow{color:#becfa7}.agro-cta p{font-size:10px;color:#a4a99f;margin-top:18px}.agro-cta-leaf{position:absolute;width:310px;height:310px;inset-inline-end:20px;top:25px;color:#809d59;transform:rotate(-25deg);pointer-events:none}.agro-endnote{padding-block:25px;display:flex;justify-content:space-between;gap:20px;font-size:10px;color:#6a745f}.agro-endnote span,.agro-endnote a{display:flex;align-items:center;gap:10px}
-/* Home-only shell: existing navigation, accounts and shared tool pages retain their behavior. */
-.agro-home .site-main{width:100%;max-width:none;padding:0;margin:0}.agro-home .site-main>.alert{position:relative;z-index:5;margin:0;border-radius:0}.agro-home .site-nav{position:absolute;top:0;inset-inline:0;z-index:20;background:transparent;border:0;box-shadow:none;padding-block:24px}.agro-home .site-nav>.container{width:min(1280px,calc(100% - 112px));max-width:none;padding:0}.agro-home .site-nav .navbar-brand{display:inline-flex;align-items:center;background:#fffffffa;padding:5px 14px;border-radius:999px;border:1px solid #ffffffa0;box-shadow:0 4px 20px #00000022;backdrop-filter:blur(10px);transition:transform .2s,background .2s;margin-inline-end:20px}.agro-home .site-nav .navbar-brand:hover{background:#fff;transform:translateY(-1px)}.agro-home .site-nav .navbar-brand .brand-logo{height:36px}.agro-home .site-nav .brand-light,.agro-home .site-nav .nav-link{color:#fff}.agro-home .site-nav .nav-link:hover{color:#c8f53b}.agro-home .site-nav .btn-agri{background:white;color:#121b0e;border-color:white;border-radius:40px;font-size:12px}.agro-home .site-nav .navbar-toggler{background:#ffffffdf;border:0}.agro-home .site-footer{margin-top:0}.agro-home .site-nav .navbar-nav{gap:10px}.agro-home .site-nav .nav-link{font-size:12px}
-@media(min-width:1200px){.agro-home .site-nav .navbar-collapse{background:#ffffff14;border:1px solid #ffffff25;backdrop-filter:blur(16px);border-radius:35px;padding:6px 8px 6px 18px;flex-grow:0}.agro-home .site-nav .navbar-nav{align-items:center}.agro-home .site-nav .nav-link{padding:7px 10px}.agro-home .site-nav .navbar-brand{margin-inline-end:24px}.agro-home .site-nav .navbar-collapse:has(.navbar-nav.me-auto){flex-grow:1}.agro-home .site-nav .navbar-nav.me-auto{flex-wrap:wrap;gap:0}.agro-home .site-nav .navbar-nav.me-auto .nav-link{font-size:10px;padding:6px}}
-@media(max-width:1199px){.agro-home .site-nav .navbar-collapse{background:#121b0ef5;backdrop-filter:blur(15px);padding:20px;border:1px solid #ffffff25;border-radius:15px;margin-top:14px;max-height:70svh;overflow-y:auto}.agro-home .site-nav .nav-link{padding:10px}.agro-home .site-nav .navbar-nav{gap:4px}.agro-hero{min-height:780px}.agro-wrap,.agro-home .site-nav>.container{width:calc(100% - 72px)}.agro-growing{gap:45px}.agro-mission-bottom{grid-template-columns:.5fr 1.4fr 1fr;gap:25px}.agro-bento{grid-template-columns:1fr 1fr;grid-template-rows:300px 300px}.agro-solution.featured{grid-row:auto}.agro-solution:last-child{grid-column:auto}.agro-crop-image{height:230px}.agro-trust{gap:18px}.agro-trust>span{font-size:10px}}
-@media(max-width:767px){.agro-wrap,.agro-home .site-nav>.container{width:calc(100% - 40px)}.agro-home .site-nav{padding-block:18px}.agro-home .site-nav .navbar-brand{padding:3px 10px;margin-inline-end:8px}.agro-home .site-nav .navbar-brand .brand-logo{height:28px}.agro-section{padding-block:65px}.agro-hero{min-height:760px;min-height:95svh;padding-top:90px}.agro-hero-content{padding-block:90px 150px}.agro-hero h1{font-size:clamp(43px,8.5vw,64px)}.agro-hero-content p{font-size:12px;max-width:350px}.agro-hero-image{object-position:65% 50%}.agro-shade{background:linear-gradient(90deg,#101c1490,#101c1430),linear-gradient(0deg,#121b0ee8,transparent)}.agro-eyebrow{font-size:8px;letter-spacing:.12em}.agro-button{font-size:11px;gap:16px;padding:13px 18px}.agro-coordinate{display:none}.agro-hero-bottom{font-size:8px;padding-block:20px}.agro-hero-note{font-size:10px}.agro-trust{display:grid;grid-template-columns:1fr 1fr;padding-block:25px;gap:20px}.agro-trust>p{grid-column:span 2;font-size:11px;display:flex;gap:4px}.agro-trust>p br{display:none}.agro-trust>span{font-size:10px}.agro-trust svg{width:20px}.agro-section-top{margin-bottom:26px;align-items:start}.agro-small{display:none}.agro-landing h2{font-size:40px}.agro-mission-bottom{grid-template-columns:1fr;gap:22px;margin-top:25px}.agro-leaf-mark{display:none}.agro-mission-bottom p{font-size:12px}.agro-text-link{justify-self:start;font-size:10px}.agro-metrics{gap:14px;margin-top:35px;padding-top:23px}.agro-metrics strong{font-size:20px;line-height:1.3;display:block}.agro-metrics strong span{padding:0 4px}.agro-metrics p{font-size:9px;line-height:1.8;max-width:100px}.agro-heading-row{display:block;margin-bottom:25px}.agro-heading-row>div{margin-top:23px}.agro-bento{grid-template-columns:1fr;grid-template-rows:none;gap:14px}.agro-solution{height:280px}.agro-solution.featured{height:360px}.agro-card-copy h3{font-size:23px}.agro-card-copy p{font-size:12px}.agro-card-tag{font-size:8px}.agro-tool-links{grid-template-columns:1fr 1fr;gap:8px 20px}.agro-tool-links a{font-size:10px;gap:8px}.agro-growing{grid-template-columns:1fr;gap:35px}.agro-growing-photo{height:370px}.agro-growing-photo>span{font-size:23px;padding:15px;bottom:20px;inset-inline:20px}.agro-growing li p{font-size:12px}.agro-growing li h3{font-size:13px}.agro-crops{grid-template-columns:1fr;gap:30px;margin-top:30px}.agro-crop-image{height:290px}.agro-crops h3{margin-top:13px}.agro-crops p{font-size:12px}.agro-library .agro-section-top{flex-direction:column;gap:10px}.agro-faq-grid{grid-template-columns:1fr;gap:25px}.agro-faq-item button{min-height:65px;font-size:12px}.agro-cta{padding-block:60px}.agro-cta h2{font-size:42px;position:relative;z-index:1}.agro-cta-leaf{width:170px;height:170px;inset-inline-end:-65px;top:90px;opacity:.3}.agro-endnote{font-size:9px;padding-block:22px}.agro-endnote span{max-width:185px}.agro-endnote span svg{flex-shrink:0}}
-@media(prefers-reduced-motion:reduce){.agro-landing *, .agro-landing *::before,.agro-landing *::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
-/* Override shared Bootstrap/premium heading colors on dark editorial surfaces. */
-.agro-landing h2{color:inherit}.agro-hero{overflow:hidden}.agro-home .site-nav .navbar-brand>span:not(.brand-symbol),.agro-home .site-nav .navbar-brand .brand-light{color:#fff}.agro-home .site-nav .navbar-brand small{color:#ffffffb8}
+/* Plantix-Inspired KrishiMitra Design System */
+
+.agro-home {
+  background-color: #f8fafc;
+}
+
+.agro-home .site-main {
+  width: 100%;
+  max-width: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Dashboard App Shell Container */
+.plantix-dashboard {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 12px 16px 40px;
+  background-color: transparent;
+  box-sizing: border-box;
+}
+
+/* Floating Sticky "Take a picture" Button (Photo 2) */
+.plantix-floating-cta-wrap {
+  position: fixed;
+  top: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1060;
+  pointer-events: auto;
+}
+
+.plantix-floating-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #005bf6;
+  color: #ffffff !important;
+  font-size: 14px;
+  font-weight: 700;
+  border-radius: 9999px;
+  padding: 9px 24px;
+  box-shadow: 0 4px 18px rgba(0, 91, 246, 0.38);
+  text-decoration: none !important;
+  letter-spacing: -0.01em;
+  transition: transform 0.15s ease, background-color 0.15s ease;
+}
+
+.plantix-floating-btn:hover {
+  background-color: #004ecc;
+  transform: scale(1.02);
+}
+
+/* 1. Crop Selection Bar */
+.plantix-crop-bar-wrap {
+  margin-bottom: 12px;
+  overflow: hidden;
+}
+
+.plantix-crop-bar {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  overflow-x: auto;
+  padding: 6px 4px 10px;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.plantix-crop-bar::-webkit-scrollbar {
+  display: none;
+}
+
+.plantix-crop-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  flex-shrink: 0;
+  text-decoration: none;
+  outline: none;
+  transition: transform 0.15s ease;
+}
+
+.plantix-crop-item:active {
+  transform: scale(0.96);
+}
+
+.plantix-crop-avatar {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  padding: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+  border: 2px solid transparent;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.plantix-crop-avatar.has-ring {
+  border-color: #ea4335;
+}
+
+.plantix-crop-item.is-selected .plantix-crop-avatar {
+  border-color: #ea4335;
+  box-shadow: 0 2px 10px rgba(234, 67, 53, 0.2);
+}
+
+.plantix-crop-avatar img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+}
+
+.plantix-crop-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #1e293b;
+  margin-top: 6px;
+  text-align: center;
+  max-width: 80px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Crop Add Button */
+.plantix-crop-add-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  flex-shrink: 0;
+  cursor: pointer;
+  transition: transform 0.15s ease;
+}
+
+.plantix-crop-add-item:hover {
+  transform: scale(1.03);
+}
+
+.plantix-crop-add-btn {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.plantix-add-icon-circle {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: #005bf6;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.15s ease;
+}
+
+.plantix-add-icon-circle:hover {
+  background-color: #004ecc;
+}
+
+.plantix-add-label {
+  color: #64748b;
+  font-weight: 500;
+}
+
+/* 2. Weather & Spraying Conditions Card */
+.plantix-weather-card {
+  display: flex;
+  gap: 10px;
+  background: linear-gradient(135deg, #e4f9f0 0%, #eaf4fd 100%);
+  border-radius: 24px;
+  padding: 10px;
+  margin-bottom: 14px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+}
+
+.plantix-weather-left {
+  background-color: #ffffff;
+  border-radius: 18px;
+  padding: 10px 14px;
+  min-width: 90px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  text-decoration: none !important;
+  color: inherit !important;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  transition: transform 0.15s ease;
+}
+
+.plantix-weather-left:hover {
+  transform: translateY(-1px);
+}
+
+.plantix-weather-date {
+  font-size: 12px;
+  font-weight: 600;
+  color: #334155;
+  line-height: 1.2;
+}
+
+.plantix-weather-icon {
+  margin: 4px 0;
+  color: #64748b;
+  display: flex;
+  align-items: center;
+}
+
+.plantix-weather-temp {
+  font-size: 15px;
+  font-weight: 700;
+  color: #0f172a;
+  line-height: 1.2;
+}
+
+.plantix-weather-right {
+  flex: 1;
+  background-color: #ffffff;
+  border-radius: 9999px;
+  padding: 10px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  text-decoration: none !important;
+  color: inherit !important;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  transition: transform 0.15s ease;
+}
+
+.plantix-weather-right:hover {
+  transform: translateY(-1px);
+}
+
+.plantix-spray-info {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.plantix-spray-title {
+  font-size: 11px;
+  color: #64748b;
+  white-space: nowrap;
+}
+
+.plantix-spray-status {
+  font-size: 15px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.plantix-spray-time {
+  font-size: 11px;
+  color: #64748b;
+  white-space: nowrap;
+}
+
+.plantix-spray-badge {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background-color: #dcfce7;
+  color: #16a34a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+}
+
+.plantix-spray-badge.is-optimal {
+  background-color: #dcfce7;
+  color: #16a34a;
+}
+
+.plantix-spray-badge.is-marginal {
+  background-color: #fef3c7;
+  color: #d97706;
+}
+
+.plantix-spray-badge.is-poor {
+  background-color: #ffedd5;
+  color: #ea580c;
+}
+
+.plantix-spray-badge.is-avoid {
+  background-color: #fee2e2;
+  color: #dc2626;
+}
+
+/* 3. Leaf Doctor / Diagnosis Hero Card */
+.plantix-hero-card {
+  background-color: #ffffff;
+  border-radius: 24px;
+  border: 1px solid #edf2f7;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.03);
+  padding: 22px 18px 18px;
+  margin-bottom: 22px;
+}
+
+.plantix-steps-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.plantix-step-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+}
+
+.plantix-step-graphic {
+  height: 62px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 8px;
+}
+
+.plantix-step-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #1e293b;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+.plantix-step-arrow {
+  color: #94a3b8;
+  flex-shrink: 0;
+  margin-bottom: 22px;
+}
+
+.plantix-hero-cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  background-color: #005bf6;
+  color: #ffffff !important;
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: 9999px;
+  padding: 13px 20px;
+  text-decoration: none !important;
+  box-shadow: 0 4px 14px rgba(0, 91, 246, 0.28);
+  transition: transform 0.15s ease, background-color 0.15s ease;
+  letter-spacing: -0.01em;
+}
+
+.plantix-hero-cta:hover {
+  background-color: #004ecc;
+  transform: translateY(-1px);
+}
+
+/* 4. Tools Section */
+.plantix-section {
+  margin-bottom: 22px;
+}
+
+.plantix-section-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 12px;
+  letter-spacing: -0.02em;
+}
+
+.plantix-tools-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+@media (min-width: 640px) {
+  .plantix-tools-grid {
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  }
+}
+
+@media (max-width: 639px) {
+  .plantix-tool-card:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    flex-direction: row;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 16px;
+  }
+}
+
+.plantix-tool-card {
+  position: relative;
+  background-color: #ffffff;
+  border-radius: 18px;
+  border: 1px solid #edf2f7;
+  padding: 16px 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
+  text-decoration: none !important;
+  color: inherit !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.plantix-tool-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.04);
+}
+
+.plantix-tool-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #e8ecfc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.plantix-rupee-sign {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1e3a8a;
+  line-height: 1;
+}
+
+.plantix-tool-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: #0f172a;
+  line-height: 1.3;
+}
+
+.plantix-badge-new {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #f3e8ff;
+  color: #7c3aed;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 9999px;
+  line-height: 1.3;
+}
+
+/* 5. Library Section */
+.plantix-library-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.plantix-lib-column {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.plantix-lib-card {
+  background-color: #edf2fe;
+  border-radius: 18px;
+  padding: 16px 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  text-decoration: none !important;
+  color: inherit !important;
+  transition: transform 0.15s ease;
+  box-sizing: border-box;
+}
+
+.plantix-lib-card:hover {
+  transform: translateY(-2px);
+}
+
+.plantix-lib-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: #1e293b;
+  line-height: 1.3;
+}
+
+.plantix-lib-icon-circle {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+}
+
+.plantix-lib-card.card-crops {
+  min-height: 72px;
+}
+
+.plantix-lib-card.card-cultivation {
+  min-height: 110px;
+  align-items: flex-end;
+}
+
+.plantix-lib-card.card-pests {
+  min-height: 114px;
+  align-items: flex-end;
+}
+
+.plantix-lib-card.card-alerts {
+  min-height: 68px;
+  align-items: center;
+}
+
+/* 6. Sponsored Section */
+.plantix-sponsored-section {
+  margin-top: 14px;
+  margin-bottom: 24px;
+}
+
+.plantix-sponsored-label {
+  display: block;
+  font-size: 11px;
+  font-weight: 600;
+  color: #64748b;
+  margin-bottom: 8px;
+  letter-spacing: 0.02em;
+}
+
+.plantix-sponsored-card {
+  display: block;
+  background-color: #fed812;
+  border-radius: 22px;
+  overflow: hidden;
+  text-decoration: none !important;
+  color: inherit !important;
+  box-shadow: 0 4px 16px rgba(254, 216, 18, 0.22);
+  transition: transform 0.15s ease;
+}
+
+.plantix-sponsored-card:hover {
+  transform: translateY(-2px);
+}
+
+.plantix-sponsored-banner-top {
+  width: 100%;
+  background-color: #fed812;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.plantix-sponsored-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+.plantix-sponsored-footer {
+  background-color: #ffffff;
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.plantix-sponsored-footer-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.3;
+}
+
+.plantix-sponsored-footer-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.plantix-sponsored-footer-sub {
+  font-size: 11px;
+  color: #64748b;
+}
+
+.plantix-sponsored-arrow {
+  color: #005bf6;
+  display: flex;
+  align-items: center;
+}
+
+/* ─── Recent Diagnoses Carousel (Plantix Style) ─── */
+.plantix-diagnoses-carousel {
+  display: flex;
+  gap: 12px;
+  align-items: stretch;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+  margin-bottom: 22px;
+  padding: 2px 2px 8px;
+}
+
+.plantix-diagnoses-carousel::-webkit-scrollbar {
+  display: none;
+}
+
+.plantix-diag-card {
+  background: #ffffff;
+  border: 1px solid #edf2f7;
+  border-radius: 20px;
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-width: 250px;
+  max-width: 280px;
+  flex-shrink: 0;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.03);
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.2s ease;
+}
+
+.plantix-diag-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+}
+
+.plantix-diag-thumb-wrap {
+  width: 60px;
+  height: 60px;
+  border-radius: 14px;
+  overflow: hidden;
+  flex-shrink: 0;
+  background-color: #f1f5f9;
+  border: 1px solid #edf2f7;
+}
+
+.plantix-diag-thumb {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.plantix-diag-content {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+  flex-grow: 1;
+}
+
+.plantix-diag-date {
+  font-size: 11px;
+  font-weight: 500;
+  color: #64748b;
+}
+
+.plantix-diag-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.plantix-diag-badge {
+  display: inline-flex;
+  align-items: center;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 10px;
+  border-radius: 12px;
+  width: fit-content;
+  margin-top: 2px;
+}
+
+.plantix-diag-badge.complete,
+.plantix-diag-badge.is-complete {
+  background-color: #dcfce7;
+  color: #16a34a;
+}
+
+.plantix-diag-badge.incomplete,
+.plantix-diag-badge.is-incomplete {
+  background-color: #fee2e2;
+  color: #e11d48;
+}
+
+.plantix-diag-view-all-btn {
+  background: #ffffff;
+  border: 1px solid #edf2f7;
+  border-radius: 20px;
+  padding: 12px 18px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #005bf6;
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+  flex-shrink: 0;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.03);
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.plantix-diag-view-all-btn:hover {
+  background-color: #edf2fe;
+  color: #004ecc;
+}
+
+/* Responsive adjustments */
+@media (min-width: 640px) {
+  .plantix-dashboard {
+    max-width: 520px;
+    padding-top: 20px;
+  }
+}

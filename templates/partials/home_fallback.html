@@ -1,16 +1,309 @@
-{% load i18n farm_i18n %}
+{% load i18n farm_i18n static %}
 
-<section class="farm-hero" aria-labelledby="hero-title">
-  <div class="hero-copy"><span class="eyebrow"><span class="status-dot"></span> {% translate "ROOTED IN KNOWLEDGE. GROWN WITH AI." %}</span>
-    <h1 id="hero-title">{% translate "Good farming" %}<br>{% translate "starts with a" %}<br><em>{% translate "better decision." %}</em></h1>
-    <p>{% translate "Your soil. Your crops. Your next harvest. A little guidance for every step, from a companion that understands farming." %}</p>
-    <div class="hero-actions">{% if user.is_authenticated %}<a class="btn btn-agri btn-lg" href="{% url 'accounts:dashboard' %}">{% translate "Open my dashboard" %} <i class="bi bi-arrow-up-right"></i></a>{% else %}<a class="btn btn-agri btn-lg" href="{% url 'accounts:register' %}">{% translate "Let’s grow together" %} <i class="bi bi-arrow-up-right"></i></a>{% endif %}<a class="hero-secondary" href="#tools">{% translate "Explore the tools" %} <i class="bi bi-arrow-down"></i></a></div>
-    <div class="hero-assurance"><i class="bi bi-shield-check"></i> {% translate "Built for Indian farmers" %} <span>·</span> {% translate "Simple, practical guidance" %}</div>
+<div class="plantix-dashboard" id="plantix-fallback">
+  <!-- 1. Crop Selection Row -->
+  <div class="plantix-crop-bar-wrap" aria-label="Your selected crops">
+    <div class="plantix-crop-bar">
+      {% if user_crops %}
+        {% for crop in user_crops %}
+          <div class="plantix-crop-item {% if forloop.first %}is-selected{% endif %}">
+            <div class="plantix-crop-avatar {% if crop.has_ring or forloop.first %}has-ring{% endif %}">
+              <img src="{{ crop.image }}" alt="{{ crop.display_name|default:crop.name }}" width="68" height="68">
+            </div>
+            <span class="plantix-crop-label">{{ crop.display_name|default:crop.name }}</span>
+          </div>
+        {% endfor %}
+      {% else %}
+        <div class="plantix-crop-item is-selected">
+          <div class="plantix-crop-avatar has-ring">
+            <img src="{% static 'images/crops/tomato.webp' %}" alt="{% translate 'Tomato' %}" width="68" height="68">
+          </div>
+          <span class="plantix-crop-label">{% translate 'Tomato' %}</span>
+        </div>
+
+        <div class="plantix-crop-item">
+          <div class="plantix-crop-avatar has-ring">
+            <img src="{% static 'images/crops/pepper-bell.webp' %}" alt="Capsicum & Chilli" width="68" height="68">
+          </div>
+          <span class="plantix-crop-label">Capsicum & Chilli</span>
+        </div>
+
+        <div class="plantix-crop-item">
+          <div class="plantix-crop-avatar">
+            <img src="{% static 'images/crops/rice.webp' %}" alt="{% translate 'Rice' %}" width="68" height="68">
+          </div>
+          <span class="plantix-crop-label">{% translate 'Rice' %}</span>
+        </div>
+
+        <div class="plantix-crop-item">
+          <div class="plantix-crop-avatar">
+            <img src="{% static 'images/crops/cotton.webp' %}" alt="{% translate 'Cotton' %}" width="68" height="68">
+          </div>
+          <span class="plantix-crop-label">{% translate 'Cotton' %}</span>
+        </div>
+      {% endif %}
+
+      <a href="{% if user.is_authenticated %}{% url 'accounts:profile' %}{% else %}{% url 'crops:library' %}{% endif %}" class="plantix-crop-add-item" title="Add or edit crops" aria-label="Add or edit crops">
+        <div class="plantix-crop-add-btn">
+          <span class="plantix-add-icon-circle">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+          </span>
+        </div>
+        <span class="plantix-crop-label plantix-add-label">Add</span>
+      </a>
+    </div>
   </div>
-  <div class="hero-art" aria-hidden="true"><div class="landscape-sun"></div><div class="landscape-hill hill-back"></div><div class="landscape-hill hill-front"></div><div class="field-lines"></div><div id="farm-scene"><svg class="crop-fallback" viewBox="0 0 400 400" fill="none" aria-hidden="true"><defs><g id="wheat"><path d="M0 150V-50" stroke="#58733b" stroke-width="4"/><path d="M0 95Q-60 25-10 65M0 60Q55-15 9 33" fill="#54743e"/><g fill="#d8b35e" stroke="#c5a052" stroke-width="1"><ellipse cx="-8" cy="-50" rx="7" ry="15" transform="rotate(-35 -8 -50)"/><ellipse cx="8" cy="-50" rx="7" ry="15" transform="rotate(35 8 -50)"/><ellipse cx="-8" cy="-70" rx="7" ry="15" transform="rotate(-35 -8 -70)"/><ellipse cx="8" cy="-70" rx="7" ry="15" transform="rotate(35 8 -70)"/><ellipse cx="-7" cy="-90" rx="6" ry="14" transform="rotate(-30 -7 -90)"/><ellipse cx="7" cy="-90" rx="6" ry="14" transform="rotate(30 7 -90)"/><ellipse cy="-108" rx="6" ry="14"/></g></g></defs><use href="#wheat" transform="translate(125 220) rotate(-15)"/><use href="#wheat" transform="translate(205 190) rotate(4)"/><use href="#wheat" transform="translate(280 215) rotate(17)"/></svg></div><span class="art-label">{% translate "A LITTLE CARE. A LOT OF POSSIBILITY." %}</span><div class="floating-note note-soil"><span class="note-icon"><i class="bi bi-flower2"></i></span><div><small>{% translate "KNOW YOUR SOIL" %}</small><strong>{% translate "Grow what belongs." %}</strong></div></div><div class="floating-note note-harvest"><i class="bi bi-stars"></i><span>{% translate "Smarter insights." %}<br><strong>{% translate "Stronger roots." %}</strong></span></div></div>
-</section>
-<div class="trust-strip"><span>{% translate "MADE FOR THE WAY YOU FARM" %}</span><div><i class="bi bi-chat-heart"></i> {% translate "Ask in your language" %}</div><div><i class="bi bi-phone"></i> {% translate "At home on any screen" %}</div><div><i class="bi bi-journal-check"></i> {% translate "Knowledge you can trace" %}</div></div>
-<section id="tools" class="tools-section" aria-labelledby="tools-title"><div class="section-heading"><div><span class="eyebrow">{% translate "ONE COMPANION. EVERY SEASON." %}</span><h2 id="tools-title">{% translate "Your farm toolkit." %}</h2></div><p>{% translate "Less guesswork. More growing." %}<br>{% translate "Choose what you need today." %}</p></div><div data-farm-toolkit class="tool-grid"><div class="row g-3">{% include 'partials/feature_cards.html' %}</div></div></section>
-<section class="how-section"><div><span class="eyebrow">{% translate "FROM QUESTION TO CONFIDENCE" %}</span><h2>{% translate "A small step." %}<br>{% translate "A clearer way forward." %}</h2><a href="{% url 'chatbot:chat' %}" class="btn btn-agri">{% translate "Ask your first question" %} <i class="bi bi-arrow-up-right"></i></a></div><ol class="how-steps"><li><span>01</span><div><h3>{% translate "Tell us about your farm" %}</h3><p>{% translate "Start with a question, a soil report, or a leaf photo." %}</p></div></li><li><span>02</span><div><h3>{% translate "Find a little clarity" %}</h3><p>{% translate "Get clear guidance with the context behind it." %}</p></div></li><li><span>03</span><div><h3>{% translate "Take your next step" %}</h3><p>{% translate "Plan your crop, care for your plants, and grow with confidence." %}</p></div></li></ol></section>
 
-{% include 'partials/pest_alerts_coming_soon.html' %}
+  <!-- 2. Weather & Spraying Conditions Card -->
+  <div class="plantix-weather-card">
+    <a href="{% url 'weather:forecast' %}" class="plantix-weather-left">
+      <span class="plantix-weather-date">{% now "j M" %}</span>
+      <div class="plantix-weather-icon">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#64748b" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v2"></path><path d="m4.93 4.93 1.41 1.41"></path><path d="M20 12h2"></path><path d="m19.07 4.93-1.41 1.41"></path><path d="M15.947 12.65a4 4 0 0 0-5.925-4.128"></path><path d="M13 22H7a5 5 0 1 1 4.9-6H13a3 3 0 0 1 0 6Z"></path></svg>
+      </div>
+      <span class="plantix-weather-temp">{{ weather_data.temp_str|default:'24 °C' }}</span>
+    </a>
+
+    <a href="{% url 'weather:forecast' %}" class="plantix-weather-right" title="{{ weather_data.reason }}">
+      <div class="plantix-spray-info">
+        <span class="plantix-spray-title">Spraying conditions</span>
+        <span class="plantix-spray-status">{{ weather_data.status_label|default:'Optimal' }}</span>
+      </div>
+      <div class="plantix-spray-time">{{ weather_data.time_text|default:'Rest of the day' }}</div>
+      <div class="plantix-spray-badge {{ weather_data.badge_class|default:'is-optimal' }}" aria-label="{{ weather_data.status_label|default:'Optimal' }}: {{ weather_data.reason }}">
+        {% if weather_data.badge_icon == 'x' %}
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        {% elif weather_data.badge_icon == 'alert' %}
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+        {% else %}
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+        {% endif %}
+      </div>
+    </a>
+  </div>
+
+  <!-- 3. Leaf Doctor / Diagnosis Hero Card -->
+  <section class="plantix-hero-card" aria-labelledby="leaf-doctor-fb">
+    <h2 id="leaf-doctor-fb" class="visually-hidden">Leaf Doctor Diagnosis</h2>
+
+    <div class="plantix-steps-row">
+      <div class="plantix-step-col">
+        <div class="plantix-step-graphic">
+          <svg width="44" height="60" viewBox="0 0 44 60" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect x="2" y="2" width="40" height="56" rx="8" stroke="#1e293b" stroke-width="2.5" fill="#ffffff" />
+            <rect x="6" y="8" width="32" height="42" rx="4" fill="#f8fafc" />
+            <circle cx="22" cy="5" r="1.5" fill="#94a3b8" />
+            <path d="M22 38V22" stroke="#16a34a" stroke-width="2.2" stroke-linecap="round" />
+            <path d="M22 28C18 26 15 22 16 18C20 18 22 22 22 25" fill="#4ade80" stroke="#16a34a" stroke-width="1.2" />
+            <path d="M22 25C24 23 27 20 29 21C29 25 26 27 22 28" fill="#22c55e" stroke="#16a34a" stroke-width="1.2" />
+          </svg>
+        </div>
+        <span class="plantix-step-label">Take a picture</span>
+      </div>
+
+      <svg class="plantix-step-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg>
+
+      <div class="plantix-step-col">
+        <div class="plantix-step-graphic">
+          <svg width="56" height="60" viewBox="0 0 56 60" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M28 48V20" stroke="#16a34a" stroke-width="2.8" stroke-linecap="round" />
+            <path d="M28 32C20 30 14 24 16 18C22 18 27 24 28 28" fill="#4ade80" stroke="#16a34a" stroke-width="1.8" />
+            <path d="M28 26C36 24 42 18 40 12C34 12 29 18 28 22" fill="#22c55e" stroke="#16a34a" stroke-width="1.8" />
+            <path d="M28 20C28 12 22 6 22 6C22 6 30 8 32 16" fill="#86efac" stroke="#16a34a" stroke-width="1.8" />
+            <circle cx="38" cy="42" r="10" fill="#005bf6" stroke="#ffffff" stroke-width="2" />
+            <path d="M34 42L36.8 44.8L42.5 39" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </div>
+        <span class="plantix-step-label">See diagnosis</span>
+      </div>
+
+      <svg class="plantix-step-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg>
+
+      <div class="plantix-step-col">
+        <div class="plantix-step-graphic">
+          <svg width="56" height="60" viewBox="0 0 56 60" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M19 28H37L39 52C39 54 37 56 35 56H21C19 56 17 54 17 52L19 28Z" fill="#a855f7" stroke="#7e22ce" stroke-width="1.8" />
+            <rect x="23" y="22" width="10" height="6" fill="#9333ea" stroke="#7e22ce" stroke-width="1.2" />
+            <path d="M22 22V14H34V18H38L42 22H34V22" fill="#cbd5e1" stroke="#475569" stroke-width="1.5" stroke-linejoin="round" />
+            <path d="M22 14L15 22" stroke="#475569" stroke-width="2.4" stroke-linecap="round" />
+            <rect x="38" y="19" width="4" height="4" rx="1" fill="#3b82f6" />
+            <circle cx="47" cy="18" r="1.5" fill="#60a5fa" />
+            <circle cx="50" cy="22" r="1.5" fill="#60a5fa" />
+            <circle cx="46" cy="26" r="1.5" fill="#60a5fa" />
+          </svg>
+        </div>
+        <span class="plantix-step-label">Get medicine</span>
+      </div>
+    </div>
+
+    <a href="{% url 'disease:detect' %}" class="plantix-hero-cta">
+      Take a picture
+    </a>
+  </section>
+
+  {% if recent_diagnoses %}
+  <!-- Recent Diagnoses Carousel (Plantix style) -->
+  <div class="plantix-diagnoses-carousel" aria-label="Recent diagnoses">
+    {% for item in recent_diagnoses %}
+    <a href="{{ item.url }}" class="plantix-diag-card">
+      <div class="plantix-diag-thumb-wrap">
+        <img src="{{ item.image_url }}" alt="{{ item.disease }}" class="plantix-diag-thumb" width="60" height="60" loading="lazy">
+      </div>
+      <div class="plantix-diag-content">
+        <span class="plantix-diag-date">{{ item.date }}</span>
+        <h3 class="plantix-diag-title">{{ item.disease }}</h3>
+        <span class="plantix-diag-badge {{ item.status_type }}">
+          {{ item.status_label }}
+        </span>
+      </div>
+    </a>
+    {% endfor %}
+    <a href="{% url 'disease:history' %}" class="plantix-diag-view-all-btn">
+      <span>View all</span>
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg>
+    </a>
+  </div>
+  {% endif %}
+
+  <!-- 4. Tools Section -->
+  <section class="plantix-section" aria-labelledby="tools-fb-heading">
+    <h2 id="tools-fb-heading" class="plantix-section-title">Tools</h2>
+    <div class="plantix-tools-grid">
+      <a href="{% url 'crops:fertilizer' %}" class="plantix-tool-card">
+        <div class="plantix-tool-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1e3a8a" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M6 3h12l2 6v11a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V9l2-6z" />
+            <path d="M6 9h12" />
+            <circle cx="12" cy="15" r="2.5" fill="#93c5fd" stroke="#1e3a8a" stroke-width="1.5" />
+          </svg>
+        </div>
+        <span class="plantix-tool-title">Fertilizer calculator</span>
+      </a>
+
+      <a href="{% url 'crops:pests' %}" class="plantix-tool-card">
+        <div class="plantix-tool-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1e3a8a" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="5" y="10" width="14" height="11" rx="2" />
+            <path d="M9 10V6a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v4" />
+            <line x1="12" y1="2" x2="12" y2="4" />
+            <path d="M12 14v3" />
+          </svg>
+        </div>
+        <span class="plantix-tool-title">Pesticide calculator</span>
+      </a>
+
+      <a href="{% url 'crops:yield' %}" class="plantix-tool-card">
+        <div class="plantix-tool-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1e3a8a" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="4" y="2" width="16" height="20" rx="3" />
+            <line x1="8" y1="6" x2="16" y2="6" />
+            <line x1="16" y1="14" x2="16" y2="18" />
+            <path d="M16 10h.01" /><path d="M12 10h.01" /><path d="M8 10h.01" /><path d="M12 14h.01" /><path d="M8 14h.01" /><path d="M12 18h.01" /><path d="M8 18h.01" />
+          </svg>
+        </div>
+        <span class="plantix-tool-title">Farming calculator</span>
+      </a>
+
+      <a href="{% url 'market:prices' %}" class="plantix-tool-card has-badge">
+        <span class="plantix-badge-new">New</span>
+        <div class="plantix-tool-icon">
+          <span class="plantix-rupee-sign" aria-hidden="true">₹</span>
+        </div>
+        <span class="plantix-tool-title">Mandi prices</span>
+      </a>
+
+      <a href="{% url 'crops:recommend' %}" class="plantix-tool-card">
+        <div class="plantix-tool-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1e3a8a" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M7 20h10" />
+            <path d="M10 20c5.5-2.5.8-6.4 3-10" />
+            <path d="M9.5 9.4c1.1.8 1.8 2.2 2.3 3.7-2 .4-3.5.4-4.8-.3-1.2-.6-2.3-1.9-3-4.2 2.8-.5 4.4 0 5.5.8z" />
+            <path d="M14.1 6a7 7 0 0 0-1.1 4c1.9-.1 3.3-.6 4.3-1.4 1-1 1.6-2.3 1.7-4.6-2.7.1-4 1-4.9 2z" />
+          </svg>
+        </div>
+        <span class="plantix-tool-title">{% translate 'Crop Advisor' %}</span>
+      </a>
+
+      <a href="{% url 'home' %}?experience=iot" class="plantix-tool-card">
+        <div class="plantix-tool-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1e3a8a" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="4" y="4" width="16" height="16" rx="2" />
+            <rect x="9" y="9" width="6" height="6" />
+            <path d="M15 2v2" />
+            <path d="M15 20v2" />
+            <path d="M2 15h2" />
+            <path d="M2 9h2" />
+            <path d="M20 15h2" />
+            <path d="M20 9h2" />
+            <path d="M9 2v2" />
+            <path d="M9 20v2" />
+          </svg>
+        </div>
+        <span class="plantix-tool-title">IoT Sensors dashboard</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- 5. Library Section -->
+  <section class="plantix-section" aria-labelledby="library-fb-heading">
+    <h2 id="library-fb-heading" class="plantix-section-title">{% translate 'Library' %}</h2>
+    <div class="plantix-library-grid">
+      <div class="plantix-lib-column">
+        <a href="{% url 'crops:library' %}" class="plantix-lib-card card-crops">
+          <span class="plantix-lib-title">Crops</span>
+          <div class="plantix-lib-icon-circle">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1e3a8a" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 20h10" /><path d="M10 20c5.5-2.5.8-6.4 3-10" /><path d="M9.5 9.4c1.1.8 1.8 2.2 2.3 3.7-2 .4-3.5.4-4.8-.3-1.2-.6-2.3-1.9-3-4.2 2.8-.5 4.4 0 5.5.8z" /></svg>
+          </div>
+        </a>
+
+        <a href="{% url 'crops:library' %}" class="plantix-lib-card card-cultivation">
+          <span class="plantix-lib-title">Cultivation Tips</span>
+          <div class="plantix-lib-icon-circle">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1e3a8a" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 22V8" /><path d="M5 12H2a10 10 0 0 0 20 0h-3" /><circle cx="12" cy="5" r="3" />
+            </svg>
+          </div>
+        </a>
+      </div>
+
+      <div class="plantix-lib-column">
+        <a href="{% url 'crops:pests' %}" class="plantix-lib-card card-pests">
+          <span class="plantix-lib-title">Pests & diseases</span>
+          <div class="plantix-lib-icon-circle">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1e3a8a" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="m8 2 1.88 1.88" /><path d="M14.12 3.88 16 2" /><path d="M9 7.13v-1a3.003 3.003 0 1 1 6 0v1" /><path d="M12 20c-3.3 0-6-2.7-6-6v-3a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v3c0 3.3-2.7 6-6 6" /><path d="M12 20v-9" /><path d="M6.53 9C4.6 8.8 3 7.1 3 5" /><path d="M6 13H2" /><path d="M3 21c0-2.1 1.7-3.9 3.8-4" /><path d="M20.97 5c0 2.1-1.6 3.8-3.5 4" /><path d="M22 13h-4" /><path d="M17.2 17c2.1.1 3.8 1.9 3.8 4" />
+            </svg>
+          </div>
+        </a>
+
+        <a href="{% url 'crops:pests' %}" class="plantix-lib-card card-alerts">
+          <span class="plantix-lib-title">Pests & Disease Alert</span>
+          <div class="plantix-lib-icon-circle">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1e3a8a" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z" /><line x1="12" y1="9" x2="12" y2="13" /><line x1="12" y1="17" x2="12.01" y2="17" />
+            </svg>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. Sponsored Banner -->
+  <section class="plantix-sponsored-section" aria-labelledby="sponsored-fb-label">
+    <span id="sponsored-fb-label" class="plantix-sponsored-label">Sponsored</span>
+    <a href="{% url 'chatbot:chat' %}" class="plantix-sponsored-card">
+      <div class="plantix-sponsored-banner-top">
+        <img src="{% static 'images/landing/sponsored-banner-art.png' %}" alt="One Home, One Chance — Build with confidence" class="plantix-sponsored-img" width="398" height="223">
+      </div>
+      <div class="plantix-sponsored-footer">
+        <div class="plantix-sponsored-footer-text">
+          <span class="plantix-sponsored-footer-title">One Home, One Chance</span>
+          <span class="plantix-sponsored-footer-sub">To build your identity</span>
+        </div>
+        <span class="plantix-sponsored-arrow">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+        </span>
+      </div>
+    </a>
+  </section>
+</div>

@@ -1,31 +1,310 @@
-import { lazy, Suspense, useRef, useState, type ReactNode } from 'react'
-import { motion, useReducedMotion, useScroll, useTransform } from 'motion/react'
-import { ArrowDown, ArrowRight, ArrowUpRight, BookOpen, Check, CloudSun, Droplets, Leaf, ScanLine, Sprout, TrendingUp, MessageCircle, Plus, Minus } from 'lucide-react'
+import { lazy, Suspense, useEffect, useState } from 'react'
+import { motion, AnimatePresence } from 'motion/react'
+import {
+  Plus,
+  ArrowUpRight,
+  ChevronRight,
+  CloudSun,
+  Check,
+  AlertTriangle,
+  AlertCircle,
+  X,
+  Bug,
+  Sprout,
+  Cpu
+} from 'lucide-react'
 import './AgroLanding.css'
-import DetailedLanding, { ExperienceNav } from './DetailedLanding'
-import { experiences, type ExperienceKey } from './experience-content'
-import { useLandingAnimation } from './useLandingAnimation'
-import ToolHowTo from './ToolHowTo'
-import PestAlertsComingSoon from './PestAlertsComingSoon'
 import CropCursorEffect from './CropCursorEffect'
+import DetailedLanding from './DetailedLanding'
+import { experiences, type ExperienceKey } from './experience-content'
 
 const IoTDashboard = lazy(() => import('./IoTDashboard'))
 
-type Routes = Record<string, string>
-interface Props { routes: Routes; assetBase: string }
-const t = (text: string) => (window as Window & { gettext?: (s: string) => string }).gettext?.(text) ?? text
-function Reveal({ children, className = '' }: { children: ReactNode; className?: string }) {
-  const reduced = useReducedMotion()
-  return <motion.div className={className} initial={false} whileInView={reduced ? {} : { y: [22, 0], opacity: [0.5, 1] }} viewport={{ once: true, amount: 0.12 }} transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}>{children}</motion.div>
+export interface CropItem {
+  id: string
+  name: string
+  display_name?: string
+  image: string
+  hasRing?: boolean
+  has_ring?: boolean
 }
+
+export type SprayStatus = 'DO_NOT_SPRAY' | 'POOR_CONDITIONS' | 'MARGINAL' | 'OPTIMAL'
+
+export interface SprayConditionResult {
+  status: SprayStatus
+  deltaT: number
+  wetBulb?: number
+  reason: string
+  deltaTRange?: '0-2' | '2-8' | '8-10' | '>10'
+  deltaTStatus?: 'marginal' | 'optimal' | 'poor'
+  rainRange?: 'no_rain' | '<0.1' | '>0.1'
+  rainStatus?: 'optimal' | 'marginal' | 'poor'
+  windRange?: '<12' | '12-25' | '>25'
+  windStatus?: 'optimal' | 'marginal' | 'poor'
+}
+
+/**
+ * Calculates Wet-Bulb Temperature using Stull's formula
+ * @param temp - Dry bulb temperature in °C
+ * @param rh - Relative humidity in % (0 - 100)
+ * @returns Wet bulb temperature in °C
+ */
+export function calculateWetBulb(temp: number, rh: number): number {
+  const tw =
+    temp * Math.atan(0.151977 * Math.sqrt(rh + 8.313659)) +
+    Math.atan(temp + rh) -
+    Math.atan(rh - 1.676331) +
+    0.00391838 * Math.pow(rh, 1.5) * Math.atan(0.023101 * rh) -
+    4.686035
+  return parseFloat(tw.toFixed(2))
+}
+
+/**
+ * Evaluates spraying suitability for crops matching Plantix rules:
+ * Delta T (°C): 0-2 (Marginal), 2-8 (Optimal), 8-10 (Marginal), >10 (Do Not Spray)
+ * Rain (mm): No rain (Optimal), <0.1 (Marginal), >0.1 (Do Not Spray)
+ * Wind (km/h): <12 (Optimal), 12-25 (Marginal), >25 (Do Not Spray)
+ */
+export function evaluateSprayCondition(
+  temp: number,
+  humidity: number,
+  windSpeedKmH: number,
+  rainWithin3Hours: boolean,
+  isDaylight?: boolean,
+  currentHour?: number,
+  rainMm?: number
+): SprayConditionResult {
+  const hour = currentHour !== undefined ? currentHour : new Date().getHours()
+  const wetBulb = calculateWetBulb(temp, humidity)
+  const deltaT = parseFloat((temp - wetBulb).toFixed(2))
+  const rainVal = rainMm !== undefined ? rainMm : (rainWithin3Hours ? 0.5 : 0.0)
+
+  // 1. Delta T classification
+  let deltaTRange: '0-2' | '2-8' | '8-10' | '>10' = '2-8'
+  let deltaTStatus: 'marginal' | 'optimal' | 'poor' = 'optimal'
+  let deltaTReason = 'Delta T is 2–8°C: ideal droplet retention and steady drying.'
+
+  if (deltaT <= 2.0) {
+    deltaTRange = '0-2'
+    deltaTStatus = 'marginal'
+    deltaTReason = 'Delta T is 0–2°C: slow drying and run-off risk.'
+  } else if (deltaT > 2.0 && deltaT <= 8.0) {
+    deltaTRange = '2-8'
+    deltaTStatus = 'optimal'
+    deltaTReason = 'Delta T is 2–8°C: ideal droplet retention and steady drying.'
+  } else if (deltaT > 8.0 && deltaT <= 10.0) {
+    deltaTRange = '8-10'
+    deltaTStatus = 'marginal'
+    deltaTReason = 'Delta T is 8–10°C: use coarse spray nozzles to reduce evaporation.'
+  } else {
+    deltaTRange = '>10'
+    deltaTStatus = 'poor'
+    deltaTReason = 'Air too dry (Delta T > 10°C): droplets evaporate before landing.'
+  }
+
+  // 2. Rain classification
+  let rainRange: 'no_rain' | '<0.1' | '>0.1' = 'no_rain'
+  let rainStatus: 'optimal' | 'marginal' | 'poor' = 'optimal'
+  let rainReason = 'Dry weather prevents wash-off.'
+
+  if (rainVal > 0.1 || rainWithin3Hours) {
+    rainRange = '>0.1'
+    rainStatus = 'poor'
+    rainReason = 'Rain imminent (> 0.1 mm): pesticide will wash off.'
+  } else if (rainVal > 0.0) {
+    rainRange = '<0.1'
+    rainStatus = 'marginal'
+    rainReason = 'Trace rain (< 0.1 mm): monitor skies before spraying.'
+  } else {
+    rainRange = 'no_rain'
+    rainStatus = 'optimal'
+    rainReason = 'Dry weather prevents wash-off.'
+  }
+
+  // 3. Wind classification
+  let windRange: '<12' | '12-25' | '>25' = '<12'
+  let windStatus: 'optimal' | 'marginal' | 'poor' = 'optimal'
+  let windReason = 'Lower wind speeds (< 12 km/h) are ideal for better coverage and less drift.'
+
+  if (windSpeedKmH < 3.0) {
+    windRange = '<12'
+    windStatus = 'poor'
+    windReason = 'Inversion risk: zero/calm wind causes dangerous droplet suspension.'
+  } else if (windSpeedKmH < 12.0) {
+    windRange = '<12'
+    windStatus = 'optimal'
+    windReason = 'Lower wind speeds (< 12 km/h) are ideal for better coverage and less drift.'
+  } else if (windSpeedKmH >= 12.0 && windSpeedKmH <= 25.0) {
+    windRange = '12-25'
+    windStatus = 'marginal'
+    windReason = 'Moderate wind (12–25 km/h): lower spray boom height and monitor drift.'
+  } else {
+    windRange = '>25'
+    windStatus = 'poor'
+    windReason = 'High wind (> 25 km/h): severe spray drift danger.'
+  }
+
+  // Night-time check
+  const isNight = isDaylight === false || (isDaylight === undefined && (hour < 6 || hour >= 18))
+
+  if (isNight) {
+    return {
+      status: 'DO_NOT_SPRAY',
+      deltaT,
+      wetBulb,
+      reason: 'Night-time: Inversion risk and dew. Spraying is unsafe at night; wait until daylight (06:00–18:00).',
+      deltaTRange,
+      deltaTStatus,
+      rainRange,
+      rainStatus,
+      windRange,
+      windStatus
+    }
+  }
+
+  if (temp > 35.0) {
+    return {
+      status: 'DO_NOT_SPRAY',
+      deltaT,
+      wetBulb,
+      reason: 'High temperature (> 35°C): risk of leaf phytotoxicity and rapid volatilization.',
+      deltaTRange,
+      deltaTStatus,
+      rainRange,
+      rainStatus,
+      windRange,
+      windStatus
+    }
+  }
+
+  if (deltaTStatus === 'poor') {
+    return {
+      status: 'DO_NOT_SPRAY',
+      deltaT,
+      wetBulb,
+      reason: deltaTReason,
+      deltaTRange,
+      deltaTStatus,
+      rainRange,
+      rainStatus,
+      windRange,
+      windStatus
+    }
+  }
+
+  if (rainStatus === 'poor') {
+    return {
+      status: 'DO_NOT_SPRAY',
+      deltaT,
+      wetBulb,
+      reason: rainReason,
+      deltaTRange,
+      deltaTStatus,
+      rainRange,
+      rainStatus,
+      windRange,
+      windStatus
+    }
+  }
+
+  if (windStatus === 'poor') {
+    return {
+      status: 'DO_NOT_SPRAY',
+      deltaT,
+      wetBulb,
+      reason: windReason,
+      deltaTRange,
+      deltaTStatus,
+      rainRange,
+      rainStatus,
+      windRange,
+      windStatus
+    }
+  }
+
+  if (deltaTStatus === 'marginal' || rainStatus === 'marginal' || windStatus === 'marginal') {
+    const reason = deltaTStatus === 'marginal' ? deltaTReason : (windStatus === 'marginal' ? windReason : rainReason)
+    return {
+      status: 'MARGINAL',
+      deltaT,
+      wetBulb,
+      reason,
+      deltaTRange,
+      deltaTStatus,
+      rainRange,
+      rainStatus,
+      windRange,
+      windStatus
+    }
+  }
+
+  return {
+    status: 'OPTIMAL',
+    deltaT,
+    wetBulb,
+    reason: 'Ideal spraying window: Delta T 2–8°C, wind < 12 km/h, and dry weather.',
+    deltaTRange,
+    deltaTStatus,
+    rainRange,
+    rainStatus,
+    windRange,
+    windStatus
+  }
+}
+
+export interface WeatherData {
+  temp: number
+  temp_str?: string
+  humidity: number
+  wind_kmh: number
+  delta_t?: number
+  rain_within_3h?: boolean
+  is_daylight?: boolean
+  status?: SprayStatus
+  status_label?: string
+  badge_class?: string
+  badge_icon?: string
+  time_text?: string
+  reason?: string
+  description?: string
+  location?: string
+}
+
+export interface DiagnosisItem {
+  id: number | string
+  disease: string
+  plant?: string
+  date: string
+  status_label: string
+  status_type: 'complete' | 'incomplete'
+  image_url: string
+  url: string
+}
+
+type Routes = Record<string, string>
+interface Props {
+  routes: Routes
+  assetBase: string
+  userCrops?: CropItem[]
+  weatherData?: WeatherData
+  diagnoses?: DiagnosisItem[]
+}
+
+const t = (text: string) => (window as Window & { gettext?: (s: string) => string }).gettext?.(text) ?? text
+
 export default function AgroLanding(props: Props) {
   const key = new URLSearchParams(window.location.search).get('experience')
-  if (key === 'iot') return (
-    <>
-      <CropCursorEffect />
-      <Suspense fallback={<div className="iot-loading" role="status">Loading field dashboard…</div>}><IoTDashboard routes={props.routes} /></Suspense>
-    </>
-  )
+  if (key === 'iot') {
+    return (
+      <>
+        <CropCursorEffect />
+        <Suspense fallback={<div className="iot-loading" role="status">Loading field dashboard…</div>}>
+          <IoTDashboard routes={props.routes} />
+        </Suspense>
+      </>
+    )
+  }
   if (key && Object.prototype.hasOwnProperty.call(experiences, key)) {
     return (
       <>
@@ -34,72 +313,543 @@ export default function AgroLanding(props: Props) {
       </>
     )
   }
+
   return (
     <>
       <CropCursorEffect />
-      <AgroOverview {...props} />
+      <PlantixDashboard {...props} />
     </>
   )
 }
-function AgroOverview({ routes, assetBase }: Props) {
-  const root = useRef<HTMLDivElement>(null)
-  useLandingAnimation(root)
-  const hero = useRef<HTMLElement>(null)
-  const reduced = useReducedMotion()
-  const { scrollYProgress } = useScroll({ target: hero, offset: ['start start', 'end start'] })
-  const y = useTransform(scrollYProgress, [0, 1], ['0%', '16%'])
-  const [active, setActive] = useState('all')
-  const [openFaq, setOpenFaq] = useState<number | null>(0)
-  const tools = [
-    { title: 'Crop Advisor', category: 'plan', label: 'PLAN WITH PURPOSE', copy: 'The right crop starts with your soil. Explore recommendations based on nutrients, climate, and growing conditions.', image: 'rice', icon: Sprout, route: 'crop', featured: true },
-    { title: 'Disease Check', category: 'care', label: 'LOOK A LITTLE CLOSER', copy: 'Turn a leaf photo into a starting point for understanding plant health.', image: 'cotton', icon: ScanLine, route: 'disease' },
-    { title: 'Weather & Advisory', category: 'plan', label: 'WORK WITH THE WEATHER', copy: 'See the forecast and find a better window for your next farm task.', image: 'sugarcane', icon: CloudSun, route: 'weather' },
-    { title: 'Fertilizer Calculator', category: 'care', label: 'MAKE EVERY INPUT COUNT', copy: 'Translate nutrient recommendations into practical quantities for your field.', image: 'barley', icon: Droplets, route: 'fertilizer' },
+
+function PlantixDashboard({ routes, assetBase, userCrops, weatherData, diagnoses }: Props) {
+  const fallbackCrops: CropItem[] = [
+    {
+      id: 'tomato',
+      name: 'Tomato',
+      display_name: 'Tomato',
+      image: `${assetBase}/crops/tomato.webp`,
+      hasRing: true
+    },
+    {
+      id: 'pepper-bell',
+      name: 'Capsicum & Chilli',
+      display_name: 'Capsicum & Chilli',
+      image: `${assetBase}/crops/pepper-bell.webp`,
+      hasRing: true
+    },
+    {
+      id: 'rice',
+      name: 'Rice',
+      display_name: 'Rice',
+      image: `${assetBase}/crops/rice.webp`,
+      hasRing: false
+    },
+    {
+      id: 'cotton',
+      name: 'Cotton',
+      display_name: 'Cotton',
+      image: `${assetBase}/crops/cotton.webp`,
+      hasRing: false
+    },
+    {
+      id: 'wheat',
+      name: 'Wheat',
+      display_name: 'Wheat',
+      image: `${assetBase}/crops/wheat.webp`,
+      hasRing: false
+    }
   ]
-  const faqs = [
-    ['Where should I begin?', 'Start with a question in the farming assistant, or choose a tool for the task in front of you. Create an account when prompted to access your farm dashboard.'],
-    ['Can I use it on my phone?', 'Yes. The tools and pages adapt to your screen, with touch-friendly controls. Live advice, account features, weather, and market prices need an internet connection.'],
-    ['Does a leaf photo give a confirmed diagnosis?', 'A photo can help explore possible causes. Image quality and field conditions affect results. Confirm important treatment decisions with a local agricultural expert.'],
-    ['Can I ask in my own language?', 'The assistant supports questions in multiple Indian languages. Ask naturally, and include your crop, location, and growing conditions for more useful context.'],
-  ]
-  return <div className="agro-landing" ref={root}>
-    <div className="experience-progress" data-scroll-progress aria-hidden="true" />
-    <section className="agro-hero" ref={hero} aria-labelledby="agro-title">
-      <motion.img className="agro-hero-image" src={`${assetBase}/landing/farmland.jpg`} alt="Sunlight falling across green farmland and rolling hills" fetchPriority="high" width="1920" height="1280" style={{ y: reduced ? 0 : y }} />
-      <div className="agro-shade" />
-      <div className="agro-hero-content agro-wrap">
-        <motion.div initial={false} animate={reduced ? {} : { y: [20, 0], opacity: [0.4, 1] }} transition={{ duration: 0.8 }}>
-          <span className="agro-eyebrow"><span className="agro-dot" />{t('ROOTED IN KNOWLEDGE. GROWN WITH AI.')}</span>
-          <h1 id="agro-title">{t('A smarter way')}<br />{t('to grow a')} <em>{t('better tomorrow.')}</em></h1>
-          <p>{t('Your soil. Your crops. Your next harvest. Bring a little more clarity to every farming decision, with a companion that grows with you.')}</p>
-          <div className="agro-actions"><a className="agro-button lime" href={routes.start}>{t('Let’s grow together')}<ArrowUpRight size={18} /></a><a className="agro-button glass" href="#tools">{t('Explore the tools')}<ArrowDown size={17} /></a></div>
-        </motion.div>
+
+  const crops = userCrops && userCrops.length > 0 ? userCrops : fallbackCrops
+
+  const [selectedCrop, setSelectedCrop] = useState<string>(crops[0]?.id || 'tomato')
+  const [showSticky, setShowSticky] = useState<boolean>(false)
+
+  const currentHour = new Date().getHours()
+  const isNight =
+    weatherData?.is_daylight === false ||
+    (weatherData?.is_daylight === undefined && (currentHour < 6 || currentHour >= 18))
+
+  const [currentWeather, setCurrentWeather] = useState<{
+    temp: number
+    humidity: number
+    windKmH: number
+    rainWithin3Hours: boolean
+    is_daylight?: boolean
+    location?: string
+  }>(() => ({
+    temp: Number(weatherData?.temp ?? (isNight ? 22 : 26)),
+    humidity: Number(weatherData?.humidity ?? (isNight ? 70 : 55)),
+    windKmH: Number(weatherData?.wind_kmh ?? (isNight ? 2.0 : 8.5)),
+    rainWithin3Hours: Boolean(weatherData?.rain_within_3h ?? false),
+    is_daylight: weatherData?.is_daylight ?? !isNight,
+    location: weatherData?.location,
+  }))
+
+  const sprayResult = evaluateSprayCondition(
+    currentWeather.temp,
+    currentWeather.humidity,
+    currentWeather.windKmH,
+    currentWeather.rainWithin3Hours,
+    currentWeather.is_daylight,
+    currentHour
+  )
+
+  useEffect(() => {
+    if (weatherData && weatherData.temp !== undefined) return
+    const loc = currentWeather.location || 'Bengaluru'
+    fetch(`/weather/api/?location=${encodeURIComponent(loc)}`)
+      .then((res) => (res.ok ? res.json() : null))
+      .then((data) => {
+        if (data?.forecast?.[0]?.slots?.[0]) {
+          const slot = data.forecast[0].slots[0]
+          setCurrentWeather({
+            temp: Number(slot.temp ?? 24),
+            humidity: Number(slot.humidity ?? 60),
+            windKmH: Number((slot.wind ?? 2.5) * 3.6),
+            rainWithin3Hours: Number(slot.rain ?? 0) > 0 || Number(slot.pop ?? 0) >= 0.3,
+            is_daylight: slot.daylight,
+            location: data.location,
+          })
+        }
+      })
+      .catch(() => {})
+  }, [weatherData])
+
+  // Format today's date as "30 Oct"
+  const formattedDate = new Intl.DateTimeFormat('en-GB', { day: 'numeric', month: 'short' }).format(new Date())
+
+  const [tempUnit, setTempUnit] = useState<string>(() => {
+    if (typeof window !== 'undefined') {
+      return localStorage.getItem('km_temp_unit') || 'C'
+    }
+    return 'C'
+  })
+
+  useEffect(() => {
+    const handleUnitChange = (e: any) => {
+      const u = e?.detail?.unit || localStorage.getItem('km_temp_unit') || 'C'
+      setTempUnit(u)
+    }
+    window.addEventListener('km:temp_unit_change', handleUnitChange)
+    window.addEventListener('storage', handleUnitChange)
+    return () => {
+      window.removeEventListener('km:temp_unit_change', handleUnitChange)
+      window.removeEventListener('storage', handleUnitChange)
+    }
+  }, [])
+
+  const formatTemperature = (celsius: number) => {
+    if (tempUnit === 'F') {
+      return `${Math.round(celsius * 1.8 + 32)} °F`
+    }
+    if (tempUnit === 'K') {
+      return `${Math.round(celsius + 273.15)} K`
+    }
+    return `${Math.round(celsius)} °C`
+  }
+
+  const deltaTStr = tempUnit === 'F' ? `${(sprayResult.deltaT * 1.8).toFixed(1)}°F` : `${sprayResult.deltaT}°C`
+
+  let statusLabel = t('Optimal')
+  let statusBadgeClass = 'is-optimal'
+  let StatusIcon = Check
+  let timeSubtext = `ΔT ${deltaTStr} · ${t('Ideal window')}`
+
+  if (sprayResult.status === 'OPTIMAL') {
+    statusLabel = t('Optimal')
+    statusBadgeClass = 'is-optimal'
+    StatusIcon = Check
+    timeSubtext = `ΔT ${deltaTStr} · ${t('Ideal window')}`
+  } else if (sprayResult.status === 'MARGINAL') {
+    statusLabel = t('Marginal')
+    statusBadgeClass = 'is-marginal'
+    StatusIcon = AlertTriangle
+    timeSubtext = `ΔT ${deltaTStr} · ${t('Monitor drift')}`
+  } else if (sprayResult.status === 'POOR_CONDITIONS') {
+    statusLabel = t('Poor')
+    statusBadgeClass = 'is-poor'
+    StatusIcon = AlertCircle
+    timeSubtext = `ΔT ${deltaTStr} · ${t('High humidity')}`
+  } else {
+    statusLabel = t('Avoid')
+    statusBadgeClass = 'is-avoid'
+    StatusIcon = X
+    if (isNight) {
+      timeSubtext = t('Night time · Opens 06:00 AM')
+    } else if (currentWeather.rainWithin3Hours) {
+      timeSubtext = t('Rain imminent')
+    } else if (currentWeather.windKmH < 3) {
+      timeSubtext = t('Inversion risk · Zero wind')
+    } else if (currentWeather.windKmH > 20) {
+      timeSubtext = t('High wind drift')
+    } else if (currentWeather.temp > 32) {
+      timeSubtext = t('High temperature')
+    } else {
+      timeSubtext = `ΔT ${sprayResult.deltaT}°C · ${t('Do not spray')}`
+    }
+  }
+
+  useEffect(() => {
+    const handleScroll = () => {
+      // Show floating CTA once user scrolls past hero card (approx 280px)
+      setShowSticky(window.scrollY > 280)
+    }
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
+  return (
+    <div className="plantix-dashboard" id="plantix-main">
+      {/* Floating Sticky CTA on Scroll */}
+      <AnimatePresence>
+        {showSticky && (
+          <motion.div
+            className="plantix-floating-cta-wrap"
+            initial={{ opacity: 0, y: -16, scale: 0.95 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: -16, scale: 0.95 }}
+            transition={{ duration: 0.2 }}
+          >
+            <a href={routes.disease || '/disease/detect/'} className="plantix-floating-btn">
+              {t('Take a picture')}
+            </a>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* 1. Crop Selection Row */}
+      <div className="plantix-crop-bar-wrap" aria-label={t('Your selected crops')}>
+        <div className="plantix-crop-bar">
+          {crops.map((crop, idx) => {
+            const isSelected = selectedCrop === crop.id || (!selectedCrop && idx === 0)
+            const hasRing = isSelected || crop.hasRing || crop.has_ring
+            const labelText = crop.display_name || crop.name
+            return (
+              <button
+                key={crop.id + '-' + idx}
+                type="button"
+                className={`plantix-crop-item ${isSelected ? 'is-selected' : ''}`}
+                onClick={() => setSelectedCrop(crop.id)}
+              >
+                <div className={`plantix-crop-avatar ${hasRing ? 'has-ring' : ''}`}>
+                  <img
+                    src={crop.image}
+                    alt={labelText}
+                    loading="eager"
+                    width="68"
+                    height="68"
+                  />
+                </div>
+                <span className="plantix-crop-label">{t(labelText)}</span>
+              </button>
+            )
+          })}
+
+          {/* Add Crop Button */}
+          <a
+            href={routes.profile || routes.library || '/accounts/profile/'}
+            className="plantix-crop-add-item"
+            title={t('Add or edit crops')}
+            aria-label={t('Add or edit crops')}
+          >
+            <div className="plantix-crop-add-btn">
+              <span className="plantix-add-icon-circle">
+                <Plus size={22} strokeWidth={2.8} />
+              </span>
+            </div>
+            <span className="plantix-crop-label plantix-add-label">{t('Add')}</span>
+          </a>
+        </div>
       </div>
-      <div className="agro-hero-bottom agro-wrap"><a href="#mission">{t('SCROLL TO EXPLORE')}<ArrowDown size={15} /></a><div className="agro-hero-note"><span className="agro-round-icon"><Sprout size={22} /></span><span>{t('Made for the hands')}<br /><strong>{t('that feed tomorrow.')}</strong></span></div><span className="agro-coordinate">{t('INDIAN ROOTS. NEW POSSIBILITIES.')}</span></div>
-    </section>
-    <ExperienceNav />
-    <div className="agro-trust agro-wrap"><p>{t('One companion.')}<br /><strong>{t('Every growing season.')}</strong></p><span><MessageCircle />{t('Your language')}</span><span><Sprout />{t('Your growing conditions')}</span><span><BookOpen />{t('Knowledge with context')}</span><span><Leaf />{t('Your next step')}</span></div>
-    <section className="overview-experiences agro-wrap agro-section" aria-labelledby="explore-title">
-      <div className="agro-section-top" data-gsap-reveal><span className="agro-eyebrow">{t('FIND YOUR WAY INTO A BETTER SEASON')}</span><span className="agro-small">{t('Three journeys. One connected farm.')}</span></div>
-      <h2 id="explore-title" data-gsap-reveal>{t('What’s growing')} <em>{t('on your mind?')}</em></h2>
-      <div className="overview-experience-grid">{Object.entries(experiences).map(([key, page]) => <a href={`/?experience=${key}`} key={key} data-gsap-reveal><div className="overview-experience-image"><img src={`${assetBase}/crops/${page.image}.webp`} alt="" width="600" height="450" loading="lazy" /><span>{page.number}</span></div><div className="overview-experience-copy"><h3>{t(page.label)}<ArrowUpRight size={22} /></h3><p>{t(page.intro)}</p><span>{t('Explore the journey')}<ArrowRight size={15} /></span></div></a>)}</div>
-    </section>
-    <section id="mission" className="agro-mission agro-wrap agro-section">
-      <Reveal><div className="agro-section-top"><span className="agro-eyebrow">{t('01 / A LITTLE CLARITY GOES A LONG WAY')}</span><span className="agro-small">{t('For the farmer. For the future.')}</span></div>
-      <h2>{t('Better decisions today.')}<br />{t('Stronger roots for')} <em>{t('tomorrow.')}</em></h2>
-      <div className="agro-mission-bottom"><div className="agro-leaf-mark"><Sprout strokeWidth={1} /></div><p>{t('Farming has always been a conversation with the land. Krishi Mitra brings crop knowledge, practical tools, and AI guidance into that conversation — so your next step feels a little clearer.')}</p><a className="agro-text-link" href={routes.chat}>{t('Meet your farming companion')}<ArrowUpRight size={19} /></a></div>
-      <div className="agro-metrics"><div><strong>01<span>—</span>08</strong><p>{t('Connected tools for your farm')}</p></div><div><strong>{t('Your farm.')}</strong><p>{t('Advice starts with your context')}</p></div><div><strong>{t('Every season.')}</strong><p>{t('From the first seed to the next harvest')}</p></div></div></Reveal>
-    </section>
-    <section id="tools" className="agro-solutions agro-section"><div className="agro-wrap"><Reveal><div className="agro-section-top"><span className="agro-eyebrow">{t('02 / THE FARM TOOLKIT')}</span><span className="agro-small">{t('Practical tools. Real possibilities.')}</span></div><div className="agro-heading-row"><h2>{t('Less guesswork.')}<br /><em>{t('More growing.')}</em></h2><div><p>{t('A little insight for whatever the day brings.')}<br />{t('Choose what your farm needs today.')}</p><div className="agro-filters" role="group" aria-label={t('Filter farm tools')}>{[['all', 'All tools'], ['plan', 'Plan & grow'], ['care', 'Plant care']].map(([key, label]) => <button key={key} type="button" aria-pressed={active === key} onClick={() => setActive(key)}>{t(label)}</button>)}</div></div></div></Reveal>
-      <div className="agro-bento">{tools.filter(tool => active === 'all' || tool.category === active).map(tool => <Reveal className={`agro-solution ${tool.featured ? 'featured' : ''}`} key={tool.route}><a href={routes[tool.route]}><img loading="lazy" decoding="async" src={`${assetBase}/crops/${tool.image}.webp`} alt="" width="800" height="600" /><div className="agro-card-shade" /><div className="agro-card-top"><span className="agro-card-tag"><tool.icon size={15} />{t(tool.label)}</span><span className="agro-card-arrow"><ArrowUpRight size={22} /></span></div><div className="agro-card-copy"><h3>{t(tool.title)}</h3><p>{t(tool.copy)}</p></div></a></Reveal>)}</div>
-      <div className="agro-tool-links">{[[MessageCircle, 'chat', 'Ask Assistant'], [TrendingUp, 'market', 'Market Prices'], [Sprout, 'yield', 'Yield Estimate'], [BookOpen, 'library', 'Crop Library']].map(([Icon, key, title]) => { const ToolIcon = Icon as typeof Leaf; return <a href={routes[key as string]} key={key as string}><ToolIcon size={21} />{t(title as string)}<ArrowUpRight size={17} /></a> })}</div>
-    </div></section>
-    <div className="agro-wrap pest-alerts-landing"><PestAlertsComingSoon /></div>
-    <ToolHowTo routes={routes} />
-    <section id="growing" className="agro-growing agro-wrap agro-section"><Reveal className="agro-growing-photo"><img src={`${assetBase}/crops/rice.webp`} width="800" height="900" alt={t('Rice plants growing together in a field')} loading="lazy" decoding="async" /><span><Sprout size={22} />{t('Good things take growing.')}</span></Reveal><Reveal className="agro-growing-copy"><span className="agro-eyebrow">{t('03 / FROM QUESTION TO CONFIDENCE')}</span><h2>{t('A small step.')}<br />{t('A whole new')}<br /><em>{t('perspective.')}</em></h2><ol>{[['Tell us about your farm', 'Start with a question, a soil report, or a leaf photo.'], ['Find a little clarity', 'Explore practical guidance and the context behind it.'], ['Take your next step', 'Plan your crop, care for your plants, and prepare for harvest.']].map(([title, copy], i) => <li key={title}><span>0{i + 1}</span><div><h3>{t(title)}</h3><p>{t(copy)}</p></div></li>)}</ol><a className="agro-button forest" href={routes.chat}>{t('Ask your first question')}<ArrowUpRight size={18} /></a></Reveal></section>
-    <section className="agro-library agro-section"><div className="agro-wrap"><Reveal><div className="agro-section-top"><span className="agro-eyebrow">{t('04 / KNOW WHAT YOU GROW')}</span><a className="agro-text-link" href={routes.library}>{t('Explore the crop library')}<ArrowUpRight size={18} /></a></div><h2>{t('Every crop has')}<br /><em>{t('a story to tell.')}</em></h2></Reveal><div className="agro-crops">{[['rice', 'Rice', 'From seedbed to golden harvest.'], ['cotton', 'Cotton', 'Care for every stage of growth.'], ['sugarcane', 'Sugarcane', 'Build knowledge from the roots up.']].map(([slug, title, copy]) => <Reveal key={slug}><a href={`${routes.library}${slug}/`}><div className="agro-crop-image"><img src={`${assetBase}/crops/${slug}.webp`} alt={t(title)} width="600" height="450" loading="lazy" decoding="async" /><span><ArrowUpRight size={22} /></span></div><h3>{t(title)}</h3><p>{t(copy)}</p></a></Reveal>)}</div></div></section>
-    <section className="agro-faq agro-wrap agro-section"><Reveal><span className="agro-eyebrow">{t('A FEW THINGS YOU MIGHT BE WONDERING')}</span><div className="agro-faq-grid"><h2>{t('Good questions.')}<br /><em>{t('Clear answers.')}</em></h2><div>{faqs.map(([q, a], i) => <div className="agro-faq-item" key={q}><h3><button aria-expanded={openFaq === i} aria-controls={`agro-answer-${i}`} onClick={() => setOpenFaq(openFaq === i ? null : i)}>{t(q)}{openFaq === i ? <Minus size={18} /> : <Plus size={18} />}</button></h3><div id={`agro-answer-${i}`} hidden={openFaq !== i}><p>{t(a)}</p></div></div>)}</div></div></Reveal></section>
-    <section className="agro-cta"><div className="agro-wrap"><Reveal><span className="agro-eyebrow"><Check size={15} />{t('YOUR NEXT SEASON STARTS HERE')}</span><h2>{t('Let’s grow something')}<br /><em>{t('better. Together.')}</em></h2><a className="agro-button lime" href={routes.start}>{t('Start your growing journey')}<ArrowUpRight size={18} /></a><p>{t('A little guidance. A lot of possibility.')}</p></Reveal><Leaf className="agro-cta-leaf" strokeWidth={0.5} aria-hidden="true" /></div></section>
-    <div className="agro-endnote agro-wrap"><span><Sprout size={18} />{t('Rooted in care. Built for your farm.')}</span><a href="#agro-title">{t('Back to the top')}<ArrowRight size={16} style={{ transform: 'rotate(-90deg)' }} /></a></div>
-  </div>
+
+      {/* 2. Weather & Spraying Conditions Card */}
+      <div className="plantix-weather-card">
+        {/* Left Subcard: Date, Weather Icon, Temperature */}
+        <a href={routes.weather || '/weather/'} className="plantix-weather-left">
+          <span className="plantix-weather-date">{formattedDate}</span>
+          <div className="plantix-weather-icon">
+            <CloudSun size={32} strokeWidth={1.7} />
+          </div>
+          <span className="plantix-weather-temp">{formatTemperature(currentWeather.temp)}</span>
+        </a>
+
+        {/* Right Subcard: Spraying Conditions */}
+        <a
+          href={routes.weather || '/weather/'}
+          className="plantix-weather-right"
+          title={`${sprayResult.reason} (Delta T: ${sprayResult.deltaT}°C)`}
+        >
+          <div className="plantix-spray-info">
+            <span className="plantix-spray-title">{t('Spraying conditions')}</span>
+            <span className="plantix-spray-status">{statusLabel}</span>
+          </div>
+          <div className="plantix-spray-time">{timeSubtext}</div>
+          <div
+            className={`plantix-spray-badge ${statusBadgeClass}`}
+            aria-label={`${statusLabel}: ${sprayResult.reason}`}
+          >
+            <StatusIcon size={16} strokeWidth={2.8} />
+          </div>
+        </a>
+      </div>
+
+      {/* 3. Leaf Doctor / Diagnosis Hero Card */}
+      <section className="plantix-hero-card" aria-labelledby="leaf-doctor-heading">
+        <h2 id="leaf-doctor-heading" className="visually-hidden">{t('Leaf Doctor Diagnosis')}</h2>
+
+        <div className="plantix-steps-row">
+          {/* Step 1: Smartphone */}
+          <div className="plantix-step-col">
+            <div className="plantix-step-graphic">
+              <svg width="44" height="60" viewBox="0 0 44 60" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <rect x="2" y="2" width="40" height="56" rx="8" stroke="#1e293b" strokeWidth="2.5" fill="#ffffff" />
+                <rect x="6" y="8" width="32" height="42" rx="4" fill="#f8fafc" />
+                <circle cx="22" cy="5" r="1.5" fill="#94a3b8" />
+                {/* Seedling in phone */}
+                <path d="M22 38V22" stroke="#16a34a" strokeWidth="2.2" strokeLinecap="round" />
+                <path d="M22 28C18 26 15 22 16 18C20 18 22 22 22 25" fill="#4ade80" stroke="#16a34a" strokeWidth="1.2" />
+                <path d="M22 25C24 23 27 20 29 21C29 25 26 27 22 28" fill="#22c55e" stroke="#16a34a" strokeWidth="1.2" />
+              </svg>
+            </div>
+            <span className="plantix-step-label">{t('Take a picture')}</span>
+          </div>
+
+          <ChevronRight className="plantix-step-arrow" size={20} strokeWidth={2.4} aria-hidden="true" />
+
+          {/* Step 2: Plant Seedling with Blue Checkmark */}
+          <div className="plantix-step-col">
+            <div className="plantix-step-graphic">
+              <svg width="56" height="60" viewBox="0 0 56 60" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M28 48V20" stroke="#16a34a" strokeWidth="2.8" strokeLinecap="round" />
+                <path d="M28 32C20 30 14 24 16 18C22 18 27 24 28 28" fill="#4ade80" stroke="#16a34a" strokeWidth="1.8" />
+                <path d="M28 26C36 24 42 18 40 12C34 12 29 18 28 22" fill="#22c55e" stroke="#16a34a" strokeWidth="1.8" />
+                <path d="M28 20C28 12 22 6 22 6C22 6 30 8 32 16" fill="#86efac" stroke="#16a34a" strokeWidth="1.8" />
+                {/* Circular blue checkmark */}
+                <circle cx="38" cy="42" r="10" fill="#005bf6" stroke="#ffffff" strokeWidth="2" />
+                <path d="M34 42L36.8 44.8L42.5 39" stroke="#ffffff" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </div>
+            <span className="plantix-step-label">{t('See diagnosis')}</span>
+          </div>
+
+          <ChevronRight className="plantix-step-arrow" size={20} strokeWidth={2.4} aria-hidden="true" />
+
+          {/* Step 3: Trigger Spray Bottle */}
+          <div className="plantix-step-col">
+            <div className="plantix-step-graphic">
+              <svg width="56" height="60" viewBox="0 0 56 60" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                {/* Purple bottle body */}
+                <path d="M19 28H37L39 52C39 54 37 56 35 56H21C19 56 17 54 17 52L19 28Z" fill="#a855f7" stroke="#7e22ce" strokeWidth="1.8" />
+                {/* Neck */}
+                <rect x="23" y="22" width="10" height="6" fill="#9333ea" stroke="#7e22ce" strokeWidth="1.2" />
+                {/* Nozzle trigger */}
+                <path d="M22 22V14H34V18H38L42 22H34V22" fill="#cbd5e1" stroke="#475569" strokeWidth="1.5" strokeLinejoin="round" />
+                <path d="M22 14L15 22" stroke="#475569" strokeWidth="2.4" strokeLinecap="round" />
+                <rect x="38" y="19" width="4" height="4" rx="1" fill="#3b82f6" />
+                {/* Spray mist droplets */}
+                <circle cx="47" cy="18" r="1.5" fill="#60a5fa" />
+                <circle cx="50" cy="22" r="1.5" fill="#60a5fa" />
+                <circle cx="46" cy="26" r="1.5" fill="#60a5fa" />
+              </svg>
+            </div>
+            <span className="plantix-step-label">{t('Get medicine')}</span>
+          </div>
+        </div>
+
+        {/* Primary Blue Button */}
+        <a href={routes.disease || '/disease/detect/'} className="plantix-hero-cta">
+          {t('Take a picture')}
+        </a>
+      </section>
+
+      {/* 3b. Recent Diagnoses Carousel (Plantix style) */}
+      {diagnoses && diagnoses.length > 0 && (
+        <div className="plantix-diagnoses-carousel" aria-label={t('Recent diagnoses')}>
+          {diagnoses.map((item) => (
+            <a key={item.id} href={item.url} className="plantix-diag-card">
+              <div className="plantix-diag-thumb-wrap">
+                <img
+                  src={item.image_url}
+                  alt={item.disease}
+                  className="plantix-diag-thumb"
+                  width="60"
+                  height="60"
+                  loading="lazy"
+                />
+              </div>
+              <div className="plantix-diag-content">
+                <span className="plantix-diag-date">{item.date}</span>
+                <h3 className="plantix-diag-title">{item.disease}</h3>
+                <span className={`plantix-diag-badge ${item.status_type}`}>
+                  {item.status_label}
+                </span>
+              </div>
+            </a>
+          ))}
+          <a
+            href={routes.history || '/disease/history/'}
+            className="plantix-diag-view-all-btn"
+          >
+            <span>{t('View all')}</span>
+            <ChevronRight size={18} strokeWidth={2.5} />
+          </a>
+        </div>
+      )}
+
+      {/* 4. Tools Section */}
+      <section className="plantix-section" aria-labelledby="tools-heading">
+        <h2 id="tools-heading" className="plantix-section-title">{t('Tools')}</h2>
+        <div className="plantix-tools-grid">
+          {/* Tool 1: Fertilizer calculator */}
+          <a href={routes.fertilizer || '/crops/fertilizer/'} className="plantix-tool-card">
+            <div className="plantix-tool-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1e3a8a" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <path d="M6 3h12l2 6v11a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V9l2-6z" />
+                <path d="M6 9h12" />
+                <circle cx="12" cy="15" r="2.5" fill="#93c5fd" stroke="#1e3a8a" strokeWidth="1.5" />
+              </svg>
+            </div>
+            <span className="plantix-tool-title">{t('Fertilizer calculator')}</span>
+          </a>
+
+          {/* Tool 2: Pesticide calculator */}
+          <a href={routes.pests || '/crops/library/pests/'} className="plantix-tool-card">
+            <div className="plantix-tool-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1e3a8a" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <rect x="5" y="10" width="14" height="11" rx="2" />
+                <path d="M9 10V6a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v4" />
+                <line x1="12" y1="2" x2="12" y2="4" />
+                <path d="M12 14v3" />
+              </svg>
+            </div>
+            <span className="plantix-tool-title">{t('Pesticide calculator')}</span>
+          </a>
+
+          {/* Tool 3: Farming calculator */}
+          <a href={routes.yield || '/crops/yield/'} className="plantix-tool-card">
+            <div className="plantix-tool-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1e3a8a" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <rect x="4" y="2" width="16" height="20" rx="3" />
+                <line x1="8" y1="6" x2="16" y2="6" />
+                <line x1="16" y1="14" x2="16" y2="18" />
+                <path d="M16 10h.01" />
+                <path d="M12 10h.01" />
+                <path d="M8 10h.01" />
+                <path d="M12 14h.01" />
+                <path d="M8 14h.01" />
+                <path d="M12 18h.01" />
+                <path d="M8 18h.01" />
+              </svg>
+            </div>
+            <span className="plantix-tool-title">{t('Farming calculator')}</span>
+          </a>
+
+          {/* Tool 4: Mandi prices */}
+          <a href={routes.market || '/market/'} className="plantix-tool-card has-badge">
+            <span className="plantix-badge-new">{t('New')}</span>
+            <div className="plantix-tool-icon">
+              <span className="plantix-rupee-sign" aria-hidden="true">₹</span>
+            </div>
+            <span className="plantix-tool-title">{t('Mandi prices')}</span>
+          </a>
+
+          {/* Tool 5: Crop Advisor */}
+          <a href={routes.crop || '/crops/'} className="plantix-tool-card">
+            <div className="plantix-tool-icon">
+              <Sprout size={22} strokeWidth={2.2} color="#1e3a8a" />
+            </div>
+            <span className="plantix-tool-title">{t('Crop Advisor')}</span>
+          </a>
+
+          {/* Tool 6: IoT Sensors dashboard */}
+          <a href={routes.iot || '/?experience=iot'} className="plantix-tool-card">
+            <div className="plantix-tool-icon">
+              <Cpu size={22} strokeWidth={2.2} color="#1e3a8a" />
+            </div>
+            <span className="plantix-tool-title">{t('IoT Sensors dashboard')}</span>
+          </a>
+        </div>
+      </section>
+
+      {/* 5. Library Section */}
+      <section className="plantix-section" aria-labelledby="library-heading">
+        <h2 id="library-heading" className="plantix-section-title">{t('Library')}</h2>
+        <div className="plantix-library-grid">
+          {/* Left Column */}
+          <div className="plantix-lib-column">
+            {/* Card 1: Crops */}
+            <a href={routes.library || '/crops/library/'} className="plantix-lib-card card-crops">
+              <span className="plantix-lib-title">{t('Crops')}</span>
+              <div className="plantix-lib-icon-circle">
+                <Sprout size={18} strokeWidth={2.4} color="#1e3a8a" />
+              </div>
+            </a>
+
+            {/* Card 2: Cultivation Tips */}
+            <a href={routes.library || '/crops/library/'} className="plantix-lib-card card-cultivation">
+              <span className="plantix-lib-title">{t('Cultivation Tips')}</span>
+              <div className="plantix-lib-icon-circle">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1e3a8a" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <path d="M12 22V8" />
+                  <path d="M5 12H2a10 10 0 0 0 20 0h-3" />
+                  <circle cx="12" cy="5" r="3" />
+                </svg>
+              </div>
+            </a>
+          </div>
+
+          {/* Right Column */}
+          <div className="plantix-lib-column">
+            {/* Card 3: Pests & diseases */}
+            <a href={routes.pests || '/crops/library/pests/'} className="plantix-lib-card card-pests">
+              <span className="plantix-lib-title">{t('Pests & diseases')}</span>
+              <div className="plantix-lib-icon-circle">
+                <Bug size={18} strokeWidth={2.4} color="#1e3a8a" />
+              </div>
+            </a>
+
+            {/* Card 4: Pests & Disease Alert */}
+            <a href={routes.pests || '/crops/library/pests/'} className="plantix-lib-card card-alerts">
+              <span className="plantix-lib-title">{t('Pests & Disease Alert')}</span>
+              <div className="plantix-lib-icon-circle">
+                <AlertTriangle size={18} strokeWidth={2.4} color="#1e3a8a" />
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* 6. Sponsored / Advisory Banner */}
+      <section className="plantix-sponsored-section" aria-labelledby="sponsored-label">
+        <span id="sponsored-label" className="plantix-sponsored-label">{t('Sponsored')}</span>
+        <a
+          href={routes.chat || '/chat/'}
+          className="plantix-sponsored-card"
+          aria-label={t('One Home, One Chance — Build with confidence')}
+        >
+          <div className="plantix-sponsored-banner-top">
+            <img
+              src={`${assetBase}/landing/sponsored-banner-art.png`}
+              alt="One Home, One Chance — Build with confidence"
+              className="plantix-sponsored-img"
+              loading="lazy"
+              width="398"
+              height="223"
+            />
+          </div>
+          <div className="plantix-sponsored-footer">
+            <div className="plantix-sponsored-footer-text">
+              <span className="plantix-sponsored-footer-title">{t('One Home, One Chance')}</span>
+              <span className="plantix-sponsored-footer-sub">{t('To build your identity')}</span>
+            </div>
+            <span className="plantix-sponsored-arrow">
+              <ArrowUpRight size={22} strokeWidth={2.4} />
+            </span>
+          </div>
+        </a>
+      </section>
+    </div>
+  )
 }
