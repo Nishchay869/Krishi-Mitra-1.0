@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { ArrowUpRight, Sprout, MessageCircle, ChartNoAxesCombined, ScanLine, CloudSun, IndianRupee, BookOpen, FlaskConical } from 'lucide-react'
 import SpotlightCard from '@/components/SpotlightCard'
-import { Card, CardHeader, CardTitle, CardDescription, CardFooter } from '@/components/ui/card'
+import { Card, CardHeader, CardTitle, CardDescription } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 
 export interface FarmTool {
@@ -69,7 +69,7 @@ export default function FarmToolkit({ tools }: { tools: FarmTool[] }) {
                   {tool.description}
                 </CardDescription>
               </CardHeader>
-              <CardFooter className="p-0 mt-auto pt-3">
+              <div className="mt-auto pt-4 bg-transparent border-0 border-none shadow-none">
                 <a
                   href={tool.href}
                   className="btn-21st btn-21st-secondary btn-21st-sm w-full justify-between"
@@ -79,7 +79,7 @@ export default function FarmToolkit({ tools }: { tools: FarmTool[] }) {
                     <ArrowUpRight size={15} strokeWidth={2.4} aria-hidden="true" />
                   </span>
                 </a>
-              </CardFooter>
+              </div>
             </Card>
           </SpotlightCard>
         )

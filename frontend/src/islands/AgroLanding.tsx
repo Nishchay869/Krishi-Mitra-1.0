@@ -367,11 +367,13 @@ function PlantixDashboard({ routes, assetBase, userCrops, weatherData, diagnoses
       .then((data) => {
         if (data?.forecast?.[0]?.slots?.[0]) {
           const slot = data.forecast[0].slots[0]
+          const rainRaw = slot.rain
+          const rainVal = typeof rainRaw === 'number' ? rainRaw : Number(rainRaw?.['3h'] ?? 0)
           setCurrentWeather({
             temp: Number(slot.temp ?? 24),
             humidity: Number(slot.humidity ?? 60),
             windKmH: Number((slot.wind ?? 2.5) * 3.6),
-            rainWithin3Hours: Number(slot.rain ?? 0) > 0 || Number(slot.pop ?? 0) >= 0.3,
+            rainWithin3Hours: rainVal > 0.1,
             is_daylight: slot.daylight,
             location: data.location,
           })
@@ -415,39 +417,49 @@ function PlantixDashboard({ routes, assetBase, userCrops, weatherData, diagnoses
 
   const deltaTStr = tempUnit === 'F' ? `${(sprayResult.deltaT * 1.8).toFixed(1)}°F` : `${sprayResult.deltaT}°C`
 
-  let statusLabel = t('Optimal')
-  let statusBadgeClass = 'is-optimal'
-  let StatusIcon = Check
-  let timeSubtext = `ΔT ${deltaTStr} · ${t('Ideal window')}`
+  // Priority: Respect authoritative server evaluation (identical to /weather/ view)
+  const serverStatus = weatherData?.status || sprayResult.status
+  const serverLabel = weatherData?.status_label
+  const serverBadge = weatherData?.badge_class
+  const serverTimeText = weatherData?.time_text
 
-  if (sprayResult.status === 'OPTIMAL') {
-    statusLabel = t('Optimal')
+  let statusLabel = serverLabel || t('Optimal')
+  let statusBadgeClass = serverBadge || 'is-optimal'
+  let StatusIcon = Check
+  let timeSubtext = serverTimeText || `ΔT ${deltaTStr} · ${t('Ideal window')}`
+
+  if (serverStatus === 'OPTIMAL' || statusBadgeClass === 'is-optimal') {
+    statusLabel = serverLabel || t('Optimal')
     statusBadgeClass = 'is-optimal'
     StatusIcon = Check
-    timeSubtext = `ΔT ${deltaTStr} · ${t('Ideal window')}`
-  } else if (sprayResult.status === 'MARGINAL') {
-    statusLabel = t('Marginal')
-    statusBadgeClass = 'is-marginal'
+    timeSubtext = serverTimeText || `ΔT ${deltaTStr} · ${t('Ideal window')}`
+  } else if (
+    serverStatus === 'MARGINAL' ||
+    statusBadgeClass === 'is-marginal' ||
+    statusBadgeClass === 'is-moderate'
+  ) {
+    statusLabel = serverLabel || t('Moderate')
+    statusBadgeClass = statusBadgeClass.includes('moderate') ? 'is-moderate' : 'is-marginal'
     StatusIcon = AlertTriangle
-    timeSubtext = `ΔT ${deltaTStr} · ${t('Monitor drift')}`
-  } else if (sprayResult.status === 'POOR_CONDITIONS') {
-    statusLabel = t('Poor')
+    timeSubtext = serverTimeText || `ΔT ${deltaTStr} · ${t('Monitor drift')}`
+  } else if (serverStatus === 'POOR_CONDITIONS' || statusBadgeClass === 'is-poor') {
+    statusLabel = serverLabel || t('Poor')
     statusBadgeClass = 'is-poor'
     StatusIcon = AlertCircle
-    timeSubtext = `ΔT ${deltaTStr} · ${t('High humidity')}`
+    timeSubtext = serverTimeText || `ΔT ${deltaTStr} · ${t('High humidity')}`
   } else {
-    statusLabel = t('Avoid')
-    statusBadgeClass = 'is-avoid'
+    statusLabel = serverLabel || t('Avoid')
+    statusBadgeClass = statusBadgeClass.includes('unfavourable') ? 'is-unfavourable' : 'is-avoid'
     StatusIcon = X
-    if (isNight) {
+    if (serverTimeText) {
+      timeSubtext = serverTimeText
+    } else if (isNight) {
       timeSubtext = t('Night time · Opens 06:00 AM')
     } else if (currentWeather.rainWithin3Hours) {
       timeSubtext = t('Rain imminent')
-    } else if (currentWeather.windKmH < 3) {
-      timeSubtext = t('Inversion risk · Zero wind')
-    } else if (currentWeather.windKmH > 20) {
+    } else if (currentWeather.windKmH > 25) {
       timeSubtext = t('High wind drift')
-    } else if (currentWeather.temp > 32) {
+    } else if (currentWeather.temp > 35) {
       timeSubtext = t('High temperature')
     } else {
       timeSubtext = `ΔT ${sprayResult.deltaT}°C · ${t('Do not spray')}`

@@ -118,96 +118,23 @@ def weather_page(request):
     ai_summary_p2 = f"Rain is expected {', '.join(rain_days_names[:4])}; {rain_days_names[min(2, len(rain_days_names)-1)]} has the most, with light rain, and temperatures range from {temp_min}–{temp_max}°C."
     ai_summary_full = f"{ai_summary_p1} {ai_summary_p2}"
 
-    # Build Hourly Spray Slots (16 hours starting from now)
-    from .spray import evaluate_spray_condition
-    hourly_spray_slots = []
-    for i in range(16):
-        h = (now.hour + i) % 24
-        label = 'Now' if i == 0 else datetime.time(h, 0).strftime('%-I %p').lower()
+    # Build Hourly Spray Slots and Current Weather Spraying Summary
+    from .spray import build_hourly_spray_forecast
+    current_rain_mm = 0.0
+    if days and days[0].get('slots'):
+        rain_raw = days[0]['slots'][0].get('rain', 0.0)
+        current_rain_mm = float(rain_raw.get('3h', 0.0) if isinstance(rain_raw, dict) else (rain_raw or 0.0))
 
-        # Realistic diurnal curve matching meteorological dawn peaks and afternoon evaporation
-        if h == 5:
-            # Dawn peak humidity causing Delta T to dip into 0-2 (Moderate)
-            t = temp_min
-            rh = 90.0
-            w = 5.0
-            r_mm = 0.0
-        elif 0 <= h < 6:
-            t = temp_min + (h / 6.0) * 1.5
-            rh = 70.0 + (h / 6.0) * 10.0
-            w = 5.0
-            r_mm = 0.0
-        elif 6 <= h < 14:
-            ratio = (h - 6.0) / 8.0
-            t = (temp_min + 1.5) + ratio * (temp_max - temp_min - 1.5)
-            rh = 76.0 - ratio * 28.0
-            w = 6.0 + ratio * 3.5
-            r_mm = 0.0
-        elif 14 <= h < 19:
-            ratio = (h - 14.0) / 5.0
-            t = temp_max - ratio * 4.0
-            rh = 48.0 + ratio * 16.0
-            w = 9.0 - ratio * 2.5
-            r_mm = 0.0
-        else:
-            ratio = (h - 19.0) / 5.0
-            t = (temp_max - 4.0) - ratio * 6.0
-            rh = 64.0 + ratio * 6.0
-            w = 5.5
-            r_mm = 0.0
-
-        eval_slot = evaluate_spray_condition(
-            t, rh, w, rain_within_3h=False, rain_mm=r_mm, is_daylight=True, current_hour=h
-        )
-        if eval_slot['status'] == 'OPTIMAL':
-            slot_status = 'optimal'
-        elif eval_slot['status'] == 'MARGINAL':
-            slot_status = 'moderate'
-        else:
-            slot_status = 'unfavourable'
-
-        hourly_spray_slots.append({
-            'label': label,
-            'hour': h,
-            'status': slot_status,
-            'temp': round(t),
-            'humidity': round(rh),
-            'delta_t': eval_slot['delta_t'],
-            'delta_t_range': eval_slot['delta_t_range'],
-            'rain_range': eval_slot['rain_range'],
-            'wind_range': eval_slot['wind_range'],
-            'wind': round(w, 1),
-            'rain': round(r_mm, 1),
-            'reason': eval_slot['reason'],
-        })
-
-    current_slot_status = hourly_spray_slots[0]['status'] if hourly_spray_slots else 'optimal'
-    if current_slot_status == 'optimal':
-        spray_card_title = 'Optimal spraying conditions'
-    elif current_slot_status == 'moderate':
-        spray_card_title = 'Moderate spraying conditions'
-    else:
-        spray_card_title = 'Unfavourable spraying conditions'
-
-    curr_rh = 65.0
-    curr_wind = 6.0
-    if hourly_spray_slots:
-        curr_rh = hourly_spray_slots[0]['humidity']
-        curr_wind = hourly_spray_slots[0]['wind']
-
-    eval_now = evaluate_spray_condition(current_temp, curr_rh, curr_wind, False, 0.0, True, now.hour)
-    weather_data = {
-        'temp': current_temp,
-        'humidity': round(curr_rh),
-        'wind_kmh': round(curr_wind, 1),
-        'delta_t': eval_now['delta_t'],
-        'delta_t_range': eval_now['delta_t_range'],
-        'rain_range': eval_now['rain_range'],
-        'wind_range': eval_now['wind_range'],
-        'status_label': 'Optimal' if eval_now['status'] == 'OPTIMAL' else ('Moderate' if eval_now['status'] == 'MARGINAL' else 'Unfavourable'),
-        'badge_class': 'is-optimal' if eval_now['status'] == 'OPTIMAL' else ('is-moderate' if eval_now['status'] == 'MARGINAL' else 'is-unfavourable'),
-        'reason': eval_now['reason'],
-    }
+    spray_res = build_hourly_spray_forecast(
+        temp_min=temp_min,
+        temp_max=temp_max,
+        current_temp=current_temp,
+        now_hour=now.hour,
+        rain_mm=current_rain_mm,
+    )
+    hourly_spray_slots = spray_res['hourly_spray_slots']
+    spray_card_title = spray_res['spray_card_title']
+    weather_data = spray_res['weather_data']
 
     return render(request, 'weather/weather.html', {
         'plan': build_plan(days, saved_crops, request.user.profile.growing_place, soil),

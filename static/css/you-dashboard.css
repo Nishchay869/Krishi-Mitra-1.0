@@ -958,6 +958,21 @@ html.dark .premium-tool-spotlight {
   box-shadow: none !important;
 }
 
+.premium-tool-card [data-slot="card-footer"],
+.premium-tool-card .card-footer,
+.premium-tool-spotlight [data-slot="card-footer"],
+.premium-tool-spotlight .card-footer,
+.spotlight-card [data-slot="card-footer"],
+.spotlight-card .card-footer,
+.tool-cta-wrap {
+  background: transparent !important;
+  background-color: transparent !important;
+  border: none !important;
+  border-top: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+}
+
 .premium-tool-top {
   display: flex;
   justify-content: space-between;

@@ -12,7 +12,7 @@ from django.shortcuts import redirect, render
 
 from chatbot.models import ChatMessage, KnowledgeEntry
 from disease.views import get_user_diagnoses
-from weather.spray import evaluate_spray_condition
+from weather.spray import evaluate_spray_condition, build_hourly_spray_forecast
 from weather.services import fetch_forecast, fetch_village_forecast, WeatherError
 
 from .forms import ProfileForm, RegisterForm
@@ -69,98 +69,50 @@ def _get_home_weather(request):
         elif p.district.strip() or p.state.strip():
             location = ', '.join(part for part in (p.district.strip(), p.state.strip()) if part)
 
-    forecast_slot = None
+    days = None
     if location:
         try:
             days = (fetch_village_forecast(*village_lookup) if village_lookup else fetch_forecast(location))
-            if days and days[0].get('slots'):
-                forecast_slot = days[0]['slots'][0]
         except Exception:
-            forecast_slot = None
+            days = None
 
-    if not forecast_slot:
+    if not days:
         for fallback_loc in ('Bengaluru', 'Delhi', 'Pune'):
             try:
                 days = fetch_forecast(fallback_loc)
                 if days and days[0].get('slots'):
-                    forecast_slot = days[0]['slots'][0]
                     location = fallback_loc
                     break
             except Exception:
                 continue
 
-    if forecast_slot:
-        temp = float(forecast_slot.get('temp', 24.0))
-        humidity = float(forecast_slot.get('humidity', 60.0))
-        wind_kmh = round(float(forecast_slot.get('wind', 2.5)) * 3.6, 1)
-        rain_3h = (float(forecast_slot.get('rain', 0)) > 0) or (float(forecast_slot.get('pop', 0)) >= 0.3)
-        rain_mm = float(forecast_slot.get('rain', 0))
-        description = forecast_slot.get('description', 'Clear sky').capitalize()
-        is_daylight = forecast_slot.get('daylight', is_daylight_now)
-    else:
-        temp = 22.0 if not is_daylight_now else 26.0
-        humidity = 70.0 if not is_daylight_now else 55.0
-        wind_kmh = 2.0 if not is_daylight_now else 8.5
-        rain_3h = False
-        rain_mm = 0.0
-        description = 'Clear night' if not is_daylight_now else 'Clear sky'
-        is_daylight = is_daylight_now
+    current_temp = 22 if not is_daylight_now else 26
+    temp_min = 18
+    temp_max = 29
+    rain_val = 0.0
+    description = 'Clear night' if not is_daylight_now else 'Clear sky'
 
-    eval_result = evaluate_spray_condition(
-        temp, humidity, wind_kmh, rain_3h, rain_mm=rain_mm, is_daylight=is_daylight, current_hour=current_hour
+    if days and days[0].get('slots'):
+        first_day = days[0]
+        first_slot = first_day['slots'][0]
+        current_temp = round(first_slot.get('temp', 22))
+        temp_min = round(first_day.get('temp_min', current_temp - 4))
+        temp_max = round(first_day.get('temp_max', current_temp + 7))
+        rain_raw = first_slot.get('rain', 0.0)
+        rain_val = float(rain_raw.get('3h', 0.0) if isinstance(rain_raw, dict) else (rain_raw or 0.0))
+        description = first_slot.get('description', 'Clear sky').capitalize()
+
+    spray_res = build_hourly_spray_forecast(
+        temp_min=temp_min,
+        temp_max=temp_max,
+        current_temp=current_temp,
+        now_hour=current_hour,
+        rain_mm=rain_val,
     )
-    status = eval_result['status']
-    delta_t = eval_result['delta_t']
-
-    if status == 'OPTIMAL':
-        status_label = _('Optimal')
-        badge_class = 'is-optimal'
-        badge_icon = 'check'
-        time_text = f"ΔT {delta_t}°C · " + _('Ideal window')
-    elif status == 'MARGINAL':
-        status_label = _('Marginal')
-        badge_class = 'is-marginal'
-        badge_icon = 'alert'
-        time_text = f"ΔT {delta_t}°C · " + _('Monitor drift')
-    else:
-        status_label = _('Avoid')
-        badge_class = 'is-avoid'
-        badge_icon = 'x'
-        if not is_daylight or current_hour < 6 or current_hour >= 18:
-            time_text = _('Night time · Opens 06:00 AM')
-        elif eval_result.get('rain_status') == 'poor':
-            time_text = _('Rain imminent')
-        elif eval_result.get('wind_status') == 'poor':
-            time_text = _('High wind drift')
-        elif temp > 35:
-            time_text = _('High temperature')
-        else:
-            time_text = f"ΔT {delta_t}°C · " + _('Do not spray')
-
-    return {
-        'temp': round(temp),
-        'temp_str': f"{round(temp)} °C",
-        'humidity': round(humidity),
-        'wind_kmh': round(wind_kmh, 1),
-        'delta_t': delta_t,
-        'rain_mm': round(rain_mm, 2),
-        'rain_within_3h': rain_3h,
-        'is_daylight': is_daylight,
-        'status': status,
-        'status_label': str(status_label),
-        'badge_class': badge_class,
-        'badge_icon': badge_icon,
-        'time_text': str(time_text),
-        'reason': eval_result['reason'],
-        'description': description,
-        'location': location or 'Local',
-        'delta_t_range': eval_result.get('delta_t_range', '2-8'),
-        'delta_t_status': eval_result.get('delta_t_status', 'optimal'),
-        'rain_range': eval_result.get('rain_range', 'no_rain'),
-        'rain_status': eval_result.get('rain_status', 'optimal'),
-        'wind_range': eval_result.get('wind_range', '<12'),
-        'wind_status': eval_result.get('wind_status', 'optimal'),
-    }
+    weather_data = spray_res['weather_data']
+    weather_data['description'] = description
+    weather_data['location'] = location or 'Local'
+    return weather_data
 
 
 def home(request):

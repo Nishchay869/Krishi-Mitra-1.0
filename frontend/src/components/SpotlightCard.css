@@ -60,8 +60,8 @@
 .spotlight-card--light h3,
 .spotlight-card--light h4,
 .spotlight-card--light p,
-.spotlight-card--light span,
-.spotlight-card--light a,
+.spotlight-card--light span:not(.btn-21st-icon-circle):not(.btn-21st-icon-circle *),
+.spotlight-card--light a:not(.btn-21st),
 .spotlight-card--light [data-slot="card-description"] {
   color: #000000 !important;
 }
@@ -80,6 +80,7 @@
 .spotlight-card--dark h4,
 .spotlight-card--dark p,
 .spotlight-card--dark span,
+.spotlight-card--dark a,
 .spotlight-card--dark [data-slot="card-description"] {
   color: #ffffff !important;
 }

@@ -294,7 +294,8 @@
   color: #16a34a;
 }
 
-.plantix-spray-badge.is-marginal {
+.plantix-spray-badge.is-marginal,
+.plantix-spray-badge.is-moderate {
   background-color: #fef3c7;
   color: #d97706;
 }
@@ -304,7 +305,8 @@
   color: #ea580c;
 }
 
-.plantix-spray-badge.is-avoid {
+.plantix-spray-badge.is-avoid,
+.plantix-spray-badge.is-unfavourable {
   background-color: #fee2e2;
   color: #dc2626;
 }
@@ -747,7 +749,6 @@ html.dark .agro-home {
   background-color: transparent;
 }
 html.dark .plantix-hero-card,
-html.dark .plantix-weather-card,
 html.dark .plantix-tool-card,
 html.dark .plantix-diag-card {
   background-color: #111827 !important;
@@ -756,29 +757,157 @@ html.dark .plantix-diag-card {
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5) !important;
 }
 
+html.dark .plantix-weather-card {
+  background: #111827 !important;
+  background-image: none !important;
+  border: 1px solid #1e293b !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5) !important;
+}
+
 html.dark .plantix-weather-left,
 html.dark .plantix-weather-right {
-  background-color: #1e293b !important;
-  border-color: #334155 !important;
+  background: #1e293b !important;
+  border: 1px solid #334155 !important;
   color: #ffffff !important;
 }
 
-html.dark .plantix-crop-label,
-html.dark .plantix-weather-date,
-html.dark .plantix-weather-temp,
-html.dark .plantix-spray-title,
-html.dark .plantix-spray-status,
-html.dark .plantix-spray-time,
-html.dark .plantix-step-label,
-html.dark .plantix-section-title,
-html.dark .plantix-tool-title,
-html.dark .plantix-lib-title,
-html.dark .plantix-diag-title,
-html.dark .plantix-diag-date,
-html.dark .plantix-sponsored-label,
-html.dark .plantix-sponsored-footer-title,
-html.dark .plantix-sponsored-footer-sub {
+html.dark .plantix-crop-label {
   color: #ffffff !important;
+  font-weight: 600 !important;
+}
+
+html.dark .plantix-crop-add-btn {
+  background-color: #1e293b !important;
+  border: 1px solid #334155 !important;
+}
+
+html.dark .plantix-add-icon-circle {
+  background-color: #2563eb !important;
+  color: #ffffff !important;
+}
+
+html.dark .plantix-add-label {
+  color: #ffffff !important;
+  font-weight: 600 !important;
+}
+
+html.dark .plantix-weather-date {
+  color: #cbd5e1 !important;
+  font-weight: 600 !important;
+}
+
+html.dark .plantix-weather-temp {
+  color: #ffffff !important;
+  font-weight: 750 !important;
+}
+
+html.dark .plantix-spray-title {
+  color: #94a3b8 !important;
+  font-weight: 500 !important;
+}
+
+html.dark .plantix-spray-status {
+  color: #ffffff !important;
+  font-weight: 750 !important;
+}
+
+html.dark .plantix-spray-time {
+  color: #cbd5e1 !important;
+  font-weight: 500 !important;
+}
+
+html.dark .plantix-spray-badge.is-avoid,
+html.dark .plantix-spray-badge.is-unfavourable {
+  background-color: rgba(239, 68, 68, 0.22) !important;
+  color: #f87171 !important;
+  border: 1px solid rgba(248, 113, 113, 0.35) !important;
+}
+
+html.dark .plantix-spray-badge.is-optimal {
+  background-color: rgba(34, 197, 94, 0.22) !important;
+  color: #4ade80 !important;
+  border: 1px solid rgba(74, 222, 128, 0.35) !important;
+}
+
+html.dark .plantix-spray-badge.is-marginal,
+html.dark .plantix-spray-badge.is-moderate,
+html.dark .plantix-spray-badge.is-poor {
+  background-color: rgba(245, 158, 11, 0.22) !important;
+  color: #fbbf24 !important;
+  border: 1px solid rgba(251, 191, 36, 0.35) !important;
+}
+
+html.dark .plantix-step-label {
+  color: #ffffff !important;
+  font-weight: 600 !important;
+  font-size: 13px !important;
+}
+
+html.dark .plantix-section-title {
+  color: #ffffff !important;
+  font-weight: 750 !important;
+  font-size: 19px !important;
+}
+
+html.dark .plantix-tool-title {
+  color: #ffffff !important;
+  font-weight: 650 !important;
+  font-size: 13.5px !important;
+}
+
+html.dark .plantix-lib-title {
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  font-size: 14.5px !important;
+}
+
+html.dark .plantix-diag-title {
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  font-size: 14.5px !important;
+}
+
+html.dark .plantix-diag-date {
+  color: #94a3b8 !important;
+  font-weight: 600 !important;
+}
+
+/* Badges with high contrast in dark mode */
+html.dark .plantix-diag-badge.complete,
+html.dark .plantix-diag-badge.is-complete {
+  background-color: rgba(34, 197, 94, 0.22) !important;
+  color: #4ade80 !important;
+  border: 1px solid rgba(74, 222, 128, 0.4) !important;
+  font-weight: 700 !important;
+}
+
+html.dark .plantix-diag-badge.incomplete,
+html.dark .plantix-diag-badge.is-incomplete {
+  background-color: rgba(239, 68, 68, 0.22) !important;
+  color: #f87171 !important;
+  border: 1px solid rgba(248, 113, 113, 0.4) !important;
+  font-weight: 700 !important;
+}
+
+html.dark .plantix-badge-new {
+  background-color: rgba(168, 85, 247, 0.25) !important;
+  color: #c084fc !important;
+  border: 1px solid rgba(192, 132, 252, 0.45) !important;
+  font-weight: 700 !important;
+}
+
+html.dark .plantix-sponsored-label {
+  color: #94a3b8 !important;
+}
+
+html.dark .plantix-sponsored-footer-title {
+  color: #ffffff !important;
+  font-weight: 750 !important;
+}
+
+html.dark .plantix-sponsored-footer-sub {
+  color: #cbd5e1 !important;
 }
 
 html.dark .plantix-lib-card {
@@ -788,19 +917,21 @@ html.dark .plantix-lib-card {
 
 html.dark .plantix-lib-icon-circle {
   background-color: #111827 !important;
+  border: 1px solid #334155 !important;
 }
 html.dark .plantix-lib-icon-circle svg {
-  stroke: #ffffff !important;
+  stroke: #60a5fa !important;
 }
 
 html.dark .plantix-tool-icon {
   background-color: #1e293b !important;
+  border: 1px solid #334155 !important;
 }
 html.dark .plantix-tool-icon svg {
-  stroke: #ffffff !important;
+  stroke: #60a5fa !important;
 }
 html.dark .plantix-rupee-sign {
-  color: #ffffff !important;
+  color: #60a5fa !important;
 }
 
 html.dark .plantix-sponsored-footer {
@@ -810,7 +941,72 @@ html.dark .plantix-sponsored-footer {
 html.dark .plantix-diag-view-all-btn {
   background-color: #1e293b !important;
   border-color: #334155 !important;
-  color: #ffffff !important;
+  color: #60a5fa !important;
+}
+
+/* Light mode overrides for high contrast badges */
+html:not(.dark) .plantix-diag-badge.complete,
+html:not(.dark) .plantix-diag-badge.is-complete {
+  background-color: #dcfce7 !important;
+  color: #15803d !important;
+  border: 1px solid #bbf7d0 !important;
+  font-weight: 700 !important;
+}
+
+html:not(.dark) .plantix-diag-badge.incomplete,
+html:not(.dark) .plantix-diag-badge.is-incomplete {
+  background-color: #fee2e2 !important;
+  color: #b91c1c !important;
+  border: 1px solid #fecaca !important;
+  font-weight: 700 !important;
+}
+
+html:not(.dark) .plantix-badge-new {
+  background-color: #f3e8ff !important;
+  color: #7e22ce !important;
+  border: 1px solid #e9d5ff !important;
+  font-weight: 700 !important;
+}
+
+html:not(.dark) .plantix-step-label {
+  color: #000000 !important;
+  font-weight: 600 !important;
+  font-size: 13px !important;
+}
+
+html:not(.dark) .plantix-section-title {
+  color: #000000 !important;
+  font-weight: 750 !important;
+  font-size: 19px !important;
+}
+
+html:not(.dark) .plantix-tool-title {
+  color: #000000 !important;
+  font-weight: 650 !important;
+  font-size: 13.5px !important;
+}
+
+html:not(.dark) .plantix-lib-title {
+  color: #000000 !important;
+  font-weight: 700 !important;
+  font-size: 14.5px !important;
+}
+
+html:not(.dark) .plantix-crop-label,
+html:not(.dark) .plantix-add-label {
+  color: #000000 !important;
+  font-weight: 600 !important;
+}
+
+html:not(.dark) .plantix-diag-title {
+  color: #000000 !important;
+  font-weight: 700 !important;
+  font-size: 14.5px !important;
+}
+
+html:not(.dark) .plantix-diag-date {
+  color: #475569 !important;
+  font-weight: 600 !important;
 }
 
 /* Responsive adjustments */
