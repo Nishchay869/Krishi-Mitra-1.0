@@ -23,6 +23,7 @@
   <link href="{% static 'css/coming-soon.css' %}?v={{ STATIC_VERSION }}" rel="stylesheet">
   {% block extra_head %}{% endblock %}
   <link href="{% static 'css/theme-contrast.css' %}?v={{ STATIC_VERSION }}" rel="stylesheet">
+  <script src="{% url 'javascript-catalog' %}"></script>
   <script>
     (function () {
       try {
@@ -92,8 +93,8 @@
         </video>
       </div>
     </div>
-    <button type="button" class="intro-skip-btn" id="intro-skip-btn" aria-label="Skip">
-      <span>Skip</span> <i class="bi bi-arrow-right" aria-hidden="true"></i>
+    <button type="button" class="intro-skip-btn" id="intro-skip-btn" aria-label="{% translate 'Skip' %}">
+      <span>{% translate 'Skip' %}</span> <i class="bi bi-arrow-right" aria-hidden="true"></i>
     </button>
   </div>
   <script>
@@ -226,6 +227,9 @@
           <ul class="dropdown-menu dropdown-menu-end shadow-sm site-header-dropdown" aria-labelledby="siteMenuBtn">
             {% if user.is_authenticated %}
               <li><a class="dropdown-item" href="{% url 'accounts:dashboard' %}"><i class="bi bi-person me-2 text-muted" aria-hidden="true"></i> {% translate "Profile" %}</a></li>
+              {% if user.profile.is_admin %}
+                <li><a class="dropdown-item text-primary fw-semibold" href="{% url 'accounts:admin_dashboard' %}"><i class="bi bi-shield-lock me-2 text-primary" aria-hidden="true"></i> Admin Portal</a></li>
+              {% endif %}
               <li>
                 <form method="post" action="{% url 'accounts:logout' %}" class="m-0 p-0">
                   {% csrf_token %}
@@ -234,16 +238,17 @@
               </li>
               <li><hr class="dropdown-divider"></li>
             {% else %}
-              <li><a class="dropdown-item fw-semibold" href="{% url 'accounts:login' %}"><i class="bi bi-box-arrow-in-right me-2 text-primary" aria-hidden="true"></i> {% translate "Log in" %}</a></li>
+              <li><a class="dropdown-item fw-semibold" href="{% url 'accounts:login' %}?portal=farmer"><i class="bi bi-person me-2 text-primary" aria-hidden="true"></i> Farmer Portal</a></li>
+              <li><a class="dropdown-item fw-semibold" href="{% url 'accounts:login' %}?portal=admin"><i class="bi bi-shield-lock me-2 text-warning" aria-hidden="true"></i> Admin Portal</a></li>
               <li><a class="dropdown-item fw-semibold" href="{% url 'accounts:register' %}"><i class="bi bi-person-plus me-2 text-success" aria-hidden="true"></i> {% translate "Register" %}</a></li>
               <li><hr class="dropdown-divider"></li>
             {% endif %}
-            <li><a class="dropdown-item" href="{% url 'accounts:settings' %}" data-bs-toggle="modal" data-bs-target="#settingsModal"><i class="bi bi-gear me-2 text-muted" aria-hidden="true"></i> Settings</a></li>
-            <li><a class="dropdown-item" href="#give-feedback" data-bs-toggle="modal" data-bs-target="#feedbackModal"><i class="bi bi-chat-square-text me-2 text-muted" aria-hidden="true"></i> Give Feedback</a></li>
-            <li><a class="dropdown-item" href="#recommend" data-bs-toggle="modal" data-bs-target="#recommendModal"><i class="bi bi-share me-2 text-muted" aria-hidden="true"></i> Recommend Krishi Mitra</a></li>
-            <li><a class="dropdown-item" href="#contact-social"><i class="bi bi-people me-2 text-muted" aria-hidden="true"></i> Contact and Social</a></li>
-            <li><a class="dropdown-item" href="#legal-notices"><i class="bi bi-shield-check me-2 text-muted" aria-hidden="true"></i> Legal Notices</a></li>
-            <li><a class="dropdown-item" href="#quickstart"><i class="bi bi-lightning-charge me-2 text-muted" aria-hidden="true"></i> Quickstart</a></li>
+            <li><a class="dropdown-item" href="{% url 'accounts:settings' %}" data-bs-toggle="modal" data-bs-target="#settingsModal"><i class="bi bi-gear me-2 text-muted" aria-hidden="true"></i> {% translate "Settings" %}</a></li>
+            <li><a class="dropdown-item" href="#give-feedback" data-bs-toggle="modal" data-bs-target="#feedbackModal"><i class="bi bi-chat-square-text me-2 text-muted" aria-hidden="true"></i> {% translate "Give Feedback" %}</a></li>
+            <li><a class="dropdown-item" href="#recommend" data-bs-toggle="modal" data-bs-target="#recommendModal"><i class="bi bi-share me-2 text-muted" aria-hidden="true"></i> {% translate "Recommend Krishi Mitra" %}</a></li>
+            <li><a class="dropdown-item" href="#contact-social"><i class="bi bi-people me-2 text-muted" aria-hidden="true"></i> {% translate "Contact and Social" %}</a></li>
+            <li><a class="dropdown-item" href="#legal-notices"><i class="bi bi-shield-check me-2 text-muted" aria-hidden="true"></i> {% translate "Legal Notices" %}</a></li>
+            <li><a class="dropdown-item" href="#quickstart"><i class="bi bi-lightning-charge me-2 text-muted" aria-hidden="true"></i> {% translate "Quickstart" %}</a></li>
           </ul>
         </div>
       </div>
@@ -322,7 +327,7 @@
             <path d="M14.1 6a7 7 0 0 0-1.1 4c1.9-.1 3.3-.6 4.3-1.4 1-1 1.6-2.3 1.7-4.6-2.7.1-4 1-4.9 2z" />
           </svg>
         </div>
-        <span class="bottom-nav-label">Your crops</span>
+        <span class="bottom-nav-label">{% translate "Your crops" %}</span>
       </a>
 
       {# 2. Community (Chat / Assistant) #}
@@ -337,7 +342,7 @@
             <path d="M12 10h.01"></path>
           </svg>
         </div>
-        <span class="bottom-nav-label">Community</span>
+        <span class="bottom-nav-label">{% translate "Community" %}</span>
       </a>
 
       {# 3. Market (Prices) #}
@@ -350,7 +355,7 @@
             <polyline points="9 22 9 12 15 12 15 22"></polyline>
           </svg>
         </div>
-        <span class="bottom-nav-label">Market</span>
+        <span class="bottom-nav-label">{% translate "Market" %}</span>
       </a>
 
       {# 4. You (Dashboard / Profile) #}
@@ -364,7 +369,7 @@
             <circle cx="12" cy="7" r="4"></circle>
           </svg>
         </div>
-        <span class="bottom-nav-label">You</span>
+        <span class="bottom-nav-label">{% translate "You" %}</span>
       </a>
     </div>
   </nav>

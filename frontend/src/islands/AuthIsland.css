@@ -529,3 +529,73 @@ html.dark .auth-switch-link,
   color: #60a5fa !important;
 }
 
+/* ==========================================================================
+   Two-Portal Segmented Switcher (Farmer vs Admin)
+   ========================================================================== */
+.auth-portal-selector-wrap {
+  width: 100%;
+}
+
+.auth-portal-selector {
+  display: flex;
+  background-color: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 4px;
+  gap: 4px;
+}
+
+html.dark .auth-portal-selector,
+[data-theme="dark"] .auth-portal-selector {
+  background-color: #1e293b !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.auth-portal-tab {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 9px;
+  font-size: 13.5px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  background: transparent;
+  color: #64748b;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.auth-portal-tab:hover {
+  color: #0f172a;
+}
+
+html.dark .auth-portal-tab {
+  color: #94a3b8;
+}
+
+html.dark .auth-portal-tab:hover {
+  color: #ffffff;
+}
+
+.auth-portal-tab.is-active {
+  background-color: #ffffff;
+  color: #005bf6;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  font-weight: 700;
+}
+
+html.dark .auth-portal-tab.is-active,
+[data-theme="dark"] .auth-portal-tab.is-active {
+  background-color: #0f172a !important;
+  color: #60a5fa !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4) !important;
+}
+
+.portal-tab-icon {
+  font-size: 15px;
+  line-height: 1;
+}
+

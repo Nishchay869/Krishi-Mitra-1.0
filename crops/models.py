@@ -11,9 +11,62 @@ def pest_photo_path(instance, filename):
     return f'pests/{uuid4().hex}{Path(filename).suffix.lower()}'
 
 
+def crop_status_photo_path(instance, filename):
+    return f'crop_statuses/{uuid4().hex}{Path(filename).suffix.lower()}'
+
+
 def validate_photo_size(value):
     if value.size > 5 * 1024 * 1024:
         raise ValidationError('Upload a photograph smaller than 5 MB.')
+
+
+class CropStatus(models.Model):
+    """Instagram-style status/story uploaded by agronomists/admins for specific crops."""
+    BADGE_ALERT = 'alert'
+    BADGE_ADVISORY = 'advisory'
+    BADGE_SPRAY = 'spray'
+    BADGE_TIP = 'tip'
+    BADGE_WEATHER = 'weather'
+    BADGE_CHOICES = [
+        (BADGE_ALERT, 'Disease / Pest Alert'),
+        (BADGE_ADVISORY, 'Crop Advisory'),
+        (BADGE_SPRAY, 'Spraying Window'),
+        (BADGE_TIP, 'Farming Tip'),
+        (BADGE_WEATHER, 'Weather Warning'),
+    ]
+
+    crop_name = models.CharField(max_length=100)
+    crop_slug = models.SlugField(max_length=100)
+    title = models.CharField(max_length=200)
+    caption = models.TextField(blank=True)
+    badge = models.CharField(max_length=20, choices=BADGE_CHOICES, default=BADGE_ADVISORY)
+    photo = models.ImageField(upload_to=crop_status_photo_path, blank=True, null=True,
+        validators=[validate_photo_size, FileExtensionValidator(['jpg', 'jpeg', 'png', 'webp', 'gif'])])
+    photo_url = models.URLField(max_length=500, blank=True, help_text='Fallback or external image URL')
+    author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.SET_NULL, null=True, blank=True, related_name='crop_statuses')
+    is_active = models.BooleanField(default=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    expires_at = models.DateTimeField(null=True, blank=True)
+
+    class Meta:
+        ordering = ['-created_at']
+        verbose_name = 'Crop Status / Story'
+        verbose_name_plural = 'Crop Statuses / Stories'
+
+    def __str__(self):
+        return f'{self.crop_name}: {self.title} ({self.created_at:%d %b %H:%M})'
+
+    @property
+    def image_url(self):
+        if self.photo:
+            try:
+                return self.photo.url
+            except Exception:
+                pass
+        if self.photo_url:
+            return self.photo_url
+        slug = self.crop_slug or 'crop'
+        return f'/static/images/crops/{slug}.webp'
 
 
 class PestEntry(models.Model):

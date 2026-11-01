@@ -382,6 +382,13 @@ html.dark .header-nav-link:hover,
   background-color: #f1f5f9;
   color: #005bf6;
 }
+html.dark .site-header-more-btn:hover,
+html.dark .site-header-more-btn[aria-expanded="true"],
+[data-theme="dark"] .site-header-more-btn:hover,
+[data-theme="dark"] .site-header-more-btn[aria-expanded="true"] {
+  background-color: #1e293b !important;
+  color: #60a5fa !important;
+}
 .site-header-dropdown {
   border-radius: 16px;
   border: 1px solid #edf2f7;
@@ -2600,6 +2607,10 @@ html.dark .weather-days-card,
 html.dark .weather-spray-card,
 html.dark .spray-param-card,
 html.dark .recent-diagnoses-card,
+html.dark .recommend-preview-card {
+  background: #0f172a !important;
+  background-image: none !important;
+}
 html.dark .recommend-preview-card,
 html.dark .settings-card {
   background-color: #111827 !important;

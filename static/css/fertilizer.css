@@ -23,12 +23,29 @@
   gap: 0.6rem;
   align-items: center;
   font-weight: 600;
+  border: 1.5px solid #bfdbfe;
+  box-shadow: 0 2px 6px rgba(0, 91, 246, 0.06);
 }
 
 .nutrient-summary strong {
   font-size: 1.25rem;
   color: #005bf6;
   font-weight: 800;
+}
+
+html.dark .nutrient-summary span,
+[data-theme="dark"] .nutrient-summary span,
+body.dark-mode .nutrient-summary span {
+  background: #1e293b !important;
+  color: #e2e8f0 !important;
+  border: 1.5px solid #334155 !important;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3) !important;
+}
+
+html.dark .nutrient-summary strong,
+[data-theme="dark"] .nutrient-summary strong,
+body.dark-mode .nutrient-summary strong {
+  color: #60a5fa !important;
 }
 
 .nutrient-editor {

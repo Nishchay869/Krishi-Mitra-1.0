@@ -1,3 +1,4 @@
+import { useState } from "react";
 import type { Variants } from "framer-motion";
 import { motion } from "framer-motion";
 import { ImageSlider } from "@/components/ui/image-slider";
@@ -6,6 +7,7 @@ import "./AuthIsland.css";
 
 export interface AuthIslandProps {
   mode?: "login" | "register";
+  portal?: "farmer" | "admin";
   csrfToken?: string;
   nextUrl?: string;
   actionUrl?: string;
@@ -43,6 +45,7 @@ const defaultImages = [
 
 export default function AuthIsland({
   mode = "login",
+  portal = "farmer",
   csrfToken = "",
   nextUrl = "/",
   actionUrl = "/accounts/login/",
@@ -52,6 +55,9 @@ export default function AuthIsland({
   images = defaultImages,
 }: AuthIslandProps) {
   const isLogin = mode === "login";
+  const [activePortal, setActivePortal] = useState<"farmer" | "admin">(
+    portal === "admin" ? "admin" : "farmer"
+  );
 
   const containerVariants: Variants = {
     hidden: { opacity: 0 },
@@ -144,14 +150,41 @@ export default function AuthIsland({
               </span>
             </motion.div>
 
-            {/* Typography Header */}
+            {/* Typography Header & Portal Switcher */}
+            {isLogin && (
+              <motion.div variants={itemVariants} className="auth-portal-selector-wrap mb-4 w-full">
+                <div className="auth-portal-selector">
+                  <button
+                    type="button"
+                    className={`auth-portal-tab ${activePortal === "farmer" ? "is-active" : ""}`}
+                    onClick={() => setActivePortal("farmer")}
+                  >
+                    <span className="portal-tab-icon">🌾</span>
+                    <span>Farmer Portal</span>
+                  </button>
+                  <button
+                    type="button"
+                    className={`auth-portal-tab ${activePortal === "admin" ? "is-active" : ""}`}
+                    onClick={() => setActivePortal("admin")}
+                  >
+                    <span className="portal-tab-icon">🛡️</span>
+                    <span>Admin Portal</span>
+                  </button>
+                </div>
+              </motion.div>
+            )}
+
             <motion.div variants={itemVariants} className="mb-4 sm:mb-6">
               <h1 className="auth-title">
-                {isLogin ? "Welcome Back" : "Create Account"}
+                {isLogin
+                  ? (activePortal === "admin" ? "Administrator Login" : "Farmer Login")
+                  : "Create Farmer Account"}
               </h1>
               <p className="auth-subtitle">
                 {isLogin
-                  ? "Enter your credentials to access your account."
+                  ? (activePortal === "admin"
+                      ? "Manage advisory broadcasts, crop stories & farmer telemetry."
+                      : "Enter your credentials to access your farm advisory & crop health tools.")
                   : "Join Krishi Mitra for personalized farming assistance."}
               </p>
             </motion.div>
@@ -203,19 +236,20 @@ export default function AuthIsland({
             >
               <input type="hidden" name="csrfmiddlewaretoken" value={csrfToken} />
               <input type="hidden" name="next" value={nextUrl} />
+              <input type="hidden" name="portal" value={activePortal} />
 
               <div className="space-y-1.5">
                 <label
                   htmlFor="auth-email"
                   className="auth-label"
                 >
-                  Email
+                  {activePortal === "admin" ? "Email or Username" : "Email"}
                 </label>
                 <input
                   id="auth-email"
                   name="email"
-                  type="email"
-                  placeholder="farmer@example.com"
+                  type="text"
+                  placeholder={activePortal === "admin" ? "admin@krishimitra.com or admin" : "farmer@example.com"}
                   required
                   autoComplete="username"
                   className="auth-input"
@@ -259,7 +293,11 @@ export default function AuthIsland({
                 type="submit"
                 className="auth-submit-btn"
               >
-                <span>{isLogin ? "Sign In" : "Create Account"}</span>
+                <span>
+                  {isLogin
+                    ? (activePortal === "admin" ? "Sign In as Administrator" : "Sign In as Farmer")
+                    : "Create Account"}
+                </span>
               </button>
             </motion.form>
 
@@ -269,15 +307,21 @@ export default function AuthIsland({
               className="auth-switch-text"
             >
               {isLogin ? (
-                <>
-                  <span>Don't have an account?</span>{" "}
-                  <a
-                    href={registerUrl}
-                    className="auth-switch-link"
-                  >
-                    Sign up
-                  </a>
-                </>
+                activePortal === "admin" ? (
+                  <span className="text-xs text-slate-500 dark:text-slate-400">
+                    Administrative access is restricted to authorized Krishi Mitra agronomists.
+                  </span>
+                ) : (
+                  <>
+                    <span>Don't have an account?</span>{" "}
+                    <a
+                      href={registerUrl}
+                      className="auth-switch-link"
+                    >
+                      Sign up
+                    </a>
+                  </>
+                )
               ) : (
                 <>
                   <span>Already have an account?</span>{" "}

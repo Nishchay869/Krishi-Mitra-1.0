@@ -35,7 +35,7 @@
       <div class="small text-muted">{% translate "This is a state-level average estimate. Your actual yield depends on variety, soil, irrigation, fertilizer and pest management — ask the assistant for crop-specific advice." %}</div>
     </div></div>
     {% elif metrics %}
-    <div class="alert alert-light border small">
+    <div class="model-accuracy-card farm-info-card alert alert-light border small">
       <strong>{% translate "How accurate is it?" %}</strong> {% translate "Tested on 2016–2020 data the model never saw: R²" %} {{ metrics.r2|floatformat:2 }}{% translate ", RMSE" %} {{ metrics.rmse|floatformat:2 }}{% translate ". Most units are tonnes per hectare; cotton, jute and mesta are in bales per hectare." %}
     </div>
     {% endif %}

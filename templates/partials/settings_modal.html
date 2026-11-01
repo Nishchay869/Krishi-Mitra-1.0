@@ -1,3 +1,4 @@
+{% load i18n %}
 <!-- Krishi Mitra Settings Modal -->
 <div class="modal fade" id="settingsModal" tabindex="-1" aria-labelledby="settingsModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
@@ -8,18 +9,18 @@
             <i class="bi bi-gear-fill"></i>
           </div>
           <div>
-            <h5 class="modal-title fw-bold m-0" id="settingsModalLabel">Settings</h5>
-            <span class="text-muted small">Manage your Krishi Mitra preferences</span>
+            <h5 class="modal-title fw-bold m-0" id="settingsModalLabel">{% translate "Settings" %}</h5>
+            <span class="text-muted small">{% translate "Manage your Krishi Mitra preferences" %}</span>
           </div>
         </div>
-        <button type="button" class="btn-close shadow-none" data-bs-dismiss="modal" aria-label="Close"></button>
+        <button type="button" class="btn-close shadow-none" data-bs-dismiss="modal" aria-label="{% translate 'Close' %}"></button>
       </div>
 
       <div class="modal-body pt-3 pb-2 px-4">
         <!-- 1. General Section -->
         <div class="settings-section mb-4">
           <div class="settings-section-header mb-2">
-            <span class="settings-section-badge">General</span>
+            <span class="settings-section-badge">{% translate "General" %}</span>
           </div>
 
           <div class="settings-card you-card mb-4 p-4">
@@ -27,10 +28,10 @@
             <div class="settings-field mb-3">
               <div class="d-flex align-items-center gap-2 mb-1">
                 <i class="bi bi-translate text-primary"></i>
-                <label for="kmLanguageSelect" class="settings-field-label m-0 fw-semibold">Select your Krishi Mitra Language</label>
+                <label for="kmLanguageSelect" class="settings-field-label m-0 fw-semibold">{% translate "Select your Krishi Mitra Language" %}</label>
               </div>
-              <p class="settings-field-hint text-muted small mb-2">Choose the display and speech language for Krishi Mitra</p>
-              <select id="kmLanguageSelect" class="form-select form-select-sm settings-select" aria-label="Select your Krishi Mitra Language">
+              <p class="settings-field-hint text-muted small mb-2">{% translate "Choose the display and speech language for Krishi Mitra" %}</p>
+              <select id="kmLanguageSelect" class="form-select form-select-sm settings-select" aria-label="{% translate 'Select your Krishi Mitra Language' %}">
                 {% if AVAILABLE_LANGUAGES %}
                   {% for code, label in AVAILABLE_LANGUAGES %}
                     <option value="{{ code }}" {% if request.LANGUAGE_CODE == code %}selected{% endif %}>{{ label }} ({{ code }})</option>
@@ -54,10 +55,10 @@
             <div class="settings-field">
               <div class="d-flex align-items-center gap-2 mb-1">
                 <i class="bi bi-geo-alt text-primary"></i>
-                <label for="kmCountrySelect" class="settings-field-label m-0 fw-semibold">App Country</label>
+                <label for="kmCountrySelect" class="settings-field-label m-0 fw-semibold">{% translate "App Country" %}</label>
               </div>
-              <p class="settings-field-hint text-muted small mb-2">Used for regional agricultural standards, mandi currency, and weather</p>
-              <select id="kmCountrySelect" class="form-select form-select-sm settings-select" aria-label="App Country">
+              <p class="settings-field-hint text-muted small mb-2">{% translate "Used for regional agricultural standards, mandi currency, and weather" %}</p>
+              <select id="kmCountrySelect" class="form-select form-select-sm settings-select" aria-label="{% translate 'App Country' %}">
                 <option value="IN" selected>India (₹ INR)</option>
                 <option value="US">United States ($ USD)</option>
                 <option value="GB">United Kingdom (£ GBP)</option>
@@ -76,7 +77,7 @@
         <!-- 2. Notifications Section -->
         <div class="settings-section mb-4">
           <div class="settings-section-header mb-2">
-            <span class="settings-section-badge">Notifications</span>
+            <span class="settings-section-badge">{% translate "Notifications" %}</span>
           </div>
 
           <div class="settings-card you-card mb-4 p-4">
@@ -85,9 +86,9 @@
               <div>
                 <div class="d-flex align-items-center gap-2 mb-1">
                   <i class="bi bi-sprout text-success"></i>
-                  <span class="settings-field-label fw-semibold">Information about my crops</span>
+                  <span class="settings-field-label fw-semibold">{% translate "Information about my crops" %}</span>
                 </div>
-                <p class="settings-field-hint text-muted small m-0">Receive advisory alerts, disease warnings, and growth updates for your saved crops</p>
+                <p class="settings-field-hint text-muted small m-0">{% translate "Receive advisory alerts, disease warnings, and growth updates for your saved crops" %}</p>
               </div>
               <div class="form-check form-switch m-0 pt-1">
                 <input class="form-check-input settings-switch" type="checkbox" role="switch" id="kmNotifCrops" checked>
@@ -101,9 +102,9 @@
               <div>
                 <div class="d-flex align-items-center gap-2 mb-1">
                   <i class="bi bi-bell text-warning"></i>
-                  <span class="settings-field-label fw-semibold">Receive push notification</span>
+                  <span class="settings-field-label fw-semibold">{% translate "Receive push notification" %}</span>
                 </div>
-                <p class="settings-field-hint text-muted small m-0">Enable push notifications for severe weather alerts, pest outbreaks, and timely spraying windows</p>
+                <p class="settings-field-hint text-muted small m-0">{% translate "Enable push notifications for severe weather alerts, pest outbreaks, and timely spraying windows" %}</p>
               </div>
               <div class="form-check form-switch m-0 pt-1">
                 <input class="form-check-input settings-switch" type="checkbox" role="switch" id="kmNotifPush" checked>
@@ -115,47 +116,47 @@
         <!-- 3. Weather Section -->
         <div class="settings-section mb-3">
           <div class="settings-section-header mb-2">
-            <span class="settings-section-badge">Weather</span>
+            <span class="settings-section-badge">{% translate "Weather" %}</span>
           </div>
 
           <div class="settings-card you-card mb-4 p-4">
             <div class="d-flex align-items-center gap-2 mb-1">
               <i class="bi bi-thermometer-half text-danger"></i>
-              <span class="settings-field-label fw-semibold">Weather temperature units</span>
+              <span class="settings-field-label fw-semibold">{% translate "Weather temperature units" %}</span>
             </div>
-            <p class="settings-field-hint text-muted small mb-3">Choose the temperature unit displayed across weather forecasts, spray conditions, and advisories</p>
+            <p class="settings-field-hint text-muted small mb-3">{% translate "Choose the temperature unit displayed across weather forecasts, spray conditions, and advisories" %}</p>
 
             <!-- Temperature unit options: Fahrenheit, Celsius, Kelvin -->
-            <div class="settings-temp-btn-group btn-group w-100" role="group" aria-label="Temperature unit selection">
+            <div class="settings-temp-btn-group btn-group w-100" role="group" aria-label="{% translate 'Weather temperature units' %}">
               <input type="radio" class="btn-check" name="kmTempUnit" id="kmUnitCelsius" value="C" autocomplete="off" checked>
               <label class="btn btn-outline-primary settings-temp-btn py-2" for="kmUnitCelsius">
                 <span class="fw-bold fs-6">°C</span>
-                <span class="d-block small text-muted">Celsius</span>
+                <span class="d-block small text-muted">{% translate "Celsius" %}</span>
               </label>
 
               <input type="radio" class="btn-check" name="kmTempUnit" id="kmUnitFahrenheit" value="F" autocomplete="off">
               <label class="btn btn-outline-primary settings-temp-btn py-2" for="kmUnitFahrenheit">
                 <span class="fw-bold fs-6">°F</span>
-                <span class="d-block small text-muted">Fahrenheit</span>
+                <span class="d-block small text-muted">{% translate "Fahrenheit" %}</span>
               </label>
 
               <input type="radio" class="btn-check" name="kmTempUnit" id="kmUnitKelvin" value="K" autocomplete="off">
               <label class="btn btn-outline-primary settings-temp-btn py-2" for="kmUnitKelvin">
                 <span class="fw-bold fs-6">K</span>
-                <span class="d-block small text-muted">Kelvin</span>
+                <span class="d-block small text-muted">{% translate "Kelvin" %}</span>
               </label>
             </div>
           </div>
         </div>
 
         <div id="settingsFeedback" class="alert alert-success d-none py-2 px-3 small rounded-3" role="status">
-          <i class="bi bi-check-circle-fill me-1"></i> Settings saved successfully.
+          <i class="bi bi-check-circle-fill me-1"></i> {% translate "Settings saved successfully." %}
         </div>
       </div>
 
       <div class="modal-footer border-0 pt-0 pb-3 px-4">
-        <button type="button" class="btn-21st btn-21st-secondary px-4 py-2" data-bs-dismiss="modal"><span>Close</span></button>
-        <button type="button" class="btn-21st btn-21st-primary px-4 py-2" id="saveSettingsBtn"><span>Save Settings</span></button>
+        <button type="button" class="btn-21st btn-21st-secondary px-4 py-2" data-bs-dismiss="modal"><span>{% translate "Close" %}</span></button>
+        <button type="button" class="btn-21st btn-21st-primary px-4 py-2" id="saveSettingsBtn"><span>{% translate "Save Settings" %}</span></button>
       </div>
     </div>
   </div>
@@ -217,13 +218,19 @@
       localStorage.setItem('km_notif_crops', String(cropsChecked));
       localStorage.setItem('km_notif_push', String(pushChecked));
       localStorage.setItem('km_temp_unit', selectedUnit);
+      if (selectedLang) {
+        localStorage.setItem('krishi-language', selectedLang);
+        localStorage.setItem('km_language', selectedLang);
+        document.cookie = 'django_language=' + encodeURIComponent(selectedLang) + ';path=/;max-age=31536000;SameSite=Lax';
+      }
 
       // Broadcast temperature unit change
       window.dispatchEvent(new CustomEvent('km:temp_unit_change', { detail: { unit: selectedUnit } }));
       updateStaticWeatherTemps(selectedUnit);
 
       // Save language via backend API
-      const csrf = document.querySelector('[name=csrfmiddlewaretoken]')?.value || '';
+      const csrf = document.querySelector('[name=csrfmiddlewaretoken]')?.value ||
+                   (document.cookie.match(/csrftoken=([^;]+)/)?.[1] || '');
       try {
         await fetch('/accounts/settings/api/', {
           method: 'POST',
@@ -245,8 +252,9 @@
       }
 
       // Show toast notification
+      const savedNotice = window.gettext ? window.gettext('Settings saved successfully.') : 'Settings saved successfully.';
       if (typeof window.showKrishiToast === 'function') {
-        window.showKrishiToast('Settings saved successfully.');
+        window.showKrishiToast(savedNotice);
       } else if (feedback) {
         feedback.classList.remove('d-none');
         setTimeout(function() {
@@ -259,7 +267,7 @@
       if (selectedLang && selectedLang !== currentDocLang) {
         setTimeout(function() {
           window.location.reload();
-        }, 400);
+        }, 300);
       }
     });
 
@@ -289,4 +297,3 @@
   }
 })();
 </script>
-

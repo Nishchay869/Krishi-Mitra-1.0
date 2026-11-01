@@ -146,7 +146,7 @@ def _answer(request, message, language=None, is_voice=False):
         response=text,
         response_en=reply.text,
         intent=reply.intent,
-        matched_entry=reply.entry,
+        matched_entry=None,
         confidence=reply.confidence,
     )
     return {**reply.as_dict(), 'reply': text, 'language': language, 'message_id': msg.pk,

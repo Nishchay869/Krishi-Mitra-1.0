@@ -283,8 +283,23 @@
 .weather-nav-btn:hover {
   background-color: #f1f5f9;
 }
+html.dark .weather-nav-btn,
+[data-theme="dark"] .weather-nav-btn,
+body.dark-mode .weather-nav-btn {
+  color: #f1f5f9;
+}
+html.dark .weather-nav-btn:hover,
+[data-theme="dark"] .weather-nav-btn:hover,
+body.dark-mode .weather-nav-btn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #60a5fa;
+}
 .weather-hero-card {
-  padding: 6px 4px;
+  padding: 20px 22px;
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 20px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.03);
 }
 .weather-location-label {
   letter-spacing: -0.01em;
@@ -310,13 +325,37 @@
 .weather-listen-pill {
   background-color: #eff6ff;
   color: #005bf6;
-  border: none;
+  border: 1px solid #bfdbfe;
   font-size: 13.5px;
   transition: all 0.15s ease;
 }
 .weather-listen-pill:hover {
   background-color: #dbeafe;
   color: #004bd1;
+}
+html.dark .weather-listen-pill,
+[data-theme="dark"] .weather-listen-pill,
+body.dark-mode .weather-listen-pill {
+  background-color: rgba(0, 91, 246, 0.18);
+  border: 1px solid rgba(59, 130, 246, 0.35);
+  color: #ffffff;
+}
+html.dark .weather-listen-pill:hover,
+[data-theme="dark"] .weather-listen-pill:hover,
+body.dark-mode .weather-listen-pill:hover {
+  background-color: rgba(0, 91, 246, 0.28);
+  border-color: rgba(96, 165, 250, 0.5);
+  color: #ffffff;
+}
+html.dark .weather-listen-pill i,
+[data-theme="dark"] .weather-listen-pill i,
+body.dark-mode .weather-listen-pill i {
+  color: #60a5fa;
+}
+html.dark .weather-listen-pill span,
+[data-theme="dark"] .weather-listen-pill span,
+body.dark-mode .weather-listen-pill span {
+  color: #ffffff;
 }
 .weather-ai-body p {
   color: #1e293b;
@@ -361,23 +400,91 @@
   font-size: 19px;
   transition: transform 0.15s ease;
 }
+.spray-hourly-circle i {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
 .spray-hourly-circle.is-optimal {
   background-color: #dcfce7;
-  color: #16a34a;
-  border: 1.5px solid #bbf7d0;
+  color: #15803d;
+  border: 2px solid #86efac;
+}
+.spray-hourly-circle.is-optimal i {
+  color: #15803d;
+  font-size: 21px;
+  font-weight: 800;
 }
 .spray-hourly-circle.is-moderate {
   background-color: #fef3c7;
-  color: #d97706;
-  border: 1.5px solid #fde047;
+  color: #b45309;
+  border: 2px solid #fde047;
+}
+.spray-hourly-circle.is-moderate i {
+  color: #b45309;
+  font-size: 19px;
+  font-weight: 800;
 }
 .spray-hourly-circle.is-unfavourable {
   background-color: #ffe4e6;
-  color: #e11d48;
-  border: 1.5px solid #fecdd3;
+  color: #b91c1c;
+  border: 2px solid #fca5a5;
+}
+.spray-hourly-circle.is-unfavourable i {
+  color: #b91c1c;
+  font-size: 19px;
+  font-weight: 800;
+}
+
+html.dark .spray-hourly-circle.is-optimal,
+[data-theme="dark"] .spray-hourly-circle.is-optimal,
+body.dark-mode .spray-hourly-circle.is-optimal {
+  background-color: rgba(34, 197, 94, 0.22);
+  border: 2px solid #22c55e;
+  box-shadow: 0 0 14px rgba(34, 197, 94, 0.25);
+}
+html.dark .spray-hourly-circle.is-optimal i,
+[data-theme="dark"] .spray-hourly-circle.is-optimal i,
+body.dark-mode .spray-hourly-circle.is-optimal i {
+  color: #4ade80;
+  font-size: 22px;
+  font-weight: 800;
+}
+
+html.dark .spray-hourly-circle.is-moderate,
+[data-theme="dark"] .spray-hourly-circle.is-moderate,
+body.dark-mode .spray-hourly-circle.is-moderate {
+  background-color: rgba(245, 158, 11, 0.22);
+  border: 2px solid #f59e0b;
+  box-shadow: 0 0 14px rgba(245, 158, 11, 0.25);
+}
+html.dark .spray-hourly-circle.is-moderate i,
+[data-theme="dark"] .spray-hourly-circle.is-moderate i,
+body.dark-mode .spray-hourly-circle.is-moderate i {
+  color: #fbbf24;
+  font-size: 20px;
+  font-weight: 800;
+}
+
+html.dark .spray-hourly-circle.is-unfavourable,
+[data-theme="dark"] .spray-hourly-circle.is-unfavourable,
+body.dark-mode .spray-hourly-circle.is-unfavourable {
+  background-color: rgba(239, 68, 68, 0.22);
+  border: 2px solid #ef4444;
+  box-shadow: 0 0 14px rgba(239, 68, 68, 0.25);
+}
+html.dark .spray-hourly-circle.is-unfavourable i,
+[data-theme="dark"] .spray-hourly-circle.is-unfavourable i,
+body.dark-mode .spray-hourly-circle.is-unfavourable i {
+  color: #f87171;
+  font-size: 20px;
+  font-weight: 800;
 }
 .spray-hourly-time {
-  font-size: 12px;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #475569;
 }
 .spray-legend-dot {
   width: 22px;
@@ -390,15 +497,133 @@
 }
 .spray-legend-dot.is-optimal {
   background-color: #dcfce7;
-  color: #16a34a;
+  color: #15803d;
+  border: 1.5px solid #86efac;
+}
+.spray-legend-dot.is-optimal i {
+  color: #15803d;
+  font-weight: bold;
 }
 .spray-legend-dot.is-moderate {
   background-color: #fef3c7;
-  color: #d97706;
+  color: #b45309;
+  border: 1.5px solid #fde047;
+}
+.spray-legend-dot.is-moderate i {
+  color: #b45309;
+  font-weight: bold;
 }
 .spray-legend-dot.is-unfavourable {
   background-color: #ffe4e6;
-  color: #e11d48;
+  color: #b91c1c;
+  border: 1.5px solid #fca5a5;
+}
+.spray-legend-dot.is-unfavourable i {
+  color: #b91c1c;
+  font-weight: bold;
+}
+
+html.dark .spray-legend-dot.is-optimal,
+[data-theme="dark"] .spray-legend-dot.is-optimal,
+body.dark-mode .spray-legend-dot.is-optimal {
+  background-color: rgba(34, 197, 94, 0.25);
+  border: 1.5px solid #22c55e;
+}
+html.dark .spray-legend-dot.is-optimal i,
+[data-theme="dark"] .spray-legend-dot.is-optimal i,
+body.dark-mode .spray-legend-dot.is-optimal i {
+  color: #4ade80;
+  font-weight: bold;
+}
+
+html.dark .spray-legend-dot.is-moderate,
+[data-theme="dark"] .spray-legend-dot.is-moderate,
+body.dark-mode .spray-legend-dot.is-moderate {
+  background-color: rgba(245, 158, 11, 0.25);
+  border: 1.5px solid #f59e0b;
+}
+html.dark .spray-legend-dot.is-moderate i,
+[data-theme="dark"] .spray-legend-dot.is-moderate i,
+body.dark-mode .spray-legend-dot.is-moderate i {
+  color: #fbbf24;
+  font-weight: bold;
+}
+
+html.dark .spray-legend-dot.is-unfavourable,
+[data-theme="dark"] .spray-legend-dot.is-unfavourable,
+body.dark-mode .spray-legend-dot.is-unfavourable {
+  background-color: rgba(239, 68, 68, 0.25);
+  border: 1.5px solid #ef4444;
+}
+html.dark .spray-legend-dot.is-unfavourable i,
+[data-theme="dark"] .spray-legend-dot.is-unfavourable i,
+body.dark-mode .spray-legend-dot.is-unfavourable i {
+  color: #f87171;
+  font-weight: bold;
+}
+
+/* Weather Dropdown Menu */
+.weather-top-nav .dropdown-menu {
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  padding: 6px;
+}
+.weather-top-nav .dropdown-item {
+  color: #0f172a;
+  border-radius: 8px;
+  padding: 9px 14px;
+  font-size: 13.5px;
+  font-weight: 550;
+  transition: all 0.15s ease;
+}
+.weather-top-nav .dropdown-item i {
+  color: #475569;
+}
+.weather-top-nav .dropdown-item:hover,
+.weather-top-nav .dropdown-item:focus {
+  background-color: #f1f5f9;
+  color: #005bf6;
+}
+.weather-top-nav .dropdown-item:hover i,
+.weather-top-nav .dropdown-item:focus i {
+  color: #005bf6;
+}
+
+html.dark .weather-top-nav .dropdown-menu,
+[data-theme="dark"] .weather-top-nav .dropdown-menu,
+body.dark-mode .weather-top-nav .dropdown-menu {
+  background-color: #1e293b;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.6);
+}
+html.dark .weather-top-nav .dropdown-item,
+[data-theme="dark"] .weather-top-nav .dropdown-item,
+body.dark-mode .weather-top-nav .dropdown-item {
+  color: #f1f5f9;
+}
+html.dark .weather-top-nav .dropdown-item i,
+[data-theme="dark"] .weather-top-nav .dropdown-item i,
+body.dark-mode .weather-top-nav .dropdown-item i {
+  color: #94a3b8;
+}
+html.dark .weather-top-nav .dropdown-item:hover,
+html.dark .weather-top-nav .dropdown-item:focus,
+[data-theme="dark"] .weather-top-nav .dropdown-item:hover,
+[data-theme="dark"] .weather-top-nav .dropdown-item:focus,
+body.dark-mode .weather-top-nav .dropdown-item:hover,
+body.dark-mode .weather-top-nav .dropdown-item:focus {
+  background-color: rgba(255, 255, 255, 0.08);
+  color: #60a5fa;
+}
+html.dark .weather-top-nav .dropdown-item:hover i,
+html.dark .weather-top-nav .dropdown-item:focus i,
+[data-theme="dark"] .weather-top-nav .dropdown-item:hover i,
+[data-theme="dark"] .weather-top-nav .dropdown-item:focus i,
+body.dark-mode .weather-top-nav .dropdown-item:hover i,
+body.dark-mode .weather-top-nav .dropdown-item:focus i {
+  color: #60a5fa;
 }
 .spray-how-link {
   font-size: 14.5px;

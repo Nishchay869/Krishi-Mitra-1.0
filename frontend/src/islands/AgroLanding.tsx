@@ -20,6 +20,19 @@ import { experiences, type ExperienceKey } from './experience-content'
 
 const IoTDashboard = lazy(() => import('./IoTDashboard'))
 
+export interface CropStory {
+  id: number | string
+  title: string
+  caption: string
+  badge: string
+  badge_key?: string
+  image: string
+  crop_name: string
+  author: string
+  created_at: string
+  time_ago: string
+}
+
 export interface CropItem {
   id: string
   name: string
@@ -27,6 +40,9 @@ export interface CropItem {
   image: string
   hasRing?: boolean
   has_ring?: boolean
+  has_story?: boolean
+  hasStory?: boolean
+  stories?: CropStory[]
 }
 
 export type SprayStatus = 'DO_NOT_SPRAY' | 'POOR_CONDITIONS' | 'MARGINAL' | 'OPTIMAL'
@@ -254,7 +270,23 @@ interface Props {
   diagnoses?: DiagnosisItem[]
 }
 
-const t = (text: string) => (window as Window & { gettext?: (s: string) => string }).gettext?.(text) ?? text
+const t = (text: string) => {
+  if (typeof window !== 'undefined') {
+    const w = window as any
+    if (typeof w.gettext === 'function') {
+      const res = w.gettext(text)
+      if (res && res !== text) return res
+    }
+    if (typeof w.django?.gettext === 'function') {
+      const res = w.django.gettext(text)
+      if (res && res !== text) return res
+    }
+    if (w.django?.catalog && typeof w.django.catalog[text] === 'string') {
+      return w.django.catalog[text]
+    }
+  }
+  return text
+}
 
 export default function AgroLanding(props: Props) {
   const key = new URLSearchParams(window.location.search).get('experience')
@@ -329,6 +361,66 @@ function PlantixDashboard({ routes, assetBase, userCrops, weatherData, diagnoses
   const [selectedCrop, setSelectedCrop] = useState<string>(crops[0]?.id || 'tomato')
   const [showSticky, setShowSticky] = useState<boolean>(false)
 
+  // Instagram Story / Status Viewer State
+  const [activeStoryCrop, setActiveStoryCrop] = useState<CropItem | null>(null)
+  const [activeStoryIndex, setActiveStoryIndex] = useState<number>(0)
+  const [isStoryPaused, setIsStoryPaused] = useState<boolean>(false)
+  const [storyProgress, setStoryProgress] = useState<number>(0)
+
+  useEffect(() => {
+    if (!activeStoryCrop || !activeStoryCrop.stories || activeStoryCrop.stories.length === 0) {
+      setStoryProgress(0)
+      return
+    }
+
+    if (isStoryPaused) return
+
+    const interval = setInterval(() => {
+      setStoryProgress((prev) => {
+        if (prev >= 100) {
+          if (activeStoryIndex < (activeStoryCrop.stories?.length || 1) - 1) {
+            setActiveStoryIndex((idx) => idx + 1)
+            return 0
+          } else {
+            setActiveStoryCrop(null)
+            setActiveStoryIndex(0)
+            return 0
+          }
+        }
+        return prev + 2
+      })
+    }, 100)
+
+    return () => clearInterval(interval)
+  }, [activeStoryCrop, activeStoryIndex, isStoryPaused])
+
+  const handleNextStory = () => {
+    if (!activeStoryCrop?.stories) return
+    if (activeStoryIndex < activeStoryCrop.stories.length - 1) {
+      setActiveStoryIndex((idx) => idx + 1)
+      setStoryProgress(0)
+    } else {
+      setActiveStoryCrop(null)
+      setActiveStoryIndex(0)
+    }
+  }
+
+  const handlePrevStory = () => {
+    if (activeStoryIndex > 0) {
+      setActiveStoryIndex((idx) => idx - 1)
+      setStoryProgress(0)
+    }
+  }
+
+  const handleCropClick = (crop: CropItem) => {
+    setSelectedCrop(crop.id)
+    if (crop.stories && crop.stories.length > 0) {
+      setActiveStoryCrop(crop)
+      setActiveStoryIndex(0)
+      setStoryProgress(0)
+    }
+  }
+
   const currentHour = new Date().getHours()
   const isNight =
     weatherData?.is_daylight === false ||
@@ -382,8 +474,9 @@ function PlantixDashboard({ routes, assetBase, userCrops, weatherData, diagnoses
       .catch(() => {})
   }, [weatherData])
 
-  // Format today's date as "30 Oct"
-  const formattedDate = new Intl.DateTimeFormat('en-GB', { day: 'numeric', month: 'short' }).format(new Date())
+  // Format today's date respecting current locale (e.g. "1 Nov" or "1 ನವೆಂ")
+  const currentLocale = typeof document !== 'undefined' ? (document.documentElement.lang || 'en') : 'en'
+  const formattedDate = new Intl.DateTimeFormat(currentLocale === 'kn' ? 'kn-IN' : currentLocale, { day: 'numeric', month: 'short' }).format(new Date())
 
   const [tempUnit, setTempUnit] = useState<string>(() => {
     if (typeof window !== 'undefined') {
@@ -423,36 +516,36 @@ function PlantixDashboard({ routes, assetBase, userCrops, weatherData, diagnoses
   const serverBadge = weatherData?.badge_class
   const serverTimeText = weatherData?.time_text
 
-  let statusLabel = serverLabel || t('Optimal')
+  let statusLabel = serverLabel ? t(serverLabel) : t('Optimal')
   let statusBadgeClass = serverBadge || 'is-optimal'
   let StatusIcon = Check
-  let timeSubtext = serverTimeText || `ΔT ${deltaTStr} · ${t('Ideal window')}`
+  let timeSubtext = serverTimeText ? t(serverTimeText) : `ΔT ${deltaTStr} · ${t('Ideal window')}`
 
   if (serverStatus === 'OPTIMAL' || statusBadgeClass === 'is-optimal') {
-    statusLabel = serverLabel || t('Optimal')
+    statusLabel = serverLabel ? t(serverLabel) : t('Optimal')
     statusBadgeClass = 'is-optimal'
     StatusIcon = Check
-    timeSubtext = serverTimeText || `ΔT ${deltaTStr} · ${t('Ideal window')}`
+    timeSubtext = serverTimeText ? t(serverTimeText) : `ΔT ${deltaTStr} · ${t('Ideal window')}`
   } else if (
     serverStatus === 'MARGINAL' ||
     statusBadgeClass === 'is-marginal' ||
     statusBadgeClass === 'is-moderate'
   ) {
-    statusLabel = serverLabel || t('Moderate')
+    statusLabel = serverLabel ? t(serverLabel) : t('Moderate')
     statusBadgeClass = statusBadgeClass.includes('moderate') ? 'is-moderate' : 'is-marginal'
     StatusIcon = AlertTriangle
-    timeSubtext = serverTimeText || `ΔT ${deltaTStr} · ${t('Monitor drift')}`
+    timeSubtext = serverTimeText ? t(serverTimeText) : `ΔT ${deltaTStr} · ${t('Monitor drift')}`
   } else if (serverStatus === 'POOR_CONDITIONS' || statusBadgeClass === 'is-poor') {
-    statusLabel = serverLabel || t('Poor')
+    statusLabel = serverLabel ? t(serverLabel) : t('Poor')
     statusBadgeClass = 'is-poor'
     StatusIcon = AlertCircle
-    timeSubtext = serverTimeText || `ΔT ${deltaTStr} · ${t('High humidity')}`
+    timeSubtext = serverTimeText ? t(serverTimeText) : `ΔT ${deltaTStr} · ${t('High humidity')}`
   } else {
-    statusLabel = serverLabel || t('Avoid')
+    statusLabel = serverLabel ? t(serverLabel) : t('Avoid')
     statusBadgeClass = statusBadgeClass.includes('unfavourable') ? 'is-unfavourable' : 'is-avoid'
     StatusIcon = X
     if (serverTimeText) {
-      timeSubtext = serverTimeText
+      timeSubtext = t(serverTimeText)
     } else if (isNight) {
       timeSubtext = t('Night time · Opens 06:00 AM')
     } else if (currentWeather.rainWithin3Hours) {
@@ -498,17 +591,19 @@ function PlantixDashboard({ routes, assetBase, userCrops, weatherData, diagnoses
       <div className="plantix-crop-bar-wrap" aria-label={t('Your selected crops')}>
         <div className="plantix-crop-bar">
           {crops.map((crop, idx) => {
+            const hasStory = Boolean(crop.has_story || crop.hasStory || (crop.stories && crop.stories.length > 0))
             const isSelected = selectedCrop === crop.id || (!selectedCrop && idx === 0)
-            const hasRing = isSelected || crop.hasRing || crop.has_ring
+            const hasRing = isSelected || crop.hasRing || crop.has_ring || hasStory
             const labelText = crop.display_name || crop.name
             return (
               <button
                 key={crop.id + '-' + idx}
                 type="button"
                 className={`plantix-crop-item ${isSelected ? 'is-selected' : ''}`}
-                onClick={() => setSelectedCrop(crop.id)}
+                onClick={() => handleCropClick(crop)}
+                title={hasStory ? `${labelText} - Click to view status` : labelText}
               >
-                <div className={`plantix-crop-avatar ${hasRing ? 'has-ring' : ''}`}>
+                <div className={`plantix-crop-avatar ${hasStory ? 'has-story-ring' : (hasRing ? 'has-ring' : '')}`}>
                   <img
                     src={crop.image}
                     alt={labelText}
@@ -516,6 +611,11 @@ function PlantixDashboard({ routes, assetBase, userCrops, weatherData, diagnoses
                     width="68"
                     height="68"
                   />
+                  {hasStory && (
+                    <span className="plantix-story-badge" title="Active status advisory">
+                      <span className="plantix-story-badge-dot" />
+                    </span>
+                  )}
                 </div>
                 <span className="plantix-crop-label">{t(labelText)}</span>
               </button>
@@ -658,7 +758,7 @@ function PlantixDashboard({ routes, assetBase, userCrops, weatherData, diagnoses
                 <span className="plantix-diag-date">{item.date}</span>
                 <h3 className="plantix-diag-title">{item.disease}</h3>
                 <span className={`plantix-diag-badge ${item.status_type}`}>
-                  {item.status_label}
+                  {t(item.status_label)}
                 </span>
               </div>
             </a>
@@ -825,6 +925,142 @@ function PlantixDashboard({ routes, assetBase, userCrops, weatherData, diagnoses
           </div>
         </a>
       </section>
+
+      {/* 7. Instagram-Style Crop Status Story Viewer Modal */}
+      <AnimatePresence>
+        {activeStoryCrop && activeStoryCrop.stories && activeStoryCrop.stories.length > 0 && (() => {
+          const currentStory = activeStoryCrop.stories[activeStoryIndex] || activeStoryCrop.stories[0]
+          return (
+            <motion.div
+              className="instagram-story-overlay"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={(e) => {
+                if (e.target === e.currentTarget) {
+                  setActiveStoryCrop(null)
+                }
+              }}
+            >
+              <motion.div
+                className="instagram-story-modal"
+                initial={{ scale: 0.9, y: 20 }}
+                animate={{ scale: 1, y: 0 }}
+                exit={{ scale: 0.9, y: 20 }}
+                transition={{ type: 'spring', damping: 25, stiffness: 300 }}
+                onMouseDown={() => setIsStoryPaused(true)}
+                onMouseUp={() => setIsStoryPaused(false)}
+                onTouchStart={() => setIsStoryPaused(true)}
+                onTouchEnd={() => setIsStoryPaused(false)}
+              >
+                {/* Top Segmented Progress Bars */}
+                <div className="instagram-story-progress-wrap">
+                  {activeStoryCrop.stories.map((st, i) => {
+                    const width = i < activeStoryIndex ? 100 : (i === activeStoryIndex ? storyProgress : 0)
+                    return (
+                      <div key={st.id + '-' + i} className="instagram-story-progress-bg">
+                        <div
+                          className="instagram-story-progress-fill"
+                          style={{ width: `${width}%` }}
+                        />
+                      </div>
+                    )
+                  })}
+                </div>
+
+                {/* Story Top Header Bar */}
+                <div className="instagram-story-header">
+                  <div className="instagram-story-header-left">
+                    <div className="instagram-story-crop-avatar">
+                      <img src={activeStoryCrop.image} alt={activeStoryCrop.name} width="36" height="36" />
+                    </div>
+                    <div className="instagram-story-crop-info">
+                      <div className="instagram-story-crop-name">
+                        <span>{activeStoryCrop.display_name || activeStoryCrop.name}</span>
+                        <span className="instagram-story-verified-check">✓</span>
+                      </div>
+                      <div className="instagram-story-crop-meta">
+                        <span>{currentStory.time_ago}</span>
+                        <span>·</span>
+                        <span>{currentStory.author}</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="instagram-story-header-right">
+                    <button
+                      type="button"
+                      className="instagram-story-close-btn"
+                      onClick={() => setActiveStoryCrop(null)}
+                      aria-label="Close story"
+                    >
+                      ✕
+                    </button>
+                  </div>
+                </div>
+
+                {/* Story Media (Photo / Advisory Picture) */}
+                <div className="instagram-story-media-wrap">
+                  <img
+                    src={currentStory.image}
+                    alt={currentStory.title}
+                    className="instagram-story-media-img"
+                  />
+                </div>
+
+                {/* Left/Right Tap Areas for Navigation */}
+                <div className="instagram-story-tap-areas">
+                  <div
+                    className="instagram-story-tap-left"
+                    onClick={(e) => {
+                      e.stopPropagation()
+                      handlePrevStory()
+                    }}
+                    title="Previous story"
+                  />
+                  <div
+                    className="instagram-story-tap-right"
+                    onClick={(e) => {
+                      e.stopPropagation()
+                      handleNextStory()
+                    }}
+                    title="Next story"
+                  />
+                </div>
+
+                {/* Bottom Frosted Advisory Card */}
+                <div className="instagram-story-bottom-card">
+                  <div className="instagram-story-badge-pill">
+                    <span>{currentStory.badge}</span>
+                  </div>
+                  <h3 className="instagram-story-title">
+                    {currentStory.title}
+                  </h3>
+                  {currentStory.caption && (
+                    <p className="instagram-story-caption">
+                      {currentStory.caption}
+                    </p>
+                  )}
+                  <div className="instagram-story-actions">
+                    <a
+                      href={routes.disease || '/disease/detect/'}
+                      className="instagram-story-cta-btn"
+                    >
+                      <span>🔍 Verify Leaf Disease</span>
+                    </a>
+                    <a
+                      href={routes.weather || '/weather/'}
+                      className="instagram-story-cta-btn secondary"
+                    >
+                      <span>🌧️ Check Spray Time</span>
+                    </a>
+                  </div>
+                </div>
+              </motion.div>
+            </motion.div>
+          )
+        })()}
+      </AnimatePresence>
     </div>
   )
 }

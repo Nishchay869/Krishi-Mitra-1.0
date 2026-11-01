@@ -92,11 +92,20 @@ msgstr "ꯑꯄꯤꯛꯄ ꯈꯣꯡꯊꯥꯡ ꯑꯃ꯫"
 msgid "A user with that username already exists."
 msgstr "ꯌꯨꯖꯔ ꯑꯗꯨꯒꯤ ꯃꯃꯤꯡ ꯑꯗꯨ ꯌꯥꯎꯔꯕ ꯁꯤꯖꯟꯅꯔꯣꯏ ꯑꯃ ꯍꯥꯟꯅꯗꯒꯤ ꯂꯩꯔꯦ꯫"
 
+msgid "AI summary"
+msgstr "এআই সারসংক্ষেপ"
+
 msgid "Acres"
 msgstr "ꯑꯦꯀꯔꯁ"
 
 msgid "Active tillering"
 msgstr "ꯄꯣꯠ ꯊꯥꯕ ꯃꯇꯝꯗ ꯁꯦꯡꯅ ꯆꯦꯟꯕ ꯫"
+
+msgid "Add"
+msgstr "যোগ করুন"
+
+msgid "Add or edit crops"
+msgstr "ফসল যোগ বা পরিবর্তন করুন"
 
 msgid "Add your district"
 msgstr "ꯅꯍꯥꯛꯀꯤ ꯖꯤꯂꯥ ꯑꯗꯨ ꯍꯥꯞꯆꯤꯟꯕꯤꯌꯨ"
@@ -160,6 +169,9 @@ msgstr "ꯑꯟꯙ꯭ꯔ ꯄ꯭ꯔꯗꯦꯁ"
 
 msgid "Annual total"
 msgstr "ꯆꯍꯤ ꯈꯨꯗꯤꯡꯒꯤ ꯑꯄꯨꯟꯕ"
+
+msgid "App Country"
+msgstr "অ্যাপ দেশ"
 
 msgid "Apple"
 msgstr "ꯑꯦꯄꯜ"
@@ -237,13 +249,16 @@ msgid "Available without internet"
 msgstr "ꯏꯟꯇꯔꯅꯦꯠ ꯌꯥꯎꯗꯅ ꯐꯪꯕ ꯑꯣꯏꯔꯤ"
 
 msgid "Avoid"
-msgstr "ꯊꯥꯗꯣꯛꯎ"
+msgstr "এড়িয়ে চলুন"
 
 msgid "Back"
 msgstr "ꯍꯟꯅ"
 
 msgid "Back to calculation"
 msgstr "ꯍꯟꯅ ꯃꯁꯤꯡ ꯄꯥꯕꯗ ꯆꯠꯂꯨ"
+
+msgid "Back to home"
+msgstr "হোমে ফিরে যান"
 
 msgid "Bacterial spot"
 msgstr "ꯕꯦꯛꯇꯤꯔꯤꯌꯜ ꯁ꯭ꯄꯣꯠ"
@@ -271,6 +286,9 @@ msgstr "ꯊꯥꯗ꯭ꯔꯤꯉꯩ ꯃꯃꯥꯡꯗ"
 
 msgid "Bellary onion"
 msgstr "ꯕꯦꯜꯂꯔꯤ ꯇꯤꯜꯍꯧ"
+
+msgid "Best time to spray crops based on weather conditions"
+msgstr "আবহাওয়ার ওপর ভিত্তি করে ফসলে স্প্রে করার সেরা সময়"
 
 msgid "Better decisions. Healthier farms."
 msgstr "ꯐꯕ ꯋꯥꯔꯦꯞꯁꯤꯡ꯫ ꯍꯦꯟꯅ ꯐꯕ ꯂꯧꯎ-ꯁꯤꯡꯎꯒꯤ ꯃꯐꯝꯁꯤꯡ꯫"
@@ -311,6 +329,9 @@ msgstr "ꯄꯥꯊꯣꯛꯂꯕ ꯃꯁꯤꯡꯁꯤꯡ"
 msgid "Calculation reference: IFDC Fertilizer Bulk Blending Guide, page 27"
 msgstr "ꯀꯦꯜꯀꯨꯂꯦꯁꯟ ꯔꯤꯐꯔꯦꯟꯁ: ꯑꯥꯏ.ꯑꯦꯐ.ꯗꯤ.ꯁꯤ. ꯐꯔꯇꯤꯂꯥꯏꯖꯔ ꯕꯜꯛ ꯕ꯭ꯂꯦꯟꯗꯤꯡ ꯒꯥꯏꯗ, ꯄꯦꯁ 27"
 
+msgid "Capsicum & Chilli"
+msgstr "ক্যাপসিকাম ও কাঁচামরিচ"
+
 msgid "Cardamom"
 msgstr "ꯏꯂꯥꯏꯁꯤꯡ ꯀꯥꯔꯗꯃꯣꯝ"
 
@@ -332,6 +353,9 @@ msgstr "ꯐꯨꯜ ꯀꯣꯕꯤ"
 msgid "Cedar apple rust"
 msgstr "ꯁꯤꯗꯔ ꯑꯦꯄꯜ ꯔꯁꯠ"
 
+msgid "Celsius"
+msgstr "সেলসিয়াস"
+
 msgid "Cercospora leaf spot gray leaf spot"
 msgstr "ꯁꯔꯀꯣꯁꯄꯣꯔꯥ ꯂꯤꯐ ꯁ꯭ꯄꯣꯠ ꯒ꯭ꯔꯦ ꯂꯤꯐ ꯁ꯭ꯄꯣꯠ"
 
@@ -340,6 +364,12 @@ msgstr "ꯃꯍꯩ-ꯃꯔꯣꯡꯁꯤꯡ"
 
 msgid "Change"
 msgstr "ꯍꯣꯡꯕ"
+
+msgid "Change village"
+msgstr "গ্রাম পরিবর্তন করুন"
+
+msgid "Change ↗"
+msgstr "পরিবর্তন ↗"
 
 msgid "Chat messages"
 msgstr "ꯆꯦꯠ ꯃꯦꯁꯦꯖꯁꯤꯡ"
@@ -377,6 +407,12 @@ msgstr "ꯆꯅꯥꯟ ꯫"
 msgid "Choose how far you want to look for nearby markets."
 msgstr "ꯃꯅꯤꯡ ꯅꯛꯄ ꯀꯩꯊꯦꯜꯁꯤꯡꯒꯤꯗꯃꯛ ꯅꯍꯥꯛꯅ ꯀꯌꯥꯝ ꯂꯥꯞꯅ ꯊꯤꯕ ꯄꯥꯝꯃꯤ ꯍꯥꯏꯕꯗꯨ ꯈꯟꯕꯤꯌꯨ꯫"
 
+msgid "Choose the display and speech language for Krishi Mitra"
+msgstr "কৃষি মিত্রের জন্য প্রদর্শন এবং কথা বলার ভাষা চয়ন করুন"
+
+msgid "Choose the temperature unit displayed across weather forecasts, spray conditions, and advisories"
+msgstr "আবহাওয়ার পূর্বাভাস, স্প্রে করার শর্ত এবং পরামর্শ জুড়ে প্রদর্শিত তাপমাত্রা একক চয়ন করুন"
+
 msgid "Choose what you need today."
 msgstr "ꯉꯁꯤ ꯑꯗꯣꯝꯅ ꯃꯊꯧ ꯇꯥꯕ ꯑꯗꯨ ꯈꯟꯕꯤꯌꯨ꯫"
 
@@ -393,7 +429,7 @@ msgid "Clear photo of a single leaf (JPG/PNG, max 5 MB)."
 msgstr "ꯃꯅꯥ ꯑꯃꯒꯤ ꯃꯌꯦꯛ ꯁꯦꯡꯕ ꯐꯣꯇꯣ (ꯖꯦ.ꯄꯤ.ꯖꯤ./ꯄꯤ.ꯑꯦꯟ.ꯖꯤ., ꯃꯇꯣꯞ 5 ꯑꯦꯝ.ꯕꯤ.)"
 
 msgid "Close"
-msgstr "ꯅꯛꯁꯤꯟꯕ"
+msgstr "বন্ধ করুন"
 
 msgid "Coconut"
 msgstr "ꯌꯨꯕꯤ ꯫"
@@ -407,11 +443,17 @@ msgstr "ꯄꯣꯠꯁꯤꯡ"
 msgid "Common rust"
 msgstr "ꯀꯃꯟ ꯔꯁꯠ"
 
+msgid "Community"
+msgstr "সম্প্রদায়"
+
 msgid "Companion crop reference"
 msgstr "মরী লৈনবা মহৈগী হৌরকফম"
 
 msgid "Companion suitability depends on spacing, shade and water availability."
 msgstr "মরী লৈনবা মহৈগী চুনবা অসি অরাপ্পা, মমি অমসুং ঈশিং ফংবগী মতুং ইন্নি।"
+
+msgid "Complete"
+msgstr "সম্পূর্ণ"
 
 msgid "Confidence:"
 msgstr "ꯊꯥꯖꯕ ꯂꯩꯕ:"
@@ -421,6 +463,9 @@ msgstr "ꯆꯞ ꯆꯥꯗꯕ ꯃꯃꯜ ꯑꯃ ꯈꯟꯕꯒꯤ ꯃꯍꯨꯠꯇ ꯋ
 
 msgid "Consult your local Krishi Vigyan Kendra (KVK) for a confirmed diagnosis and spray schedule."
 msgstr "ꯂꯦꯡꯁꯤꯟꯕ ꯌꯥꯔꯕ ꯑꯅꯥꯕ ꯈꯪꯗꯣꯛꯄ ꯑꯃꯁꯨꯡ ꯍꯤꯗꯥꯛ ꯆꯥꯏꯕꯒꯤ ꯃꯇꯝ ꯑꯃꯒꯤꯗꯃꯛ ꯅꯍꯥꯛꯀꯤ ꯃꯐꯝ ꯑꯗꯨꯒꯤ ꯀ꯭ꯔꯤꯁꯤ ꯕꯤꯖꯟ ꯀꯦꯟꯗ꯭ꯔ (ꯀꯦ.ꯚꯤ.ꯀꯦ.) ꯗ ꯋꯥꯔꯤ ꯁꯥꯟꯅꯕꯤꯌꯨ꯫"
+
+msgid "Contact and Social"
+msgstr "যোগাযোগ ও সামাজিক"
 
 msgid "Conversation"
 msgstr "ꯋꯥꯔꯤ ꯁꯥꯟꯅꯕ"
@@ -473,6 +518,9 @@ msgstr "লৌগী মরি লৈনবা মহৈ"
 msgid "Crop establishment (days 1–10)"
 msgstr "ꯃꯍꯩ-ꯃꯔꯣꯡ ꯊꯥꯕ ꯍꯧꯕ (ꯅꯨꯃꯤꯠ 1-10)"
 
+msgid "Crop health notifications"
+msgstr "ফসলের স্বাস্থ্য সংক্রান্ত বিজ্ঞপ্তি"
+
 msgid "Crop predictions"
 msgstr "ꯃꯍꯩ-ꯃꯔꯣꯡ ꯄꯨꯊꯣꯛꯅꯕ ꯃꯇꯥꯡꯗ ꯋꯥꯔꯤ"
 
@@ -481,6 +529,9 @@ msgstr "ꯃꯍꯩ-ꯃꯔꯣꯡ ꯄꯥꯝꯕꯤ ꯂꯦꯟꯁꯤꯟꯕꯤꯌꯨ �
 
 msgid "Crop rotation"
 msgstr "মহৈ হোংনা থাবা"
+
+msgid "Crops"
+msgstr "ফসল"
 
 msgid "Crossandra"
 msgstr "ꯀ꯭ꯔꯣꯁꯟꯗ꯭ꯔ"
@@ -493,6 +544,9 @@ msgstr "ꯊꯕꯤ"
 
 msgid "Cultivation"
 msgstr "লৌউ সিংউ"
+
+msgid "Cultivation Tips"
+msgstr "চাষের পরামর্শ"
 
 msgid "Cuttings"
 msgstr "কৎলবা মশা"
@@ -545,6 +599,9 @@ msgstr "ꯗꯤꯛꯇꯦꯠ: ꯋꯥꯔꯣꯟ ꯁꯥꯡꯕꯤꯌꯨ ꯑꯃꯁꯨ�
 msgid "Disease Check"
 msgstr "ꯂꯥꯏꯅ ꯌꯦꯡꯁꯤꯟꯕ"
 
+msgid "Disease alerts and treatment reminders"
+msgstr "রোগের সতর্কতা ও প্রতিকারের অনুস্মারক"
+
 msgid "Disease checks"
 msgstr "ꯂꯥꯏꯅꯒꯤ ꯆꯦꯛꯁꯤꯡ"
 
@@ -556,6 +613,9 @@ msgstr "ꯅꯣꯇꯤꯐꯤꯀꯦꯁꯟ ꯂꯧꯊꯣꯛ"
 
 msgid "District"
 msgstr "ꯖꯤꯂꯥ"
+
+msgid "Do not spray"
+msgstr "স্প্রে করবেন না"
 
 msgid "Done speaking"
 msgstr "ꯉꯥꯡꯂꯣꯟ ꯂꯣꯏꯔꯦ"
@@ -595,6 +655,9 @@ msgstr "ইমেল"
 
 msgid "Enable JavaScript to change nearby distance and sorting. Market prices and favourites remain available."
 msgstr "ꯃꯅꯥꯛ ꯅꯛꯄꯒꯤ ꯑꯔꯥꯞꯄ ꯑꯃꯁꯨꯡ ꯁꯣꯔꯠ ꯇꯧꯕ ꯍꯣꯡꯗꯣꯛꯅꯕ ꯖꯥꯋꯥꯁ꯭ꯀ꯭ꯔꯤꯞꯠ ꯑꯦꯟꯕꯜ ꯇꯧꯕꯤꯌꯨ꯫ ꯃꯥꯔꯀꯦꯠꯀꯤ ꯃꯃꯜꯁꯤꯡ ꯑꯃꯁꯨꯡ ꯐꯦꯕꯔꯤꯠꯁꯤꯡ ꯂꯩꯔꯤ꯫"
+
+msgid "Enable push notifications for severe weather alerts, pest outbreaks, and timely spraying windows"
+msgstr "তীব্র আবহাওয়া সতর্কতা, কীটপতঙ্গের প্রাদুর্ভাব এবং সময়মত স্প্রে করার জন্য পুশ বিজ্ঞপ্তি সক্ষম করুন"
 
 msgid "End"
 msgstr "ꯂꯣꯏꯁꯤꯟꯕ"
@@ -656,11 +719,14 @@ msgstr "ꯂꯧꯎ-ꯁꯤꯡꯎ ꯁꯤꯟ-ꯂꯥꯡꯕ"
 msgid "FROM QUESTION TO CONFIDENCE"
 msgstr "ꯍꯪꯕ ꯑꯗꯨꯗꯒꯤ ꯊꯥꯖꯕ ꯐꯥꯎꯕ"
 
+msgid "Fahrenheit"
+msgstr "ফারেনহাইট"
+
 msgid "Farm Assistant"
 msgstr "ꯐꯥꯔꯝ ꯑꯦꯁꯤꯁꯇꯦꯟꯠ"
 
 msgid "Farm activity planner"
-msgstr "ꯂꯧꯃꯤ ꯊꯕꯛꯀꯤ ꯊꯧꯔꯥꯡ"
+msgstr "খামার কার্যক্রম পরিকল্পনাকারী"
 
 msgid "Farm area (ha):"
 msgstr "ꯂꯧꯕꯨꯛ ꯃꯐꯝ (ꯍꯦꯛꯇꯔ):"
@@ -670,6 +736,9 @@ msgstr "ꯐꯥꯔꯝ ꯑꯄꯨꯟꯕ (ꯀꯤ.ꯖꯤ.)"
 
 msgid "Farmers"
 msgstr "ꯂꯧꯃꯤꯁꯤꯡ"
+
+msgid "Farming calculator"
+msgstr "কৃষি ক্যালকুলেটর"
 
 msgid "Favourite market"
 msgstr "ꯄꯥꯝꯖꯕ ꯀꯩꯊꯦꯜ"
@@ -685,6 +754,9 @@ msgstr "ꯍꯥꯔ"
 
 msgid "Fertilizer Calculator"
 msgstr "ꯍꯥꯔ ꯄꯤꯕꯒꯤ ꯃꯁꯤꯡ ꯑꯣꯟꯕ"
+
+msgid "Fertilizer calculator"
+msgstr "সার ক্যালকুলেটর"
 
 msgid "Field size"
 msgstr "ꯂꯧꯕꯨꯛ ꯃꯆꯥꯎ"
@@ -737,6 +809,9 @@ msgstr "ꯄꯨꯡ 3 ꯈꯨꯗꯤꯡꯒꯤ ꯄꯥꯎ; ꯂꯣꯀꯦꯜ ꯃꯇꯝ�
 msgid "Forecast for the village area; local field conditions may differ."
 msgstr "ꯈꯨꯡꯒꯪꯒꯤ ꯃꯐꯝꯒꯤ ꯑꯣꯏꯕ ꯄꯥꯔꯨꯁꯤꯟꯕ; ꯃꯐꯝ ꯑꯗꯨꯒꯤ ꯂꯧꯎ-ꯁꯤꯡꯎꯕꯒꯤ ꯐꯤꯚꯝꯁꯤꯡ ꯑꯁꯤ ꯈꯦꯠꯅꯕ ꯌꯥꯏ꯫"
 
+msgid "Fri"
+msgstr "শুক্র"
+
 msgid "From your first seed to your next harvest, ask what’s on your mind."
 msgstr "ꯅꯍꯥꯛꯀꯤ ꯑꯍꯥꯟꯕ ꯃꯔꯨꯗꯒꯤ ꯅꯍꯥꯛꯀꯤ ꯃꯊꯪꯒꯤ ꯃꯍꯩ-ꯃꯔꯣꯡ ꯐꯥꯕ ꯐꯥꯎꯕ, ꯅꯍꯥꯛꯀꯤ ꯋꯥꯈꯜꯗ ꯀꯔꯤ ꯂꯩꯕꯒꯦ ꯍꯥꯏꯅ ꯍꯪꯕꯤꯌꯨ꯫"
 
@@ -755,6 +830,9 @@ msgstr "ꯂꯩꯀꯣꯜ ꯂꯧꯕꯨꯛ ꯅꯦꯟꯗ꯭ꯔꯟ ꯅꯠꯇꯕ ꯃ�
 msgid "Garlic"
 msgstr "ꯆꯅꯝ ꯫"
 
+msgid "General"
+msgstr "সাধারণ"
+
 msgid "General guidance; adjust for variety, soil and local climate."
 msgstr "মীয়ামগী লমজিং; মখল, লম অমসুং মফমগী নুংশিত নোংমাইগী মতুং ইন্না শেমদোকউ।"
 
@@ -762,13 +840,22 @@ msgid "Get clear guidance with the context behind it."
 msgstr "ꯃꯁꯤꯒꯤ ꯃꯅꯤꯡꯗ ꯂꯩꯔꯤꯕ ꯋꯥꯐꯝ ꯑꯁꯤꯒ ꯂꯣꯏꯅꯅ ꯃꯌꯦꯛ ꯁꯦꯡꯕ ꯂꯝꯖꯤꯡ-ꯂꯝꯇꯥꯛ ꯑꯃ ꯐꯪꯕꯤꯌꯨ꯫"
 
 msgid "Get forecast"
-msgstr "ꯐꯣꯔꯀꯥꯁꯠ ꯂꯧꯕꯤꯌꯨ"
+msgstr "পূর্বাভাস পান"
+
+msgid "Get medicine"
+msgstr "ওষুধ পান"
 
 msgid "Get started"
 msgstr "ꯍꯧꯔꯛꯄꯤꯌꯨ"
 
+msgid "Get this as a daily notification"
+msgstr "এটি দৈনিক বিজ্ঞপ্তি হিসেবে পান"
+
 msgid "Ginger"
 msgstr "ꯁꯤꯡ ꯫"
+
+msgid "Give Feedback"
+msgstr "মতামত দিন"
 
 msgid "Give your plants a closer look."
 msgstr "ꯅꯍꯥꯛꯀꯤ ꯄꯥꯝꯕꯤꯁꯤꯡ ꯑꯗꯨ ꯍꯦꯟꯅ ꯌꯥꯝꯅ ꯆꯦꯠꯅ ꯌꯦꯡꯕꯤꯌꯨ꯫"
@@ -863,8 +950,17 @@ msgstr "ꯍꯦꯛꯇꯔꯁꯤꯡ"
 msgid "Hibiscus"
 msgstr "ꯖꯕꯥ"
 
+msgid "High humidity"
+msgstr "উচ্চ আর্দ্রতা"
+
+msgid "High temperature"
+msgstr "অতিরিক্ত তাপমাত্রা"
+
 msgid "High temperatures (38 °C+) expected. Irrigate in the evening, mulch to conserve moisture, and protect nursery seedlings and livestock from heat."
 msgstr "ꯑꯋꯥꯡꯕ ꯃꯩꯁꯥ (38 °C+) ꯂꯥꯛꯀꯅꯤ ꯍꯥꯏꯅ ꯊꯥꯖꯔꯤ꯫ ꯅꯨꯃꯤꯠꯌꯨꯡꯕꯗ ꯏꯁꯤꯡ ꯆꯥꯏꯕꯤꯌꯨ, ꯆꯣꯠ-ꯆꯣꯠ ꯂꯩꯕ ꯑꯗꯨ ꯉꯥꯛꯊꯣꯛꯅꯕ ꯃꯜꯆ ꯇꯧꯕꯤꯌꯨ, ꯑꯃꯁꯨꯡ ꯅꯔꯁꯔꯤꯒꯤ ꯄꯥꯝꯕꯤꯁꯤꯡ ꯑꯃꯁꯨꯡ ꯁꯥ-ꯁꯟꯁꯤꯡꯕꯨ ꯑꯩꯈꯣꯏꯗꯒꯤ ꯉꯥꯛꯊꯣꯛꯄꯤꯌꯨ꯫"
+
+msgid "High wind drift"
+msgstr "ঝড়ো বাতাসের ঝুঁকি"
 
 msgid "Highest price"
 msgstr "ꯈ꯭ꯋꯥꯏꯗꯒꯤ ꯋꯥꯡꯕ ꯃꯃꯜ"
@@ -884,6 +980,9 @@ msgstr "ꯍꯣꯔꯁ ꯒ꯭ꯔꯥꯝ"
 msgid "How accurate is it?"
 msgstr "ꯃꯁꯤ ꯀꯌꯥꯝ ꯆꯞ-ꯆꯥꯕꯒꯦ?"
 
+msgid "How is it calculated?"
+msgstr "এটি কীভাবে হিসাব করা হয়?"
+
 msgid "Humid"
 msgstr "নুংশিবা"
 
@@ -893,14 +992,23 @@ msgstr "নুংশিবগী লমজিং"
 msgid "Hybrids"
 msgstr "ꯍꯥꯏꯕ꯭ꯔꯤꯗꯁ"
 
+msgid "Ideal window"
+msgstr "উপযুক্ত সময়"
+
 msgid "Image"
 msgstr "ꯃꯁꯛ ꯑꯣꯟꯕ"
 
 msgid "Improve ventilation and reduce humidity (especially in polyhouses); spray mancozeb at 2.5 grams per litre of water or chlorothalonil at 2 grams per litre of water."
 msgstr "ꯅꯨꯡꯁꯤꯠ ꯆꯪꯕ ꯑꯃꯁꯨꯡ ꯏꯔꯝꯊꯣꯛꯄ ꯍꯟꯊꯍꯟꯕ (ꯃꯔꯨꯑꯣꯏꯅ mancozeb: 2.5 g/L ꯅꯠꯇ꯭ꯔꯒ chlorothalonil: 2 g/L ꯀꯣꯏꯊꯤꯕꯁꯤꯡꯗ) ꯐꯒꯠꯍꯟꯕꯤꯌꯨ꯫"
 
+msgid "Incomplete"
+msgstr "অসম্পূর্ণ"
+
 msgid "Increase"
 msgstr "ꯍꯦꯟꯒꯠꯍꯟꯕ"
+
+msgid "Information about my crops"
+msgstr "আমার ফসলের তথ্য"
 
 msgid "Insufficient forecast"
 msgstr "ꯃꯃꯥꯡ ꯄꯥꯎ ꯃꯇꯤꯛ ꯆꯥꯗꯦ"
@@ -913,6 +1021,9 @@ msgstr "ইমেল নত্রগা পাসৱার্দ অশোয়
 
 msgid "Invalid username or password."
 msgstr "ꯌꯨꯖꯔ ꯅꯦꯝ ꯅꯠꯇ꯭ꯔꯒ ꯄꯥꯁꯋꯔꯗ ꯑꯁꯤ ꯃꯊꯧ ꯇꯧꯗꯦ꯫"
+
+msgid "IoT Sensors dashboard"
+msgstr "আইওটি সেন্সর ড্যাশবোর্ড"
 
 msgid "Irrigated crop"
 msgstr "ꯏꯁꯤꯡ ꯄꯤꯔꯕ ꯃꯍꯩꯃꯔꯣꯡ"
@@ -968,6 +1079,9 @@ msgstr "মশা ককপা, ঈশিং পীবা অমসুং লৈ
 msgid "Keep your farm insights, questions, and plans together. Let’s make the next season a little clearer."
 msgstr "ꯅꯍꯥꯛꯀꯤ ꯐꯥꯔꯝꯒꯤ ꯃꯇꯥꯡꯗ ꯈꯪꯕ, ꯋꯥꯍꯪꯁꯤꯡ ꯑꯃꯁꯨꯡ ꯊꯧꯔꯥꯡꯁꯤꯡ ꯑꯗꯨ ꯄꯨꯟꯅ ꯊꯝꯃꯨ꯫ ꯑꯩꯈꯣꯏꯅ ꯃꯊꯪꯒꯤ ꯁꯤꯖꯟ ꯑꯗꯨ ꯈꯔ ꯍꯦꯟꯅ ꯃꯌꯦꯛ ꯁꯦꯡꯍꯟꯁꯤ ꯫"
 
+msgid "Kelvin"
+msgstr "কেলভিন"
+
 msgid "Kerala"
 msgstr "ꯀꯦꯔꯂꯥ"
 
@@ -1010,6 +1124,9 @@ msgstr "ꯏꯀꯣꯟ ꯊꯣꯛꯄ ꯐꯣꯡꯕ:"
 msgid "Layers"
 msgstr "লেয়র"
 
+msgid "Leaf Doctor Diagnosis"
+msgstr "লিফ ডক্টর রোগ নির্ণয়"
+
 msgid "Leaf blight isariopsis leaf spot"
 msgstr "ꯂꯤꯐ ꯕ꯭ꯂꯥꯏꯠ ꯑꯁꯔꯤꯌꯣꯞꯁꯤꯁ ꯂꯤꯐ ꯁ꯭ꯄꯣꯠ"
 
@@ -1024,6 +1141,9 @@ msgstr "ꯂꯤꯐ ꯁꯣꯔꯆ"
 
 msgid "Learn about this fertilizer"
 msgstr "ꯍꯥꯔ ꯑꯁꯤꯒꯤ ꯃꯇꯥꯡꯗ ꯈꯪꯕꯤꯌꯨ"
+
+msgid "Legal Notices"
+msgstr "আইনি বিজ্ঞপ্তি"
 
 msgid "Lentil"
 msgstr "ꯃꯨꯁꯣꯔꯤ"
@@ -1133,11 +1253,20 @@ msgstr "ꯅꯨꯃꯤꯠ ꯃꯉꯥꯒꯤ ꯑꯣꯏꯕ ꯐꯣꯔꯀꯥꯁꯠ ꯑ�
 msgid "Manage knowledge base"
 msgstr "ꯂꯧꯁꯤꯡ ꯌꯨꯝꯕꯤ ꯁꯦꯟꯅꯕꯤꯌꯨ"
 
+msgid "Manage notifications for farming insights and market updates"
+msgstr "কৃষি তথ্য এবং বাজার আপডেটের জন্য বিজ্ঞপ্তি পরিচালনা করুন"
+
 msgid "Manage pond water level and leave room for leaves to spread."
 msgstr "পুখ্রীগী ঈশিংগী থাক শিল্লাংঙু অমসুং মনা পাকথোকনবা মফম থম্মু।"
 
+msgid "Manage your Krishi Mitra preferences"
+msgstr "আপনার কৃষি মিত্র পছন্দগুলি পরিচালনা করুন"
+
 msgid "Mandi"
 msgstr "ꯃꯟꯗꯤ"
+
+msgid "Mandi prices"
+msgstr "মান্ডি দর"
 
 msgid "Mandis upload prices at the end of each trading day and Agmarknet verifies them before publishing, so the newest prices are usually 1–2 days old (longer after Sundays and holidays). This page updates automatically when new prices are published."
 msgstr "ꯃꯟꯗꯤꯁꯤꯡꯅ ꯂꯜꯂꯣꯟ-ꯏꯇꯤꯛ ꯇꯧꯕꯒꯤ ꯅꯨꯃꯤꯠ ꯈꯨꯗꯤꯡꯒꯤ ꯑꯔꯣꯏꯕꯗ ꯃꯃꯜꯁꯤꯡ ꯑꯞꯂꯣꯗ ꯇꯧꯋꯤ ꯑꯃꯁꯨꯡ ꯑꯦꯒꯃꯥꯔꯛꯅꯦꯠꯅ ꯐꯣꯡꯕꯒꯤ ꯃꯃꯥꯡꯗ ꯃꯈꯣꯏꯁꯤꯡ ꯑꯗꯨ ꯌꯦꯡꯁꯤꯟꯕꯤ, ꯃꯔꯝ ꯑꯗꯨꯅ ꯑꯅꯧꯕ ꯃꯃꯜꯁꯤꯡ ꯑꯁꯤ ꯃꯍꯧꯁꯥꯅ ꯅꯨꯃꯤꯠ 1-2 ꯑꯔꯤꯕ (ꯅꯣꯡꯃꯥꯏꯖꯤꯡ ꯑꯃꯁꯨꯡ ꯁꯨꯇꯤ ꯅꯨꯃꯤꯠꯁꯤꯡꯒꯤ ꯃꯇꯨꯡꯗ ꯍꯦꯟꯅ ꯁꯥꯡꯕ) ꯑꯣꯏ꯫ ꯑꯅꯧꯕ ꯃꯃꯜꯁꯤꯡ ꯐꯣꯡꯕ ꯃꯇꯝꯗ ꯄꯦꯖ ꯑꯁꯤ ꯃꯁꯥ ꯃꯊꯟꯇ ꯑꯞꯗꯦꯠ ꯇꯧꯋꯤ꯫"
@@ -1159,6 +1288,9 @@ msgstr "ꯃꯥꯔꯆ"
 
 msgid "Marigold"
 msgstr "ꯁꯅꯥꯂꯩ"
+
+msgid "Market"
+msgstr "বাজার"
 
 msgid "Market Prices"
 msgstr "ꯀꯩꯊꯦꯜꯒꯤ ꯃꯃꯜꯁꯤꯡ"
@@ -1220,14 +1352,29 @@ msgstr "ꯃꯤꯖꯣꯔꯥꯝ"
 msgid "Modal price"
 msgstr "ꯆꯜꯂꯤꯕ ꯃꯃꯜ"
 
+msgid "Moderate"
+msgstr "মাঝারি"
+
 msgid "Moderate rain (~%(rain_next3)s mm) expected. Plan sprays for dry windows so they are not washed off."
 msgstr "ꯆꯥꯡ ꯃꯥꯟꯅꯕ ꯅꯣꯡ (~%(rain_next3)s mm) ꯇꯧꯔꯛꯀꯅꯤ ꯍꯥꯏꯅ ꯂꯧꯅꯔꯤ꯫ ꯑꯀꯟꯕ ꯊꯣꯡꯅꯥꯎꯁꯤꯡꯒꯤꯗꯃꯛ ꯏꯁꯤꯡ ꯆꯨꯞꯅꯕ ꯌꯣꯠꯄꯒꯤ ꯃꯍꯩ ꯑꯣꯏꯍꯟꯅꯕ ꯁ꯭ꯄ꯭ꯔꯦ ꯇꯧꯅꯕ ꯊꯧꯔꯥꯡ ꯇꯧꯕꯤꯌꯨ꯫"
+
+msgid "Moderate spraying conditions"
+msgstr "মাঝারি স্প্রে করার অবস্থা"
 
 msgid "Moist"
 msgstr "ꯑꯁꯦꯝꯕ"
 
+msgid "Mon"
+msgstr "সোম"
+
+msgid "Monitor drift"
+msgstr "বাতাসের গতি লক্ষ্য করুন"
+
 msgid "Moong(Green Gram)"
 msgstr "ꯃꯨꯡ ꯫"
+
+msgid "More options"
+msgstr "আরও বিকল্প"
 
 msgid "Moth"
 msgstr "ꯀꯣꯔꯤ ꯃꯨꯒꯥ"
@@ -1283,17 +1430,26 @@ msgstr "ꯃꯇꯦꯡ ꯄꯥꯡꯕꯤꯔꯛꯅꯕ ꯃꯤꯑꯣꯏ ꯑꯃ ꯃꯊ�
 msgid "Network error. Please try again."
 msgstr "ꯅꯦꯠꯋꯔꯛ ꯑꯦꯔꯔ ꯑꯣꯏꯔꯦ꯫ ꯆꯥꯟꯕꯤꯗꯨꯅ ꯑꯃꯨꯛ ꯍꯟꯅ ꯇꯧꯕꯤꯌꯨ꯫"
 
+msgid "New"
+msgstr "নতুন"
+
 msgid "New here?"
 msgstr "ꯃꯐꯝ ꯑꯁꯤꯗ ꯑꯅꯧꯕꯔꯥ ?"
 
 msgid "Next"
 msgstr "ꯃꯊꯪ"
 
+msgid "Next 6 days"
+msgstr "পরবর্তী ৬ দিন"
+
 msgid "Next forecast"
 msgstr "ꯃꯊꯪꯒꯤ ꯄꯥꯎ"
 
 msgid "Niger seed"
 msgstr "ꯅꯥꯏꯖꯔ ꯃꯔꯨ"
+
+msgid "Night time · Opens 06:00 AM"
+msgstr "রাতের সময় · সকাল ০৬:০০ টায় খুলবে"
 
 msgid "Nitrogen (N, kg/ha)"
 msgstr "ꯅꯥꯏꯇ꯭ꯔꯣꯖꯦꯟ (ꯑꯦꯟ, ꯀꯤ.ꯖꯤ./ꯍꯦ.)"
@@ -1367,8 +1523,14 @@ msgstr "ꯐꯪꯈꯤꯗꯦ꯫"
 msgid "Not specified by source"
 msgstr "হৌরকফমদা তাকপা লৈতে"
 
+msgid "Notifications"
+msgstr "বিজ্ঞপ্তি"
+
 msgid "November, after pruning"
 msgstr "ꯅꯕꯦꯝꯕꯔ ꯃꯇꯨꯡꯗ ꯀꯣꯛꯊꯣꯛꯄꯤꯕꯒꯤ ꯃꯇꯨꯡꯗ"
+
+msgid "Now"
+msgstr "এখন"
 
 msgid "Number of trees"
 msgstr "ꯎꯁꯤꯡꯒꯤ ꯃꯁꯤꯡ"
@@ -1394,6 +1556,12 @@ msgstr "ꯊꯥꯎ ꯄꯤꯕ ꯃꯔꯨꯁꯤꯡ"
 msgid "Okra"
 msgstr "ꯚꯦꯟꯗꯤ"
 
+msgid "One Home, One Chance"
+msgstr "একটি বাড়ি, একটি সুযোগ"
+
+msgid "One Home, One Chance — Build with confidence"
+msgstr "একটি বাড়ি, একটি সুযোগ — আত্মবিশ্বাসের সাথে তৈরি করুন"
+
 msgid "One application, not an annual total"
 msgstr "ꯆꯍꯤ ꯈꯨꯗꯤꯡꯒꯤ ꯑꯄꯨꯟꯕ ꯑꯃ ꯑꯣꯏꯗꯅ, ꯑꯦꯞꯂꯤꯀꯦꯁꯟ ꯑꯃ꯫"
 
@@ -1411,6 +1579,12 @@ msgstr "ꯑꯩꯒꯤ ꯗꯦꯁꯕꯣꯔ꯭ꯗ ꯑꯗꯨ ꯍꯥꯡꯗꯣꯛꯄꯤ
 
 msgid "Open nearby shops in Maps"
 msgstr "ꯃꯦꯞꯁꯤꯡꯗ ꯌꯥꯝꯅ ꯅꯛꯄ ꯑꯣꯄꯟ ꯇꯧꯔꯕ ꯗꯨꯀꯥꯟꯁꯤꯡ"
+
+msgid "Optimal"
+msgstr "অনুকূল"
+
+msgid "Optimal spraying conditions"
+msgstr "অনুকূল স্প্রে করার অবস্থা"
 
 msgid "Orange"
 msgstr "ꯀꯣꯝꯂꯤ"
@@ -1466,6 +1640,15 @@ msgstr "ꯍꯋꯥꯏꯃꯅꯁꯤꯡ ꯑꯃꯁꯨꯡ ꯕꯤꯟꯁ (ꯄꯜꯁ)"
 msgid "Pepper bell"
 msgstr "ꯃꯣꯔꯣꯛ ꯆꯤꯡꯂꯥꯏ"
 
+msgid "Pesticide calculator"
+msgstr "কীটনাশক ক্যালকুলেটর"
+
+msgid "Pests & Disease Alert"
+msgstr "কীট ও রোগ সতর্কতা"
+
+msgid "Pests & diseases"
+msgstr "কীটপতঙ্গ ও রোগবালাই"
+
 msgid "Phone"
 msgstr "ꯐꯣꯟ"
 
@@ -1519,6 +1702,9 @@ msgstr "ꯄꯥꯝꯕꯤꯁꯤꯡ ꯂꯧꯕꯨꯛꯀꯤ ꯃꯑꯣꯡ"
 
 msgid "Pomegranate"
 msgstr "ꯀꯐꯣꯏ ꯫"
+
+msgid "Poor"
+msgstr "খারাপ"
 
 msgid "Potash source. Check crop suitability and the nutrient grade before use."
 msgstr "ꯄꯣꯇꯥꯁ ꯃꯐꯝ꯫ ꯁꯤꯖꯤꯟꯅꯗ꯭ꯔꯤꯉꯩ ꯃꯃꯥꯡꯗ ꯃꯍꯩ-ꯃꯔꯣꯡ ꯆꯨꯅꯕ ꯑꯃꯁꯨꯡ ꯃꯆꯤ ꯑꯣꯏꯕ ꯃꯆꯥꯛꯀꯤ ꯊꯥꯛ ꯌꯦꯡꯁꯤꯟꯕꯤꯌꯨ꯫"
@@ -1574,6 +1760,12 @@ msgstr "ꯃꯥꯏꯔꯦꯟ"
 msgid "Punjab"
 msgstr "ꯄꯟꯖꯥꯕ"
 
+msgid "Push notifications"
+msgstr "પુશ বিজ্ঞপ্তি"
+
+msgid "Quickstart"
+msgstr "দ্রুত শুরু"
+
 msgid "ROOTED IN KNOWLEDGE. GROWN WITH AI."
 msgstr "ꯂꯧꯁꯤꯡꯗ ꯌꯨꯝꯐꯝ ꯑꯣꯏꯕꯅꯤ꯫ ꯑꯦ.ꯑꯥꯏ.ꯒ ꯂꯣꯏꯅꯅ ꯆꯣꯡꯊꯔꯕꯅꯤ꯫"
 
@@ -1585,6 +1777,9 @@ msgstr "ꯔꯥꯒꯤ"
 
 msgid "Rain chance"
 msgstr "ꯅꯣꯡ ꯆꯨꯔꯕ ꯌꯥꯕ"
+
+msgid "Rain imminent"
+msgstr "বৃষ্টির संभावना"
 
 msgid "Rainfall (mm)"
 msgstr "ꯅꯣꯡ ꯇꯥꯕꯒꯤ ꯆꯥꯡ (ꯃꯤ.ꯃꯤ.)"
@@ -1607,11 +1802,23 @@ msgstr "ꯔꯥꯁꯕꯦꯔꯤ"
 msgid "Real product photos are examples, not a promise of local stock. Check the actual nutrient grade, pack size and availability with the shop."
 msgstr "ꯑꯁꯦꯡꯕ ꯄꯣꯠꯀꯤ ꯃꯃꯤꯁꯤꯡ ꯑꯁꯤ ꯈꯨꯗꯝꯁꯤꯡꯅꯤ, ꯃꯐꯝ ꯑꯗꯨꯒꯤ ꯄꯣꯠꯁꯤꯡꯒꯤ ꯋꯥꯁꯛ ꯑꯃ ꯅꯠꯇꯦ꯫ ꯗꯨꯀꯥꯟ ꯑꯗꯨꯒ ꯆꯞ-ꯆꯥꯕ ꯃꯆꯤ ꯑꯣꯏꯕ ꯃꯆꯜꯒꯤ ꯊꯥꯛ, ꯄꯦꯛꯀꯤ ꯑꯆꯧꯕ ꯑꯃꯁꯨꯡ ꯐꯪꯕ ꯌꯥꯕ ꯑꯗꯨ ꯌꯦꯡꯕꯤꯌꯨ꯫"
 
+msgid "Receive advisory alerts, disease warnings, and growth updates for your saved crops"
+msgstr "আপনার সংরক্ষিত ফসলের জন্য পরামর্শ সতর্কতা, রোগ সতর্কতা এবং বৃদ্ধির আপডেট পান"
+
+msgid "Receive push notification"
+msgstr "পুশ বিজ্ঞপ্তি পান"
+
+msgid "Recent diagnoses"
+msgstr "সাম্প্রতিক রোগ নির্ণয়"
+
 msgid "Recent predictions"
 msgstr "ꯍꯟꯗꯣꯡꯂꯤꯕ ꯃꯇꯨꯡꯒꯤ ꯋꯥꯔꯦꯞꯁꯤꯡ"
 
 msgid "Recent questions"
 msgstr "ꯍꯟꯗꯣꯡꯂꯤꯕ ꯋꯥꯍꯪꯁꯤꯡ"
+
+msgid "Recommend Krishi Mitra"
+msgstr "কৃষি মিত্র সুপারিশ করুন"
 
 msgid "Recommend crops"
 msgstr "ꯃꯍꯩ-ꯃꯔꯣꯡꯁꯤꯡ ꯄꯥꯎꯇꯥꯛꯄꯤꯌꯨ"
@@ -1688,6 +1895,9 @@ msgstr "ꯌꯥꯔꯕꯃꯈꯩ ꯑꯅꯛꯄꯗ ꯂꯩꯕ ꯖꯨꯅꯤꯄꯔ/ꯁ�
 msgid "Report date"
 msgstr "ꯄꯥꯎꯗꯝ ꯇꯧꯕꯒꯤ ꯇꯥꯡ ꯑꯁꯤ"
 
+msgid "Rest of the day"
+msgstr "দিনের বাকি সময়"
+
 msgid "Result"
 msgstr "ꯃꯍꯩ ꯑꯣꯏꯔꯛꯄ"
 
@@ -1715,8 +1925,17 @@ msgstr "লৈঙোই লোম"
 msgid "Sannhamp"
 msgstr "ꯁꯟꯅꯝ"
 
+msgid "Sat"
+msgstr "শনি"
+
 msgid "Save"
 msgstr "ꯀꯟꯕꯤꯌꯨ"
+
+msgid "Save Changes"
+msgstr "পরিবর্তন সংরক্ষণ করুন"
+
+msgid "Save Settings"
+msgstr "সেটিংস সংরক্ষণ করুন"
 
 msgid "Search crop"
 msgstr "ꯄꯥꯝꯕꯤ ꯊꯤꯕ"
@@ -1733,6 +1952,9 @@ msgstr "ꯀꯨꯝ ꯑꯃ"
 msgid "See application"
 msgstr "ꯑꯦꯞꯂꯤꯀꯦꯁꯟ ꯌꯦꯡꯕꯤꯌꯨ"
 
+msgid "See diagnosis"
+msgstr "রোগ নির্ণয় দেখুন"
+
 msgid "Seedlings"
 msgstr "অহৌবা পাম্বী"
 
@@ -1748,8 +1970,14 @@ msgstr "ꯃꯟꯗꯤ ꯌꯦꯡꯅꯕ ꯃꯐꯝ ꯈꯜꯂꯨ꯫"
 msgid "Select a valid choice. %(value)s is not one of the available choices."
 msgstr "ꯆꯨꯝꯕ ꯑꯃ ꯈꯟꯕꯤꯌꯨ꯫ %(value)s ꯑꯁꯤ ꯐꯪꯂꯤꯕ ꯆꯣꯏꯁꯁꯤꯡꯒꯤ ꯃꯅꯨꯡꯗ ꯑꯃ ꯑꯣꯏꯗꯦ꯫"
 
+msgid "Select your Krishi Mitra Language"
+msgstr "আপনার কৃষি মিত্র ভাষা নির্বাচন করুন"
+
 msgid "Select your crops"
 msgstr "ꯅꯍꯥꯛꯀꯤ ꯂꯧꯃꯤ ꯄꯣꯠꯂꯃꯁꯤꯡ ꯈꯜꯂꯨ"
+
+msgid "Select your crops →"
+msgstr "আপনার ফসল নির্বাচন করুন →"
 
 msgid "Send"
 msgstr "ꯊꯥꯕꯤꯌꯨ"
@@ -1765,6 +1993,15 @@ msgstr "ꯁꯦꯞꯇꯣꯔꯤꯌꯥ ꯂꯤꯐ ꯁ꯭ꯄꯣꯠ"
 
 msgid "Sesamum"
 msgstr "ꯊꯣꯡꯅꯥ"
+
+msgid "Settings"
+msgstr "সেটিংস"
+
+msgid "Settings saved successfully."
+msgstr "সেটিংস সফলভাবে সংরক্ষিত হয়েছে।"
+
+msgid "Severe weather alerts and timely spraying windows"
+msgstr "খারাপ আবহাওয়ার সতর্কতা এবং সময়মত স্প্রে করার সুযোগ"
 
 msgid "Shade management"
 msgstr "মমি শিল্লাংবা"
@@ -1794,7 +2031,7 @@ msgid "Smarter insights."
 msgstr "ꯍꯦꯟꯅ ꯁꯤꯡꯊꯣꯛꯄ ꯋꯥꯈꯜꯂꯣꯟꯁꯤꯡ꯫"
 
 msgid "Soil condition"
-msgstr "ꯂꯩꯕꯥꯛꯀꯤ ꯐꯤꯕꯝ"
+msgstr "মাটির অবস্থা"
 
 msgid "Soil moisture % (optional, from sensor)"
 msgstr "ꯂꯩꯕꯥꯛ ꯃꯅꯤꯜ % (ꯑꯣꯞꯁꯅꯦꯜ, ꯁꯦꯟꯁꯔꯗꯒꯤ)"
@@ -1856,11 +2093,17 @@ msgstr "ꯉꯥꯡꯕ... ꯑꯊꯤꯡꯕ ꯄꯤꯅꯕ ꯁꯔꯀꯜ ꯑꯗꯨ ꯇ�
 msgid "Speaking… tap the circle to skip"
 msgstr "ꯋꯥꯔꯤ ꯁꯥꯟꯅꯕ... ꯃꯊꯪ-ꯃꯅꯥꯎ ꯑꯣꯏꯅ ꯇꯧꯅꯕ ꯁꯔꯀꯜ ꯑꯗꯨꯗ ꯅꯝꯃꯣ"
 
+msgid "Speech synthesis is not supported on this browser."
+msgstr "এই ব্রাউজারে স্পিচ সিন্থেসিস সমর্থিত নয়।"
+
 msgid "Spices"
 msgstr "ꯃꯔꯨ-ꯃꯔꯥꯡꯁꯤꯡ"
 
 msgid "Spider mites two-spotted spider mite"
 msgstr "ꯁ꯭ꯄꯥꯏꯗꯔ ꯃꯥꯏꯠ ꯑꯅꯤ-ꯃꯀꯨ ꯁꯥꯕ ꯁ꯭ꯄꯥꯏꯗꯔ ꯃꯥꯏꯠ"
+
+msgid "Sponsored"
+msgstr "বিজ্ঞাপন"
 
 msgid "Spray captan 50% wettable powder (50 WP) at 2.5 grams per litre of water or mancozeb 75% wettable powder (75 WP) at 2.5 grams per litre of water from green-tip stage at 10-14 day intervals in wet weather. Rake and destroy fallen leaves."
 msgstr "ꯑꯆꯣꯠꯄ ꯃꯇꯝꯗ 10-14 ꯅꯨꯃꯤꯠꯀꯤ ꯑꯣꯟꯊꯣꯛꯄꯁꯤꯡꯗ captan 50 WP: 2.5 g/L ꯅꯠꯇ꯭ꯔꯒ mancozeb 75 WP: 2.5 g/L ꯑꯁꯤ ꯑꯁ-ꯃꯆꯨꯒꯤ ꯃꯇꯣꯟꯗꯒꯤ ꯍꯧꯕ ꯐꯤꯕꯝꯗꯒꯤ ꯁ꯭ꯄ꯭ꯔꯦ ꯇꯧꯕꯤꯌꯨ꯫ ꯇꯥꯁꯤꯟꯈꯤꯕ ꯃꯅꯥ-ꯃꯁꯤꯡꯁꯤꯡ ꯑꯗꯨ ꯂꯣꯟꯊꯣꯛꯄꯤꯌꯨ ꯑꯃꯁꯨꯡ ꯃꯥꯡꯍꯟꯕꯤꯌꯨ꯫"
@@ -1882,6 +2125,15 @@ msgstr "ꯁ꯭ꯄꯔꯦ sulphur 80 WP: 2-3 g/L ꯅꯠꯇ꯭ꯔꯒ hexaconazole 5
 
 msgid "Spraying"
 msgstr "ꯍꯤꯗꯥꯛ ꯀꯥꯞꯄ"
+
+msgid "Spraying calculation"
+msgstr "স্প্রে গণনা"
+
+msgid "Spraying conditions"
+msgstr "স্প্রে করার অবস্থা"
+
+msgid "Spraying time"
+msgstr "স্প্রে করার সময়"
 
 msgid "Squash"
 msgstr "ꯁ꯭ꯋꯥꯁ"
@@ -1937,11 +2189,17 @@ msgstr "ꯆꯤꯡꯅꯤꯡ ꯫"
 msgid "Summer"
 msgstr "ꯀꯥꯂꯦꯟ ꯃꯇꯝ"
 
+msgid "Sun"
+msgstr "রবি"
+
 msgid "Sun exposure"
 msgstr "নুংগী মঙাল"
 
 msgid "Sunflower"
 msgstr "ꯅꯣꯡꯉꯥꯜ ꯇꯦꯡꯕꯨꯔꯪ"
+
+msgid "Sunset"
+msgstr "সূর্যাস্ত"
 
 msgid "Supplement rainfall with irrigation; keep soil moist and well drained."
 msgstr "নোংগী মথক্তা মথৌ তাবা ঈশিং পীয়ু; লম নুংশিবা অমসুং ঈশিং চেথোকপা য়াহল্লু।"
@@ -1957,6 +2215,9 @@ msgstr "ꯑꯊꯨꯝꯕ ꯁꯤꯡꯒꯣꯜ, ꯆꯍꯤ 6 ꯑꯃꯁꯨꯡ ꯃꯁ�
 
 msgid "Sweet potato"
 msgstr "ꯃꯪꯒꯦꯠ ꯑꯁꯤ ꯌꯥꯝꯅ ꯊꯣꯡꯕ ꯆꯥꯎꯔꯕ ꯃꯍꯤ ꯑꯣꯏ꯫"
+
+msgid "Take a picture"
+msgstr "ছবি তুলুন"
 
 msgid "Take your next step"
 msgstr "ꯅꯍꯥꯛꯀꯤ ꯃꯊꯪꯒꯤ ꯈꯣꯡꯖꯦꯜ ꯑꯗꯨ ꯂꯧꯕꯤꯌꯨ"
@@ -1990,6 +2251,9 @@ msgstr "টেম্পরেট"
 
 msgid "Temperature (°C)"
 msgstr "ꯑꯏꯪ-ꯑꯁꯥꯒꯤ ꯆꯥꯡ (°C)"
+
+msgid "Temperature Unit"
+msgstr "তাপমাত্রার একক"
 
 msgid "Temperature and humidity"
 msgstr "ꯑꯁꯥꯕ ꯑꯃꯁꯨꯡ ꯑꯁꯦꯝꯕ"
@@ -2039,8 +2303,14 @@ msgstr "ꯃꯁꯤꯒꯤ ꯄꯥꯁꯋꯔꯗ ꯑꯁꯤ ꯌꯥꯝꯅ ꯇꯣꯏꯅ �
 msgid "This tool is temporarily unavailable. Please try again later."
 msgstr "ꯃꯁꯤꯒꯤ ꯇꯨꯜ ꯑꯁꯤ ꯃꯇꯝ ꯈꯔꯒꯤ ꯑꯣꯏꯅ ꯐꯪꯗꯦ꯫ ꯆꯥꯟꯕꯤꯗꯨꯅ ꯃꯇꯨꯡꯗ ꯑꯃꯨꯛ ꯍꯟꯅ ꯆꯦꯟꯕꯤꯌꯨ꯫"
 
+msgid "Thu"
+msgstr "বৃহস্পতি"
+
 msgid "Tip:"
 msgstr "ꯇꯤꯞ:"
+
+msgid "To build your identity"
+msgstr "আপনার পরিচয় গড়ে তুলতে"
 
 msgid "Tobacco"
 msgstr "ꯍꯤꯗꯥꯛ ꯃꯅꯥ"
@@ -2056,6 +2326,9 @@ msgstr "ꯇꯣꯃꯦꯇꯣ ꯃꯣꯁꯥꯏꯛ ꯕꯥꯏꯔꯁ"
 
 msgid "Tomato yellow leaf curl virus"
 msgstr "ꯇꯣꯃꯦꯇꯣ ꯌꯦꯂꯣ ꯂꯤꯐ ꯀꯔꯜ ꯕꯥꯏꯔꯁ"
+
+msgid "Tools"
+msgstr "সরঞ্জাম"
 
 msgid "Top intents"
 msgstr "ꯃꯀꯣꯟ ꯊꯣꯡꯕ ꯋꯥꯈꯜꯂꯣꯟꯁꯤꯡ"
@@ -2087,6 +2360,9 @@ msgstr "ꯔꯖꯅꯤꯒꯟꯙꯥ"
 msgid "Tubers"
 msgstr "টিউবর"
 
+msgid "Tue"
+msgstr "মঙ্গল"
+
 msgid "Turmeric"
 msgstr "ꯌꯥꯡꯉꯤ ꯫"
 
@@ -2101,6 +2377,12 @@ msgstr "ꯅꯍꯥꯛꯀꯤ ꯃꯁꯥꯒꯤ ꯂꯣꯟꯗ ꯋꯥꯔꯤ ꯁꯥꯟ�
 
 msgid "Unanswered questions"
 msgstr "ꯄꯥꯎ ꯐꯪꯗꯕ ꯋꯥꯍꯪꯁꯤꯡ"
+
+msgid "Unfavourable"
+msgstr "প্রতিকূল"
+
+msgid "Unfavourable spraying conditions"
+msgstr "প্রতিকূল স্প্রে করার অবস্থা"
 
 msgid "Upload or take a clear photo of a single affected leaf against a plain background."
 msgstr "ꯆꯦꯠꯅ ꯂꯩꯕ ꯃꯐꯝ ꯑꯃꯒꯤ ꯃꯥꯌꯣꯛꯇ ꯁꯣꯛꯍꯜꯂꯕ ꯑꯃꯠꯇꯥ ꯉꯥꯏꯔꯕ ꯃꯅꯥ ꯑꯃꯒꯤ ꯃꯌꯦꯛ ꯁꯦꯡꯕ ꯐꯣꯇꯣ ꯑꯃ ꯆꯥꯎꯊꯣꯔꯛꯄꯤꯌꯨ ꯅꯠꯇ꯭ꯔꯒ ꯂꯧꯕꯤꯌꯨ꯫"
@@ -2156,6 +2438,9 @@ msgstr "ꯃꯅꯥꯛ ꯅꯛꯄ ꯀꯩꯊꯦꯜꯁꯤꯡ ꯐꯪꯅꯕ ꯅꯍꯥ�
 msgid "Used for local weather forecasts."
 msgstr "ꯃꯐꯝ ꯑꯗꯨꯒꯤ ꯑꯏꯪ-ꯑꯁꯥꯒꯤ ꯃꯇꯥꯡꯗ ꯍꯥꯟꯅ ꯈꯪꯍꯟꯕꯒꯤꯗꯃꯛ ꯁꯤꯖꯤꯟꯅꯩ꯫"
 
+msgid "Used for regional agricultural standards, mandi currency, and weather"
+msgstr "আঞ্চলিক কৃষি মান, মান্ডি মুদ্রা এবং আবহাওয়ার জন্য ব্যবহৃত হয়"
+
 msgid "User"
 msgstr "ꯁꯤꯖꯟꯅꯔꯤꯕ ꯃꯤꯑꯣꯏ"
 
@@ -2189,6 +2474,9 @@ msgstr "ꯄꯥꯝꯕꯤ ꯃꯆꯥ ꯍꯦꯟꯒꯠꯂꯛꯄ (ꯅꯨꯃꯤꯠ 11-3
 msgid "Verify source report"
 msgstr "ꯁꯣꯔꯁ ꯔꯤꯄꯣꯔꯠ ꯑꯗꯨ ꯌꯦꯡꯁꯤꯟꯕꯤꯌꯨ"
 
+msgid "View all"
+msgstr "সব দেখুন"
+
 msgid "View reported markets in this state"
 msgstr "ꯔꯥꯖ꯭ꯌ ꯑꯁꯤꯗ ꯔꯤꯄꯣꯔꯠ ꯇꯧꯔꯕ ꯃꯥꯔꯀꯦꯠꯁꯤꯡ ꯌꯦꯡꯕꯤꯌꯨ"
 
@@ -2196,7 +2484,7 @@ msgid "Village"
 msgstr "ꯈꯨꯡꯒꯪ"
 
 msgid "Village / town"
-msgstr "ꯈꯨꯡꯒꯪ/ꯁꯍꯔ"
+msgstr "গ্রাম / শহর"
 
 msgid "Village, district, state"
 msgstr "ꯈꯨꯡꯒꯪ, ꯖꯤꯂꯥ, ꯔꯥꯖ꯭ꯌ"
@@ -2235,10 +2523,13 @@ msgid "Watermelon"
 msgstr "ꯀꯣꯔꯤꯕꯣ"
 
 msgid "Weather"
-msgstr "ꯏꯁꯤꯡ ꯅꯨꯡꯁꯤꯠ"
+msgstr "আবহাওয়া"
 
 msgid "Weather & Advisory"
 msgstr "ꯏꯁꯤꯡ ꯅꯨꯡꯁꯤꯠ ꯑꯃꯁꯨꯡ ꯄꯥꯎꯇꯥꯛ"
+
+msgid "Weather & Spraying Conditions"
+msgstr "আবহাওয়া ও স্প্রে করার অবস্থা"
 
 msgid "Weather for your working day."
 msgstr "ꯅꯍꯥꯛꯀꯤ ꯊꯕꯛ ꯇꯧꯔꯤꯕ ꯅꯨꯃꯤꯠꯀꯤ ꯑꯏꯪ-ꯑꯁꯥꯒꯤ ꯐꯤꯕꯝ꯫"
@@ -2248,6 +2539,12 @@ msgstr "ꯑꯁꯤ ꯅꯨꯡꯁꯥ ꯂꯩꯆꯤꯜꯒꯤ ꯄꯥꯎꯇꯥꯛ ꯈ�
 
 msgid "Weather is unavailable. Check the location or try again later."
 msgstr "ꯑꯏꯪ ꯑꯁꯥꯒꯤ ꯐꯤꯕꯝ ꯂꯩꯔꯦ꯫ ꯃꯐꯝ ꯑꯗꯨ ꯌꯦꯡꯕꯤꯌꯨ ꯅꯠꯇ꯭ꯔꯒ ꯃꯇꯨꯡꯗ ꯑꯃꯨꯛ ꯍꯟꯅ ꯌꯦꯡꯕꯤꯌꯨ꯫"
+
+msgid "Weather temperature units"
+msgstr "আবহাওয়া তাপমাত্রা একক"
+
+msgid "Wed"
+msgstr "বুধ"
 
 msgid "Weeding"
 msgstr "নাপী লৌথোকপা"
@@ -2280,7 +2577,7 @@ msgid "Wholesale mandi reports, not retail prices or guaranteed sale offers. Com
 msgstr "ꯄꯣꯠ ꯑꯆꯨꯝꯕ ꯃꯟꯗꯤꯒꯤ ꯔꯤꯄꯣꯔꯠꯁꯤꯡ, ꯄꯣꯠ ꯌꯣꯟꯕꯒꯤ ꯃꯃꯜ ꯅꯠꯇ꯭ꯔꯒ ꯑꯀꯛꯅꯕ ꯌꯣꯟꯕꯒꯤ ꯑꯣꯐꯔꯁꯤꯡ ꯅꯠꯇꯦ꯫ ꯃꯥꯟꯅꯕ ꯀꯩꯊꯦꯜ, ꯃꯍꯩ-ꯃꯔꯣꯡ, ꯃꯈꯜ, ꯒ꯭ꯔꯦꯗ, ꯔꯤꯄꯣꯔꯠ ꯇꯧꯕꯒꯤ ꯇꯥꯡ ꯑꯃꯁꯨꯡ ꯌꯨꯅꯤꯠ ꯑꯗꯨ ꯆꯥꯡꯗꯝꯅꯕꯤꯌꯨ꯫ ꯑꯔꯤꯕ ꯔꯤꯄꯣꯔꯠꯁꯤꯡ ꯑꯁꯤ ꯉꯁꯤꯒꯤ ꯃꯃꯜꯁꯤꯡ ꯑꯗꯨ ꯑꯣꯏꯔꯣꯏ꯫"
 
 msgid "Why this rating?"
-msgstr "ꯃꯁꯤꯒꯤ ꯑꯣꯏꯕ ꯀꯔꯤꯒꯤ?"
+msgstr "এই রেটিং কেন?"
 
 msgid "Wind gust"
 msgstr "ꯅꯨꯡꯁꯤꯠꯀꯤ ꯑꯀꯟꯕ ꯈꯣꯡꯖꯦꯜ"
@@ -2312,6 +2609,12 @@ msgstr "ꯄꯣꯠꯊꯣꯛ ꯆꯥꯡ ꯑꯦꯁꯇꯤꯃꯦꯠꯁꯤꯡ"
 msgid "Yield prediction"
 msgstr "ꯄꯣꯠꯊꯣꯛ ꯃꯥꯡꯖꯧꯅꯅ ꯂꯦꯞꯄ"
 
+msgid "You"
+msgstr "আপনি"
+
+msgid "Your crops"
+msgstr "আপনার ফসল"
+
 msgid "Your current location"
 msgstr "ꯅꯍꯥꯛꯀꯤ ꯍꯧꯖꯤꯛ ꯂꯩꯔꯤꯕ ꯃꯐꯝ"
 
@@ -2330,6 +2633,9 @@ msgstr "ꯅꯍꯥꯛꯀꯤ ꯂꯣꯟ ꯑꯁꯤ ꯗꯤꯕꯥꯏꯁ ꯑꯁꯤꯗ �
 msgid "Your name"
 msgstr "ꯅꯍꯥꯛꯀꯤ ꯃꯃꯤꯡ"
 
+msgid "Your selected crops"
+msgstr "আপনার নির্বাচিত ফসল"
+
 msgid "Your soil. Your crops. Your next harvest. A little guidance for every step, from a companion that understands farming."
 msgstr "ꯅꯪꯒꯤ ꯂꯩꯕꯥꯛ꯫ ꯅꯪꯒꯤ ꯃꯍꯩ-ꯃꯔꯣꯡꯁꯤꯡ꯫ ꯅꯪꯒꯤ ꯃꯊꯪꯒꯤ ꯃꯍꯩ-ꯃꯔꯣꯡ꯫ ꯂꯧꯎ-ꯁꯤꯡꯎꯕ ꯈꯪꯕ ꯃꯔꯨꯞ ꯑꯃꯗꯒꯤ ꯈꯣꯡꯊꯥ ꯈꯨꯗꯤꯡꯒꯤ ꯑꯄꯤꯛꯄ ꯃꯥꯏꯀꯩ ꯇꯥꯛꯄ ꯑꯃ꯫"
 
@@ -2346,7 +2652,7 @@ msgid "add your district to your profile"
 msgstr "ꯅꯍꯥꯛꯀꯤ ꯗꯤꯁꯇ꯭ꯔꯤꯛ ꯑꯗꯨ ꯅꯍꯥꯛꯀꯤ ꯄ꯭ꯔꯣꯐꯥꯏꯜꯗ ꯍꯥꯞꯆꯤꯟꯕꯤꯌꯨ꯫"
 
 msgid "add your village to your profile"
-msgstr "ꯅꯍꯥꯛꯀꯤ ꯈꯨꯡꯒꯪ ꯑꯗꯨ ꯅꯍꯥꯛꯀꯤ ꯄ꯭ꯔꯣꯐꯥꯏꯜꯗ ꯍꯥꯞꯆꯤꯟꯕꯤꯌꯨ꯫"
+msgstr "আপনার প্রোফাইলে আপনার গ্রাম যোগ করুন"
 
 msgid "ago"
 msgstr "ꯍꯥꯟꯅ"

@@ -18,8 +18,9 @@
 .pest-heading {
   display: flex;
   justify-content: space-between;
-  gap: 28px;
+  gap: 24px;
   align-items: center;
+  flex-wrap: wrap;
   margin-bottom: 24px;
 }
 
@@ -32,26 +33,130 @@
   margin: 8px 0 12px;
 }
 
+/* ==========================================================================
+   21st.dev Crop Switcher in Header
+   ========================================================================== */
+.pest-select,
+.pest-crop-form {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.pest-crop-label {
+  font-size: 13.5px;
+  font-weight: 650;
+  color: #64748b;
+  margin: 0;
+  white-space: nowrap;
+}
+
+.pest-crop-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-width: 190px;
+}
+
+.pest-crop-icon {
+  position: absolute;
+  left: 14px;
+  font-size: 15px;
+  color: #005bf6;
+  pointer-events: none;
+  z-index: 2;
+  transition: color 0.18s ease;
+}
+
+.pest-crop-dropdown {
+  width: 100%;
+  min-height: 44px;
+  border-radius: 12px;
+  border: 1.5px solid #cbd5e1;
+  background-color: #ffffff;
+  color: #0f172a;
+  font-size: 13.5px;
+  font-weight: 600;
+  padding: 8px 36px 8px 38px;
+  outline: none;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.03), 0 1px 2px rgba(0, 0, 0, 0.02);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.pest-crop-dropdown:focus {
+  border-color: #005bf6;
+  box-shadow: 0 0 0 3.5px rgba(0, 91, 246, 0.18), 0 2px 8px rgba(0, 91, 246, 0.08);
+}
+
+.pest-crop-wrap:focus-within .pest-crop-icon {
+  color: #005bf6;
+}
+
+.pest-crop-chevron {
+  position: absolute;
+  right: 14px;
+  font-size: 12px;
+  color: #64748b;
+  pointer-events: none;
+  transition: transform 0.18s ease, color 0.18s ease;
+}
+
+.pest-crop-wrap:focus-within .pest-crop-chevron {
+  color: #005bf6;
+}
+
+.pest-crop-btn {
+  min-height: 44px;
+  padding: 0 20px;
+  border-radius: 12px;
+  font-size: 13.5px;
+  font-weight: 650;
+  gap: 8px;
+  white-space: nowrap;
+}
+
+/* ==========================================================================
+   21st.dev Tactile Button Standard
+   ========================================================================== */
 .pest-button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: #005bf6 !important;
+  gap: 8px;
+  background: linear-gradient(180deg, #0066ff 0%, #004bd1 100%) !important;
   color: #ffffff !important;
-  border: 0;
-  border-radius: 9999px;
-  padding: 11px 22px;
-  text-decoration: none;
-  font-weight: 700;
-  box-shadow: 0 4px 14px rgba(0, 91, 246, 0.28);
-  transition: all 0.15s ease;
+  border: 1px solid rgba(255, 255, 255, 0.25) !important;
+  border-top: 1.5px solid rgba(255, 255, 255, 0.45) !important;
+  border-radius: 12px;
+  padding: 10px 22px;
+  text-decoration: none !important;
+  font-weight: 650;
+  font-size: 14px;
+  line-height: 1.2;
+  box-shadow: 0 1px 3px rgba(0, 91, 246, 0.3), 0 4px 14px rgba(0, 91, 246, 0.25);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+  white-space: nowrap;
 }
 
 .pest-button:hover {
-  background: #004ecc !important;
-  transform: translateY(-1px);
+  background: linear-gradient(180deg, #0070ff 0%, #0056e6 100%) !important;
+  transform: translateY(-1.5px);
+  box-shadow: 0 4px 18px rgba(0, 91, 246, 0.45);
 }
 
+.pest-button:active {
+  transform: translateY(0.5px);
+  box-shadow: 0 1px 3px rgba(0, 91, 246, 0.25);
+}
+
+/* ==========================================================================
+   Tactile Navigation Chips
+   ========================================================================== */
 .pest-chips {
   display: flex;
   gap: 8px;
@@ -60,75 +165,542 @@
 }
 
 .pest-chips a {
-  padding: 8px 16px;
-  border: 1px solid #e2e8f0;
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 18px;
+  border: 1px solid #cbd5e1;
   border-radius: 9999px;
   color: #475569;
-  text-decoration: none;
-  font-size: 13px;
+  text-decoration: none !important;
+  font-size: 13.5px;
   font-weight: 600;
   background: #ffffff;
-  transition: all 0.15s ease;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.pest-chips a:hover {
+  background: #f8fafc;
+  border-color: #94a3b8;
+  color: #0f172a;
+  transform: translateY(-1px);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.06);
 }
 
 .pest-chips a[aria-current] {
-  background: #005bf6;
-  border-color: #005bf6;
-  color: #ffffff;
+  background: linear-gradient(180deg, #0066ff 0%, #004bd1 100%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  border-top: 1.5px solid rgba(255, 255, 255, 0.5) !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 14px rgba(0, 91, 246, 0.35);
 }
 
+/* ==========================================================================
+   21st.dev Premium Textbox & Filter Bar
+   ========================================================================== */
 .pest-filters {
   display: flex;
-  gap: 12px;
-  align-items: end;
+  align-items: flex-end;
+  gap: 16px;
   background: #ffffff;
   border: 1px solid #edf2f7;
-  padding: 20px;
+  border-top: 2px solid rgba(255, 255, 255, 0.95);
+  padding: 22px 24px;
   border-radius: 20px;
-  margin: 24px 0;
-  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.02);
+  margin: 24px 0 28px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03), 0 1px 3px rgba(0, 0, 0, 0.02);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.pest-stage-icon {
-  display: inline-grid;
-  place-items: center;
-  width: 38px;
-  height: 38px;
-  background: #edf2fe;
-  border-radius: 50%;
+.pest-filter-field {
+  display: flex;
+  flex-direction: column;
+}
+
+.pest-filter-search {
+  flex: 1 1 auto;
+  min-width: 260px;
+}
+
+.pest-filter-type {
+  flex: 0 0 220px;
+  min-width: 180px;
+}
+
+.pest-filter-action {
+  flex: 0 0 auto;
+}
+
+.pest-filter-label {
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #64748b;
+  margin-bottom: 8px;
+}
+
+.pest-input-wrap,
+.pest-select-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.pest-input-icon,
+.pest-select-icon {
+  position: absolute;
+  left: 16px;
+  font-size: 15px;
+  color: #64748b;
+  pointer-events: none;
+  z-index: 2;
+  transition: color 0.18s ease;
+}
+
+.pest-text-input {
+  width: 100%;
+  min-height: 50px;
+  border-radius: 14px;
+  border: 1.5px solid #cbd5e1;
+  background-color: #f8fafc;
+  color: #0f172a;
+  font-size: 14.5px;
+  font-weight: 500;
+  padding: 12px 42px 12px 46px;
+  outline: none;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.03), 0 1px 2px rgba(0, 0, 0, 0.02);
+}
+
+.pest-text-input::placeholder {
+  color: #94a3b8;
+  font-weight: 400;
+}
+
+.pest-text-input:focus {
+  background-color: #ffffff;
+  border-color: #005bf6;
+  box-shadow: 0 0 0 3.5px rgba(0, 91, 246, 0.18), 0 2px 8px rgba(0, 91, 246, 0.08);
+}
+
+.pest-input-wrap:focus-within .pest-input-icon {
   color: #005bf6;
 }
 
-.pest-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
-  gap: 20px;
+.pest-input-clear {
+  position: absolute;
+  right: 14px;
+  color: #94a3b8;
+  font-size: 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: color 0.18s ease;
 }
 
-.pest-card {
-  border: 1px solid #edf2f7;
+.pest-input-clear:hover {
+  color: #475569;
+}
+
+.pest-dropdown {
+  width: 100%;
+  min-height: 50px;
+  border-radius: 14px;
+  border: 1.5px solid #cbd5e1;
+  background-color: #f8fafc;
+  color: #0f172a;
+  font-size: 14.5px;
+  font-weight: 500;
+  padding: 12px 38px 12px 46px;
+  outline: none;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.03), 0 1px 2px rgba(0, 0, 0, 0.02);
+}
+
+.pest-dropdown:focus {
+  background-color: #ffffff;
+  border-color: #005bf6;
+  box-shadow: 0 0 0 3.5px rgba(0, 91, 246, 0.18), 0 2px 8px rgba(0, 91, 246, 0.08);
+}
+
+.pest-select-wrap:focus-within .pest-select-icon {
+  color: #005bf6;
+}
+
+.pest-select-chevron {
+  position: absolute;
+  right: 16px;
+  font-size: 12px;
+  color: #64748b;
+  pointer-events: none;
+  transition: transform 0.18s ease, color 0.18s ease;
+}
+
+.pest-select-wrap:focus-within .pest-select-chevron {
+  color: #005bf6;
+}
+
+.pest-search-btn {
+  min-height: 50px;
+  padding: 0 26px;
+  border-radius: 14px;
+  font-size: 14.5px;
+  font-weight: 650;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+  .pest-filters {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
+    padding: 20px;
+  }
+  .pest-filter-search,
+  .pest-filter-type,
+  .pest-filter-action,
+  .pest-search-btn {
+    width: 100%;
+  }
+}
+
+/* Dark Mode Overrides for Pest Filters & Dropdowns */
+html.dark .pest-filters,
+[data-theme="dark"] .pest-filters,
+body.dark-mode .pest-filters {
+  background: #111a2e !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-top: 1.5px solid rgba(255, 255, 255, 0.18) !important;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.45) !important;
+}
+
+html.dark .pest-filter-label,
+html.dark .pest-crop-label,
+[data-theme="dark"] .pest-filter-label,
+[data-theme="dark"] .pest-crop-label,
+body.dark-mode .pest-filter-label,
+body.dark-mode .pest-crop-label {
+  color: #94a3b8 !important;
+}
+
+html.dark .pest-text-input,
+html.dark .pest-dropdown,
+html.dark .pest-crop-dropdown,
+[data-theme="dark"] .pest-text-input,
+[data-theme="dark"] .pest-dropdown,
+[data-theme="dark"] .pest-crop-dropdown,
+body.dark-mode .pest-text-input,
+body.dark-mode .pest-dropdown,
+body.dark-mode .pest-crop-dropdown {
+  background-color: rgba(15, 23, 42, 0.75) !important;
+  border: 1.5px solid rgba(255, 255, 255, 0.15) !important;
+  color: #ffffff !important;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.35) !important;
+}
+
+html.dark .pest-text-input::placeholder,
+[data-theme="dark"] .pest-text-input::placeholder,
+body.dark-mode .pest-text-input::placeholder {
+  color: #64748b !important;
+}
+
+html.dark .pest-text-input:focus,
+html.dark .pest-dropdown:focus,
+html.dark .pest-crop-dropdown:focus,
+[data-theme="dark"] .pest-text-input:focus,
+[data-theme="dark"] .pest-dropdown:focus,
+[data-theme="dark"] .pest-crop-dropdown:focus,
+body.dark-mode .pest-text-input:focus,
+body.dark-mode .pest-dropdown:focus,
+body.dark-mode .pest-crop-dropdown:focus {
+  background-color: rgba(15, 23, 42, 0.95) !important;
+  border-color: #3b82f6 !important;
+  box-shadow: 0 0 0 3.5px rgba(59, 130, 246, 0.25) !important;
+}
+
+html.dark .pest-input-icon,
+html.dark .pest-select-icon,
+html.dark .pest-crop-icon,
+[data-theme="dark"] .pest-input-icon,
+[data-theme="dark"] .pest-select-icon,
+[data-theme="dark"] .pest-crop-icon,
+body.dark-mode .pest-input-icon,
+body.dark-mode .pest-select-icon,
+body.dark-mode .pest-crop-icon {
+  color: #60a5fa !important;
+}
+
+html.dark select option,
+[data-theme="dark"] select option,
+body.dark-mode select option {
+  background-color: #0f172a !important;
+  color: #ffffff !important;
+}
+
+/* ==========================================================================
+   21st.dev Premium Growth Stage Cards & Layout
+   ========================================================================== */
+
+.pest-stage {
+  margin-bottom: 48px;
+}
+
+.pest-stage-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 22px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+}
+
+.pest-stage-info {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.pest-stage-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+  border: 1px solid rgba(0, 91, 246, 0.16);
+  border-radius: 14px;
+  color: #005bf6;
+  font-size: 20px;
+  flex-shrink: 0;
+  box-shadow: 0 2px 6px rgba(0, 91, 246, 0.08);
+}
+
+.pest-stage-headings {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.pest-stage-title,
+.pest-stage header h2 {
+  font-size: 1.25rem;
+  font-weight: 750;
+  letter-spacing: -0.015em;
+  color: #0f172a;
+  margin: 0;
+}
+
+.pest-stage-subtitle,
+.pest-stage header p {
+  font-size: 13.5px;
+  color: #64748b;
+  margin: 0;
+}
+
+.pest-stage-count {
+  font-weight: 650;
+  color: #005bf6;
+}
+
+.pest-stage-viewall {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border-radius: 9999px;
+  font-size: 13px;
+  font-weight: 650;
+  color: #005bf6;
+  background: rgba(0, 91, 246, 0.06);
+  border: 1px solid rgba(0, 91, 246, 0.16);
+  text-decoration: none !important;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  white-space: nowrap;
+}
+
+.pest-stage-viewall:hover {
+  background: #005bf6;
+  color: #ffffff !important;
+  border-color: #005bf6;
+  transform: translateX(2px);
+  box-shadow: 0 4px 12px rgba(0, 91, 246, 0.25);
+}
+
+.pest-stage-viewall i {
+  transition: transform 0.2s ease;
+}
+
+.pest-stage-viewall:hover i {
+  transform: translateX(3px);
+}
+
+/* Responsive Grid */
+.pest-grid,
+.pest-rail {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 22px;
+}
+
+/* 21st.dev Premium Card */
+.pest-card,
+.pest-card-premium {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-top: 1.5px solid rgba(255, 255, 255, 0.95);
   border-radius: 20px;
   overflow: hidden;
   text-decoration: none !important;
   color: inherit !important;
-  background: #ffffff;
-  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.02);
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03), 0 6px 18px -4px rgba(15, 23, 42, 0.05);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.pest-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+.pest-card:hover,
+.pest-card-premium:hover {
+  transform: translateY(-4px);
+  border-color: rgba(0, 91, 246, 0.35);
+  box-shadow: 0 16px 32px -6px rgba(0, 91, 246, 0.12),
+              0 6px 16px -2px rgba(15, 23, 42, 0.06);
 }
 
-.pest-card img {
+/* Inset Media Window */
+.pest-card-media {
+  position: relative;
+  height: 180px;
+  margin: 10px 10px 0 10px;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #f1f5f9;
+}
+
+.pest-card img,
+.pest-card-media img {
   width: 100%;
-  height: 165px;
+  height: 100%;
   object-fit: cover;
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+.pest-card:hover img,
+.pest-card-premium:hover .pest-card-media img {
+  transform: scale(1.05);
+}
+
+.pest-card-gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(15, 23, 42, 0.35) 0%, rgba(15, 23, 42, 0) 45%, rgba(15, 23, 42, 0.55) 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Category Badge (Floating top-left) */
+.pest-kind-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 2;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 4px 10px;
+  border-radius: 9999px;
+  color: #ffffff;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.pest-kind-disease {
+  background: rgba(14, 165, 233, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+}
+
+.pest-kind-pest {
+  background: rgba(245, 158, 11, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+}
+
+.pest-kind-disorder {
+  background: rgba(168, 85, 247, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+}
+
+/* Quick View Hover Cue (Floating top-right) */
+.pest-card-cue {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 2;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.42);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.pest-card:hover .pest-card-cue,
+.pest-card-premium:hover .pest-card-cue {
+  background: #005bf6;
+  border-color: #005bf6;
+  transform: scale(1.1) rotate(45deg);
+  box-shadow: 0 4px 10px rgba(0, 91, 246, 0.4);
+}
+
+/* Missing Photo State */
+.pest-no-photo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  height: 100%;
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  color: #94a3b8;
+  font-size: 12px;
+  font-weight: 500;
+  text-align: center;
+  padding: 16px;
+}
+
+.pest-no-photo i {
+  font-size: 26px;
+  color: #cbd5e1;
+}
+
+/* Card Body */
 .pest-card-body {
-  padding: 18px;
+  padding: 16px 18px 18px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
 }
 
 .pest-kind {
@@ -137,13 +709,103 @@
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.05em;
+  margin-bottom: 4px;
 }
 
+.pest-card-title,
 .pest-card h3 {
-  font-size: 1.05rem;
+  font-size: 1.08rem;
   font-weight: 750;
   color: #0f172a;
-  margin: 6px 0 10px;
+  line-height: 1.35;
+  margin: 0 0 8px;
+  transition: color 0.15s ease;
+}
+
+.pest-card:hover .pest-card-title,
+.pest-card-premium:hover .pest-card-title {
+  color: #005bf6;
+}
+
+.pest-card-early {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  font-size: 13px;
+  line-height: 1.5;
+  color: #64748b;
+  margin: 0 0 16px;
+  min-height: 38px;
+}
+
+.pest-early-icon {
+  color: #005bf6;
+  margin-right: 5px;
+  font-size: 12px;
+}
+
+/* Card Footer Action */
+.pest-card-footer {
+  margin-top: auto;
+  padding-top: 12px;
+  border-top: 1px solid rgba(226, 232, 240, 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 12.5px;
+  font-weight: 650;
+  color: #005bf6;
+}
+
+.pest-card-arrow {
+  font-size: 13px;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.pest-card:hover .pest-card-arrow,
+.pest-card-premium:hover .pest-card-arrow {
+  transform: translateX(4px);
+}
+
+/* Empty State Card */
+.pest-empty-card {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #f8fafc;
+  border: 1px dashed #cbd5e1;
+  border-radius: 16px;
+  padding: 24px;
+  color: #64748b;
+}
+
+.pest-empty-icon {
+  font-size: 24px;
+  color: #005bf6;
+  flex-shrink: 0;
+}
+
+.pest-empty-card p {
+  margin: 0;
+  font-size: 14px;
+}
+
+@media (max-width: 600px) {
+  .pest-grid,
+  .pest-rail {
+    grid-template-columns: 1fr;
+  }
+  .pest-stage-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .pest-stage-viewall {
+    width: 100%;
+    justify-content: center;
+  }
 }
 
 .pest-diagnosis {

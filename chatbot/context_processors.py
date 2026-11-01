@@ -2,7 +2,14 @@ from pathlib import Path
 
 from django.conf import settings
 
-_STATIC_ASSETS = ('js/register-location.js', 'css/library.css', 'js/chat.js', 'js/spray-details.js', 'css/weather-planner.css', 'css/mandi.css', 'js/mandi.js', 'css/onboarding.css', 'js/onboarding.js', 'css/app.css', 'css/premium.css', 'frontend/islands.js', 'frontend/islands.css', 'js/offline-client.js', 'js/offline-ui.js', 'js/service-worker.js', 'offline.html', 'css/language-fonts.css')
+_STATIC_ASSETS = (
+    'js/register-location.js', 'css/library.css', 'js/chat.js', 'js/spray-details.js',
+    'css/weather-planner.css', 'css/mandi.css', 'js/mandi.js', 'css/onboarding.css',
+    'js/onboarding.js', 'css/app.css', 'css/premium.css', 'css/theme-contrast.css',
+    'css/fertilizer.css', 'css/pests.css', 'frontend/islands.js', 'frontend/islands.css',
+    'js/offline-client.js', 'js/offline-ui.js', 'js/service-worker.js', 'offline.html',
+    'css/language-fonts.css'
+)
 
 
 def _static_version():

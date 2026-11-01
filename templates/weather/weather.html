@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% load static i18n farm_i18n tz %}
-{% block title %}Weather & Spraying Conditions{% endblock %}
+{% block title %}{% translate "Weather & Spraying Conditions" %}{% endblock %}
 {% block extra_head %}
 <link rel="stylesheet" href="{% static 'css/weather-planner.css' %}?v={{ STATIC_VERSION }}">
 {% endblock %}
@@ -9,14 +9,14 @@
 <div class="weather-mobile-shell">
   <!-- Hidden elements ensuring legacy test suite compatibility -->
   <div class="visually-hidden" aria-hidden="true">
-    <h1>Farm activity planner</h1>
+    <h1>{% translate "Farm activity planner" %}</h1>
     <form method="get" class="weather-controls" id="weatherLocationForm">
       <div>
-        <label for="loc">Village / town</label>
+        <label for="loc">{% translate "Village / town" %}</label>
         <input id="loc" class="form-control" name="location" value="{{ location }}" placeholder="Village, district, state">
       </div>
       <div>
-        <label for="soil">Soil condition</label>
+        <label for="soil">{% translate "Soil condition" %}</label>
         <select id="soil" name="soil" class="form-select">
           <option value="unknown">— select —</option>
           <option value="dry" {% if soil == 'dry' %}selected{% endif %}>Dry</option>
@@ -24,23 +24,23 @@
           <option value="wet" {% if soil == 'wet' %}selected{% endif %}>Wet</option>
         </select>
       </div>
-      <button class="btn btn-agri">Get forecast</button>
+      <button class="btn btn-agri">{% translate "Get forecast" %}</button>
     </form>
     {% if not location or needs_village %}
-    <p><a href="{% url 'accounts:profile' %}">add your village to your profile</a></p>
+    <p><a href="{% url 'accounts:profile' %}">{% translate "add your village to your profile" %}</a></p>
     {% endif %}
     {% if not saved_crops %}
-    <div class="alert alert-info"><a href="{% url 'accounts:profile' %}">Select your crops →</a></div>
+    <div class="alert alert-info"><a href="{% url 'accounts:profile' %}">{% translate "Select your crops →" %}</a></div>
     {% else %}
     <div class="weather-crop-chips">
       {% for crop in saved_crops %}<span>{{ crop|ui_text }}</span>{% endfor %}
-      <a href="{% url 'accounts:profile' %}">Change ↗</a>
+      <a href="{% url 'accounts:profile' %}">{% translate "Change ↗" %}</a>
     </div>
     {% endif %}
     {% for item in plan.crops %}
     <article class="crop-plan"><h3>{{ item.crop|ui_text }}</h3></article>
     {% endfor %}
-    <button type="button" class="spray-help" data-spray-open>Why this rating?</button>
+    <button type="button" class="spray-help" data-spray-open>{% translate "Why this rating?" %}</button>
   </div>
   {% if error %}
   <div class="alert alert-warning mb-3">{{ error }}</div>
@@ -48,23 +48,23 @@
 
   <!-- 1. Top Bar: Back & Options -->
   <div class="weather-top-nav d-flex justify-content-between align-items-center mb-3">
-    <a href="/" class="weather-nav-btn text-dark text-decoration-none" aria-label="Back to home">
+    <a href="/" class="weather-nav-btn text-decoration-none" aria-label="{% translate 'Back to home' %}">
       <i class="bi bi-arrow-left fs-4"></i>
     </a>
     <div class="dropdown">
-      <button class="weather-nav-btn border-0 bg-transparent text-dark" type="button" id="weatherMenuBtn" data-bs-toggle="dropdown" aria-expanded="false" aria-label="More options">
+      <button class="weather-nav-btn border-0 bg-transparent" type="button" id="weatherMenuBtn" data-bs-toggle="dropdown" aria-expanded="false" aria-label="{% translate 'More options' %}">
         <i class="bi bi-three-dots-vertical fs-4"></i>
       </button>
       <ul class="dropdown-menu dropdown-menu-end shadow-sm" aria-labelledby="weatherMenuBtn">
-        <li><a class="dropdown-item" href="{% url 'accounts:profile' %}"><i class="bi bi-geo-alt me-2 text-muted"></i>Change village</a></li>
-        <li><a class="dropdown-item" href="#sprayModal" data-bs-toggle="modal" data-bs-target="#sprayingTimeModal"><i class="bi bi-moisture me-2 text-muted"></i>Spraying calculation</a></li>
-        <li><a class="dropdown-item" href="#recommendModal" data-bs-toggle="modal" data-bs-target="#recommendModal"><i class="bi bi-share me-2 text-muted"></i>Recommend Krishi Mitra</a></li>
+        <li><a class="dropdown-item" href="{% url 'accounts:profile' %}"><i class="bi bi-geo-alt me-2 text-muted"></i>{% translate "Change village" %}</a></li>
+        <li><a class="dropdown-item" href="#sprayModal" data-bs-toggle="modal" data-bs-target="#sprayingTimeModal"><i class="bi bi-moisture me-2 text-muted"></i>{% translate "Spraying calculation" %}</a></li>
+        <li><a class="dropdown-item" href="#recommendModal" data-bs-toggle="modal" data-bs-target="#recommendModal"><i class="bi bi-share me-2 text-muted"></i>{% translate "Recommend Krishi Mitra" %}</a></li>
       </ul>
     </div>
   </div>
 
   <!-- 2. Weather Hero Header -->
-  <header class="weather-hero-card mb-4 position-relative">
+  <header class="weather-hero-card p-3 mb-4 rounded-4 border shadow-sm position-relative">
     <div class="d-flex justify-content-between align-items-start">
       <div class="weather-hero-main">
         <div class="weather-location-label fw-bold text-dark fs-5 mb-1 text-capitalize">
@@ -75,7 +75,7 @@
         </div>
         <div class="weather-sub-metrics text-muted small fw-medium">
           <span class="me-2">{{ temp_max }} °C / {{ temp_min }} °C</span>
-          <span class="me-2">Sunset {{ sunset_time }}</span>
+          <span class="me-2">{% translate "Sunset" %} {{ sunset_time }}</span>
         </div>
         <div class="weather-rain-prob text-muted small fw-medium mt-1">
           <i class="bi bi-cloud-rain me-1 text-primary"></i> {{ rain_pop }}%
@@ -101,13 +101,13 @@
       <!-- Listen Button with Text-to-Speech -->
       <button type="button" class="weather-listen-pill btn btn-sm rounded-pill px-3 py-1 fw-semibold" id="weatherListenBtn" onclick="toggleSpeakAiSummary()">
         <i class="bi bi-volume-up-fill me-1" id="listenBtnIcon"></i>
-        <span id="listenBtnLabel">Listen</span>
+        <span id="listenBtnLabel">{% translate "Listen" %}</span>
       </button>
 
       <!-- AI Summary Badge -->
       <div class="d-flex align-items-center gap-1 text-dark fw-bold small" id="ai-summary-heading">
         <i class="bi bi-stars text-primary fs-6"></i>
-        <span>AI summary</span>
+        <span>{% translate "AI summary" %}</span>
         <i class="bi bi-info-circle text-muted ms-1 small" title="AI summary generated from meteorological patterns" style="cursor: pointer;"></i>
       </div>
     </div>
@@ -120,7 +120,7 @@
 
     <!-- Daily Notification Toggle -->
     <div class="weather-notif-row d-flex justify-content-between align-items-center mt-3 pt-2 border-top">
-      <span class="text-dark small fw-medium">Get this as a daily notification</span>
+      <span class="text-dark small fw-medium">{% translate "Get this as a daily notification" %}</span>
       <div class="form-check form-switch m-0">
         <input class="form-check-input settings-switch" type="checkbox" role="switch" id="dailyWeatherNotifToggle" checked>
       </div>
@@ -129,12 +129,12 @@
 
   <!-- 4. Next 6 days Forecast Section -->
   <section class="weather-next-days mb-4">
-    <h3 class="weather-section-title fw-bold text-dark fs-6 mb-2">Next 6 days</h3>
+    <h3 class="weather-section-title fw-bold text-dark fs-6 mb-2">{% translate "Next 6 days" %}</h3>
     <div class="weather-days-card p-3 rounded-4 border shadow-sm">
       <div class="weather-days-grid d-flex justify-content-between text-center">
         {% for day in next_days %}
         <div class="weather-day-col d-flex flex-column align-items-center gap-2">
-          <span class="weather-day-name text-muted small fw-semibold">{{ day.day }}</span>
+          <span class="weather-day-name text-muted small fw-semibold">{{ day.day|ui_text }}</span>
           <div class="weather-day-icon my-1 text-secondary fs-4" aria-hidden="true">
             {% if day.icon == 'rain' %}
               <i class="bi bi-cloud-rain text-primary"></i>
@@ -151,14 +151,14 @@
 
   <!-- 5. Spraying time Section -->
   <section class="weather-spraying-section mb-4" id="spraying-time">
-    <h3 class="weather-section-title fw-bold text-dark fs-6 mb-1">Spraying time</h3>
-    <p class="weather-section-subtitle text-muted small mb-3">Best time to spray crops based on weather conditions</p>
+    <h3 class="weather-section-title fw-bold text-dark fs-6 mb-1">{% translate "Spraying time" %}</h3>
+    <p class="weather-section-subtitle text-muted small mb-3">{% translate "Best time to spray crops based on weather conditions" %}</p>
 
     <!-- Spray Card -->
     <div class="weather-spray-card p-3 rounded-4 border shadow-sm">
       <!-- Title inside card -->
       <div class="spray-status-header fw-bold text-dark fs-6 mb-3">
-        {{ spray_card_title }}
+        {{ spray_card_title|ui_text }}
       </div>
 
       <!-- Hourly Timeline Strip -->
@@ -174,7 +174,7 @@
               <i class="bi bi-x-lg"></i>
             {% endif %}
           </div>
-          <span class="spray-hourly-time text-muted small fw-medium">{{ slot.label }}</span>
+          <span class="spray-hourly-time text-muted small fw-medium">{% if slot.label == 'Now' %}{% translate "Now" %}{% else %}{{ slot.label }}{% endif %}</span>
         </div>
         {% endfor %}
       </div>
@@ -183,15 +183,15 @@
       <div class="spray-legend-row d-flex justify-content-center align-items-center gap-4 mt-3 pt-3 border-top">
         <div class="spray-legend-pill d-flex align-items-center gap-1 small fw-semibold">
           <span class="spray-legend-dot is-optimal"><i class="bi bi-check2"></i></span>
-          <span>Optimal</span>
+          <span>{% translate "Optimal" %}</span>
         </div>
         <div class="spray-legend-pill d-flex align-items-center gap-1 small fw-semibold">
           <span class="spray-legend-dot is-moderate"><i class="bi bi-exclamation-triangle"></i></span>
-          <span>Moderate</span>
+          <span>{% translate "Moderate" %}</span>
         </div>
         <div class="spray-legend-pill d-flex align-items-center gap-1 small fw-semibold">
           <span class="spray-legend-dot is-unfavourable"><i class="bi bi-x-lg"></i></span>
-          <span>Unfavourable</span>
+          <span>{% translate "Unfavourable" %}</span>
         </div>
       </div>
     </div>
@@ -199,7 +199,7 @@
     <!-- How is it calculated link (Opens Stull Graph Modal) -->
     <div class="text-end mt-2">
       <button type="button" class="btn btn-link text-primary fw-bold text-decoration-none p-0 spray-how-link" data-bs-toggle="modal" data-bs-target="#sprayingTimeModal">
-        How is it calculated?
+        {% translate "How is it calculated?" %}
       </button>
     </div>
   </section>
@@ -209,16 +209,18 @@
   let isAiSpeaking = false;
   function toggleSpeakAiSummary() {
     if (!('speechSynthesis' in window)) {
-      alert('Speech synthesis is not supported on this browser.');
+      alert(window.gettext ? window.gettext('Speech synthesis is not supported on this browser.') : 'Speech synthesis is not supported on this browser.');
       return;
     }
     const label = document.getElementById('listenBtnLabel');
     const icon = document.getElementById('listenBtnIcon');
+    const listenText = window.gettext ? window.gettext('Listen') : 'Listen';
+    const stopText = window.gettext ? window.gettext('Stop') : 'Stop';
 
     if (window.speechSynthesis.speaking) {
       window.speechSynthesis.cancel();
       isAiSpeaking = false;
-      if (label) label.textContent = 'Listen';
+      if (label) label.textContent = listenText;
       if (icon) icon.className = 'bi bi-volume-up-fill me-1';
       return;
     }
@@ -230,17 +232,17 @@
     utter.rate = 0.95;
     utter.onstart = function() {
       isAiSpeaking = true;
-      if (label) label.textContent = 'Stop';
+      if (label) label.textContent = stopText;
       if (icon) icon.className = 'bi bi-pause-fill me-1';
     };
     utter.onend = function() {
       isAiSpeaking = false;
-      if (label) label.textContent = 'Listen';
+      if (label) label.textContent = listenText;
       if (icon) icon.className = 'bi bi-volume-up-fill me-1';
     };
     utter.onerror = function() {
       isAiSpeaking = false;
-      if (label) label.textContent = 'Listen';
+      if (label) label.textContent = listenText;
       if (icon) icon.className = 'bi bi-volume-up-fill me-1';
     };
     window.speechSynthesis.speak(utter);

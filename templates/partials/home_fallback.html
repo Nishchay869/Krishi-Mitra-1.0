@@ -2,13 +2,17 @@
 
 <div class="plantix-dashboard" id="plantix-fallback">
   <!-- 1. Crop Selection Row -->
-  <div class="plantix-crop-bar-wrap" aria-label="Your selected crops">
+  <div class="plantix-crop-bar-wrap" aria-label="{% translate 'Your selected crops' %}">
     <div class="plantix-crop-bar">
       {% if user_crops %}
         {% for crop in user_crops %}
-          <div class="plantix-crop-item {% if forloop.first %}is-selected{% endif %}">
-            <div class="plantix-crop-avatar {% if crop.has_ring or forloop.first %}has-ring{% endif %}">
+          <div class="plantix-crop-item {% if forloop.first %}is-selected{% endif %}"
+               {% if crop.has_story %}onclick="openFallbackStory('{{ crop.id }}')" style="cursor: pointer;" title="{{ crop.display_name|default:crop.name }} - View Status"{% endif %}>
+            <div class="plantix-crop-avatar {% if crop.has_story %}has-story-ring{% elif crop.has_ring or forloop.first %}has-ring{% endif %}">
               <img src="{{ crop.image }}" alt="{{ crop.display_name|default:crop.name }}" width="68" height="68">
+              {% if crop.has_story %}
+                <span class="plantix-story-badge" title="Active status advisory"><span class="plantix-story-badge-dot"></span></span>
+              {% endif %}
             </div>
             <span class="plantix-crop-label">{{ crop.display_name|default:crop.name }}</span>
           </div>
@@ -23,9 +27,9 @@
 
         <div class="plantix-crop-item">
           <div class="plantix-crop-avatar has-ring">
-            <img src="{% static 'images/crops/pepper-bell.webp' %}" alt="Capsicum & Chilli" width="68" height="68">
+            <img src="{% static 'images/crops/pepper-bell.webp' %}" alt="{% translate 'Capsicum & Chilli' %}" width="68" height="68">
           </div>
-          <span class="plantix-crop-label">Capsicum & Chilli</span>
+          <span class="plantix-crop-label">{% translate 'Capsicum & Chilli' %}</span>
         </div>
 
         <div class="plantix-crop-item">
@@ -43,13 +47,13 @@
         </div>
       {% endif %}
 
-      <a href="{% if user.is_authenticated %}{% url 'accounts:profile' %}{% else %}{% url 'crops:library' %}{% endif %}" class="plantix-crop-add-item" title="Add or edit crops" aria-label="Add or edit crops">
+      <a href="{% if user.is_authenticated %}{% url 'accounts:profile' %}{% else %}{% url 'crops:library' %}{% endif %}" class="plantix-crop-add-item" title="{% translate 'Add or edit crops' %}" aria-label="{% translate 'Add or edit crops' %}">
         <div class="plantix-crop-add-btn">
           <span class="plantix-add-icon-circle">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
           </span>
         </div>
-        <span class="plantix-crop-label plantix-add-label">Add</span>
+        <span class="plantix-crop-label plantix-add-label">{% translate 'Add' %}</span>
       </a>
     </div>
   </div>
@@ -66,11 +70,11 @@
 
     <a href="{% url 'weather:forecast' %}" class="plantix-weather-right" title="{{ weather_data.reason }}">
       <div class="plantix-spray-info">
-        <span class="plantix-spray-title">Spraying conditions</span>
-        <span class="plantix-spray-status">{{ weather_data.status_label|default:'Optimal' }}</span>
+        <span class="plantix-spray-title">{% translate 'Spraying conditions' %}</span>
+        <span class="plantix-spray-status">{% if weather_data.status_label %}{{ weather_data.status_label|ui_text }}{% else %}{% translate 'Optimal' %}{% endif %}</span>
       </div>
-      <div class="plantix-spray-time">{{ weather_data.time_text|default:'Rest of the day' }}</div>
-      <div class="plantix-spray-badge {{ weather_data.badge_class|default:'is-optimal' }}" aria-label="{{ weather_data.status_label|default:'Optimal' }}: {{ weather_data.reason }}">
+      <div class="plantix-spray-time">{% if weather_data.time_text %}{{ weather_data.time_text|ui_text }}{% else %}{% translate 'Rest of the day' %}{% endif %}</div>
+      <div class="plantix-spray-badge {{ weather_data.badge_class|default:'is-optimal' }}" aria-label="{% if weather_data.status_label %}{{ weather_data.status_label|ui_text }}{% else %}{% translate 'Optimal' %}{% endif %}: {{ weather_data.reason }}">
         {% if weather_data.badge_icon == 'x' %}
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
         {% elif weather_data.badge_icon == 'alert' %}
@@ -84,7 +88,7 @@
 
   <!-- 3. Leaf Doctor / Diagnosis Hero Card -->
   <section class="plantix-hero-card" aria-labelledby="leaf-doctor-fb">
-    <h2 id="leaf-doctor-fb" class="visually-hidden">Leaf Doctor Diagnosis</h2>
+    <h2 id="leaf-doctor-fb" class="visually-hidden">{% translate 'Leaf Doctor Diagnosis' %}</h2>
 
     <div class="plantix-steps-row">
       <div class="plantix-step-col">
@@ -98,7 +102,7 @@
             <path d="M22 25C24 23 27 20 29 21C29 25 26 27 22 28" fill="#22c55e" stroke="#16a34a" stroke-width="1.2" />
           </svg>
         </div>
-        <span class="plantix-step-label">Take a picture</span>
+        <span class="plantix-step-label">{% translate 'Take a picture' %}</span>
       </div>
 
       <svg class="plantix-step-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg>
@@ -114,7 +118,7 @@
             <path d="M34 42L36.8 44.8L42.5 39" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
           </svg>
         </div>
-        <span class="plantix-step-label">See diagnosis</span>
+        <span class="plantix-step-label">{% translate 'See diagnosis' %}</span>
       </div>
 
       <svg class="plantix-step-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg>
@@ -132,18 +136,18 @@
             <circle cx="46" cy="26" r="1.5" fill="#60a5fa" />
           </svg>
         </div>
-        <span class="plantix-step-label">Get medicine</span>
+        <span class="plantix-step-label">{% translate 'Get medicine' %}</span>
       </div>
     </div>
 
     <a href="{% url 'disease:detect' %}" class="plantix-hero-cta">
-      Take a picture
+      {% translate 'Take a picture' %}
     </a>
   </section>
 
   {% if recent_diagnoses %}
   <!-- Recent Diagnoses Carousel (Plantix style) -->
-  <div class="plantix-diagnoses-carousel" aria-label="Recent diagnoses">
+  <div class="plantix-diagnoses-carousel" aria-label="{% translate 'Recent diagnoses' %}">
     {% for item in recent_diagnoses %}
     <a href="{{ item.url }}" class="plantix-diag-card">
       <div class="plantix-diag-thumb-wrap">
@@ -153,13 +157,13 @@
         <span class="plantix-diag-date">{{ item.date }}</span>
         <h3 class="plantix-diag-title">{{ item.disease }}</h3>
         <span class="plantix-diag-badge {{ item.status_type }}">
-          {{ item.status_label }}
+          {{ item.status_label|ui_text }}
         </span>
       </div>
     </a>
     {% endfor %}
     <a href="{% url 'disease:history' %}" class="plantix-diag-view-all-btn">
-      <span>View all</span>
+      <span>{% translate 'View all' %}</span>
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg>
     </a>
   </div>
@@ -167,7 +171,7 @@
 
   <!-- 4. Tools Section -->
   <section class="plantix-section" aria-labelledby="tools-fb-heading">
-    <h2 id="tools-fb-heading" class="plantix-section-title">Tools</h2>
+    <h2 id="tools-fb-heading" class="plantix-section-title">{% translate 'Tools' %}</h2>
     <div class="plantix-tools-grid">
       <a href="{% url 'crops:fertilizer' %}" class="plantix-tool-card">
         <div class="plantix-tool-icon">
@@ -177,7 +181,7 @@
             <circle cx="12" cy="15" r="2.5" fill="#93c5fd" stroke="#1e3a8a" stroke-width="1.5" />
           </svg>
         </div>
-        <span class="plantix-tool-title">Fertilizer calculator</span>
+        <span class="plantix-tool-title">{% translate 'Fertilizer calculator' %}</span>
       </a>
 
       <a href="{% url 'crops:pests' %}" class="plantix-tool-card">
@@ -189,7 +193,7 @@
             <path d="M12 14v3" />
           </svg>
         </div>
-        <span class="plantix-tool-title">Pesticide calculator</span>
+        <span class="plantix-tool-title">{% translate 'Pesticide calculator' %}</span>
       </a>
 
       <a href="{% url 'crops:yield' %}" class="plantix-tool-card">
@@ -201,15 +205,15 @@
             <path d="M16 10h.01" /><path d="M12 10h.01" /><path d="M8 10h.01" /><path d="M12 14h.01" /><path d="M8 14h.01" /><path d="M12 18h.01" /><path d="M8 18h.01" />
           </svg>
         </div>
-        <span class="plantix-tool-title">Farming calculator</span>
+        <span class="plantix-tool-title">{% translate 'Farming calculator' %}</span>
       </a>
 
       <a href="{% url 'market:prices' %}" class="plantix-tool-card has-badge">
-        <span class="plantix-badge-new">New</span>
+        <span class="plantix-badge-new">{% translate 'New' %}</span>
         <div class="plantix-tool-icon">
           <span class="plantix-rupee-sign" aria-hidden="true">₹</span>
         </div>
-        <span class="plantix-tool-title">Mandi prices</span>
+        <span class="plantix-tool-title">{% translate 'Mandi prices' %}</span>
       </a>
 
       <a href="{% url 'crops:recommend' %}" class="plantix-tool-card">
@@ -239,7 +243,7 @@
             <path d="M9 20v2" />
           </svg>
         </div>
-        <span class="plantix-tool-title">IoT Sensors dashboard</span>
+        <span class="plantix-tool-title">{% translate 'IoT Sensors dashboard' %}</span>
       </a>
     </div>
   </section>
@@ -250,14 +254,14 @@
     <div class="plantix-library-grid">
       <div class="plantix-lib-column">
         <a href="{% url 'crops:library' %}" class="plantix-lib-card card-crops">
-          <span class="plantix-lib-title">Crops</span>
+          <span class="plantix-lib-title">{% translate 'Crops' %}</span>
           <div class="plantix-lib-icon-circle">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1e3a8a" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 20h10" /><path d="M10 20c5.5-2.5.8-6.4 3-10" /><path d="M9.5 9.4c1.1.8 1.8 2.2 2.3 3.7-2 .4-3.5.4-4.8-.3-1.2-.6-2.3-1.9-3-4.2 2.8-.5 4.4 0 5.5.8z" /></svg>
           </div>
         </a>
 
         <a href="{% url 'crops:library' %}" class="plantix-lib-card card-cultivation">
-          <span class="plantix-lib-title">Cultivation Tips</span>
+          <span class="plantix-lib-title">{% translate 'Cultivation Tips' %}</span>
           <div class="plantix-lib-icon-circle">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1e3a8a" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <path d="M12 22V8" /><path d="M5 12H2a10 10 0 0 0 20 0h-3" /><circle cx="12" cy="5" r="3" />
@@ -268,7 +272,7 @@
 
       <div class="plantix-lib-column">
         <a href="{% url 'crops:pests' %}" class="plantix-lib-card card-pests">
-          <span class="plantix-lib-title">Pests & diseases</span>
+          <span class="plantix-lib-title">{% translate 'Pests & diseases' %}</span>
           <div class="plantix-lib-icon-circle">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1e3a8a" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <path d="m8 2 1.88 1.88" /><path d="M14.12 3.88 16 2" /><path d="M9 7.13v-1a3.003 3.003 0 1 1 6 0v1" /><path d="M12 20c-3.3 0-6-2.7-6-6v-3a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v3c0 3.3-2.7 6-6 6" /><path d="M12 20v-9" /><path d="M6.53 9C4.6 8.8 3 7.1 3 5" /><path d="M6 13H2" /><path d="M3 21c0-2.1 1.7-3.9 3.8-4" /><path d="M20.97 5c0 2.1-1.6 3.8-3.5 4" /><path d="M22 13h-4" /><path d="M17.2 17c2.1.1 3.8 1.9 3.8 4" />
@@ -277,7 +281,7 @@
         </a>
 
         <a href="{% url 'crops:pests' %}" class="plantix-lib-card card-alerts">
-          <span class="plantix-lib-title">Pests & Disease Alert</span>
+          <span class="plantix-lib-title">{% translate 'Pests & Disease Alert' %}</span>
           <div class="plantix-lib-icon-circle">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1e3a8a" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z" /><line x1="12" y1="9" x2="12" y2="13" /><line x1="12" y1="17" x2="12.01" y2="17" />
@@ -290,15 +294,15 @@
 
   <!-- 6. Sponsored Banner -->
   <section class="plantix-sponsored-section" aria-labelledby="sponsored-fb-label">
-    <span id="sponsored-fb-label" class="plantix-sponsored-label">Sponsored</span>
+    <span id="sponsored-fb-label" class="plantix-sponsored-label">{% translate 'Sponsored' %}</span>
     <a href="{% url 'chatbot:chat' %}" class="plantix-sponsored-card">
       <div class="plantix-sponsored-banner-top">
-        <img src="{% static 'images/landing/sponsored-banner-art.png' %}" alt="One Home, One Chance — Build with confidence" class="plantix-sponsored-img" width="398" height="223">
+        <img src="{% static 'images/landing/sponsored-banner-art.png' %}" alt="{% translate 'One Home, One Chance — Build with confidence' %}" class="plantix-sponsored-img" width="398" height="223">
       </div>
       <div class="plantix-sponsored-footer">
         <div class="plantix-sponsored-footer-text">
-          <span class="plantix-sponsored-footer-title">One Home, One Chance</span>
-          <span class="plantix-sponsored-footer-sub">To build your identity</span>
+          <span class="plantix-sponsored-footer-title">{% translate 'One Home, One Chance' %}</span>
+          <span class="plantix-sponsored-footer-sub">{% translate 'To build your identity' %}</span>
         </div>
         <span class="plantix-sponsored-arrow">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
@@ -306,4 +310,72 @@
       </div>
     </a>
   </section>
+
+  <!-- 7. Fallback Instagram Story Modal -->
+  <div id="fallbackStoryOverlay" class="instagram-story-overlay d-none" onclick="if(event.target === this) closeFallbackStory();">
+    <div class="instagram-story-modal">
+      <div class="instagram-story-progress-wrap" id="fallbackStoryProgressWrap">
+        <div class="instagram-story-progress-bg"><div class="instagram-story-progress-fill" style="width: 100%;"></div></div>
+      </div>
+      <div class="instagram-story-header">
+        <div class="instagram-story-header-left">
+          <div class="instagram-story-crop-avatar">
+            <img id="fallbackStoryCropImg" src="" alt="Crop" width="36" height="36">
+          </div>
+          <div class="instagram-story-crop-info">
+            <div class="instagram-story-crop-name">
+              <span id="fallbackStoryCropName">Crop</span>
+              <span class="instagram-story-verified-check">✓</span>
+            </div>
+            <div class="instagram-story-crop-meta">
+              <span id="fallbackStoryTime">Just now</span>
+              <span>·</span>
+              <span id="fallbackStoryAuthor">Krishi Mitra</span>
+            </div>
+          </div>
+        </div>
+        <div class="instagram-story-header-right">
+          <button type="button" class="instagram-story-close-btn" onclick="closeFallbackStory()">✕</button>
+        </div>
+      </div>
+      <div class="instagram-story-media-wrap">
+        <img id="fallbackStoryImg" src="" alt="Advisory" class="instagram-story-media-img">
+      </div>
+      <div class="instagram-story-bottom-card">
+        <div class="instagram-story-badge-pill">
+          <span id="fallbackStoryBadge">Advisory</span>
+        </div>
+        <h3 class="instagram-story-title" id="fallbackStoryTitle">Advisory Title</h3>
+        <p class="instagram-story-caption" id="fallbackStoryCaption">Advisory details...</p>
+        <div class="instagram-story-actions">
+          <a href="{% url 'disease:detect' %}" class="instagram-story-cta-btn">🔍 Check Disease</a>
+          <a href="{% url 'weather:forecast' %}" class="instagram-story-cta-btn secondary">🌧️ Spray Time</a>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
+
+<script>
+  window.FALLBACK_CROPS_DATA = {{ user_crops_json|safe }};
+  function openFallbackStory(cropId) {
+    if (!window.FALLBACK_CROPS_DATA) return;
+    const crop = window.FALLBACK_CROPS_DATA.find(c => c.id === cropId);
+    if (!crop || !crop.stories || crop.stories.length === 0) return;
+    const story = crop.stories[0];
+    document.getElementById('fallbackStoryCropImg').src = crop.image;
+    document.getElementById('fallbackStoryCropName').textContent = crop.display_name || crop.name;
+    document.getElementById('fallbackStoryTime').textContent = story.time_ago || 'Recent';
+    document.getElementById('fallbackStoryAuthor').textContent = story.author || 'Agronomist';
+    document.getElementById('fallbackStoryImg').src = story.image;
+    document.getElementById('fallbackStoryBadge').textContent = story.badge;
+    document.getElementById('fallbackStoryTitle').textContent = story.title;
+    document.getElementById('fallbackStoryCaption').textContent = story.caption || '';
+    const overlay = document.getElementById('fallbackStoryOverlay');
+    if (overlay) overlay.classList.remove('d-none');
+  }
+  function closeFallbackStory() {
+    const overlay = document.getElementById('fallbackStoryOverlay');
+    if (overlay) overlay.classList.add('d-none');
+  }
+</script>

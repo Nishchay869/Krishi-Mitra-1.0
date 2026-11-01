@@ -92,11 +92,20 @@ msgstr "ఒక చిన్న అడుగు."
 msgid "A user with that username already exists."
 msgstr "ఈ వినియోగదారు పేరు ఇప్పటికే ఉంది."
 
+msgid "AI summary"
+msgstr "ఏఐ సారాంశం"
+
 msgid "Acres"
 msgstr "ఎకరములు"
 
 msgid "Active tillering"
 msgstr "క్రియాశీల కడగడం"
+
+msgid "Add"
+msgstr "జోడించు"
+
+msgid "Add or edit crops"
+msgstr "పంటలను జోడించండి లేదా సవరించండి"
 
 msgid "Add your district"
 msgstr "మీ జిల్లాను జోడించండి"
@@ -160,6 +169,9 @@ msgstr "ఆంధ్రప్రదేశ్"
 
 msgid "Annual total"
 msgstr "వార్షిక మొత్తం"
+
+msgid "App Country"
+msgstr "యాప్ దేశం"
 
 msgid "Apple"
 msgstr "ఆపిల్"
@@ -245,6 +257,9 @@ msgstr "వెనుకకు"
 msgid "Back to calculation"
 msgstr "తిరిగి లెక్కింపుకు"
 
+msgid "Back to home"
+msgstr "హోమ్‌కు తిరిగి వెళ్లండి"
+
 msgid "Bacterial spot"
 msgstr "బ్యాక్టీరియా మచ్చ"
 
@@ -271,6 +286,9 @@ msgstr "విత్తే ముందు"
 
 msgid "Bellary onion"
 msgstr "బళ్లారి ఉల్లి"
+
+msgid "Best time to spray crops based on weather conditions"
+msgstr "వాతావరణ పరిస్థితుల ఆధారంగా పంటలపై స్ప్రే చేయడానికి ఉత్తమ సమయం"
 
 msgid "Better decisions. Healthier farms."
 msgstr "మంచి నిర్ణయాలు. ఆరోగ్యకరమైన పంటలు."
@@ -311,6 +329,9 @@ msgstr "గణించిన పరిమాణాలు"
 msgid "Calculation reference: IFDC Fertilizer Bulk Blending Guide, page 27"
 msgstr "గణన సూచన: ఐఎఫ్‌డిసి ఎరువుల బల్క్ బ్లెండింగ్ గైడ్, పేజీ 27"
 
+msgid "Capsicum & Chilli"
+msgstr "క్యాప్సికం మరియు మిరప"
+
 msgid "Cardamom"
 msgstr "యాలకులు"
 
@@ -332,6 +353,9 @@ msgstr "కాలీఫ్లవర్"
 msgid "Cedar apple rust"
 msgstr "సీడర్ ఆపిల్ తుప్పు"
 
+msgid "Celsius"
+msgstr "సెల్సియస్"
+
 msgid "Cercospora leaf spot gray leaf spot"
 msgstr "సెర్కోస్పోరా బూడిద ఆకు మచ్చ"
 
@@ -340,6 +364,12 @@ msgstr "ధాన్యాలు"
 
 msgid "Change"
 msgstr "మార్పు"
+
+msgid "Change village"
+msgstr "గ్రామాన్ని మార్చండి"
+
+msgid "Change ↗"
+msgstr "మార్చండి ↗"
 
 msgid "Chat messages"
 msgstr "సంభాషణ సందేశాలు"
@@ -377,6 +407,12 @@ msgstr "శనగ"
 msgid "Choose how far you want to look for nearby markets."
 msgstr "సమీపంలోని మార్కెట్లను మీరు ఎంత దూరం వరకు చూడాలనుకుంటున్నారో ఎంచుకోండి."
 
+msgid "Choose the display and speech language for Krishi Mitra"
+msgstr "కృషి మిత్ర కోసం ప్రదర్శన మరియు మాట్లాడే భాషను ఎంచుకోండి"
+
+msgid "Choose the temperature unit displayed across weather forecasts, spray conditions, and advisories"
+msgstr "వాతావరణ సూచనలు, స్ప్రే పరిస్థితులు మరియు సలహాలలో ప్రదర్శించబడే ఉష్ణోగ్రత యూనిట్‌ను ఎంచుకోండి"
+
 msgid "Choose what you need today."
 msgstr "ఈరోజు అవసరమైనది ఎంచుకోండి."
 
@@ -393,7 +429,7 @@ msgid "Clear photo of a single leaf (JPG/PNG, max 5 MB)."
 msgstr "ఒక ఆకు స్పష్టమైన ఫోటో (JPG/PNG, గరిష్ఠంగా 5 MB)."
 
 msgid "Close"
-msgstr "మూసివేయండి"
+msgstr "మూసివేయి"
 
 msgid "Coconut"
 msgstr "కొబ్బరి"
@@ -407,11 +443,17 @@ msgstr "సరుకు"
 msgid "Common rust"
 msgstr "సాధారణ తుప్పు తెగులు"
 
+msgid "Community"
+msgstr "సముదాయం"
+
 msgid "Companion crop reference"
 msgstr "సహచర పంట మూలం"
 
 msgid "Companion suitability depends on spacing, shade and water availability."
 msgstr "సహచర పంట అనుకూలత అంతరం, నీడ, నీటి లభ్యతపై ఆధారపడి ఉంటుంది."
+
+msgid "Complete"
+msgstr "పూర్తయింది"
 
 msgid "Confidence:"
 msgstr "నమ్మక స్థాయి:"
@@ -421,6 +463,9 @@ msgstr "అనిశ్చిత ధరను ఎంచుకునే బదు
 
 msgid "Consult your local Krishi Vigyan Kendra (KVK) for a confirmed diagnosis and spray schedule."
 msgstr "నిర్ధారిత నిర్ధారణ, పిచికారీ ప్రణాళికకు స్థానిక కృషి విజ్ఞాన కేంద్రం (KVK) సంప్రదించండి."
+
+msgid "Contact and Social"
+msgstr "సంప్రదింపు మరియు సామాజిక"
 
 msgid "Conversation"
 msgstr "సంభాషణ"
@@ -473,6 +518,9 @@ msgstr "సహచర పంటలు"
 msgid "Crop establishment (days 1–10)"
 msgstr "పంట స్థాపన (రోజులు 1-10)"
 
+msgid "Crop health notifications"
+msgstr "పంట ఆరోగ్య నోటిఫికేషన్‌లు"
+
 msgid "Crop predictions"
 msgstr "పంట అంచనాలు"
 
@@ -481,6 +529,9 @@ msgstr "పంట సిఫార్సు"
 
 msgid "Crop rotation"
 msgstr "పంట మార్పిడి"
+
+msgid "Crops"
+msgstr "పంటలు"
 
 msgid "Crossandra"
 msgstr "క్రాసండ్ర"
@@ -493,6 +544,9 @@ msgstr "కీరదోస"
 
 msgid "Cultivation"
 msgstr "సాగు"
+
+msgid "Cultivation Tips"
+msgstr "సాగు చిట్కాలు"
 
 msgid "Cuttings"
 msgstr "కొమ్మ ముక్కలు"
@@ -545,6 +599,9 @@ msgstr "మాట్లాడండి, పదాలు పెట్టెలో
 msgid "Disease Check"
 msgstr "తెగులు పరీక్ష"
 
+msgid "Disease alerts and treatment reminders"
+msgstr "తెగులు హెచ్చరికలు మరియు చికిత్స రిమైండర్‌లు"
+
 msgid "Disease checks"
 msgstr "తెగులు పరీక్షలు"
 
@@ -556,6 +613,9 @@ msgstr "నోటిఫికేషన్ మూసివేయండి"
 
 msgid "District"
 msgstr "జిల్లా"
+
+msgid "Do not spray"
+msgstr "స్ప్రే చేయవద్దు"
 
 msgid "Done speaking"
 msgstr "మాట్లాడటం పూర్తయింది"
@@ -595,6 +655,9 @@ msgstr "ఇమెయిల్"
 
 msgid "Enable JavaScript to change nearby distance and sorting. Market prices and favourites remain available."
 msgstr "సమీప దూరం మరియు క్రమబద్ధీకరణను మార్చడానికి జావాస్క్రిప్ట్‌ని ఎనేబుల్ చేయండి. మార్కెట్ ధరలు మరియు ఇష్టమైనవి అందుబాటులో ఉంటాయి."
+
+msgid "Enable push notifications for severe weather alerts, pest outbreaks, and timely spraying windows"
+msgstr "తీవ్రమైన వాతావరణ హెచ్చరికలు, తెగుళ్ల వ్యాప్తి మరియు సకాలంలో పిచికారీ చేయడానికి పుష్ నోటిఫికేషన్‌లను ప్రారంభించండి"
 
 msgid "End"
 msgstr "ముగించండి"
@@ -656,11 +719,14 @@ msgstr "వ్యవసాయ నిర్వహణ"
 msgid "FROM QUESTION TO CONFIDENCE"
 msgstr "ప్రశ్న నుండి నమ్మకం వరకు"
 
+msgid "Fahrenheit"
+msgstr "ఫారెన్‌హీట్"
+
 msgid "Farm Assistant"
 msgstr "వ్యవసాయ సహాయకుడు"
 
 msgid "Farm activity planner"
-msgstr "వ్యవసాయ పనుల ప్రణాళిక"
+msgstr "వ్యవసాయ కార్యాచరణ ప్లానర్"
 
 msgid "Farm area (ha):"
 msgstr "వ్యవసాయ క్షేత్రం (హెక్టార్లు):"
@@ -670,6 +736,9 @@ msgstr "పంట మొత్తం (కిలోలు)"
 
 msgid "Farmers"
 msgstr "రైతులు"
+
+msgid "Farming calculator"
+msgstr "వ్యవసాయ కాలిక్యులేటర్"
 
 msgid "Favourite market"
 msgstr "ఇష్టమైన మార్కెట్"
@@ -684,6 +753,9 @@ msgid "Fertilizer"
 msgstr "ఎరువు"
 
 msgid "Fertilizer Calculator"
+msgstr "ఎరువుల కాలిక్యులేటర్"
+
+msgid "Fertilizer calculator"
 msgstr "ఎరువుల కాలిక్యులేటర్"
 
 msgid "Field size"
@@ -737,6 +809,9 @@ msgstr "ప్రతి 3 గంటల అంచనా; స్థానిక �
 msgid "Forecast for the village area; local field conditions may differ."
 msgstr "గ్రామీణ ప్రాంతం కోసం సూచనలు; స్థానిక క్షేత్ర పరిస్థితులు భిన్నంగా ఉండవచ్చు."
 
+msgid "Fri"
+msgstr "శుక్ర"
+
 msgid "From your first seed to your next harvest, ask what’s on your mind."
 msgstr "మొదటి విత్తనం నుండి తదుపరి కోత వరకు, మీ సందేహాలు అడగండి."
 
@@ -755,6 +830,9 @@ msgstr "తోట భూములు; నంద్రాణి రకాలు"
 msgid "Garlic"
 msgstr "వెల్లుల్లి"
 
+msgid "General"
+msgstr "సాధారణ"
+
 msgid "General guidance; adjust for variety, soil and local climate."
 msgstr "సాధారణ మార్గదర్శకం; రకం, నేల, స్థానిక వాతావరణం ప్రకారం మార్చండి."
 
@@ -762,13 +840,22 @@ msgid "Get clear guidance with the context behind it."
 msgstr "కారణంతో కూడిన స్పష్టమైన మార్గదర్శనం పొందండి."
 
 msgid "Get forecast"
-msgstr "వాతావరణ సూచన చూడండి"
+msgstr "వాతావరణ అంచనా పొందండి"
+
+msgid "Get medicine"
+msgstr "మందు పొందండి"
 
 msgid "Get started"
 msgstr "ప్రారంభించండి"
 
+msgid "Get this as a daily notification"
+msgstr "దీనిని రోజువారీ నోటిఫికేషన్‌గా పొందండి"
+
 msgid "Ginger"
 msgstr "అల్లం"
+
+msgid "Give Feedback"
+msgstr "ఫీడ్‌బ్యాక్ ఇవ్వండి"
 
 msgid "Give your plants a closer look."
 msgstr "మీ మొక్కలను దగ్గరగా చూడండి."
@@ -863,8 +950,17 @@ msgstr "హెక్టార్లు"
 msgid "Hibiscus"
 msgstr "మందార"
 
+msgid "High humidity"
+msgstr "అధిక తేమ"
+
+msgid "High temperature"
+msgstr "ఎక్కువ ఉష్ಣోగ్రత"
+
 msgid "High temperatures (38 °C+) expected. Irrigate in the evening, mulch to conserve moisture, and protect nursery seedlings and livestock from heat."
 msgstr "అధిక ఉష్ణోగ్రతలు (38 °C+) అంచనా. సాయంత్రం నీరు పెట్టి, తేమ కోసం మల్చ్ వేసి, నారు మొక్కలు, పశువులను వేడి నుండి కాపాడండి."
+
+msgid "High wind drift"
+msgstr "తీవ్రమైన గాలి ప్రభావం"
 
 msgid "Highest price"
 msgstr "అత్యధిక ధర"
@@ -884,6 +980,9 @@ msgstr "ఉలవలు"
 msgid "How accurate is it?"
 msgstr "ఇది ఎంత ఖచ్చితమైనది?"
 
+msgid "How is it calculated?"
+msgstr "ఇది ఎలా లెక్కించబడుతుంది?"
+
 msgid "Humid"
 msgstr "తేమగా"
 
@@ -893,14 +992,23 @@ msgstr "తేమ మార్గదర్శనం"
 msgid "Hybrids"
 msgstr "సంకరజాతులు"
 
+msgid "Ideal window"
+msgstr "అనువైన సమయం"
+
 msgid "Image"
 msgstr "చిత్రం"
 
 msgid "Improve ventilation and reduce humidity (especially in polyhouses); spray mancozeb at 2.5 grams per litre of water or chlorothalonil at 2 grams per litre of water."
 msgstr "గాలి ప్రసరణ పెంచి, తేమ తగ్గించండి (ముఖ్యంగా పాలీహౌస్‌లో). mancozeb, లీటరుకు 2.5 గ్రాములు లేదా chlorothalonil, లీటరుకు 2 గ్రాములు పిచికారీ చేయండి."
 
+msgid "Incomplete"
+msgstr "అసంపూర్ణం"
+
 msgid "Increase"
 msgstr "పెంచండి"
+
+msgid "Information about my crops"
+msgstr "నా పంటల సమాచారం"
 
 msgid "Insufficient forecast"
 msgstr "తగిన అంచనా లేదు"
@@ -913,6 +1021,9 @@ msgstr "ఇమెయిల్ లేదా పాస్‌వర్డ్ తప
 
 msgid "Invalid username or password."
 msgstr "వినియోగదారు పేరు లేదా పాస్‌వర్డ్ తప్పు."
+
+msgid "IoT Sensors dashboard"
+msgstr "ఐఓటీ సెన్సార్ల డ్యాష్‌బోర్డ్"
 
 msgid "Irrigated crop"
 msgstr "నీటిపారుదల పంట"
@@ -968,6 +1079,9 @@ msgstr "కొమ్మల కత్తిరింపు, నీరు పె�
 msgid "Keep your farm insights, questions, and plans together. Let’s make the next season a little clearer."
 msgstr "వ్యవసాయ సమాచారం, ప్రశ్నలు, ప్రణాళికలను ఒకేచోట ఉంచండి. తదుపరి కాలానికి సిద్ధం అవ్వండి."
 
+msgid "Kelvin"
+msgstr "కెల్విన్"
+
 msgid "Kerala"
 msgstr "కేరళ"
 
@@ -1010,6 +1124,9 @@ msgstr "తాజా ప్రచురణ:"
 msgid "Layers"
 msgstr "అంట్లు"
 
+msgid "Leaf Doctor Diagnosis"
+msgstr "లీఫ్ డాక్టర్ నిర్ధారణ"
+
 msgid "Leaf blight isariopsis leaf spot"
 msgstr "ఇసారియోప్సిస్ ఆకు మచ్చ"
 
@@ -1024,6 +1141,9 @@ msgstr "ఆకు కాలే తెగులు"
 
 msgid "Learn about this fertilizer"
 msgstr "ఈ ఎరువు గురించి తెలుసుకోండి"
+
+msgid "Legal Notices"
+msgstr "చట్టపరమైన నోటీసులు"
 
 msgid "Lentil"
 msgstr "మసూర్"
@@ -1133,11 +1253,20 @@ msgstr "ఐదు రోజుల వాతావరణం, నీటిపా�
 msgid "Manage knowledge base"
 msgstr "జ్ఞాన భాండాగారాన్ని నిర్వహించండి"
 
+msgid "Manage notifications for farming insights and market updates"
+msgstr "వ్యవసాయ సమాచారం మరియు మార్కెట్ నవీకరణల కోసం నోటిఫికేషన్‌లను నిర్వహించండి"
+
 msgid "Manage pond water level and leave room for leaves to spread."
 msgstr "చెరువు నీటి మట్టం నిర్వహించి ఆకులు విస్తరించేందుకు చోటివ్వండి."
 
+msgid "Manage your Krishi Mitra preferences"
+msgstr "మీ కృషి మిత్ర ప్రాధాన్యతలను నిర్వహించండి"
+
 msgid "Mandi"
 msgstr "మండి"
+
+msgid "Mandi prices"
+msgstr "మండి ధరలు"
 
 msgid "Mandis upload prices at the end of each trading day and Agmarknet verifies them before publishing, so the newest prices are usually 1–2 days old (longer after Sundays and holidays). This page updates automatically when new prices are published."
 msgstr "మార్కెట్లు రోజు చివర ధరలు పంపుతాయి; ఆగ్‌మార్క్‌నెట్ తనిఖీ చేసి ప్రచురిస్తుంది. అందువల్ల ధరలు సాధారణంగా 1–2 రోజుల పాతవి (సెలవుల తర్వాత ఎక్కువ). కొత్త ధరలు రాగానే పేజీ నవీకరించబడుతుంది."
@@ -1159,6 +1288,9 @@ msgstr "మార్చి"
 
 msgid "Marigold"
 msgstr "బంతి"
+
+msgid "Market"
+msgstr "మార్కెట్"
 
 msgid "Market Prices"
 msgstr "మార్కెట్ ధరలు"
@@ -1220,14 +1352,29 @@ msgstr "మిజోరం"
 msgid "Modal price"
 msgstr "ప్రచలిత ధర"
 
+msgid "Moderate"
+msgstr "మధ్యస్థం"
+
 msgid "Moderate rain (~%(rain_next3)s mm) expected. Plan sprays for dry windows so they are not washed off."
 msgstr "మోస్తరు వర్షం (~%(rain_next3)s మిమీ) అంచనా. మందు కొట్టుకుపోకుండా పొడి సమయంలో పిచికారీ చేయండి."
+
+msgid "Moderate spraying conditions"
+msgstr "మధ్యస్థ స్ప్రే పరిస్థితులు"
 
 msgid "Moist"
 msgstr "తేమగా"
 
+msgid "Mon"
+msgstr "సోమ"
+
+msgid "Monitor drift"
+msgstr "గాలి దిశను గమనించండి"
+
 msgid "Moong(Green Gram)"
 msgstr "పెసర"
+
+msgid "More options"
+msgstr "మరిన్ని ఎంపికలు"
 
 msgid "Moth"
 msgstr "మోత్ బీన్"
@@ -1283,17 +1430,26 @@ msgstr "సహాయం కావాలా?"
 msgid "Network error. Please try again."
 msgstr "నెట్‌వర్క్ సమస్య. మళ్లీ ప్రయత్నించండి."
 
+msgid "New"
+msgstr "కొత్తది"
+
 msgid "New here?"
 msgstr "కొత్తగా వచ్చారా?"
 
 msgid "Next"
 msgstr "తరువాత"
 
+msgid "Next 6 days"
+msgstr "తదుపరి 6 రోజులు"
+
 msgid "Next forecast"
 msgstr "తదుపరి అంచనా"
 
 msgid "Niger seed"
 msgstr "వలిసె"
+
+msgid "Night time · Opens 06:00 AM"
+msgstr "రాత్రి సమయం · ఉదయం 06:00 గంటలకు ప్రారంభమవుతుంది"
 
 msgid "Nitrogen (N, kg/ha)"
 msgstr "నత్రజని (N, కిలో/హెక్టారు)"
@@ -1367,8 +1523,14 @@ msgstr "కనిపించలేదు."
 msgid "Not specified by source"
 msgstr "మూలంలో పేర్కొనలేదు"
 
+msgid "Notifications"
+msgstr "నోటిఫికేషన్‌లు"
+
 msgid "November, after pruning"
 msgstr "నవంబరు, కత్తిరింపు తరువాత"
+
+msgid "Now"
+msgstr "ఇప్పుడు"
 
 msgid "Number of trees"
 msgstr "చెట్ల సంఖ్య"
@@ -1394,6 +1556,12 @@ msgstr "నూనెగింజలు"
 msgid "Okra"
 msgstr "బెండకాయ"
 
+msgid "One Home, One Chance"
+msgstr "ఒకే ఇల్లు, ఒకే అవకాశం"
+
+msgid "One Home, One Chance — Build with confidence"
+msgstr "ఒకే ఇల్లు, ఒకే అవకాశం — నమ్మకంతో నిర్మించండి"
+
 msgid "One application, not an annual total"
 msgstr "ఒక దరఖాస్తు, వార్షిక మొత్తం కాదు"
 
@@ -1411,6 +1579,12 @@ msgstr "నా డ్యాష్‌బోర్డ్ తెరవండి"
 
 msgid "Open nearby shops in Maps"
 msgstr "మ్యాప్స్‌లో దగ్గరలోని దుకాణాలు తెరువు"
+
+msgid "Optimal"
+msgstr "అనుకూలం"
+
+msgid "Optimal spraying conditions"
+msgstr "అనుకూలమైన స్ప్రే పరిస్థితులు"
 
 msgid "Orange"
 msgstr "నారింజ"
@@ -1466,6 +1640,15 @@ msgstr "బఠాణీలు మరియు చిక్కుళ్లు (�
 msgid "Pepper bell"
 msgstr "క్యాప్సికమ్"
 
+msgid "Pesticide calculator"
+msgstr "పురుగుమందుల కాలిక్యులేటర్"
+
+msgid "Pests & Disease Alert"
+msgstr "తెగులు హెచ్చరిక"
+
+msgid "Pests & diseases"
+msgstr "కీటకాలు మరియు తెగుళ్లు"
+
 msgid "Phone"
 msgstr "ఫోన్ నంబర్"
 
@@ -1519,6 +1702,9 @@ msgstr "మొక్కలు — పొలపు విస్తీర్ణం
 
 msgid "Pomegranate"
 msgstr "దానిమ్మ"
+
+msgid "Poor"
+msgstr "పేలవమైనది"
 
 msgid "Potash source. Check crop suitability and the nutrient grade before use."
 msgstr "పొటాష్ మూలం. ఉపయోగించే ముందు పంట అనుకూలత మరియు పోషక స్థాయిని తనిఖీ చేయండి."
@@ -1574,6 +1760,12 @@ msgstr "గుమ్మడికాయ"
 msgid "Punjab"
 msgstr "పంజాబ్"
 
+msgid "Push notifications"
+msgstr "పుష్ నోటిఫికేషన్‌లు"
+
+msgid "Quickstart"
+msgstr "త్వరిత ప్రారంభం"
+
 msgid "ROOTED IN KNOWLEDGE. GROWN WITH AI."
 msgstr "జ్ఞానం మరియు ఏఐతో వ్యవసాయానికి తోడు."
 
@@ -1585,6 +1777,9 @@ msgstr "రాగులు"
 
 msgid "Rain chance"
 msgstr "వర్షం అవకాశం"
+
+msgid "Rain imminent"
+msgstr "వర్షం వచ్చే అవకాశం"
 
 msgid "Rainfall (mm)"
 msgstr "వర్షపాతం (మిమీ)"
@@ -1607,11 +1802,23 @@ msgstr "రాస్ప్‌బెర్రీ"
 msgid "Real product photos are examples, not a promise of local stock. Check the actual nutrient grade, pack size and availability with the shop."
 msgstr "నిజమైన ఉత్పత్తి ఫోటోలు ఉదాహరణలు మాత్రమే, స్థానిక స్టాక్ యొక్క వాగ్దానం కాదు. దుకాణంలో అసలైన పోషక స్థాయిని, ప్యాక్ పరిమాణం మరియు లభ్యతను తనిఖీ చేయండి."
 
+msgid "Receive advisory alerts, disease warnings, and growth updates for your saved crops"
+msgstr "మీరు సేవ్ చేసిన పంటలకు సలహా హెచ్చరికలు, వ్యాధి హెచ్చరికలు మరియు పెరుగుదల నవీకరణలను పొందండి"
+
+msgid "Receive push notification"
+msgstr "పుష్ నోటిఫికేషన్ పొందండి"
+
+msgid "Recent diagnoses"
+msgstr "ఇటీవలి రోగ నిర్ధారణలు"
+
 msgid "Recent predictions"
 msgstr "ఇటీవలి అంచనాలు"
 
 msgid "Recent questions"
 msgstr "ఇటీవలి ప్రశ్నలు"
+
+msgid "Recommend Krishi Mitra"
+msgstr "కృషి మిత్రను సిఫార్సు చేయండి"
 
 msgid "Recommend crops"
 msgstr "పంటలను సూచించండి"
@@ -1688,6 +1895,9 @@ msgstr "వీలైతే సమీప జూనిపర్/సీడర్ �
 msgid "Report date"
 msgstr "నివేదిక తేదీ"
 
+msgid "Rest of the day"
+msgstr "రోజులో మిగిలిన సమయం"
+
 msgid "Result"
 msgstr "ఫలితం"
 
@@ -1715,8 +1925,17 @@ msgstr "ఇసుక లోమీ"
 msgid "Sannhamp"
 msgstr "జనపనార"
 
+msgid "Sat"
+msgstr "శని"
+
 msgid "Save"
 msgstr "భద్రపరచండి"
+
+msgid "Save Changes"
+msgstr "మార్పులను సేవ్ చేయండి"
+
+msgid "Save Settings"
+msgstr "సెట్టింగ్‌లను సేవ్ చేయండి"
 
 msgid "Search crop"
 msgstr "పంట వెతకండి"
@@ -1733,6 +1952,9 @@ msgstr "పంట కాలం"
 msgid "See application"
 msgstr "అప్లికేషన్ చూడండి"
 
+msgid "See diagnosis"
+msgstr "రోగ నిర్ధారణ చూడండి"
+
 msgid "Seedlings"
 msgstr "నారు"
 
@@ -1748,8 +1970,14 @@ msgstr "మండీలను చూడటానికి ప్రాంతా�
 msgid "Select a valid choice. %(value)s is not one of the available choices."
 msgstr "సరైన ఎంపిక ఎంచుకోండి. %(value)s అందుబాటులో ఉన్న ఎంపిక కాదు."
 
+msgid "Select your Krishi Mitra Language"
+msgstr "మీ కృషి మిత్ర భాషను ఎంచుకోండి"
+
 msgid "Select your crops"
 msgstr "మీ పంటలను ఎంచుకోండి"
+
+msgid "Select your crops →"
+msgstr "మీ పంటలను ఎంచుకోండి →"
 
 msgid "Send"
 msgstr "పంపండి"
@@ -1765,6 +1993,15 @@ msgstr "సెప్టోరియా ఆకు మచ్చ"
 
 msgid "Sesamum"
 msgstr "నువ్వులు"
+
+msgid "Settings"
+msgstr "సెట్టింగ్‌లు"
+
+msgid "Settings saved successfully."
+msgstr "సెట్టింగ్‌లు విజయవంతంగా సేవ్ చేయబడ్డాయి."
+
+msgid "Severe weather alerts and timely spraying windows"
+msgstr "తీవ్ర వాతావరణ హెచ్చరికలు మరియు సకాలంలో స్ప్రే విండోలు"
 
 msgid "Shade management"
 msgstr "నీడ నిర్వహణ"
@@ -1856,11 +2093,17 @@ msgstr "మాట్లాడుతోంది… ఆపడానికి వ�
 msgid "Speaking… tap the circle to skip"
 msgstr "మాట్లాడుతోంది… దాటవేయడానికి వృత్తాన్ని నొక్కండి"
 
+msgid "Speech synthesis is not supported on this browser."
+msgstr "ఈ బ్రౌజర్‌లో స్పీచ్ సింథసిస్ సపోర్ట్ చేయబడదు."
+
 msgid "Spices"
 msgstr "సుగంధ ద్రవ్యాలు"
 
 msgid "Spider mites two-spotted spider mite"
 msgstr "రెండు మచ్చల నల్లి"
+
+msgid "Sponsored"
+msgstr "ప్రాయోజితం"
 
 msgid "Spray captan 50% wettable powder (50 WP) at 2.5 grams per litre of water or mancozeb 75% wettable powder (75 WP) at 2.5 grams per litre of water from green-tip stage at 10-14 day intervals in wet weather. Rake and destroy fallen leaves."
 msgstr "పచ్చ మొగ్గ దశ నుండి తడి వాతావరణంలో 10–14 రోజులకొకసారి captan 50 WP లేదా mancozeb 75 WP, లీటరు నీటికి 2.5 గ్రాములు పిచికారీ చేయండి. రాలిన ఆకులను ఏరి నాశనం చేయండి."
@@ -1882,6 +2125,15 @@ msgstr "wettable sulphur 80 WP, లీటరు నీటికి 2–3 గ్�
 
 msgid "Spraying"
 msgstr "పిచికారీ"
+
+msgid "Spraying calculation"
+msgstr "స్ప్రే లెక్కింపు"
+
+msgid "Spraying conditions"
+msgstr "స్ప్రే చేసే పరిస్థితులు"
+
+msgid "Spraying time"
+msgstr "స్ప్రే సమయం"
 
 msgid "Squash"
 msgstr "స్క్వాష్"
@@ -1937,11 +2189,17 @@ msgstr "చెరకు"
 msgid "Summer"
 msgstr "వేసవి"
 
+msgid "Sun"
+msgstr "ఆది"
+
 msgid "Sun exposure"
 msgstr "సూర్యరశ్మి"
 
 msgid "Sunflower"
 msgstr "పొద్దుతిరుగుడు"
+
+msgid "Sunset"
+msgstr "సూర్యాస్తమయం"
 
 msgid "Supplement rainfall with irrigation; keep soil moist and well drained."
 msgstr "వర్షంతో పాటు అవసరమైన నీరు పెట్టండి; నేల తేమగా, నీరు బాగా ఇంకేలా ఉంచండి."
@@ -1957,6 +2215,9 @@ msgstr "తీపి నారింజ, వయస్సు 6 సంవత్స
 
 msgid "Sweet potato"
 msgstr "చిలగడదుంప"
+
+msgid "Take a picture"
+msgstr "ఫోటో తీయండి"
 
 msgid "Take your next step"
 msgstr "తదుపరి అడుగు వేయండి"
@@ -1990,6 +2251,9 @@ msgstr "సమశీతోష్ణ"
 
 msgid "Temperature (°C)"
 msgstr "ఉష్ణోగ్రత (°C)"
+
+msgid "Temperature Unit"
+msgstr "ఉష్ణోగ్రత యూనిట్"
 
 msgid "Temperature and humidity"
 msgstr "ఉష్ణోగ్రత మరియు తేమ"
@@ -2039,8 +2303,14 @@ msgstr "ఈ పాస్‌వర్డ్ చాలా సాధారణమై
 msgid "This tool is temporarily unavailable. Please try again later."
 msgstr "ఈ సాధనం తాత్కాలికంగా అందుబాటులో లేదు. తర్వాత ప్రయత్నించండి."
 
+msgid "Thu"
+msgstr "గురు"
+
 msgid "Tip:"
 msgstr "చిట్కా:"
+
+msgid "To build your identity"
+msgstr "మీ గుర్తింపును నిర్మించుకోవడానికి"
 
 msgid "Tobacco"
 msgstr "పొగాకు"
@@ -2056,6 +2326,9 @@ msgstr "టమాటా మొజాయిక్ వైరస్"
 
 msgid "Tomato yellow leaf curl virus"
 msgstr "టమాటా పసుపు ఆకు ముడత వైరస్"
+
+msgid "Tools"
+msgstr "పనిముట్లు"
 
 msgid "Top intents"
 msgstr "ప్రధాన అంశాలు"
@@ -2087,6 +2360,9 @@ msgstr "రజనీగంధ"
 msgid "Tubers"
 msgstr "దుంపలు"
 
+msgid "Tue"
+msgstr "మంగళ"
+
 msgid "Turmeric"
 msgstr "పసుపు"
 
@@ -2101,6 +2377,12 @@ msgstr "మీ భాషలో రాయండి లేదా మాట్ల�
 
 msgid "Unanswered questions"
 msgstr "సమాధానం లేని ప్రశ్నలు"
+
+msgid "Unfavourable"
+msgstr "ప్రతికూలం"
+
+msgid "Unfavourable spraying conditions"
+msgstr "ప్రతికూల స్ప్రే పరిస్థితులు"
 
 msgid "Upload or take a clear photo of a single affected leaf against a plain background."
 msgstr "సాదా నేపథ్యంతో ఒక ప్రభావిత ఆకు స్పష్టమైన ఫోటో తీయండి లేదా అప్‌లోడ్ చేయండి."
@@ -2156,6 +2438,9 @@ msgstr "సమీపంలోని మార్కెట్లను కను�
 msgid "Used for local weather forecasts."
 msgstr "స్థానిక వాతావరణ సూచనలకు ఉపయోగిస్తారు."
 
+msgid "Used for regional agricultural standards, mandi currency, and weather"
+msgstr "ప్రాంతీయ వ్యవసాయ ప్రమాణాలు, మార్కెట్ కరెన్సీ మరియు వాతావరణం కోసం ఉపయోగించబడుతుంది"
+
 msgid "User"
 msgstr "వినియోగదారు"
 
@@ -2189,6 +2474,9 @@ msgstr "వృక్షసంబంధమైన పెరుగుదల (రో
 msgid "Verify source report"
 msgstr "మూల నివేదికను ధృవీకరించండి"
 
+msgid "View all"
+msgstr "అన్నీ చూడండి"
+
 msgid "View reported markets in this state"
 msgstr "ఈ రాష్ట్రంలో నివేదించబడిన మార్కెట్లను వీక్షించండి"
 
@@ -2196,7 +2484,7 @@ msgid "Village"
 msgstr "గ్రామం"
 
 msgid "Village / town"
-msgstr "గ్రామం/పట్టణం"
+msgstr "గ్రామం / పట్టణం"
 
 msgid "Village, district, state"
 msgstr "గ్రామం, జిల్లా, రాష్ట్రం"
@@ -2240,6 +2528,9 @@ msgstr "వాతావరణం"
 msgid "Weather & Advisory"
 msgstr "వాతావరణం మరియు సలహా"
 
+msgid "Weather & Spraying Conditions"
+msgstr "వాతావరణం మరియు స్ప్రే పరిస్థితులు"
+
 msgid "Weather for your working day."
 msgstr "మీ వ్యవసాయ పనులకు వాతావరణం."
 
@@ -2248,6 +2539,12 @@ msgstr "ఇది వాతావరణ సూచన మాత్రమే; ఉ�
 
 msgid "Weather is unavailable. Check the location or try again later."
 msgstr "వాతావరణం అందుబాటులో లేదు. ప్రాంతం తనిఖీ చేయండి లేదా తర్వాత ప్రయత్నించండి."
+
+msgid "Weather temperature units"
+msgstr "వాతావరణ ఉష్ణోగ్రత యూనిట్లు"
+
+msgid "Wed"
+msgstr "బుధ"
 
 msgid "Weeding"
 msgstr "కలుపు తీయడం"
@@ -2280,7 +2577,7 @@ msgid "Wholesale mandi reports, not retail prices or guaranteed sale offers. Com
 msgstr "రిటైల్ ధరలు లేదా హామీ ఇవ్వబడిన అమ్మకాల ఆఫర్లు కాదు, హోల్‌సేల్ మండి నివేదికలు. ఒకే మార్కెట్, పంట, రకం, గ్రేడ్, రిపోర్ట్ తేదీ మరియు యూనిట్‌ను పోల్చండి. పాత నివేదికలు నేటి ధరలు కాదు."
 
 msgid "Why this rating?"
-msgstr "ఈ అంచనా ఎందుకు?"
+msgstr "ఈ రేటింగ్ ఎందుకు?"
 
 msgid "Wind gust"
 msgstr "గాలి ఉధృతి"
@@ -2312,6 +2609,12 @@ msgstr "దిగుబడి అంచనాలు"
 msgid "Yield prediction"
 msgstr "దిగుబడి అంచనా"
 
+msgid "You"
+msgstr "మీరు"
+
+msgid "Your crops"
+msgstr "మీ పంటలు"
+
 msgid "Your current location"
 msgstr "మీ ప్రస్తుత స్థానం"
 
@@ -2329,6 +2632,9 @@ msgstr "మీ భాష ఈ పరికరంలో భద్రపరచబ�
 
 msgid "Your name"
 msgstr "మీ పేరు"
+
+msgid "Your selected crops"
+msgstr "మీరు ఎంచుకున్న పంటలు"
 
 msgid "Your soil. Your crops. Your next harvest. A little guidance for every step, from a companion that understands farming."
 msgstr "మీ నేల, మీ పంట, మీ తదుపరి కోత. వ్యవసాయం తెలిసిన మిత్రుడి నుండి ప్రతి అడుగులో మార్గదర్శనం."

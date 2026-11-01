@@ -92,11 +92,20 @@ msgstr "एक ल्हान पावल."
 msgid "A user with that username already exists."
 msgstr "त्या वापरप्याचें नांव आशिल्लो वापरपी पयलींच आसा."
 
+msgid "AI summary"
+msgstr "एआई सारांश"
+
 msgid "Acres"
 msgstr "एकर"
 
 msgid "Active tillering"
 msgstr "सक्रीय कळे"
+
+msgid "Add"
+msgstr "जोड़ें"
+
+msgid "Add or edit crops"
+msgstr "फसलें जोड़ें या बदलें"
 
 msgid "Add your district"
 msgstr "तुजो जिल्लो जोडून घेयात"
@@ -160,6 +169,9 @@ msgstr "आंध्र प्रदेश"
 
 msgid "Annual total"
 msgstr "वर्सुकी वट्ट"
+
+msgid "App Country"
+msgstr "ऐप देश"
 
 msgid "Apple"
 msgstr "आपोल"
@@ -237,13 +249,16 @@ msgid "Available without internet"
 msgstr "इंटरनॅट बगर उपलब्ध"
 
 msgid "Avoid"
-msgstr "टाळात"
+msgstr "बचें"
 
 msgid "Back"
 msgstr "फाटीं"
 
 msgid "Back to calculation"
 msgstr "परत गणिताकडेन"
+
+msgid "Back to home"
+msgstr "होम पर वापस जाएँ"
 
 msgid "Bacterial spot"
 msgstr "बॅक्टिरियल स्पॉट"
@@ -271,6 +286,9 @@ msgstr "पेरणे पयलीं"
 
 msgid "Bellary onion"
 msgstr "बेल्लारी कांदो"
+
+msgid "Best time to spray crops based on weather conditions"
+msgstr "मौसम की स्थिति के आधार पर फसलों पर छिड़काव का सबसे अच्छा समय"
 
 msgid "Better decisions. Healthier farms."
 msgstr "बरे निर्णय. भलायकेवंत शेतां."
@@ -311,6 +329,9 @@ msgstr "गणन केल्ली मात्रा"
 msgid "Calculation reference: IFDC Fertilizer Bulk Blending Guide, page 27"
 msgstr "गणन संदर्भः आय.एफ.डी.सी. खत थोक मिश्रण मार्गदर्शक, पान 27"
 
+msgid "Capsicum & Chilli"
+msgstr "शिमला मिर्च और मिर्च"
+
 msgid "Cardamom"
 msgstr "वेलची"
 
@@ -332,6 +353,9 @@ msgstr "फुलकोबी"
 msgid "Cedar apple rust"
 msgstr "सेडराची आपोल रस्ट"
 
+msgid "Celsius"
+msgstr "सेल्सियस"
+
 msgid "Cercospora leaf spot gray leaf spot"
 msgstr "सार्कोस्पोरा पानांचेर दागो , धवें पानांचेर दाग"
 
@@ -340,6 +364,12 @@ msgstr "धान्य"
 
 msgid "Change"
 msgstr "बदल"
+
+msgid "Change village"
+msgstr "गाँव बदलें"
+
+msgid "Change ↗"
+msgstr "बदलें ↗"
 
 msgid "Chat messages"
 msgstr "चॅट संदेश"
@@ -377,6 +407,12 @@ msgstr "चणे"
 msgid "Choose how far you want to look for nearby markets."
 msgstr "तुका लागींचे बाजार कितले पयस सोदचे आसात तें थारायात."
 
+msgid "Choose the display and speech language for Krishi Mitra"
+msgstr "कृषि मित्र के लिए प्रदर्शन और बोली जाने वाली भाषा चुनें"
+
+msgid "Choose the temperature unit displayed across weather forecasts, spray conditions, and advisories"
+msgstr "मौसम पूर्वानुमान, छिड़काव स्थिति और सलाह में प्रदर्शित तापमान इकाई चुनें"
+
 msgid "Choose what you need today."
 msgstr "आयज तुका कितें जाय तें निवड."
 
@@ -393,7 +429,7 @@ msgid "Clear photo of a single leaf (JPG/PNG, max 5 MB)."
 msgstr "एकाच पानाचो स्पश्ट फोटो (सी. जे. पी. जी./पी. एन. जी., चडांत चड 5 एम. बी.)."
 
 msgid "Close"
-msgstr "बंद करात"
+msgstr "बंद करें"
 
 msgid "Coconut"
 msgstr "नाल्ल"
@@ -407,11 +443,17 @@ msgstr "वस्तु"
 msgid "Common rust"
 msgstr "सादारण कळम"
 
+msgid "Community"
+msgstr "समुदाय"
+
 msgid "Companion crop reference"
 msgstr "जोड पिकाचो संदर्भ"
 
 msgid "Companion suitability depends on spacing, shade and water availability."
 msgstr "जोड पिकाची योग्यताय अंतर, सावळी आनी उदकाच्या उपलब्धतेचेर आदारून आसता."
+
+msgid "Complete"
+msgstr "पूर्ण"
 
 msgid "Confidence:"
 msgstr "आत्मविश्वासः"
@@ -421,6 +463,9 @@ msgstr "अदिकाळीक मोल थारावचे बदला �
 
 msgid "Consult your local Krishi Vigyan Kendra (KVK) for a confirmed diagnosis and spray schedule."
 msgstr "निश्चीत निदान आनी फवारणीच्या वेळापत्रका खातीर तुमच्या थळाव्या कृशी विज्ञान केंद्राचो (के.व्ही.के.) सल्लो घेयात."
+
+msgid "Contact and Social"
+msgstr "संपर्क और सोशल"
 
 msgid "Conversation"
 msgstr "भासाभास"
@@ -473,6 +518,9 @@ msgstr "जोड पिकां"
 msgid "Crop establishment (days 1–10)"
 msgstr "पीक स्थापन (दीस 1 - 10)"
 
+msgid "Crop health notifications"
+msgstr "फसल स्वास्थ्य सूचनाएं"
+
 msgid "Crop predictions"
 msgstr "पीक भाकीत"
 
@@ -481,6 +529,9 @@ msgstr "पीक शिफारस"
 
 msgid "Crop rotation"
 msgstr "पीक फेरबदल"
+
+msgid "Crops"
+msgstr "फसलें"
 
 msgid "Crossandra"
 msgstr "क्रॉसआंड्रा"
@@ -493,6 +544,9 @@ msgstr "तवशें"
 
 msgid "Cultivation"
 msgstr "शेती"
+
+msgid "Cultivation Tips"
+msgstr "खेती के सुझाव"
 
 msgid "Cuttings"
 msgstr "कलमां"
@@ -545,6 +599,9 @@ msgstr "आदेश : उलोवचें आनी शब्द बॉक्
 msgid "Disease Check"
 msgstr "दुयेंसाची तपासणी"
 
+msgid "Disease alerts and treatment reminders"
+msgstr "रोग चेतावनी और उपचार अनुस्मारक"
+
 msgid "Disease checks"
 msgstr "दुयेंसांची तपासणी"
 
@@ -556,6 +613,9 @@ msgstr "सुचीत करप रद्द कर"
 
 msgid "District"
 msgstr "जिल्लो"
+
+msgid "Do not spray"
+msgstr "छिड़काव न करें"
 
 msgid "Done speaking"
 msgstr "उलयून जालो"
@@ -595,6 +655,9 @@ msgstr "ईमेल"
 
 msgid "Enable JavaScript to change nearby distance and sorting. Market prices and favourites remain available."
 msgstr "लागसारचें अंतर आनी क्रमवारी बदलपाक जावास्क्रिप्ट चालू कर. बाजारांतले दर आनी आवडीचे पर्याय उपलब्ध आसात."
+
+msgid "Enable push notifications for severe weather alerts, pest outbreaks, and timely spraying windows"
+msgstr "गंभीर मौसम अलर्ट, कीट प्रकोप और समय पर छिड़काव के लिए पुश सूचनाएं सक्षम करें"
 
 msgid "End"
 msgstr "अखेर"
@@ -656,11 +719,14 @@ msgstr "कृशी वेवस्थापन"
 msgid "FROM QUESTION TO CONFIDENCE"
 msgstr "प्रश्ना पसून विस्वासा मेरेन"
 
+msgid "Fahrenheit"
+msgstr "फ़ारेनहाइट"
+
 msgid "Farm Assistant"
 msgstr "कृषी सहाय्यक"
 
 msgid "Farm activity planner"
-msgstr "शेतीकामाचें नियोजन"
+msgstr "कृषि गतिविधि योजना"
 
 msgid "Farm area (ha):"
 msgstr "कृशी क्षेत्र ( हॅक्टर ) :"
@@ -670,6 +736,9 @@ msgstr "कृशीक वट्ट ( कि. ग्रा.)"
 
 msgid "Farmers"
 msgstr "शेतकार"
+
+msgid "Farming calculator"
+msgstr "खेती कैलकुलेटर"
 
 msgid "Favourite market"
 msgstr "पसंडो बाजार"
@@ -685,6 +754,9 @@ msgstr "रासायनीक सारें"
 
 msgid "Fertilizer Calculator"
 msgstr "रासायनीक सारें कॅल्क्युलेटर"
+
+msgid "Fertilizer calculator"
+msgstr "उर्वरक कैलकुलेटर"
 
 msgid "Field size"
 msgstr "मैदानाचो आकार"
@@ -737,6 +809,9 @@ msgstr "दर 3 वरांचो अदमास; थळावो वेळ."
 msgid "Forecast for the village area; local field conditions may differ."
 msgstr "गांवगिऱ्या वाठारा खातीर अदमास; थळाव्या मळार परिस्थिती वेगळी आसूं येता."
 
+msgid "Fri"
+msgstr "शुक्र"
+
 msgid "From your first seed to your next harvest, ask what’s on your mind."
 msgstr "तुज्या पयल्या बियाण्या सावन फुडले पीक मेरेन, तुजे मनांत कितें आसा तें विचार."
 
@@ -755,6 +830,9 @@ msgstr "बागची जमीन ; नन - नेन्द्रन जा�
 msgid "Garlic"
 msgstr "लसूण"
 
+msgid "General"
+msgstr "सामान्य"
+
 msgid "General guidance; adjust for variety, soil and local climate."
 msgstr "सामान्य मार्गदर्शन; जात, माती आनी थळाव्या हवामाना प्रमाण बदलात."
 
@@ -762,13 +840,22 @@ msgid "Get clear guidance with the context behind it."
 msgstr "ताचे फाटल्या संदर्भांतल्यान स्पश्ट मार्गदर्शन घेयात."
 
 msgid "Get forecast"
-msgstr "अदमास घेयात"
+msgstr "पूर्वानुमान प्राप्त करें"
+
+msgid "Get medicine"
+msgstr "दवा पाएं"
 
 msgid "Get started"
 msgstr "सुरवात कर"
 
+msgid "Get this as a daily notification"
+msgstr "इसे दैनिक सूचना के रूप में प्राप्त करें"
+
 msgid "Ginger"
 msgstr "आले"
+
+msgid "Give Feedback"
+msgstr "प्रतिक्रिया दें"
 
 msgid "Give your plants a closer look."
 msgstr "तुज्या झाडांक लागींच्यान पळय."
@@ -863,8 +950,17 @@ msgstr "हॅक्टर"
 msgid "Hibiscus"
 msgstr "दासवाळ"
 
+msgid "High humidity"
+msgstr "अधिक आर्द्रता"
+
+msgid "High temperature"
+msgstr "अधिक तापमान"
+
 msgid "High temperatures (38 °C+) expected. Irrigate in the evening, mulch to conserve moisture, and protect nursery seedlings and livestock from heat."
 msgstr "उंच तापमान (38 °C+) अपेक्षित आसा. सांजेच्या वेळार शिंपणी करची, वलसाण सांबाळपा खातीर तणाची पाटी घालची, आनी नर्सरीचीं रोपां आनी जनावरांक उश्णते पसून राखप."
+
+msgid "High wind drift"
+msgstr "तेज हवा का जोखिम"
 
 msgid "Highest price"
 msgstr "सगळ्यांत चड मोल"
@@ -884,6 +980,9 @@ msgstr "भटाणा"
 msgid "How accurate is it?"
 msgstr "कितलो अचूक आसा तो?"
 
+msgid "How is it calculated?"
+msgstr "इसकी गणना कैसे की जाती है?"
+
 msgid "Humid"
 msgstr "दमट"
 
@@ -893,14 +992,23 @@ msgstr "दमटपणाचें मार्गदर्शन"
 msgid "Hybrids"
 msgstr "संकर"
 
+msgid "Ideal window"
+msgstr "सही समय"
+
 msgid "Image"
 msgstr "चित्र"
 
 msgid "Improve ventilation and reduce humidity (especially in polyhouses); spray mancozeb at 2.5 grams per litre of water or chlorothalonil at 2 grams per litre of water."
 msgstr "हवा येरादारी सुदार आनी दमटसाण उणी कर (खास करून पॉलीहावसांनी); mancozeb: 2.5 g/L वा chlorothalonil: 2 g/L फवारणी कर."
 
+msgid "Incomplete"
+msgstr "अपूर्ण"
+
 msgid "Increase"
 msgstr "वाडयात"
+
+msgid "Information about my crops"
+msgstr "मेरी फसलों की जानकारी"
 
 msgid "Insufficient forecast"
 msgstr "अपुरो अदमास"
@@ -913,6 +1021,9 @@ msgstr "ईमेल वा पासवर्ड चुकीचो आसा."
 
 msgid "Invalid username or password."
 msgstr "अमान्य वापरप्याचें नांव वा संकेतशब्द."
+
+msgid "IoT Sensors dashboard"
+msgstr "आईओटी सेंसर डैशबोर्ड"
 
 msgid "Irrigated crop"
 msgstr "शिंपणी पीक"
@@ -968,6 +1079,9 @@ msgstr "छाटणी, उदक दिवप आनी फुलां का
 msgid "Keep your farm insights, questions, and plans together. Let’s make the next season a little clearer."
 msgstr "तुमची शेताची म्हायती, प्रस्न आनी येवजणो एकठांय दवरच्यो. फुडलो हंगाम मातसो स्पश्ट करूया."
 
+msgid "Kelvin"
+msgstr "केल्विन"
+
 msgid "Kerala"
 msgstr "केरळ"
 
@@ -1010,6 +1124,9 @@ msgstr "हालींच उजवाडाक आयिल्लेंः"
 msgid "Layers"
 msgstr "दाब कलम"
 
+msgid "Leaf Doctor Diagnosis"
+msgstr "लीफ डॉक्टर निदान"
+
 msgid "Leaf blight isariopsis leaf spot"
 msgstr "पर्ण विलेशण इसारियोप्सीस पानाचेर दाग"
 
@@ -1024,6 +1141,9 @@ msgstr "पानांचो झडप"
 
 msgid "Learn about this fertilizer"
 msgstr "ह्या रासायनीक सार्‍या विशीं जाणून घेयात ."
+
+msgid "Legal Notices"
+msgstr "कानूनी नोटिस"
 
 msgid "Lentil"
 msgstr "मसुरी"
@@ -1133,11 +1253,20 @@ msgstr "पांच दिसांचो अदमास आनी वेव�
 msgid "Manage knowledge base"
 msgstr "ज्ञान आदार वेवस्थापन कर"
 
+msgid "Manage notifications for farming insights and market updates"
+msgstr "खेती की जानकारी और बाजार अपडेट के लिए सूचनाएं प्रबंधित करें"
+
 msgid "Manage pond water level and leave room for leaves to spread."
 msgstr "तळ्याची उदक पातळी सांबाळात आनी पानांक पसरपाक जागो दियात."
 
+msgid "Manage your Krishi Mitra preferences"
+msgstr "अपनी कृषि मित्र प्राथमिकताएँ प्रबंधित करें"
+
 msgid "Mandi"
 msgstr "मंडी"
+
+msgid "Mandi prices"
+msgstr "मंडी भाव"
 
 msgid "Mandis upload prices at the end of each trading day and Agmarknet verifies them before publishing, so the newest prices are usually 1–2 days old (longer after Sundays and holidays). This page updates automatically when new prices are published."
 msgstr "प्रत्येक वेपाराच्या दिसाचे अखेरेक मण्डी मोल अपलोड करतात आनी  प्रकाशित करचे पयलीं ऍगमार्कनॅट तांची पडताळणी करता, देखून सगळ्यांत नवे मोल चडशे 1-2 दीस पोरणे आसतात (आयतारा उपरांत आनी सुटया उपरांत चड). नवे मोल प्रकाशीत जातकच हें पान आपोआप अपडेट जाता."
@@ -1159,6 +1288,9 @@ msgstr "मार्च"
 
 msgid "Marigold"
 msgstr "झेंडू"
+
+msgid "Market"
+msgstr "बाजार"
 
 msgid "Market Prices"
 msgstr "बाजाराच्यो भावा"
@@ -1220,14 +1352,29 @@ msgstr "मिझोरम"
 msgid "Modal price"
 msgstr "प्रचलित भाव"
 
+msgid "Moderate"
+msgstr "मध्यम"
+
 msgid "Moderate rain (~%(rain_next3)s mm) expected. Plan sprays for dry windows so they are not washed off."
 msgstr "मध्यम पावसाची (~%(rain_next3)s मि.मी.) अपेक्षा आसा. सुक्यो जनेलां धुवपाचें ना म्हुणून स्प्रे करपाची येवजण करात."
+
+msgid "Moderate spraying conditions"
+msgstr "मध्यम छिड़काव की स्थितियां"
 
 msgid "Moist"
 msgstr "ओलसर"
 
+msgid "Mon"
+msgstr "सोम"
+
+msgid "Monitor drift"
+msgstr "हवा का बहाव देखें"
+
 msgid "Moong(Green Gram)"
 msgstr "मूग (पाचवो दाळ)"
+
+msgid "More options"
+msgstr "अधिक विकल्प"
 
 msgid "Moth"
 msgstr "फिग्गी"
@@ -1283,17 +1430,26 @@ msgstr "आदार जाय?"
 msgid "Network error. Please try again."
 msgstr "नेटवर्क त्रुटी. उपकार करून परत यत्न कर."
 
+msgid "New"
+msgstr "नया"
+
 msgid "New here?"
 msgstr "हांगा नवो आसा काय?"
 
 msgid "Next"
 msgstr "फुडें"
 
+msgid "Next 6 days"
+msgstr "अगले 6 दिन"
+
 msgid "Next forecast"
 msgstr "फुडलो अदमास"
 
 msgid "Niger seed"
 msgstr "नायजर बीं"
+
+msgid "Night time · Opens 06:00 AM"
+msgstr "रात का समय · सुबह 06:00 बजे खुलेगा"
 
 msgid "Nitrogen (N, kg/ha)"
 msgstr "नायट्रोजन ( एन , कि . / हॅ )"
@@ -1367,8 +1523,14 @@ msgstr "मेळूंक ना."
 msgid "Not specified by source"
 msgstr "स्रोतांत सांगिल्लें ना"
 
+msgid "Notifications"
+msgstr "सूचनाएं"
+
 msgid "November, after pruning"
 msgstr "नोव्हेंबर , छाटणी उपरांत"
+
+msgid "Now"
+msgstr "अभी"
 
 msgid "Number of trees"
 msgstr "झाडांची संख्या"
@@ -1394,6 +1556,12 @@ msgstr "तेलबीं"
 msgid "Okra"
 msgstr "भेंडी"
 
+msgid "One Home, One Chance"
+msgstr "एक घर, एक मौका"
+
+msgid "One Home, One Chance — Build with confidence"
+msgstr "एक घर, एक मौका — आत्मविश्वास के साथ बनाएं"
+
 msgid "One application, not an annual total"
 msgstr "एक अर्ज, वर्सुकी वट्ट न्हय"
 
@@ -1411,6 +1579,12 @@ msgstr "म्हजो डॅशबोर्ड उगड."
 
 msgid "Open nearby shops in Maps"
 msgstr "नकाशांत आशिल्लीं लागसारचीं दुकानां उगडा"
+
+msgid "Optimal"
+msgstr "सर्वोत्तम"
+
+msgid "Optimal spraying conditions"
+msgstr "सर्वोत्तम छिड़काव की स्थितियां"
 
 msgid "Orange"
 msgstr "संत्रां"
@@ -1466,6 +1640,15 @@ msgstr "मटराची दाळ"
 msgid "Pepper bell"
 msgstr "मिरयां बेल"
 
+msgid "Pesticide calculator"
+msgstr "कीटनाशक कैलकुलेटर"
+
+msgid "Pests & Disease Alert"
+msgstr "कीट व रोग चेतावनी"
+
+msgid "Pests & diseases"
+msgstr "कीट और रोग"
+
 msgid "Phone"
 msgstr "फोन"
 
@@ -1519,6 +1702,9 @@ msgstr "रोंपो - शेताचो आकार"
 
 msgid "Pomegranate"
 msgstr "डाळिंब"
+
+msgid "Poor"
+msgstr "खराब"
 
 msgid "Potash source. Check crop suitability and the nutrient grade before use."
 msgstr "पोटेश स्रोत . पिकेची उपयुक्तताय आनी पोशक तत्वांचो स्तर वापर करचे पयलीं तपासचें ."
@@ -1574,6 +1760,12 @@ msgstr "दुदीं"
 msgid "Punjab"
 msgstr "पंजाब"
 
+msgid "Push notifications"
+msgstr "पुश सूचनाएं"
+
+msgid "Quickstart"
+msgstr "क्विकस्टार्ट"
+
 msgid "ROOTED IN KNOWLEDGE. GROWN WITH AI."
 msgstr "ज्ञानांत रुजिल्लें. ए.आय. वांगडा वाडिल्लें."
 
@@ -1585,6 +1777,9 @@ msgstr "रागी"
 
 msgid "Rain chance"
 msgstr "पावसाची शक्यताय"
+
+msgid "Rain imminent"
+msgstr "बारिश की संभावना"
 
 msgid "Rainfall (mm)"
 msgstr "पावस (मिमी.)"
@@ -1607,11 +1802,23 @@ msgstr "रास्पबेरी"
 msgid "Real product photos are examples, not a promise of local stock. Check the actual nutrient grade, pack size and availability with the shop."
 msgstr "खऱ्या उत्पादनांचीं फोटां देखीं आसात, थळाव्या साठ्याचें उतर न्हय. दुकानांतल्यान प्रत्यक्ष पोशक तत्वांचो दर्जो, पॅकाचो आकार आनी उपलब्धता तपासात."
 
+msgid "Receive advisory alerts, disease warnings, and growth updates for your saved crops"
+msgstr "अपनी सहेजी गई फसलों के लिए सलाह, रोग चेतावनी और विकास अपडेट प्राप्त करें"
+
+msgid "Receive push notification"
+msgstr "पुश सूचना प्राप्त करें"
+
+msgid "Recent diagnoses"
+msgstr "हाल की जांच"
+
 msgid "Recent predictions"
 msgstr "हालींच्यो भाकितां"
 
 msgid "Recent questions"
 msgstr "हालींचे प्रस्न"
+
+msgid "Recommend Krishi Mitra"
+msgstr "कृषि मित्र की सिफारिश करें"
 
 msgid "Recommend crops"
 msgstr "फसलोची शिफारस करची ."
@@ -1688,6 +1895,9 @@ msgstr "लागसार आशिल्ले जुनिपर/सिडर
 msgid "Report date"
 msgstr "अहवालाची तारीख"
 
+msgid "Rest of the day"
+msgstr "दिन का शेष समय"
+
 msgid "Result"
 msgstr "परिणाम"
 
@@ -1715,8 +1925,17 @@ msgstr "रेवाळ दोमट"
 msgid "Sannhamp"
 msgstr "सन्हंप"
 
+msgid "Sat"
+msgstr "शनि"
+
 msgid "Save"
 msgstr "बचाव"
+
+msgid "Save Changes"
+msgstr "बदलाव सहेजें"
+
+msgid "Save Settings"
+msgstr "सेटिंग्स सहेजें"
 
 msgid "Search crop"
 msgstr "कृशी सोद"
@@ -1733,6 +1952,9 @@ msgstr "ऋतु"
 msgid "See application"
 msgstr "अर्जाची पद्दत पळयात"
 
+msgid "See diagnosis"
+msgstr "निदान देखें"
+
 msgid "Seedlings"
 msgstr "रोपां"
 
@@ -1748,8 +1970,14 @@ msgstr "बाजार पळोवपाक सुवात निवडात
 msgid "Select a valid choice. %(value)s is not one of the available choices."
 msgstr "एक वैध पर्याय निवड. %(value)s हो उपलब्ध पर्यायां मदलो एक न्हय."
 
+msgid "Select your Krishi Mitra Language"
+msgstr "अपनी कृषि मित्र भाषा चुनें"
+
 msgid "Select your crops"
 msgstr "तुमचीं पिकां निवडात"
+
+msgid "Select your crops →"
+msgstr "अपनी फसलें चुनें →"
 
 msgid "Send"
 msgstr "धाडचें"
@@ -1765,6 +1993,15 @@ msgstr "सॅप्टोरिया लीफ स्पॉट"
 
 msgid "Sesamum"
 msgstr "तिळो"
+
+msgid "Settings"
+msgstr "सेटिंग्स"
+
+msgid "Settings saved successfully."
+msgstr "सेटिंग्स सफलतापूर्वक सहेजी गईं।"
+
+msgid "Severe weather alerts and timely spraying windows"
+msgstr "गंभीर मौसम चेतावनी और समय पर छिड़काव अवधि"
 
 msgid "Shade management"
 msgstr "सावळी वेवस्थापन"
@@ -1794,7 +2031,7 @@ msgid "Smarter insights."
 msgstr "चड हुशार अंतर्दृष्टी."
 
 msgid "Soil condition"
-msgstr "मातीची स्थिती"
+msgstr "मिट्टी की स्थिति"
 
 msgid "Soil moisture % (optional, from sensor)"
 msgstr "मातयेची वलसाण % (पर्यायी, सेन्सरा कडल्यान)"
@@ -1856,11 +2093,17 @@ msgstr "उलयतना... मदीं थांबोवंक वर्त
 msgid "Speaking… tap the circle to skip"
 msgstr "उलयतना... वगडावंक वर्तुळाचेर टॅप कर"
 
+msgid "Speech synthesis is not supported on this browser."
+msgstr "इस ब्राउज़र पर वाक् संश्लेषण समर्थित नहीं है।"
+
 msgid "Spices"
 msgstr "मसालो"
 
 msgid "Spider mites two-spotted spider mite"
 msgstr "स्पायडर माइट दोन थिपक्यांचो स्पायडर माइट"
+
+msgid "Sponsored"
+msgstr "प्रायोजित"
 
 msgid "Spray captan 50% wettable powder (50 WP) at 2.5 grams per litre of water or mancozeb 75% wettable powder (75 WP) at 2.5 grams per litre of water from green-tip stage at 10-14 day intervals in wet weather. Rake and destroy fallen leaves."
 msgstr "पाचव्या तोंडाच्या अवस्थेंतल्यान captan 50 WP: 2.5 g/L वा mancozeb 75 WP: 2.5 g/L शिंपडावणी पावसाळ्यांत 10-14 दिसांच्या अंतराचेर करचीं . पडिल्लीं पानां रेंवचीं आनी नश्ट करचीं."
@@ -1882,6 +2125,15 @@ msgstr "sulphur 80 WP: 2-3 g/L वा hexaconazole 5 EC: 1 mL/L सारके�
 
 msgid "Spraying"
 msgstr "फवारणी"
+
+msgid "Spraying calculation"
+msgstr "छिड़काव गणना"
+
+msgid "Spraying conditions"
+msgstr "छिड़काव की स्थितियां"
+
+msgid "Spraying time"
+msgstr "छिड़काव का समय"
 
 msgid "Squash"
 msgstr "स्क्वॉश"
@@ -1937,11 +2189,17 @@ msgstr "ऊस"
 msgid "Summer"
 msgstr "गिमाळो"
 
+msgid "Sun"
+msgstr "रवि"
+
 msgid "Sun exposure"
 msgstr "सूर्यप्रकाश"
 
 msgid "Sunflower"
 msgstr "सुर्यफुल्ल"
+
+msgid "Sunset"
+msgstr "सूर्यास्त"
 
 msgid "Supplement rainfall with irrigation; keep soil moist and well drained."
 msgstr "पावसा वांगडा गरजेप्रमाण उदक दियात; माती ओली आनी बऱ्या निचऱ्याची दवरात."
@@ -1957,6 +2215,9 @@ msgstr "गोड संत्रां, पिराय 6 वर्सां �
 
 msgid "Sweet potato"
 msgstr "कणंगाची कंद"
+
+msgid "Take a picture"
+msgstr "फोटो लें"
 
 msgid "Take your next step"
 msgstr "तुजी फुडली पावंडो घे."
@@ -1990,6 +2251,9 @@ msgstr "समशीतोष्ण"
 
 msgid "Temperature (°C)"
 msgstr "तापमान (° से.)"
+
+msgid "Temperature Unit"
+msgstr "तापमान इकाई"
 
 msgid "Temperature and humidity"
 msgstr "तापमान आनी आर्द्रता"
@@ -2039,8 +2303,14 @@ msgstr "हो पासवर्ड सामकोच सामान्य �
 msgid "This tool is temporarily unavailable. Please try again later."
 msgstr "हें साधन तात्पुरतें मेळना. उपकार करून मागीर यत्न कर."
 
+msgid "Thu"
+msgstr "गुरु"
+
 msgid "Tip:"
 msgstr "सुचोवणीः"
+
+msgid "To build your identity"
+msgstr "अपनी पहचान बनाने के लिए"
 
 msgid "Tobacco"
 msgstr "तंबाकू"
@@ -2056,6 +2326,9 @@ msgstr "टॉमॅटो मोजेक वायरस"
 
 msgid "Tomato yellow leaf curl virus"
 msgstr "टॉमॅटो यलो लीफ कर्ल वायरस"
+
+msgid "Tools"
+msgstr "उपकरण"
 
 msgid "Top intents"
 msgstr "मुखेल हेतू"
@@ -2087,6 +2360,9 @@ msgstr "निशिगंध"
 msgid "Tubers"
 msgstr "कंद"
 
+msgid "Tue"
+msgstr "मंगल"
+
 msgid "Turmeric"
 msgstr "हळडी"
 
@@ -2101,6 +2377,12 @@ msgstr "तुज्या भाशेंत सांगपाक टायप
 
 msgid "Unanswered questions"
 msgstr "अनुत्तरीत प्रस्न"
+
+msgid "Unfavourable"
+msgstr "प्रतिकूल"
+
+msgid "Unfavourable spraying conditions"
+msgstr "प्रतिकूल छिड़काव की स्थितियां"
 
 msgid "Upload or take a clear photo of a single affected leaf against a plain background."
 msgstr "साद्या फाटभूंयेचेर एकाच बादा जाल्ल्या पानाचो स्पश्ट फोटो घेयात वा अपलोड करात."
@@ -2156,6 +2438,9 @@ msgstr "लागसारचे बाजार सोदपाक तुजे
 msgid "Used for local weather forecasts."
 msgstr "थळाव्या हवामानाचो अदमास घेवपाखातीर वापरतात."
 
+msgid "Used for regional agricultural standards, mandi currency, and weather"
+msgstr "क्षेत्रीय कृषि मानकों, मंडी मुद्रा और मौसम के लिए उपयोग किया जाता है"
+
 msgid "User"
 msgstr "वापरपी"
 
@@ -2189,6 +2474,9 @@ msgstr "वनस्पतीक वाड (दीस 11-30)"
 msgid "Verify source report"
 msgstr "स्रोताच्या अहवालाची पडतालत घेयात"
 
+msgid "View all"
+msgstr "सभी देखें"
+
 msgid "View reported markets in this state"
 msgstr "ह्या राज्यांत नोंद जाल्ले बाजार पळयात"
 
@@ -2196,7 +2484,7 @@ msgid "Village"
 msgstr "गांव"
 
 msgid "Village / town"
-msgstr "गांव/नगर"
+msgstr "गाँव / कस्बा"
 
 msgid "Village, district, state"
 msgstr "गांव, जिल्लो, राज्य"
@@ -2235,10 +2523,13 @@ msgid "Watermelon"
 msgstr "कलिंगड"
 
 msgid "Weather"
-msgstr "हवामान"
+msgstr "मौसम"
 
 msgid "Weather & Advisory"
 msgstr "हवामान आनी सुचोवणी"
+
+msgid "Weather & Spraying Conditions"
+msgstr "मौसम और छिड़काव की स्थिति"
 
 msgid "Weather for your working day."
 msgstr "तुज्या कामाच्या दिसाचें हवामान."
@@ -2248,6 +2539,12 @@ msgstr "हें फकत हवामान मार्गदर्शन; �
 
 msgid "Weather is unavailable. Check the location or try again later."
 msgstr "हवामान मेळना. सुवात तपास वा मागीर परत यत्न कर."
+
+msgid "Weather temperature units"
+msgstr "मौसम तापमान इकाइयाँ"
+
+msgid "Wed"
+msgstr "बुध"
 
 msgid "Weeding"
 msgstr "तण काडप"
@@ -2280,7 +2577,7 @@ msgid "Wholesale mandi reports, not retail prices or guaranteed sale offers. Com
 msgstr "ठोक बाजाराचे अहवाल, किरकोळ मोल वा खात्रीची विक्री ऑफर न्हय. एकाच बाजाराची, पिकाची, जातीची, श्रेणीची, अहवालाची तारीख आनी एककाची तुळा करात. पोरणे अहवाल म्हळ्यार आयचे मोल न्हय."
 
 msgid "Why this rating?"
-msgstr "हें मूल्यांकन कित्याक?"
+msgstr "यह रेटिंग क्यों?"
 
 msgid "Wind gust"
 msgstr "वाऱ्याचो झोत"
@@ -2312,6 +2609,12 @@ msgstr "उत्पादनाचो अदमास"
 msgid "Yield prediction"
 msgstr "पीक अदमास"
 
+msgid "You"
+msgstr "आप"
+
+msgid "Your crops"
+msgstr "आपकी फसलें"
+
 msgid "Your current location"
 msgstr "तुजी सद्याची सुवात"
 
@@ -2330,6 +2633,9 @@ msgstr "तुजी भास ह्या उपकरणाचेर सु�
 msgid "Your name"
 msgstr "तुजें नांव"
 
+msgid "Your selected crops"
+msgstr "आपकी चुनी हुई फसलें"
+
 msgid "Your soil. Your crops. Your next harvest. A little guidance for every step, from a companion that understands farming."
 msgstr "तुजी माती . तुजी पीक . तुजी फुडली कापणी . शेतकाम समजपी सोबत्या कडल्यान दर पावला खातीर थोडें मार्गदर्शन ."
 
@@ -2346,7 +2652,7 @@ msgid "add your district to your profile"
 msgstr "तुज्या प्रोफायलींत तुजो जिल्लो जोडू"
 
 msgid "add your village to your profile"
-msgstr "तुज्या प्रोफायलींत तुजो गांव जोडूंक जाय."
+msgstr "अपनी प्रोफ़ाइल में अपना गाँव जोड़ें"
 
 msgid "ago"
 msgstr "आगो"

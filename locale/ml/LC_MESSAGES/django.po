@@ -92,11 +92,20 @@ msgstr "ചെറിയൊരു ചുവട്."
 msgid "A user with that username already exists."
 msgstr "ആ ഉപയോക്തൃനാമമുള്ള ഒരു ഉപയോക്താവ് ഇതിനകം നിലവിലുണ്ട്."
 
+msgid "AI summary"
+msgstr "എഐ സംഗ്രഹം"
+
 msgid "Acres"
 msgstr "ഏക്കർ"
 
 msgid "Active tillering"
 msgstr "സജീവമായുള്ള തളിര്"
+
+msgid "Add"
+msgstr "ചേർക്കുക"
+
+msgid "Add or edit crops"
+msgstr "വിളകൾ ചേർക്കുകയോ മാറ്റുകയോ ചെയ്യുക"
 
 msgid "Add your district"
 msgstr "നിങ്ങളുടെ ജില്ല ചേർക്കുക"
@@ -160,6 +169,9 @@ msgstr "ആന്ധ്രാപ്രദേശ്"
 
 msgid "Annual total"
 msgstr "വാർഷിക ആകെ"
+
+msgid "App Country"
+msgstr "ആപ്പ് രാജ്യം"
 
 msgid "Apple"
 msgstr "ആപ്പിൾ"
@@ -245,6 +257,9 @@ msgstr "പിന്നോട്ട്"
 msgid "Back to calculation"
 msgstr "കണക്കുകൂട്ടലിലേക്ക് മടങ്ങുക"
 
+msgid "Back to home"
+msgstr "ഹോമിലേക്ക് മടങ്ങുക"
+
 msgid "Bacterial spot"
 msgstr "ബാക്ടീരിയൽ സ്പോട്ട്"
 
@@ -271,6 +286,9 @@ msgstr "വിത്ത് വിതയ്ക്കുന്നതിന് മ�
 
 msgid "Bellary onion"
 msgstr "ബെല്ലാരി ഉള്ളി"
+
+msgid "Best time to spray crops based on weather conditions"
+msgstr "കാലാവസ്ഥയെ അടിസ്ഥാനമാക്കി വിളകളിൽ തളിക്കാൻ ഏറ്റവും അനുയോജ്യമായ സമയം"
 
 msgid "Better decisions. Healthier farms."
 msgstr "മെച്ചപ്പെട്ട തീരുമാനങ്ങൾ, ആരോഗ്യകരമായ കൃഷിയിടങ്ങൾ."
@@ -311,6 +329,9 @@ msgstr "കണക്കുകൂട്ടിയ അളവുകൾ"
 msgid "Calculation reference: IFDC Fertilizer Bulk Blending Guide, page 27"
 msgstr "കണക്കുകൂട്ടൽ റഫറൻസ്: ഐഎഫ്ഡിസി വളം ബൾക്ക് ബ്ലെൻഡിംഗ് ഗൈഡ്, പേജ് 27"
 
+msgid "Capsicum & Chilli"
+msgstr "ക്യാപ്സിക്കവും മുളകും"
+
 msgid "Cardamom"
 msgstr "ഏലക്ക"
 
@@ -332,6 +353,9 @@ msgstr "കോളിഫ്ലവർ"
 msgid "Cedar apple rust"
 msgstr "ദേവദാരു ആപ്പിൾ തുരുമ്പ്"
 
+msgid "Celsius"
+msgstr "സെൽഷ്യസ്"
+
 msgid "Cercospora leaf spot gray leaf spot"
 msgstr "സെർക്കോസ്പോറ ഇലപ്പുള്ളി, ചാരനിറമുള്ള ഇലപ്പുള്ളി"
 
@@ -340,6 +364,12 @@ msgstr "ധാന്യങ്ങൾ"
 
 msgid "Change"
 msgstr "മാറ്റം"
+
+msgid "Change village"
+msgstr "ഗ്രാമം മാറ്റുക"
+
+msgid "Change ↗"
+msgstr "മാറ്റുക ↗"
 
 msgid "Chat messages"
 msgstr "ചാറ്റ് സന്ദേശങ്ങൾ"
@@ -377,6 +407,12 @@ msgstr "കടല"
 msgid "Choose how far you want to look for nearby markets."
 msgstr "സമീപത്തുള്ള വിപണികൾക്കായി എത്ര ദൂരം തിരയണമെന്ന് തിരഞ്ഞെടുക്കുക."
 
+msgid "Choose the display and speech language for Krishi Mitra"
+msgstr "കൃഷി മിത്രയ്ക്കായി പ്രദർശനവും സംഭാഷണ ഭാഷയും തിരഞ്ഞെടുക്കുക"
+
+msgid "Choose the temperature unit displayed across weather forecasts, spray conditions, and advisories"
+msgstr "കാലാവസ്ഥാ പ്രവചനങ്ങൾ, തളിക്കൽ അവസ്ഥകൾ, നിർദ്ദേശങ്ങൾ എന്നിവയിലുടനീളം പ്രദർശിപ്പിക്കുന്ന താപനില യൂണിറ്റ് തിരഞ്ഞെടുക്കുക"
+
 msgid "Choose what you need today."
 msgstr "ഇന്ന് നിങ്ങൾക്ക് ആവശ്യമുള്ളത് തിരഞ്ഞെടുക്കുക."
 
@@ -407,11 +443,17 @@ msgstr "ചരക്ക്"
 msgid "Common rust"
 msgstr "സാധാരണ തുരുമ്പ്"
 
+msgid "Community"
+msgstr "കമ്മ്യൂണിറ്റി"
+
 msgid "Companion crop reference"
 msgstr "സഹവിള അവലംബം"
 
 msgid "Companion suitability depends on spacing, shade and water availability."
 msgstr "സഹവിളയുടെ അനുയോജ്യത അകലം, തണൽ, ജലലഭ്യത എന്നിവയെ ആശ്രയിച്ചിരിക്കുന്നു."
+
+msgid "Complete"
+msgstr "പൂർത്തിയായി"
 
 msgid "Confidence:"
 msgstr "ആത്മവിശ്വാസം:"
@@ -421,6 +463,9 @@ msgstr "അനിശ്ചിതമായ വില തിരഞ്ഞെടു�
 
 msgid "Consult your local Krishi Vigyan Kendra (KVK) for a confirmed diagnosis and spray schedule."
 msgstr "കൃത്യമായ രോഗനിർണയത്തിനും സ്പ്രേ ഷെഡ്യൂളിനുമായി നിങ്ങളുടെ പ്രാദേശിക കൃഷി വിജ്ഞാൻ കേന്ദ്രവുമായി (കെ.വി.കെ.) ബന്ധപ്പെടുക."
+
+msgid "Contact and Social"
+msgstr "സമ്പർക്കവും സോഷ്യലും"
 
 msgid "Conversation"
 msgstr "സംഭാഷണം"
@@ -473,6 +518,9 @@ msgstr "സഹവിളകൾ"
 msgid "Crop establishment (days 1–10)"
 msgstr "വിളയുടെ സ്ഥാപനം (ദിവസം 1-10)"
 
+msgid "Crop health notifications"
+msgstr "വിള ആരോഗ്യ അറിയിപ്പുകൾ"
+
 msgid "Crop predictions"
 msgstr "വിള പ്രവചനം"
 
@@ -481,6 +529,9 @@ msgstr "വിള ശുപാർശ"
 
 msgid "Crop rotation"
 msgstr "വിളപരിക്രമണം"
+
+msgid "Crops"
+msgstr "വിളകൾ"
 
 msgid "Crossandra"
 msgstr "ക്രോസ്സാന്ദ്ര"
@@ -493,6 +544,9 @@ msgstr "വെള്ളരിക്ക"
 
 msgid "Cultivation"
 msgstr "കൃഷി"
+
+msgid "Cultivation Tips"
+msgstr "കൃഷി നുറുങ്ങുകൾ"
 
 msgid "Cuttings"
 msgstr "കമ്പുകൾ"
@@ -545,6 +599,9 @@ msgstr "നിർദ്ദേശം: സംസാരിക്കുക, വാ�
 msgid "Disease Check"
 msgstr "രോഗ പരിശോധന"
 
+msgid "Disease alerts and treatment reminders"
+msgstr "രോഗ മുന്നറിയിപ്പുകളും ചികിത്സാ ഓർമ്മപ്പെടുത്തലുകളും"
+
 msgid "Disease checks"
 msgstr "രോഗ പരിശോധനകൾ"
 
@@ -556,6 +613,9 @@ msgstr "അറിയിപ്പ് റദ്ദാക്കുക"
 
 msgid "District"
 msgstr "ജില്ല"
+
+msgid "Do not spray"
+msgstr "തളിക്കരുത്"
 
 msgid "Done speaking"
 msgstr "സംസാരിച്ചു തീർത്തു"
@@ -595,6 +655,9 @@ msgstr "ഇമെയിൽ"
 
 msgid "Enable JavaScript to change nearby distance and sorting. Market prices and favourites remain available."
 msgstr "സമീപത്തുള്ള ദൂരവും ക്രമീകരണവും മാറ്റുന്നതിന് ജാവാസ്ക്രിപ്റ്റ് പ്രവർത്തനക്ഷമമാക്കുക. വിപണി വിലകളും ഇഷ്ടപ്പെട്ടവയും ലഭ്യമാണ്."
+
+msgid "Enable push notifications for severe weather alerts, pest outbreaks, and timely spraying windows"
+msgstr "കഠിനമായ കാലാവസ്ഥാ മുന്നറിയിപ്പുകൾ, കീടബാധകൾ, സമയബന്ധിതമായ തളിക്കൽ എന്നിവയ്ക്കായി പുഷ് അറിയിപ്പുകൾ പ്രവർത്തനക്ഷമമാക്കുക"
 
 msgid "End"
 msgstr "അവസാനം"
@@ -656,11 +719,14 @@ msgstr "കൃഷി പരിപാലനം"
 msgid "FROM QUESTION TO CONFIDENCE"
 msgstr "ചോദ്യത്തിൽ നിന്ന് ആത്മവിശ്വാസത്തിലേക്ക്"
 
+msgid "Fahrenheit"
+msgstr "ഫാരൻഹീറ്റ്"
+
 msgid "Farm Assistant"
 msgstr "കൃഷി സഹായി"
 
 msgid "Farm activity planner"
-msgstr "കൃഷിപ്പണി ആസൂത്രണം"
+msgstr "കാർഷിക പ്രവർത്തന ആസൂത്രകൻ"
 
 msgid "Farm area (ha):"
 msgstr "കൃഷിസ്ഥലം (ഹെക്ടർ)"
@@ -670,6 +736,9 @@ msgstr "കൃഷി ആകെ (കിലോ)"
 
 msgid "Farmers"
 msgstr "കർഷകർ"
+
+msgid "Farming calculator"
+msgstr "കൃഷി കാൽക്കുലേറ്റർ"
 
 msgid "Favourite market"
 msgstr "പ്രിയപ്പെട്ട ചന്ത"
@@ -685,6 +754,9 @@ msgstr "വളം"
 
 msgid "Fertilizer Calculator"
 msgstr "വളം കണക്കുകൂട്ടുന്ന ഉപകരണം"
+
+msgid "Fertilizer calculator"
+msgstr "വളക്കണക്കുകൂട്ടൽ"
 
 msgid "Field size"
 msgstr "ഫീൽഡ് സൈസ്"
@@ -737,6 +809,9 @@ msgstr "ഓരോ 3 മണിക്കൂറിലുമുള്ള പ്ര�
 msgid "Forecast for the village area; local field conditions may differ."
 msgstr "ഗ്രാമപ്രദേശത്തിനുള്ള പ്രവചനം; പ്രാദേശിക ഫീൽഡ് സാഹചര്യങ്ങൾ വ്യത്യസ്തമായിരിക്കാം."
 
+msgid "Fri"
+msgstr "വെള്ളി"
+
 msgid "From your first seed to your next harvest, ask what’s on your mind."
 msgstr "നിങ്ങളുടെ ആദ്യ വിത്ത് മുതൽ അടുത്ത വിളവെടുപ്പ് വരെ നിങ്ങളുടെ മനസ്സിലുള്ളത് ചോദിക്കുക."
 
@@ -755,6 +830,9 @@ msgstr "തോട്ടഭൂമി ; നെടുമ്പാണി ഇതര�
 msgid "Garlic"
 msgstr "വെളുത്തുള്ളി"
 
+msgid "General"
+msgstr "പൊതുവായത്"
+
 msgid "General guidance; adjust for variety, soil and local climate."
 msgstr "പൊതുവായ മാർഗനിർദേശം; ഇനം, മണ്ണ്, പ്രാദേശിക കാലാവസ്ഥ എന്നിവയ്ക്കനുസരിച്ച് ക്രമീകരിക്കുക."
 
@@ -764,11 +842,20 @@ msgstr "അതിൻ്റെ പശ്ചാത്തലത്തിൽ വ്�
 msgid "Get forecast"
 msgstr "പ്രവചനം നേടുക"
 
+msgid "Get medicine"
+msgstr "മരുന്ന് കണ്ടെത്തുക"
+
 msgid "Get started"
 msgstr "തുടങ്ങുക"
 
+msgid "Get this as a daily notification"
+msgstr "ഇത് പ്രതിദിന അറിയിപ്പായി നേടുക"
+
 msgid "Ginger"
 msgstr "ഇഞ്ചി"
+
+msgid "Give Feedback"
+msgstr "അഭിപ്രായം അറിയിക്കുക"
 
 msgid "Give your plants a closer look."
 msgstr "നിങ്ങളുടെ ചെടികൾക്ക് ഒരു അടുത്തുള്ള കാഴ്ച നൽകുക."
@@ -863,8 +950,17 @@ msgstr "ഹെക്ടർ"
 msgid "Hibiscus"
 msgstr "ചെമ്പരത്തി"
 
+msgid "High humidity"
+msgstr "ഉയർന്ന ഈർപ്പം"
+
+msgid "High temperature"
+msgstr "ഉയർന്ന താപനില"
+
 msgid "High temperatures (38 °C+) expected. Irrigate in the evening, mulch to conserve moisture, and protect nursery seedlings and livestock from heat."
 msgstr "ഉയർന്ന താപനില (38 °C+) പ്രതീക്ഷിക്കുന്നു. വൈകുന്നേരം നനയ്ക്കുക, ഈർപ്പം നിലനിർത്താൻ പുതയിടുക, ചൂടിൽ നിന്ന് നഴ്സറി തൈകളും കന്നുകാലികളും സംരക്ഷിക്കുക."
+
+msgid "High wind drift"
+msgstr "ശക്തമായ കാറ്റ്"
 
 msgid "Highest price"
 msgstr "ഏറ്റവും ഉയർന്ന വില"
@@ -884,6 +980,9 @@ msgstr "ചെറുപയർ"
 msgid "How accurate is it?"
 msgstr "അത് എത്രത്തോളം കൃത്യമാണ്?"
 
+msgid "How is it calculated?"
+msgstr "ഇത് എങ്ങനെയാണ് കണക്കാക്കുന്നത്?"
+
 msgid "Humid"
 msgstr "ഈർപ്പമുള്ളത്"
 
@@ -893,14 +992,23 @@ msgstr "ആർദ്രതാ മാർഗനിർദേശം"
 msgid "Hybrids"
 msgstr "ഹൈബ്രിഡുകൾ"
 
+msgid "Ideal window"
+msgstr "അനുയോജ്യ സമയം"
+
 msgid "Image"
 msgstr "ചിത്രം"
 
 msgid "Improve ventilation and reduce humidity (especially in polyhouses); spray mancozeb at 2.5 grams per litre of water or chlorothalonil at 2 grams per litre of water."
 msgstr "വായുസഞ്ചാരം മെച്ചപ്പെടുത്തുകയും ഈർപ്പം കുറയ്ക്കുകയും ചെയ്യുക (പ്രത്യേകിച്ച് പോളിഹൗസുകളിൽ); mancozeb: 2.5 g/L അല്ലെങ്കിൽ chlorothalonil: 2 g/L സ്പ്രേ ചെയ്യുക."
 
+msgid "Incomplete"
+msgstr "അപൂർണ്ണം"
+
 msgid "Increase"
 msgstr "കൂട്ടുക"
+
+msgid "Information about my crops"
+msgstr "എന്റെ വിളകളെക്കുറിച്ചുള്ള വിവരങ്ങൾ"
 
 msgid "Insufficient forecast"
 msgstr "പ്രവചനം അപര്യാപ്തം"
@@ -913,6 +1021,9 @@ msgstr "ഇമെയിൽ അല്ലെങ്കിൽ പാസ്‌വേ�
 
 msgid "Invalid username or password."
 msgstr "അസാധുവായ ഉപയോക്തൃനാമമോ രഹസ്യവാക്കോ."
+
+msgid "IoT Sensors dashboard"
+msgstr "ഐഒടി സെൻസർ ഡാഷ്‌ബോർഡ്"
 
 msgid "Irrigated crop"
 msgstr "നനച്ച വിള"
@@ -968,6 +1079,9 @@ msgstr "കൊമ്പുകോതാനും നനയ്ക്കാനു�
 msgid "Keep your farm insights, questions, and plans together. Let’s make the next season a little clearer."
 msgstr "നിങ്ങളുടെ ഫാം ഉൾക്കാഴ്ചകളും ചോദ്യങ്ങളും പദ്ധതികളും ഒരുമിച്ച് വയ്ക്കുക. അടുത്ത സീസൺ കുറച്ചുകൂടി വ്യക്തമാക്കാം."
 
+msgid "Kelvin"
+msgstr "കെൽവിൻ"
+
 msgid "Kerala"
 msgstr "കേരളം"
 
@@ -1010,6 +1124,9 @@ msgstr "പുതിയതായി പ്രസിദ്ധീകരിച്�
 msgid "Layers"
 msgstr "പതിവെച്ച തൈകൾ"
 
+msgid "Leaf Doctor Diagnosis"
+msgstr "ഇല ഡോക്ടർ രോഗനിർണയം"
+
 msgid "Leaf blight isariopsis leaf spot"
 msgstr "ഇലപ്പുള്ളി ഇസരിയോപ്സിസ് ഇലകളിലെ പുള്ളികൾ"
 
@@ -1024,6 +1141,9 @@ msgstr "ഇലപൊള്ളൽ"
 
 msgid "Learn about this fertilizer"
 msgstr "ഈ വളത്തെക്കുറിച്ച് അറിയുക"
+
+msgid "Legal Notices"
+msgstr "നിയമ അറിയിപ്പുകൾ"
 
 msgid "Lentil"
 msgstr "പരിപ്പ്"
@@ -1133,11 +1253,20 @@ msgstr "അഞ്ച് ദിവസത്തെ പ്രവചനവും പ
 msgid "Manage knowledge base"
 msgstr "വിജ്ഞാന അടിത്തറ കൈകാര്യം ചെയ്യുക"
 
+msgid "Manage notifications for farming insights and market updates"
+msgstr "കാർഷിക വിവരങ്ങൾക്കും വിപണി അപ്‌ഡേറ്റുകൾക്കുമായി അറിയിപ്പുകൾ കൈകാര്യം ചെയ്യുക"
+
 msgid "Manage pond water level and leave room for leaves to spread."
 msgstr "കുളത്തിലെ ജലനിരപ്പ് നിയന്ത്രിച്ച് ഇലകൾ പടരാൻ ഇടം നൽകുക."
 
+msgid "Manage your Krishi Mitra preferences"
+msgstr "നിങ്ങളുടെ കൃഷി മിത്ര മുൻഗണനകൾ നിയന്ത്രിക്കുക"
+
 msgid "Mandi"
 msgstr "മണ്ഡി"
+
+msgid "Mandi prices"
+msgstr "വിപണി വിലകൾ"
 
 msgid "Mandis upload prices at the end of each trading day and Agmarknet verifies them before publishing, so the newest prices are usually 1–2 days old (longer after Sundays and holidays). This page updates automatically when new prices are published."
 msgstr "ഓരോ വ്യാപാരദിവസത്തിന്‍റെയും അവസാനത്തിൽ മാണ്ഡികൾ വിലകൾ അപ്ലോഡ് ചെയ്യുകയും, പ്രസിദ്ധീകരിക്കുന്നതിന് മുമ്പ് ആഗ്മാർക്ക്നെറ്റ് അവ പരിശോധിക്കുകയും ചെയ്യുന്നതിനാൽ ഏറ്റവും പുതിയ വിലകൾ സാധാരണയായി 1-2 ദിവസം പഴയതാണ് (ഞായറാഴ്ചകൾക്കും അവധികൾക്കും ശേഷം കൂടുതൽ കാലം). പുതിയ വിലകൾ പ്രസിദ്ധീകരിക്കുമ്പോൾ ഈ പേജ് സ്വയമേവ അപ്ഡേറ്റ് ചെയ്യും."
@@ -1159,6 +1288,9 @@ msgstr "മാർച്ച്"
 
 msgid "Marigold"
 msgstr "ചെണ്ടുമല്ലി"
+
+msgid "Market"
+msgstr "വിപണി"
 
 msgid "Market Prices"
 msgstr "ചന്തവില"
@@ -1220,14 +1352,29 @@ msgstr "മിസോറാം"
 msgid "Modal price"
 msgstr "പ്രചാരത്തിലുള്ള വില"
 
+msgid "Moderate"
+msgstr "മിതമായത്"
+
 msgid "Moderate rain (~%(rain_next3)s mm) expected. Plan sprays for dry windows so they are not washed off."
 msgstr "മിതമായ മഴ (~%(rain_next3)s മി.മീ.) പ്രതീക്ഷിക്കുന്നു. ഉണങ്ങിയ ജനലുകൾ കഴുകി കളയാതിരിക്കാൻ സ്പ്രേ ചെയ്യാൻ പദ്ധതിയിടുക."
+
+msgid "Moderate spraying conditions"
+msgstr "മിതമായ തളിക്കൽ സാഹചര്യങ്ങൾ"
 
 msgid "Moist"
 msgstr "ഈർപ്പമുള്ള"
 
+msgid "Mon"
+msgstr "തിങ്കൾ"
+
+msgid "Monitor drift"
+msgstr "കാറ്റിന്റെ ഗതി നിരീക്ഷിക്കുക"
+
 msgid "Moong(Green Gram)"
 msgstr "ചെറുപയർ"
+
+msgid "More options"
+msgstr "കൂടുതൽ ഓപ്ഷനുകൾ"
 
 msgid "Moth"
 msgstr "ചൂളമന്ത്"
@@ -1283,17 +1430,26 @@ msgstr "സഹായം ആവശ്യമുണ്ടോ?"
 msgid "Network error. Please try again."
 msgstr "നെറ്റ്‌വർക്ക് പിശക്. ദയവായി വീണ്ടും ശ്രമിക്കുക."
 
+msgid "New"
+msgstr "പുതിയത്"
+
 msgid "New here?"
 msgstr "ഇവിടെ പുതിയ ആളാണോ?"
 
 msgid "Next"
 msgstr "അടുത്തത്"
 
+msgid "Next 6 days"
+msgstr "അടുത്ത 6 ദിവസങ്ങൾ"
+
 msgid "Next forecast"
 msgstr "അടുത്ത പ്രവചനം"
 
 msgid "Niger seed"
 msgstr "നൈജർ വിത്ത്"
+
+msgid "Night time · Opens 06:00 AM"
+msgstr "രാത്രി സമയം · രാവിലെ 06:00 ന് ആരംഭിക്കും"
 
 msgid "Nitrogen (N, kg/ha)"
 msgstr "നൈട്രജൻ (എന്‍, കി.ഗ്രാം./ഹെ.)"
@@ -1367,8 +1523,14 @@ msgstr "കണ്ടെത്തിയില്ല."
 msgid "Not specified by source"
 msgstr "ഉറവിടത്തിൽ വ്യക്തമാക്കിയിട്ടില്ല"
 
+msgid "Notifications"
+msgstr "അറിയിപ്പുകൾ"
+
 msgid "November, after pruning"
 msgstr "നവംബർ, വെട്ടിയൊതുക്കിയ ശേഷം"
+
+msgid "Now"
+msgstr "ഇപ്പോൾ"
 
 msgid "Number of trees"
 msgstr "വൃക്ഷങ്ങളുടെ എണ്ണം"
@@ -1394,6 +1556,12 @@ msgstr "എണ്ണക്കുരുക്കൾ"
 msgid "Okra"
 msgstr "വെണ്ടയ്ക്ക"
 
+msgid "One Home, One Chance"
+msgstr "ഒരു വീട്, ഒരു അവസരം"
+
+msgid "One Home, One Chance — Build with confidence"
+msgstr "ഒരു വീട്, ഒരു അവസരം — ആത്മവിശ്വാസത്തോടെ നിർമ്മിക്കുക"
+
 msgid "One application, not an annual total"
 msgstr "ഒരു അപേക്ഷ, വാർഷിക മൊത്തമല്ല"
 
@@ -1411,6 +1579,12 @@ msgstr "എന്‍റെ ഡാഷ്‌ബോർഡ് തുറക്കു�
 
 msgid "Open nearby shops in Maps"
 msgstr "മാപ്പുകളിൽ അടുത്തുള്ള കടകൾ തുറക്കുക"
+
+msgid "Optimal"
+msgstr "അനുയോജ്യം"
+
+msgid "Optimal spraying conditions"
+msgstr "അനുയോജ്യമായ തളിക്കൽ സാഹചര്യങ്ങൾ"
 
 msgid "Orange"
 msgstr "ഓറഞ്ച്"
@@ -1466,6 +1640,15 @@ msgstr "പയറും പയർവർഗ്ഗവും"
 msgid "Pepper bell"
 msgstr "കുരുമുളക് മണി"
 
+msgid "Pesticide calculator"
+msgstr "കീടനാശിനി കണക്കുകൂട്ടൽ"
+
+msgid "Pests & Disease Alert"
+msgstr "കീടരോഗ മുന്നറിയിപ്പ്"
+
+msgid "Pests & diseases"
+msgstr "കീടങ്ങളും രോഗങ്ങളും"
+
 msgid "Phone"
 msgstr "ഫോൺ"
 
@@ -1519,6 +1702,9 @@ msgstr "ചെടികൾ - കൃഷിയിടത്തിന്‍റെ �
 
 msgid "Pomegranate"
 msgstr "മാതളനാരകം"
+
+msgid "Poor"
+msgstr "മോശം"
 
 msgid "Potash source. Check crop suitability and the nutrient grade before use."
 msgstr "പൊട്ടാഷ് ഉറവിടം. ഉപയോഗിക്കുന്നതിന് മുമ്പ് വിളയുടെ അനുയോജ്യതയും പോഷക ഗ്രേഡും പരിശോധിക്കുക."
@@ -1574,6 +1760,12 @@ msgstr "മത്തങ്ങ"
 msgid "Punjab"
 msgstr "പഞ്ചാബ്"
 
+msgid "Push notifications"
+msgstr "പുഷ് അറിയിപ്പുകൾ"
+
+msgid "Quickstart"
+msgstr "ദ്രുത തുടക്കം"
+
 msgid "ROOTED IN KNOWLEDGE. GROWN WITH AI."
 msgstr "അറിവിൽ വേരൂന്നിയത്.  കൃത്രിമബുദ്ധിയിൽ വളർന്നത്"
 
@@ -1585,6 +1777,9 @@ msgstr "റാഗി"
 
 msgid "Rain chance"
 msgstr "മഴയുടെ സാധ്യത"
+
+msgid "Rain imminent"
+msgstr "മഴയ്ക്ക് സാധ്യത"
 
 msgid "Rainfall (mm)"
 msgstr "മഴ (മി.മീ.)"
@@ -1607,11 +1802,23 @@ msgstr "റാസ്ബെറി"
 msgid "Real product photos are examples, not a promise of local stock. Check the actual nutrient grade, pack size and availability with the shop."
 msgstr "യഥാർത്ഥ ഉൽപ്പന്ന ഫോട്ടോകൾ പ്രാദേശിക സ്റ്റോക്കിന്‍റെ വാഗ്ദാനമല്ല, മറിച്ച് ഉദാഹരണങ്ങളാണ്. കടയിൽ പോയി യഥാർത്ഥ പോഷക ഗ്രേഡ്, പാക്ക് സൈസ്, ലഭ്യത എന്നിവ പരിശോധിക്കുക."
 
+msgid "Receive advisory alerts, disease warnings, and growth updates for your saved crops"
+msgstr "നിങ്ങളുടെ സംരക്ഷിച്ച വിളകൾക്കായി ഉപദേശക മുന്നറിയിപ്പുകൾ, രോഗ മുന്നറിയിപ്പുകൾ, വളർച്ചാ അപ്‌ഡേറ്റുകൾ എന്നിവ സ്വീകരിക്കുക"
+
+msgid "Receive push notification"
+msgstr "പുഷ് അറിയിപ്പ് സ്വീകരിക്കുക"
+
+msgid "Recent diagnoses"
+msgstr "സമീപകാല പരിശോധനകൾ"
+
 msgid "Recent predictions"
 msgstr "സമീപകാല പ്രവചനങ്ങൾ"
 
 msgid "Recent questions"
 msgstr "അടുത്തിടെയുള്ള ചോദ്യങ്ങൾ"
+
+msgid "Recommend Krishi Mitra"
+msgstr "കൃഷി മിത്ര ശുപാർശ ചെയ്യുക"
 
 msgid "Recommend crops"
 msgstr "വിളകൾ ശുപാർശ ചെയ്യുക"
@@ -1688,6 +1895,9 @@ msgstr "സാധ്യമാകുമ്പോഴെല്ലാം അടു�
 msgid "Report date"
 msgstr "റിപ്പോർട്ട് തീയതി"
 
+msgid "Rest of the day"
+msgstr "ദിവസത്തിന്റെ ബാക്കി സമയം"
+
 msgid "Result"
 msgstr "ഫലം"
 
@@ -1715,8 +1925,17 @@ msgstr "മണൽ കലർന്ന പശിമരാശി"
 msgid "Sannhamp"
 msgstr "സണ്ണ്‌ഹംപ്"
 
+msgid "Sat"
+msgstr "ശനി"
+
 msgid "Save"
 msgstr "സേവ് ചെയ്യുക"
+
+msgid "Save Changes"
+msgstr "മാറ്റങ്ങൾ സംരക്ഷിക്കുക"
+
+msgid "Save Settings"
+msgstr "ക്രമീകരണങ്ങൾ സംരക്ഷിക്കുക"
 
 msgid "Search crop"
 msgstr "തിരയുന്ന വിള"
@@ -1733,6 +1952,9 @@ msgstr "കാലം"
 msgid "See application"
 msgstr "അപേക്ഷ കാണുക"
 
+msgid "See diagnosis"
+msgstr "രോഗനിർണയം കാണുക"
+
 msgid "Seedlings"
 msgstr "തൈകൾ"
 
@@ -1748,8 +1970,14 @@ msgstr "ചന്തകൾ കാണാൻ സ്ഥലം തിരഞ്ഞെ
 msgid "Select a valid choice. %(value)s is not one of the available choices."
 msgstr "ഒരു സാധുവായ ചോയ്സ് തിരഞ്ഞെടുക്കുക. %(value)s ലഭ്യമായ ചോയ്സുകളിൽ ഒന്നല്ല."
 
+msgid "Select your Krishi Mitra Language"
+msgstr "നിങ്ങളുടെ കൃഷി മിത്ര ഭാഷ തിരഞ്ഞെടുക്കുക"
+
 msgid "Select your crops"
 msgstr "നിങ്ങളുടെ വിളകൾ തിരഞ്ഞെടുക്കുക"
+
+msgid "Select your crops →"
+msgstr "നിങ്ങളുടെ വിളകൾ തിരഞ്ഞെടുക്കുക →"
 
 msgid "Send"
 msgstr "അയക്കുക"
@@ -1765,6 +1993,15 @@ msgstr "സെപ്റ്റോറിയ ലീഫ് സ്പോട്ട്"
 
 msgid "Sesamum"
 msgstr "എള്ള്"
+
+msgid "Settings"
+msgstr "ക്രമീകരണങ്ങൾ"
+
+msgid "Settings saved successfully."
+msgstr "ക്രമീകരണങ്ങൾ വിജയകരമായി സംരക്ഷിച്ചു."
+
+msgid "Severe weather alerts and timely spraying windows"
+msgstr "മോശം കാലാവസ്ഥാ മുന്നറിയിപ്പുകളും സമയോചിതമായ തളിക്കൽ സമയങ്ങളും"
 
 msgid "Shade management"
 msgstr "തണൽ നിയന്ത്രണം"
@@ -1856,11 +2093,17 @@ msgstr "സംസാരിക്കുന്നു... തടസ്സപ്പ�
 msgid "Speaking… tap the circle to skip"
 msgstr "സംസാരിക്കുന്നു... ഒഴിവാക്കാൻ വൃത്തത്തിൽ ടാപ്പുചെയ്യുക"
 
+msgid "Speech synthesis is not supported on this browser."
+msgstr "ഈ ബ്രൗസറിൽ സ്പീച്ച് സിന്തസിസ് പിന്തുണയ്ക്കുന്നില്ല."
+
 msgid "Spices"
 msgstr "സുഗന്ധവ്യഞ്ജനങ്ങൾ"
 
 msgid "Spider mites two-spotted spider mite"
 msgstr "സ്പൈഡർ മൈറ്റ്സ്, ടു-സ്പോറ്റഡ് സ്പൈഡർ മൈറ്റ്"
+
+msgid "Sponsored"
+msgstr "സ്പോൺസർ ചെയ്തത്"
 
 msgid "Spray captan 50% wettable powder (50 WP) at 2.5 grams per litre of water or mancozeb 75% wettable powder (75 WP) at 2.5 grams per litre of water from green-tip stage at 10-14 day intervals in wet weather. Rake and destroy fallen leaves."
 msgstr "നനഞ്ഞ കാലാവസ്ഥയിൽ 10-14 ദിവസ ഇടവേളകളിൽ പച്ച നിറത്തിൽ നിന്ന് captan 50 WP: 2.5 g/L അല്ലെങ്കിൽ mancozeb 75 WP: 2.5 g/L സ്പ്രേ ചെയ്യുക. വീണ ഇലകൾ നീക്കം ചെയ്ത് നശിപ്പിക്കുക."
@@ -1882,6 +2125,15 @@ msgstr "സ്പ്രേ sulphur 80 WP: 2-3 g/L അല്ലെങ്കിൽ
 
 msgid "Spraying"
 msgstr "തളിക്കൽ"
+
+msgid "Spraying calculation"
+msgstr "തളിക്കൽ കണക്കുകൂട്ടൽ"
+
+msgid "Spraying conditions"
+msgstr "തളിക്കാനുള്ള അവസ്ഥകൾ"
+
+msgid "Spraying time"
+msgstr "തളിക്കുന്ന സമയം"
 
 msgid "Squash"
 msgstr "സ്ക്വാഷ്"
@@ -1937,11 +2189,17 @@ msgstr "കരിമ്പ്"
 msgid "Summer"
 msgstr "വേനൽക്കാലം"
 
+msgid "Sun"
+msgstr "ഞായർ"
+
 msgid "Sun exposure"
 msgstr "സൂര്യപ്രകാശം"
 
 msgid "Sunflower"
 msgstr "സൂര്യകാന്തി"
+
+msgid "Sunset"
+msgstr "സൂര്യാസ്തമയം"
 
 msgid "Supplement rainfall with irrigation; keep soil moist and well drained."
 msgstr "മഴയ്ക്കൊപ്പം ആവശ്യത്തിന് നനയ്ക്കുക; മണ്ണിൽ ഈർപ്പവും നല്ല നീർവാർച്ചയും ഉറപ്പാക്കുക."
@@ -1957,6 +2215,9 @@ msgstr "മധുര ഓറഞ്ച്, പ്രായം 6 വയസ്സു
 
 msgid "Sweet potato"
 msgstr "മധുരക്കിഴങ്ങ്"
+
+msgid "Take a picture"
+msgstr "ചിത്രമെടുക്കുക"
 
 msgid "Take your next step"
 msgstr "നിങ്ങളുടെ അടുത്ത പടി എടുക്കുക"
@@ -1990,6 +2251,9 @@ msgstr "മിതശീതോഷ്ണം"
 
 msgid "Temperature (°C)"
 msgstr "താപനില (ഡിഗ്രി സെൽഷ്യസ്)"
+
+msgid "Temperature Unit"
+msgstr "താപനില യൂണിറ്റ്"
 
 msgid "Temperature and humidity"
 msgstr "താപനിലയും ഈർപ്പവും"
@@ -2039,8 +2303,14 @@ msgstr "ഈ പാസ്‌വേഡ് വളരെ സാധാരണമാണ
 msgid "This tool is temporarily unavailable. Please try again later."
 msgstr "ഈ ഉപകരണം താൽക്കാലികമായി ലഭ്യമല്ല. ദയവായി പിന്നീട് വീണ്ടും ശ്രമിക്കുക."
 
+msgid "Thu"
+msgstr "വ്യാഴം"
+
 msgid "Tip:"
 msgstr "നുറുങ്ങ്:"
+
+msgid "To build your identity"
+msgstr "നിങ്ങളുടെ വ്യക്തിത്വം നിർമ്മിക്കാൻ"
 
 msgid "Tobacco"
 msgstr "പുകയില"
@@ -2056,6 +2326,9 @@ msgstr "തക്കാളി മൊസൈക് വൈറസ്"
 
 msgid "Tomato yellow leaf curl virus"
 msgstr "തക്കാളി മഞ്ഞ ഇലചുരുൾ വൈറസ്"
+
+msgid "Tools"
+msgstr "ഉപകരണങ്ങൾ"
 
 msgid "Top intents"
 msgstr "പ്രധാന ഉദ്ദേശ്യങ്ങൾ"
@@ -2087,6 +2360,9 @@ msgstr "നിശാഗന്ധി"
 msgid "Tubers"
 msgstr "കിഴങ്ങുകൾ"
 
+msgid "Tue"
+msgstr "ചൊവ്വ"
+
 msgid "Turmeric"
 msgstr "മഞ്ഞൾ"
 
@@ -2101,6 +2377,12 @@ msgstr "നിങ്ങളുടെ സ്വന്തം ഭാഷയിൽ - �
 
 msgid "Unanswered questions"
 msgstr "ഉത്തരം കിട്ടാത്ത ചോദ്യങ്ങൾ"
+
+msgid "Unfavourable"
+msgstr "പ്രതികൂലം"
+
+msgid "Unfavourable spraying conditions"
+msgstr "പ്രതികൂല തളിക്കൽ സാഹചര്യങ്ങൾ"
 
 msgid "Upload or take a clear photo of a single affected leaf against a plain background."
 msgstr "ബാധിച്ച ഒരൊറ്റ ഇലയുടെ വ്യക്തമായ ഫോട്ടോ പ്ലെയിൻ പശ്ചാത്തലത്തിൽ അപ്ലോഡ് ചെയ്യുകയോ എടുക്കുകയോ ചെയ്യുക."
@@ -2156,6 +2438,9 @@ msgstr "സമീപത്തുള്ള വിപണികൾ കണ്ടെ�
 msgid "Used for local weather forecasts."
 msgstr "പ്രാദേശിക കാലാവസ്ഥാ പ്രവചനങ്ങൾക്ക് ഉപയോഗിക്കുന്നു."
 
+msgid "Used for regional agricultural standards, mandi currency, and weather"
+msgstr "പ്രാദേശിക കാർഷിക മാനദണ്ഡങ്ങൾ, വിപണി കറൻസി, കാലാവസ്ഥ എന്നിവയ്ക്കായി ഉപയോഗിക്കുന്നു"
+
 msgid "User"
 msgstr "ഉപയോക്താവ്"
 
@@ -2189,6 +2474,9 @@ msgstr "സസ്യവളർച്ച (ദിവസം 11-30)"
 msgid "Verify source report"
 msgstr "ഉറവിട റിപ്പോർട്ട് പരിശോധിക്കുക"
 
+msgid "View all"
+msgstr "എല്ലാം കാണുക"
+
 msgid "View reported markets in this state"
 msgstr "ഈ സംസ്ഥാനത്തെ റിപ്പോർട്ട് ചെയ്ത വിപണികൾ കാണുക"
 
@@ -2196,7 +2484,7 @@ msgid "Village"
 msgstr "ഗ്രാമം"
 
 msgid "Village / town"
-msgstr "ഗ്രാമം/പട്ടണം"
+msgstr "ഗ്രാമം / പട്ടണം"
 
 msgid "Village, district, state"
 msgstr "ഗ്രാമം, ജില്ല, സംസ്ഥാനം"
@@ -2240,6 +2528,9 @@ msgstr "കാലാവസ്ഥ"
 msgid "Weather & Advisory"
 msgstr "കാലാവസ്ഥയും അറിയിപ്പുകളും"
 
+msgid "Weather & Spraying Conditions"
+msgstr "കാലാവസ്ഥയും തളിക്കൽ സാഹചര്യങ്ങളും"
+
 msgid "Weather for your working day."
 msgstr "നിങ്ങളുടെ ജോലി ദിവസത്തെ കാലാവസ്ഥ."
 
@@ -2248,6 +2539,12 @@ msgstr "ഇത് കാലാവസ്ഥാ മാർഗനിർദേശം 
 
 msgid "Weather is unavailable. Check the location or try again later."
 msgstr "കാലാവസ്ഥ ലഭ്യമല്ല. സ്ഥലം പരിശോധിക്കുക അല്ലെങ്കിൽ പിന്നീട് വീണ്ടും ശ്രമിക്കുക."
+
+msgid "Weather temperature units"
+msgstr "കാലാവസ്ഥാ താപനില യൂണിറ്റുകൾ"
+
+msgid "Wed"
+msgstr "ബുധൻ"
 
 msgid "Weeding"
 msgstr "കളനീക്കൽ"
@@ -2280,7 +2577,7 @@ msgid "Wholesale mandi reports, not retail prices or guaranteed sale offers. Com
 msgstr "ചില്ലറ വിലയോ ഉറപ്പുള്ള വിൽപ്പന വാഗ്ദാനങ്ങളോ അല്ല, മൊത്തവ്യാപാര മണ്ഡി റിപ്പോർട്ടുകളാണ് താരതമ്യം ചെയ്യേണ്ടത്. ഒരേ വിപണി, വിള, ഇനം, ഗ്രേഡ്, റിപ്പോർട്ട് തീയതി, യൂണിറ്റ് എന്നിവ താരതമ്യം ചെയ്യുക. പഴയ റിപ്പോർട്ടുകൾ ഇന്നത്തെ വിലകളല്ല."
 
 msgid "Why this rating?"
-msgstr "ഈ വിലയിരുത്തൽ എന്തുകൊണ്ട്?"
+msgstr "എന്തുകൊണ്ട് ഈ റേറ്റിംഗ്?"
 
 msgid "Wind gust"
 msgstr "കാറ്റിന്റെ ശക്തമായ വീശൽ"
@@ -2312,6 +2609,12 @@ msgstr "വിളവ് കണക്കുകൾ"
 msgid "Yield prediction"
 msgstr "വിളവ് പ്രവചനം"
 
+msgid "You"
+msgstr "നിങ്ങൾ"
+
+msgid "Your crops"
+msgstr "നിങ്ങളുടെ വിളകൾ"
+
 msgid "Your current location"
 msgstr "നിങ്ങളുടെ ഇപ്പോഴത്തെ സ്ഥാനം"
 
@@ -2330,6 +2633,9 @@ msgstr "നിങ്ങളുടെ ഭാഷ ഈ ഉപകരണത്തിൽ
 msgid "Your name"
 msgstr "നിങ്ങളുടെ പേര്"
 
+msgid "Your selected crops"
+msgstr "നിങ്ങൾ തിരഞ്ഞെടുത്ത വിളകൾ"
+
 msgid "Your soil. Your crops. Your next harvest. A little guidance for every step, from a companion that understands farming."
 msgstr "നിങ്ങളുടെ മണ്ണ്. നിങ്ങളുടെ വിളകൾ. അടുത്ത വിളവെടുപ്പ്. കൃഷി മനസ്സിലാക്കുന്ന ഒരു കൂട്ടുകാരനിൽ നിന്നുള്ള ഓരോ ചുവടിനും ചെറിയൊരു മാർഗനിർദേശവും."
 
@@ -2346,7 +2652,7 @@ msgid "add your district to your profile"
 msgstr "നിങ്ങളുടെ പ്രൊഫൈലിൽ നിങ്ങളുടെ ജില്ല ചേർക്കുക"
 
 msgid "add your village to your profile"
-msgstr "നിങ്ങളുടെ പ്രൊഫൈലിൽ നിങ്ങളുടെ ഗ്രാമം ചേർക്കുക"
+msgstr "നിങ്ങളുടെ പ്രൊഫൈലിലേക്ക് നിങ്ങളുടെ ഗ്രാമം ചേർക്കുക"
 
 msgid "ago"
 msgstr "മുമ്പ്"

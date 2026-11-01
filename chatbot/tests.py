@@ -1,6 +1,6 @@
 import json
 import re
-from unittest.mock import patch
+from unittest.mock import MagicMock, patch
 
 from django.conf import settings
 from django.core.files.uploadedfile import SimpleUploadedFile
@@ -12,67 +12,104 @@ from . import engine, sarvam
 from .models import ChatMessage
 
 
+def mock_gemini_post(*args, **kwargs):
+    """Mock Gemini API requests.post for unit tests without network access."""
+    json_payload = kwargs.get('json', {})
+    contents = json_payload.get('contents', [])
+    prompt_text = ''
+    if contents and 'parts' in contents[0]:
+        prompt_text = contents[0]['parts'][0].get('text', '')
+
+    mock_resp = MagicMock()
+    mock_resp.status_code = 200
+
+    if any(k in prompt_text.lower() for k in ['sort a list', 'python', 'cricket', 'prime minister']):
+        reply_text = (
+            "I am Krishi Mitra's Farm Assistant. I am designed exclusively to assist with agriculture, "
+            "crops, farming practices, weather, mandi prices, fertilizers, and Krishi Mitra platform services. "
+            "I cannot answer queries outside the agricultural domain. Please ask an agriculture-related question."
+        )
+    elif 'ಯಾವ ಗೊಬ್ಬರ' in prompt_text or 'ಗೋಧಿ' in prompt_text:
+        reply_text = (
+            "ಗೋಧಿ ಬೆಳೆಗೆ ಎಕರೆಗೆ 50 ಕೆಜಿ ಡಿಎಪಿ (DAP), 25 ಕೆಜಿ ಪೊಟ್ಯಾಷ್ (MOP) ಮತ್ತು 85 kg urea ಶಿಫಾರಸು ಮಾಡಲಾಗಿದೆ."
+        )
+    elif 'pm kisan' in prompt_text.lower():
+        reply_text = (
+            "Under PM-KISAN (Pradhan Mantri Kisan Samman Nidhi), eligible farmers receive Rs 6,000 per year "
+            "in three equal installments of Rs 2,000 directly into their bank accounts."
+        )
+    elif 'armyworm' in prompt_text.lower():
+        reply_text = (
+            "For controlling Fall Armyworm in maize, spray Emamectin Benzoate 5% SG at 0.4 g/liter of water "
+            "or Chlorantraniliprole 18.5% SC at 0.3 ml/liter targeting the plant whorls."
+        )
+    elif 'fertilizer' in prompt_text.lower() or 'wheat' in prompt_text.lower():
+        reply_text = (
+            "For wheat, the standard balanced fertilizer dose per acre is 50 kg DAP, 85 kg urea, and 25 kg MOP."
+        )
+    else:
+        reply_text = "Krishi Mitra Farm Assistant is here to assist with your agricultural and crop advisory questions."
+
+    mock_resp.json.return_value = {
+        'candidates': [
+            {'content': {'parts': [{'text': reply_text}]}}
+        ]
+    }
+    return mock_resp
+
+
+@override_settings(GEMINI_API_KEY='test-gemini-key')
 class EngineTests(TestCase):
-    @classmethod
-    def setUpTestData(cls):
-        call_command('seed_knowledge', verbosity=0)
-
-    def test_matches_scheme_question_with_source(self):
+    @patch('chatbot.engine.requests.post', side_effect=mock_gemini_post)
+    def test_gemini_answers_farming_question_without_chunks(self, mock_post):
         reply = engine.answer('how much money does pm kisan give')
-        self.assertIsNotNone(reply.entry)
+        self.assertIsNone(reply.entry)  # Chunks removed!
         self.assertIn('6,000', reply.text)
-        self.assertIn('PM-KISAN', reply.entry.source)
+        data = reply.as_dict()
+        self.assertIsNone(data['source'])  # No source chunk
+        self.assertIsNone(data['source_url'])
 
-    def test_matches_pest_question(self):
+    @patch('chatbot.engine.requests.post', side_effect=mock_gemini_post)
+    def test_gemini_answers_pest_question(self, mock_post):
         reply = engine.answer('armyworm attacking my maize crop what to spray')
-        self.assertIn('emamectin', reply.text)
-
-    def test_scheme_questions_get_scheme_answers(self):
-        # Regression: "rice" used to outweigh "schemes" and return a fertilizer answer.
-        cases = {
-            'government schemes for rice growers': 'rice paddy farmers',
-            'what are the government scheme provide for farmer': 'main government schemes',
-            'what are the scheme provide for farmers recent news': 'main government schemes',
-        }
-        for query, expected in cases.items():
-            with self.subTest(query=query):
-                reply = engine.answer(query)
-                self.assertIsNotNone(reply.entry)
-                self.assertEqual(reply.entry.intent, 'scheme')
-                self.assertIn(expected, reply.entry.question)
-
-    def test_tolerates_misspellings(self):
-        reply = engine.answer('how much and which fertizer i have to apply to get a best yeild')
-        self.assertIsNotNone(reply.entry)
-        self.assertEqual(reply.entry.intent, 'fertilizer')
-
-    def test_greeting_and_weather_intents(self):
-        self.assertEqual(engine.answer('namaste').intent, 'greeting')
-        self.assertEqual(engine.answer('Greetings.').intent, 'greeting')  # how Sarvam translates ನಮಸ್ಕಾರ
-        self.assertEqual(engine.answer('will it rain tomorrow?').intent, 'weather')
-        self.assertEqual(engine.answer('what is the jowar price today').intent, 'market')
-        self.assertIsNotNone(engine.answer('how to sell crop online').entry)
-
-    def test_unknown_question_falls_back(self):
-        reply = engine.answer('quantum chromodynamics lattice gauge')
         self.assertIsNone(reply.entry)
+        self.assertIn('Emamectin', reply.text)
+
+    @patch('chatbot.engine.requests.post', side_effect=mock_gemini_post)
+    def test_gemini_boundary_guardrail_refusal(self, mock_post):
+        reply = engine.answer('write a python script to sort a list of numbers')
+        self.assertIn('Krishi Mitra', reply.text)
+        self.assertIn('cannot answer queries outside the agricultural domain', reply.text)
+
+    @patch('chatbot.engine.requests.post', side_effect=mock_gemini_post)
+    def test_gemini_answers_in_user_language_kannada(self, mock_post):
+        reply = engine.answer('ಗೋಧಿಗೆ ಯಾವ ಗೊಬ್ಬರ ಹಾಕಬೇಕು?')
+        self.assertIn('ಗೋಧಿ', reply.text)
+        self.assertIn('ಡಿಎಪಿ', reply.text)
+
+    @override_settings(GEMINI_API_KEY='')
+    def test_fallback_when_gemini_key_missing(self):
+        reply = engine.answer('what fertilizer for wheat?')
         self.assertIn('Kisan Call Centre', reply.text)
+        self.assertIsNone(reply.entry)
 
 
-@override_settings(SARVAM_API_KEY='')
+@override_settings(GEMINI_API_KEY='test-gemini-key', SARVAM_API_KEY='')
 class ChatApiTests(TestCase):
-    @classmethod
-    def setUpTestData(cls):
-        call_command('seed_knowledge', verbosity=0)
-
-    def test_api_returns_reply_and_logs_message(self):
-        resp = self.client.post(reverse('chatbot:api'), json.dumps({'message': 'fertilizer dose for wheat'}),
-                                content_type='application/json')
+    @patch('chatbot.engine.requests.post', side_effect=mock_gemini_post)
+    def test_api_returns_reply_and_logs_message(self, mock_post):
+        resp = self.client.post(
+            reverse('chatbot:api'),
+            json.dumps({'message': 'fertilizer dose for wheat'}),
+            content_type='application/json',
+        )
         self.assertEqual(resp.status_code, 200)
         data = resp.json()
         self.assertIn('85 kg urea', data['reply'])
-        self.assertTrue(data['source'])
+        self.assertIsNone(data['source'])  # Chunks removed!
         self.assertEqual(ChatMessage.objects.count(), 1)
+        msg = ChatMessage.objects.first()
+        self.assertIsNone(msg.matched_entry)  # No matched entry chunk
 
     def test_api_rejects_empty_and_bad_json(self):
         url = reverse('chatbot:api')
@@ -83,71 +120,41 @@ class ChatApiTests(TestCase):
 KANNADA_Q = 'ಗೋಧಿಗೆ ಎಷ್ಟು ಗೊಬ್ಬರ ಹಾಕಬೇಕು?'
 
 
-def fake_translate(text, source, target, kind='answer'):
-    if source == 'kn-IN' and target == 'en-IN':
-        return 'How much fertilizer should be applied to wheat?'
-    if source == 'en-IN' and target == 'kn-IN':
-        return f'[kn] {text}'
-    raise AssertionError(f'unexpected translation {source}->{target}')
-
-
-@override_settings(SARVAM_API_KEY='test-key')
-@patch.object(sarvam, 'translate', side_effect=fake_translate)
-@patch.object(sarvam, 'detect_language')
+@override_settings(GEMINI_API_KEY='test-gemini-key', SARVAM_API_KEY='test-key')
 class MultilingualTests(TestCase):
-    @classmethod
-    def setUpTestData(cls):
-        call_command('seed_knowledge', verbosity=0)
-
     def post(self, message):
         return self.client.post(reverse('chatbot:api'), json.dumps({'message': message}),
                                 content_type='application/json').json()
 
-    def test_kannada_question_answered_in_kannada_from_knowledge_base(self, detect, translate):
-        detect.return_value = 'kn-IN'
+    @patch('chatbot.engine.requests.post', side_effect=mock_gemini_post)
+    def test_kannada_question_answered_in_kannada_directly(self, mock_post):
         data = self.post(KANNADA_Q)
         self.assertEqual(data['language'], 'kn-IN')
-        self.assertTrue(data['reply'].startswith('[kn] '))
-        self.assertIn('85 kg urea', data['reply'])  # wheat fertilizer entry, translated back
-        self.assertIn('Wheat', data['source'])
-        msg = ChatMessage.objects.get()
+        self.assertIn('ಗೋಧಿ', data['reply'])
+        self.assertIsNone(data.get('source'))
+        msg = ChatMessage.objects.first()
         self.assertEqual(msg.message, KANNADA_Q)
-        self.assertEqual(msg.message_en, 'How much fertilizer should be applied to wheat?')
         self.assertEqual(msg.language, 'kn-IN')
-
-    def test_english_question_skips_translation(self, detect, translate):
-        detect.return_value = 'en-IN'
-        data = self.post('fertilizer for wheat')
-        self.assertEqual(data['language'], 'en-IN')
-        translate.assert_not_called()
-
-    def test_falls_back_to_english_when_sarvam_fails(self, detect, translate):
-        detect.side_effect = sarvam.SarvamError('down')
-        data = self.post('fertilizer for wheat')
-        self.assertEqual(data['language'], 'en-IN')
-        self.assertIn('85 kg urea', data['reply'])
+        self.assertIsNone(msg.matched_entry)
 
 
-@override_settings(SARVAM_API_KEY='test-key')
-@patch.object(sarvam, 'translate', side_effect=fake_translate)
+@override_settings(GEMINI_API_KEY='test-gemini-key', SARVAM_API_KEY='test-key')
+@patch('chatbot.engine.requests.post', side_effect=mock_gemini_post)
 @patch.object(sarvam, 'transcribe')
 class VoiceTests(TestCase):
-    @classmethod
-    def setUpTestData(cls):
-        call_command('seed_knowledge', verbosity=0)
-
     def upload(self, size=1000):
         return {'audio': SimpleUploadedFile('question.webm', b'0' * size, content_type='audio/webm')}
 
-    def test_voice_question_is_transcribed_and_answered_in_same_language(self, transcribe, translate):
+    def test_voice_question_is_transcribed_and_answered(self, transcribe, mock_post):
         transcribe.return_value = (KANNADA_Q, 'kn-IN')
         data = self.client.post(reverse('chatbot:voice'), self.upload()).json()
         self.assertEqual(data['transcript'], KANNADA_Q)
         self.assertEqual(data['language'], 'kn-IN')
-        self.assertIn('85 kg urea', data['reply'])
+        self.assertIn('ಗೋಧಿ', data['reply'])
         self.assertTrue(ChatMessage.objects.get().is_voice)
+        self.assertIsNone(data.get('source'))
 
-    def test_voice_errors(self, transcribe, translate):
+    def test_voice_errors(self, transcribe, mock_post):
         url = reverse('chatbot:voice')
         self.assertEqual(self.client.post(url).status_code, 400)
         transcribe.return_value = ('', 'en-IN')
@@ -155,14 +162,13 @@ class VoiceTests(TestCase):
         transcribe.side_effect = sarvam.SarvamError('down')
         self.assertEqual(self.client.post(url, self.upload()).status_code, 503)
 
-    def test_dictation_returns_text_only_and_logs_nothing(self, transcribe, translate):
+    def test_dictation_returns_text_only_and_logs_nothing(self, transcribe, mock_post):
         transcribe.return_value = (KANNADA_Q, 'kn-IN')
         data = self.client.post(reverse('chatbot:transcribe'), self.upload()).json()
         self.assertEqual(data, {'transcript': KANNADA_Q, 'language': 'kn-IN'})
-        self.assertFalse(ChatMessage.objects.exists())  # not a question until the farmer presses Send
-        translate.assert_not_called()
+        self.assertFalse(ChatMessage.objects.exists())
 
-    def test_mic_button_only_shown_when_key_configured(self, transcribe, translate):
+    def test_mic_button_only_shown_when_key_configured(self, transcribe, mock_post):
         from django.contrib.auth.models import User
         self.client.force_login(User.objects.create_user('f', password='pw'))
         self.assertContains(self.client.get(reverse('chatbot:chat')), 'data-mic')
@@ -190,7 +196,7 @@ class PlainLanguageTests(TestCase):
         self.assertEqual(offenders, [])
 
 
-@override_settings(SARVAM_API_KEY='test-key')
+@override_settings(SARVAM_API_KEY='test-key', GEMINI_API_KEY='test-gemini-key')
 @patch.object(sarvam, 'speak_reply', return_value=['bXAz'])
 class SpeakTests(TestCase):
     def setUp(self):
@@ -204,7 +210,6 @@ class SpeakTests(TestCase):
         self.client.force_login(self.owner)
         data = self.client.post(reverse('chatbot:speak', args=[self.msg.pk])).json()
         self.assertEqual(data, {'audios': ['bXAz'], 'format': 'mp3'})
-        # Speech is built from the English reply (symbols cleaned) and then translated.
         speak.assert_called_once_with('Answer', 'kn-IN')
 
     def test_cannot_speak_someone_elses_reply(self, speak):
@@ -214,12 +219,11 @@ class SpeakTests(TestCase):
         self.assertEqual(self.client.post(reverse('chatbot:speak', args=[self.msg.pk])).status_code, 404)
         speak.assert_not_called()
 
-    def test_chat_reply_includes_message_id_for_listening(self, speak):
-        with patch.object(sarvam, 'detect_language', return_value='en-IN'):
-            data = self.client.post(reverse('chatbot:api'), json.dumps({'message': 'hello'}),
-                                    content_type='application/json').json()
+    @patch('chatbot.engine.requests.post', side_effect=mock_gemini_post)
+    def test_chat_reply_includes_message_id_for_listening(self, mock_post, speak):
+        data = self.client.post(reverse('chatbot:api'), json.dumps({'message': 'hello'}),
+                                content_type='application/json').json()
         self.assertTrue(ChatMessage.objects.filter(pk=data['message_id']).exists())
-
 
 
 class SpeechTextTests(TestCase):

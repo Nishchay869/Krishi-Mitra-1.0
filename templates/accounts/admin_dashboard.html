@@ -1,15 +1,192 @@
 {% extends 'base.html' %}
-{% load i18n farm_i18n %}
+{% load static i18n farm_i18n %}
 {% block title %}{% translate "Admin dashboard" %}{% endblock %}
 {% block content %}
-<div class="d-flex flex-wrap gap-3 justify-content-between align-items-center mb-3">
-  <header class="page-intro"><span class="page-heading-icon"><i class="bi bi-sliders"></i></span><span class="eyebrow">{% translate "FARM MANAGEMENT" %}</span><h1>{% translate "Administrator dashboard" %}</h1></header>
+<div class="d-flex flex-wrap gap-3 justify-content-between align-items-center mb-4">
+  <header class="page-intro mb-0 pb-0 border-0">
+    <div class="d-flex align-items-center gap-3">
+      <div class="admin-brand-icon shadow-xs">
+        <img src="{% static 'images/logo-icon.png' %}" alt="Krishi Mitra" width="36" height="36" onerror="this.src='{% static 'favicon.png' %}';">
+      </div>
+      <div>
+        <span class="eyebrow mb-1">{% translate "FARM MANAGEMENT" %}</span>
+        <h1 class="h3 fw-bold mb-0 mt-1">{% translate "Administrator dashboard" %}</h1>
+      </div>
+    </div>
+  </header>
   <div class="d-flex gap-2">
     <a class="btn btn-outline-primary btn-sm" href="{% url 'admin:accounts_feedback_changelist' %}"><i class="bi bi-chat-heart me-1"></i>Feedback admin</a>
     <a class="btn btn-outline-success btn-sm" href="{% url 'admin:chatbot_knowledgeentry_changelist' %}">{% translate "Manage knowledge base" %}</a>
   </div>
 </div>
 <section class="card mb-4"><div class="card-body d-flex flex-wrap gap-3 align-items-center justify-content-between"><div><h2 class="h5">Pests &amp; diseases</h2><p class="mb-0 text-muted">Edit crop cards, upload photographs and publish treatment details.</p></div><a class="btn btn-agri" href="{% url 'crops:pest_admin' %}">Manage pests &amp; diseases →</a></div></section>
+
+<!-- Crop Status & Stories Broadcast (Instagram-style Advisory) -->
+<section class="card mb-4 shadow-sm border-0" style="border-radius: 16px; overflow: hidden;">
+  <div class="card-header bg-gradient p-3 d-flex justify-content-between align-items-center" style="background: linear-gradient(135deg, #1e3a8a 0%, #0284c7 100%); color: white;">
+    <div class="d-flex align-items-center gap-3">
+      <div class="admin-broadcast-badge">
+        <i class="bi bi-camera-reels-fill"></i>
+      </div>
+      <div>
+        <h2 class="h5 m-0 text-white fw-bold">Crop Status &amp; Stories Broadcast</h2>
+        <small class="text-white-50">Upload Instagram-style crop advisories that appear with colorful rings on farmers' homepages</small>
+      </div>
+    </div>
+    <span class="badge bg-white text-primary fw-semibold px-3 py-2 rounded-pill shadow-xs">Active Stories: {{ active_statuses|length }}</span>
+  </div>
+  <div class="card-body p-4">
+    <div class="row g-4">
+      <!-- 1. Upload Form -->
+      <div class="col-lg-6 border-end">
+        <h3 class="h6 fw-bold mb-3 d-flex align-items-center gap-2">
+          <i class="bi bi-broadcast text-primary"></i> Broadcast New Crop Status
+        </h3>
+        <form method="post" action="{% url 'accounts:admin_upload_status' %}" enctype="multipart/form-data" id="adminStatusForm">
+          {% csrf_token %}
+          <div class="row g-3">
+            <div class="col-sm-6">
+              <label class="form-label small fw-bold d-flex align-items-center gap-1">
+                <i class="bi bi-flower1 text-primary"></i> Target Crop
+              </label>
+              <select name="crop_name" class="form-select admin-select" id="statusCropSelect" required onchange="updateCropSlug(this)">
+                {% for c in available_crops %}
+                  <option value="{{ c.name }}" data-slug="{{ c.slug }}">{{ c.label|default:c.name }}</option>
+                {% endfor %}
+              </select>
+              <input type="hidden" name="crop_slug" id="statusCropSlug" value="tomato">
+            </div>
+
+            <div class="col-sm-6">
+              <label class="form-label small fw-bold d-flex align-items-center gap-1">
+                <i class="bi bi-tag-fill text-primary"></i> Advisory Category / Badge
+              </label>
+              <select name="badge" class="form-select admin-select">
+                {% for key, label in badge_choices %}
+                  <option value="{{ key }}">{{ label }}</option>
+                {% endfor %}
+              </select>
+            </div>
+
+            <div class="col-12">
+              <label class="form-label small fw-bold d-flex align-items-center gap-1">
+                <i class="bi bi-fonts text-primary"></i> Story Title / Headline
+              </label>
+              <input type="text" name="title" class="form-control admin-input" placeholder="e.g. Early Blight Alert &amp; Optimal Spray Window" required>
+            </div>
+
+            <div class="col-12">
+              <label class="form-label small fw-bold d-flex align-items-center gap-1">
+                <i class="bi bi-chat-left-text-fill text-primary"></i> Advisory Message / Caption
+              </label>
+              <textarea name="caption" class="form-control admin-textarea" rows="3" placeholder="Provide clear, actionable recommendations for farmers growing this crop..." required></textarea>
+            </div>
+
+            <!-- Balanced 50/50 Row for Story Duration & Photograph Upload -->
+            <div class="col-sm-6">
+              <label class="form-label small fw-bold d-flex align-items-center gap-1">
+                <i class="bi bi-clock-history text-primary"></i> Story Duration
+              </label>
+              <select name="duration_hours" class="form-select admin-duration-select">
+                <option value="24">24 Hours (Story)</option>
+                <option value="48" selected>48 Hours</option>
+                <option value="168">7 Days</option>
+                <option value="0">Permanent / Until Deleted</option>
+              </select>
+            </div>
+
+            <div class="col-sm-6">
+              <label class="form-label small fw-bold d-flex align-items-center gap-1">
+                <i class="bi bi-camera-fill text-primary"></i> Photograph / Media File
+              </label>
+              <div class="admin-file-picker-control d-flex align-items-center justify-content-between px-3 border rounded-3" onclick="document.getElementById('statusPhotoInput').click();">
+                <div class="d-flex align-items-center gap-2 overflow-hidden me-2">
+                  <span class="admin-upload-icon-badge flex-shrink-0">
+                    <i class="bi bi-cloud-arrow-up-fill"></i>
+                  </span>
+                  <div class="text-truncate">
+                    <span class="admin-upload-filename-text d-block fw-semibold small text-truncate" id="statusPhotoFilename">
+                      Choose field photo...
+                    </span>
+                    <span class="admin-upload-hint-text">JPG, PNG, WebP (or blank for crop image)</span>
+                  </div>
+                </div>
+                <button type="button" class="btn btn-sm btn-primary admin-file-browse-btn px-3 flex-shrink-0" onclick="event.stopPropagation(); document.getElementById('statusPhotoInput').click();">
+                  Browse
+                </button>
+                <input type="file" name="photo" id="statusPhotoInput" accept="image/*" class="d-none" onchange="handleAdminPhotoSelected(this)">
+              </div>
+            </div>
+
+            <!-- Image Preview Box -->
+            <div class="col-12 d-none" id="statusPhotoPreviewWrap">
+              <div class="p-3 border rounded-3 admin-preview-card text-center position-relative">
+                <img id="statusPhotoPreview" src="" alt="Preview" class="img-fluid rounded-3 shadow-xs" style="max-height: 180px; object-fit: cover;">
+                <div class="mt-2">
+                  <button type="button" class="btn btn-sm btn-outline-danger d-inline-flex align-items-center gap-1" onclick="clearAdminPhoto()">
+                    <i class="bi bi-x-circle-fill"></i> Remove Photo
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12 pt-2">
+              <button type="submit" class="btn btn-primary fw-bold px-4 py-2 w-100 shadow-sm d-flex align-items-center justify-content-center gap-2 admin-submit-broadcast-btn">
+                <i class="bi bi-send-fill"></i> Broadcast Crop Status
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <!-- 2. Currently Active Stories Grid -->
+      <div class="col-lg-6">
+        <h3 class="h6 fw-bold mb-3 d-flex align-items-center gap-2">
+          <i class="bi bi-collection-play text-primary"></i> Active Broadcasted Stories
+        </h3>
+        <div class="active-stories-scroll pe-1" style="max-height: 480px; overflow-y: auto;">
+          {% for st in active_statuses %}
+            <div class="card mb-3 border shadow-xs admin-story-item-card" style="border-radius: 14px; overflow: hidden;">
+              <div class="d-flex align-items-center p-3 gap-3">
+                <!-- Story Avatar (Favicon) with Green Ring -->
+                <div class="admin-story-avatar-wrap flex-shrink-0">
+                  <img src="{{ st.image_url }}" alt="{{ st.crop_name }}" class="admin-story-avatar-img">
+                </div>
+
+                <!-- Story Details -->
+                <div class="flex-grow-1 overflow-hidden">
+                  <div class="d-flex align-items-center gap-2 mb-1 flex-wrap">
+                    <span class="badge admin-story-cat-badge rounded-pill">{{ st.get_badge_display }}</span>
+                    <span class="fw-bold small text-body">{{ st.crop_name }}</span>
+                  </div>
+                  <h4 class="h6 mb-1 text-truncate fw-bold admin-story-title">{{ st.title }}</h4>
+                  <p class="admin-story-caption small m-0 text-truncate">{{ st.caption }}</p>
+                  <small class="admin-story-meta d-block mt-1">{{ st.created_at|date:'d M, H:i' }} · By {{ st.author.first_name|default:st.author.username }}</small>
+                </div>
+
+                <!-- Delete Action Button -->
+                <div class="flex-shrink-0 ms-2">
+                  <form method="post" action="{% url 'accounts:admin_delete_status' st.id %}" onsubmit="return confirm('Remove this status from the crop?');" class="m-0">
+                    {% csrf_token %}
+                    <button type="submit" class="admin-story-delete-btn" title="Delete status" aria-label="Delete status">
+                      <i class="bi bi-trash3-fill"></i>
+                    </button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          {% empty %}
+            <div class="text-center py-5 text-muted border rounded-3 bg-light-subtle">
+              <i class="bi bi-camera fs-1 text-muted opacity-50 mb-2 d-block"></i>
+              <p class="mb-1 fw-semibold">No crop statuses currently broadcasted.</p>
+              <small>Upload a status on the left to activate colorful story rings for farmers on the home page.</small>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 <div class="row g-3 mb-4">
   <div class="col-6 col-lg"><div class="card shadow-sm"><div class="card-body"><div class="text-muted small">{% translate "Farmers" %}</div><div class="fs-3 fw-semibold">{{ farmer_count }}</div></div></div></div>
   <div class="col-6 col-lg"><div class="card shadow-sm"><div class="card-body"><div class="text-muted small">{% translate "Chat messages" %}</div><div class="fs-3 fw-semibold">{{ chat_count }}</div></div></div></div>
@@ -19,12 +196,12 @@
   <div class="col-6 col-lg"><div class="card shadow-sm bg-light-subtle"><div class="card-body"><div class="text-muted small">User Feedbacks</div><div class="fs-3 fw-semibold text-primary">{{ feedback_count|default:0 }}</div></div></div></div>
 </div>
 <div class="row g-3">
-  <div class="col-lg-6"><div class="card shadow-sm h-100"><div class="card-header bg-white fw-semibold">{% translate "Unanswered questions" %} <span class="text-muted fw-normal small">{% translate "(knowledge gaps —" %} {{ kb_count }} {% translate "active entries)" %}</span></div>
+  <div class="col-lg-6"><div class="card shadow-sm h-100"><div class="card-header fw-semibold">{% translate "Unanswered questions" %} <span class="text-muted fw-normal small">{% translate "(knowledge gaps —" %} {{ kb_count }} {% translate "active entries)" %}</span></div>
     <ul class="list-group list-group-flush">
       {% for c in unanswered %}<li class="list-group-item small">{{ c.message|truncatechars:90 }} <span class="badge text-bg-light">{{ c.intent }}</span></li>
       {% empty %}<li class="list-group-item text-muted small">{% translate "None — every question matched the knowledge base." %}</li>{% endfor %}
     </ul></div></div>
-  <div class="col-lg-6"><div class="card shadow-sm h-100"><div class="card-header bg-white fw-semibold">{% translate "Top intents" %}</div>
+  <div class="col-lg-6"><div class="card shadow-sm h-100"><div class="card-header fw-semibold">{% translate "Top intents" %}</div>
     <ul class="list-group list-group-flush">
       {% for t in top_intents %}<li class="list-group-item small d-flex justify-content-between"><span>{{ t.intent|default:'—' }}</span><span class="badge text-bg-success">{{ t.n }}</span></li>
       {% empty %}<li class="list-group-item text-muted small">{% translate "No chat data yet." %}</li>{% endfor %}
@@ -33,16 +210,16 @@
   <!-- User Feedback Overview & Submissions -->
   <div class="col-12">
     <div class="card shadow-sm">
-      <div class="card-header bg-white d-flex justify-content-between align-items-center">
+      <div class="card-header d-flex justify-content-between align-items-center">
         <span class="fw-semibold"><i class="bi bi-chat-heart text-primary me-2"></i>User App Experience Feedback</span>
         <div class="d-flex gap-2">
-          <span class="badge bg-success-subtle text-success border border-success-subtle px-2 py-1">😀 Good: {{ feedback_ratings.good|default:0 }}</span>
-          <span class="badge bg-warning-subtle text-warning border border-warning-subtle px-2 py-1">😐 Average: {{ feedback_ratings.average|default:0 }}</span>
-          <span class="badge bg-danger-subtle text-danger border border-danger-subtle px-2 py-1">🙁 Bad: {{ feedback_ratings.bad|default:0 }}</span>
+          <span class="badge feedback-stat-badge-good px-2 py-1">😀 Good: {{ feedback_ratings.good|default:0 }}</span>
+          <span class="badge feedback-stat-badge-average px-2 py-1">😐 Average: {{ feedback_ratings.average|default:0 }}</span>
+          <span class="badge feedback-stat-badge-bad px-2 py-1">🙁 Bad: {{ feedback_ratings.bad|default:0 }}</span>
         </div>
       </div>
       <div class="table-responsive">
-        <table class="table table-sm mb-0 small">
+        <table class="table table-sm mb-0 small align-middle">
           <thead>
             <tr>
               <th>{% translate "When" %}</th>
@@ -66,11 +243,11 @@
               </td>
               <td>
                 {% if f.rating == 'good' %}
-                  <span class="badge bg-success text-white px-2 py-1">😀 Good</span>
+                  <span class="badge feedback-pill-good px-2 py-1">😀 Good</span>
                 {% elif f.rating == 'average' %}
-                  <span class="badge bg-warning text-dark px-2 py-1">😐 Average</span>
+                  <span class="badge feedback-pill-average px-2 py-1">😐 Average</span>
                 {% else %}
-                  <span class="badge bg-danger text-white px-2 py-1">🙁 Bad</span>
+                  <span class="badge feedback-pill-bad px-2 py-1">🙁 Bad</span>
                 {% endif %}
               </td>
               <td>{{ f.comment|default:"—"|truncatechars:100 }}</td>
@@ -89,12 +266,47 @@
     </div>
   </div>
 
-  <div class="col-12"><div class="card shadow-sm"><div class="card-header bg-white fw-semibold">{% translate "Recent predictions" %}</div>
-    <div class="table-responsive"><table class="table table-sm mb-0 small">
+  <div class="col-12"><div class="card shadow-sm"><div class="card-header fw-semibold">{% translate "Recent predictions" %}</div>
+    <div class="table-responsive"><table class="table table-sm mb-0 small align-middle">
       <thead><tr><th>{% translate "When" %}</th><th>{% translate "User" %}</th><th>{% translate "Type" %}</th><th>{% translate "Result" %}</th></tr></thead>
       <tbody>{% for p in recent_predictions %}<tr><td>{{ p.created_at|date:'d M H:i' }}</td><td>{{ p.user.username|default:'anonymous' }}</td><td>{% translate p.get_kind_display %}</td>
         <td>{% if p.kind == 'crop' %}{{ p.result.top.0.crop|title }}{% elif p.kind == 'yield' %}{{ p.result.crop|ui_text }}: {{ p.result.yield_per_ha }} {{ p.result.unit|ui_text }}{% else %}{{ p.result.plant|ui_text }} — {{ p.result.disease|ui_text }}{% endif %}</td></tr>
       {% empty %}<tr><td colspan="4" class="text-muted">{% translate "No predictions yet." %}</td></tr>{% endfor %}</tbody>
     </table></div></div></div>
 </div>
+
+<script>
+  function updateCropSlug(select) {
+    const opt = select.options[select.selectedIndex];
+    const slug = opt.getAttribute('data-slug') || select.value.toLowerCase().replace(/[\s&()]+/g, '-');
+    const slugInput = document.getElementById('statusCropSlug');
+    if (slugInput) slugInput.value = slug;
+  }
+  function handleAdminPhotoSelected(input) {
+    const wrap = document.getElementById('statusPhotoPreviewWrap');
+    const img = document.getElementById('statusPhotoPreview');
+    const filenameLabel = document.getElementById('statusPhotoFilename');
+    if (input.files && input.files[0]) {
+      const file = input.files[0];
+      const sizeMb = (file.size / (1024 * 1024)).toFixed(1);
+      if (filenameLabel) filenameLabel.textContent = `${file.name} (${sizeMb} MB)`;
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        if (img) img.src = e.target.result;
+        if (wrap) wrap.classList.remove('d-none');
+      };
+      reader.readAsDataURL(file);
+    }
+  }
+  function clearAdminPhoto() {
+    const input = document.getElementById('statusPhotoInput');
+    const wrap = document.getElementById('statusPhotoPreviewWrap');
+    const img = document.getElementById('statusPhotoPreview');
+    const filenameLabel = document.getElementById('statusPhotoFilename');
+    if (input) input.value = '';
+    if (filenameLabel) filenameLabel.textContent = 'Choose field photo...';
+    if (img) img.src = '';
+    if (wrap) wrap.classList.add('d-none');
+  }
+</script>
 {% endblock %}

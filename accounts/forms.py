@@ -66,10 +66,11 @@ class RegisterForm(BootstrapFormMixin, UserCreationForm):
 
 
 class EmailLoginForm(BootstrapFormMixin, forms.Form):
-    email = forms.EmailField(label=_('Email'), max_length=254,
-                            widget=forms.EmailInput(attrs={'autocomplete': 'username', 'autofocus': True}))
+    email = forms.CharField(label=_('Email'), max_length=254,
+                            widget=forms.TextInput(attrs={'autocomplete': 'username', 'autofocus': True}))
     password = forms.CharField(label=_('Password'), strip=False,
                                widget=forms.PasswordInput(attrs={'autocomplete': 'current-password'}))
+    portal = forms.CharField(required=False, widget=forms.HiddenInput(), initial='farmer')
 
     def __init__(self, request=None, *args, **kwargs):
         self.request = request
@@ -79,14 +80,21 @@ class EmailLoginForm(BootstrapFormMixin, forms.Form):
     def clean(self):
         cleaned = super().clean()
         email, password = cleaned.get('email'), cleaned.get('password')
+        portal = cleaned.get('portal') or (self.request.POST.get('portal', 'farmer') if self.request else 'farmer')
         if email and password:
-            users = list(User.objects.filter(email__iexact=email.strip())[:2])
+            clean_val = email.strip()
+            users = list(User.objects.filter(email__iexact=clean_val)[:2])
+            if not users:
+                users = list(User.objects.filter(username__iexact=clean_val)[:2])
             if len(users) == 1:
                 self.user_cache = authenticate(self.request, username=users[0].username, password=password)
             else:
                 User().set_password(password)  # Match password hashing work for unknown addresses.
             if self.user_cache is None:
                 raise forms.ValidationError(_('Invalid email or password.'))
+            if portal == 'admin' and not getattr(getattr(self.user_cache, 'profile', None), 'is_admin', False):
+                self.user_cache = None
+                raise forms.ValidationError('Access denied: This portal is for Krishi Mitra Administrators. Please switch to the Farmer Portal.')
         return cleaned
 
     def get_user(self):

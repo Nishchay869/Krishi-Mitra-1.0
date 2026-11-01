@@ -12,7 +12,7 @@
       <div class="bubble bot">{% translate "Namaste! Ask me about crop selection, fertilizers, pests and diseases, irrigation, soil health or government schemes like PM-KISAN and PMFBY." %}{% if VOICE_ENABLED %} {% translate "Type, or tap 🎤 to dictate in your own language — ಕನ್ನಡ, हिन्दी, తెలుగు, தமிழ், मराठी and more. For a hands-free voice conversation, tap the round green button." %}{% endif %}</div>
       {% for m in history %}
         <div class="bubble user">{% if m.is_voice %}🎤 {% endif %}{{ m.message }}</div>
-        <div class="bubble bot" data-message-id="{{ m.pk }}">{{ m.response }}{% if m.matched_entry %}<span class="source">{% translate "Source:" %} {{ m.matched_entry.source }}</span>{% endif %}</div>
+        <div class="bubble bot" data-message-id="{{ m.pk }}">{{ m.response }}</div>
       {% endfor %}
     </div>
     <form class="card-footer d-flex gap-2" data-chat-form>

@@ -1,16 +1,141 @@
 {% extends 'base.html' %}{% load static i18n farm_i18n %}
 {% block title %}Pests & diseases · {{ crop.name|ui_text }}{% endblock %}
-{% block extra_head %}<link rel="stylesheet" href="{% static 'css/pests.css' %}">{% endblock %}
+{% block extra_head %}<link rel="stylesheet" href="{% static 'css/pests.css' %}?v=1793528100">{% endblock %}
 {% block content %}<main class="pest-library">
 <a href="{% url 'crops:library' %}" class="pest-back">← {% translate 'Library' %}</a>
 {% if user.is_authenticated and user.profile.is_admin %}<a class="pest-button mb-3" href="{% url 'crops:pest_admin' %}?crop={{ crop.slug }}">Manage pests &amp; diseases</a>{% endif %}
 <header class="pest-heading"><div><span class="pest-eyebrow">CROP HEALTH LIBRARY</span><h1>Pests &amp; diseases</h1><p>Know what to look for, throughout your crop’s growth.</p></div>
-<form method="get" class="pest-select"><label for="pest-crop">See information for</label><select id="pest-crop" name="crop">{% if saved_crops %}<optgroup label="Your registered crops">{% for item in saved_crops %}<option value="{{ item.slug }}" {% if item.slug == crop.slug %}selected{% endif %}>{{ item.name|ui_text }}</option>{% endfor %}</optgroup>{% endif %}<optgroup label="More crops">{% for item in other_crops %}<option value="{{ item.slug }}" {% if item.slug == crop.slug %}selected{% endif %}>{{ item.name|ui_text }}</option>{% endfor %}</optgroup></select><button class="pest-button" type="submit">Show crop</button></form></header>
+<form method="get" class="pest-select pest-crop-form">
+  <label for="pest-crop" class="pest-crop-label">See information for</label>
+  <div class="pest-crop-wrap">
+    <i class="bi bi-flower1 pest-crop-icon" aria-hidden="true"></i>
+    <select id="pest-crop" name="crop" class="pest-crop-dropdown">
+      {% if saved_crops %}
+        <optgroup label="Your registered crops">
+          {% for item in saved_crops %}
+            <option value="{{ item.slug }}" {% if item.slug == crop.slug %}selected{% endif %}>{{ item.name|ui_text }}</option>
+          {% endfor %}
+        </optgroup>
+      {% endif %}
+      <optgroup label="More crops">
+        {% for item in other_crops %}
+          <option value="{{ item.slug }}" {% if item.slug == crop.slug %}selected{% endif %}>{{ item.name|ui_text }}</option>
+        {% endfor %}
+      </optgroup>
+    </select>
+    <i class="bi bi-chevron-down pest-crop-chevron" aria-hidden="true"></i>
+  </div>
+  <button class="btn-21st btn-21st-primary pest-crop-btn" type="submit">
+    <span>Show crop</span>
+    <i class="bi bi-arrow-right" aria-hidden="true"></i>
+  </button>
+</form></header>
 {% if saved_crops %}<nav class="pest-chips" aria-label="Your registered crops">{% for item in saved_crops %}<a href="?crop={{ item.slug }}" {% if item.slug == crop.slug %}aria-current="page"{% endif %}>{{ item.name|ui_text }}</a>{% endfor %}</nav>{% endif %}
-<form method="get" class="pest-filters" role="search"><input type="hidden" name="crop" value="{{ crop.slug }}"><label>Search issues<input name="q" type="search" value="{{ query }}" maxlength="100" placeholder="Name or symptom"></label><label>Issue type<select name="type"><option value="all">All types</option><option value="disease" {% if kind == 'disease' %}selected{% endif %}>Diseases</option><option value="pest" {% if kind == 'pest' %}selected{% endif %}>Pests</option><option value="disorder" {% if kind == 'disorder' %}selected{% endif %}>Other disorders</option></select></label>{% if stage %}<input type="hidden" name="stage" value="{{ stage }}">{% endif %}<button type="submit" class="pest-button">Search</button></form>
+<form method="get" class="pest-filters" role="search">
+  <input type="hidden" name="crop" value="{{ crop.slug }}">
+  {% if stage %}<input type="hidden" name="stage" value="{{ stage }}">{% endif %}
+
+  <div class="pest-filter-field pest-filter-search">
+    <label for="pest-search-input" class="pest-filter-label">Search issues</label>
+    <div class="pest-input-wrap">
+      <i class="bi bi-search pest-input-icon" aria-hidden="true"></i>
+      <input id="pest-search-input" name="q" type="search" value="{{ query }}" maxlength="100" placeholder="Name or symptom" class="pest-text-input" autocomplete="off">
+      {% if query %}
+      <a href="?crop={{ crop.slug }}{% if stage %}&amp;stage={{ stage }}{% endif %}{% if kind and kind != 'all' %}&amp;type={{ kind }}{% endif %}" class="pest-input-clear" aria-label="Clear search" title="Clear search">
+        <i class="bi bi-x-circle-fill" aria-hidden="true"></i>
+      </a>
+      {% endif %}
+    </div>
+  </div>
+
+  <div class="pest-filter-field pest-filter-type">
+    <label for="pest-type-select" class="pest-filter-label">Issue type</label>
+    <div class="pest-select-wrap">
+      <i class="bi bi-funnel pest-select-icon" aria-hidden="true"></i>
+      <select id="pest-type-select" name="type" class="pest-dropdown">
+        <option value="all" {% if not kind or kind == 'all' %}selected{% endif %}>All types</option>
+        <option value="disease" {% if kind == 'disease' %}selected{% endif %}>Diseases</option>
+        <option value="pest" {% if kind == 'pest' %}selected{% endif %}>Pests</option>
+        <option value="disorder" {% if kind == 'disorder' %}selected{% endif %}>Other disorders</option>
+      </select>
+      <i class="bi bi-chevron-down pest-select-chevron" aria-hidden="true"></i>
+    </div>
+  </div>
+
+  <div class="pest-filter-action">
+    <button type="submit" class="btn-21st btn-21st-primary pest-search-btn">
+      <i class="bi bi-search" aria-hidden="true"></i>
+      <span>Search</span>
+    </button>
+  </div>
+</form>
 {% include 'partials/pest_alerts_coming_soon.html' %}
 <div class="pest-intro"><h2>Issues by growth stage</h2><p>{{ total_issues }} documented issues for {{ crop.name|ui_text }}. Stages are scouting windows, not predictions of an outbreak. This curated guide is not an exhaustive list.</p></div>
 <nav class="pest-chips" aria-label="Growth stages"><a href="?crop={{ crop.slug }}" {% if not stage %}aria-current="page"{% endif %}>All stages</a>{% for item in stage_choices %}<a href="?crop={{ crop.slug }}&amp;stage={{ item.slug }}&amp;type={{ kind }}&amp;q={{ query|urlencode }}" {% if stage == item.slug %}aria-current="page"{% endif %}>{{ item.name }}</a>{% endfor %}</nav>
-{% for section in sections %}<section class="pest-stage"><header><div><h2><span class="pest-stage-icon" aria-hidden="true">✿</span>{{ section.name }}</h2><p>{{ section.note }} · {{ section.count }} issues</p></div>{% if not stage %}<a href="?crop={{ crop.slug }}&amp;stage={{ section.slug }}&amp;type={{ kind }}&amp;q={{ query|urlencode }}">View all →</a>{% endif %}</header><div class="{% if stage %}pest-grid{% else %}pest-rail{% endif %}">{% for issue in section.issues %}<a class="pest-card" href="{% url 'crops:pest_detail' crop.slug issue.id %}">{% if issue.photo_url %}<img src="{{ issue.photo_url }}" alt="{{ issue.photo_caption }}" loading="lazy" width="640" height="420">{% else %}<div class="pest-no-photo">A verified photo for {{ crop.name|ui_text }} has not been added yet.</div>{% endif %}<div class="pest-card-body"><span class="pest-kind">{{ issue.kind }}</span><h3>{{ issue.name }}</h3>{% if issue.photo_url %}<small>{% if issue.uploaded_photo %}{{ issue.photo_caption }}{% else %}Reference photo{% if issue.photo %}: {{ issue.photo_caption }}{% endif %}{% endif %}</small>{% endif %}</div></a>{% empty %}<p class="pest-empty">No matching entries in this stage. Try another stage or search term.</p>{% endfor %}</div></section>{% endfor %}
+{% for section in sections %}
+<section class="pest-stage">
+  <header class="pest-stage-header">
+    <div class="pest-stage-info">
+      <span class="pest-stage-icon" aria-hidden="true">
+        <i class="bi {% if section.icon %}{{ section.icon }}{% else %}bi-flower1{% endif %}"></i>
+      </span>
+      <div class="pest-stage-headings">
+        <h2 class="pest-stage-title">{{ section.name }}</h2>
+        <p class="pest-stage-subtitle">{{ section.note }} · <span class="pest-stage-count">{{ section.count }} documented issues</span></p>
+      </div>
+    </div>
+    {% if not stage %}
+    <a class="pest-stage-viewall" href="?crop={{ crop.slug }}&amp;stage={{ section.slug }}&amp;type={{ kind }}&amp;q={{ query|urlencode }}">
+      <span>View all {{ section.count }}</span>
+      <i class="bi bi-arrow-right" aria-hidden="true"></i>
+    </a>
+    {% endif %}
+  </header>
+  <div class="{% if stage %}pest-grid{% else %}pest-rail{% endif %}">
+    {% for issue in section.issues %}
+    <a class="pest-card pest-card-premium" href="{% url 'crops:pest_detail' crop.slug issue.id %}">
+      <div class="pest-card-media">
+        {% if issue.photo_url %}
+          <img src="{{ issue.photo_url }}" alt="{{ issue.photo_caption|default:issue.name }}" loading="lazy" width="640" height="420">
+        {% else %}
+          <div class="pest-no-photo">
+            <i class="bi bi-camera" aria-hidden="true"></i>
+            <span>A verified photo for {{ crop.name|ui_text }} has not been added yet.</span>
+          </div>
+        {% endif %}
+        <div class="pest-card-gradient" aria-hidden="true"></div>
+        <span class="pest-kind-badge pest-kind-{{ issue.category|default:'disease' }}">
+          {{ issue.kind }}
+        </span>
+        <span class="pest-card-cue" aria-hidden="true">
+          <i class="bi bi-arrow-up-right"></i>
+        </span>
+      </div>
+      <div class="pest-card-body">
+        <h3 class="pest-card-title">{{ issue.name }}</h3>
+        {% if issue.early %}
+          <p class="pest-card-early"><i class="bi bi-eye pest-early-icon" aria-hidden="true"></i><span>{{ issue.early|truncatechars:95 }}</span></p>
+        {% elif issue.conditions %}
+          <p class="pest-card-early"><i class="bi bi-info-circle pest-early-icon" aria-hidden="true"></i><span>{{ issue.conditions|truncatechars:95 }}</span></p>
+        {% elif issue.photo_caption %}
+          <p class="pest-card-early"><i class="bi bi-camera pest-early-icon" aria-hidden="true"></i><span>{{ issue.photo_caption|truncatechars:95 }}</span></p>
+        {% else %}
+          <p class="pest-card-early"><i class="bi bi-shield-check pest-early-icon" aria-hidden="true"></i><span>Field scouting notes and management guide</span></p>
+        {% endif %}
+        <div class="pest-card-footer">
+          <span class="pest-card-action">View symptoms &amp; guide</span>
+          <i class="bi bi-chevron-right pest-card-arrow" aria-hidden="true"></i>
+        </div>
+      </div>
+    </a>
+    {% empty %}
+    <div class="pest-empty-card">
+      <i class="bi bi-clipboard-check pest-empty-icon" aria-hidden="true"></i>
+      <p class="pest-empty">No matching entries in this stage. Try another stage or search term.</p>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+{% endfor %}
 <aside class="pest-diagnosis"><div><span class="pest-eyebrow">CROP DIAGNOSIS</span><h2>Something looks wrong?</h2><p>Upload a clear crop photograph to help investigate the symptoms.</p></div><a class="pest-button" href="{% url 'disease:detect' %}">Start diagnosis →</a></aside>
 <footer class="pest-sources"><h2>Crop reference guides</h2><p>Detailed reference text is currently in English. Only photographs verified for the selected crop are shown.</p>{% for source in references %}<a href="{{ source.url }}" target="_blank" rel="noopener noreferrer">{{ source.label }} ↗</a>{% endfor %}</footer></main>{% endblock %}

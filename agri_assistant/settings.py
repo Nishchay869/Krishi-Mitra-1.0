@@ -173,6 +173,7 @@ ML_MODELS_DIR = BASE_DIR / 'ml' / 'models'
 # Server-side leaf image assessment. Never expose this key to templates or browser JS.
 GEMINI_API_KEY = os.environ.get('GEMINI_API_KEY') or os.environ.get('GOOGLE_API_KEY', '')
 GEMINI_DISEASE_MODEL = os.environ.get('GEMINI_DISEASE_MODEL', 'gemini-3.8-flash')
+GEMINI_CHAT_MODEL = os.environ.get('GEMINI_CHAT_MODEL', 'gemini-3.1-flash-lite')
 
 DATA_GOV_IN_API_KEY = os.environ.get('DATA_GOV_IN_API_KEY', '')
 OPENWEATHER_API_KEY = os.environ.get('OPENWEATHER_API_KEY', '')

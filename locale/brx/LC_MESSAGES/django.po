@@ -92,11 +92,20 @@ msgstr "मोनसे फिसा आगान।"
 msgid "A user with that username already exists."
 msgstr "बै इउजारनेम गोनां सासे इउजारआ सिगाङावनो दंसै।"
 
+msgid "AI summary"
+msgstr "एआई सारांश"
+
 msgid "Acres"
 msgstr "एकर्स"
 
 msgid "Active tillering"
 msgstr "गोख्रों थारनाय"
+
+msgid "Add"
+msgstr "जोड़ें"
+
+msgid "Add or edit crops"
+msgstr "फसलें जोड़ें या बदलें"
 
 msgid "Add your district"
 msgstr "नोंनि जिल्लाखौ दाजाबदेर।"
@@ -160,6 +169,9 @@ msgstr "अन्ध्र प्रदेश"
 
 msgid "Annual total"
 msgstr "गासै बोसोरारि"
+
+msgid "App Country"
+msgstr "ऐप देश"
 
 msgid "Apple"
 msgstr "आफेल"
@@ -237,13 +249,16 @@ msgid "Available without internet"
 msgstr "इन्टारनेत गैयालासे मोनथावना।"
 
 msgid "Avoid"
-msgstr "बाद हो"
+msgstr "बचें"
 
 msgid "Back"
 msgstr "उनफिन"
 
 msgid "Back to calculation"
 msgstr "फिन साननायाव"
+
+msgid "Back to home"
+msgstr "होम पर वापस जाएँ"
 
 msgid "Bacterial spot"
 msgstr "जिउसायारि दागो"
@@ -271,6 +286,9 @@ msgstr "फोनायनि सिगां"
 
 msgid "Bellary onion"
 msgstr "बेल्लारी सामब्राम"
+
+msgid "Best time to spray crops based on weather conditions"
+msgstr "मौसम की स्थिति के आधार पर फसलों पर छिड़काव का सबसे अच्छा समय"
 
 msgid "Better decisions. Healthier farms."
 msgstr "साबसिन थिरांथाफोर। देहागोनांसिन फामुफोर।"
@@ -311,6 +329,9 @@ msgstr "साननाय बिबांफोर"
 msgid "Calculation reference: IFDC Fertilizer Bulk Blending Guide, page 27"
 msgstr "साननायनि फोरमान: आइ.एफ.दि.सि हासार गोबां गलायनाय बिथोन, बिलाइ 27"
 
+msgid "Capsicum & Chilli"
+msgstr "शिमला मिर्च और मिर्च"
+
 msgid "Cardamom"
 msgstr "एलास"
 
@@ -332,6 +353,9 @@ msgstr "फुलखबि"
 msgid "Cedar apple rust"
 msgstr "सेदार आपेलनि मारखि"
 
+msgid "Celsius"
+msgstr "सेल्सियस"
+
 msgid "Cercospora leaf spot gray leaf spot"
 msgstr "सार्कोस्परा बिलाइ दागो गोसोम बिलाइ दागो"
 
@@ -340,6 +364,12 @@ msgstr "आदार"
 
 msgid "Change"
 msgstr "सोलायनाय"
+
+msgid "Change village"
+msgstr "गाँव बदलें"
+
+msgid "Change ↗"
+msgstr "बदलें ↗"
 
 msgid "Chat messages"
 msgstr "सालाय खौरांफोर"
@@ -377,6 +407,12 @@ msgstr "खसखिस"
 msgid "Choose how far you want to look for nearby markets."
 msgstr "नों खाथिखालानि हाथाइफोरखौ बेसेबां गोजानसिम नागिरनो लुगैयो, बेखौ सायख'।"
 
+msgid "Choose the display and speech language for Krishi Mitra"
+msgstr "कृषि मित्र के लिए प्रदर्शन और बोली जाने वाली भाषा चुनें"
+
+msgid "Choose the temperature unit displayed across weather forecasts, spray conditions, and advisories"
+msgstr "मौसम पूर्वानुमान, छिड़काव स्थिति और सलाह में प्रदर्शित तापमान इकाई चुनें"
+
 msgid "Choose what you need today."
 msgstr "दिनै नोंनो मा नांगौ सायख'।"
 
@@ -393,7 +429,7 @@ msgid "Clear photo of a single leaf (JPG/PNG, max 5 MB)."
 msgstr "मोनसे बिलाइनि रोखा सावगारि (जे.पि.जि./पि.एन.जि., गोबांसिन 5 एम.बि.)।"
 
 msgid "Close"
-msgstr "बन्द खालाम।"
+msgstr "बंद करें"
 
 msgid "Coconut"
 msgstr "नारेंखल"
@@ -407,11 +443,17 @@ msgstr "मुवा"
 msgid "Common rust"
 msgstr "सरासनस्रा मारखि"
 
+msgid "Community"
+msgstr "समुदाय"
+
 msgid "Companion crop reference"
 msgstr "लोगो आबादनि फुंखा"
 
 msgid "Companion suitability depends on spacing, shade and water availability."
 msgstr "लोगो आबादनि गोरोबनाय जानथाइ, सायख्लुम आरो दै मोननायनि सायाव सोनारो।"
+
+msgid "Complete"
+msgstr "पूर्ण"
 
 msgid "Confidence:"
 msgstr "फोथायनाय:"
@@ -421,6 +463,9 @@ msgstr "मोनसे रोखा नङै बेसेन सायख'न�
 
 msgid "Consult your local Krishi Vigyan Kendra (KVK) for a confirmed diagnosis and spray schedule."
 msgstr "मोनसे थि-खालामनाय बेराम-सिनायनाय आरो सारदलानाय समनि थाखाय नोंनि जायगायारि कृसि बिगियान मिरु (के.भि.के.) खौ बोसोन।"
+
+msgid "Contact and Social"
+msgstr "संपर्क और सोशल"
 
 msgid "Conversation"
 msgstr "रायज्लायनाय"
@@ -473,6 +518,9 @@ msgstr "लोगो आबाद"
 msgid "Crop establishment (days 1–10)"
 msgstr "फसल गायनाय (सानफोर 1-10)"
 
+msgid "Crop health notifications"
+msgstr "फसल स्वास्थ्य सूचनाएं"
+
 msgid "Crop predictions"
 msgstr "फसलनि सिगां-अनुमान"
 
@@ -481,6 +529,9 @@ msgstr "फसलनि बिथोन"
 
 msgid "Crop rotation"
 msgstr "आबाद सोलायनाय"
+
+msgid "Crops"
+msgstr "फसलें"
 
 msgid "Crossandra"
 msgstr "क्रासन्द्रा"
@@ -493,6 +544,9 @@ msgstr "थाइग्रि"
 
 msgid "Cultivation"
 msgstr "आबाद मावनाय"
+
+msgid "Cultivation Tips"
+msgstr "खेती के सुझाव"
 
 msgid "Cuttings"
 msgstr "दालाइनि बाहागो"
@@ -545,6 +599,9 @@ msgstr "बुंथिनाय: बुं आरो सोदोबफोर�
 msgid "Disease Check"
 msgstr "बेराम नायनाय"
 
+msgid "Disease alerts and treatment reminders"
+msgstr "रोग चेतावनी और उपचार अनुस्मारक"
+
 msgid "Disease checks"
 msgstr "बेराम नायनाय।"
 
@@ -556,6 +613,9 @@ msgstr "बिथोनखौ होखार।"
 
 msgid "District"
 msgstr "जिल्ला"
+
+msgid "Do not spray"
+msgstr "छिड़काव न करें"
 
 msgid "Done speaking"
 msgstr "बुंनानै जाबाय।"
@@ -595,6 +655,9 @@ msgstr "इमेइल"
 
 msgid "Enable JavaScript to change nearby distance and sorting. Market prices and favourites remain available."
 msgstr "खाथि-खालानि जानथाय आरो सर्टिं सोलायनो थाखाय जाभास्क्रिप्टखौ इनेबल खालाम। हाथाइनि बेसेनफोर आरो फेभारेटफोरा मोननो हाथावनायै थायो।"
+
+msgid "Enable push notifications for severe weather alerts, pest outbreaks, and timely spraying windows"
+msgstr "गंभीर मौसम अलर्ट, कीट प्रकोप और समय पर छिड़काव के लिए पुश सूचनाएं सक्षम करें"
 
 msgid "End"
 msgstr "जोबथा"
@@ -656,11 +719,14 @@ msgstr "आबाद सामलायनाय"
 msgid "FROM QUESTION TO CONFIDENCE"
 msgstr "सोंनायनिफ्राय फोथायनायसिम"
 
+msgid "Fahrenheit"
+msgstr "फ़ारेनहाइट"
+
 msgid "Farm Assistant"
 msgstr "आबाद हेफाजाबगिरि"
 
 msgid "Farm activity planner"
-msgstr "आबाद मावनायनि थांखि"
+msgstr "कृषि गतिविधि योजना"
 
 msgid "Farm area (ha):"
 msgstr "आबाद फोथारनि हा :"
@@ -670,6 +736,9 @@ msgstr "आबाद गासै ( कि. ग्रा.)"
 
 msgid "Farmers"
 msgstr "आबादारिफोर"
+
+msgid "Farming calculator"
+msgstr "खेती कैलकुलेटर"
 
 msgid "Favourite market"
 msgstr "मोजां मोननाय हाथाइ"
@@ -685,6 +754,9 @@ msgstr "हासार"
 
 msgid "Fertilizer Calculator"
 msgstr "हासार सानखांगिरि"
+
+msgid "Fertilizer calculator"
+msgstr "उर्वरक कैलकुलेटर"
 
 msgid "Field size"
 msgstr "फोथारनि महर"
@@ -737,6 +809,9 @@ msgstr "3 घन्टा मोनसे आगान; जायगानि �
 msgid "Forecast for the village area; local field conditions may differ."
 msgstr "गामि ओनसोलनि थाखाय आगुलैखोनसंनाय, जायगायारि फोथारनि थासारिफोरा गुबुन-गुबुन जानो हागौ।"
 
+msgid "Fri"
+msgstr "शुक्र"
+
 msgid "From your first seed to your next harvest, ask what’s on your mind."
 msgstr "नोंनि गिबि बेगरनिफ्राय नोंनि उननि आबादसिम, सों नोंनि गोसोआव मा दं।"
 
@@ -755,6 +830,9 @@ msgstr "बागाननि हा ; नननेन्द्रन रोख�
 msgid "Garlic"
 msgstr "सामब्राम गुफुर"
 
+msgid "General"
+msgstr "सामान्य"
+
 msgid "General guidance; adjust for variety, soil and local climate."
 msgstr "सरासनस्रा दिहुनथि; जात, हा आरो जायगानि बोथोरजों गोरोबहो।"
 
@@ -762,13 +840,22 @@ msgid "Get clear guidance with the context behind it."
 msgstr "बिनि उननि बिथिंजों रोखा लामा दिन्थिनाय मोन।"
 
 msgid "Get forecast"
-msgstr "सिगांनि-अन्थायखौ मोन।"
+msgstr "पूर्वानुमान प्राप्त करें"
+
+msgid "Get medicine"
+msgstr "दवा पाएं"
 
 msgid "Get started"
 msgstr "जागायजेन।"
 
+msgid "Get this as a daily notification"
+msgstr "इसे दैनिक सूचना के रूप में प्राप्त करें"
+
 msgid "Ginger"
 msgstr "हाइजें"
+
+msgid "Give Feedback"
+msgstr "प्रतिक्रिया दें"
 
 msgid "Give your plants a closer look."
 msgstr "नोंनि बिफांफोरखौ खाथि-खाथि नाय।"
@@ -863,8 +950,17 @@ msgstr "हेक्टर"
 msgid "Hibiscus"
 msgstr "जवा"
 
+msgid "High humidity"
+msgstr "अधिक आर्द्रता"
+
+msgid "High temperature"
+msgstr "अधिक तापमान"
+
 msgid "High temperatures (38 °C+) expected. Irrigate in the evening, mulch to conserve moisture, and protect nursery seedlings and livestock from heat."
 msgstr "गोजौ बिदुं (38°C+) आसा-खालामजानाय। मोनाबिलियाव दै-जगाय, सिदोबखौ संरैखा-खालामनो हाग्रा-जिगाब हो आरो बिफां-लाइफांनि फिथाइफोर आरो जुनार-हारिनि अनगायै गुदुंजों रैखाथि।"
+
+msgid "High wind drift"
+msgstr "तेज हवा का जोखिम"
 
 msgid "Highest price"
 msgstr "बांसिन बेसेन"
@@ -884,6 +980,9 @@ msgstr "गुवार मुसुर"
 msgid "How accurate is it?"
 msgstr "बेयो बेसेबां थार?"
 
+msgid "How is it calculated?"
+msgstr "इसकी गणना कैसे की जाती है?"
+
 msgid "Humid"
 msgstr "सिदोम"
 
@@ -893,14 +992,23 @@ msgstr "सिदोमनि दिहुनथि"
 msgid "Hybrids"
 msgstr "हाइब्रिदफोर"
 
+msgid "Ideal window"
+msgstr "सही समय"
+
 msgid "Image"
 msgstr "सावगारि"
 
 msgid "Improve ventilation and reduce humidity (especially in polyhouses); spray mancozeb at 2.5 grams per litre of water or chlorothalonil at 2 grams per litre of water."
 msgstr "बार-हगारनायखौ जौगाहो आरो सिदोबथिखौ खमाय (गुबैयै पलिहाउसाव); मोनफ्रोम लितारनि दैयाव 2.5 ग्रामआव मानकजेब एबा मोनफ्रोम लितारनि दैयाव 2 ग्रामआव क्ल’र’थालनिलखौ सार।"
 
+msgid "Incomplete"
+msgstr "अपूर्ण"
+
 msgid "Increase"
 msgstr "बाराय"
+
+msgid "Information about my crops"
+msgstr "मेरी फसलों की जानकारी"
 
 msgid "Insufficient forecast"
 msgstr "आगाननि फोरमायथि खम"
@@ -913,6 +1021,9 @@ msgstr "इमेइल एबा पासवार्ड गोरोन्थ
 
 msgid "Invalid username or password."
 msgstr "बाहायजाथावै इउजारनेम एबा पासवर्ड।"
+
+msgid "IoT Sensors dashboard"
+msgstr "आईओटी सेंसर डैशबोर्ड"
 
 msgid "Irrigated crop"
 msgstr "दै सारनाय फसल"
@@ -968,6 +1079,9 @@ msgstr "दालाइ दाननाय, दै होनाय आरो ब
 msgid "Keep your farm insights, questions, and plans together. Let’s make the next season a little clearer."
 msgstr "नोंनि फामु इसिं नुथायफोरखौ सोंलु आरो बिथांखिफोरखौ ज' खालामना दोन। फै जों उननि बोथोरा इसे रोखा जाथों।"
 
+msgid "Kelvin"
+msgstr "केल्विन"
+
 msgid "Kerala"
 msgstr "केरेला"
 
@@ -1010,6 +1124,9 @@ msgstr "गोदानै फोसावनाय जादोंमोन:"
 msgid "Layers"
 msgstr "लेयार"
 
+msgid "Leaf Doctor Diagnosis"
+msgstr "लीफ डॉक्टर निदान"
+
 msgid "Leaf blight isariopsis leaf spot"
 msgstr "लाइफ ब्लाइट इसारियप्सिस लाइफ स्पट"
 
@@ -1024,6 +1141,9 @@ msgstr "बिलाइ खामनाय"
 
 msgid "Learn about this fertilizer"
 msgstr "बे हासारनि सोमोन्दै मिथिना ला।"
+
+msgid "Legal Notices"
+msgstr "कानूनी नोटिस"
 
 msgid "Lentil"
 msgstr "दाल"
@@ -1133,11 +1253,20 @@ msgstr "बा साननि सिगांनि रादाब आरो �
 msgid "Manage knowledge base"
 msgstr "गियान बिथा सामलाय।"
 
+msgid "Manage notifications for farming insights and market updates"
+msgstr "खेती की जानकारी और बाजार अपडेट के लिए सूचनाएं प्रबंधित करें"
+
 msgid "Manage pond water level and leave room for leaves to spread."
 msgstr "पुख्रिनि दैनि थाखो सामलाय आरो बिलाइ फेलायनो जायगा हो।"
 
+msgid "Manage your Krishi Mitra preferences"
+msgstr "अपनी कृषि मित्र प्राथमिकताएँ प्रबंधित करें"
+
 msgid "Mandi"
 msgstr "मण्डि"
+
+msgid "Mandi prices"
+msgstr "मंडी भाव"
 
 msgid "Mandis upload prices at the end of each trading day and Agmarknet verifies them before publishing, so the newest prices are usually 1–2 days old (longer after Sundays and holidays). This page updates automatically when new prices are published."
 msgstr "मोनफ्रोमबो फालांगिनि साननि जोबनायाव मान्दिफोरा बेसेनफोरखौ आपल'ड खालामो आरो आगमार्केटआ फोसावनायनि सिगां बिसोरखौ फोरमान खालामो, बेनिखायनो गोदानसिन बेसेनफोरा सरासनस्रायै 1-2 सान गोजाम (रबिबार आरो जिरायनाय सानफोरनि उनाव गोलावसिन) जायो। जेब्ला गोदान बेसेनफोरा फोसावजायो अब्ला बे बिला गावनो गाव आपडेट जायो।"
@@ -1159,6 +1288,9 @@ msgstr "मार्च"
 
 msgid "Marigold"
 msgstr "गेन्दा"
+
+msgid "Market"
+msgstr "बाजार"
 
 msgid "Market Prices"
 msgstr "हाथाइ बेसेनफोर"
@@ -1220,14 +1352,29 @@ msgstr "मिज'राम"
 msgid "Modal price"
 msgstr "सोलिबाय थानाय बेसेन"
 
+msgid "Moderate"
+msgstr "मध्यम"
+
 msgid "Moderate rain (~%(rain_next3)s mm) expected. Plan sprays for dry windows so they are not washed off."
 msgstr "गेजेर थाखोनि अखा (~%(rain_next3)s मि.मि.) आ साननाय जादों। गोरान खिरखिफोरनि थाखाय स्प्रे बिथांखि ला, जाहाथे बेफोर सुनानै बोखारनाय जाया।"
+
+msgid "Moderate spraying conditions"
+msgstr "मध्यम छिड़काव की स्थितियां"
 
 msgid "Moist"
 msgstr "सिदोब"
 
+msgid "Mon"
+msgstr "सोम"
+
+msgid "Monitor drift"
+msgstr "हवा का बहाव देखें"
+
 msgid "Moong(Green Gram)"
 msgstr "मुग (ग्रिन ग्राम)"
+
+msgid "More options"
+msgstr "अधिक विकल्प"
 
 msgid "Moth"
 msgstr "फिथाइ"
@@ -1283,17 +1430,26 @@ msgstr "हेफाजाबनि आखाय नांगौना?"
 msgid "Network error. Please try again."
 msgstr "नेथवर्क गोरोन्थि। अन्नानै फिन नाजा।"
 
+msgid "New"
+msgstr "नया"
+
 msgid "New here?"
 msgstr "बेयाव गोदान नामा?"
 
 msgid "Next"
 msgstr "उननि"
 
+msgid "Next 6 days"
+msgstr "अगले 6 दिन"
+
 msgid "Next forecast"
 msgstr "उननि आगान"
 
 msgid "Niger seed"
 msgstr "नाइजर बेगर"
+
+msgid "Night time · Opens 06:00 AM"
+msgstr "रात का समय · सुबह 06:00 बजे खुलेगा"
 
 msgid "Nitrogen (N, kg/ha)"
 msgstr "नाइट्रजेन (एन, कि.ग्रा./हा.)"
@@ -1367,8 +1523,14 @@ msgstr "मोनाय जायाखै।"
 msgid "Not specified by source"
 msgstr "फुंखायाव होनाय गैया"
 
+msgid "Notifications"
+msgstr "सूचनाएं"
+
 msgid "November, after pruning"
 msgstr "दानखनायनि उनाव नबेम्बर।"
+
+msgid "Now"
+msgstr "अभी"
 
 msgid "Number of trees"
 msgstr "बिफांफोरनि अनजिमा"
@@ -1394,6 +1556,12 @@ msgstr "सिंफोर"
 msgid "Okra"
 msgstr "भेन्दि"
 
+msgid "One Home, One Chance"
+msgstr "एक घर, एक मौका"
+
+msgid "One Home, One Chance — Build with confidence"
+msgstr "एक घर, एक मौका — आत्मविश्वास के साथ बनाएं"
+
 msgid "One application, not an annual total"
 msgstr "मोनसे बाहायनाय, बोसोरारि गासै नङा।"
 
@@ -1411,6 +1579,12 @@ msgstr "आंनि देसबर्डखौ खुलि।"
 
 msgid "Open nearby shops in Maps"
 msgstr "मेप्सआव खाथिनि गलाफोरखौ खेव।"
+
+msgid "Optimal"
+msgstr "सर्वोत्तम"
+
+msgid "Optimal spraying conditions"
+msgstr "सर्वोत्तम छिड़काव की स्थितियां"
 
 msgid "Orange"
 msgstr "खमला"
@@ -1466,6 +1640,15 @@ msgstr "मथर आरो बिनफोर (सबाय)"
 msgid "Pepper bell"
 msgstr "जालुक बेल"
 
+msgid "Pesticide calculator"
+msgstr "कीटनाशक कैलकुलेटर"
+
+msgid "Pests & Disease Alert"
+msgstr "कीट व रोग चेतावनी"
+
+msgid "Pests & diseases"
+msgstr "कीट और रोग"
+
 msgid "Phone"
 msgstr "फन"
 
@@ -1519,6 +1702,9 @@ msgstr "लायफांफोर – फोथारनि महर"
 
 msgid "Pomegranate"
 msgstr "दालिम"
+
+msgid "Poor"
+msgstr "खराब"
 
 msgid "Potash source. Check crop suitability and the nutrient grade before use."
 msgstr "पटास फुंखा। बाहायनायनि सिगां फसल आरजाथाव आरो पुस्ति थाखोखौ आनजाद-नाय।"
@@ -1574,6 +1760,12 @@ msgstr "खुम्ब्रा"
 msgid "Punjab"
 msgstr "पान्जाब"
 
+msgid "Push notifications"
+msgstr "पुश सूचनाएं"
+
+msgid "Quickstart"
+msgstr "क्विकस्टार्ट"
+
 msgid "ROOTED IN KNOWLEDGE. GROWN WITH AI."
 msgstr "गियानाव रोदागोनां। ए.आइ. जों जौगानाय।"
 
@@ -1585,6 +1777,9 @@ msgstr "रागी"
 
 msgid "Rain chance"
 msgstr "अखानि खाबु"
+
+msgid "Rain imminent"
+msgstr "बारिश की संभावना"
 
 msgid "Rainfall (mm)"
 msgstr "अखा (मि.)"
@@ -1607,11 +1802,23 @@ msgstr "रासबेरि"
 msgid "Real product photos are examples, not a promise of local stock. Check the actual nutrient grade, pack size and availability with the shop."
 msgstr "गुबै दिहुनथायनि सावगारिफोरा बिदिन्थिफोरसो, जायगायारि स्टकनि बादा होनाय नङा। गलाजों लोगोसे गुबै निउत्रियेन्ट ग्रेड, पेक साइज आरो मोनथावनाखौ नायग्रोम।"
 
+msgid "Receive advisory alerts, disease warnings, and growth updates for your saved crops"
+msgstr "अपनी सहेजी गई फसलों के लिए सलाह, रोग चेतावनी और विकास अपडेट प्राप्त करें"
+
+msgid "Receive push notification"
+msgstr "पुश सूचना प्राप्त करें"
+
+msgid "Recent diagnoses"
+msgstr "हाल की जांच"
+
 msgid "Recent predictions"
 msgstr "बावैसोनि सिगां-अनुमानफोर"
 
 msgid "Recent questions"
 msgstr "बावैसो सोंनायफोर"
+
+msgid "Recommend Krishi Mitra"
+msgstr "कृषि मित्र की सिफारिश करें"
 
 msgid "Recommend crops"
 msgstr "आबादनि बिथोन"
@@ -1688,6 +1895,9 @@ msgstr "जेराव जाथावना खाथि-खालानि �
 msgid "Report date"
 msgstr "रिपर्टनि अक्ट'"
 
+msgid "Rest of the day"
+msgstr "दिन का शेष समय"
+
 msgid "Result"
 msgstr "जाउन"
 
@@ -1715,8 +1925,17 @@ msgstr "बालि दोमट"
 msgid "Sannhamp"
 msgstr "सानहम्फ"
 
+msgid "Sat"
+msgstr "शनि"
+
 msgid "Save"
 msgstr "रैखा"
+
+msgid "Save Changes"
+msgstr "बदलाव सहेजें"
+
+msgid "Save Settings"
+msgstr "सेटिंग्स सहेजें"
 
 msgid "Search crop"
 msgstr "फसुल नागिर"
@@ -1733,6 +1952,9 @@ msgstr "बोथोर"
 msgid "See application"
 msgstr "आरजनायखौ नाय।"
 
+msgid "See diagnosis"
+msgstr "निदान देखें"
+
 msgid "Seedlings"
 msgstr "बिफां गथाय"
 
@@ -1748,8 +1970,14 @@ msgstr "मण्डि नायनो जायगा सायख।"
 msgid "Select a valid choice. %(value)s is not one of the available choices."
 msgstr "मोनसे गनायजाथाव सायख'नायखौ सायख'। %(value)s आ मोननो हाथाव सायख'नायफोरनि गेजेराव मोनसे नङा।"
 
+msgid "Select your Krishi Mitra Language"
+msgstr "अपनी कृषि मित्र भाषा चुनें"
+
 msgid "Select your crops"
 msgstr "नोंथांनि आबाद सायख"
+
+msgid "Select your crops →"
+msgstr "अपनी फसलें चुनें →"
 
 msgid "Send"
 msgstr "हर।"
@@ -1765,6 +1993,15 @@ msgstr "सेप्टरिया बिलाय दागो"
 
 msgid "Sesamum"
 msgstr "सिसामाम"
+
+msgid "Settings"
+msgstr "सेटिंग्स"
+
+msgid "Settings saved successfully."
+msgstr "सेटिंग्स सफलतापूर्वक सहेजी गईं।"
+
+msgid "Severe weather alerts and timely spraying windows"
+msgstr "गंभीर मौसम चेतावनी और समय पर छिड़काव अवधि"
 
 msgid "Shade management"
 msgstr "सायख्लुम सामलायनाय"
@@ -1794,7 +2031,7 @@ msgid "Smarter insights."
 msgstr "गोजों सानस्रिफोर।"
 
 msgid "Soil condition"
-msgstr "हानि थासारि"
+msgstr "मिट्टी की स्थिति"
 
 msgid "Soil moisture % (optional, from sensor)"
 msgstr "हा सिदोब जौखोन्दो (गोनांथि गैयै, सेनसारनिफ्राय)"
@@ -1856,11 +2093,17 @@ msgstr "बुंनाय... होबथानो थाखाय बेंख
 msgid "Speaking… tap the circle to skip"
 msgstr "बुंनाय... नागारनो थाखाय बेंखनखौ थु।"
 
+msgid "Speech synthesis is not supported on this browser."
+msgstr "इस ब्राउज़र पर वाक् संश्लेषण समर्थित नहीं है।"
+
 msgid "Spices"
 msgstr "मसलाफोर"
 
 msgid "Spider mites two-spotted spider mite"
 msgstr "स्पाइदार माइटस मोननै दागो गोनां स्पाइदार माइट"
+
+msgid "Sponsored"
+msgstr "प्रायोजित"
 
 msgid "Spray captan 50% wettable powder (50 WP) at 2.5 grams per litre of water or mancozeb 75% wettable powder (75 WP) at 2.5 grams per litre of water from green-tip stage at 10-14 day intervals in wet weather. Rake and destroy fallen leaves."
 msgstr "सिदोब बोथोराव गोथां-गोनां थाखोनिफ्राय 10-14 साननि गेजेरजों मोनफ्रोम लितार दैयाव 2.5 ग्रामनि थाखाय केपतेन 50% सिदोबनाय पाउदार (50 WP) एबा मोनफ्रोम लितार दैयाव 2.5 ग्रामनि थाखाय मेन्कजेब 75% सिदोबनाय पाउदार (75 WP) सार। सिरिनानै गोग्लैनाय बिलाइफोरखौ फोजोबस्रां।"
@@ -1882,6 +2125,15 @@ msgstr "sulphur 80 WP: 2-3 g/L एबा मोनसे गनायथिज�
 
 msgid "Spraying"
 msgstr "स्प्रे खालामनाय"
+
+msgid "Spraying calculation"
+msgstr "छिड़काव गणना"
+
+msgid "Spraying conditions"
+msgstr "छिड़काव की स्थितियां"
+
+msgid "Spraying time"
+msgstr "छिड़काव का समय"
 
 msgid "Squash"
 msgstr "स्कुवास"
@@ -1937,11 +2189,17 @@ msgstr "खुसेर"
 msgid "Summer"
 msgstr "गोलोमबोथोर"
 
+msgid "Sun"
+msgstr "रवि"
+
 msgid "Sun exposure"
 msgstr "साननि सोरां"
 
 msgid "Sunflower"
 msgstr "सानबिबार"
+
+msgid "Sunset"
+msgstr "सूर्यास्त"
 
 msgid "Supplement rainfall with irrigation; keep soil moist and well drained."
 msgstr "अखाजों लोगोसे नांगौब्ला दै हो; हा सिदोम आरो दै बोहैनाय मोजां लाखि।"
@@ -1957,6 +2215,9 @@ msgstr "गोदै खमला, बैसोआ 6 बोसोर आरो �
 
 msgid "Sweet potato"
 msgstr "थागुना"
+
+msgid "Take a picture"
+msgstr "फोटो लें"
 
 msgid "Take your next step"
 msgstr "नोंनि उन आगानखौ ला।"
@@ -1990,6 +2251,9 @@ msgstr "समशीतोष्ण"
 
 msgid "Temperature (°C)"
 msgstr "बिदुं (डिग्रि सेल्सियास)"
+
+msgid "Temperature Unit"
+msgstr "तापमान इकाई"
 
 msgid "Temperature and humidity"
 msgstr "बिदुं आरो सिदोब"
@@ -2039,8 +2303,14 @@ msgstr "बे पासवर्डआ जोबोद सरासनस्र
 msgid "This tool is temporarily unavailable. Please try again later."
 msgstr "बे आगजुआ दानदिसेनि थाखाय मोनथावै। अन्नानै उनाव फिन नाजा।"
 
+msgid "Thu"
+msgstr "गुरु"
+
 msgid "Tip:"
 msgstr "सुबुरुन:"
+
+msgid "To build your identity"
+msgstr "अपनी पहचान बनाने के लिए"
 
 msgid "Tobacco"
 msgstr "थांखु"
@@ -2056,6 +2326,9 @@ msgstr "टमेटो मोजेक भाइरास"
 
 msgid "Tomato yellow leaf curl virus"
 msgstr "टमेटो येल' लिफ कर्ल भाइरास"
+
+msgid "Tools"
+msgstr "उपकरण"
 
 msgid "Top intents"
 msgstr "गोजौ थांखिफोर"
@@ -2087,6 +2360,9 @@ msgstr "रजनीगन्धा"
 msgid "Tubers"
 msgstr "कन्द"
 
+msgid "Tue"
+msgstr "मंगल"
+
 msgid "Turmeric"
 msgstr "हालदै"
 
@@ -2101,6 +2377,12 @@ msgstr "गावनि रावआव बुंनो थाखाय टा�
 
 msgid "Unanswered questions"
 msgstr "फिननायगैयि सोंलुफोर"
+
+msgid "Unfavourable"
+msgstr "प्रतिकूल"
+
+msgid "Unfavourable spraying conditions"
+msgstr "प्रतिकूल छिड़काव की स्थितियां"
 
 msgid "Upload or take a clear photo of a single affected leaf against a plain background."
 msgstr "मोनसे सादा बेकग्राउन्दनि हेंथायै मोनसेल' गोहोम-खोख्लैजानाय बिलाइनि रोखा सावगारिखौ आपलड खालाम एबा ला।"
@@ -2156,6 +2438,9 @@ msgstr "खाथिखालानि हाथाइफोरखौ नाग�
 msgid "Used for local weather forecasts."
 msgstr "जायगायारि बोथोरनि आगुलैखोनसंनायनि थाखाय बाहायनाय जायो।"
 
+msgid "Used for regional agricultural standards, mandi currency, and weather"
+msgstr "क्षेत्रीय कृषि मानकों, मंडी मुद्रा और मौसम के लिए उपयोग किया जाता है"
+
 msgid "User"
 msgstr "बाहायगिरि"
 
@@ -2189,6 +2474,9 @@ msgstr "लायफाङारि जौगानाय (सानफोर 11
 msgid "Verify source report"
 msgstr "फुंखा फोरमायथिखौ थार-सं।"
 
+msgid "View all"
+msgstr "सभी देखें"
+
 msgid "View reported markets in this state"
 msgstr "बे रायजोआव फोरमायजानाय हाथाइफोरखौ नाय।"
 
@@ -2196,7 +2484,7 @@ msgid "Village"
 msgstr "गामि"
 
 msgid "Village / town"
-msgstr "गामि/सोहोर"
+msgstr "गाँव / कस्बा"
 
 msgid "Village, district, state"
 msgstr "गामि, जिल्ला, रायजो"
@@ -2235,10 +2523,13 @@ msgid "Watermelon"
 msgstr "तरबुज"
 
 msgid "Weather"
-msgstr "बोथोर"
+msgstr "मौसम"
 
 msgid "Weather & Advisory"
 msgstr "बोथोर आरो बोसोन"
+
+msgid "Weather & Spraying Conditions"
+msgstr "मौसम और छिड़काव की स्थिति"
 
 msgid "Weather for your working day."
 msgstr "नोंनि खामानि मावनाय साननि थाखाय बोथोर।"
@@ -2248,6 +2539,12 @@ msgstr "बेया बोरखोनि सुबुरुनल; उत्�
 
 msgid "Weather is unavailable. Check the location or try again later."
 msgstr "बोथोरा मोनथावना नङा। थावनिखौ नायग्रोम एबा उनाव फिन नाजा।"
+
+msgid "Weather temperature units"
+msgstr "मौसम तापमान इकाइयाँ"
+
+msgid "Wed"
+msgstr "बुध"
 
 msgid "Weeding"
 msgstr "हाग्रा खोख्लैनाय"
@@ -2280,7 +2577,7 @@ msgid "Wholesale mandi reports, not retail prices or guaranteed sale offers. Com
 msgstr "खुस्रा बेसेनफोर एबा ग्यारेन्टि गोनां फाननायनि जासिनाय नङा, खुस्रा हाथाइनि फोरमायथिफोर। एखे हाथाइ, आबाद, रोखोम, थाखो, फोरमायथि अक्ट' आरो इउनिटखौ रुजु। गोजाम फोरमायथिफोरा दिनैनि बेसेनफोर नङा।"
 
 msgid "Why this rating?"
-msgstr "बे नायबिजिरनाय मानो?"
+msgstr "यह रेटिंग क्यों?"
 
 msgid "Wind gust"
 msgstr "बारनि जोबोद खारथाइ"
@@ -2312,6 +2609,12 @@ msgstr "दिहुनथायनि साननाय।"
 msgid "Yield prediction"
 msgstr "दिहुनथाइनि सिगां साननाय"
 
+msgid "You"
+msgstr "आप"
+
+msgid "Your crops"
+msgstr "आपकी फसलें"
+
 msgid "Your current location"
 msgstr "नोंनि आथिखाल थावनिया"
 
@@ -2330,6 +2633,9 @@ msgstr "नोंथांनि रावा बे दिभाइसआव �
 msgid "Your name"
 msgstr "नोंनि मुङा"
 
+msgid "Your selected crops"
+msgstr "आपकी चुनी हुई फसलें"
+
 msgid "Your soil. Your crops. Your next harvest. A little guidance for every step, from a companion that understands farming."
 msgstr "नोंनि हा। नोंनि आबाद। नोंनि उननि आबाद। मोनफ्रोम आगाननि थाखाय इसे बिथोन, सासे लोगो जाय आबादखौ बुजियो।"
 
@@ -2346,7 +2652,7 @@ msgid "add your district to your profile"
 msgstr "नोंथांनि प्रफाइलाव नोंथांनि जिल्लाखौ दाजाबदेर।"
 
 msgid "add your village to your profile"
-msgstr "नोंनि प्रफाइलाव नोंनि गामिखौ दाजाबदेर।"
+msgstr "अपनी प्रोफ़ाइल में अपना गाँव जोड़ें"
 
 msgid "ago"
 msgstr "आगो"
