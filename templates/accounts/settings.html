@@ -1,16 +1,19 @@
 {% extends 'base.html' %}
 {% load i18n farm_i18n static %}
 {% block title %}Settings · Krishi Mitra{% endblock %}
+{% block extra_head %}
+<link rel="stylesheet" href="{% static 'css/you-dashboard.css' %}?v={{ STATIC_VERSION }}">
+{% endblock %}
 
 {% block content %}
-<div class="settings-page max-w-720 mx-auto py-3">
+<div class="you-shell max-w-720 mx-auto">
   <!-- Back navigation header -->
   <div class="d-flex align-items-center justify-content-between mb-4">
-    <a href="{% url 'home' %}" class="btn btn-light rounded-pill px-3 py-1 d-inline-flex align-items-center gap-1" aria-label="Back to home">
+    <a href="{% url 'accounts:dashboard' %}" class="btn-21st btn-21st-secondary btn-21st-sm" aria-label="Back to dashboard">
       <i class="bi bi-arrow-left"></i>
       <span>Back</span>
     </a>
-    <h4 class="fw-bold m-0 text-dark">Settings</h4>
+    <h1 class="you-card-title fs-4 m-0">Settings</h1>
     <div style="width: 70px;"></div>
   </div>
 
@@ -23,7 +26,7 @@
         <span class="settings-section-badge">General</span>
       </div>
 
-      <div class="settings-card shadow-sm rounded-3 p-3 mb-3 bg-white">
+      <div class="settings-card you-card mb-4 p-4">
         <!-- Language Selection -->
         <div class="settings-field mb-3">
           <div class="d-flex align-items-center gap-2 mb-1">
@@ -67,7 +70,7 @@
         <span class="settings-section-badge">Notifications</span>
       </div>
 
-      <div class="settings-card shadow-sm rounded-3 p-3 bg-white">
+      <div class="settings-card you-card mb-4 p-4">
         <!-- Information about my crops -->
         <div class="d-flex align-items-start justify-content-between gap-3 mb-3">
           <div>
@@ -106,7 +109,7 @@
         <span class="settings-section-badge">Weather</span>
       </div>
 
-      <div class="settings-card shadow-sm rounded-3 p-3 bg-white">
+      <div class="settings-card you-card mb-4 p-4">
         <div class="d-flex align-items-center gap-2 mb-1">
           <i class="bi bi-thermometer-half text-danger"></i>
           <span class="settings-field-label fw-semibold">Weather temperature units</span>
@@ -137,8 +140,8 @@
     </div>
 
     <div class="d-flex justify-content-end gap-2 mb-5">
-      <a href="{% url 'home' %}" class="btn btn-light rounded-pill px-4">Cancel</a>
-      <button type="submit" class="btn btn-primary rounded-pill px-4 shadow-sm" id="pageSaveBtn">Save Settings</button>
+      <a href="{% url 'accounts:dashboard' %}" class="btn-21st btn-21st-secondary px-4 py-2"><span>Cancel</span></a>
+      <button type="submit" class="btn-21st btn-21st-primary px-4 py-2" id="pageSaveBtn"><span>Save Settings</span></button>
     </div>
   </form>
 </div>

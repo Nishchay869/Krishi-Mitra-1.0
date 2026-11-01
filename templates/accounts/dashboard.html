@@ -1,29 +1,225 @@
 {% extends 'base.html' %}
-{% load i18n farm_i18n %}
+{% load i18n farm_i18n static %}
 {% block title %}{% translate "Dashboard" %}{% endblock %}
+{% block extra_head %}
+<link rel="stylesheet" href="{% static 'css/you-dashboard.css' %}?v={{ STATIC_VERSION }}">
+{% endblock %}
+
 {% block content %}
-<header class="page-intro"><span class="page-heading-icon"><i class="bi bi-grid"></i></span><span class="eyebrow">{% translate "YOUR FARM, AT A GLANCE" %}</span><h1>{% translate "Namaste," %} {{ user.first_name|default:user.email }}</h1><p>{% if user.profile.location_query %}<i class="bi bi-geo-alt"></i> {{ user.profile.location_query }}{% if user.profile.state %}, {{ user.profile.state }}{% endif %}{% else %}<a href="{% url 'accounts:profile' %}">{% translate "Add your district" %}</a> {% translate "to get local weather." %}{% endif %}</p></header>
-{% if user.profile.selected_crops or growing_place_label %}<section class="card p-3 mb-4"><div class="d-flex justify-content-between align-items-center gap-3 mb-2"><strong>{% translate 'Tell us about your farm' %}</strong><a href="{% url 'accounts:profile' %}">{% translate 'My profile' %} ↗</a></div><div class="d-flex flex-wrap gap-2">{% for crop in user.profile.selected_crops %}<span class="badge bg-success-subtle text-success-emphasis">{{ crop|ui_text }}</span>{% endfor %}{% if growing_place_label %}<span class="badge bg-light text-dark">{{ growing_place_label }}</span>{% endif %}</div></section>{% endif %}
-<section class="library-health-feature card mb-4"><div class="card-body d-flex flex-wrap justify-content-between align-items-center gap-3"><div><span class="eyebrow">FIELD INTELLIGENCE</span><h2 class="h5 mt-2">IoT field dashboard <span class="badge text-bg-dark">Demo</span></h2><p class="mb-0 text-muted small">Explore sensor analytics, field conditions, and device status with simulated data. IoT integration is coming soon.</p></div><a class="btn btn-agri" href="{% url 'home' %}?experience=iot">Explore IoT dashboard ↗</a></div></section>
-{% include 'partials/pest_alerts_coming_soon.html' %}
-<div data-farm-toolkit class="mb-4"><div class="row g-3">{% include 'partials/feature_cards.html' %}</div></div>
-<div class="row g-3">
-  <div class="col-lg-6"><div class="card shadow-sm h-100"><div class="card-header bg-white fw-semibold">{% translate "Recent predictions" %}</div>
-    <ul class="list-group list-group-flush">
-      {% for p in predictions %}
-      <li class="list-group-item small">
-        <span class="badge bg-success-subtle text-success-emphasis me-1">{% translate p.get_kind_display %}</span>
-        {% if p.kind == 'crop' %}{% for r in p.result.top %}{{ r.crop|title|ui_text }}{% if not forloop.last %}, {% endif %}{% endfor %}
-        {% elif p.kind == 'yield' %}{{ p.result.crop|ui_text }}: {{ p.result.yield_per_ha }} {{ p.result.unit|ui_text }}
-        {% else %}{{ p.result.plant|ui_text }} — {{ p.result.disease|ui_text }}{% endif %}
-        <span class="text-muted float-end">{{ p.created_at|timesince }} {% translate "ago" %}</span>
-      </li>
-      {% empty %}<li class="list-group-item text-muted small">{% translate "No predictions yet." %}</li>{% endfor %}
-    </ul></div></div>
-  <div class="col-lg-6"><div class="card shadow-sm h-100"><div class="card-header bg-white fw-semibold">{% translate "Recent questions" %}</div>
-    <ul class="list-group list-group-flush">
-      {% for c in chats %}<li class="list-group-item small">{{ c.message|truncatechars:80 }}<span class="text-muted float-end">{{ c.created_at|timesince }} {% translate "ago" %}</span></li>
-      {% empty %}<li class="list-group-item text-muted small">{% translate "No questions yet — try the assistant." %}</li>{% endfor %}
-    </ul></div></div>
+<div class="you-shell">
+  <!-- 1. 21st.dev Professional User Profile Hero Card -->
+  <header class="you-hero-card">
+    <div class="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center gap-4">
+      <div class="d-flex align-items-center gap-3">
+        <div class="you-hero-avatar-wrap">
+          <i class="bi bi-person-circle"></i>
+          <span class="you-online-dot" title="Active"></span>
+        </div>
+        <div>
+          <span class="you-eyebrow">{% translate "YOUR FARM, AT A GLANCE" %}</span>
+          <h1 class="you-hero-title">{% translate "Namaste," %} {{ user.first_name|default:user.email|title }}</h1>
+          <div>
+            {% if user.profile.location_query %}
+            <span class="you-location-pill">
+              <i class="bi bi-geo-alt-fill text-danger me-1"></i>
+              <strong class="text-capitalize">{{ user.profile.location_query|title }}</strong>{% if user.profile.state %}, <span class="text-capitalize">{{ user.profile.state|title }}</span>{% endif %}
+            </span>
+            {% else %}
+            <a href="{% url 'accounts:profile' %}" class="btn-21st btn-21st-secondary btn-21st-sm">
+              <i class="bi bi-plus-circle me-1"></i> {% translate "Add your district" %}
+            </a>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Action Buttons -->
+      <div class="you-quick-actions">
+        <a href="{% url 'accounts:profile' %}" class="btn-21st btn-21st-secondary btn-21st-sm">
+          <i class="bi bi-person-gear"></i>
+          <span>{% translate "Profile" %}</span>
+        </a>
+        <a href="{% url 'accounts:settings' %}" class="btn-21st btn-21st-secondary btn-21st-sm">
+          <i class="bi bi-sliders"></i>
+          <span>Settings</span>
+        </a>
+        <button type="button" class="btn-21st btn-21st-primary btn-21st-sm" data-bs-toggle="modal" data-bs-target="#recommendModal">
+          <i class="bi bi-share"></i>
+          <span>Share</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- 2. Farm Details & Selected Crops Card -->
+  {% if user.profile.selected_crops or growing_place_label %}
+  <section class="you-card mb-4">
+    <div class="you-card-header">
+      <h2 class="you-card-title">
+        <span class="you-card-icon is-green"><i class="bi bi-sprout"></i></span>
+        <span>{% translate 'Tell us about your farm' %}</span>
+      </h2>
+      <a href="{% url 'accounts:profile' %}" class="btn-21st btn-21st-secondary btn-21st-sm">
+        <i class="bi bi-pencil-square me-1"></i>
+        <span>{% translate 'My profile' %}</span>
+      </a>
+    </div>
+    <div class="you-card-body">
+      <div class="d-flex flex-wrap gap-2 align-items-center">
+        {% for crop in user.profile.selected_crops %}
+        <span class="you-crop-chip">
+          <i class="bi bi-check2-circle text-success"></i>
+          <span>{{ crop|title|ui_text }}</span>
+        </span>
+        {% endfor %}
+        {% if growing_place_label %}
+        <span class="you-place-chip">
+          <i class="bi bi-geo me-1"></i>
+          <span>{{ growing_place_label|title }}</span>
+        </span>
+        {% endif %}
+      </div>
+      <div class="mt-3 pt-3 border-top d-flex flex-column flex-sm-row justify-content-between align-items-start align-items-sm-center gap-2">
+        <span class="text-muted small">Update your registered crops and land parameters</span>
+        <a href="{% url 'accounts:profile' %}" class="btn-21st btn-21st-secondary btn-21st-sm">
+          <span>Edit Farm Crops</span>
+          <span class="btn-21st-icon-circle ms-1"><i class="bi bi-arrow-right"></i></span>
+        </a>
+      </div>
+    </div>
+  </section>
+  {% endif %}
+
+  <!-- 3. IoT Field Intelligence Feature Card -->
+  <section class="you-card you-iot-card library-health-feature mb-4">
+    <div class="you-card-body d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center gap-3">
+      <div>
+        <span class="you-eyebrow text-uppercase">FIELD INTELLIGENCE</span>
+        <h2 class="h5 fw-bold mt-1 mb-2 d-flex align-items-center gap-2">
+          <span>IoT field dashboard</span>
+          <span class="badge rounded-pill text-bg-dark small">Demo</span>
+        </h2>
+        <p class="mb-0 text-muted small">Explore real-time sensor analytics, soil moisture telemetry, and field device telemetry with simulated data.</p>
+      </div>
+      <a class="btn-21st btn-21st-primary text-nowrap" href="{% url 'home' %}?experience=iot">
+        <span>Explore IoT Dashboard</span>
+        <span class="btn-21st-icon-circle ms-1"><i class="bi bi-arrow-up-right"></i></span>
+      </a>
+    </div>
+  </section>
+
+  <!-- 4. Pest Alerts Coming Soon -->
+  {% include 'partials/pest_alerts_coming_soon.html' %}
+
+  <!-- 5. Farm Toolkit Feature Cards -->
+  <section class="you-toolkit-section mb-4">
+    <div class="d-flex align-items-center justify-content-between mb-3">
+      <h2 class="you-card-title">
+        <span class="you-card-icon is-blue"><i class="bi bi-tools"></i></span>
+        <span>Farm Toolkit</span>
+      </h2>
+    </div>
+    <div class="row g-4" data-farm-toolkit>
+      {% include 'partials/feature_cards.html' %}
+    </div>
+  </section>
+
+  <!-- 6. Activity Columns: Recent Predictions & Recent Questions -->
+  <div class="row g-4">
+    <!-- Column 1: Recent Predictions -->
+    <div class="col-lg-6">
+      <div class="you-card h-100 mb-0">
+        <div class="you-card-header">
+          <h2 class="you-card-title">
+            <span class="you-card-icon is-blue"><i class="bi bi-cpu"></i></span>
+            <span>{% translate "Recent predictions" %}</span>
+          </h2>
+          <div class="d-flex align-items-center gap-2">
+            <span class="you-count-pill">{{ predictions|length }}</span>
+            <a href="{% url 'crops:recommend' %}" class="btn-21st btn-21st-secondary btn-21st-xs">
+              <i class="bi bi-plus-lg"></i>
+              <span>New</span>
+            </a>
+          </div>
+        </div>
+        <div class="p-0">
+          <ul class="list-group list-group-flush m-0 p-0 border-0">
+            {% for p in predictions %}
+            <li class="you-list-item">
+              <div class="min-w-0 flex-grow-1">
+                <span class="you-badge-kind is-{{ p.kind }}">{% translate p.get_kind_display %}</span>
+                <span class="fw-semibold">
+                  {% if p.kind == 'crop' %}{% for r in p.result.top %}{{ r.crop|title|ui_text }}{% if not forloop.last %}, {% endif %}{% endfor %}
+                  {% elif p.kind == 'yield' %}{{ p.result.crop|title|ui_text }}: {{ p.result.yield_per_ha }} {{ p.result.unit|ui_text }}
+                  {% else %}{{ p.result.plant|title|ui_text }} — {{ p.result.disease|title|ui_text }}{% endif %}
+                </span>
+              </div>
+              <div class="d-flex align-items-center gap-2 flex-shrink-0 ms-2">
+                <span class="text-muted small text-nowrap d-none d-sm-inline">{{ p.created_at|timesince }} {% translate "ago" %}</span>
+                <a href="{% if p.kind == 'crop' %}{% url 'crops:recommend' %}{% elif p.kind == 'yield' %}{% url 'crops:yield' %}{% else %}{% url 'disease:detect' %}{% endif %}" class="btn-21st btn-21st-secondary btn-21st-xs">
+                  <span>View</span>
+                  <i class="bi bi-chevron-right ms-1"></i>
+                </a>
+              </div>
+            </li>
+            {% empty %}
+            <li class="you-empty-state">
+              <i class="bi bi-clipboard2-data fs-2 d-block mb-2 text-muted opacity-50"></i>
+              <p class="mb-3 text-muted">{% translate "No predictions yet." %}</p>
+              <a href="{% url 'crops:recommend' %}" class="btn-21st btn-21st-primary btn-21st-sm">
+                <i class="bi bi-magic me-1"></i>
+                <span>Explore Crop Advisor</span>
+              </a>
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Column 2: Recent Questions -->
+    <div class="col-lg-6">
+      <div class="you-card h-100 mb-0">
+        <div class="you-card-header">
+          <h2 class="you-card-title">
+            <span class="you-card-icon is-amber"><i class="bi bi-chat-left-dots"></i></span>
+            <span>{% translate "Recent questions" %}</span>
+          </h2>
+          <div class="d-flex align-items-center gap-2">
+            <span class="you-count-pill">{{ chats|length }}</span>
+            <a href="{% url 'chatbot:chat' %}" class="btn-21st btn-21st-secondary btn-21st-xs">
+              <i class="bi bi-plus-lg"></i>
+              <span>Ask</span>
+            </a>
+          </div>
+        </div>
+        <div class="p-0">
+          <ul class="list-group list-group-flush m-0 p-0 border-0">
+            {% for c in chats %}
+            <li class="you-list-item">
+              <span class="text-truncate me-2">{{ c.message|truncatechars:65 }}</span>
+              <div class="d-flex align-items-center gap-2 flex-shrink-0 ms-2">
+                <span class="text-muted small text-nowrap d-none d-sm-inline">{{ c.created_at|timesince }} {% translate "ago" %}</span>
+                <a href="{% url 'chatbot:chat' %}" class="btn-21st btn-21st-secondary btn-21st-xs">
+                  <span>Chat</span>
+                  <i class="bi bi-chevron-right ms-1"></i>
+                </a>
+              </div>
+            </li>
+            {% empty %}
+            <li class="you-empty-state">
+              <i class="bi bi-chat-square-text fs-2 d-block mb-2 text-muted opacity-50"></i>
+              <p class="mb-3 text-muted">{% translate "No questions yet — try the assistant." %}</p>
+              <a href="{% url 'chatbot:chat' %}" class="btn-21st btn-21st-primary btn-21st-sm">
+                <i class="bi bi-chat-dots me-1"></i>
+                <span>Ask Farm Assistant</span>
+              </a>
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 {% endblock %}

@@ -45,11 +45,11 @@ def weather_page(request):
         except WeatherError as exc:
             error = _('Weather is unavailable. Check the location or try again later.')
 
-    # Location display name
+    # Location display name (Always capitalize first letter)
     if village:
-        location_display = village
+        location_display = village.strip().title()
     elif location:
-        location_display = location.split(',')[0].strip()
+        location_display = location.split(',')[0].strip().title()
     else:
         location_display = 'Hunasamaranahalli'
 
@@ -125,29 +125,35 @@ def weather_page(request):
         h = (now.hour + i) % 24
         label = 'Now' if i == 0 else datetime.time(h, 0).strftime('%-I %p').lower()
 
-        # Realistic diurnal curve
-        if 0 <= h < 6:
-            t = temp_min + (h / 6.0) * 2.0
-            rh = 75.0 - (h / 6.0) * 4.0
+        # Realistic diurnal curve matching meteorological dawn peaks and afternoon evaporation
+        if h == 5:
+            # Dawn peak humidity causing Delta T to dip into 0-2 (Moderate)
+            t = temp_min
+            rh = 90.0
+            w = 5.0
+            r_mm = 0.0
+        elif 0 <= h < 6:
+            t = temp_min + (h / 6.0) * 1.5
+            rh = 70.0 + (h / 6.0) * 10.0
             w = 5.0
             r_mm = 0.0
         elif 6 <= h < 14:
             ratio = (h - 6.0) / 8.0
-            t = (temp_min + 2.0) + ratio * (temp_max - temp_min - 2.0)
-            rh = 71.0 - ratio * 26.0
-            w = 7.0 + ratio * 3.5
+            t = (temp_min + 1.5) + ratio * (temp_max - temp_min - 1.5)
+            rh = 76.0 - ratio * 28.0
+            w = 6.0 + ratio * 3.5
             r_mm = 0.0
         elif 14 <= h < 19:
             ratio = (h - 14.0) / 5.0
             t = temp_max - ratio * 4.0
-            rh = 45.0 + ratio * 15.0
-            w = 9.0 - ratio * 2.0
+            rh = 48.0 + ratio * 16.0
+            w = 9.0 - ratio * 2.5
             r_mm = 0.0
         else:
             ratio = (h - 19.0) / 5.0
             t = (temp_max - 4.0) - ratio * 6.0
-            rh = 60.0 + ratio * 14.0
-            w = 6.0
+            rh = 64.0 + ratio * 6.0
+            w = 5.5
             r_mm = 0.0
 
         eval_slot = evaluate_spray_condition(
@@ -167,7 +173,12 @@ def weather_page(request):
             'temp': round(t),
             'humidity': round(rh),
             'delta_t': eval_slot['delta_t'],
+            'delta_t_range': eval_slot['delta_t_range'],
+            'rain_range': eval_slot['rain_range'],
+            'wind_range': eval_slot['wind_range'],
             'wind': round(w, 1),
+            'rain': round(r_mm, 1),
+            'reason': eval_slot['reason'],
         })
 
     current_slot_status = hourly_spray_slots[0]['status'] if hourly_spray_slots else 'optimal'
@@ -178,15 +189,24 @@ def weather_page(request):
     else:
         spray_card_title = 'Unfavourable spraying conditions'
 
-    eval_now = evaluate_spray_condition(current_temp, 65.0, 7.5, False, 0.0, True, now.hour)
+    curr_rh = 65.0
+    curr_wind = 6.0
+    if hourly_spray_slots:
+        curr_rh = hourly_spray_slots[0]['humidity']
+        curr_wind = hourly_spray_slots[0]['wind']
+
+    eval_now = evaluate_spray_condition(current_temp, curr_rh, curr_wind, False, 0.0, True, now.hour)
     weather_data = {
         'temp': current_temp,
-        'humidity': 65,
-        'wind_kmh': 7.5,
+        'humidity': round(curr_rh),
+        'wind_kmh': round(curr_wind, 1),
         'delta_t': eval_now['delta_t'],
         'delta_t_range': eval_now['delta_t_range'],
         'rain_range': eval_now['rain_range'],
         'wind_range': eval_now['wind_range'],
+        'status_label': 'Optimal' if eval_now['status'] == 'OPTIMAL' else ('Moderate' if eval_now['status'] == 'MARGINAL' else 'Unfavourable'),
+        'badge_class': 'is-optimal' if eval_now['status'] == 'OPTIMAL' else ('is-moderate' if eval_now['status'] == 'MARGINAL' else 'is-unfavourable'),
+        'reason': eval_now['reason'],
     }
 
     return render(request, 'weather/weather.html', {

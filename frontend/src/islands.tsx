@@ -17,6 +17,8 @@ const islands: Record<string, Loader> = {
   HomeHero: () => import('./islands/HomeHero'),
   LiveStrands: () => import('./islands/LiveStrands'),
   CropCursorEffect: () => import('./islands/CropCursorEffect'),
+  AuthIsland: () => import('./islands/AuthIsland'),
+  ImageSliderLoginDemo: () => import('./components/ui/demo'),
 }
 
 async function mount(el: HTMLElement, name: string, props: object = {}): Promise<() => void> {

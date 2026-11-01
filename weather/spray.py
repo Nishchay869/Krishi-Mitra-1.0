@@ -94,15 +94,11 @@ def evaluate_spray_condition(
         rain_status = "optimal"  # ✔️
         rain_reason = "Dry weather prevents wash-off."
 
-    # 3. Wind classification
-    if wind_kmh < 3.0:
-        wind_range = "<12"
-        wind_status = "poor"  # ❌ Inversion risk
-        wind_reason = "Inversion risk: zero/calm wind causes dangerous droplet suspension."
-    elif 3.0 <= wind_kmh < 12.0:
+    # 3. Wind classification (Matching exact photo criteria: < 12, 12–25, > 25)
+    if wind_kmh < 12.0:
         wind_range = "<12"
         wind_status = "optimal"  # ✔️
-        wind_reason = "Lower wind speeds (< 12 km/h) are ideal for better coverage and less drift."
+        wind_reason = "Lower wind speeds are ideal for better coverage and less spray drift."
     elif 12.0 <= wind_kmh <= 25.0:
         wind_range = "12-25"
         wind_status = "marginal"  # ⚠️
@@ -112,17 +108,11 @@ def evaluate_spray_condition(
         wind_status = "poor"  # ❌
         wind_reason = "High wind (> 25 km/h): severe spray drift danger."
 
-    # Night-time check
-    is_night = (is_daylight is False) or (current_hour is not None and (current_hour < 6 or current_hour >= 18))
-
-    # Overall Status determination
-    if is_night:
-        status = "DO_NOT_SPRAY"
-        reason = "Night-time: Inversion risk and dew. Spraying is unsafe at night; wait until daylight (06:00–18:00)."
-    elif temp > 35.0:
-        status = "DO_NOT_SPRAY"
-        reason = "High temperature (> 35°C): risk of leaf phytotoxicity and rapid volatilization."
-    elif delta_t_status == "poor":
+    # Overall Status determination matching exact Plantix logic:
+    # Any poor parameter => DO_NOT_SPRAY (Unfavourable)
+    # Any marginal parameter => MARGINAL (Moderate)
+    # All optimal => OPTIMAL
+    if delta_t_status == "poor":
         status = "DO_NOT_SPRAY"
         reason = delta_t_reason
     elif rain_status == "poor":
@@ -133,7 +123,6 @@ def evaluate_spray_condition(
         reason = wind_reason
     elif delta_t_status == "marginal" or rain_status == "marginal" or wind_status == "marginal":
         status = "MARGINAL"
-        # Pick the most prominent reason
         if delta_t_status == "marginal":
             reason = delta_t_reason
         elif wind_status == "marginal":
@@ -142,7 +131,9 @@ def evaluate_spray_condition(
             reason = rain_reason
     else:
         status = "OPTIMAL"
-        reason = "Ideal spraying window: optimal droplet retention, low drift, and steady drying."
+        reason = "Optimal spraying conditions: ideal Delta T, dry weather, and calm winds."
+
+    is_night = (is_daylight is False) or (current_hour is not None and (current_hour < 6 or current_hour >= 18))
 
     return {
         "status": status,

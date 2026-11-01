@@ -71,11 +71,10 @@ export function evaluateSprayCondition(
   humidity: number,
   windSpeedKmH: number,
   rainWithin3Hours: boolean,
-  isDaylight?: boolean,
-  currentHour?: number,
+  _isDaylight?: boolean,
+  _currentHour?: number,
   rainMm?: number
 ): SprayConditionResult {
-  const hour = currentHour !== undefined ? currentHour : new Date().getHours()
   const wetBulb = calculateWetBulb(temp, humidity)
   const deltaT = parseFloat((temp - wetBulb).toFixed(2))
   const rainVal = rainMm !== undefined ? rainMm : (rainWithin3Hours ? 0.5 : 0.0)
@@ -122,19 +121,15 @@ export function evaluateSprayCondition(
     rainReason = 'Dry weather prevents wash-off.'
   }
 
-  // 3. Wind classification
+  // 3. Wind classification (Matching exact photo criteria: < 12, 12–25, > 25)
   let windRange: '<12' | '12-25' | '>25' = '<12'
   let windStatus: 'optimal' | 'marginal' | 'poor' = 'optimal'
-  let windReason = 'Lower wind speeds (< 12 km/h) are ideal for better coverage and less drift.'
+  let windReason = 'Lower wind speeds (< 12 km/h) are ideal for better coverage and less spray drift.'
 
-  if (windSpeedKmH < 3.0) {
-    windRange = '<12'
-    windStatus = 'poor'
-    windReason = 'Inversion risk: zero/calm wind causes dangerous droplet suspension.'
-  } else if (windSpeedKmH < 12.0) {
+  if (windSpeedKmH < 12.0) {
     windRange = '<12'
     windStatus = 'optimal'
-    windReason = 'Lower wind speeds (< 12 km/h) are ideal for better coverage and less drift.'
+    windReason = 'Lower wind speeds (< 12 km/h) are ideal for better coverage and less spray drift.'
   } else if (windSpeedKmH >= 12.0 && windSpeedKmH <= 25.0) {
     windRange = '12-25'
     windStatus = 'marginal'
@@ -145,39 +140,7 @@ export function evaluateSprayCondition(
     windReason = 'High wind (> 25 km/h): severe spray drift danger.'
   }
 
-  // Night-time check
-  const isNight = isDaylight === false || (isDaylight === undefined && (hour < 6 || hour >= 18))
-
-  if (isNight) {
-    return {
-      status: 'DO_NOT_SPRAY',
-      deltaT,
-      wetBulb,
-      reason: 'Night-time: Inversion risk and dew. Spraying is unsafe at night; wait until daylight (06:00–18:00).',
-      deltaTRange,
-      deltaTStatus,
-      rainRange,
-      rainStatus,
-      windRange,
-      windStatus
-    }
-  }
-
-  if (temp > 35.0) {
-    return {
-      status: 'DO_NOT_SPRAY',
-      deltaT,
-      wetBulb,
-      reason: 'High temperature (> 35°C): risk of leaf phytotoxicity and rapid volatilization.',
-      deltaTRange,
-      deltaTStatus,
-      rainRange,
-      rainStatus,
-      windRange,
-      windStatus
-    }
-  }
-
+  // Plantix rules strictly driven by Delta T, Rain, and Wind
   if (deltaTStatus === 'poor') {
     return {
       status: 'DO_NOT_SPRAY',

@@ -3,6 +3,12 @@
     "shadcn": {
       "command": "npx",
       "args": ["shadcn@latest", "mcp"]
+    },
+    "21st": {
+      "url": "https://21st.dev/api/mcp",
+      "headers": {
+        "x-api-key": "21st_sk_e50a143192b62c1cb8c11f3066bb7382fe1f60940fd26ad1de3bfe6ca2a115f2"
+      }
     }
   }
 }

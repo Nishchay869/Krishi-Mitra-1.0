@@ -742,6 +742,77 @@
   color: #004ecc;
 }
 
+/* ─── Plantix Dark Mode Overrides (White Text on Black/Dark Surfaces) ─── */
+html.dark .agro-home {
+  background-color: transparent;
+}
+html.dark .plantix-hero-card,
+html.dark .plantix-weather-card,
+html.dark .plantix-tool-card,
+html.dark .plantix-diag-card {
+  background-color: #111827 !important;
+  border-color: #1e293b !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5) !important;
+}
+
+html.dark .plantix-weather-left,
+html.dark .plantix-weather-right {
+  background-color: #1e293b !important;
+  border-color: #334155 !important;
+  color: #ffffff !important;
+}
+
+html.dark .plantix-crop-label,
+html.dark .plantix-weather-date,
+html.dark .plantix-weather-temp,
+html.dark .plantix-spray-title,
+html.dark .plantix-spray-status,
+html.dark .plantix-spray-time,
+html.dark .plantix-step-label,
+html.dark .plantix-section-title,
+html.dark .plantix-tool-title,
+html.dark .plantix-lib-title,
+html.dark .plantix-diag-title,
+html.dark .plantix-diag-date,
+html.dark .plantix-sponsored-label,
+html.dark .plantix-sponsored-footer-title,
+html.dark .plantix-sponsored-footer-sub {
+  color: #ffffff !important;
+}
+
+html.dark .plantix-lib-card {
+  background-color: #1e293b !important;
+  border: 1px solid #334155 !important;
+}
+
+html.dark .plantix-lib-icon-circle {
+  background-color: #111827 !important;
+}
+html.dark .plantix-lib-icon-circle svg {
+  stroke: #ffffff !important;
+}
+
+html.dark .plantix-tool-icon {
+  background-color: #1e293b !important;
+}
+html.dark .plantix-tool-icon svg {
+  stroke: #ffffff !important;
+}
+html.dark .plantix-rupee-sign {
+  color: #ffffff !important;
+}
+
+html.dark .plantix-sponsored-footer {
+  background-color: #111827 !important;
+}
+
+html.dark .plantix-diag-view-all-btn {
+  background-color: #1e293b !important;
+  border-color: #334155 !important;
+  color: #ffffff !important;
+}
+
 /* Responsive adjustments */
 @media (min-width: 640px) {
   .plantix-dashboard {

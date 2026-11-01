@@ -67,8 +67,8 @@
   <header class="weather-hero-card mb-4 position-relative">
     <div class="d-flex justify-content-between align-items-start">
       <div class="weather-hero-main">
-        <div class="weather-location-label fw-bold text-dark fs-5 mb-1">
-          {{ location_display }}, {{ current_date }}
+        <div class="weather-location-label fw-bold text-dark fs-5 mb-1 text-capitalize">
+          {{ location_display|title }}, {{ current_date }}
         </div>
         <div class="weather-big-temp fw-bolder text-dark mb-2">
           {{ current_temp }} <span class="weather-temp-unit">°C</span>
@@ -96,7 +96,7 @@
   </header>
 
   <!-- 3. AI Summary Card -->
-  <section class="weather-ai-card p-3 mb-4 rounded-4 border bg-white shadow-sm" aria-labelledby="ai-summary-heading">
+  <section class="weather-ai-card p-3 mb-4 rounded-4 border shadow-sm" aria-labelledby="ai-summary-heading">
     <div class="d-flex justify-content-between align-items-center mb-3">
       <!-- Listen Button with Text-to-Speech -->
       <button type="button" class="weather-listen-pill btn btn-sm rounded-pill px-3 py-1 fw-semibold" id="weatherListenBtn" onclick="toggleSpeakAiSummary()">
@@ -130,7 +130,7 @@
   <!-- 4. Next 6 days Forecast Section -->
   <section class="weather-next-days mb-4">
     <h3 class="weather-section-title fw-bold text-dark fs-6 mb-2">Next 6 days</h3>
-    <div class="weather-days-card p-3 rounded-4 border bg-white shadow-sm">
+    <div class="weather-days-card p-3 rounded-4 border shadow-sm">
       <div class="weather-days-grid d-flex justify-content-between text-center">
         {% for day in next_days %}
         <div class="weather-day-col d-flex flex-column align-items-center gap-2">
@@ -155,7 +155,7 @@
     <p class="weather-section-subtitle text-muted small mb-3">Best time to spray crops based on weather conditions</p>
 
     <!-- Spray Card -->
-    <div class="weather-spray-card p-3 rounded-4 border bg-white shadow-sm">
+    <div class="weather-spray-card p-3 rounded-4 border shadow-sm">
       <!-- Title inside card -->
       <div class="spray-status-header fw-bold text-dark fs-6 mb-3">
         {{ spray_card_title }}

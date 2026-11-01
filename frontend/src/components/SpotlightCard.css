@@ -2,8 +2,8 @@
   position: relative;
   isolation: isolate;
   overflow: hidden;
-  padding: 2rem;
-  border-radius: 1.5rem;
+  padding: 24px;
+  border-radius: 22px;
   background-color: var(--spotlight-card-surface);
   box-shadow: var(--spotlight-card-shadow);
 }
@@ -48,4 +48,42 @@
 
 .spotlight-card__edge {
   opacity: 0;
+}
+
+/* 21st.dev Farm Toolkit & Spotlight Theme Contrast Rules */
+.spotlight-card--light {
+  color: #000000 !important;
+}
+
+.spotlight-card--light h1,
+.spotlight-card--light h2,
+.spotlight-card--light h3,
+.spotlight-card--light h4,
+.spotlight-card--light p,
+.spotlight-card--light span,
+.spotlight-card--light a,
+.spotlight-card--light [data-slot="card-description"] {
+  color: #000000 !important;
+}
+
+.spotlight-card--light .premium-tool-action {
+  color: #005bf6 !important;
+}
+
+.spotlight-card--dark {
+  color: #ffffff !important;
+}
+
+.spotlight-card--dark h1,
+.spotlight-card--dark h2,
+.spotlight-card--dark h3,
+.spotlight-card--dark h4,
+.spotlight-card--dark p,
+.spotlight-card--dark span,
+.spotlight-card--dark [data-slot="card-description"] {
+  color: #ffffff !important;
+}
+
+.spotlight-card--dark .premium-tool-action {
+  color: #60a5fa !important;
 }

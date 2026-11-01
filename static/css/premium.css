@@ -22,14 +22,20 @@
   --agri: #005bf6;
   --agri-dark: #004ecc;
   --agri-light: #edf2fe;
-  --bs-body-color: #0f172a;
+  --bs-body-color: #000000;
   --bs-border-color: #edf2f7;
   --bs-body-bg: #f8fafc;
 }
 
-body {
-  background: #f8fafc !important;
-  color: #0f172a !important;
+html:not(.dark) body {
+  background: #f8fafc;
+  color: #000000;
+  -webkit-font-smoothing: antialiased;
+}
+
+html.dark body {
+  background: #000000 !important;
+  color: #ffffff !important;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -61,19 +67,33 @@ body {
   border-bottom: 1px solid #edf2f7;
 }
 
+html.dark .page-intro {
+  border-bottom-color: #1e293b;
+}
+
 .page-intro h1 {
   font-weight: 800;
   letter-spacing: -0.025em;
   font-size: clamp(1.8rem, 3.5vw, 2.5rem);
-  color: #0f172a;
   margin-top: 8px;
+}
+html:not(.dark) .page-intro h1 {
+  color: #000000;
+}
+html.dark .page-intro h1 {
+  color: #ffffff !important;
 }
 
 .page-intro p {
-  color: #64748b;
   max-width: 720px;
   font-size: 15px;
   line-height: 1.65;
+}
+html:not(.dark) .page-intro p {
+  color: #000000;
+}
+html.dark .page-intro p {
+  color: #ffffff !important;
 }
 
 .page-heading-icon {
@@ -148,12 +168,24 @@ body {
 .form-select {
   border: 1.5px solid #e2e8f0;
   border-radius: 14px;
-  background-color: #ffffff;
   min-height: 48px;
-  color: #0f172a;
   font-size: 14px;
   padding: 10px 16px;
   transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+html:not(.dark) .form-control,
+html:not(.dark) .form-select {
+  background-color: #ffffff;
+  color: #000000;
+  border-color: #e2e8f0;
+}
+
+html.dark .form-control,
+html.dark .form-select {
+  background-color: #1e293b !important;
+  color: #ffffff !important;
+  border-color: #334155 !important;
 }
 
 .site-main .form-control:focus,
@@ -169,17 +201,33 @@ body {
 .form-label {
   font-size: 13px;
   font-weight: 600;
-  color: #334155;
   margin-bottom: 6px;
+}
+html:not(.dark) .form-label {
+  color: #000000;
+}
+html.dark .form-label {
+  color: #ffffff !important;
 }
 
 /* Universal Cards */
-.site-main .card,
-.card {
-  border: 1px solid #edf2f7 !important;
+html:not(.dark) .site-main .card,
+html:not(.dark) .card {
+  border: 1px solid #edf2f7;
+  border-radius: 22px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.03);
+  background: #ffffff;
+  color: #000000;
+  overflow: hidden;
+}
+
+html.dark .site-main .card,
+html.dark .card {
+  border: 1px solid #1e293b !important;
   border-radius: 22px !important;
-  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.03) !important;
-  background: #ffffff !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5) !important;
+  background: #111827 !important;
+  color: #ffffff !important;
   overflow: hidden;
 }
 
@@ -189,8 +237,17 @@ body {
   border-bottom: 1px solid #edf2f7;
   font-weight: 700;
   font-size: 15px;
+}
+
+html:not(.dark) .card-header {
   background: #ffffff;
-  color: #0f172a;
+  color: #000000;
+}
+
+html.dark .card-header {
+  background: #1e293b !important;
+  color: #ffffff !important;
+  border-bottom-color: #334155 !important;
 }
 
 .site-main .card-body,
@@ -198,21 +255,42 @@ body {
   padding: 22px 24px;
 }
 
+html:not(.dark) .card-body {
+  color: #000000;
+}
+html.dark .card-body {
+  color: #ffffff !important;
+}
+
 .site-main .card-footer,
 .card-footer {
   padding: 14px 22px;
+  font-size: 13px;
+}
+
+html:not(.dark) .card-footer {
   background: #fafcfd;
   border-top: 1px solid #edf2f7;
-  color: #64748b;
-  font-size: 13px;
+  color: #000000;
+}
+html.dark .card-footer {
+  background: #0f172a !important;
+  border-top: 1px solid #1e293b !important;
+  color: #ffffff !important;
 }
 
 .site-main .list-group-item,
 .list-group-item {
   padding: 16px 22px;
-  border-color: #edf2f7;
   background: transparent;
-  color: #0f172a;
+}
+html:not(.dark) .list-group-item {
+  border-color: #edf2f7;
+  color: #000000;
+}
+html.dark .list-group-item {
+  border-color: #1e293b !important;
+  color: #ffffff !important;
 }
 
 /* Alerts */
@@ -304,12 +382,26 @@ body {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
 }
 
+html.dark .site-header {
+  background-color: #000000 !important;
+  border-bottom-color: #1e293b !important;
+}
+
 .header-nav-link {
-  color: #475569;
+  color: #000000;
   font-weight: 600;
+}
+
+html.dark .header-nav-link {
+  color: #ffffff !important;
 }
 
 .header-nav-link:hover {
   color: #005bf6;
   background-color: #f1f5f9;
+}
+
+html.dark .header-nav-link:hover {
+  color: #4ade80 !important;
+  background-color: #1e293b !important;
 }

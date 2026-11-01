@@ -38,7 +38,11 @@ def build_plan(days, crops, growing_place='', soil='unknown', now=None):
             daylight_ok = slot.get('daylight', False) and 8 <= slot['when'].hour < 17
             gust_ok = not (number(slot.get('gust')) and slot['gust'] > 4.5)
             fog_ok = slot.get('code') not in (701, 741)
-            unsafe = (not daylight_ok or not gust_ok or not fog_ok or eval_res['status'] in ('DO_NOT_SPRAY', 'POOR_CONDITIONS'))
+            wind_ok = number(slot.get('wind')) and 1.5 <= slot['wind'] <= 3.3
+            temp_ok = number(slot.get('temp')) and 10 <= slot['temp'] <= 28
+            rain_ok = valid and all(s['rain'] == 0 for s in horizon)
+            pop_ok = valid and not any(s['rain'] > 0 or s.get('pop', 0) >= 0.3 or s.get('code', 800) < 600 for s in horizon)
+            unsafe = (not daylight_ok or not gust_ok or not fog_ok or not wind_ok or not temp_ok or not rain_ok or not pop_ok or eval_res['status'] in ('DO_NOT_SPRAY', 'POOR_CONDITIONS'))
             spray = 'Avoid' if unsafe else 'Check conditions'
         irrigation='Insufficient forecast'
         if valid:

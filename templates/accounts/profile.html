@@ -1,14 +1,43 @@
 {% extends 'base.html' %}
-{% load i18n farm_i18n %}
+{% load i18n farm_i18n static %}
 {% block title %}{% translate "Profile" %}{% endblock %}
+{% block extra_head %}
+<link rel="stylesheet" href="{% static 'css/you-dashboard.css' %}?v={{ STATIC_VERSION }}">
+{% endblock %}
+
 {% block content %}
-<div class="row justify-content-center"><div class="col-lg-7">
-  <div class="card shadow-sm"><div class="card-body p-4">
-    <header class="page-intro"><span class="page-heading-icon"><i class="bi bi-person"></i></span><span class="eyebrow">{% translate "MAKE IT YOURS" %}</span><h1>{% translate "My profile" %}</h1></header>
-    <form method="post" class="row">{% csrf_token %}
-      {% include 'partials/fields.html' with col='col-md-6' %}
-      <div class="col-12"><button class="btn btn-agri">{% translate "Save" %}</button></div>
-    </form>
-  </div></div>
-</div></div>
+<div class="you-shell">
+  <div class="mb-3">
+    <a href="{% url 'accounts:dashboard' %}" class="btn-21st btn-21st-secondary btn-21st-sm">
+      <i class="bi bi-arrow-left me-1"></i>
+      <span>{% translate "Close" %}</span>
+    </a>
+  </div>
+
+  <div class="row justify-content-center">
+    <div class="col-lg-8">
+      <div class="you-card">
+        <div class="you-card-header">
+          <h1 class="you-card-title fs-5">
+            <span class="you-card-icon is-green"><i class="bi bi-person"></i></span>
+            <span>{% translate "My profile" %}</span>
+          </h1>
+          <span class="you-eyebrow m-0">{% translate "MAKE IT YOURS" %}</span>
+        </div>
+        <div class="you-card-body p-4">
+          <form method="post" class="row g-3">
+            {% csrf_token %}
+            {% include 'partials/fields.html' with col='col-md-6' %}
+            <div class="col-12 mt-4 pt-2 border-top">
+              <button class="btn-21st btn-21st-primary px-4 py-2" type="submit">
+                <i class="bi bi-check2 me-1"></i>
+                <span>{% translate "Save" %}</span>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 {% endblock %}

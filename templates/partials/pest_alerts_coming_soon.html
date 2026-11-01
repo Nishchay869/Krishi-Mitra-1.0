@@ -1,9 +1,23 @@
 {% load i18n farm_i18n %}
-<section class="pest-alerts-preview" aria-label="Pest & disease alerts — Coming soon">
-  <span class="pest-alerts-icon" aria-hidden="true"><i class="bi bi-bell"></i></span>
-  <div class="pest-alerts-copy">
-    <div class="pest-alerts-heading"><h2>Pest & disease alerts</h2><span class="pest-alerts-badge">Coming soon</span></div>
-    <p>IoT integration is planned. Pest and disease alert notifications are not available yet.</p>
-    <span class="pest-alerts-plan"><i class="bi bi-cpu" aria-hidden="true"></i>Planned feature · IoT integration</span>
+<section class="pest-alerts-preview you-card you-pest-card mb-4" aria-label="Pest & disease alerts — Coming soon">
+  <div class="pest-alerts-body">
+    <span class="pest-alerts-icon" aria-hidden="true"><i class="bi bi-bell-fill"></i></span>
+    <div class="pest-alerts-copy">
+      <div class="pest-alerts-heading">
+        <h2 class="you-card-title m-0">Pest &amp; disease alerts</h2>
+        <span class="pest-alerts-badge">Coming soon</span>
+      </div>
+      <p class="pest-alerts-desc">IoT integration is planned. Pest and disease alert notifications are not available yet.</p>
+      <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mt-3">
+        <span class="pest-alerts-plan">
+          <i class="bi bi-cpu" aria-hidden="true"></i>
+          <span>Planned feature · IoT integration</span>
+        </span>
+        <a href="{% url 'crops:library' %}" class="btn-21st btn-21st-secondary btn-21st-sm">
+          <span>Explore Pest Library</span>
+          <span class="btn-21st-icon-circle ms-1"><i class="bi bi-arrow-right"></i></span>
+        </a>
+      </div>
+    </div>
   </div>
 </section>

@@ -288,6 +288,7 @@
 }
 .weather-location-label {
   letter-spacing: -0.01em;
+  text-transform: capitalize;
 }
 .weather-big-temp {
   font-size: clamp(48px, 12vw, 58px);

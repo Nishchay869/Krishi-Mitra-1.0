@@ -1,18 +1,59 @@
 {% extends 'base.html' %}
-{% load i18n farm_i18n %}
-{% block title %}{% translate "Login" %}{% endblock %}
-{% block content %}<div class="auth-shell"><section class="auth-story"><i class="bi bi-flower2" aria-hidden="true"></i><span class="eyebrow">{% translate "YOUR NEXT CHAPTER STARTS HERE" %}</span><h1>{% translate "A growing farm." %}<br>{% translate "A" %} <em>{% translate "trusted companion." %}</em></h1><p>{% translate "Keep your farm insights, questions, and plans together. Let’s make the next season a little clearer." %}</p></section>
-<div class="row justify-content-center"><div class="col-md-5">
-  <div class="card shadow-sm"><div class="card-body p-4">
-    <h4 class="mb-3">{% translate "Login" %}</h4>
-    <form method="post">{% csrf_token %}
-      {% if form.errors %}<div class="alert alert-danger">{% translate "Invalid email or password." %}</div>{% endif %}
-      <div class="mb-3"><label class="form-label" for="id_email">{% translate "Email" %}</label>{{ form.email }}</div>
-      <div class="mb-3"><label class="form-label" for="id_password">{% translate "Password" %}</label>{{ form.password }}</div>
-      <input type="hidden" name="next" value="{{ next }}">
-      <button class="btn btn-agri w-100">{% translate "Login" %}</button>
-    </form>
-    <p class="small text-center mt-3 mb-0">{% translate "New here?" %} <a href="{% url 'accounts:register' %}">{% translate "Create a farmer account" %}</a></p>
-  </div></div>
-</div></div>
-</div>{% endblock %}
+{% load i18n farm_i18n static %}
+{% block title %}{% translate "Login" %} · Krishi Mitra{% endblock %}
+
+{% block content %}
+<div class="auth-page-container py-2 sm:py-4">
+  <!-- React Island: AuthIsland with 21st.dev Image Slider & Credentials Form -->
+  <div
+    data-react-island="AuthIsland"
+    data-props='{
+      "mode": "login",
+      "csrfToken": "{{ csrf_token }}",
+      "nextUrl": "{{ next|default:'/' }}",
+      "actionUrl": "{% url "accounts:login" %}",
+      "errorMessage": "{% if form.errors %}{% translate "Invalid email or password." %}{% endif %}",
+      "loginUrl": "{% url "accounts:login" %}",
+      "registerUrl": "{% url "accounts:register" %}",
+      "images": [
+        "{% static "images/auth/farmer-1.jpg" %}",
+        "{% static "images/auth/farmer-2.jpg" %}",
+        "{% static "images/auth/farmer-3.jpg" %}",
+        "{% static "images/auth/farmer-4.jpg" %}"
+      ]
+    }'
+  >
+    <!-- Server-rendered accessible fallback with 21st.dev tactile back button -->
+    <div class="card shadow-sm mx-auto my-4 border" style="max-width: 480px;">
+      <div class="card-body p-4">
+        <div class="mb-3">
+          <a href="{% url 'home' %}" class="btn-21st btn-21st-secondary btn-21st-xs btn-21st-pill">
+            <i class="bi bi-arrow-left"></i>
+            <span>{% translate "Back" %}</span>
+          </a>
+        </div>
+        <h2 class="h4 mb-3 font-weight-bold">{% translate "Login" %}</h2>
+        {% if form.errors %}
+        <div class="alert alert-danger">{% translate "Invalid email or password." %}</div>
+        {% endif %}
+        <form method="post" action="{% url 'accounts:login' %}">
+          {% csrf_token %}
+          <div class="mb-3">
+            <label class="form-label font-weight-bold" for="id_email">{% translate "Email" %}</label>
+            {{ form.email }}
+          </div>
+          <div class="mb-3">
+            <label class="form-label font-weight-bold" for="id_password">{% translate "Password" %}</label>
+            {{ form.password }}
+          </div>
+          <input type="hidden" name="next" value="{{ next|default:'/' }}">
+          <button class="btn-21st btn-21st-primary w-100 py-2.5 font-bold" type="submit">{% translate "Login" %}</button>
+        </form>
+        <p class="small text-center mt-3 mb-0">
+          {% translate "New here?" %} <a href="{% url 'accounts:register' %}" class="font-weight-bold">{% translate "Create a farmer account" %}</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

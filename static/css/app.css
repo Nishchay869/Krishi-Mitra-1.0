@@ -311,7 +311,11 @@ body {
   align-items: center;
   gap: 10px;
   text-decoration: none !important;
-  color: #0f172a !important;
+  color: #000000 !important;
+}
+html.dark .site-header-brand,
+[data-theme="dark"] .site-header-brand {
+  color: #ffffff !important;
 }
 .site-header-brand .brand-logo {
   height: 38px;
@@ -321,9 +325,13 @@ body {
 .site-header-brand .brand-title {
   font-size: 21px;
   font-weight: 700;
-  color: #0f172a;
+  color: #000000;
   letter-spacing: -0.03em;
   line-height: 1;
+}
+html.dark .site-header-brand .brand-title,
+[data-theme="dark"] .site-header-brand .brand-title {
+  color: #ffffff !important;
 }
 .site-header-desktop-nav {
   display: flex;
@@ -333,15 +341,24 @@ body {
 .header-nav-link {
   font-size: 13px;
   font-weight: 600;
-  color: #475569;
+  color: #000000;
   text-decoration: none !important;
   padding: 6px 12px;
   border-radius: 9999px;
   transition: all 0.15s ease;
 }
+html.dark .header-nav-link,
+[data-theme="dark"] .header-nav-link {
+  color: #ffffff !important;
+}
 .header-nav-link:hover {
   color: #005bf6;
   background-color: #f1f5f9;
+}
+html.dark .header-nav-link:hover,
+[data-theme="dark"] .header-nav-link:hover {
+  color: #4ade80 !important;
+  background-color: #1e293b !important;
 }
 .site-header-actions {
   display: flex;
@@ -883,7 +900,7 @@ body {
   align-items: center;
   justify-content: center;
   text-decoration: none !important;
-  color: #64748b !important;
+  color: #000000;
   flex: 1;
   height: 100%;
   padding: 6px 0;
@@ -902,13 +919,13 @@ body {
 .bottom-nav-icon {
   width: 22px;
   height: 22px;
-  stroke: #64748b;
+  stroke: #000000;
   transition: stroke 0.2s ease;
 }
 .bottom-nav-label {
   font-size: 11px;
   font-weight: 500;
-  color: #64748b;
+  color: #000000;
   margin-top: 3px;
   line-height: 1.1;
   transition: color 0.2s ease, font-weight 0.2s ease;
@@ -930,7 +947,7 @@ body {
   stroke: #1d4ed8;
 }
 .bottom-nav-item.is-active .bottom-nav-label {
-  color: #0f172a !important;
+  color: #000000;
   font-weight: 700;
 }
 
@@ -2131,3 +2148,981 @@ html:not([lang="en"]) :is(p,.tool-cta,.btn,.footer-help a){overflow-wrap:anywher
 
 /* Saved onboarding crops remain editable from the farmer profile. */
 .farm-crop-options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;font-size:13px}.farm-crop-options input{width:auto;display:inline-block;margin-inline-end:6px;accent-color:#067864}.farm-crop-options label{display:flex;align-items:center;min-height:30px}
+
+/* ==========================================================================
+   Typography System & Text Contrast (Light: Black / Dark: White)
+   ========================================================================== */
+html, body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Typography Hierarchy & Spacing */
+h1, h2, h3, h4, h5, h6 {
+  letter-spacing: -0.02em;
+  font-weight: 700;
+  line-height: 1.25;
+}
+p {
+  line-height: 1.55;
+}
+.small, small {
+  font-size: 0.825rem;
+  line-height: 1.45;
+}
+
+/* --------------------------------------------------------------------------
+   LIGHT MODE: Text Must Be Black (#000000)
+   -------------------------------------------------------------------------- */
+html:not(.dark),
+html[data-theme="light"] {
+  color-scheme: light;
+  --farm-bg: #f8fafc;
+  --farm-paper: #ffffff;
+  --farm-ink: #000000;
+  --farm-muted: #111827;
+  --farm-border: #e2e8f0;
+  --surface: #ffffff;
+  --text: #000000;
+}
+
+html:not(.dark) body {
+  color: #000000;
+  background-color: #f8fafc;
+}
+
+/* Enforce pure black on all light-mode typography & content (White background -> Pure Black text) */
+html:not(.dark) body {
+  color: #000000 !important;
+  background-color: #ffffff;
+}
+
+html:not(.dark) h1:not(.app-footer-4col *):not(.bg-dark *):not(.bg-black *):not(.badge):not(.btn-primary *):not(.btn-21st-primary *):not(.btn-agri *):not(.auth-slider-panel *):not(.auth-photo-caption *):not(.auth-photo-back-btn *),
+html:not(.dark) h2:not(.app-footer-4col *):not(.bg-dark *):not(.bg-black *):not(.badge):not(.btn-primary *):not(.btn-21st-primary *):not(.btn-agri *):not(.auth-slider-panel *):not(.auth-photo-caption *):not(.auth-photo-back-btn *),
+html:not(.dark) h3:not(.app-footer-4col *):not(.bg-dark *):not(.bg-black *):not(.badge):not(.btn-primary *):not(.btn-21st-primary *):not(.btn-agri *):not(.auth-slider-panel *):not(.auth-photo-caption *):not(.auth-photo-back-btn *),
+html:not(.dark) h4:not(.app-footer-4col *):not(.bg-dark *):not(.bg-black *):not(.badge):not(.btn-primary *):not(.btn-21st-primary *):not(.btn-agri *):not(.auth-slider-panel *):not(.auth-photo-caption *):not(.auth-photo-back-btn *),
+html:not(.dark) h5:not(.app-footer-4col *):not(.bg-dark *):not(.bg-black *):not(.badge):not(.btn-primary *):not(.btn-21st-primary *):not(.btn-agri *):not(.auth-slider-panel *):not(.auth-photo-caption *):not(.auth-photo-back-btn *),
+html:not(.dark) h6:not(.app-footer-4col *):not(.bg-dark *):not(.bg-black *):not(.badge):not(.btn-primary *):not(.btn-21st-primary *):not(.btn-agri *):not(.auth-slider-panel *):not(.auth-photo-caption *):not(.auth-photo-back-btn *),
+html:not(.dark) p:not(.app-footer-4col *):not(.bg-dark *):not(.bg-black *):not(.badge):not(.btn-primary *):not(.btn-21st-primary *):not(.btn-agri *):not(.auth-slider-panel *):not(.auth-photo-caption *):not(.auth-photo-back-btn *),
+html:not(.dark) span:not(.app-footer-4col *):not(.bg-dark *):not(.bg-black *):not(.badge):not(.btn-primary *):not(.btn-21st-primary *):not(.btn-agri *):not(i):not(svg):not(.auth-slider-panel *):not(.auth-photo-caption *):not(.auth-photo-back-btn *),
+html:not(.dark) div:not(.app-footer-4col *):not(.bg-dark *):not(.bg-black *):not(.badge):not(.btn-primary *):not(.btn-21st-primary *):not(.btn-agri *):not(.auth-slider-panel *):not(.auth-photo-caption *):not(.auth-photo-back-btn *),
+html:not(.dark) label:not(.app-footer-4col *):not(.bg-dark *):not(.bg-black *),
+html:not(.dark) strong:not(.app-footer-4col *):not(.bg-dark *):not(.bg-black *):not(.btn-primary *):not(.btn-21st-primary *):not(.btn-agri *):not(.auth-slider-panel *):not(.auth-photo-caption *):not(.auth-photo-back-btn *),
+html:not(.dark) b:not(.app-footer-4col *):not(.bg-dark *):not(.bg-black *):not(.btn-primary *):not(.btn-21st-primary *):not(.btn-agri *):not(.auth-slider-panel *):not(.auth-photo-caption *):not(.auth-photo-back-btn *),
+html:not(.dark) em:not(.app-footer-4col *):not(.bg-dark *):not(.bg-black *):not(.btn-primary *):not(.btn-21st-primary *):not(.btn-agri *):not(.auth-slider-panel *):not(.auth-photo-caption *):not(.auth-photo-back-btn *),
+html:not(.dark) small:not(.app-footer-4col *):not(.bg-dark *):not(.bg-black *):not(.btn-primary *):not(.btn-21st-primary *):not(.btn-agri *):not(.auth-slider-panel *):not(.auth-photo-caption *):not(.auth-photo-back-btn *),
+html:not(.dark) li:not(.app-footer-4col *):not(.bg-dark *):not(.bg-black *),
+html:not(.dark) td:not(.app-footer-4col *):not(.bg-dark *):not(.bg-black *),
+html:not(.dark) th:not(.app-footer-4col *):not(.bg-dark *):not(.bg-black *),
+html:not(.dark) dt:not(.app-footer-4col *):not(.bg-dark *):not(.bg-black *),
+html:not(.dark) dd:not(.app-footer-4col *):not(.bg-dark *):not(.bg-black *),
+html:not(.dark) address:not(.app-footer-4col *):not(.bg-dark *):not(.bg-black *),
+html:not(.dark) legend:not(.app-footer-4col *):not(.bg-dark *):not(.bg-black *),
+html:not(.dark) blockquote:not(.app-footer-4col *):not(.bg-dark *):not(.bg-black *),
+html:not(.dark) figcaption:not(.app-footer-4col *):not(.bg-dark *):not(.bg-black *),
+html:not(.dark) time:not(.app-footer-4col *):not(.bg-dark *):not(.bg-black *),
+html:not(.dark) .text-dark,
+html:not(.dark) .text-muted:not(.app-footer-4col *):not(.bg-dark *):not(.bg-black *),
+html:not(.dark) .text-secondary:not(.app-footer-4col *):not(.bg-dark *):not(.bg-black *) {
+  color: #000000 !important;
+}
+
+/* Light mode weather page text */
+html:not(.dark) .weather-location-label,
+html:not(.dark) .weather-big-temp,
+html:not(.dark) .weather-temp-unit,
+html:not(.dark) .weather-sub-metrics,
+html:not(.dark) .weather-sub-metrics span,
+html:not(.dark) .weather-rain-prob,
+html:not(.dark) .weather-ai-body p,
+html:not(.dark) .weather-section-title,
+html:not(.dark) .weather-section-subtitle,
+html:not(.dark) .weather-day-name,
+html:not(.dark) .weather-day-temp,
+html:not(.dark) .spray-status-header,
+html:not(.dark) .spray-hourly-time,
+html:not(.dark) .spray-legend-pill span {
+  color: #000000 !important;
+}
+
+/* Light mode plantix dashboard text */
+html:not(.dark) .plantix-crop-label,
+html:not(.dark) .plantix-weather-date,
+html:not(.dark) .plantix-weather-temp,
+html:not(.dark) .plantix-spray-title,
+html:not(.dark) .plantix-spray-status,
+html:not(.dark) .plantix-spray-time,
+html:not(.dark) .plantix-step-label,
+html:not(.dark) .plantix-section-title,
+html:not(.dark) .plantix-tool-title,
+html:not(.dark) .plantix-lib-title,
+html:not(.dark) .plantix-diag-title,
+html:not(.dark) .plantix-diag-date,
+html:not(.dark) .plantix-sponsored-label,
+html:not(.dark) .plantix-sponsored-footer-title,
+html:not(.dark) .plantix-sponsored-footer-sub,
+html:not(.dark) .bottom-nav-label {
+  color: #000000 !important;
+}
+
+/* Light mode modals & interactive surfaces */
+html:not(.dark) .feedback-modal-title,
+html:not(.dark) .feedback-reaction-label,
+html:not(.dark) .feedback-cancel-btn,
+html:not(.dark) .modal-title,
+html:not(.dark) .spray-param-title,
+html:not(.dark) .spray-param-unit,
+html:not(.dark) .spray-badge-label,
+html:not(.dark) .spray-param-hint,
+html:not(.dark) .spray-trust-details summary,
+html:not(.dark) .spray-trust-details p,
+html:not(.dark) .settings-field-label,
+html:not(.dark) .settings-field-hint,
+html:not(.dark) .settings-section-badge,
+html:not(.dark) .settings-temp-btn span,
+html:not(.dark) .recommend-modal-title,
+html:not(.dark) .recommend-link-section label,
+html:not(.dark) .recommend-channels-title,
+html:not(.dark) .recommend-channel-label,
+html:not(.dark) .recommend-preview-card div {
+  color: #000000 !important;
+}
+
+/* Form controls in light mode */
+html:not(.dark) .form-control,
+html:not(.dark) .form-select {
+  color: #000000 !important;
+  background-color: #ffffff !important;
+  border-color: #cbd5e1;
+}
+
+/* ==========================================================================
+   21st.dev Tactile Buttons System
+   ========================================================================== */
+.btn-21st {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  border-radius: 12px;
+  padding: 10px 18px;
+  text-decoration: none !important;
+  cursor: pointer;
+  transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+  outline: none;
+  border: 1px solid transparent;
+  user-select: none;
+  white-space: nowrap;
+}
+
+.btn-21st-sm {
+  padding: 8px 16px;
+  font-size: 13px;
+  border-radius: 10px;
+}
+
+.btn-21st-xs {
+  padding: 5px 12px;
+  font-size: 12px;
+  font-weight: 650;
+  border-radius: 8px;
+  gap: 4px;
+}
+
+.btn-21st-pill {
+  border-radius: 9999px !important;
+}
+
+/* 21st Primary Variant */
+.btn-21st-primary {
+  background: linear-gradient(180deg, #0066ff 0%, #004bd1 100%);
+  color: #ffffff !important;
+  border-top: 2px solid rgba(255, 255, 255, 0.35);
+  border-right: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  border-left: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 3px rgba(0, 91, 246, 0.3), inset 0 1px 2px rgba(255, 255, 255, 0.3);
+}
+
+.btn-21st-primary:hover {
+  background: linear-gradient(180deg, #0070ff 0%, #0056e6 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(0, 91, 246, 0.4), inset 0 1px 2px rgba(255, 255, 255, 0.4);
+  color: #ffffff !important;
+}
+
+.btn-21st-primary:active {
+  transform: translateY(1px);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2), inset 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+/* 21st Secondary / Outline Variant */
+html:not(.dark) .btn-21st-secondary {
+  background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+  color: #000000 !important;
+  border: 1px solid #cbd5e1;
+  border-top: 2px solid #ffffff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05), inset 0 1px 1px rgba(255, 255, 255, 0.9);
+}
+
+html:not(.dark) .btn-21st-secondary:hover {
+  background: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);
+  color: #000000 !important;
+  transform: translateY(-1px);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08), inset 0 1px 1px rgba(255, 255, 255, 0.9);
+}
+
+html.dark .btn-21st-secondary,
+[data-theme="dark"] .btn-21st-secondary,
+.dark .btn-21st-secondary {
+  background: rgba(0, 0, 0, 0.72) !important;
+  color: #ffffff !important;
+  border: 1px solid rgba(255, 255, 255, 0.14) !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.28) !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.08) !important;
+  backdrop-filter: blur(10px);
+}
+
+html.dark .btn-21st-secondary:hover,
+[data-theme="dark"] .btn-21st-secondary:hover,
+.dark .btn-21st-secondary:hover {
+  background: rgba(0, 0, 0, 0.9) !important;
+  color: #ffffff !important;
+  border-color: rgba(255, 255, 255, 0.28) !important;
+  border-top-color: rgba(255, 255, 255, 0.45) !important;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.85), inset 0 1px 0 rgba(255, 255, 255, 0.15) !important;
+}
+
+/* ==========================================================================
+   Theme Switcher Button in Navbar
+   ========================================================================== */
+.site-header-theme-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1.5px solid #cbd5e1;
+  background-color: #ffffff;
+  color: #000000;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-right: 4px;
+}
+.site-header-theme-btn:hover {
+  background-color: #f1f5f9;
+  color: #000000;
+  transform: scale(1.05);
+}
+.theme-icon-sun {
+  display: none;
+}
+.theme-icon-moon {
+  display: block;
+}
+
+html.dark .site-header-theme-btn {
+  background-color: #1e293b;
+  border-color: #334155;
+  color: #fbbf24;
+}
+html.dark .site-header-theme-btn:hover {
+  background-color: #334155;
+  color: #fde047;
+}
+html.dark .theme-icon-sun {
+  display: block;
+}
+html.dark .theme-icon-moon {
+  display: none;
+}
+
+/* --------------------------------------------------------------------------
+   DARK MODE: Text Must Be White (#ffffff) & Elegant Dark Pattern Background
+   -------------------------------------------------------------------------- */
+html.dark,
+html[data-theme="dark"] {
+  color-scheme: dark;
+  --farm-bg: #000000;
+  --farm-paper: #111827;
+  --farm-paper-strong: #1e293b;
+  --farm-ink: #ffffff;
+  --farm-muted: #ffffff;
+  --farm-border: #1e293b;
+  --surface: #111827;
+  --surface-soft: #1e293b;
+  --text: #ffffff;
+  --text-muted: #ffffff;
+  --line: #1e293b;
+}
+
+html.dark body {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+  position: relative;
+  min-height: 100vh;
+}
+
+/* Elegant Dark Pattern Background Layers */
+html.dark body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -2;
+  background: 
+    radial-gradient(100% 100% at 0% 0%, rgb(46, 46, 46) 0%, rgb(0, 0, 0) 100%),
+    radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.16) 1px, transparent 0);
+  background-size: 100% 100%, 20px 20px;
+}
+
+/* Skewed fading cyan streaks matching elegant-dark-pattern */
+html.dark body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  opacity: 0.18;
+  background: linear-gradient(rgb(0, 207, 255) 0%, rgba(0, 207, 255, 0) 100%);
+  -webkit-mask: linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 20%, rgba(0, 0, 0, 0) 36%, rgb(0, 0, 0) 55%, rgba(0, 0, 0, 0.13) 67%, rgb(0, 0, 0) 78%, rgba(0, 0, 0, 0.97));
+  mask: linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 20%, rgba(0, 0, 0, 0) 36%, rgb(0, 0, 0) 55%, rgba(0, 0, 0, 0.13) 67%, rgb(0, 0, 0) 78%, rgba(0, 0, 0, 0.97));
+  transform: skewX(45deg);
+}
+
+/* Enforce pure white on all dark-mode typography & content (Black background -> Pure White text) */
+html.dark h1:not(.bg-white *):not(.bg-light *):not(.bg-light-subtle *):not(.table-light *),
+html.dark h2:not(.bg-white *):not(.bg-light *):not(.bg-light-subtle *):not(.table-light *),
+html.dark h3:not(.bg-white *):not(.bg-light *):not(.bg-light-subtle *):not(.table-light *),
+html.dark h4:not(.bg-white *):not(.bg-light *):not(.bg-light-subtle *):not(.table-light *),
+html.dark h5:not(.bg-white *):not(.bg-light *):not(.bg-light-subtle *):not(.table-light *),
+html.dark h6:not(.bg-white *):not(.bg-light *):not(.bg-light-subtle *):not(.table-light *),
+html.dark p:not(.bg-white *):not(.bg-light *):not(.bg-light-subtle *):not(.table-light *),
+html.dark span:not(.bg-white *):not(.bg-light *):not(.bg-light-subtle *):not(.table-light *):not(.badge):not(i):not(svg),
+html.dark div:not(.bg-white *):not(.bg-light *):not(.bg-light-subtle *):not(.table-light *):not(.badge):not(.btn-primary *):not(.btn-21st-primary *),
+html.dark label:not(.bg-white *):not(.bg-light *):not(.bg-light-subtle *):not(.table-light *),
+html.dark strong:not(.bg-white *):not(.bg-light *):not(.bg-light-subtle *):not(.table-light *),
+html.dark b:not(.bg-white *):not(.bg-light *):not(.bg-light-subtle *):not(.table-light *),
+html.dark em:not(.bg-white *):not(.bg-light *):not(.bg-light-subtle *):not(.table-light *),
+html.dark small:not(.bg-white *):not(.bg-light *):not(.bg-light-subtle *):not(.table-light *),
+html.dark li:not(.bg-white *):not(.bg-light *):not(.bg-light-subtle *):not(.table-light *),
+html.dark td:not(.bg-white *):not(.bg-light *):not(.bg-light-subtle *):not(.table-light *),
+html.dark th:not(.bg-white *):not(.bg-light *):not(.bg-light-subtle *):not(.table-light *),
+html.dark dt:not(.bg-white *):not(.bg-light *):not(.bg-light-subtle *):not(.table-light *),
+html.dark dd:not(.bg-white *):not(.bg-light *):not(.bg-light-subtle *):not(.table-light *),
+html.dark address:not(.bg-white *):not(.bg-light *):not(.bg-light-subtle *):not(.table-light *),
+html.dark legend:not(.bg-white *):not(.bg-light *):not(.bg-light-subtle *):not(.table-light *),
+html.dark blockquote:not(.bg-white *):not(.bg-light *):not(.bg-light-subtle *):not(.table-light *),
+html.dark figcaption:not(.bg-white *):not(.bg-light *):not(.bg-light-subtle *):not(.table-light *),
+html.dark time:not(.bg-white *):not(.bg-light *):not(.bg-light-subtle *):not(.table-light *),
+html.dark .text-dark,
+html.dark .text-muted:not(.bg-white *):not(.bg-light *):not(.bg-light-subtle *):not(.table-light *),
+html.dark .text-secondary:not(.bg-white *):not(.bg-light *):not(.bg-light-subtle *):not(.table-light *),
+[data-theme="dark"] h1:not(.bg-white *):not(.bg-light *):not(.bg-light-subtle *):not(.table-light *),
+[data-theme="dark"] h2:not(.bg-white *):not(.bg-light *):not(.bg-light-subtle *):not(.table-light *),
+[data-theme="dark"] h3:not(.bg-white *):not(.bg-light *):not(.bg-light-subtle *):not(.table-light *),
+[data-theme="dark"] h4:not(.bg-white *):not(.bg-light *):not(.bg-light-subtle *):not(.table-light *),
+[data-theme="dark"] h5:not(.bg-white *):not(.bg-light *):not(.bg-light-subtle *):not(.table-light *),
+[data-theme="dark"] h6:not(.bg-white *):not(.bg-light *):not(.bg-light-subtle *):not(.table-light *),
+[data-theme="dark"] p:not(.bg-white *):not(.bg-light *):not(.bg-light-subtle *):not(.table-light *),
+[data-theme="dark"] span:not(.bg-white *):not(.bg-light *):not(.bg-light-subtle *):not(.table-light *):not(.badge):not(i):not(svg),
+[data-theme="dark"] div:not(.bg-white *):not(.bg-light *):not(.bg-light-subtle *):not(.table-light *):not(.badge):not(.btn-primary *):not(.btn-21st-primary *),
+[data-theme="dark"] label:not(.bg-white *):not(.bg-light *):not(.bg-light-subtle *):not(.table-light *),
+[data-theme="dark"] strong:not(.bg-white *):not(.bg-light *):not(.bg-light-subtle *):not(.table-light *),
+[data-theme="dark"] b:not(.bg-white *):not(.bg-light *):not(.bg-light-subtle *):not(.table-light *),
+[data-theme="dark"] em:not(.bg-white *):not(.bg-light *):not(.bg-light-subtle *):not(.table-light *),
+[data-theme="dark"] small:not(.bg-white *):not(.bg-light *):not(.bg-light-subtle *):not(.table-light *),
+[data-theme="dark"] li:not(.bg-white *):not(.bg-light *):not(.bg-light-subtle *):not(.table-light *),
+[data-theme="dark"] td:not(.bg-white *):not(.bg-light *):not(.bg-light-subtle *):not(.table-light *),
+[data-theme="dark"] th:not(.bg-white *):not(.bg-light *):not(.bg-light-subtle *):not(.table-light *),
+[data-theme="dark"] dt:not(.bg-white *):not(.bg-light *):not(.bg-light-subtle *):not(.table-light *),
+[data-theme="dark"] dd:not(.bg-white *):not(.bg-light *):not(.bg-light-subtle *):not(.table-light *),
+[data-theme="dark"] address:not(.bg-white *):not(.bg-light *):not(.bg-light-subtle *):not(.table-light *),
+[data-theme="dark"] legend:not(.bg-white *):not(.bg-light *):not(.bg-light-subtle *):not(.table-light *),
+[data-theme="dark"] blockquote:not(.bg-white *):not(.bg-light *):not(.bg-light-subtle *):not(.table-light *),
+[data-theme="dark"] figcaption:not(.bg-white *):not(.bg-light *):not(.bg-light-subtle *):not(.table-light *),
+[data-theme="dark"] time:not(.bg-white *):not(.bg-light *):not(.bg-light-subtle *):not(.table-light *),
+[data-theme="dark"] .text-dark,
+[data-theme="dark"] .text-muted:not(.bg-white *):not(.bg-light *):not(.bg-light-subtle *):not(.table-light *),
+[data-theme="dark"] .text-secondary:not(.bg-white *):not(.bg-light *):not(.bg-light-subtle *):not(.table-light *) {
+  color: #ffffff !important;
+}
+
+/* Dark Mode Component Surfaces */
+html.dark .site-header {
+  background-color: rgba(15, 23, 42, 0.95);
+  border-bottom: 1px solid #1e293b;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+html.dark .site-header-more-btn {
+  color: #ffffff;
+}
+html.dark .site-header-dropdown {
+  background-color: #1e293b;
+  border: 1px solid #334155;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+}
+html.dark .site-header-dropdown .dropdown-item {
+  color: #ffffff !important;
+}
+html.dark .site-header-dropdown .dropdown-item i {
+  color: #cbd5e1 !important;
+}
+html.dark .site-header-dropdown .dropdown-item:hover {
+  background-color: #334155;
+  color: #ffffff !important;
+}
+html.dark .site-header-dropdown .dropdown-divider {
+  border-color: #334155;
+}
+
+/* Dark Mode Cards & Surfaces */
+html.dark .card,
+html.dark .plantix-hero-card,
+html.dark .plantix-weather-card,
+html.dark .plantix-tool-card,
+html.dark .plantix-lib-card,
+html.dark .plantix-diag-card,
+html.dark .plantix-sponsored-card,
+html.dark .plantix-diag-view-all-btn,
+html.dark .weather-hero-card,
+html.dark .weather-ai-card,
+html.dark .weather-days-card,
+html.dark .weather-spray-card,
+html.dark .spray-param-card,
+html.dark .recent-diagnoses-card,
+html.dark .recommend-preview-card,
+html.dark .settings-card {
+  background-color: #111827 !important;
+  border-color: #1e293b !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5) !important;
+}
+
+html.dark .plantix-weather-left,
+html.dark .plantix-weather-right {
+  background-color: #1e293b !important;
+  border-color: #334155 !important;
+  color: #ffffff !important;
+}
+
+/* Dark mode weather elements text */
+html.dark .weather-nav-btn {
+  color: #ffffff !important;
+}
+html.dark .weather-nav-btn:hover {
+  background-color: #1e293b !important;
+}
+html.dark .weather-location-label,
+html.dark .weather-big-temp,
+html.dark .weather-temp-unit,
+html.dark .weather-sub-metrics,
+html.dark .weather-sub-metrics span,
+html.dark .weather-rain-prob,
+html.dark .weather-ai-body,
+html.dark .weather-ai-body p,
+html.dark .weather-section-title,
+html.dark .weather-section-subtitle,
+html.dark .weather-day-name,
+html.dark .weather-day-temp,
+html.dark .spray-status-header,
+html.dark .spray-hourly-time,
+html.dark .spray-legend-pill span {
+  color: #ffffff !important;
+}
+
+/* Dark mode plantix dashboard text */
+html.dark .plantix-crop-label,
+html.dark .plantix-weather-date,
+html.dark .plantix-weather-temp,
+html.dark .plantix-spray-title,
+html.dark .plantix-spray-status,
+html.dark .plantix-spray-time,
+html.dark .plantix-step-label,
+html.dark .plantix-section-title,
+html.dark .plantix-tool-title,
+html.dark .plantix-lib-title,
+html.dark .plantix-diag-title,
+html.dark .plantix-diag-date,
+html.dark .plantix-sponsored-label,
+html.dark .plantix-sponsored-footer-title,
+html.dark .plantix-sponsored-footer-sub,
+html.dark .bottom-nav-label {
+  color: #ffffff !important;
+}
+
+/* Dark mode modals & dialogs */
+html.dark .modal-content,
+html.dark .feedback-modal-content,
+html.dark .spray-modal-content,
+html.dark .settings-modal-content,
+html.dark .recommend-modal-content {
+  background-color: #111827 !important;
+  border: 1px solid #1e293b !important;
+  color: #ffffff !important;
+}
+
+html.dark .feedback-modal-title,
+html.dark .feedback-reaction-label,
+html.dark .feedback-cancel-btn,
+html.dark .modal-title,
+html.dark .spray-param-title,
+html.dark .spray-param-unit,
+html.dark .spray-badge-label,
+html.dark .spray-param-hint,
+html.dark .spray-trust-details summary,
+html.dark .spray-trust-details p,
+html.dark .settings-field-label,
+html.dark .settings-field-hint,
+html.dark .settings-section-badge,
+html.dark .settings-temp-btn span,
+html.dark .recommend-modal-title,
+html.dark .recommend-link-section label,
+html.dark .recommend-channels-title,
+html.dark .recommend-channel-label,
+html.dark .recommend-preview-card div {
+  color: #ffffff !important;
+}
+
+html.dark .spray-chart-container {
+  background-color: #0b1120 !important;
+  border-color: #1e293b !important;
+}
+html.dark .spray-chart-container text {
+  fill: #ffffff !important;
+}
+
+html.dark .btn-close {
+  filter: invert(1) grayscale(100%) brightness(200%);
+}
+
+/* Form controls & inputs in dark mode */
+html.dark .form-control,
+html.dark .form-select {
+  background-color: #1e293b !important;
+  border-color: #334155 !important;
+  color: #ffffff !important;
+}
+html.dark .form-control:focus,
+html.dark .form-select:focus {
+  background-color: #1e293b !important;
+  border-color: #10b981 !important;
+  color: #ffffff !important;
+}
+html.dark .recommend-link-input {
+  background-color: #1e293b !important;
+  color: #ffffff !important;
+  border-color: #334155 !important;
+}
+
+/* ==========================================================================
+   WHITE SURFACES & CARDS CONTRAST GUARANTEE: SOLID BLACK TEXT
+   Ensures that any card or surface that is white, light, or has a light
+   background in light mode ALWAYS has solid black text (#000000 !important;).
+   In dark mode, surfaces adapt to dark backgrounds with crisp white text.
+   ========================================================================== */
+html:not(.dark) .bg-white,
+html:not(.dark) .bg-light,
+html:not(.dark) .bg-light-subtle,
+html:not(.dark) .card-header.bg-white,
+.table-light,
+html.dark .table-light,
+html:not(.dark) [style*="background: #fff"],
+html:not(.dark) [style*="background:#fff"],
+html:not(.dark) [style*="background-color: #fff"],
+html:not(.dark) [style*="background-color:#fff"],
+html:not(.dark) [style*="background: white"],
+html:not(.dark) [style*="background-color: white"] {
+  color: #000000 !important;
+}
+
+html:not(.dark) .bg-white *:not(.badge):not(.btn):not(i):not(.auth-photo-back-btn *):not(.auth-photo-caption *),
+html:not(.dark) .bg-light *:not(.badge):not(.btn):not(i),
+html:not(.dark) .bg-light-subtle *:not(.badge):not(.btn):not(i),
+html:not(.dark) .card-header.bg-white *,
+.table-light th,
+.table-light td,
+html.dark .table-light th,
+html.dark .table-light td {
+  color: #000000 !important;
+}
+
+/* Secondary muted text in white surfaces -> Pure Black */
+html:not(.dark) .bg-white .text-muted,
+html:not(.dark) .bg-light .text-muted {
+  color: #000000 !important;
+}
+
+/* Mandi Toolbar & Card Header adaptation in dark mode */
+html.dark .mandi-state-toolbar,
+html.dark .card-header.bg-white {
+  background-color: #111827 !important;
+  border-color: #1e293b !important;
+  color: #ffffff !important;
+}
+html.dark .mandi-state-toolbar *,
+html.dark .card-header.bg-white * {
+  color: #ffffff !important;
+}
+
+/* Any black or dark background container across the entire app -> Pure White text */
+.bg-black,
+.bg-dark,
+.text-bg-dark,
+.app-footer-4col,
+[style*="background: #000"],
+[style*="background:#000"],
+[style*="background-color: #000"],
+[style*="background-color:#000"],
+[style*="background: black"],
+[style*="background-color: black"],
+[style*="background: rgb(0, 0, 0)"],
+[style*="background-color: rgb(0, 0, 0)"],
+[style*="background: #050b14"],
+[style*="background-color: #050b14"],
+[style*="background: #0f172a"],
+[style*="background-color: #0f172a"],
+[style*="background: #111827"],
+[style*="background-color: #111827"] {
+  color: #ffffff !important;
+}
+
+.bg-black *:not(i):not(svg):not(.badge),
+.bg-dark *:not(i):not(svg):not(.badge),
+.text-bg-dark *:not(i):not(svg):not(.badge),
+.app-footer-4col *:not(i):not(svg):not(.badge),
+[style*="background: #000"] *:not(i):not(svg):not(.badge),
+[style*="background:#000"] *:not(i):not(svg):not(.badge),
+[style*="background-color: #000"] *:not(i):not(svg):not(.badge),
+[style*="background-color:#000"] *:not(i):not(svg):not(.badge),
+[style*="background: black"] *:not(i):not(svg):not(.badge),
+[style*="background-color: black"] *:not(i):not(svg):not(.badge),
+[style*="background: rgb(0, 0, 0)"] *:not(i):not(svg):not(.badge),
+[style*="background-color: rgb(0, 0, 0)"] *:not(i):not(svg):not(.badge),
+[style*="background: #050b14"] *:not(i):not(svg):not(.badge),
+[style*="background-color: #050b14"] *:not(i):not(svg):not(.badge),
+[style*="background: #0f172a"] *:not(i):not(svg):not(.badge),
+[style*="background-color: #0f172a"] *:not(i):not(svg):not(.badge),
+[style*="background: #111827"] *:not(i):not(svg):not(.badge),
+[style*="background-color: #111827"] *:not(i):not(svg):not(.badge) {
+  color: #ffffff !important;
+}
+
+/* Regular links inside white cards */
+.bg-white a:not(.btn):not(.badge),
+.bg-light a:not(.btn):not(.badge),
+html.dark .bg-white a:not(.btn):not(.badge),
+html.dark .bg-light a:not(.btn):not(.badge) {
+  color: #005bf6 !important;
+}
+
+/* Universal Location Display Capitalization */
+.weather-location-label,
+.you-location-pill,
+.user-location-text,
+.mandi-district-text,
+.dashboard-location,
+.market-heading {
+  text-transform: capitalize !important;
+}
+
+/* Bottom navigation in light mode */
+html:not(.dark) .site-bottom-nav {
+  background-color: #ffffff !important;
+  border-top-color: #e2e8f0 !important;
+}
+html:not(.dark) .bottom-nav-item,
+html:not(.dark) .bottom-nav-item .bottom-nav-label {
+  color: #000000 !important;
+}
+html:not(.dark) .bottom-nav-item .bottom-nav-icon {
+  stroke: #000000 !important;
+}
+html:not(.dark) .bottom-nav-item.is-active .bottom-nav-icon-wrap {
+  background-color: #dbeafe !important;
+}
+html:not(.dark) .bottom-nav-item.is-active .bottom-nav-icon {
+  stroke: #005bf6 !important;
+}
+html:not(.dark) .bottom-nav-item.is-active .bottom-nav-label {
+  color: #005bf6 !important;
+  font-weight: 700 !important;
+}
+
+/* Bottom navigation in dark mode (Black background -> Crisp White/Green text) */
+html.dark .site-bottom-nav {
+  background-color: #000000 !important;
+  border-top: 1px solid #1e293b !important;
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.7) !important;
+}
+html.dark .bottom-nav-item,
+html.dark .bottom-nav-item .bottom-nav-label {
+  color: #ffffff !important;
+}
+html.dark .bottom-nav-item .bottom-nav-icon {
+  stroke: #ffffff !important;
+}
+html.dark .bottom-nav-item.is-active .bottom-nav-icon-wrap {
+  background-color: #1e293b !important;
+}
+html.dark .bottom-nav-item.is-active .bottom-nav-icon {
+  stroke: #4ade80 !important;
+}
+html.dark .bottom-nav-item.is-active .bottom-nav-label {
+  color: #4ade80 !important;
+  font-weight: 700 !important;
+}
+
+/* ─── Universal Section Overrides for Strict Theme Contrast ─── */
+/* In dark mode: any black/dark background surface MUST have pure white text */
+html.dark .table,
+html.dark table,
+html.dark th,
+html.dark td {
+  background-color: #111827 !important;
+  color: #ffffff !important;
+  border-color: #1e293b !important;
+}
+html.dark .bubble.bot {
+  background: #1e293b !important;
+  color: #ffffff !important;
+  border-color: #334155 !important;
+}
+html.dark .bubble.bot .source {
+  color: #cbd5e1 !important;
+}
+html.dark .btn-light {
+  background-color: #1e293b !important;
+  color: #ffffff !important;
+  border-color: #334155 !important;
+}
+html.dark .btn-light:hover {
+  background-color: #334155 !important;
+  color: #ffffff !important;
+}
+html.dark .list-group-item {
+  background-color: #111827 !important;
+  color: #ffffff !important;
+  border-color: #1e293b !important;
+}
+html.dark .accordion-item,
+html.dark .accordion-button {
+  background-color: #111827 !important;
+  color: #ffffff !important;
+  border-color: #1e293b !important;
+}
+html.dark .accordion-button:not(.collapsed) {
+  background-color: #1e293b !important;
+  color: #4ade80 !important;
+}
+
+/* Footer in dark mode & universal high-contrast protection */
+.app-footer-4col,
+html.dark .app-footer-4col,
+[data-theme="dark"] .app-footer-4col,
+.dark .app-footer-4col {
+  background-color: #050b14 !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+  color: #e2e8f0 !important;
+}
+
+html.dark .app-footer-4col *,
+[data-theme="dark"] .app-footer-4col *,
+.dark .app-footer-4col * {
+  color: #cbd5e1;
+}
+
+/* Footer Headings & Brand Title */
+.app-footer-4col .footer-brand-title,
+.app-footer-4col .footer-col-title,
+html.dark .app-footer-4col .footer-brand-title,
+html.dark .app-footer-4col .footer-col-title,
+[data-theme="dark"] .app-footer-4col .footer-brand-title,
+[data-theme="dark"] .app-footer-4col .footer-col-title,
+html:not(.dark) .app-footer-4col .footer-brand-title,
+html:not(.dark) .app-footer-4col .footer-col-title {
+  color: #ffffff !important;
+  font-weight: 700 !important;
+}
+
+/* Footer Paragraphs & Descriptions */
+.app-footer-4col p,
+.app-footer-4col .footer-brand-desc,
+.app-footer-4col address,
+.app-footer-4col .footer-address-text,
+.app-footer-4col .footer-copyright-text,
+.app-footer-4col .footer-disclaimer-text,
+html.dark .app-footer-4col p,
+html.dark .app-footer-4col .footer-brand-desc,
+html.dark .app-footer-4col address,
+html.dark .app-footer-4col .footer-address-text,
+html.dark .app-footer-4col .footer-copyright-text,
+html.dark .app-footer-4col .footer-disclaimer-text,
+[data-theme="dark"] .app-footer-4col p,
+[data-theme="dark"] .app-footer-4col .footer-brand-desc,
+[data-theme="dark"] .app-footer-4col address,
+[data-theme="dark"] .app-footer-4col .footer-address-text,
+[data-theme="dark"] .app-footer-4col .footer-copyright-text,
+[data-theme="dark"] .app-footer-4col .footer-disclaimer-text,
+html:not(.dark) .app-footer-4col p,
+html:not(.dark) .app-footer-4col .footer-brand-desc,
+html:not(.dark) .app-footer-4col address,
+html:not(.dark) .app-footer-4col .footer-address-text,
+html:not(.dark) .app-footer-4col .footer-copyright-text,
+html:not(.dark) .app-footer-4col .footer-disclaimer-text {
+  color: #cbd5e1 !important;
+}
+
+/* Footer Links & Navigation */
+.app-footer-4col a,
+.app-footer-4col a span,
+.app-footer-4col .footer-nav-link,
+.app-footer-4col .footer-nav-link span,
+.app-footer-4col .footer-contact-link,
+.app-footer-4col .footer-contact-link span,
+html.dark .app-footer-4col a,
+html.dark .app-footer-4col a span,
+html.dark .app-footer-4col .footer-nav-link,
+html.dark .app-footer-4col .footer-nav-link span,
+html.dark .app-footer-4col .footer-contact-link,
+html.dark .app-footer-4col .footer-contact-link span,
+[data-theme="dark"] .app-footer-4col a,
+[data-theme="dark"] .app-footer-4col a span,
+[data-theme="dark"] .app-footer-4col .footer-nav-link,
+[data-theme="dark"] .app-footer-4col .footer-nav-link span,
+[data-theme="dark"] .app-footer-4col .footer-contact-link,
+[data-theme="dark"] .app-footer-4col .footer-contact-link span,
+html:not(.dark) .app-footer-4col a,
+html:not(.dark) .app-footer-4col a span,
+html:not(.dark) .app-footer-4col .footer-nav-link,
+html:not(.dark) .app-footer-4col .footer-nav-link span,
+html:not(.dark) .app-footer-4col .footer-contact-link,
+html:not(.dark) .app-footer-4col .footer-contact-link span {
+  color: #cbd5e1 !important;
+}
+
+/* Footer Link Hover States */
+.app-footer-4col a:hover,
+.app-footer-4col a:hover span,
+.app-footer-4col .footer-nav-link:hover,
+.app-footer-4col .footer-nav-link:hover span,
+.app-footer-4col .footer-contact-link:hover,
+.app-footer-4col .footer-contact-link:hover span,
+html.dark .app-footer-4col a:hover,
+html.dark .app-footer-4col a:hover span,
+html.dark .app-footer-4col .footer-nav-link:hover,
+html.dark .app-footer-4col .footer-nav-link:hover span,
+html.dark .app-footer-4col .footer-contact-link:hover,
+html.dark .app-footer-4col .footer-contact-link:hover span,
+[data-theme="dark"] .app-footer-4col a:hover,
+[data-theme="dark"] .app-footer-4col a:hover span,
+[data-theme="dark"] .app-footer-4col .footer-nav-link:hover,
+[data-theme="dark"] .app-footer-4col .footer-nav-link:hover span,
+[data-theme="dark"] .app-footer-4col .footer-contact-link:hover,
+[data-theme="dark"] .app-footer-4col .footer-contact-link:hover span {
+  color: #4ade80 !important;
+}
+
+/* Footer Social Buttons */
+.app-footer-4col .footer-social-link,
+html.dark .app-footer-4col .footer-social-link,
+[data-theme="dark"] .app-footer-4col .footer-social-link {
+  background-color: rgba(255, 255, 255, 0.08) !important;
+  color: #cbd5e1 !important;
+}
+.app-footer-4col .footer-social-link:hover,
+html.dark .app-footer-4col .footer-social-link:hover,
+[data-theme="dark"] .app-footer-4col .footer-social-link:hover {
+  background-color: rgba(74, 222, 128, 0.25) !important;
+  color: #4ade80 !important;
+}
+
+/* Footer Bottom Bar Border */
+.app-footer-4col .footer-bottom-bar,
+html.dark .app-footer-4col .footer-bottom-bar,
+[data-theme="dark"] .app-footer-4col .footer-bottom-bar {
+  border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+/* ==========================================================================
+   Responsive Adaptations (Mobile & Tablet)
+   ========================================================================== */
+@media (max-width: 575.98px) {
+  /* Fluid mobile padding */
+  .weather-mobile-shell,
+  .plantix-dashboard {
+    max-width: 100%;
+    padding-left: 12px;
+    padding-right: 12px;
+    padding-bottom: 92px;
+  }
+
+  /* Modals on small screens: comfortable fit without horizontal overflow */
+  .modal-dialog {
+    margin: 12px auto !important;
+    max-width: calc(100vw - 20px) !important;
+  }
+  .feedback-modal-content,
+  .spray-modal-content,
+  .settings-modal-content,
+  .recommend-modal-content {
+    border-radius: 20px !important;
+  }
+
+  /* Feedback emojis flex evenly */
+  .feedback-reactions-group {
+    gap: 10px !important;
+  }
+  .feedback-reaction-btn {
+    flex: 1 1 0;
+    min-width: 0;
+  }
+  .feedback-reaction-box {
+    width: 60px !important;
+    height: 60px !important;
+  }
+
+  /* Weather 6-day strip responsive scrolling */
+  .weather-days-grid {
+    overflow-x: auto;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+    gap: 6px;
+  }
+  .weather-days-grid::-webkit-scrollbar {
+    display: none;
+  }
+  .weather-day-col {
+    flex: 0 0 52px;
+    min-width: 52px;
+  }
+
+  /* Recommend channels 4-column touch grid */
+  .recommend-channels-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+  }
+  .recommend-channel-icon {
+    width: 44px !important;
+    height: 44px !important;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 991.98px) {
+  .weather-mobile-shell,
+  .plantix-dashboard {
+    max-width: 540px;
+    margin: 0 auto;
+  }
+}
+

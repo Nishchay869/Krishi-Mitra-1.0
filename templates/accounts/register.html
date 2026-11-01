@@ -4,7 +4,7 @@
 <link rel="icon" type="image/png" sizes="64x64" href="{% static 'favicon.png' %}">
 <link rel="apple-touch-icon" href="{% static 'images/logo-icon.png' %}">
 <link rel="stylesheet" href="{% if LANGUAGE_BIDI %}{% static 'vendor/bootstrap/bootstrap.rtl.min.css' %}{% else %}{% static 'vendor/bootstrap/bootstrap.min.css' %}{% endif %}">
-<link rel="stylesheet" href="{% static 'css/language-fonts.css' %}?v={{ STATIC_VERSION }}"><link rel="stylesheet" href="{% static 'css/onboarding.css' %}?v={{ STATIC_VERSION }}"></head>
+<link rel="stylesheet" href="{% static 'css/language-fonts.css' %}?v={{ STATIC_VERSION }}"><link rel="stylesheet" href="{% static 'css/onboarding.css' %}?v={{ STATIC_VERSION }}"><link rel="stylesheet" href="{% static 'css/theme-contrast.css' %}?v={{ STATIC_VERSION }}"></head>
 <body><a href="#main-content" class="skip-link">{% translate 'Skip to content' %}</a>
 <header class="welcome-header"><a class="welcome-brand" href="{% url 'home' %}"><img src="{% static 'images/logo.png' %}?v={{ STATIC_VERSION }}" alt="Krishi Mitra" class="brand-logo" height="42"></a><a class="login-link" href="{% url 'accounts:login' %}">{% translate 'Log in' %} ↗</a></header>
 <main id="main-content" class="welcome-shell" tabindex="-1">

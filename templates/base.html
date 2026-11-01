@@ -22,8 +22,20 @@
   <link href="{% static 'css/premium.css' %}?v={{ STATIC_VERSION }}" rel="stylesheet">
   <link href="{% static 'css/coming-soon.css' %}?v={{ STATIC_VERSION }}" rel="stylesheet">
   {% block extra_head %}{% endblock %}
+  <link href="{% static 'css/theme-contrast.css' %}?v={{ STATIC_VERSION }}" rel="stylesheet">
   <script>
     (function () {
+      try {
+        var theme = localStorage.getItem('km_theme');
+        if (theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+          document.documentElement.classList.add('dark');
+          document.documentElement.setAttribute('data-theme', 'dark');
+        } else {
+          document.documentElement.classList.remove('dark');
+          document.documentElement.setAttribute('data-theme', 'light');
+        }
+      } catch (e) { }
+
       try {
         var params = new URLSearchParams(window.location.search);
         if (params.has('intro')) {
@@ -33,6 +45,39 @@
           document.documentElement.classList.add('no-intro-loader');
         }
       } catch (e) { }
+
+      window.toggleKrishiMitraTheme = function() {
+        var isDark = document.documentElement.classList.contains('dark');
+        var newTheme = isDark ? 'light' : 'dark';
+        try {
+          localStorage.setItem('km_theme', newTheme);
+        } catch (e) { }
+        if (newTheme === 'dark') {
+          document.documentElement.classList.add('dark');
+          document.documentElement.setAttribute('data-theme', 'dark');
+        } else {
+          document.documentElement.classList.remove('dark');
+          document.documentElement.setAttribute('data-theme', 'light');
+        }
+        var badge = document.getElementById('themeStatusBadge');
+        if (badge) {
+          badge.textContent = newTheme === 'dark' ? 'On' : 'Off';
+          badge.className = newTheme === 'dark' ? 'badge rounded-pill bg-success text-white small' : 'badge rounded-pill bg-secondary text-white small';
+        }
+      };
+
+      document.addEventListener('DOMContentLoaded', function() {
+        var btn = document.getElementById('themeToggleBtn');
+        if (btn) btn.addEventListener('click', window.toggleKrishiMitraTheme);
+        var dropBtn = document.getElementById('themeDropdownToggle');
+        if (dropBtn) dropBtn.addEventListener('click', window.toggleKrishiMitraTheme);
+        var isDark = document.documentElement.classList.contains('dark');
+        var badge = document.getElementById('themeStatusBadge');
+        if (badge) {
+          badge.textContent = isDark ? 'On' : 'Off';
+          badge.className = isDark ? 'badge rounded-pill bg-success text-white small' : 'badge rounded-pill bg-secondary text-white small';
+        }
+      });
     })();
   </script>
 </head>
@@ -134,7 +179,40 @@
           height="38">
       </a>
 
-      <div class="site-header-actions">
+      <div class="site-header-actions d-flex align-items-center gap-1">
+        <!-- Sign In & Sign Up Options Buttons -->
+        {% if user.is_authenticated %}
+          <a href="{% url 'accounts:dashboard' %}" class="btn-21st btn-21st-secondary btn-21st-xs d-none d-sm-inline-flex me-1">
+            <i class="bi bi-person-circle"></i>
+            <span>{{ user.first_name|default:user.email|truncatechars:12 }}</span>
+          </a>
+        {% else %}
+          <a href="{% url 'accounts:login' %}" class="btn-21st btn-21st-secondary btn-21st-xs me-1">
+            <span>{% translate "Log in" %}</span>
+          </a>
+          <a href="{% url 'accounts:register' %}" class="btn-21st btn-21st-primary btn-21st-xs d-none d-sm-inline-flex me-1">
+            <span>{% translate "Register" %}</span>
+          </a>
+        {% endif %}
+
+        <!-- Dark Mode Toggle Button -->
+        <button class="site-header-theme-btn" type="button" id="themeToggleBtn" aria-label="Toggle dark mode" title="Toggle dark mode">
+          <svg class="theme-icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="4"></circle>
+            <path d="M12 2v2"></path>
+            <path d="M12 20v2"></path>
+            <path d="m4.93 4.93 1.41 1.41"></path>
+            <path d="m17.66 17.66 1.41 1.41"></path>
+            <path d="M2 12h2"></path>
+            <path d="M20 12h2"></path>
+            <path d="m6.34 17.66-1.41 1.41"></path>
+            <path d="m19.07 4.93-1.41 1.41"></path>
+          </svg>
+          <svg class="theme-icon-moon" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+          </svg>
+        </button>
+
         <!-- 3-dots Menu Dropdown -->
         <div class="dropdown">
           <button class="site-header-more-btn" type="button" id="siteMenuBtn" data-bs-toggle="dropdown"
@@ -146,6 +224,20 @@
             </svg>
           </button>
           <ul class="dropdown-menu dropdown-menu-end shadow-sm site-header-dropdown" aria-labelledby="siteMenuBtn">
+            {% if user.is_authenticated %}
+              <li><a class="dropdown-item" href="{% url 'accounts:dashboard' %}"><i class="bi bi-person me-2 text-muted" aria-hidden="true"></i> {% translate "Profile" %}</a></li>
+              <li>
+                <form method="post" action="{% url 'accounts:logout' %}" class="m-0 p-0">
+                  {% csrf_token %}
+                  <button type="submit" class="dropdown-item text-danger border-0 bg-transparent w-100 text-start"><i class="bi bi-box-arrow-right me-2" aria-hidden="true"></i> {% translate "Logout" %}</button>
+                </form>
+              </li>
+              <li><hr class="dropdown-divider"></li>
+            {% else %}
+              <li><a class="dropdown-item fw-semibold" href="{% url 'accounts:login' %}"><i class="bi bi-box-arrow-in-right me-2 text-primary" aria-hidden="true"></i> {% translate "Log in" %}</a></li>
+              <li><a class="dropdown-item fw-semibold" href="{% url 'accounts:register' %}"><i class="bi bi-person-plus me-2 text-success" aria-hidden="true"></i> {% translate "Register" %}</a></li>
+              <li><hr class="dropdown-divider"></li>
+            {% endif %}
             <li><a class="dropdown-item" href="{% url 'accounts:settings' %}" data-bs-toggle="modal" data-bs-target="#settingsModal"><i class="bi bi-gear me-2 text-muted" aria-hidden="true"></i> Settings</a></li>
             <li><a class="dropdown-item" href="#give-feedback" data-bs-toggle="modal" data-bs-target="#feedbackModal"><i class="bi bi-chat-square-text me-2 text-muted" aria-hidden="true"></i> Give Feedback</a></li>
             <li><a class="dropdown-item" href="#recommend" data-bs-toggle="modal" data-bs-target="#recommendModal"><i class="bi bi-share me-2 text-muted" aria-hidden="true"></i> Recommend Krishi Mitra</a></li>

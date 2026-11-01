@@ -1,1 +1,161 @@
-{% load i18n farm_i18n %}<div class="col-sm-6 col-xl-4"><a class="tool-link" href="{% url 'chatbot:chat' %}"><article class="card feature-card h-100"><div class="card-body"><div class="tool-top"><span class="tool-icon sage"><i class="bi bi-chat-square-text"></i></span><i class="bi bi-arrow-up-right tool-arrow"></i></div><h3>{% translate "Ask Assistant" %}</h3><p>{% translate "A question today. A clearer tomorrow. Ask about crops, pests, irrigation, and schemes." %}</p><span class="tool-cta">{% translate "Start a conversation" %} <i class="bi bi-arrow-right"></i></span></div></article></a></div><div class="col-sm-6 col-xl-4"><a class="tool-link" href="{% url 'crops:recommend' %}"><article class="card feature-card h-100"><div class="card-body"><div class="tool-top"><span class="tool-icon cream"><i class="bi bi-flower2"></i></span><i class="bi bi-arrow-up-right tool-arrow"></i></div><h3>{% translate "Crop Advisor" %}</h3><p>{% translate "Find the crops that feel at home in your soil and local climate." %}</p><span class="tool-cta">{% translate "Find your crop" %} <i class="bi bi-arrow-right"></i></span></div></article></a></div><div class="col-sm-6 col-xl-4"><a class="tool-link" href="{% url 'crops:yield' %}"><article class="card feature-card h-100"><div class="card-body"><div class="tool-top"><span class="tool-icon peach"><i class="bi bi-graph-up-arrow"></i></span><i class="bi bi-arrow-up-right tool-arrow"></i></div><h3>{% translate "Yield Estimate" %}</h3><p>{% translate "Look ahead to harvest. Estimate yield for your crop, season, and state." %}</p><span class="tool-cta">{% translate "Plan your harvest" %} <i class="bi bi-arrow-right"></i></span></div></article></a></div><div class="col-sm-6 col-xl-4"><a class="tool-link" href="{% url 'disease:detect' %}"><article class="card feature-card h-100"><div class="card-body"><div class="tool-top"><span class="tool-icon sage"><i class="bi bi-camera"></i></span><i class="bi bi-arrow-up-right tool-arrow"></i></div><h3>{% translate "Disease Check" %}</h3><p>{% translate "Something on a leaf? Share a photo to explore the cause and next steps." %}</p><span class="tool-cta">{% translate "Check a leaf" %} <i class="bi bi-arrow-right"></i></span></div></article></a></div><div class="col-sm-6 col-xl-4"><a class="tool-link" href="{% url 'weather:forecast' %}"><article class="card feature-card h-100"><div class="card-body"><div class="tool-top"><span class="tool-icon cream"><i class="bi bi-cloud-sun"></i></span><i class="bi bi-arrow-up-right tool-arrow"></i></div><h3>{% translate "Weather & Advisory" %}</h3><p>{% translate "Make plans with a five-day forecast and practical irrigation advice." %}</p><span class="tool-cta">{% translate "Check the forecast" %} <i class="bi bi-arrow-right"></i></span></div></article></a></div><div class="col-sm-6 col-xl-4"><a class="tool-link" href="{% url 'market:prices' %}"><article class="card feature-card h-100"><div class="card-body"><div class="tool-top"><span class="tool-icon peach"><i class="bi bi-currency-rupee"></i></span><i class="bi bi-arrow-up-right tool-arrow"></i></div><h3>{% translate "Market Prices" %}</h3><p>{% translate "Stay in the know with daily mandi prices and recent price changes." %}</p><span class="tool-cta">{% translate "Explore prices" %} <i class="bi bi-arrow-right"></i></span></div></article></a></div><div class="col-sm-6 col-xl-4"><a class="tool-link" href="{% url 'crops:library' %}"><article class="card feature-card h-100"><div class="card-body"><div class="tool-top"><span class="tool-icon sage"><i class="bi bi-journal-richtext"></i></span><i class="bi bi-arrow-up-right tool-arrow"></i></div><h3>{% translate 'Library' %}</h3><p>{% translate 'Growing conditions' %} · {% translate 'Cultivation' %}</p><span class="tool-cta">{% translate 'All crops' %} <i class="bi bi-arrow-right"></i></span></div></article></a></div><div class="col-sm-6 col-xl-4"><a class="tool-link" href="{% url 'crops:fertilizer' %}"><article class="card feature-card h-100"><div class="card-body"><div class="tool-top"><span class="tool-icon cream"><i class="bi bi-droplet"></i></span><i class="bi bi-arrow-up-right tool-arrow"></i></div><h3>{% translate 'Fertilizer Calculator' %}</h3><p>{% translate 'Convert your recommended nutrient application rates into fertilizer quantities for your farm.' %}</p><span class="tool-cta">{% translate 'Calculate quantities' %} <i class="bi bi-arrow-right"></i></span></div></article></a></div>
+{% load i18n farm_i18n %}
+<div class="col-sm-6 col-xl-4">
+  <a class="tool-link" href="{% url 'chatbot:chat' %}">
+    <article class="card feature-card h-100">
+      <div class="card-body">
+        <div class="tool-top">
+          <span class="tool-icon sage"><i class="bi bi-chat-square-text"></i></span>
+          <span class="tool-number">01</span>
+        </div>
+        <h3>{% translate "Ask Assistant" %}</h3>
+        <p>{% translate "A question today. A clearer tomorrow. Ask about crops, pests, irrigation, and schemes." %}</p>
+        <div class="tool-cta-wrap mt-auto pt-3">
+          <span class="tool-cta btn-21st btn-21st-secondary btn-21st-sm w-100 justify-content-between">
+            <span>{% translate "Start a conversation" %}</span>
+            <span class="btn-21st-icon-circle"><i class="bi bi-arrow-right"></i></span>
+          </span>
+        </div>
+      </div>
+    </article>
+  </a>
+</div>
+<div class="col-sm-6 col-xl-4">
+  <a class="tool-link" href="{% url 'crops:recommend' %}">
+    <article class="card feature-card h-100">
+      <div class="card-body">
+        <div class="tool-top">
+          <span class="tool-icon cream"><i class="bi bi-flower2"></i></span>
+          <span class="tool-number">02</span>
+        </div>
+        <h3>{% translate "Crop Advisor" %}</h3>
+        <p>{% translate "Find the crops that feel at home in your soil and local climate." %}</p>
+        <div class="tool-cta-wrap mt-auto pt-3">
+          <span class="tool-cta btn-21st btn-21st-secondary btn-21st-sm w-100 justify-content-between">
+            <span>{% translate "Find your crop" %}</span>
+            <span class="btn-21st-icon-circle"><i class="bi bi-arrow-right"></i></span>
+          </span>
+        </div>
+      </div>
+    </article>
+  </a>
+</div>
+<div class="col-sm-6 col-xl-4">
+  <a class="tool-link" href="{% url 'crops:yield' %}">
+    <article class="card feature-card h-100">
+      <div class="card-body">
+        <div class="tool-top">
+          <span class="tool-icon peach"><i class="bi bi-graph-up-arrow"></i></span>
+          <span class="tool-number">03</span>
+        </div>
+        <h3>{% translate "Yield Estimate" %}</h3>
+        <p>{% translate "Look ahead to harvest. Estimate yield for your crop, season, and state." %}</p>
+        <div class="tool-cta-wrap mt-auto pt-3">
+          <span class="tool-cta btn-21st btn-21st-secondary btn-21st-sm w-100 justify-content-between">
+            <span>{% translate "Plan your harvest" %}</span>
+            <span class="btn-21st-icon-circle"><i class="bi bi-arrow-right"></i></span>
+          </span>
+        </div>
+      </div>
+    </article>
+  </a>
+</div>
+<div class="col-sm-6 col-xl-4">
+  <a class="tool-link" href="{% url 'disease:detect' %}">
+    <article class="card feature-card h-100">
+      <div class="card-body">
+        <div class="tool-top">
+          <span class="tool-icon sage"><i class="bi bi-camera"></i></span>
+          <span class="tool-number">04</span>
+        </div>
+        <h3>{% translate "Disease Check" %}</h3>
+        <p>{% translate "Something on a leaf? Share a photo to explore the cause and next steps." %}</p>
+        <div class="tool-cta-wrap mt-auto pt-3">
+          <span class="tool-cta btn-21st btn-21st-secondary btn-21st-sm w-100 justify-content-between">
+            <span>{% translate "Check a leaf" %}</span>
+            <span class="btn-21st-icon-circle"><i class="bi bi-arrow-right"></i></span>
+          </span>
+        </div>
+      </div>
+    </article>
+  </a>
+</div>
+<div class="col-sm-6 col-xl-4">
+  <a class="tool-link" href="{% url 'weather:forecast' %}">
+    <article class="card feature-card h-100">
+      <div class="card-body">
+        <div class="tool-top">
+          <span class="tool-icon cream"><i class="bi bi-cloud-sun"></i></span>
+          <span class="tool-number">05</span>
+        </div>
+        <h3>{% translate "Weather & Advisory" %}</h3>
+        <p>{% translate "Make plans with a five-day forecast and practical irrigation advice." %}</p>
+        <div class="tool-cta-wrap mt-auto pt-3">
+          <span class="tool-cta btn-21st btn-21st-secondary btn-21st-sm w-100 justify-content-between">
+            <span>{% translate "Check the forecast" %}</span>
+            <span class="btn-21st-icon-circle"><i class="bi bi-arrow-right"></i></span>
+          </span>
+        </div>
+      </div>
+    </article>
+  </a>
+</div>
+<div class="col-sm-6 col-xl-4">
+  <a class="tool-link" href="{% url 'market:prices' %}">
+    <article class="card feature-card h-100">
+      <div class="card-body">
+        <div class="tool-top">
+          <span class="tool-icon peach"><i class="bi bi-currency-rupee"></i></span>
+          <span class="tool-number">06</span>
+        </div>
+        <h3>{% translate "Market Prices" %}</h3>
+        <p>{% translate "Stay in the know with daily mandi prices and recent price changes." %}</p>
+        <div class="tool-cta-wrap mt-auto pt-3">
+          <span class="tool-cta btn-21st btn-21st-secondary btn-21st-sm w-100 justify-content-between">
+            <span>{% translate "Explore prices" %}</span>
+            <span class="btn-21st-icon-circle"><i class="bi bi-arrow-right"></i></span>
+          </span>
+        </div>
+      </div>
+    </article>
+  </a>
+</div>
+<div class="col-sm-6 col-xl-4">
+  <a class="tool-link" href="{% url 'crops:library' %}">
+    <article class="card feature-card h-100">
+      <div class="card-body">
+        <div class="tool-top">
+          <span class="tool-icon sage"><i class="bi bi-journal-richtext"></i></span>
+          <span class="tool-number">07</span>
+        </div>
+        <h3>{% translate 'Library' %}</h3>
+        <p>{% translate 'Growing conditions' %} · {% translate 'Cultivation' %}</p>
+        <div class="tool-cta-wrap mt-auto pt-3">
+          <span class="tool-cta btn-21st btn-21st-secondary btn-21st-sm w-100 justify-content-between">
+            <span>{% translate 'All crops' %}</span>
+            <span class="btn-21st-icon-circle"><i class="bi bi-arrow-right"></i></span>
+          </span>
+        </div>
+      </div>
+    </article>
+  </a>
+</div>
+<div class="col-sm-6 col-xl-4">
+  <a class="tool-link" href="{% url 'crops:fertilizer' %}">
+    <article class="card feature-card h-100">
+      <div class="card-body">
+        <div class="tool-top">
+          <span class="tool-icon cream"><i class="bi bi-droplet"></i></span>
+          <span class="tool-number">08</span>
+        </div>
+        <h3>{% translate 'Fertilizer Calculator' %}</h3>
+        <p>{% translate 'Convert your recommended nutrient application rates into fertilizer quantities for your farm.' %}</p>
+        <div class="tool-cta-wrap mt-auto pt-3">
+          <span class="tool-cta btn-21st btn-21st-secondary btn-21st-sm w-100 justify-content-between">
+            <span>{% translate 'Calculate quantities' %}</span>
+            <span class="btn-21st-icon-circle"><i class="bi bi-arrow-right"></i></span>
+          </span>
+        </div>
+      </div>
+    </article>
+  </a>
+</div>

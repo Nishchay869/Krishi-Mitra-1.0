@@ -299,7 +299,8 @@ const SpotlightCard = ({
   return (
     <div
       ref={rootRef}
-      className={`spotlight-card${className ? ` ${className}` : ''}`}
+      data-theme={theme}
+      className={`spotlight-card spotlight-card--${theme}${className ? ` ${className}` : ''}`}
       style={
         {
           '--spotlight-card-surface': palette.surface,
