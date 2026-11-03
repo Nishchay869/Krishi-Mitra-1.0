@@ -59,8 +59,9 @@ class FertilizerForm(BootstrapFormMixin, forms.Form):
 
     def __init__(self, *args, planting_type='plants', preset=None, **kwargs):
         super().__init__(*args, **kwargs)
-        from .fertilizer_presets import PRESETS, preset_label
-        self.fields['crop_preset'].choices = [(key, preset_label(value)) for key, value in PRESETS.items()
+        from .fertilizer_presets import get_effective_presets, preset_label
+        presets = get_effective_presets()
+        self.fields['crop_preset'].choices = [(key, preset_label(value)) for key, value in presets.items()
                                                 if value['mode'] == planting_type]
         per_plant = preset is not None and preset.get('basis') == 'plant'
         if not per_plant:

@@ -1,0 +1,31 @@
+/* Clean, spacious styling for editable N, P, K columns in Django Admin changelist */
+#result_list .field-nitrogen input,
+#result_list .field-phosphorus input,
+#result_list .field-potassium input {
+    width: 84px !important;
+    min-width: 84px !important;
+    padding: 6px 8px !important;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    text-align: right !important;
+    border: 1px solid #ccc !important;
+    border-radius: 4px !important;
+    box-sizing: border-box !important;
+}
+
+#result_list .field-nitrogen input:focus,
+#result_list .field-phosphorus input:focus,
+#result_list .field-potassium input:focus {
+    border-color: #264b5d !important;
+    box-shadow: 0 0 0 2px rgba(38, 75, 93, 0.2) !important;
+    outline: none !important;
+}
+
+#result_list th.column-nitrogen,
+#result_list th.column-phosphorus,
+#result_list th.column-potassium {
+    min-width: 95px !important;
+    text-align: right !important;
+    white-space: nowrap !important;
+}
+

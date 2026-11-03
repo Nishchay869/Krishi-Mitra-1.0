@@ -43,6 +43,11 @@ def mock_gemini_post(*args, **kwargs):
             "For controlling Fall Armyworm in maize, spray Emamectin Benzoate 5% SG at 0.4 g/liter of water "
             "or Chlorantraniliprole 18.5% SC at 0.3 ml/liter targeting the plant whorls."
         )
+    elif 'rain' in prompt_text.lower() and 'paddy' in prompt_text.lower():
+        reply_text = (
+            "Paddy requires 1,000 to 1,500 mm of rainfall throughout its growing season. "
+            "Maintain 2–3 cm standing water at transplanting and 3–5 cm during flowering."
+        )
     elif 'fertilizer' in prompt_text.lower() or 'wheat' in prompt_text.lower():
         reply_text = (
             "For wheat, the standard balanced fertilizer dose per acre is 50 kg DAP, 85 kg urea, and 25 kg MOP."
@@ -74,6 +79,13 @@ class EngineTests(TestCase):
         reply = engine.answer('armyworm attacking my maize crop what to spray')
         self.assertIsNone(reply.entry)
         self.assertIn('Emamectin', reply.text)
+
+    @patch('chatbot.engine.requests.post', side_effect=mock_gemini_post)
+    def test_paddy_rainfall_returns_water_management_not_fertilizer(self, mock_post):
+        reply = engine.answer('how much rain require for paddy growing')
+        self.assertIn('1,000 to 1,500 mm', reply.text)
+        self.assertNotIn('120 kg nitrogen', reply.text)
+        self.assertIn(reply.intent, ('weather', 'irrigation'))
 
     @patch('chatbot.engine.requests.post', side_effect=mock_gemini_post)
     def test_gemini_boundary_guardrail_refusal(self, mock_post):
@@ -295,3 +307,95 @@ class GreetingTests(TestCase):
         for body in ['{}', '{"hour": 25}', '{"hour": "x"}', 'nope']:
             with self.subTest(body=body):
                 self.assertEqual(self.client.post(self.url, body, content_type='application/json').status_code, 400)
+
+
+class ClearChatTests(TestCase):
+    def setUp(self):
+        from django.contrib.auth.models import User
+        self.user = User.objects.create_user('testfarmer', password='password123')
+        self.clear_url = reverse('chatbot:clear')
+        self.chat_page_url = reverse('chatbot:chat')
+
+    def test_clear_chat_removes_messages_permanently(self):
+        self.client.force_login(self.user)
+        # Create chat messages
+        ChatMessage.objects.create(user=self.user, message='hello', response='Hi farmer!')
+        ChatMessage.objects.create(user=self.user, message='fertilizer for rice', response='Use urea.')
+        self.assertEqual(ChatMessage.objects.filter(user=self.user).count(), 2)
+
+        # Clear via api_clear
+        resp = self.client.post(self.clear_url, content_type='application/json')
+        self.assertEqual(resp.status_code, 200)
+        self.assertEqual(resp.json()['status'], 'cleared')
+        self.assertEqual(resp.json()['count'], 2)
+        self.assertEqual(ChatMessage.objects.filter(user=self.user).count(), 0)
+
+        # Visiting chat_page afterwards returns empty history
+        page_resp = self.client.get(self.chat_page_url)
+        self.assertEqual(page_resp.status_code, 200)
+        self.assertEqual(page_resp.context['history'], [])
+        self.assertEqual(page_resp.context['history_json'], '[]')
+
+    def test_navigating_to_chat_page_automatically_clears_prior_messages(self):
+        self.client.force_login(self.user)
+        # Farmer had older chat messages
+        ChatMessage.objects.create(user=self.user, message='older question', response='older answer')
+        self.assertEqual(ChatMessage.objects.filter(user=self.user).count(), 1)
+
+        # Navigating to chat_page (e.g. from another section of the website) clears all older messages
+        page_resp = self.client.get(self.chat_page_url)
+        self.assertEqual(page_resp.status_code, 200)
+        self.assertEqual(page_resp.context['history'], [])
+        self.assertEqual(page_resp.context['history_json'], '[]')
+        self.assertEqual(ChatMessage.objects.filter(user=self.user).count(), 0)
+
+
+@override_settings(GEMINI_API_KEY='test-gemini-key')
+class GeminiResilienceTests(TestCase):
+    def setUp(self):
+        from django.core.cache import cache
+        cache.clear()
+
+    @patch('chatbot.engine.time.sleep', return_value=None)
+    @patch('chatbot.engine.requests.post')
+    def test_gemini_503_failover_to_fallback_model(self, mock_post, mock_sleep):
+        """When primary model experiences 503 high demand, failover to secondary model succeeds."""
+        # 1st attempt: 503 UNAVAILABLE
+        resp_503 = MagicMock()
+        resp_503.status_code = 503
+        resp_503.text = json.dumps({
+            "error": {
+                "code": 503,
+                "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary.",
+                "status": "UNAVAILABLE"
+            }
+        })
+
+        # 2nd attempt: 200 OK from fallback model
+        resp_200 = MagicMock()
+        resp_200.status_code = 200
+        resp_200.json.return_value = {
+            'candidates': [{'content': {'parts': [{'text': 'Apply 50 kg DAP and 85 kg urea per acre.'}]}}]
+        }
+
+        mock_post.side_effect = [resp_503, resp_200]
+
+        reply = engine.answer('sugarcane nutrient management')
+        self.assertIn('Apply 50 kg DAP', reply.text)
+        self.assertEqual(reply.confidence, 1.0)
+
+    @patch('chatbot.engine.time.sleep', return_value=None)
+    @patch('chatbot.engine.requests.post')
+    def test_all_models_503_graceful_fallback(self, mock_post, mock_sleep):
+        """When all Gemini models fail with 503, gracefully return fallback advisory without knowledge base."""
+        resp_503 = MagicMock()
+        resp_503.status_code = 503
+        resp_503.text = '{"error": {"code": 503, "status": "UNAVAILABLE"}}'
+        mock_post.return_value = resp_503
+
+        reply = engine.answer('What is the recommended fertilizer for sugarcane?')
+        self.assertIn('Kisan Call Centre', reply.text)
+        self.assertIsNone(reply.entry)
+
+
+

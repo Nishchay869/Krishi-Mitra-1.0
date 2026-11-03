@@ -147,10 +147,10 @@ CHEMICAL_ACTION = re.compile(
 
 def _safe_text(value, limit=2000, forbid_dose=False):
     if not isinstance(value, str):
-        raise DiagnosisError(_('Gemini returned an incomplete assessment. Please try again.'), 'invalid_response', 502)
+        raise DiagnosisError(_('AI returned an incomplete assessment. Please try again.'), 'invalid_response', 502)
     text = value.strip()
     if forbid_dose and DOSE_PATTERN.search(text):
-        raise DiagnosisError(_('Gemini returned an invalid dosage. Please try again.'), 'invalid_response', 502)
+        raise DiagnosisError(_('AI returned an invalid dosage. Please try again.'), 'invalid_response', 502)
     if len(text) > limit:
         text = text[:limit]
     return text
@@ -161,13 +161,13 @@ def _safe_list(data, name, forbid_dose=False):
     if value is None:
         return []
     if not isinstance(value, list):
-        raise DiagnosisError(_('Gemini returned an incomplete assessment. Please try again.'), 'invalid_response', 502)
+        raise DiagnosisError(_('AI returned an incomplete assessment. Please try again.'), 'invalid_response', 502)
     return [_safe_text(item, 1200, forbid_dose=forbid_dose) for item in value if isinstance(item, str) and item.strip()]
 
 
 def normalize(data):
     if not isinstance(data, dict):
-        raise DiagnosisError(_('Gemini returned an incomplete assessment. Please try again.'), 'invalid_response', 502)
+        raise DiagnosisError(_('AI returned an incomplete assessment. Please try again.'), 'invalid_response', 502)
 
     if 'certainty' in data and data['certainty'] not in ('low', 'medium', 'high'):
         raise DiagnosisError(_('Invalid certainty'), 'invalid_response', 502)
@@ -261,7 +261,7 @@ def normalize(data):
     result.update(
         is_healthy=status == 'healthy',
         label=result['disease'],
-        source='Google Gemini image assessment (AI generated)',
+        source='Smart AI image assessment (AI generated)',
         provider='gemini',
         model=settings.GEMINI_DISEASE_MODEL,
     )
@@ -303,13 +303,13 @@ def analyze_leaf(image_file, *, crop='', location='', notes='', language='en'):
     api_key = settings.GEMINI_API_KEY
     if not api_key:
         raise DiagnosisError(
-            _('Gemini photo analysis is not configured yet. Please contact the site administrator.'),
+            _('AI photo analysis is not configured yet. Please contact the site administrator.'),
             'not_configured'
         )
     model = settings.GEMINI_DISEASE_MODEL
     if not re.fullmatch(r'[A-Za-z0-9._-]{1,100}', model):
         raise DiagnosisError(
-            _('The Gemini model configuration is invalid. Please contact the site administrator.'),
+            _('The AI model configuration is invalid. Please contact the site administrator.'),
             'configuration'
         )
 
@@ -349,11 +349,11 @@ def analyze_leaf(image_file, *, crop='', location='', notes='', language='en'):
         )
     except requests.Timeout as exc:
         raise DiagnosisError(
-            _('Gemini took too long to analyze the photo. Please try again.'), 'timeout', 504
+            _('AI took too long to analyze the photo. Please try again.'), 'timeout', 504
         ) from exc
     except requests.RequestException as exc:
         raise DiagnosisError(
-            _('Gemini could not be reached. Please check your connection and try again.'), 'connection'
+            _('AI could not be reached. Please check your connection and try again.'), 'connection'
         ) from exc
 
     raw_text = getattr(response, 'text', '')
@@ -362,34 +362,40 @@ def analyze_leaf(image_file, *, crop='', location='', notes='', language='en'):
     if response.status_code in (401, 403):
         logger.error('Gemini auth error %s: %s', response.status_code, response_text[:400])
         raise DiagnosisError(
-            _('Gemini access was rejected. The site administrator needs to check the API key and model access.'),
+            _('AI access was rejected. The site administrator needs to check the API key and model access.'),
             'access'
         )
     if response.status_code == 429:
         logger.error('Gemini quota error: %s', response_text[:400])
         raise DiagnosisError(
-            _('Gemini usage is currently limited. Please wait and try again, or contact the site administrator about quota.'),
+            _('AI usage is currently limited. Please wait and try again, or contact the site administrator about quota.'),
             'quota', 429
         )
     if response.status_code == 404:
         logger.error('Gemini 404 – model or endpoint not found: %s', response_text[:400])
         raise DiagnosisError(
-            _('The configured Gemini model is unavailable. The site administrator needs to check the model setting.'),
+            _('The configured AI model is unavailable. The site administrator needs to check the model setting.'),
             'model_unavailable'
+        )
+    if response.status_code == 503:
+        logger.error('Gemini 503 high demand: %s', response_text[:400])
+        raise DiagnosisError(
+            _('The AI model is currently experiencing high demand. Please try again in a few moments.'),
+            'high_demand', 503
         )
     if response.status_code != 200:
         logger.error('Gemini unexpected status %s body: %s', response.status_code, response_text[:600])
         # Surface the real HTTP code and body snippet in the browser for easy diagnosis
         snippet = response_text[:300].replace('\n', ' ')
         raise DiagnosisError(
-            f'Gemini HTTP {response.status_code}: {snippet}', 'upstream', 502
+            f'AI service HTTP {response.status_code}: {snippet}', 'upstream', 502
         )
 
     try:
         body = response.json()
         if body.get('status') != 'completed':
             raise DiagnosisError(
-                _('Gemini could not complete a reliable assessment. Try a clearer leaf photo and add crop details.'),
+                _('AI could not complete a reliable assessment. Try a clearer leaf photo and add crop details.'),
                 'incomplete', 422
             )
         text = ''.join(
@@ -402,5 +408,5 @@ def analyze_leaf(image_file, *, crop='', location='', notes='', language='en'):
         return normalize(json.loads(text))
     except (ValueError, TypeError, KeyError, AttributeError) as exc:
         raise DiagnosisError(
-            _('Gemini returned an unreadable assessment. Please try again.'), 'invalid_response', 502
+            _('AI returned an unreadable assessment. Please try again.'), 'invalid_response', 502
         ) from exc

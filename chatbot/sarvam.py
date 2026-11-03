@@ -104,16 +104,24 @@ _CODE_IN_BRACKETS = re.compile(r'\s*\((?:[A-Z][A-Z0-9-]*|\d+(?:\.\d+)? ?(?:WP|EC
 _RATE = re.compile(r'(\d[\d,.]*\s*[A-Za-z]*)\s*/\s*([A-Za-z]+)')                           # 6,000/year, 5 g/litre
 
 
+def is_indic_script(text):
+    """Return True if text contains non-ASCII characters (e.g. Kannada, Hindi, etc.)."""
+    return any(ord(ch) > 127 for ch in (text or ''))
+
+
 def speech_text(text):
-    """Rewrite an English reply so text-to-speech reads only words, not symbols.
+    """Rewrite an English or Indian-language reply so text-to-speech reads only words, not symbols.
 
     Sarvam reads "/" as "by" and "+" as "plus", and spells out bracketed codes, so:
     "Rs 6,000/year" -> "6,000 rupees per year", "DAP + urea" -> "DAP and urea",
     "alkaline/sodic" -> "alkaline or sodic", "2-4 weeks" -> "2 to 4 weeks", and "(MOP)",
-    "(75 WP)", web addresses are dropped.
+    "(75 WP)", web addresses are dropped. Markdown bold and symbols are stripped.
     """
     text = _WEB_ADDRESS.sub('', text)
     text = _CODE_IN_BRACKETS.sub('', text)
+    text = re.sub(r'\*\*(.*?)\*\*', r'\1', text)
+    text = re.sub(r'__(.*?)__', r'\1', text)
+    text = re.sub(r'[*`#]', '', text)
     text = re.sub(r'\bRs\.? ?([\d,]+)', r'\1 rupees', text)
     text = _RATE.sub(r'\1 per \2', text)
     text = re.sub(r'\s*/\s*', ' or ', text)
@@ -127,9 +135,13 @@ def speech_text(text):
 
 
 def speak_reply(text_en, language):
-    """Speak an English knowledge-base reply in the farmer's language, symbols removed."""
+    """Speak a reply in the farmer's language, symbols removed.
+    
+    If the text is ALREADY in Kannada or other Indian script, NEVER re-translate it!
+    Translating already-Indic text with source_language='en-IN' corrupts it into irrelevant data.
+    """
     spoken = speech_text(text_en)
-    if language != ENGLISH:
+    if language != ENGLISH and not is_indic_script(spoken):
         spoken = translate(spoken, ENGLISH, language)
     return speak(spoken, language)
 

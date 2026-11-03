@@ -49,13 +49,13 @@ export const toolGuides: ToolGuide[] = [
     result: 'A state-level yield estimate with a likely range and optional farm total. Actual yield can differ with variety, weather, soil, and management.', button: 'Open Yield Estimate',
   },
   {
-    key: 'disease', title: 'Disease Check', summary: 'Send a leaf photo and field context to Gemini for a clear, structured assessment.',
+    key: 'disease', title: 'Disease Check', summary: 'Send a leaf photo and field context for a clear, structured AI assessment.',
     prepare: ['One affected leaf', 'A sharp photo in good natural light'],
     steps: [
       { title: 'Prepare the leaf and background', text: 'Choose a single affected leaf and place it against a plain background. Keep the affected area visible without fingers or other leaves covering it.' },
       { title: 'Take a focused photo', text: 'Use indirect daylight and hold the camera steady. Fill the frame with the leaf while keeping its edges visible. Retake blurred or heavily shadowed images.' },
-      { title: 'Add the photo and field context', text: 'Open Disease Check and choose your image. Add the crop name, location, growth stage, and how symptoms have changed. Review the disclosure: the photo and entered context are sent to Google Gemini when you submit.' },
-      { title: 'Select Analyze leaf', text: 'Submit the photo and wait for Gemini to respond. If a configuration, quota, or connection message appears, follow that message; the page does not fall back to the local ML classifier.' },
+      { title: 'Add the photo and field context', text: 'Open Disease Check and choose your image. Add the crop name, location, growth stage, and how symptoms have changed. Review the disclosure: the photo and entered context are analyzed using advanced AI when you submit.' },
+      { title: 'Select Analyze leaf', text: 'Submit the photo and wait for the AI to respond. If a configuration, quota, or connection message appears, follow that message; the page does not fall back to the local ML classifier.' },
       { title: 'Read the assessment and control steps', text: 'Review visible signs, possible causes, immediate non-chemical actions, prevention, and follow-up. Evidence strength is an AI estimate. Candidate chemical ingredients need local crop/target label verification; no spray dose is prescribed by the AI.' },
     ],
     example: 'A single leaf against a plain surface, photographed in indirect daylight, is more useful than a distant photo of several overlapping plants.',

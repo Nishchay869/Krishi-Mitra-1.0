@@ -19,6 +19,8 @@ const islands: Record<string, Loader> = {
   CropCursorEffect: () => import('./islands/CropCursorEffect'),
   AuthIsland: () => import('./islands/AuthIsland'),
   ImageSliderLoginDemo: () => import('./components/ui/demo'),
+  AIChatIsland: () => import('./islands/AIChatIsland'),
+  AIChatCard: () => import('./components/ui/ai-chat-card'),
 }
 
 async function mount(el: HTMLElement, name: string, props: object = {}): Promise<() => void> {
@@ -37,8 +39,34 @@ declare global {
 window.KrishiIslands = { mount }
 
 document.querySelectorAll<HTMLElement>('[data-react-island]').forEach((el) => {
-  const props = el.dataset.props ? JSON.parse(el.dataset.props) : {}
-  mount(el, el.dataset.reactIsland ?? '', props)
+  const islandName = el.dataset.reactIsland ?? ''
+  let props: Record<string, any> = {}
+  if (el.dataset.props) {
+    try {
+      props = JSON.parse(el.dataset.props)
+    } catch (e) {
+      console.warn('Failed to parse data-props for island', islandName, e)
+    }
+  }
+
+  if (islandName === 'AIChatIsland') {
+    const histScript = document.getElementById('chat-history-data')
+    if (histScript && histScript.textContent) {
+      try {
+        props.initialHistory = JSON.parse(histScript.textContent)
+      } catch (e) {
+        console.warn('Failed to parse chat-history-data:', e)
+      }
+    }
+    if (el.dataset.userName) {
+      props.userName = el.dataset.userName
+    }
+    if (el.dataset.isWidget === 'true') {
+      props.isWidget = true
+    }
+  }
+
+  mount(el, islandName, props)
 })
 
 import "./experience"

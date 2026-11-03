@@ -1,4 +1,4 @@
-import { lazy, Suspense, useEffect, useState } from 'react'
+import { lazy, Suspense, useEffect, useState, useRef } from 'react'
 import { motion, AnimatePresence } from 'motion/react'
 import {
   Plus,
@@ -11,7 +11,8 @@ import {
   X,
   Bug,
   Sprout,
-  Cpu
+  Cpu,
+  Bot
 } from 'lucide-react'
 import './AgroLanding.css'
 import CropCursorEffect from './CropCursorEffect'
@@ -366,6 +367,40 @@ function PlantixDashboard({ routes, assetBase, userCrops, weatherData, diagnoses
   const [activeStoryIndex, setActiveStoryIndex] = useState<number>(0)
   const [isStoryPaused, setIsStoryPaused] = useState<boolean>(false)
   const [storyProgress, setStoryProgress] = useState<number>(0)
+  const storyModalRef = useRef<HTMLDivElement>(null)
+
+  // Enforce high-contrast text color on the Story modal elements
+  useEffect(() => {
+    if (!activeStoryCrop || !storyModalRef.current) return
+    const el = storyModalRef.current
+
+    const applyContrast = () => {
+      el.querySelectorAll<HTMLElement>('*').forEach((node) => {
+        if (node.classList.contains('instagram-story-badge-pill') || node.closest('.instagram-story-badge-pill')) {
+          node.style.setProperty('color', '#4ade80', 'important')
+        } else if (node.classList.contains('instagram-story-crop-meta') || node.closest('.instagram-story-crop-meta')) {
+          node.style.setProperty('color', 'rgba(255, 255, 255, 0.9)', 'important')
+        } else if (node.classList.contains('instagram-story-caption')) {
+          node.style.setProperty('color', '#f1f5f9', 'important')
+        } else if (node.classList.contains('instagram-story-verified-check')) {
+          node.style.setProperty('color', '#ffffff', 'important')
+          node.style.setProperty('background-color', '#3b82f6', 'important')
+        } else if (node.tagName.toLowerCase() === 'svg' || node.tagName.toLowerCase() === 'path' || node.tagName.toLowerCase() === 'img') {
+          // preserve graphics
+        } else {
+          node.style.setProperty('color', '#ffffff', 'important')
+        }
+      })
+    }
+
+    applyContrast()
+    const id = requestAnimationFrame(applyContrast)
+    const timer = setTimeout(applyContrast, 100)
+    return () => {
+      cancelAnimationFrame(id)
+      clearTimeout(timer)
+    }
+  }, [activeStoryCrop, activeStoryIndex])
 
   useEffect(() => {
     if (!activeStoryCrop || !activeStoryCrop.stories || activeStoryCrop.stories.length === 0) {
@@ -777,6 +812,15 @@ function PlantixDashboard({ routes, assetBase, userCrops, weatherData, diagnoses
       <section className="plantix-section" aria-labelledby="tools-heading">
         <h2 id="tools-heading" className="plantix-section-title">{t('Tools')}</h2>
         <div className="plantix-tools-grid">
+          {/* Tool 0: Farm Assistant */}
+          <a href={routes.chat || '/chat/'} className="plantix-tool-card has-badge">
+            <span className="plantix-badge-new">{t('AI')}</span>
+            <div className="plantix-tool-icon">
+              <Bot size={22} strokeWidth={2.2} color="#1e3a8a" />
+            </div>
+            <span className="plantix-tool-title">{t('Farm Assistant')}</span>
+          </a>
+
           {/* Tool 1: Fertilizer calculator */}
           <a href={routes.fertilizer || '/crops/fertilizer/'} className="plantix-tool-card">
             <div className="plantix-tool-icon">
@@ -943,7 +987,9 @@ function PlantixDashboard({ routes, assetBase, userCrops, weatherData, diagnoses
               }}
             >
               <motion.div
+                ref={storyModalRef}
                 className="instagram-story-modal"
+                style={{ colorScheme: 'dark' }}
                 initial={{ scale: 0.9, y: 20 }}
                 animate={{ scale: 1, y: 0 }}
                 exit={{ scale: 0.9, y: 20 }}
@@ -975,14 +1021,16 @@ function PlantixDashboard({ routes, assetBase, userCrops, weatherData, diagnoses
                       <img src={activeStoryCrop.image} alt={activeStoryCrop.name} width="36" height="36" />
                     </div>
                     <div className="instagram-story-crop-info">
-                      <div className="instagram-story-crop-name">
-                        <span>{activeStoryCrop.display_name || activeStoryCrop.name}</span>
-                        <span className="instagram-story-verified-check">✓</span>
+                      <div className="instagram-story-crop-name" style={{ color: '#ffffff' }}>
+                        <span style={{ color: '#ffffff', textShadow: '0 2px 8px rgba(0,0,0,0.9)' }}>
+                          {activeStoryCrop.display_name || activeStoryCrop.name}
+                        </span>
+                        <span className="instagram-story-verified-check" style={{ color: '#ffffff', backgroundColor: '#3b82f6' }}>✓</span>
                       </div>
-                      <div className="instagram-story-crop-meta">
-                        <span>{currentStory.time_ago}</span>
-                        <span>·</span>
-                        <span>{currentStory.author}</span>
+                      <div className="instagram-story-crop-meta" style={{ color: 'rgba(255,255,255,0.9)' }}>
+                        <span style={{ color: 'rgba(255,255,255,0.9)', textShadow: '0 1px 4px rgba(0,0,0,0.85)' }}>{currentStory.time_ago}</span>
+                        <span style={{ color: 'rgba(255,255,255,0.7)' }}>·</span>
+                        <span style={{ color: 'rgba(255,255,255,0.9)', textShadow: '0 1px 4px rgba(0,0,0,0.85)' }}>{currentStory.author}</span>
                       </div>
                     </div>
                   </div>
@@ -993,6 +1041,7 @@ function PlantixDashboard({ routes, assetBase, userCrops, weatherData, diagnoses
                       className="instagram-story-close-btn"
                       onClick={() => setActiveStoryCrop(null)}
                       aria-label="Close story"
+                      style={{ color: '#ffffff' }}
                     >
                       ✕
                     </button>
@@ -1029,32 +1078,39 @@ function PlantixDashboard({ routes, assetBase, userCrops, weatherData, diagnoses
                 </div>
 
                 {/* Bottom Frosted Advisory Card */}
-                <div className="instagram-story-bottom-card">
-                  <div className="instagram-story-badge-pill">
-                    <span>{currentStory.badge}</span>
+                <div className="instagram-story-bottom-card" style={{ color: '#ffffff' }}>
+                  <div
+                    className="instagram-story-badge-pill"
+                    style={{
+                      color: '#4ade80',
+                      backgroundColor: 'rgba(34, 197, 94, 0.28)',
+                      borderColor: 'rgba(74, 222, 128, 0.7)',
+                    }}
+                  >
+                    <span style={{ color: '#4ade80', textShadow: '0 1px 2px rgba(0,0,0,0.7)' }}>
+                      {currentStory.badge}
+                    </span>
                   </div>
-                  <h3 className="instagram-story-title">
+                  <h3
+                    className="instagram-story-title"
+                    style={{
+                      color: '#ffffff',
+                      textShadow: '0 2px 10px rgba(0,0,0,0.95), 0 1px 4px rgba(0,0,0,0.9)',
+                    }}
+                  >
                     {currentStory.title}
                   </h3>
                   {currentStory.caption && (
-                    <p className="instagram-story-caption">
+                    <p
+                      className="instagram-story-caption"
+                      style={{
+                        color: '#f1f5f9',
+                        textShadow: '0 1px 6px rgba(0,0,0,0.9)',
+                      }}
+                    >
                       {currentStory.caption}
                     </p>
                   )}
-                  <div className="instagram-story-actions">
-                    <a
-                      href={routes.disease || '/disease/detect/'}
-                      className="instagram-story-cta-btn"
-                    >
-                      <span>🔍 Verify Leaf Disease</span>
-                    </a>
-                    <a
-                      href={routes.weather || '/weather/'}
-                      className="instagram-story-cta-btn secondary"
-                    >
-                      <span>🌧️ Check Spray Time</span>
-                    </a>
-                  </div>
                 </div>
               </motion.div>
             </motion.div>

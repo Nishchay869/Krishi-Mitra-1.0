@@ -10,4 +10,5 @@ urlpatterns = [
     path('api/transcribe/', views.api_transcribe, name='transcribe'),
     path('api/speak/<int:pk>/', views.api_speak, name='speak'),
     path('api/greeting/', views.api_greeting, name='greeting'),
+    path('api/clear/', views.api_clear, name='clear'),
 ]

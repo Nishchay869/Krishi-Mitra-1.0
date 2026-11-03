@@ -109,27 +109,27 @@ html:not(.dark) .bottom-nav-item.is-active .bottom-nav-icon {
 }
 
 /* Universal Typography in Light Mode (excl. footer, dark surfaces, and photo sliders) */
-html:not(.dark) h1:not(.app-footer-4col *):not(.bg-dark *):not(.bg-black *):not(.btn-primary *):not(.btn-21st-primary *):not(.auth-slider-panel *):not(.auth-photo-caption *):not(.auth-photo-back-btn *),
-html:not(.dark) h2:not(.app-footer-4col *):not(.bg-dark *):not(.bg-black *):not(.btn-primary *):not(.btn-21st-primary *):not(.auth-slider-panel *):not(.auth-photo-caption *):not(.auth-photo-back-btn *),
-html:not(.dark) h3:not(.app-footer-4col *):not(.bg-dark *):not(.bg-black *):not(.btn-primary *):not(.btn-21st-primary *):not(.auth-slider-panel *):not(.auth-photo-caption *):not(.auth-photo-back-btn *),
-html:not(.dark) h4:not(.app-footer-4col *):not(.bg-dark *):not(.bg-black *):not(.btn-primary *):not(.btn-21st-primary *):not(.auth-slider-panel *):not(.auth-photo-caption *):not(.auth-photo-back-btn *),
-html:not(.dark) h5:not(.app-footer-4col *):not(.bg-dark *):not(.bg-black *):not(.btn-primary *):not(.btn-21st-primary *):not(.auth-slider-panel *):not(.auth-photo-caption *):not(.auth-photo-back-btn *),
-html:not(.dark) h6:not(.app-footer-4col *):not(.bg-dark *):not(.bg-black *):not(.btn-primary *):not(.btn-21st-primary *):not(.auth-slider-panel *):not(.auth-photo-caption *):not(.auth-photo-back-btn *),
-html:not(.dark) p:not(.app-footer-4col *):not(.bg-dark *):not(.bg-black *):not(.btn-primary *):not(.btn-21st-primary *):not(.auth-slider-panel *):not(.auth-photo-caption *):not(.auth-photo-back-btn *),
-html:not(.dark) label:not(.app-footer-4col *):not(.bg-dark *):not(.bg-black *):not(.btn-primary *):not(.btn-21st-primary *),
-html:not(.dark) span:not(.app-footer-4col *):not(.bg-dark *):not(.bg-black *):not(.badge):not(i):not(svg):not(.btn-primary *):not(.btn-21st-primary *):not(.text-success):not(.text-danger):not(.text-warning):not(.text-primary):not(.auth-slider-panel *):not(.auth-photo-caption *):not(.auth-photo-back-btn *):not(.plantix-diag-badge):not(.plantix-badge-new):not(.plantix-spray-badge):not([class*="-badge"]),
-html:not(.dark) div:not(.app-footer-4col *):not(.bg-dark *):not(.bg-black *):not(.badge):not(.btn-primary *):not(.btn-21st-primary *):not(.btn-21st-icon-circle):not(.auth-slider-panel *):not(.auth-photo-caption *):not(.auth-photo-back-btn *),
-html:not(.dark) li:not(.app-footer-4col *):not(.bg-dark *):not(.bg-black *):not(.badge),
-html:not(.dark) td:not(.app-footer-4col *):not(.bg-dark *):not(.bg-black *),
-html:not(.dark) th:not(.app-footer-4col *):not(.bg-dark *):not(.bg-black *),
-html:not(.dark) dt:not(.app-footer-4col *):not(.bg-dark *):not(.bg-black *),
-html:not(.dark) dd:not(.app-footer-4col *):not(.bg-dark *):not(.bg-black *),
-html:not(.dark) small:not(.app-footer-4col *):not(.bg-dark *):not(.bg-black *):not(.badge):not(.btn-primary *):not(.btn-21st-primary *):not(.auth-slider-panel *):not(.auth-photo-caption *):not(.auth-photo-back-btn *),
-html:not(.dark) strong:not(.app-footer-4col *):not(.bg-dark *):not(.bg-black *):not(.badge):not(.btn-primary *):not(.btn-21st-primary *):not(.auth-slider-panel *):not(.auth-photo-caption *):not(.auth-photo-back-btn *),
-html:not(.dark) b:not(.app-footer-4col *):not(.bg-dark *):not(.bg-black *):not(.badge):not(.btn-primary *):not(.btn-21st-primary *):not(.auth-slider-panel *):not(.auth-photo-caption *):not(.auth-photo-back-btn *),
-html:not(.dark) em:not(.app-footer-4col *):not(.bg-dark *):not(.bg-black *):not(.badge):not(.btn-primary *):not(.btn-21st-primary *):not(.auth-slider-panel *):not(.auth-photo-caption *):not(.auth-photo-back-btn *),
-html:not(.dark) .text-muted:not(.app-footer-4col *):not(.bg-dark *):not(.bg-black *),
-html:not(.dark) .text-secondary:not(.app-footer-4col *):not(.bg-dark *):not(.bg-black *),
+html:not(.dark) h1:not(.app-footer-4col *):not(.bg-dark *):not(.bg-black *):not(.btn-primary *):not(.btn-21st-primary *):not(.auth-slider-panel *):not(.auth-photo-caption *):not(.auth-photo-back-btn *):not(.instagram-story-overlay *):not(.instagram-story-modal *),
+html:not(.dark) h2:not(.app-footer-4col *):not(.bg-dark *):not(.bg-black *):not(.btn-primary *):not(.btn-21st-primary *):not(.auth-slider-panel *):not(.auth-photo-caption *):not(.auth-photo-back-btn *):not(.instagram-story-overlay *):not(.instagram-story-modal *),
+html:not(.dark) h3:not(.app-footer-4col *):not(.bg-dark *):not(.bg-black *):not(.btn-primary *):not(.btn-21st-primary *):not(.auth-slider-panel *):not(.auth-photo-caption *):not(.auth-photo-back-btn *):not(.instagram-story-overlay *):not(.instagram-story-modal *),
+html:not(.dark) h4:not(.app-footer-4col *):not(.bg-dark *):not(.bg-black *):not(.btn-primary *):not(.btn-21st-primary *):not(.auth-slider-panel *):not(.auth-photo-caption *):not(.auth-photo-back-btn *):not(.instagram-story-overlay *):not(.instagram-story-modal *),
+html:not(.dark) h5:not(.app-footer-4col *):not(.bg-dark *):not(.bg-black *):not(.btn-primary *):not(.btn-21st-primary *):not(.auth-slider-panel *):not(.auth-photo-caption *):not(.auth-photo-back-btn *):not(.instagram-story-overlay *):not(.instagram-story-modal *),
+html:not(.dark) h6:not(.app-footer-4col *):not(.bg-dark *):not(.bg-black *):not(.btn-primary *):not(.btn-21st-primary *):not(.auth-slider-panel *):not(.auth-photo-caption *):not(.auth-photo-back-btn *):not(.instagram-story-overlay *):not(.instagram-story-modal *),
+html:not(.dark) p:not(.app-footer-4col *):not(.bg-dark *):not(.bg-black *):not(.btn-primary *):not(.btn-21st-primary *):not(.auth-slider-panel *):not(.auth-photo-caption *):not(.auth-photo-back-btn *):not(.instagram-story-overlay *):not(.instagram-story-modal *),
+html:not(.dark) label:not(.app-footer-4col *):not(.bg-dark *):not(.bg-black *):not(.btn-primary *):not(.btn-21st-primary *):not(.instagram-story-overlay *):not(.instagram-story-modal *),
+html:not(.dark) span:not(.app-footer-4col *):not(.bg-dark *):not(.bg-black *):not(.badge):not(i):not(svg):not(.btn-primary *):not(.btn-21st-primary *):not(.text-success):not(.text-danger):not(.text-warning):not(.text-primary):not(.auth-slider-panel *):not(.auth-photo-caption *):not(.auth-photo-back-btn *):not(.plantix-diag-badge):not(.plantix-badge-new):not(.plantix-spray-badge):not([class*="-badge"]):not(.instagram-story-overlay *):not(.instagram-story-modal *),
+html:not(.dark) div:not(.app-footer-4col *):not(.bg-dark *):not(.bg-black *):not(.badge):not(.btn-primary *):not(.btn-21st-primary *):not(.btn-21st-icon-circle):not(.auth-slider-panel *):not(.auth-photo-caption *):not(.auth-photo-back-btn *):not(.instagram-story-overlay *):not(.instagram-story-modal *),
+html:not(.dark) li:not(.app-footer-4col *):not(.bg-dark *):not(.bg-black *):not(.badge):not(.instagram-story-overlay *):not(.instagram-story-modal *),
+html:not(.dark) td:not(.app-footer-4col *):not(.bg-dark *):not(.bg-black *):not(.instagram-story-overlay *):not(.instagram-story-modal *),
+html:not(.dark) th:not(.app-footer-4col *):not(.bg-dark *):not(.bg-black *):not(.instagram-story-overlay *):not(.instagram-story-modal *),
+html:not(.dark) dt:not(.app-footer-4col *):not(.bg-dark *):not(.bg-black *):not(.instagram-story-overlay *):not(.instagram-story-modal *),
+html:not(.dark) dd:not(.app-footer-4col *):not(.bg-dark *):not(.bg-black *):not(.instagram-story-overlay *):not(.instagram-story-modal *),
+html:not(.dark) small:not(.app-footer-4col *):not(.bg-dark *):not(.bg-black *):not(.badge):not(.btn-primary *):not(.btn-21st-primary *):not(.auth-slider-panel *):not(.auth-photo-caption *):not(.auth-photo-back-btn *):not(.instagram-story-overlay *):not(.instagram-story-modal *),
+html:not(.dark) strong:not(.app-footer-4col *):not(.bg-dark *):not(.bg-black *):not(.badge):not(.btn-primary *):not(.btn-21st-primary *):not(.auth-slider-panel *):not(.auth-photo-caption *):not(.auth-photo-back-btn *):not(.instagram-story-overlay *):not(.instagram-story-modal *),
+html:not(.dark) b:not(.app-footer-4col *):not(.bg-dark *):not(.bg-black *):not(.badge):not(.btn-primary *):not(.btn-21st-primary *):not(.auth-slider-panel *):not(.auth-photo-caption *):not(.auth-photo-back-btn *):not(.instagram-story-overlay *):not(.instagram-story-modal *),
+html:not(.dark) em:not(.app-footer-4col *):not(.bg-dark *):not(.bg-black *):not(.badge):not(.btn-primary *):not(.btn-21st-primary *):not(.auth-slider-panel *):not(.auth-photo-caption *):not(.auth-photo-back-btn *):not(.instagram-story-overlay *):not(.instagram-story-modal *),
+html:not(.dark) .text-muted:not(.app-footer-4col *):not(.bg-dark *):not(.bg-black *):not(.instagram-story-overlay *):not(.instagram-story-modal *),
+html:not(.dark) .text-secondary:not(.app-footer-4col *):not(.bg-dark *):not(.bg-black *):not(.instagram-story-overlay *):not(.instagram-story-modal *),
 html:not(.dark) .text-dark,
 html:not(.dark) .tool-number,
 html:not(.dark) .pest-alerts-badge,
@@ -161,16 +161,16 @@ html:not(.dark) .btn-21st-secondary:hover * {
 /* Form controls in light mode */
 html:not(.dark) .form-control,
 html:not(.dark) .form-select,
-html:not(.dark) input:not([type="checkbox"]):not([type="radio"]):not([type="submit"]):not([type="button"]),
-html:not(.dark) textarea,
+html:not(.dark) input:not([type="checkbox"]):not([type="radio"]):not([type="submit"]):not([type="button"]):not(.ai-chat-input),
+html:not(.dark) textarea:not(.ai-chat-textarea),
 html:not(.dark) select {
   background-color: #ffffff !important;
   color: #000000 !important;
   border-color: #cbd5e1 !important;
 }
 html:not(.dark) .form-control::placeholder,
-html:not(.dark) input::placeholder,
-html:not(.dark) textarea::placeholder {
+html:not(.dark) input:not(.ai-chat-input)::placeholder,
+html:not(.dark) textarea:not(.ai-chat-textarea)::placeholder {
   color: #64748b !important;
 }
 
@@ -520,24 +520,24 @@ html.dark .btn-21st-secondary:hover *,
 /* Form controls in dark mode */
 html.dark .form-control,
 html.dark .form-select,
-html.dark input:not([type="checkbox"]):not([type="radio"]):not([type="submit"]):not([type="button"]),
-html.dark textarea,
+html.dark input:not([type="checkbox"]):not([type="radio"]):not([type="submit"]):not([type="button"]):not(.ai-chat-input),
+html.dark textarea:not(.ai-chat-textarea),
 html.dark select,
 [data-theme="dark"] .form-control,
 [data-theme="dark"] .form-select,
-[data-theme="dark"] input:not([type="checkbox"]):not([type="radio"]):not([type="submit"]):not([type="button"]),
-[data-theme="dark"] textarea,
+[data-theme="dark"] input:not([type="checkbox"]):not([type="radio"]):not([type="submit"]):not([type="button"]):not(.ai-chat-input),
+[data-theme="dark"] textarea:not(.ai-chat-textarea),
 [data-theme="dark"] select {
   background-color: #1e293b !important;
   color: #ffffff !important;
   border-color: #334155 !important;
 }
 html.dark .form-control::placeholder,
-html.dark input::placeholder,
-html.dark textarea::placeholder,
+html.dark input:not(.ai-chat-input)::placeholder,
+html.dark textarea:not(.ai-chat-textarea)::placeholder,
 [data-theme="dark"] .form-control::placeholder,
-[data-theme="dark"] input::placeholder,
-[data-theme="dark"] textarea::placeholder {
+[data-theme="dark"] input:not(.ai-chat-input)::placeholder,
+[data-theme="dark"] textarea:not(.ai-chat-textarea)::placeholder {
   color: rgba(255, 255, 255, 0.65) !important;
 }
 
@@ -3914,6 +3914,190 @@ html:not(.dark) .site-header-more-btn.show {
   color: #005bf6 !important;
   border: 1px solid #bfdbfe !important;
 }
+
+/* ─── 21ST.DEV PROFESSIONAL AI CHAT TEXTFIELD & BUTTONS ─── */
+.ai-chat-textarea,
+.ai-chat-card textarea,
+[data-react-island="AIChatIsland"] textarea,
+#ai-chat-card-root textarea {
+  background: transparent !important;
+  background-color: transparent !important;
+  border: 0 none transparent !important;
+  border-width: 0 !important;
+  border-style: none !important;
+  border-color: transparent !important;
+  outline: none !important;
+  outline-style: none !important;
+  box-shadow: none !important;
+  resize: none !important;
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  padding: 4px 6px !important;
+  margin: 0 !important;
+}
+
+html:not(.dark) .ai-chat-textarea,
+html:not(.dark) .ai-chat-card textarea,
+html:not(.dark) [data-react-island="AIChatIsland"] textarea {
+  color: #0f172a !important;
+}
+
+html:not(.dark) .ai-chat-textarea::placeholder,
+html:not(.dark) .ai-chat-card textarea::placeholder,
+html:not(.dark) [data-react-island="AIChatIsland"] textarea::placeholder {
+  color: #94a3b8 !important;
+}
+
+html.dark .ai-chat-textarea,
+html.dark .ai-chat-card textarea,
+html.dark [data-react-island="AIChatIsland"] textarea,
+[data-theme="dark"] .ai-chat-textarea,
+[data-theme="dark"] .ai-chat-card textarea,
+[data-theme="dark"] [data-react-island="AIChatIsland"] textarea {
+  color: #f8fafc !important;
+}
+
+html.dark .ai-chat-textarea::placeholder,
+html.dark .ai-chat-card textarea::placeholder,
+html.dark [data-react-island="AIChatIsland"] textarea::placeholder,
+[data-theme="dark"] .ai-chat-textarea::placeholder,
+[data-theme="dark"] .ai-chat-card textarea::placeholder,
+[data-theme="dark"] [data-react-island="AIChatIsland"] textarea::placeholder {
+  color: #64748b !important;
+}
+
+.ai-chat-btn,
+.ai-chat-card button,
+[data-react-island="AIChatIsland"] button,
+#ai-chat-card-root button {
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  outline: none !important;
+  background-image: none !important;
+}
+
+/* ─── CROP STATUS STORY MODAL - ABSOLUTE CONTRAST OVERRIDES ─── */
+/* Guaranteed bright, crystal-clear white & colored text in both Light & Dark modes */
+.instagram-story-overlay,
+.instagram-story-modal,
+.instagram-story-bottom-card {
+  color-scheme: dark !important;
+}
+
+.instagram-story-crop-name,
+.instagram-story-crop-name *,
+.instagram-story-crop-name span,
+html:not(.dark) .instagram-story-crop-name,
+html:not(.dark) .instagram-story-crop-name *,
+html:not(.dark) .instagram-story-crop-name span,
+html.dark .instagram-story-crop-name,
+html.dark .instagram-story-crop-name *,
+html.dark .instagram-story-crop-name span {
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.85), 0 2px 8px rgba(0, 0, 0, 0.6) !important;
+}
+
+.instagram-story-crop-meta,
+.instagram-story-crop-meta *,
+.instagram-story-crop-meta span,
+html:not(.dark) .instagram-story-crop-meta,
+html:not(.dark) .instagram-story-crop-meta *,
+html:not(.dark) .instagram-story-crop-meta span,
+html.dark .instagram-story-crop-meta,
+html.dark .instagram-story-crop-meta *,
+html.dark .instagram-story-crop-meta span {
+  color: rgba(255, 255, 255, 0.9) !important;
+  font-weight: 500 !important;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.85) !important;
+}
+
+.instagram-story-verified-check,
+html:not(.dark) .instagram-story-verified-check,
+html.dark .instagram-story-verified-check {
+  background-color: #3b82f6 !important;
+  color: #ffffff !important;
+}
+
+.instagram-story-close-btn,
+html:not(.dark) .instagram-story-close-btn,
+html.dark .instagram-story-close-btn {
+  color: #ffffff !important;
+  background: rgba(0, 0, 0, 0.55) !important;
+}
+
+.instagram-story-badge-pill,
+.instagram-story-badge-pill *,
+.instagram-story-badge-pill span,
+html:not(.dark) .instagram-story-badge-pill,
+html:not(.dark) .instagram-story-badge-pill *,
+html:not(.dark) .instagram-story-badge-pill span,
+html.dark .instagram-story-badge-pill,
+html.dark .instagram-story-badge-pill *,
+html.dark .instagram-story-badge-pill span {
+  background: rgba(34, 197, 94, 0.28) !important;
+  border-color: rgba(74, 222, 128, 0.7) !important;
+  color: #4ade80 !important;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7) !important;
+  font-weight: 700 !important;
+}
+
+.instagram-story-title,
+.instagram-story-title *,
+html:not(.dark) .instagram-story-title,
+html:not(.dark) .instagram-story-title *,
+html.dark .instagram-story-title,
+html.dark .instagram-story-title * {
+  color: #ffffff !important;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.95), 0 1px 3px rgba(0, 0, 0, 0.9) !important;
+  font-weight: 800 !important;
+}
+
+.instagram-story-caption,
+.instagram-story-caption *,
+html:not(.dark) .instagram-story-caption,
+html:not(.dark) .instagram-story-caption *,
+html.dark .instagram-story-caption,
+html.dark .instagram-story-caption * {
+  color: #f1f5f9 !important;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.9) !important;
+  font-weight: 400 !important;
+}
+
+.instagram-story-cta-btn,
+.instagram-story-cta-btn *,
+.instagram-story-cta-btn span,
+html:not(.dark) .instagram-story-cta-btn,
+html:not(.dark) .instagram-story-cta-btn *,
+html:not(.dark) .instagram-story-cta-btn span,
+html.dark .instagram-story-cta-btn,
+html.dark .instagram-story-cta-btn *,
+html.dark .instagram-story-cta-btn span {
+  background-color: #005bf6 !important;
+  color: #ffffff !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4) !important;
+  font-weight: 700 !important;
+}
+
+.instagram-story-cta-btn.secondary,
+.instagram-story-cta-btn.secondary *,
+.instagram-story-cta-btn.secondary span,
+html:not(.dark) .instagram-story-cta-btn.secondary,
+html:not(.dark) .instagram-story-cta-btn.secondary *,
+html:not(.dark) .instagram-story-cta-btn.secondary span,
+html.dark .instagram-story-cta-btn.secondary,
+html.dark .instagram-story-cta-btn.secondary *,
+html.dark .instagram-story-cta-btn.secondary span {
+  background: rgba(255, 255, 255, 0.22) !important;
+  border: 1px solid rgba(255, 255, 255, 0.35) !important;
+  color: #ffffff !important;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8) !important;
+  font-weight: 700 !important;
+}
+
+
 
 
 

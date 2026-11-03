@@ -1203,8 +1203,8 @@ html.dark .plantix-story-badge {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 100%);
-  padding: 4px 6px;
+  background: linear-gradient(180deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%) !important;
+  padding: 8px 8px 14px;
 }
 
 .instagram-story-header-left {
@@ -1219,7 +1219,7 @@ html.dark .plantix-story-badge {
   border-radius: 50%;
   border: 2px solid #ffffff;
   overflow: hidden;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
 }
 
 .instagram-story-crop-avatar img {
@@ -1233,14 +1233,15 @@ html.dark .plantix-story-badge {
   flex-direction: column;
 }
 
-.instagram-story-crop-name {
-  color: #ffffff;
-  font-size: 14px;
-  font-weight: 700;
+.instagram-story-crop-name,
+.instagram-story-crop-name span {
+  color: #ffffff !important;
+  font-size: 15px !important;
+  font-weight: 700 !important;
   display: flex;
   align-items: center;
   gap: 5px;
-  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.9), 0 2px 8px rgba(0, 0, 0, 0.7) !important;
 }
 
 .instagram-story-verified-check {
@@ -1249,24 +1250,26 @@ html.dark .plantix-story-badge {
   justify-content: center;
   width: 14px;
   height: 14px;
-  background: #3b82f6;
-  color: #ffffff;
+  background: #3b82f6 !important;
+  color: #ffffff !important;
   border-radius: 50%;
   font-size: 9px;
   font-weight: 900;
 }
 
-.instagram-story-crop-meta {
-  color: rgba(255, 255, 255, 0.75);
-  font-size: 11.5px;
-  font-weight: 500;
+.instagram-story-crop-meta,
+.instagram-story-crop-meta span {
+  color: rgba(255, 255, 255, 0.9) !important;
+  font-size: 12px !important;
+  font-weight: 500 !important;
   display: flex;
   gap: 5px;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.85) !important;
 }
 
 .instagram-story-close-btn {
-  background: rgba(0, 0, 0, 0.45);
-  color: #ffffff;
+  background: rgba(0, 0, 0, 0.55) !important;
+  color: #ffffff !important;
   border: none;
   border-radius: 50%;
   width: 32px;
@@ -1281,7 +1284,7 @@ html.dark .plantix-story-badge {
 }
 
 .instagram-story-close-btn:hover {
-  background: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.3) !important;
   transform: scale(1.08);
 }
 
@@ -1305,7 +1308,7 @@ html.dark .plantix-story-badge {
 .instagram-story-tap-areas {
   position: absolute;
   top: 70px;
-  bottom: 220px;
+  bottom: 120px;
   left: 0;
   right: 0;
   z-index: 20;
@@ -1331,44 +1334,49 @@ html.dark .plantix-story-badge {
   left: 0;
   right: 0;
   z-index: 30;
-  padding: 20px 18px 22px;
-  background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(9, 13, 22, 0.85) 25%, rgba(9, 13, 22, 0.98) 100%);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  padding: 24px 20px 28px;
+  background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(5, 11, 20, 0.85) 20%, rgba(5, 11, 20, 0.98) 100%) !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   display: flex;
   flex-direction: column;
   gap: 8px;
 }
 
-.instagram-story-badge-pill {
+.instagram-story-badge-pill,
+.instagram-story-badge-pill span {
   align-self: flex-start;
-  background: rgba(34, 197, 94, 0.25);
-  border: 1px solid rgba(74, 222, 128, 0.6);
-  color: #4ade80;
+  background: rgba(34, 197, 94, 0.28) !important;
+  border: 1px solid rgba(74, 222, 128, 0.7) !important;
+  color: #4ade80 !important;
   padding: 4px 12px;
   border-radius: 99px;
-  font-size: 11.5px;
-  font-weight: 700;
+  font-size: 11.5px !important;
+  font-weight: 700 !important;
   letter-spacing: 0.02em;
   text-transform: uppercase;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.7) !important;
 }
 
-.instagram-story-title {
-  color: #ffffff;
-  font-size: 17px;
-  font-weight: 800;
+.instagram-story-title,
+.instagram-story-title * {
+  color: #ffffff !important;
+  font-size: 18px !important;
+  font-weight: 800 !important;
   line-height: 1.35;
   margin: 0;
-  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.95), 0 1px 3px rgba(0, 0, 0, 0.9) !important;
 }
 
-.instagram-story-caption {
-  color: #cbd5e1;
-  font-size: 13.5px;
+.instagram-story-caption,
+.instagram-story-caption * {
+  color: #f1f5f9 !important;
+  font-size: 14px !important;
   line-height: 1.48;
   margin: 0;
   max-height: 110px;
   overflow-y: auto;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.9) !important;
 }
 
 .instagram-story-actions {
@@ -1377,31 +1385,36 @@ html.dark .plantix-story-badge {
   margin-top: 6px;
 }
 
-.instagram-story-cta-btn {
+.instagram-story-cta-btn,
+.instagram-story-cta-btn span {
   flex: 1;
-  background: #005bf6;
+  background: #005bf6 !important;
   color: #ffffff !important;
-  font-size: 12px;
-  font-weight: 700;
-  padding: 10px 12px;
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  padding: 11px 12px;
   border-radius: 12px;
   text-align: center;
   text-decoration: none !important;
   box-shadow: 0 4px 14px rgba(0, 91, 246, 0.4);
   transition: all 0.15s ease;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5) !important;
 }
 
 .instagram-story-cta-btn:hover {
-  background: #004bd1;
+  background: #004bd1 !important;
   transform: translateY(-1px);
 }
 
-.instagram-story-cta-btn.secondary {
-  background: rgba(255, 255, 255, 0.15);
+.instagram-story-cta-btn.secondary,
+.instagram-story-cta-btn.secondary span {
+  background: rgba(255, 255, 255, 0.22) !important;
   box-shadow: none;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.35) !important;
+  color: #ffffff !important;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8) !important;
 }
 
 .instagram-story-cta-btn.secondary:hover {
-  background: rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.32) !important;
 }

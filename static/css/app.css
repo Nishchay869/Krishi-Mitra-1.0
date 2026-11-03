@@ -51,10 +51,13 @@ body {
 #chat-widget {
   position: fixed;
   right: 20px;
-  bottom: 148px;
-  width: min(360px, calc(100vw - 32px));
-  height: 480px;
+  bottom: 110px;
+  width: min(390px, calc(100vw - 32px));
+  max-height: calc(100dvh - 130px);
   z-index: 1050;
+  border-radius: 26px;
+  background: transparent;
+  border: none;
 }
 .chat-log {
   overflow-y: auto;
@@ -982,14 +985,14 @@ html.no-intro-loader #site-intro-loader {
   position: fixed;
   inset: 0;
   z-index: 9999999;
-  background: #c9e5cb;
+  background: #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   opacity: 1;
   visibility: visible;
-  transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.65s ease;
+  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.5s ease;
   overflow: hidden;
   user-select: none;
 }
@@ -1003,8 +1006,8 @@ html.no-intro-loader #site-intro-loader {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 24px;
-  max-width: 92vw;
+  padding: 16px;
+  max-width: 96vw;
   animation: introPopIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 @keyframes introPopIn {
@@ -1019,37 +1022,51 @@ html.no-intro-loader #site-intro-loader {
 }
 .intro-video-wrapper {
   position: relative;
-  width: min(560px, 88vw);
-  max-height: 50vh;
+  width: min(520px, 86vw);
+  max-height: 70vh;
+  aspect-ratio: 1 / 1;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  background: #c9e5cb;
-  border-radius: 12px;
+  background: #ffffff;
+  border-radius: 0;
 }
 .intro-video-wrapper video {
   width: 100%;
-  height: auto;
-  max-height: 100%;
+  height: 100%;
   display: block;
   object-fit: contain;
-  background: #c9e5cb;
-  border-radius: 12px;
+  background: #ffffff;
+  border-radius: 0;
 }
 .intro-video-wrapper::after {
-  content: "";
-  position: absolute;
-  inset: -1px;
-  pointer-events: none;
-  border-radius: 12px;
-  box-shadow: inset 0 0 16px 8px #c9e5cb;
+  display: none;
 }
 .intro-skip-btn {
   position: absolute;
   bottom: 28px;
   right: 28px;
-  background: rgba(18, 55, 30, 0.08);
+  background: rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  color: #334155;
+  border-radius: 999px;
+  padding: 8px 20px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(8px);
+}
+.intro-skip-btn:hover {
+  background: rgba(0, 0, 0, 0.1);
+  color: #0f172a;
+  transform: translateX(2px);
+}
+
   border: 1px solid rgba(18, 55, 30, 0.16);
   color: #1a4d2e;
   border-radius: 999px;
@@ -3136,4 +3153,301 @@ html.dark .app-footer-4col .footer-bottom-bar,
     margin: 0 auto;
   }
 }
+
+/* 21st.dev AI Chat Card overrides against Bootstrap form-control interference */
+.ai-chat-textarea {
+  background: transparent !important;
+  background-color: transparent !important;
+  border: 0 none transparent !important;
+  outline: none !important;
+  box-shadow: none !important;
+  resize: none !important;
+  appearance: none !important;
+  -webkit-appearance: none !important;
+}
+
+.ai-chat-btn {
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  outline: none !important;
+  background-image: none !important;
+}
+
+/* Crop Status Story Viewer Styles & High-Contrast Typography */
+.instagram-story-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+}
+
+.instagram-story-modal {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+  height: 90vh;
+  max-height: 740px;
+  border-radius: 26px;
+  overflow: hidden;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+  background: #000000;
+  display: flex;
+  flex-direction: column;
+}
+
+.instagram-story-progress-wrap {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  right: 14px;
+  z-index: 30;
+  display: flex;
+  gap: 5px;
+}
+
+.instagram-story-progress-bg {
+  flex: 1;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.35);
+  border-radius: 99px;
+  overflow: hidden;
+}
+
+.instagram-story-progress-fill {
+  height: 100%;
+  background: #ffffff;
+  border-radius: 99px;
+  transition: width 0.1s linear;
+}
+
+.instagram-story-header {
+  position: absolute;
+  top: 24px;
+  left: 14px;
+  right: 14px;
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(180deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%) !important;
+  padding: 8px 8px 14px;
+}
+
+.instagram-story-header-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.instagram-story-crop-avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 2px solid #ffffff;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+}
+
+.instagram-story-crop-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.instagram-story-crop-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.instagram-story-crop-name,
+.instagram-story-crop-name span {
+  color: #ffffff !important;
+  font-size: 15px !important;
+  font-weight: 700 !important;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.9), 0 2px 8px rgba(0, 0, 0, 0.7) !important;
+}
+
+.instagram-story-verified-check {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 14px;
+  height: 14px;
+  background: #3b82f6 !important;
+  color: #ffffff !important;
+  border-radius: 50%;
+  font-size: 9px;
+  font-weight: 900;
+}
+
+.instagram-story-crop-meta,
+.instagram-story-crop-meta span {
+  color: rgba(255, 255, 255, 0.9) !important;
+  font-size: 12px !important;
+  font-weight: 500 !important;
+  display: flex;
+  gap: 5px;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.85) !important;
+}
+
+.instagram-story-close-btn {
+  background: rgba(0, 0, 0, 0.55) !important;
+  color: #ffffff !important;
+  border: none;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  backdrop-filter: blur(4px);
+}
+
+.instagram-story-close-btn:hover {
+  background: rgba(255, 255, 255, 0.3) !important;
+  transform: scale(1.08);
+}
+
+.instagram-story-media-wrap {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  inset: 0;
+  background: #000000;
+}
+
+.instagram-story-media-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.instagram-story-tap-areas {
+  position: absolute;
+  top: 70px;
+  bottom: 120px;
+  left: 0;
+  right: 0;
+  z-index: 20;
+  display: flex;
+}
+
+.instagram-story-tap-left {
+  width: 35%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.instagram-story-tap-right {
+  width: 65%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.instagram-story-bottom-card {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 30;
+  padding: 24px 18px 24px;
+  background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(5, 11, 20, 0.85) 20%, rgba(5, 11, 20, 0.98) 100%) !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.instagram-story-badge-pill,
+.instagram-story-badge-pill span {
+  align-self: flex-start;
+  background: rgba(34, 197, 94, 0.28) !important;
+  border: 1px solid rgba(74, 222, 128, 0.7) !important;
+  color: #4ade80 !important;
+  padding: 4px 12px;
+  border-radius: 99px;
+  font-size: 11.5px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.7) !important;
+}
+
+.instagram-story-title,
+.instagram-story-title * {
+  color: #ffffff !important;
+  font-size: 18px !important;
+  font-weight: 800 !important;
+  line-height: 1.35;
+  margin: 0;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.95), 0 1px 3px rgba(0, 0, 0, 0.9) !important;
+}
+
+.instagram-story-caption,
+.instagram-story-caption * {
+  color: #f1f5f9 !important;
+  font-size: 14px !important;
+  line-height: 1.48;
+  margin: 0;
+  max-height: 110px;
+  overflow-y: auto;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.9) !important;
+}
+
+.instagram-story-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 6px;
+}
+
+.instagram-story-cta-btn,
+.instagram-story-cta-btn span {
+  flex: 1;
+  background: #005bf6 !important;
+  color: #ffffff !important;
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  padding: 11px 12px;
+  border-radius: 12px;
+  text-align: center;
+  text-decoration: none !important;
+  box-shadow: 0 4px 14px rgba(0, 91, 246, 0.4);
+  transition: all 0.15s ease;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5) !important;
+}
+
+.instagram-story-cta-btn:hover {
+  background: #004bd1 !important;
+  transform: translateY(-1px);
+}
+
+.instagram-story-cta-btn.secondary,
+.instagram-story-cta-btn.secondary span {
+  background: rgba(255, 255, 255, 0.22) !important;
+  box-shadow: none;
+  border: 1px solid rgba(255, 255, 255, 0.35) !important;
+  color: #ffffff !important;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8) !important;
+}
+
+.instagram-story-cta-btn.secondary:hover {
+  background: rgba(255, 255, 255, 0.32) !important;
+}
+
+
 

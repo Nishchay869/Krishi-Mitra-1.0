@@ -119,3 +119,24 @@
     --sidebar-ring: oklch(0.556 0 0);
 }
 
+/* 21st.dev AI PromptBox & Card Composer Utilities */
+.ai-chat-textarea {
+  background: transparent !important;
+  background-color: transparent !important;
+  border: 0 none transparent !important;
+  outline: none !important;
+  box-shadow: none !important;
+  resize: none !important;
+  appearance: none !important;
+  -webkit-appearance: none !important;
+}
+
+.ai-chat-btn {
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  outline: none !important;
+  background-image: none !important;
+}
+
+

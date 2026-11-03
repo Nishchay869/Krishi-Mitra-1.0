@@ -203,3 +203,133 @@ class FertilizerPageTests(TestCase):
             self.assertEqual(len(preset['rates']), 3)
             self.assertTrue(all(0 <= rate <= 10000 for rate in preset['rates']))
             self.assertEqual(preset['mode'] == 'trees', 'age' in preset)
+
+
+class AdminFertilizerPresetTests(TestCase):
+    def setUp(self):
+        User = get_user_model()
+        self.admin_user = User.objects.create_user(username='admin_agri', password='pass', is_staff=True)
+        self.admin_user.profile.role = 'admin'
+        self.admin_user.profile.save()
+
+        self.farmer_user = User.objects.create_user(username='farmer_ramesh', password='pass')
+        self.farmer_user.profile.role = 'farmer'
+        self.farmer_user.profile.save()
+
+        self.calc_url = reverse('crops:fertilizer')
+        self.manage_url = reverse('crops:fertilizer_manage')
+        self.save_url = reverse('crops:fertilizer_preset_save')
+
+    def test_admin_manage_page_access_restricted_to_admins(self):
+        # Non-logged in redirects to login
+        response = self.client.get(self.manage_url)
+        self.assertEqual(response.status_code, 302)
+
+        # Farmer user gets redirected
+        self.client.force_login(self.farmer_user)
+        response = self.client.get(self.manage_url)
+        self.assertEqual(response.status_code, 302)
+
+        # Admin user gets 200
+        self.client.force_login(self.admin_user)
+        response = self.client.get(self.manage_url)
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, 'Standard Fertilizer N-P-K Presets')
+        self.assertContains(response, 'Tomato')
+
+    def test_admin_can_update_preset_and_reflects_to_all_users(self):
+        from .models import FertilizerPreset
+        from .fertilizer_presets import get_effective_presets
+
+        # 1. Admin saves new N, P, K values for tomato (default was 150, 100, 50)
+        self.client.force_login(self.admin_user)
+        response = self.client.post(self.calc_url, {
+            'save_as_admin_default': '1',
+            'crop_preset': 'tomato',
+            'planting_type': 'plants',
+            'nitrogen': '180',
+            'phosphorus': '110',
+            'potassium': '65',
+        }, follow=True)
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, 'Standard N-P-K rates for Tomato updated')
+
+        # Check DB model
+        preset_row = FertilizerPreset.objects.get(preset_key='tomato')
+        self.assertEqual(float(preset_row.nitrogen), 180.0)
+        self.assertEqual(float(preset_row.phosphorus), 110.0)
+        self.assertEqual(float(preset_row.potassium), 65.0)
+        self.assertEqual(preset_row.updated_by, self.admin_user)
+
+        # 2. Log in as a normal farmer and check that tomato's new rates reflect immediately
+        self.client.force_login(self.farmer_user)
+        response = self.client.get(self.calc_url, {'crop_preset': 'tomato', 'planting_type': 'plants'})
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(float(response.context['form']['nitrogen'].value()), 180.0)
+        self.assertEqual(float(response.context['form']['phosphorus'].value()), 110.0)
+        self.assertEqual(float(response.context['form']['potassium'].value()), 65.0)
+        self.assertEqual(response.context['preset']['rates'], (180.0, 110.0, 65.0))
+        self.assertContains(response, '180')
+        self.assertContains(response, '110')
+        self.assertContains(response, '65')
+
+    def test_admin_update_via_manage_endpoint(self):
+        from .models import FertilizerPreset
+
+        self.client.force_login(self.admin_user)
+        response = self.client.post(self.save_url, {
+            'preset_key': 'wheat',
+            'nitrogen': '95.5',
+            'phosphorus': '45',
+            'potassium': '42.5',
+        }, follow=True)
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, 'Standard N-P-K rates for Wheat saved successfully')
+
+        preset_row = FertilizerPreset.objects.get(preset_key='wheat')
+        self.assertEqual(float(preset_row.nitrogen), 95.5)
+        self.assertEqual(float(preset_row.phosphorus), 45.0)
+        self.assertEqual(float(preset_row.potassium), 42.5)
+
+        # Farmer verifies wheat rates
+        self.client.force_login(self.farmer_user)
+        response = self.client.get(self.calc_url, {'crop_preset': 'wheat', 'planting_type': 'plants'})
+        self.assertEqual(response.context['preset']['rates'], (95.5, 45.0, 42.5))
+
+    def test_admin_update_via_ajax(self):
+        from .models import FertilizerPreset
+
+        self.client.force_login(self.admin_user)
+        response = self.client.post(
+            self.save_url,
+            {'preset_key': 'rice', 'nitrogen': '165', 'phosphorus': '55', 'potassium': '52'},
+            HTTP_X_REQUESTED_WITH='XMLHttpRequest',
+        )
+        self.assertEqual(response.status_code, 200)
+        data = response.json()
+        self.assertEqual(data['status'], 'success')
+        self.assertEqual(data['rates'], [165.0, 55.0, 52.0])
+
+        preset_row = FertilizerPreset.objects.get(preset_key='rice')
+        self.assertEqual(float(preset_row.nitrogen), 165.0)
+
+    def test_farmer_cannot_save_as_admin_default(self):
+
+        from .fertilizer_presets import get_effective_presets
+        initial_rates = get_effective_presets()['potato']['rates']
+
+        # Normal farmer attempts to post save_as_admin_default
+        self.client.force_login(self.farmer_user)
+        response = self.client.post(self.calc_url, {
+            'save_as_admin_default': '1',
+            'crop_preset': 'potato',
+            'nitrogen': '999',
+            'phosphorus': '999',
+            'potassium': '999',
+        }, follow=True)
+        self.assertContains(response, 'Only administrators can update standard N-P-K preset rates')
+
+        # Potato rates must not have changed
+        current_rates = get_effective_presets()['potato']['rates']
+        self.assertEqual(current_rates, initial_rates)
+

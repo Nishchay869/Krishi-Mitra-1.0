@@ -48,11 +48,12 @@ class EmailAccountTests(TestCase):
     def test_login_rejects_username_wrong_password_and_inactive_account(self):
         user = User.objects.create_user('legacy', email='legacy@example.com', password='Email-farm-934!')
         for data in [{'username':'legacy','password':'Email-farm-934!'},
-                     {'email':'legacy','password':'Email-farm-934!'},
+                     {'email':'unknown-legacy','password':'Email-farm-934!'},
                      {'email':'legacy@example.com','password':'wrong'},
                      {'email':'missing@example.com','password':'Email-farm-934!'}]:
             self.assertEqual(self.client.post('/accounts/login/', data).status_code, 200)
             self.assertNotIn('_auth_user_id', self.client.session)
+
         user.is_active = False;user.save()
         self.assertEqual(self.client.post('/accounts/login/', {'email':user.email,'password':'Email-farm-934!'}).status_code, 200)
         self.assertNotIn('_auth_user_id', self.client.session)

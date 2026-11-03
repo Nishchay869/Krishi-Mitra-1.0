@@ -1,0 +1,555 @@
+{% extends 'base.html' %}
+{% load static farm_i18n %}
+{% block title %}Manage Fertilizer N-P-K Presets — Admin Portal{% endblock %}
+
+{% block extra_head %}
+<style>
+  .npk-container {
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+  .npk-table-card {
+    background: #ffffff;
+    border-radius: 14px;
+    border: 1px solid #e2e8f0;
+    overflow: hidden;
+  }
+  .npk-table {
+    min-width: 860px;
+    border-collapse: separate;
+    border-spacing: 0;
+  }
+  .npk-table thead th {
+    font-size: 0.78rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: #475569;
+    font-weight: 700;
+    padding: 14px 16px;
+    background-color: #f8fafc;
+    border-bottom: 2px solid #e2e8f0;
+  }
+  .npk-table tbody tr {
+    transition: background-color 0.15s ease;
+  }
+  .npk-table tbody tr:hover {
+    background-color: #f8fafc;
+  }
+  .npk-table td {
+    padding: 14px 16px;
+    vertical-align: middle;
+    border-bottom: 1px solid #f1f5f9;
+  }
+
+  /* Strict non-wrapping N-P-K Input Group */
+  .npk-input-row {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    white-space: nowrap !important;
+  }
+  .npk-unit-box {
+    display: inline-flex !important;
+    align-items: stretch !important;
+    flex-wrap: nowrap !important;
+    width: 92px !important;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  .npk-badge {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 28px !important;
+    min-width: 28px !important;
+    max-width: 28px !important;
+    font-weight: 800 !important;
+    font-size: 0.75rem !important;
+    border: 1px solid rgba(0, 0, 0, 0.12) !important;
+    border-right: none !important;
+    user-select: none;
+  }
+  .npk-badge-n {
+    background: linear-gradient(180deg, #dcfce7 0%, #bbf7d0 100%) !important;
+    color: #15803d !important;
+    border-color: #86efac !important;
+  }
+  .npk-badge-p {
+    background: linear-gradient(180deg, #dbeafe 0%, #bfdbfe 100%) !important;
+    color: #1d4ed8 !important;
+    border-color: #93c5fd !important;
+  }
+  .npk-badge-k {
+    background: linear-gradient(180deg, #fef3c7 0%, #fde68a 100%) !important;
+    color: #b45309 !important;
+    border-color: #fcd34d !important;
+  }
+  .npk-val-input {
+    min-width: 64px !important;
+    max-width: 64px !important;
+    width: 64px !important;
+    font-weight: 700 !important;
+    font-size: 0.88rem !important;
+    color: #1e293b !important;
+    text-align: right !important;
+    padding: 6px 8px !important;
+    border: 1px solid #cbd5e1 !important;
+    border-left: none !important;
+    border-top-right-radius: 6px !important;
+    border-bottom-right-radius: 6px !important;
+    background-color: #ffffff;
+  }
+  .npk-val-input:focus {
+    background-color: #ffffff !important;
+    border-color: #10b981 !important;
+    box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.25) !important;
+    outline: none !important;
+  }
+  .npk-unit-pill {
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 6px 10px;
+    border-radius: 6px;
+    background-color: #f1f5f9;
+    color: #475569;
+    border: 1px solid #e2e8f0;
+    white-space: nowrap;
+  }
+
+  .crop-icon-bubble {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.15rem;
+    flex-shrink: 0;
+  }
+
+  /* Responsive card-style view on mobile devices (< 768px) */
+  @media (max-width: 767.98px) {
+    .npk-table-card {
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .npk-table-card .card-header {
+      border-radius: 12px !important;
+      margin-bottom: 12px !important;
+      border: 1px solid #e2e8f0 !important;
+      background: #ffffff !important;
+    }
+    .table-responsive {
+      overflow: visible !important;
+    }
+    .npk-table {
+      min-width: 100% !important;
+      display: block !important;
+    }
+    .npk-table thead {
+      display: none !important;
+    }
+    .npk-table tbody {
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 14px !important;
+    }
+    .npk-table tbody tr.crop-data-row {
+      display: flex !important;
+      flex-direction: column !important;
+      background: #ffffff !important;
+      border: 1px solid #e2e8f0 !important;
+      border-radius: 14px !important;
+      padding: 16px !important;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04) !important;
+    }
+    .npk-table tbody tr.crop-data-row td {
+      display: block !important;
+      width: 100% !important;
+      min-width: 100% !important;
+      padding: 0 !important;
+      border: none !important;
+    }
+    .npk-table tbody tr.crop-data-row td:not(:last-child) {
+      margin-bottom: 12px !important;
+    }
+    .npk-input-row {
+      display: flex !important;
+      width: 100% !important;
+      justify-content: space-between !important;
+      gap: 6px !important;
+    }
+    .npk-unit-box {
+      flex: 1 1 0 !important;
+      width: auto !important;
+      min-width: 0 !important;
+    }
+    .npk-val-input {
+      flex: 1 1 0 !important;
+      width: 100% !important;
+      min-width: 0 !important;
+    }
+    .npk-table tbody tr.crop-data-row td:last-child {
+      padding-top: 12px !important;
+      border-top: 1px solid #f1f5f9 !important;
+      margin-top: 4px !important;
+      display: flex !important;
+      justify-content: space-between !important;
+      align-items: center !important;
+    }
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="npk-container py-3">
+  <!-- Page Header -->
+  <div class="d-flex flex-wrap gap-3 justify-content-between align-items-center mb-4">
+    <div>
+      <a href="{% url 'accounts:admin_dashboard' %}" class="text-decoration-none text-muted small d-inline-flex align-items-center gap-1 mb-2">
+        <i class="bi bi-arrow-left"></i> Back to Admin Dashboard
+      </a>
+      <h1 class="h3 fw-bold mb-1 d-flex align-items-center gap-2">
+        <span class="badge bg-warning text-dark px-2 py-1 fs-6"><i class="bi bi-sliders"></i></span>
+        Standard Fertilizer N-P-K Presets
+      </h1>
+      <p class="text-muted mb-0">Customize standard N, P, and K nutrient rates. Changes saved here immediately update the calculator defaults for all users across the site.</p>
+    </div>
+    <div class="d-flex gap-2">
+      <a class="btn btn-outline-success btn-sm d-flex align-items-center gap-1 shadow-xs" href="{% url 'crops:fertilizer' %}" target="_blank">
+        <i class="bi bi-box-arrow-up-right"></i> Open Public Calculator
+      </a>
+      <a class="btn btn-outline-primary btn-sm d-flex align-items-center gap-1 shadow-xs" href="{% url 'admin:crops_fertilizerpreset_changelist' %}">
+        <i class="bi bi-table"></i> Django Admin Table
+      </a>
+    </div>
+  </div>
+
+  <!-- Metric Overview Cards -->
+  <div class="row g-3 mb-4">
+    <div class="col-sm-6 col-lg-3">
+      <div class="card shadow-xs border-0 bg-white p-3 rounded-3 border-start border-4 border-primary">
+        <span class="small text-muted fw-semibold">Total Crop Presets</span>
+        <h3 class="h4 fw-bold mb-0 text-dark mt-1">{{ total_count }}</h3>
+      </div>
+    </div>
+    <div class="col-sm-6 col-lg-3">
+      <div class="card shadow-xs border-0 bg-white p-3 rounded-3 border-start border-4 border-success">
+        <span class="small text-muted fw-semibold">Field Crops (kg/ha)</span>
+        <h3 class="h4 fw-bold mb-0 text-success mt-1">{{ plants_count }}</h3>
+      </div>
+    </div>
+    <div class="col-sm-6 col-lg-3">
+      <div class="card shadow-xs border-0 bg-white p-3 rounded-3 border-start border-4 border-info">
+        <span class="small text-muted fw-semibold">Trees & Orchards (g/tree)</span>
+        <h3 class="h4 fw-bold mb-0 text-info mt-1">{{ trees_count }}</h3>
+      </div>
+    </div>
+    <div class="col-sm-6 col-lg-3">
+      <div class="card shadow-xs border-0 bg-white p-3 rounded-3 border-start border-4 border-warning">
+        <span class="small text-muted fw-semibold">Showing in List</span>
+        <h3 class="h4 fw-bold mb-0 text-warning mt-1" id="visibleCounter">{{ items|length }}</h3>
+      </div>
+    </div>
+  </div>
+
+  <!-- Search & Category Filters -->
+  <div class="card shadow-xs border-0 mb-4 bg-white rounded-3">
+    <div class="card-body p-3">
+      <form method="get" class="row g-2 align-items-center" id="searchFilterForm">
+        <div class="col-md-6 col-lg-7">
+          <div class="input-group">
+            <span class="input-group-text bg-light border-end-0"><i class="bi bi-search text-muted"></i></span>
+            <input type="search" name="q" id="cropSearchInput" value="{{ query }}" class="form-control border-start-0" placeholder="Type crop name, key, or notes (e.g. Tomato, Rice, Mango, Wheat)..." autofocus>
+          </div>
+        </div>
+        <div class="col-md-4 col-lg-3">
+          <select name="mode" id="cropModeSelect" class="form-select">
+            <option value="all" {% if mode_filter == 'all' %}selected{% endif %}>All Categories</option>
+            <option value="plants" {% if mode_filter == 'plants' %}selected{% endif %}>Plants (kg/ha)</option>
+            <option value="trees" {% if mode_filter == 'trees' %}selected{% endif %}>Trees (g/tree)</option>
+          </select>
+        </div>
+        <div class="col-md-2 col-lg-2 d-flex gap-2">
+          <button type="submit" class="btn btn-primary w-100">Filter</button>
+          {% if query or mode_filter != 'all' %}
+            <a href="{% url 'crops:fertilizer_manage' %}" class="btn btn-outline-secondary" title="Reset filter"><i class="bi bi-x-lg"></i></a>
+          {% endif %}
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Crop Table Card -->
+  <div class="npk-table-card shadow-sm border-0">
+    <div class="card-header bg-white py-3 px-4 d-flex justify-content-between align-items-center border-bottom">
+      <span class="fw-bold text-dark fs-6"><i class="bi bi-list-task me-2 text-primary"></i>Configured Crop Nutrient Presets</span>
+      <span class="badge text-bg-light border text-secondary px-3 py-2"><span id="tableRowCounter">{{ items|length }}</span> crops listed</span>
+    </div>
+    <div class="table-responsive">
+      <table class="table npk-table align-middle mb-0">
+        <thead>
+          <tr>
+            <th style="width: 240px;">Crop Details</th>
+            <th style="width: 200px;">Scope / Notes</th>
+            <th style="width: 360px;">Standard Rates (N – P – K)</th>
+            <th style="width: 140px;">Status</th>
+            <th style="width: 120px;" class="text-end">Actions</th>
+          </tr>
+        </thead>
+        <tbody id="cropsTableBody">
+          {% for item in items %}
+          <tr class="crop-data-row" data-crop="{{ item.crop|lower }}" data-key="{{ item.key|lower }}" data-scope="{{ item.scope|lower }}">
+            <!-- 1. Crop Name & Key -->
+            <td>
+              <div class="d-flex align-items-center gap-3">
+                <div class="crop-icon-bubble {% if item.mode == 'trees' %}bg-info-subtle text-info-emphasis border border-info-subtle{% else %}bg-success-subtle text-success-emphasis border border-success-subtle{% endif %}">
+                  {% if item.mode == 'trees' %}🌳{% else %}🌱{% endif %}
+                </div>
+                <div>
+                  <div class="fw-bold text-dark fs-6">{{ item.crop }}</div>
+                  <div class="d-flex align-items-center gap-1 mt-1">
+                    <span class="badge {% if item.mode == 'trees' %}bg-info-subtle text-info-emphasis border border-info-subtle{% else %}bg-success-subtle text-success-emphasis border border-success-subtle{% endif %}" style="font-size: 0.68rem;">
+                      {% if item.mode == 'trees' %}Trees{% else %}Field Plant{% endif %}
+                    </span>
+                    <code class="small text-muted" style="font-size: 0.72rem;">{{ item.key }}</code>
+                  </div>
+                </div>
+              </div>
+            </td>
+
+            <!-- 2. Scope & Guidance -->
+            <td>
+              <div class="small text-secondary text-truncate" style="max-width: 220px;" title="{{ item.scope|default:'Standard field season' }}">
+                {{ item.scope|default:"Standard season" }}
+              </div>
+            </td>
+
+            <!-- 3. Unified N - P - K Rates Row -->
+            <td>
+              <div class="npk-input-row">
+                <!-- Nitrogen -->
+                <div class="npk-unit-box">
+                  <span class="npk-badge npk-badge-n" title="Recommended Nitrogen (N)">N</span>
+                  <input type="number" step="0.01" min="0" max="10000"
+                         name="nitrogen" value="{{ item.rates.0 }}"
+                         form="npk-form-{{ forloop.counter }}"
+                         class="npk-val-input" required>
+                </div>
+
+                <!-- Phosphorus -->
+                <div class="npk-unit-box">
+                  <span class="npk-badge npk-badge-p" title="Recommended Phosphate (P2O5)">P</span>
+                  <input type="number" step="0.01" min="0" max="10000"
+                         name="phosphorus" value="{{ item.rates.1 }}"
+                         form="npk-form-{{ forloop.counter }}"
+                         class="npk-val-input" required>
+                </div>
+
+                <!-- Potassium -->
+                <div class="npk-unit-box">
+                  <span class="npk-badge npk-badge-k" title="Recommended Potash (K2O)">K</span>
+                  <input type="number" step="0.01" min="0" max="10000"
+                         name="potassium" value="{{ item.rates.2 }}"
+                         form="npk-form-{{ forloop.counter }}"
+                         class="npk-val-input" required>
+                </div>
+
+                <!-- Unit Badge -->
+                <span class="npk-unit-pill">
+                  {% if item.mode == 'trees' %}g/tree{% else %}kg/ha{% endif %}
+                </span>
+              </div>
+            </td>
+
+            <!-- 4. Preset Status -->
+            <td class="status-indicator">
+              {% if item.db_obj and item.updated_at %}
+                <div class="small text-success fw-bold d-flex align-items-center gap-1">
+                  <i class="bi bi-check-circle-fill"></i> Customized
+                </div>
+                <div class="text-muted" style="font-size: 0.72rem;">
+                  {{ item.updated_at|date:"d M, H:i" }}{% if item.updated_by %} by {{ item.updated_by.username }}{% endif %}
+                </div>
+              {% else %}
+                <span class="badge bg-light text-secondary border fw-medium" style="font-size: 0.72rem;">
+                  Regional Default
+                </span>
+              {% endif %}
+            </td>
+
+            <!-- 5. Actions -->
+            <td class="text-end">
+              <!-- Valid HTML5 isolated form for this specific crop -->
+              <form id="npk-form-{{ forloop.counter }}" method="post" action="{% url 'crops:fertilizer_preset_save' %}">
+                {% csrf_token %}
+                <input type="hidden" name="preset_key" value="{{ item.key }}">
+                <input type="hidden" name="next" value="{{ request.get_full_path }}">
+              </form>
+              <div class="d-inline-flex align-items-center gap-1">
+                <button form="npk-form-{{ forloop.counter }}" type="submit" class="btn btn-sm btn-agri d-inline-flex align-items-center gap-1 shadow-xs fw-semibold px-2 py-1 save-btn" title="Save new standard N-P-K rates for {{ item.crop }}">
+                  <i class="bi bi-save2"></i> Save
+                </button>
+                <a href="{% url 'crops:fertilizer' %}?crop_preset={{ item.key }}&planting_type={{ item.mode }}" class="btn btn-sm btn-outline-secondary px-2 py-1" title="Test {{ item.crop }} in Calculator" target="_blank">
+                  <i class="bi bi-calculator"></i>
+                </a>
+              </div>
+            </td>
+          </tr>
+          {% empty %}
+          <tr>
+            <td colspan="5" class="text-center py-5 text-muted">
+              <i class="bi bi-search fs-2 d-block mb-2 text-secondary"></i>
+              No crop presets found matching your filter.
+              <div class="mt-2">
+                <a href="{% url 'crops:fertilizer_manage' %}" class="btn btn-outline-primary btn-sm">Clear search</a>
+              </div>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // 1. Instant client-side search filter for typing
+    const input = document.getElementById('cropSearchInput');
+    const rows = document.querySelectorAll('.crop-data-row');
+    const counter = document.getElementById('tableRowCounter');
+    const visibleCounter = document.getElementById('visibleCounter');
+
+    if (input && rows.length) {
+      input.addEventListener('input', () => {
+        const term = input.value.trim().toLowerCase();
+        let visible = 0;
+        rows.forEach(row => {
+          const crop = row.dataset.crop || '';
+          const key = row.dataset.key || '';
+          const scope = row.dataset.scope || '';
+          const matches = !term || crop.includes(term) || key.includes(term) || scope.includes(term);
+          row.style.display = matches ? '' : 'none';
+          if (matches) visible++;
+        });
+        if (counter) counter.textContent = visible;
+        if (visibleCounter) visibleCounter.textContent = visible;
+      });
+    }
+
+    // 2. Toast container
+    const toastContainer = document.createElement('div');
+    toastContainer.id = 'npkToastContainer';
+    toastContainer.style.cssText = 'position: fixed; top: 24px; right: 24px; z-index: 99999; max-width: 440px; pointer-events: none;';
+    document.body.appendChild(toastContainer);
+
+    function showToast(message, isSuccess = true) {
+      const toast = document.createElement('div');
+      toast.style.cssText = `
+        background: ${isSuccess ? '#065f46' : '#991b1b'};
+        color: #ffffff;
+        padding: 12px 18px;
+        border-radius: 10px;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+        margin-bottom: 10px;
+        font-size: 0.9rem;
+        font-weight: 500;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        pointer-events: auto;
+        opacity: 0;
+        transform: translateY(-10px);
+        transition: all 0.3s ease;
+      `;
+      toast.innerHTML = `
+        <i class="bi bi-${isSuccess ? 'check-circle-fill' : 'exclamation-triangle-fill'} fs-5"></i>
+        <div style="flex: 1; line-height: 1.4;">${message}</div>
+      `;
+      toastContainer.appendChild(toast);
+      requestAnimationFrame(() => {
+        toast.style.opacity = '1';
+        toast.style.transform = 'translateY(0)';
+      });
+      setTimeout(() => {
+        toast.style.opacity = '0';
+        toast.style.transform = 'translateY(-10px)';
+        setTimeout(() => toast.remove(), 300);
+      }, 4000);
+    }
+
+    // 3. Attach AJAX save handlers so page NEVER reloads or resets scroll
+    document.querySelectorAll('form[id^="npk-form-"]').forEach(form => {
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const submitBtn = document.querySelector(`button[form="${form.id}"]`);
+        const originalContent = submitBtn ? submitBtn.innerHTML : 'Save';
+
+        if (submitBtn) {
+          submitBtn.disabled = true;
+          submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm" role="status"></span> Saving...';
+        }
+
+        try {
+          const formData = new FormData(form);
+          // Explicitly grab input values associated with this form ID
+          document.querySelectorAll(`input[form="${form.id}"]`).forEach(inp => {
+            formData.set(inp.name, inp.value);
+          });
+
+          const response = await fetch(form.action, {
+            method: 'POST',
+            body: formData,
+            headers: {
+              'X-Requested-With': 'XMLHttpRequest',
+              'Accept': 'application/json'
+            }
+          });
+
+          const data = await response.json();
+          if (response.ok && data.status === 'success') {
+            if (submitBtn) {
+              submitBtn.classList.remove('btn-agri');
+              submitBtn.classList.add('btn-success');
+              submitBtn.innerHTML = '<i class="bi bi-check-lg"></i> Saved!';
+              setTimeout(() => {
+                submitBtn.classList.remove('btn-success');
+                submitBtn.classList.add('btn-agri');
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = originalContent;
+              }, 2200);
+            }
+            // Update status indicator in the row
+            const row = submitBtn ? submitBtn.closest('tr') : null;
+            if (row) {
+              const statusCol = row.querySelector('.status-indicator');
+              if (statusCol) {
+                statusCol.innerHTML = `
+                  <div class="small text-success fw-bold d-flex align-items-center gap-1">
+                    <i class="bi bi-check-circle-fill"></i> Customized
+                  </div>
+                  <div class="text-muted" style="font-size: 0.72rem;">
+                    ${data.updated_at} by ${data.updated_by}
+                  </div>
+                `;
+              }
+            }
+            showToast(data.message, true);
+          } else {
+            throw new Error(data.message || 'Failed to save nutrient rates.');
+          }
+        } catch (err) {
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = originalContent;
+          }
+          showToast(err.message || 'Error saving. Please try again.', false);
+        }
+      });
+    });
+  });
+</script>
+{% endblock %}

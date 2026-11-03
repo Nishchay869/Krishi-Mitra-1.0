@@ -180,3 +180,96 @@ for _key in ('cabbage','cauliflower'):
     PRESETS[_key]['scope'] = 'Plains'
 PRESETS['orange-bearing']['scope'] = 'Sweet orange, age 6 years and above'
 PRESETS['jasmine'].update(source_org='Vikaspedia',source_region='India')
+
+
+def update_preset_in_memory(preset_key, n, p, k, crop=None, scope=None):
+    """Update runtime PRESETS dict and clear cache."""
+    from django.core.cache import cache
+    cache.delete('effective_fertilizer_presets')
+    rates = (float(n), float(p), float(k))
+    if preset_key in PRESETS:
+        PRESETS[preset_key]['rates'] = rates
+        if crop:
+            PRESETS[preset_key]['crop'] = crop
+        if scope:
+            PRESETS[preset_key]['scope'] = scope
+    else:
+        PRESETS[preset_key] = {
+            'crop': crop or preset_key.title(),
+            'mode': 'plants',
+            'rates': rates,
+            'scope': scope or 'Custom preset',
+            'source': '',
+            'group': 'Vegetables',
+        }
+
+
+def seed_fertilizer_presets():
+    """Populate FertilizerPreset database table with default PRESETS if empty."""
+    try:
+        from .models import FertilizerPreset
+        if FertilizerPreset.objects.exists():
+            return
+        to_create = []
+        for key, p in PRESETS.items():
+            n, p2o5, k2o = p['rates']
+            to_create.append(FertilizerPreset(
+                preset_key=key,
+                crop_name=p.get('crop', key.title()),
+                mode=p.get('mode', 'plants'),
+                nitrogen=n,
+                phosphorus=p2o5,
+                potassium=k2o,
+                scope=p.get('scope', ''),
+                source=p.get('source', ''),
+            ))
+        FertilizerPreset.objects.bulk_create(to_create, ignore_conflicts=True)
+    except Exception:
+        pass
+
+
+def get_effective_presets():
+    """Return dictionary of presets overlayed with database overrides from FertilizerPreset."""
+    from django.core.cache import cache
+    cached = cache.get('effective_fertilizer_presets')
+    if cached is not None:
+        return cached
+
+    try:
+        from .models import FertilizerPreset
+        # If DB table has not been seeded yet, attempt lazy seed
+        if not FertilizerPreset.objects.exists():
+            seed_fertilizer_presets()
+
+        effective = {k: dict(v) for k, v in PRESETS.items()}
+        for k in effective:
+            effective[k]['rates'] = tuple(effective[k]['rates'])
+
+        for row in FertilizerPreset.objects.all():
+            rates = (float(row.nitrogen), float(row.phosphorus), float(row.potassium))
+            if row.preset_key in effective:
+                effective[row.preset_key]['rates'] = rates
+                if row.crop_name:
+                    effective[row.preset_key]['crop'] = row.crop_name
+                if row.scope:
+                    effective[row.preset_key]['scope'] = row.scope
+                PRESETS[row.preset_key]['rates'] = rates
+            else:
+                effective[row.preset_key] = {
+                    'crop': row.crop_name,
+                    'mode': row.mode,
+                    'rates': rates,
+                    'scope': row.scope or 'Custom preset',
+                    'source': row.source or '',
+                    'group': 'Vegetables',
+                }
+                PRESETS[row.preset_key] = effective[row.preset_key]
+        cache.set('effective_fertilizer_presets', effective, timeout=3600)
+        return effective
+    except Exception:
+        return PRESETS
+
+
+def get_effective_preset(preset_key):
+    return get_effective_presets().get(preset_key)
+

@@ -4,6 +4,7 @@ import json
 from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
 from django.shortcuts import get_object_or_404, render
+from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_POST
 
 from . import multilingual, sarvam
@@ -16,8 +17,17 @@ MAX_AUDIO_BYTES = 5 * 1024 * 1024  # ~2-3 minutes of compressed speech
 
 @login_required
 def chat_page(request):
-    history = ChatMessage.objects.filter(user=request.user).order_by('-created_at')[:20]
-    return render(request, 'chatbot/chat.html', {'history': reversed(list(history))})
+    # Whenever the user navigates to the Farm Assistant section, prior messages are cleared
+    if request.user.is_authenticated:
+        ChatMessage.objects.filter(user=request.user).delete()
+    elif request.session.session_key:
+        ChatMessage.objects.filter(session_key=request.session.session_key).delete()
+    user_name = (request.user.first_name or request.user.username or '').strip().title()
+    return render(request, 'chatbot/chat.html', {
+        'history': [],
+        'history_json': '[]',
+        'user_name': user_name or 'Farmer',
+    })
 
 
 @require_POST
@@ -31,6 +41,18 @@ def api_chat(request):
         return JsonResponse({'error': _('Message is required.')}, status=400)
 
     return JsonResponse(_answer(request, message))
+
+
+@csrf_exempt
+@require_POST
+def api_clear(request):
+    """Clear all chat history for the current user or session from the database."""
+    deleted_count = 0
+    if request.user.is_authenticated:
+        deleted_count, _ = ChatMessage.objects.filter(user=request.user).delete()
+    elif request.session.session_key:
+        deleted_count, _ = ChatMessage.objects.filter(session_key=request.session.session_key).delete()
+    return JsonResponse({'status': 'cleared', 'count': deleted_count})
 
 
 def _transcribe(request):

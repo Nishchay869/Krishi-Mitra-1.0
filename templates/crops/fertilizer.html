@@ -4,10 +4,18 @@
 {% block extra_head %}<link rel="stylesheet" href="{% static 'css/fertilizer.css' %}?v={{ STATIC_VERSION }}">{% endblock %}
 {% block content %}
 <header class="page-intro"><span class="eyebrow">{% translate 'NUTRIENT PLANNING' %}</span><h1>{% translate 'Fertilizer Calculator' %}</h1><p>{% translate 'Convert your recommended nutrient application rates into fertilizer quantities for your farm.' %}</p></header>
-<nav class="d-flex gap-2 mb-3" aria-label="{% translate 'Planting type' %}">
-<a class="btn {% if not is_trees %}btn-agri{% else %}btn-outline-success{% endif %}" href="?planting_type=plants" {% if not is_trees %}aria-current="page"{% endif %}>{% translate 'Plants — field size' %}</a>
-<a class="btn {% if is_trees %}btn-agri{% else %}btn-outline-success{% endif %}" href="?planting_type=trees" {% if is_trees %}aria-current="page"{% endif %}>{% translate 'Trees — tree count' %}</a>
+<nav class="d-flex flex-wrap gap-2 mb-3 justify-content-between align-items-center" aria-label="{% translate 'Planting type' %}">
+  <div class="d-flex gap-2">
+    <a class="btn {% if not is_trees %}btn-agri{% else %}btn-outline-success{% endif %}" href="?planting_type=plants" {% if not is_trees %}aria-current="page"{% endif %}>{% translate 'Plants — field size' %}</a>
+    <a class="btn {% if is_trees %}btn-agri{% else %}btn-outline-success{% endif %}" href="?planting_type=trees" {% if is_trees %}aria-current="page"{% endif %}>{% translate 'Trees — tree count' %}</a>
+  </div>
+  {% if is_admin %}
+  <a class="btn btn-outline-warning btn-sm fw-semibold" href="{% url 'crops:fertilizer_manage' %}">
+    <i class="bi bi-sliders me-1"></i>Admin: Edit Standard N-P-K Rates
+  </a>
+  {% endif %}
 </nav>
+
 <div class="row g-4">
   <div class="col-lg-6"><div class="card"><div class="card-body">
     <form method="get" class="fertilizer-crop-picker">
@@ -36,7 +44,21 @@
           <div class="col-sm-4 mb-3"><label class="form-label" for="{{ field.id_for_label }}">{{ field.label }}</label>{{ field }}{% for error in field.errors %}<p class="text-danger small">{{ error }}</p>{% endfor %}</div>
         {% endif %}{% endfor %}
         </div>
+        {% if is_admin %}
+        <div class="p-3 my-3 border border-warning rounded-3 bg-warning-subtle text-dark">
+          <div class="d-flex justify-content-between align-items-center mb-2">
+            <span class="badge text-bg-warning fw-semibold"><i class="bi bi-shield-lock-fill me-1"></i>Administrator Controls</span>
+            <a href="{% url 'crops:fertilizer_manage' %}" class="small text-decoration-none fw-semibold">Manage all crops →</a>
+          </div>
+          <p class="small mb-2 text-muted">Save these customized N, P, K values as the new standard recommendation for <strong>{{ preset_label }}</strong>. Once saved, all farmers and visitors across the site will see these rates by default.</p>
+          <button type="submit" name="save_as_admin_default" value="1" class="btn btn-sm btn-warning fw-semibold w-100">
+            <i class="bi bi-check2-circle me-1"></i>Save as Standard Rates for All Users
+          </button>
+        </div>
+        {% endif %}
       </details>
+
+
       <p class="small text-muted">{% translate 'Regional crop defaults are prefilled. Edit them to match your soil-test recommendation. These totals exclude organic manures and must be split according to local crop guidance.' %}</p>
       {% if is_trees %}
       <label class="form-label fw-semibold" for="{{ form.tree_count.id_for_label }}">{{ form.tree_count.label }}</label>

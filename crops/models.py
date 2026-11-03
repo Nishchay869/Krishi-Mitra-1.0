@@ -96,3 +96,54 @@ class PestEntry(models.Model):
 
     def __str__(self):
         return f'{self.title} ({self.crop_slug})'
+
+
+class FertilizerPreset(models.Model):
+    """Database-backed N-P-K nutrient recommendation preset editable by administrators."""
+    preset_key = models.CharField(max_length=60, unique=True, db_index=True,
+                                  help_text='Unique identifier matching the preset (e.g. tomato, rice, mango-1)')
+    crop_name = models.CharField(max_length=100)
+    mode = models.CharField(max_length=20, default='plants',
+                            choices=[('plants', 'Plants (field/kg/ha)'), ('trees', 'Trees (grams/tree)')])
+    nitrogen = models.DecimalField(max_digits=8, decimal_places=2,
+                                   help_text='Recommended Nitrogen (N) rate (kg/ha or g/tree)')
+    phosphorus = models.DecimalField(max_digits=8, decimal_places=2,
+                                     help_text='Recommended Phosphate (P2O5) rate (kg/ha or g/tree)')
+    potassium = models.DecimalField(max_digits=8, decimal_places=2,
+                                    help_text='Recommended Potash (K2O) rate (kg/ha or g/tree)')
+    scope = models.CharField(max_length=255, blank=True,
+                             help_text='Application scope, variety, or tree age note')
+    source = models.URLField(max_length=500, blank=True,
+                             help_text='Agronomic source reference')
+    updated_by = models.ForeignKey(settings.AUTH_USER_MODEL, null=True, blank=True,
+                                   on_delete=models.SET_NULL, related_name='fertilizer_presets')
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        ordering = ['crop_name', 'preset_key']
+        verbose_name = 'Fertilizer N-P-K Preset'
+        verbose_name_plural = 'Fertilizer N-P-K Presets'
+
+    def __str__(self):
+        return f'{self.crop_name} ({self.preset_key}): N={self.nitrogen} P={self.phosphorus} K={self.potassium}'
+
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
+        try:
+            from .fertilizer_presets import update_preset_in_memory
+            update_preset_in_memory(
+                self.preset_key,
+                self.nitrogen,
+                self.phosphorus,
+                self.potassium,
+                crop=self.crop_name,
+                scope=self.scope,
+            )
+        except Exception:
+            pass
+
+    def delete(self, *args, **kwargs):
+        from django.core.cache import cache
+        cache.delete('effective_fertilizer_presets')
+        super().delete(*args, **kwargs)
+
