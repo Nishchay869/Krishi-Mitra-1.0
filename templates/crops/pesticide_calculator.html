@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load i18n farm_i18n static %}
+{% block title %}{% translate "Pesticide Calculator" %} · {% translate "Krishi Mitra" %}{% endblock %}
+
+{% block extra_head %}
+<link rel="stylesheet" href="{% static 'css/you-dashboard.css' %}?v={{ STATIC_VERSION }}">
+{% endblock %}
+
+{% block content %}
+<div class="pesticide-calc-page py-2">
+  <script id="user-crops-data" type="application/json">{{ user_crops_json|safe }}</script>
+  <div id="pesticide-calculator-root" data-react-island="PesticideCalculator">
+    <!-- Server-side initial skeleton / fallback while island loads -->
+    <div class="max-w-md mx-auto p-4 sm:p-6 bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-xl min-h-[600px] flex flex-col items-center justify-center text-center">
+      <div class="spinner-border text-primary mb-3" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+      <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-1">{% translate "Pesticide calculator" %}</h3>
+      <p class="text-sm text-slate-500 dark:text-slate-400">{% translate "Loading spray dilution estimator…" %}</p>
+    </div>
+  </div>
+</div>
+{% endblock %}
+

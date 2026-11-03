@@ -113,4 +113,17 @@ export const toolGuides: ToolGuide[] = [
     example: 'Search for Rice, open its card, and compare the listed soil and climate guidance with your field before planning the season.',
     result: 'A crop reference with cultivation context and source links. Reference ranges are general guidance, not a prescription for every variety or location.', button: 'Explore Crop Library',
   },
+  {
+    key: 'pesticide', title: 'Pesticide Calculator', summary: 'Estimate required pesticide volume, dose per refill, and pump refill count.',
+    prepare: ['Field area (acre, hectare, or gunta)', 'Product label dosage recommendation', 'Knapsack sprayer tank capacity'],
+    steps: [
+      { title: 'Select crop and area', text: 'Choose your crop from the dropdown and set the area to treat using the increment buttons or direct number input.' },
+      { title: 'Enter or search dosage', text: 'Input recommended dosage per acre/hectare or search by active formulation name in the formulation lookup.' },
+      { title: 'Specify water and pump size', text: 'Enter water volume per unit area (typically 150-200 L/acre) and your sprayer tank size (e.g. 15 L, 20 L, 25 L).' },
+      { title: 'Calculate and review', text: 'Select Calculate to view total product needed, dose per refill, and how many times to refill your pump.' },
+      { title: 'Check calculation details', text: 'Open Calculation details to view exact mathematical step-by-step formulas and voice narration.' },
+    ],
+    example: 'For 1 acre of Tomato with 50 ml/ac dosage, 200 L/ac water and a 25 L pump: 50 ml total product, 8 pump refills, and 6.25 ml per refill.',
+    result: 'Exact spray tank mixture ratios preventing under-dosing or toxic over-application.', button: 'Open Pesticide Calculator',
+  },
 ]

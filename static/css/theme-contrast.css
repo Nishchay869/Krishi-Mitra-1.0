@@ -109,27 +109,27 @@ html:not(.dark) .bottom-nav-item.is-active .bottom-nav-icon {
 }
 
 /* Universal Typography in Light Mode (excl. footer, dark surfaces, and photo sliders) */
-html:not(.dark) h1:not(.app-footer-4col *):not(.bg-dark *):not(.bg-black *):not(.btn-primary *):not(.btn-21st-primary *):not(.auth-slider-panel *):not(.auth-photo-caption *):not(.auth-photo-back-btn *):not(.instagram-story-overlay *):not(.instagram-story-modal *),
-html:not(.dark) h2:not(.app-footer-4col *):not(.bg-dark *):not(.bg-black *):not(.btn-primary *):not(.btn-21st-primary *):not(.auth-slider-panel *):not(.auth-photo-caption *):not(.auth-photo-back-btn *):not(.instagram-story-overlay *):not(.instagram-story-modal *),
-html:not(.dark) h3:not(.app-footer-4col *):not(.bg-dark *):not(.bg-black *):not(.btn-primary *):not(.btn-21st-primary *):not(.auth-slider-panel *):not(.auth-photo-caption *):not(.auth-photo-back-btn *):not(.instagram-story-overlay *):not(.instagram-story-modal *),
-html:not(.dark) h4:not(.app-footer-4col *):not(.bg-dark *):not(.bg-black *):not(.btn-primary *):not(.btn-21st-primary *):not(.auth-slider-panel *):not(.auth-photo-caption *):not(.auth-photo-back-btn *):not(.instagram-story-overlay *):not(.instagram-story-modal *),
-html:not(.dark) h5:not(.app-footer-4col *):not(.bg-dark *):not(.bg-black *):not(.btn-primary *):not(.btn-21st-primary *):not(.auth-slider-panel *):not(.auth-photo-caption *):not(.auth-photo-back-btn *):not(.instagram-story-overlay *):not(.instagram-story-modal *),
-html:not(.dark) h6:not(.app-footer-4col *):not(.bg-dark *):not(.bg-black *):not(.btn-primary *):not(.btn-21st-primary *):not(.auth-slider-panel *):not(.auth-photo-caption *):not(.auth-photo-back-btn *):not(.instagram-story-overlay *):not(.instagram-story-modal *),
-html:not(.dark) p:not(.app-footer-4col *):not(.bg-dark *):not(.bg-black *):not(.btn-primary *):not(.btn-21st-primary *):not(.auth-slider-panel *):not(.auth-photo-caption *):not(.auth-photo-back-btn *):not(.instagram-story-overlay *):not(.instagram-story-modal *),
-html:not(.dark) label:not(.app-footer-4col *):not(.bg-dark *):not(.bg-black *):not(.btn-primary *):not(.btn-21st-primary *):not(.instagram-story-overlay *):not(.instagram-story-modal *),
-html:not(.dark) span:not(.app-footer-4col *):not(.bg-dark *):not(.bg-black *):not(.badge):not(i):not(svg):not(.btn-primary *):not(.btn-21st-primary *):not(.text-success):not(.text-danger):not(.text-warning):not(.text-primary):not(.auth-slider-panel *):not(.auth-photo-caption *):not(.auth-photo-back-btn *):not(.plantix-diag-badge):not(.plantix-badge-new):not(.plantix-spray-badge):not([class*="-badge"]):not(.instagram-story-overlay *):not(.instagram-story-modal *),
-html:not(.dark) div:not(.app-footer-4col *):not(.bg-dark *):not(.bg-black *):not(.badge):not(.btn-primary *):not(.btn-21st-primary *):not(.btn-21st-icon-circle):not(.auth-slider-panel *):not(.auth-photo-caption *):not(.auth-photo-back-btn *):not(.instagram-story-overlay *):not(.instagram-story-modal *),
-html:not(.dark) li:not(.app-footer-4col *):not(.bg-dark *):not(.bg-black *):not(.badge):not(.instagram-story-overlay *):not(.instagram-story-modal *),
-html:not(.dark) td:not(.app-footer-4col *):not(.bg-dark *):not(.bg-black *):not(.instagram-story-overlay *):not(.instagram-story-modal *),
-html:not(.dark) th:not(.app-footer-4col *):not(.bg-dark *):not(.bg-black *):not(.instagram-story-overlay *):not(.instagram-story-modal *),
-html:not(.dark) dt:not(.app-footer-4col *):not(.bg-dark *):not(.bg-black *):not(.instagram-story-overlay *):not(.instagram-story-modal *),
-html:not(.dark) dd:not(.app-footer-4col *):not(.bg-dark *):not(.bg-black *):not(.instagram-story-overlay *):not(.instagram-story-modal *),
-html:not(.dark) small:not(.app-footer-4col *):not(.bg-dark *):not(.bg-black *):not(.badge):not(.btn-primary *):not(.btn-21st-primary *):not(.auth-slider-panel *):not(.auth-photo-caption *):not(.auth-photo-back-btn *):not(.instagram-story-overlay *):not(.instagram-story-modal *),
-html:not(.dark) strong:not(.app-footer-4col *):not(.bg-dark *):not(.bg-black *):not(.badge):not(.btn-primary *):not(.btn-21st-primary *):not(.auth-slider-panel *):not(.auth-photo-caption *):not(.auth-photo-back-btn *):not(.instagram-story-overlay *):not(.instagram-story-modal *),
-html:not(.dark) b:not(.app-footer-4col *):not(.bg-dark *):not(.bg-black *):not(.badge):not(.btn-primary *):not(.btn-21st-primary *):not(.auth-slider-panel *):not(.auth-photo-caption *):not(.auth-photo-back-btn *):not(.instagram-story-overlay *):not(.instagram-story-modal *),
-html:not(.dark) em:not(.app-footer-4col *):not(.bg-dark *):not(.bg-black *):not(.badge):not(.btn-primary *):not(.btn-21st-primary *):not(.auth-slider-panel *):not(.auth-photo-caption *):not(.auth-photo-back-btn *):not(.instagram-story-overlay *):not(.instagram-story-modal *),
-html:not(.dark) .text-muted:not(.app-footer-4col *):not(.bg-dark *):not(.bg-black *):not(.instagram-story-overlay *):not(.instagram-story-modal *),
-html:not(.dark) .text-secondary:not(.app-footer-4col *):not(.bg-dark *):not(.bg-black *):not(.instagram-story-overlay *):not(.instagram-story-modal *),
+html:not(.dark) h1:not(.app-footer-4col *):not(.bg-dark *):not(.bg-black *):not(.btn-primary *):not(.btn-21st-primary *):not(.auth-slider-panel *):not(.auth-photo-caption *):not(.auth-photo-back-btn *):not(.instagram-story-overlay *):not(.instagram-story-modal *):not(.pesticide-info-tooltip *),
+html:not(.dark) h2:not(.app-footer-4col *):not(.bg-dark *):not(.bg-black *):not(.btn-primary *):not(.btn-21st-primary *):not(.auth-slider-panel *):not(.auth-photo-caption *):not(.auth-photo-back-btn *):not(.instagram-story-overlay *):not(.instagram-story-modal *):not(.pesticide-info-tooltip *),
+html:not(.dark) h3:not(.app-footer-4col *):not(.bg-dark *):not(.bg-black *):not(.btn-primary *):not(.btn-21st-primary *):not(.auth-slider-panel *):not(.auth-photo-caption *):not(.auth-photo-back-btn *):not(.instagram-story-overlay *):not(.instagram-story-modal *):not(.pesticide-info-tooltip *),
+html:not(.dark) h4:not(.app-footer-4col *):not(.bg-dark *):not(.bg-black *):not(.btn-primary *):not(.btn-21st-primary *):not(.auth-slider-panel *):not(.auth-photo-caption *):not(.auth-photo-back-btn *):not(.instagram-story-overlay *):not(.instagram-story-modal *):not(.pesticide-info-tooltip *),
+html:not(.dark) h5:not(.app-footer-4col *):not(.bg-dark *):not(.bg-black *):not(.btn-primary *):not(.btn-21st-primary *):not(.auth-slider-panel *):not(.auth-photo-caption *):not(.auth-photo-back-btn *):not(.instagram-story-overlay *):not(.instagram-story-modal *):not(.pesticide-info-tooltip *),
+html:not(.dark) h6:not(.app-footer-4col *):not(.bg-dark *):not(.bg-black *):not(.btn-primary *):not(.btn-21st-primary *):not(.auth-slider-panel *):not(.auth-photo-caption *):not(.auth-photo-back-btn *):not(.instagram-story-overlay *):not(.instagram-story-modal *):not(.pesticide-info-tooltip *),
+html:not(.dark) p:not(.app-footer-4col *):not(.bg-dark *):not(.bg-black *):not(.btn-primary *):not(.btn-21st-primary *):not(.auth-slider-panel *):not(.auth-photo-caption *):not(.auth-photo-back-btn *):not(.instagram-story-overlay *):not(.instagram-story-modal *):not(.pesticide-info-tooltip *),
+html:not(.dark) label:not(.app-footer-4col *):not(.bg-dark *):not(.bg-black *):not(.btn-primary *):not(.btn-21st-primary *):not(.instagram-story-overlay *):not(.instagram-story-modal *):not(.pesticide-info-tooltip *),
+html:not(.dark) span:not(.app-footer-4col *):not(.bg-dark *):not(.bg-black *):not(.badge):not(i):not(svg):not(.btn-primary *):not(.btn-21st-primary *):not(.text-success):not(.text-danger):not(.text-warning):not(.text-primary):not(.auth-slider-panel *):not(.auth-photo-caption *):not(.auth-photo-back-btn *):not(.plantix-diag-badge):not(.plantix-badge-new):not(.plantix-spray-badge):not([class*="-badge"]):not(.instagram-story-overlay *):not(.instagram-story-modal *):not(.pesticide-info-tooltip *),
+html:not(.dark) div:not(.app-footer-4col *):not(.bg-dark *):not(.bg-black *):not(.badge):not(.btn-primary *):not(.btn-21st-primary *):not(.btn-21st-icon-circle):not(.auth-slider-panel *):not(.auth-photo-caption *):not(.auth-photo-back-btn *):not(.instagram-story-overlay *):not(.instagram-story-modal *):not(.pesticide-info-tooltip *),
+html:not(.dark) li:not(.app-footer-4col *):not(.bg-dark *):not(.bg-black *):not(.badge):not(.instagram-story-overlay *):not(.instagram-story-modal *):not(.pesticide-info-tooltip *),
+html:not(.dark) td:not(.app-footer-4col *):not(.bg-dark *):not(.bg-black *):not(.instagram-story-overlay *):not(.instagram-story-modal *):not(.pesticide-info-tooltip *),
+html:not(.dark) th:not(.app-footer-4col *):not(.bg-dark *):not(.bg-black *):not(.instagram-story-overlay *):not(.instagram-story-modal *):not(.pesticide-info-tooltip *),
+html:not(.dark) dt:not(.app-footer-4col *):not(.bg-dark *):not(.bg-black *):not(.instagram-story-overlay *):not(.instagram-story-modal *):not(.pesticide-info-tooltip *),
+html:not(.dark) dd:not(.app-footer-4col *):not(.bg-dark *):not(.bg-black *):not(.instagram-story-overlay *):not(.instagram-story-modal *):not(.pesticide-info-tooltip *),
+html:not(.dark) small:not(.app-footer-4col *):not(.bg-dark *):not(.bg-black *):not(.badge):not(.btn-primary *):not(.btn-21st-primary *):not(.auth-slider-panel *):not(.auth-photo-caption *):not(.auth-photo-back-btn *):not(.instagram-story-overlay *):not(.instagram-story-modal *):not(.pesticide-info-tooltip *),
+html:not(.dark) strong:not(.app-footer-4col *):not(.bg-dark *):not(.bg-black *):not(.badge):not(.btn-primary *):not(.btn-21st-primary *):not(.auth-slider-panel *):not(.auth-photo-caption *):not(.auth-photo-back-btn *):not(.instagram-story-overlay *):not(.instagram-story-modal *):not(.pesticide-info-tooltip *),
+html:not(.dark) b:not(.app-footer-4col *):not(.bg-dark *):not(.bg-black *):not(.badge):not(.btn-primary *):not(.btn-21st-primary *):not(.auth-slider-panel *):not(.auth-photo-caption *):not(.auth-photo-back-btn *):not(.instagram-story-overlay *):not(.instagram-story-modal *):not(.pesticide-info-tooltip *),
+html:not(.dark) em:not(.app-footer-4col *):not(.bg-dark *):not(.bg-black *):not(.badge):not(.btn-primary *):not(.btn-21st-primary *):not(.auth-slider-panel *):not(.auth-photo-caption *):not(.auth-photo-back-btn *):not(.instagram-story-overlay *):not(.instagram-story-modal *):not(.pesticide-info-tooltip *),
+html:not(.dark) .text-muted:not(.app-footer-4col *):not(.bg-dark *):not(.bg-black *):not(.instagram-story-overlay *):not(.instagram-story-modal *):not(.pesticide-info-tooltip *),
+html:not(.dark) .text-secondary:not(.app-footer-4col *):not(.bg-dark *):not(.bg-black *):not(.instagram-story-overlay *):not(.instagram-story-modal *):not(.pesticide-info-tooltip *),
 html:not(.dark) .text-dark,
 html:not(.dark) .tool-number,
 html:not(.dark) .pest-alerts-badge,
@@ -211,6 +211,9 @@ html:not(.dark) .text-bg-dark {
 .bg-black *:not(i):not(svg):not(.badge),
 .bg-dark *:not(i):not(svg):not(.badge),
 .text-bg-dark *:not(i):not(svg):not(.badge),
+.pesticide-info-tooltip *:not(i):not(svg):not(.badge),
+html:not(.dark) .pesticide-info-tooltip *:not(i):not(svg):not(.badge),
+html:not(.dark) .pesticide-calc-page .pesticide-info-tooltip *:not(i):not(svg):not(.badge),
 html:not(.dark) .app-footer-4col h1,
 html:not(.dark) .app-footer-4col h2,
 html:not(.dark) .app-footer-4col h3,
@@ -4288,6 +4291,667 @@ html.dark .instagram-story-cta-btn.secondary span {
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8) !important;
   font-weight: 700 !important;
 }
+
+/* ─── PESTICIDE CALCULATOR THEME & CONTRAST RULES ─── */
+.pesticide-calc-page {
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+#pesticide-calculator-root {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* Light mode overrides */
+html:not(.dark) .pesticide-calc-page {
+  color: #0f172a !important;
+}
+
+html:not(.dark) .pesticide-calc-page input[type="text"],
+html:not(.dark) .pesticide-calc-page input[type="number"],
+html:not(.dark) .pesticide-calc-page select {
+  color: #0f172a !important;
+  background-color: #ffffff !important;
+}
+
+/* 21st Pill Dropdowns (Crop selector & Disease selector in Formulation card) */
+html:not(.dark) .pesticide-calc-page .formulation-pill {
+  background: linear-gradient(180deg, #ffffff 0%, #f1f5f9 100%) !important;
+  color: #0f172a !important;
+  border: 1px solid rgba(15, 23, 42, 0.16) !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.95) !important;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.9) !important;
+}
+
+html:not(.dark) .pesticide-calc-page .formulation-pill * {
+  color: #0f172a !important;
+}
+
+html:not(.dark) .pesticide-calc-page .formulation-pill:hover {
+  background: linear-gradient(180deg, #f8fafc 0%, #e2e8f0 100%) !important;
+  border-color: rgba(15, 23, 42, 0.28) !important;
+  transform: translateY(-1px);
+}
+
+html.dark .pesticide-calc-page .formulation-pill,
+[data-theme="dark"] .pesticide-calc-page .formulation-pill {
+  background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%) !important;
+  color: #ffffff !important;
+  border: 1px solid rgba(255, 255, 255, 0.22) !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.38) !important;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.15) !important;
+}
+
+html.dark .pesticide-calc-page .formulation-pill *,
+[data-theme="dark"] .pesticide-calc-page .formulation-pill * {
+  color: #ffffff !important;
+}
+
+html.dark .pesticide-calc-page .formulation-pill:hover,
+[data-theme="dark"] .pesticide-calc-page .formulation-pill:hover {
+  background: linear-gradient(180deg, #334155 0%, #1e293b 100%) !important;
+  border-color: rgba(255, 255, 255, 0.45) !important;
+  color: #ffffff !important;
+  transform: translateY(-1px);
+}
+
+/* Category Filter Pills ("Don't know dosage?") */
+html:not(.dark) .pesticide-calc-page .cat-filter-pill:not(.is-active) {
+  background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%) !important;
+  color: #1e293b !important;
+  border: 1px solid #cbd5e1 !important;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.05) !important;
+}
+
+html:not(.dark) .pesticide-calc-page .cat-filter-pill:not(.is-active) * {
+  color: #1e293b !important;
+}
+
+html:not(.dark) .pesticide-calc-page .cat-filter-pill:not(.is-active):hover {
+  background: linear-gradient(180deg, #f1f5f9 0%, #e2e8f0 100%) !important;
+  border-color: #94a3b8 !important;
+  color: #0f172a !important;
+}
+
+html.dark .pesticide-calc-page .cat-filter-pill:not(.is-active),
+[data-theme="dark"] .pesticide-calc-page .cat-filter-pill:not(.is-active) {
+  background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%) !important;
+  color: #ffffff !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5) !important;
+}
+
+html.dark .pesticide-calc-page .cat-filter-pill:not(.is-active) *,
+[data-theme="dark"] .pesticide-calc-page .cat-filter-pill:not(.is-active) * {
+  color: #ffffff !important;
+}
+
+html.dark .pesticide-calc-page .cat-filter-pill:not(.is-active):hover,
+[data-theme="dark"] .pesticide-calc-page .cat-filter-pill:not(.is-active):hover {
+  background: linear-gradient(180deg, #334155 0%, #1e293b 100%) !important;
+  border-color: rgba(255, 255, 255, 0.4) !important;
+  color: #ffffff !important;
+}
+
+/* Active Category Pill (Both themes) */
+.pesticide-calc-page .cat-filter-pill.is-active,
+.pesticide-calc-page .cat-filter-pill.btn-21st-primary {
+  background: linear-gradient(180deg, #0066ff 0%, #004bd1 100%) !important;
+  color: #ffffff !important;
+  border: 1px solid #004bd1 !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.4) !important;
+  box-shadow: 0 2px 8px rgba(0, 102, 255, 0.4), inset 0 1px 1px rgba(255, 255, 255, 0.3) !important;
+}
+
+.pesticide-calc-page .cat-filter-pill.is-active *,
+.pesticide-calc-page .cat-filter-pill.btn-21st-primary * {
+  color: #ffffff !important;
+}
+
+/* Formulation Card Tactile Close Button */
+.pesticide-calc-page .formulation-close-btn {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 9999px !important;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  outline: none;
+}
+
+html:not(.dark) .pesticide-calc-page .formulation-close-btn {
+  background: linear-gradient(180deg, #ffffff 0%, #f1f5f9 100%) !important;
+  border: 1px solid rgba(15, 23, 42, 0.16) !important;
+  color: #64748b !important;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.06) !important;
+}
+
+html:not(.dark) .pesticide-calc-page .formulation-close-btn:hover {
+  background: #fee2e2 !important;
+  border-color: #fca5a5 !important;
+  color: #dc2626 !important;
+  transform: scale(1.08);
+}
+
+html.dark .pesticide-calc-page .formulation-close-btn,
+[data-theme="dark"] .pesticide-calc-page .formulation-close-btn {
+  background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.22) !important;
+  color: #cbd5e1 !important;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.6) !important;
+}
+
+html.dark .pesticide-calc-page .formulation-close-btn:hover,
+[data-theme="dark"] .pesticide-calc-page .formulation-close-btn:hover {
+  background: #7f1d1d !important;
+  border-color: #ef4444 !important;
+  color: #ffffff !important;
+  transform: scale(1.08);
+}
+
+/* Formulation Card Container */
+html:not(.dark) .pesticide-calc-page .formulation-card {
+  background: #ffffff !important;
+  border: 1px solid #e2e8f0 !important;
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.05) !important;
+}
+
+html.dark .pesticide-calc-page .formulation-card,
+[data-theme="dark"] .pesticide-calc-page .formulation-card {
+  background: linear-gradient(180deg, #131d33 0%, #0d1527 100%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.16) !important;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* Formulation Info Callout Box */
+html:not(.dark) .pesticide-calc-page .formulation-info-box {
+  background: #f1f5f9 !important;
+  border: 1px solid #e2e8f0 !important;
+  color: #334155 !important;
+}
+
+html.dark .pesticide-calc-page .formulation-info-box,
+[data-theme="dark"] .pesticide-calc-page .formulation-info-box {
+  background: rgba(30, 41, 59, 0.8) !important;
+  border: 1px solid rgba(255, 255, 255, 0.14) !important;
+  color: #e2e8f0 !important;
+}
+
+/* Stepper Buttons ([-] and [+]) */
+html:not(.dark) .pesticide-calc-page .stepper-btn {
+  background: linear-gradient(180deg, #ffffff 0%, #eff6ff 100%) !important;
+  border: 1px solid #bfdbfe !important;
+  color: #1d4ed8 !important;
+  box-shadow: 0 2px 4px rgba(29, 78, 216, 0.08) !important;
+}
+
+html:not(.dark) .pesticide-calc-page .stepper-btn:hover {
+  background: linear-gradient(180deg, #eff6ff 0%, #dbeafe 100%) !important;
+  transform: translateY(-1px);
+}
+
+html.dark .pesticide-calc-page .stepper-btn,
+[data-theme="dark"] .pesticide-calc-page .stepper-btn {
+  background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.22) !important;
+  color: #60a5fa !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6) !important;
+}
+
+html.dark .pesticide-calc-page .stepper-btn:hover,
+[data-theme="dark"] .pesticide-calc-page .stepper-btn:hover {
+  background: linear-gradient(180deg, #334155 0%, #1e293b 100%) !important;
+  border-color: rgba(255, 255, 255, 0.4) !important;
+  color: #93c5fd !important;
+  transform: translateY(-1px);
+}
+
+/* Dark mode full contrast guarantees */
+html.dark .pesticide-calc-page,
+[data-theme="dark"] .pesticide-calc-page {
+  color: #f8fafc !important;
+}
+
+html.dark .pesticide-calc-page h1,
+html.dark .pesticide-calc-page h2,
+html.dark .pesticide-calc-page h3,
+[data-theme="dark"] .pesticide-calc-page h1,
+[data-theme="dark"] .pesticide-calc-page h2,
+[data-theme="dark"] .pesticide-calc-page h3 {
+  color: #ffffff !important;
+}
+
+html.dark .pesticide-calc-page p,
+[data-theme="dark"] .pesticide-calc-page p {
+  color: #cbd5e1 !important;
+}
+
+html.dark .pesticide-calc-page label,
+[data-theme="dark"] .pesticide-calc-page label {
+  color: #f1f5f9 !important;
+}
+
+/* Radio buttons label text */
+html.dark .pesticide-calc-page input[type="radio"] + span,
+[data-theme="dark"] .pesticide-calc-page input[type="radio"] + span {
+  color: #ffffff !important;
+}
+
+html.dark .pesticide-calc-page input[type="text"],
+html.dark .pesticide-calc-page input[type="number"],
+[data-theme="dark"] .pesticide-calc-page input[type="text"],
+[data-theme="dark"] .pesticide-calc-page input[type="number"] {
+  color: #ffffff !important;
+  background-color: transparent !important;
+}
+
+html.dark .pesticide-calc-page input::placeholder,
+[data-theme="dark"] .pesticide-calc-page input::placeholder {
+  color: #94a3b8 !important;
+}
+
+html.dark .pesticide-calc-page select,
+[data-theme="dark"] .pesticide-calc-page select {
+  color: #ffffff !important;
+  background-color: #131c35 !important;
+  border-color: #334155 !important;
+}
+
+html.dark .pesticide-calc-page select option,
+[data-theme="dark"] .pesticide-calc-page select option {
+  background-color: #0f172a !important;
+  color: #ffffff !important;
+}
+
+/* Stepper and inputs in dark mode */
+html.dark .pesticide-calc-page input[type="number"] {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+}
+
+/* Modals & Dialogs in dark mode */
+html.dark .pesticide-calc-page .modal-dialog-box,
+[data-theme="dark"] .pesticide-calc-page .modal-dialog-box {
+  background-color: #111c33 !important;
+  border: 1px solid rgba(255, 255, 255, 0.16) !important;
+  color: #ffffff !important;
+}
+
+html.dark .pesticide-calc-page .modal-crop-card,
+[data-theme="dark"] .pesticide-calc-page .modal-crop-card {
+  background-color: #18243e !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  color: #ffffff !important;
+}
+
+html.dark .pesticide-calc-page .modal-crop-card:hover,
+[data-theme="dark"] .pesticide-calc-page .modal-crop-card:hover {
+  border-color: #3b82f6 !important;
+  background-color: #1e3156 !important;
+}
+
+html.dark .pesticide-calc-page .modal-disease-item,
+[data-theme="dark"] .pesticide-calc-page .modal-disease-item {
+  background-color: #18243e !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  color: #ffffff !important;
+}
+
+html.dark .pesticide-calc-page .modal-disease-item.is-selected,
+[data-theme="dark"] .pesticide-calc-page .modal-disease-item.is-selected {
+  border-color: #3b82f6 !important;
+  background-color: rgba(30, 58, 138, 0.5) !important;
+}
+
+/* Compact Input Row Boxes */
+html:not(.dark) .pesticide-calc-page .border-slate-300 {
+  border-color: #cbd5e1 !important;
+  background-color: #ffffff !important;
+}
+
+html:not(.dark) .pesticide-calc-page input[type="number"] {
+  color: #0f172a !important;
+  -webkit-text-fill-color: #0f172a !important;
+}
+
+html.dark .pesticide-calc-page .border-slate-300,
+html.dark .pesticide-calc-page .border-slate-700,
+[data-theme="dark"] .pesticide-calc-page .border-slate-300,
+[data-theme="dark"] .pesticide-calc-page .border-slate-700 {
+  border-color: rgba(255, 255, 255, 0.16) !important;
+  background-color: #131d33 !important;
+}
+
+html.dark .pesticide-calc-page input[type="number"],
+[data-theme="dark"] .pesticide-calc-page input[type="number"] {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+}
+
+/* ─── Area Stepper Box & Number Input (Fix Invisible Stepper in Dark Theme) ─── */
+.pesticide-calc-page .area-stepper-box {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-radius: 1.25rem !important;
+  padding: 0.625rem 1rem !important;
+  transition: all 0.2s ease !important;
+}
+
+html:not(.dark) .pesticide-calc-page .area-stepper-box {
+  background: #f8fafc !important;
+  border: 1px solid #e2e8f0 !important;
+}
+
+html.dark .pesticide-calc-page .area-stepper-box,
+[data-theme="dark"] .pesticide-calc-page .area-stepper-box {
+  background: linear-gradient(180deg, #18233c 0%, #111a2f 100%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.18) !important;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.5) !important;
+}
+
+.pesticide-calc-page .area-stepper-input {
+  width: 100% !important;
+  text-align: center !important;
+  font-size: 2.25rem !important;
+  line-height: 2.5rem !important;
+  font-weight: 800 !important;
+  background: transparent !important;
+  border: 0 none transparent !important;
+  outline: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+}
+
+html:not(.dark) .pesticide-calc-page .area-stepper-input {
+  color: #0f172a !important;
+  -webkit-text-fill-color: #0f172a !important;
+}
+
+html.dark .pesticide-calc-page .area-stepper-input,
+[data-theme="dark"] .pesticide-calc-page .area-stepper-input {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7) !important;
+}
+
+html:not(.dark) .pesticide-calc-page .area-stepper-unit {
+  color: #64748b !important;
+}
+
+html.dark .pesticide-calc-page .area-stepper-unit,
+[data-theme="dark"] .pesticide-calc-page .area-stepper-unit {
+  color: #93c5fd !important;
+  font-weight: 600 !important;
+}
+
+/* ─── Recent Calculations Cards (Fix White Card Bug in Dark Theme) ─── */
+.pesticide-calc-page .pesticide-recent-card {
+  position: relative !important;
+  border-radius: 1.25rem !important;
+  padding: 1.125rem !important;
+  cursor: pointer !important;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+html:not(.dark) .pesticide-calc-page .pesticide-recent-card {
+  background: #ffffff !important;
+  border: 1px solid #e2e8f0 !important;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.05) !important;
+}
+
+html:not(.dark) .pesticide-calc-page .pesticide-recent-card:hover {
+  border-color: #3b82f6 !important;
+  box-shadow: 0 6px 18px rgba(37, 99, 235, 0.1) !important;
+}
+
+html.dark .pesticide-calc-page .pesticide-recent-card,
+[data-theme="dark"] .pesticide-calc-page .pesticide-recent-card {
+  background: linear-gradient(180deg, #131d33 0%, #0d1527 100%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.16) !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.6) !important;
+}
+
+html.dark .pesticide-calc-page .pesticide-recent-card:hover,
+[data-theme="dark"] .pesticide-calc-page .pesticide-recent-card:hover {
+  border-color: rgba(96, 165, 250, 0.55) !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.8) !important;
+  transform: translateY(-1px);
+}
+
+/* Force dark mode typography inside recent calculation cards */
+html.dark .pesticide-calc-page .pesticide-recent-card span,
+html.dark .pesticide-calc-page .pesticide-recent-card p,
+html.dark .pesticide-calc-page .pesticide-recent-card div,
+[data-theme="dark"] .pesticide-calc-page .pesticide-recent-card span,
+[data-theme="dark"] .pesticide-calc-page .pesticide-recent-card p,
+[data-theme="dark"] .pesticide-calc-page .pesticide-recent-card div {
+  color: #ffffff !important;
+}
+
+html.dark .pesticide-calc-page .pesticide-recent-card .text-slate-400,
+html.dark .pesticide-calc-page .pesticide-recent-card .text-slate-500,
+[data-theme="dark"] .pesticide-calc-page .pesticide-recent-card .text-slate-400,
+[data-theme="dark"] .pesticide-calc-page .pesticide-recent-card .text-slate-500 {
+  color: #94a3b8 !important;
+}
+
+html.dark .pesticide-calc-page .pesticide-recent-card .text-slate-700,
+html.dark .pesticide-calc-page .pesticide-recent-card .text-slate-800,
+html.dark .pesticide-calc-page .pesticide-recent-card .text-slate-200,
+[data-theme="dark"] .pesticide-calc-page .pesticide-recent-card .text-slate-700,
+[data-theme="dark"] .pesticide-calc-page .pesticide-recent-card .text-slate-800,
+[data-theme="dark"] .pesticide-calc-page .pesticide-recent-card .text-slate-200 {
+  color: #f1f5f9 !important;
+}
+
+/* Remove any accidental button outlines on pesticide calculator action buttons */
+.pesticide-calc-page button {
+  outline: none !important;
+}
+.pesticide-calc-page button:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* ─── Pesticide Info Tooltip Popover (Both Light and Dark Mode) ─── */
+.pesticide-calc-page .pesticide-info-tooltip,
+html:not(.dark) .pesticide-calc-page .pesticide-info-tooltip,
+/* ─── Pesticide Info Tooltip Popover (Guaranteed Pure White Text in ALL Themes) ─── */
+.pesticide-calc-page .pesticide-info-tooltip,
+html:not(.dark) .pesticide-calc-page .pesticide-info-tooltip,
+html.dark .pesticide-calc-page .pesticide-info-tooltip,
+[data-theme="dark"] .pesticide-calc-page .pesticide-info-tooltip {
+  background: #0f172a !important;
+  background-color: #0f172a !important;
+  border: 1px solid rgba(255, 255, 255, 0.18) !important;
+  border-radius: 1rem !important;
+  box-shadow: 0 12px 30px -4px rgba(0, 0, 0, 0.5), 0 4px 12px -2px rgba(0, 0, 0, 0.3) !important;
+  color: #ffffff !important;
+}
+
+.pesticide-info-tooltip,
+.pesticide-info-tooltip *,
+html:not(.dark) .pesticide-calc-page .pesticide-info-tooltip,
+html:not(.dark) .pesticide-calc-page .pesticide-info-tooltip *,
+html:not(.dark) .pesticide-calc-page .pesticide-info-tooltip h4,
+html:not(.dark) .pesticide-calc-page .pesticide-info-tooltip p,
+html:not(.dark) .pesticide-calc-page .pesticide-info-tooltip span,
+html:not(.dark) .pesticide-calc-page .pesticide-info-tooltip div,
+html.dark .pesticide-calc-page .pesticide-info-tooltip,
+html.dark .pesticide-calc-page .pesticide-info-tooltip *,
+html.dark .pesticide-calc-page .pesticide-info-tooltip h4,
+html.dark .pesticide-calc-page .pesticide-info-tooltip p,
+html.dark .pesticide-calc-page .pesticide-info-tooltip span,
+html.dark .pesticide-calc-page .pesticide-info-tooltip div,
+[data-theme="dark"] .pesticide-calc-page .pesticide-info-tooltip,
+[data-theme="dark"] .pesticide-calc-page .pesticide-info-tooltip * {
+  color: #ffffff !important;
+}
+
+.pesticide-calc-page .pesticide-info-tooltip p,
+html:not(.dark) .pesticide-calc-page .pesticide-info-tooltip p,
+html.dark .pesticide-calc-page .pesticide-info-tooltip p,
+[data-theme="dark"] .pesticide-calc-page .pesticide-info-tooltip p {
+  color: #f8fafc !important;
+  font-size: 0.75rem !important;
+  line-height: 1.25rem !important;
+  font-weight: 500 !important;
+}
+
+.pesticide-calc-page .pesticide-info-tooltip h4,
+html:not(.dark) .pesticide-calc-page .pesticide-info-tooltip h4,
+html.dark .pesticide-calc-page .pesticide-info-tooltip h4,
+[data-theme="dark"] .pesticide-calc-page .pesticide-info-tooltip h4 {
+  color: #ffffff !important;
+  font-size: 0.875rem !important;
+  font-weight: 700 !important;
+}
+
+.pesticide-calc-page .pesticide-info-tooltip .tooltip-subtext,
+html:not(.dark) .pesticide-calc-page .pesticide-info-tooltip .tooltip-subtext,
+html.dark .pesticide-calc-page .pesticide-info-tooltip .tooltip-subtext,
+[data-theme="dark"] .pesticide-calc-page .pesticide-info-tooltip .tooltip-subtext {
+  color: #cbd5e1 !important;
+  font-size: 0.6875rem !important;
+  line-height: 1.125rem !important;
+}
+
+.pesticide-calc-page .pesticide-info-tooltip-arrow {
+  border-bottom-color: #0f172a !important;
+}
+
+/* Tooltip Close Button */
+.pesticide-calc-page .pesticide-tooltip-close {
+  background: rgba(255, 255, 255, 0.12) !important;
+  border: 1px solid rgba(255, 255, 255, 0.25) !important;
+  color: #ffffff !important;
+  border-radius: 9999px !important;
+  cursor: pointer !important;
+  transition: all 0.15s ease !important;
+}
+
+.pesticide-calc-page .pesticide-tooltip-close:hover {
+  background: rgba(255, 255, 255, 0.24) !important;
+  color: #ffffff !important;
+  transform: scale(1.08);
+}
+
+.pesticide-calc-page .pesticide-tooltip-close * {
+  color: #ffffff !important;
+}
+
+/* ─── Circular Info Trigger ((i) next to Product dosage & Water amount) ─── */
+.pesticide-calc-page .pesticide-info-trigger {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 1.25rem !important;
+  height: 1.25rem !important;
+  border-radius: 9999px !important;
+  padding: 0 !important;
+  cursor: pointer !important;
+  transition: all 0.15s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+html:not(.dark) .pesticide-calc-page .pesticide-info-trigger:not(.is-active) {
+  background: #f1f5f9 !important;
+  border: 1px solid #cbd5e1 !important;
+  color: #64748b !important;
+}
+
+html:not(.dark) .pesticide-calc-page .pesticide-info-trigger:not(.is-active) * {
+  color: #64748b !important;
+}
+
+html:not(.dark) .pesticide-calc-page .pesticide-info-trigger:not(.is-active):hover {
+  background: #eff6ff !important;
+  border-color: #3b82f6 !important;
+  color: #2563eb !important;
+  transform: scale(1.1);
+}
+
+html:not(.dark) .pesticide-calc-page .pesticide-info-trigger:not(.is-active):hover * {
+  color: #2563eb !important;
+}
+
+html.dark .pesticide-calc-page .pesticide-info-trigger:not(.is-active),
+[data-theme="dark"] .pesticide-calc-page .pesticide-info-trigger:not(.is-active) {
+  background: #1e293b !important;
+  border: 1px solid rgba(255, 255, 255, 0.18) !important;
+  color: #94a3b8 !important;
+}
+
+html.dark .pesticide-calc-page .pesticide-info-trigger:not(.is-active) *,
+[data-theme="dark"] .pesticide-calc-page .pesticide-info-trigger:not(.is-active) * {
+  color: #94a3b8 !important;
+}
+
+html.dark .pesticide-calc-page .pesticide-info-trigger:not(.is-active):hover,
+[data-theme="dark"] .pesticide-calc-page .pesticide-info-trigger:not(.is-active):hover {
+  background: #334155 !important;
+  border-color: #60a5fa !important;
+  color: #60a5fa !important;
+  transform: scale(1.1);
+}
+
+.pesticide-calc-page .pesticide-info-trigger.is-active,
+html:not(.dark) .pesticide-calc-page .pesticide-info-trigger.is-active,
+html.dark .pesticide-calc-page .pesticide-info-trigger.is-active,
+[data-theme="dark"] .pesticide-calc-page .pesticide-info-trigger.is-active {
+  background: #2563eb !important;
+  border: 1px solid #1d4ed8 !important;
+  color: #ffffff !important;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.25) !important;
+}
+
+.pesticide-calc-page .pesticide-info-trigger.is-active * {
+  color: #ffffff !important;
+}
+
+/* ─── Recent Card Delete Button ─── */
+.pesticide-calc-page .pesticide-recent-delete-btn {
+  border-radius: 0.75rem !important;
+  cursor: pointer !important;
+  transition: all 0.18s ease !important;
+}
+
+html:not(.dark) .pesticide-calc-page .pesticide-recent-delete-btn {
+  background: #f8fafc !important;
+  border: 1px solid #e2e8f0 !important;
+  color: #94a3b8 !important;
+}
+
+html:not(.dark) .pesticide-calc-page .pesticide-recent-delete-btn:hover {
+  background: #fef2f2 !important;
+  border-color: #fecaca !important;
+  color: #ef4444 !important;
+  transform: scale(1.05);
+}
+
+html.dark .pesticide-calc-page .pesticide-recent-delete-btn,
+[data-theme="dark"] .pesticide-calc-page .pesticide-recent-delete-btn {
+  background: #1e293b !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  color: #94a3b8 !important;
+}
+
+html.dark .pesticide-calc-page .pesticide-recent-delete-btn:hover,
+[data-theme="dark"] .pesticide-calc-page .pesticide-recent-delete-btn:hover {
+  background: #7f1d1d !important;
+  border-color: #ef4444 !important;
+  color: #ffffff !important;
+  transform: scale(1.05);
+}
+
+
+
+
 
 
 

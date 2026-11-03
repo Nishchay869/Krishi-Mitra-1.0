@@ -834,7 +834,7 @@ function PlantixDashboard({ routes, assetBase, userCrops, weatherData, diagnoses
           </a>
 
           {/* Tool 2: Pesticide calculator */}
-          <a href={routes.pests || '/crops/library/pests/'} className="plantix-tool-card">
+          <a href="/crops/pesticide/" className="plantix-tool-card">
             <div className="plantix-tool-icon">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1e3a8a" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                 <rect x="5" y="10" width="14" height="11" rx="2" />

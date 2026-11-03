@@ -10,6 +10,7 @@ urlpatterns = [
     path('fertilizer/manage/', views.fertilizer_manage, name='fertilizer_manage'),
     path('fertilizer/manage/save/', views.fertilizer_preset_save, name='fertilizer_preset_save'),
     path('fertilizer/', views.fertilizer_page, name='fertilizer'),
+    path('pesticide/', views.pesticide_calculator, name='pesticide_calculator'),
     path('library/', library_views.index, name='library'),
     path('library/pests/manage/', pest_admin_views.index, name='pest_admin'),
     path('library/pests/manage/new/', pest_admin_views.edit, name='pest_new'),

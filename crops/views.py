@@ -407,3 +407,31 @@ def fertilizer_preset_save(request):
     return redirect(next_url)
 
 
+def pesticide_calculator(request):
+    """Interactive pesticide and spray dilution calculator matching farmer knapsack tanks."""
+    user_crops = []
+    try:
+        if request.user.is_authenticated:
+            profile = getattr(request.user, 'profile', None)
+            if profile:
+                raw = getattr(profile, 'selected_crops', None)
+                if raw is None and hasattr(profile, 'saved_crops'):
+                    raw = [c.name for c in profile.saved_crops.all()]
+                if raw:
+                    user_crops = [c if isinstance(c, str) else getattr(c, 'name', str(c)) for c in raw]
+    except Exception:
+        user_crops = []
+
+    if not user_crops:
+        try:
+            raw = request.session.get('farm_preferences', {}).get('selected_crops', [])
+            user_crops = [c if isinstance(c, str) else str(c) for c in raw]
+        except Exception:
+            user_crops = []
+
+    return render(request, 'crops/pesticide_calculator.html', {
+        'user_crops_json': json.dumps(user_crops),
+    })
+
+
+

@@ -21,6 +21,7 @@ const islands: Record<string, Loader> = {
   ImageSliderLoginDemo: () => import('./components/ui/demo'),
   AIChatIsland: () => import('./islands/AIChatIsland'),
   AIChatCard: () => import('./components/ui/ai-chat-card'),
+  PesticideCalculator: () => import('./islands/PesticideCalculator'),
 }
 
 async function mount(el: HTMLElement, name: string, props: object = {}): Promise<() => void> {
