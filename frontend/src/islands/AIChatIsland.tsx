@@ -558,23 +558,21 @@ export default function AIChatIsland({
   };
 
   return (
-    <div className="w-full max-w-3xl mx-auto py-2">
-      <AIChatCard
-        title="Krishi Mitra Farm Assistant"
-        subtitle="Expert Agricultural AI Companion"
-        greeting={`Namaste, ${userName}!`}
-        prompt="Ask anything about crop management, plant pests, fertilizers, spraying weather, or mandi prices in any language."
-        messages={messages}
-        isLoading={isLoading}
-        isRecording={isRecording}
-        playingMessageId={playingId}
-        onSend={handleSend}
-        onReset={handleReset}
-        onClose={isWidget ? handleClose : undefined}
-        onToggleMic={handleToggleMic}
-        onListen={handleListen}
-        className="w-full min-h-[540px] shadow-2xl"
-      />
-    </div>
+    <AIChatCard
+      title="Krishi Mitra Farm Assistant"
+      subtitle="Expert Agricultural AI Companion"
+      greeting={`Namaste, ${userName}!`}
+      prompt="Ask anything about crop management, plant pests, fertilizers, spraying weather, or mandi prices in any language."
+      messages={messages}
+      isLoading={isLoading}
+      isRecording={isRecording}
+      playingMessageId={playingId}
+      onSend={handleSend}
+      onReset={handleReset}
+      onClose={isWidget ? handleClose : undefined}
+      onToggleMic={handleToggleMic}
+      onListen={handleListen}
+      className="w-full min-h-[540px] shadow-2xl"
+    />
   );
 }

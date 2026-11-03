@@ -3419,13 +3419,54 @@ html:not(.dark) select option {
   display: inline-flex !important;
   align-items: center !important;
   line-height: 1 !important;
+  background: transparent !important;
+  background-color: transparent !important;
 }
 
 .site-header-brand .brand-logo {
   height: 38px !important;
   width: auto !important;
-  display: block !important;
   object-fit: contain !important;
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+.site-header-brand .brand-logo-dark {
+  display: none !important;
+}
+
+.site-header-brand .brand-logo-light {
+  display: block !important;
+}
+
+html.dark .site-header-brand .brand-logo-light,
+[data-theme="dark"] .site-header-brand .brand-logo-light {
+  display: none !important;
+}
+
+html.dark .site-header-brand .brand-logo-dark,
+[data-theme="dark"] .site-header-brand .brand-logo-dark {
+  display: block !important;
+  filter: drop-shadow(0 0 3px rgba(74, 222, 128, 0.45)) !important;
+}
+
+.welcome-brand .brand-logo-dark {
+  display: none !important;
+}
+
+.welcome-brand .brand-logo-light {
+  display: block !important;
+}
+
+html.dark .welcome-brand .brand-logo-light,
+[data-theme="dark"] .welcome-brand .brand-logo-light {
+  display: none !important;
+}
+
+html.dark .welcome-brand .brand-logo-dark,
+[data-theme="dark"] .welcome-brand .brand-logo-dark {
+  display: block !important;
+  filter: drop-shadow(0 0 3px rgba(74, 222, 128, 0.45)) !important;
 }
 
 .admin-brand-icon {
@@ -3955,7 +3996,7 @@ html.dark [data-react-island="AIChatIsland"] textarea,
 [data-theme="dark"] .ai-chat-textarea,
 [data-theme="dark"] .ai-chat-card textarea,
 [data-theme="dark"] [data-react-island="AIChatIsland"] textarea {
-  color: #f8fafc !important;
+  color: #ffffff !important;
 }
 
 html.dark .ai-chat-textarea::placeholder,
@@ -3964,7 +4005,7 @@ html.dark [data-react-island="AIChatIsland"] textarea::placeholder,
 [data-theme="dark"] .ai-chat-textarea::placeholder,
 [data-theme="dark"] .ai-chat-card textarea::placeholder,
 [data-theme="dark"] [data-react-island="AIChatIsland"] textarea::placeholder {
-  color: #64748b !important;
+  color: #94a3b8 !important;
 }
 
 .ai-chat-btn,
@@ -3976,6 +4017,157 @@ html.dark [data-react-island="AIChatIsland"] textarea::placeholder,
   -moz-appearance: none !important;
   outline: none !important;
   background-image: none !important;
+}
+
+/* ─── AI CHAT CARD ROOT & SURFACE CONTRAST RULES ─── */
+/* Ensure the root container and any wrapper divs are purely transparent with NO borders or shadows */
+#ai-chat-card-root,
+html.dark #ai-chat-card-root,
+[data-theme="dark"] #ai-chat-card-root {
+  background: transparent !important;
+  background-color: transparent !important;
+  border: 0 none transparent !important;
+  border-width: 0 !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* The card surface is the ONLY element that receives the border and rounded corners */
+.ai-chat-card-surface {
+  border-radius: 26px !important;
+  overflow: hidden !important;
+  border-style: solid !important;
+  border-width: 1px !important;
+}
+
+/* Light Mode Card Surface */
+html:not(.dark) .ai-chat-card-surface,
+[data-theme="light"] .ai-chat-card-surface {
+  background-color: #ffffff !important;
+  background: #ffffff !important;
+  border-color: #e2e8f0 !important;
+  border: 1px solid #e2e8f0 !important;
+  color: #0f172a !important;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.06), 0 2px 6px rgba(0, 0, 0, 0.04) !important;
+}
+
+/* Dark Mode Card Surface - Clean single border and smooth 26px rounded corners */
+html.dark .ai-chat-card-surface,
+[data-theme="dark"] .ai-chat-card-surface {
+  background-color: #0b1329 !important;
+  background: #0b1329 !important;
+  border-color: #1e293b !important;
+  border: 1px solid #1e293b !important;
+  color: #ffffff !important;
+  box-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(255, 255, 255, 0.06) !important;
+}
+
+/* Header border & typography in Dark Mode */
+html.dark #ai-chat-card-root [class*="border-b"],
+[data-theme="dark"] #ai-chat-card-root [class*="border-b"] {
+  border-color: #1e293b !important;
+}
+
+html.dark #ai-chat-card-root h3,
+[data-theme="dark"] #ai-chat-card-root h3,
+html.dark .ai-chat-card-surface h3,
+[data-theme="dark"] .ai-chat-card-surface h3 {
+  color: #ffffff !important;
+  font-weight: 600 !important;
+}
+
+html.dark #ai-chat-card-root h4,
+[data-theme="dark"] #ai-chat-card-root h4,
+html.dark .ai-chat-card-surface h4,
+[data-theme="dark"] .ai-chat-card-surface h4 {
+  color: #ffffff !important;
+}
+
+html.dark #ai-chat-card-root p.text-slate-500,
+html.dark #ai-chat-card-root p.text-xs,
+[data-theme="dark"] #ai-chat-card-root p.text-slate-500,
+[data-theme="dark"] #ai-chat-card-root p.text-xs {
+  color: #94a3b8 !important;
+}
+
+/* Dark Mode Header Action Buttons (Reset, Close) */
+html.dark #ai-chat-card-root .ai-chat-btn:not([class*="bg-emerald"]):not([class*="bg-red"]),
+[data-theme="dark"] #ai-chat-card-root .ai-chat-btn:not([class*="bg-emerald"]):not([class*="bg-red"]) {
+  background-color: #1e293b !important;
+  border-color: #334155 !important;
+  color: #94a3b8 !important;
+}
+
+html.dark #ai-chat-card-root .ai-chat-btn:not([class*="bg-emerald"]):not([class*="bg-red"]):hover,
+[data-theme="dark"] #ai-chat-card-root .ai-chat-btn:not([class*="bg-emerald"]):not([class*="bg-red"]):hover {
+  background-color: #334155 !important;
+  border-color: #475569 !important;
+  color: #ffffff !important;
+}
+
+/* Center Greeting in Empty State */
+html.dark #ai-chat-card-root .text-\[17px\],
+[data-theme="dark"] #ai-chat-card-root .text-\[17px\] {
+  color: #ffffff !important;
+  font-weight: 600 !important;
+}
+
+/* Quick Suggestion Chips */
+html.dark #ai-chat-card-root .ai-chat-btn.rounded-full,
+[data-theme="dark"] #ai-chat-card-root .ai-chat-btn.rounded-full {
+  background-color: #1e293b !important;
+  border-color: #334155 !important;
+  color: #e2e8f0 !important;
+}
+
+html.dark #ai-chat-card-root .ai-chat-btn.rounded-full:hover,
+[data-theme="dark"] #ai-chat-card-root .ai-chat-btn.rounded-full:hover {
+  background-color: rgba(16, 185, 129, 0.15) !important;
+  border-color: rgba(52, 211, 153, 0.4) !important;
+  color: #6ee7b7 !important;
+}
+
+/* Composer / PromptBox in Dark Mode */
+html.dark #ai-chat-card-root [data-chat-composer],
+[data-theme="dark"] #ai-chat-card-root [data-chat-composer],
+html.dark .ai-chat-composer,
+[data-theme="dark"] .ai-chat-composer {
+  background-color: #131c35 !important;
+  border-color: #1e293b !important;
+}
+
+html.dark #ai-chat-card-root [data-chat-composer]:focus-within,
+[data-theme="dark"] #ai-chat-card-root [data-chat-composer]:focus-within,
+html.dark .ai-chat-composer:focus-within,
+[data-theme="dark"] .ai-chat-composer:focus-within {
+  background-color: #0f172a !important;
+  border-color: rgba(16, 185, 129, 0.5) !important;
+  box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.2) !important;
+}
+
+/* Animated Ghost Hint in Dark Mode (High Contrast & Legible) */
+html.dark #ai-chat-card-root .ai-chat-ghost-placeholder,
+[data-theme="dark"] #ai-chat-card-root .ai-chat-ghost-placeholder {
+  color: #94a3b8 !important;
+}
+
+html.dark #ai-chat-card-root .ai-chat-ghost-placeholder span,
+[data-theme="dark"] #ai-chat-card-root .ai-chat-ghost-placeholder span {
+  color: #94a3b8 !important;
+}
+
+/* Assistant Message Bubble */
+html.dark #ai-chat-card-root .rounded-tl-xs,
+[data-theme="dark"] #ai-chat-card-root .rounded-tl-xs {
+  background-color: #1e293b !important;
+  border-color: #334155 !important;
+  color: #f8fafc !important;
+}
+
+html.dark #ai-chat-card-root .rounded-tl-xs *,
+[data-theme="dark"] #ai-chat-card-root .rounded-tl-xs * {
+  color: #f8fafc !important;
 }
 
 /* ─── CROP STATUS STORY MODAL - ABSOLUTE CONTRAST OVERRIDES ─── */

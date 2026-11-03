@@ -324,6 +324,23 @@ html.dark .site-header-brand,
   height: 38px;
   width: auto;
   object-fit: contain;
+  background: transparent !important;
+  background-color: transparent !important;
+}
+.site-header-brand .brand-logo-dark {
+  display: none !important;
+}
+.site-header-brand .brand-logo-light {
+  display: block !important;
+}
+html.dark .site-header-brand .brand-logo-light,
+[data-theme="dark"] .site-header-brand .brand-logo-light {
+  display: none !important;
+}
+html.dark .site-header-brand .brand-logo-dark,
+[data-theme="dark"] .site-header-brand .brand-logo-dark {
+  display: block !important;
+  filter: drop-shadow(0 0 3px rgba(74, 222, 128, 0.45)) !important;
 }
 .site-header-brand .brand-title {
   font-size: 21px;

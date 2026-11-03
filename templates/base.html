@@ -178,7 +178,9 @@
   <header class="site-header">
     <div class="site-header-container">
       <a class="site-header-brand" href="{% url 'home' %}" aria-label="Krishi Mitra Home">
-        <img src="{% static 'images/logo.png' %}?v={{ STATIC_VERSION }}" alt="Krishi Mitra" class="brand-logo"
+        <img src="{% static 'images/logo.png' %}?v={{ STATIC_VERSION }}" alt="Krishi Mitra" class="brand-logo brand-logo-light"
+          height="38">
+        <img src="{% static 'images/logo-dark.png' %}?v={{ STATIC_VERSION }}" alt="Krishi Mitra" class="brand-logo brand-logo-dark"
           height="38">
       </a>
 

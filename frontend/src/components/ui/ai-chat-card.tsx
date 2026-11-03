@@ -209,9 +209,9 @@ export function AIChatCard({
     <div
       ref={rootRef}
       className={cn(
-        "flex w-full flex-col rounded-[26px] bg-white transition-all",
+        "ai-chat-card-surface flex w-full flex-col rounded-[26px] overflow-hidden transition-all",
         "border border-slate-200/80 shadow-[0_12px_40px_rgba(0,0,0,0.06),0_2px_6px_rgba(0,0,0,0.04)]",
-        "dark:border-slate-800/80 dark:bg-slate-900/95 dark:shadow-[0_12px_40px_rgba(0,0,0,0.35),0_0_0_1px_rgba(255,255,255,0.08)]",
+        "dark:border-slate-800/80 dark:shadow-[0_12px_40px_rgba(0,0,0,0.35),0_0_0_1px_rgba(255,255,255,0.08)]",
         className
       )}
     >
@@ -249,7 +249,7 @@ export function AIChatCard({
             whileTap={{ scale: 0.9 }}
             title="Reset conversation"
             aria-label="Reset conversation"
-            className="ai-chat-btn flex h-[32px] w-[32px] shrink-0 items-center justify-center rounded-full border border-slate-200/80 bg-white text-slate-500 transition-colors hover:text-slate-900 hover:border-slate-300 dark:border-slate-800 dark:bg-slate-800/80 dark:text-slate-400 dark:hover:text-white dark:hover:border-slate-700 shadow-2xs"
+            className="ai-chat-btn flex h-[32px] w-[32px] shrink-0 items-center justify-center rounded-full border border-slate-200/80 text-slate-500 transition-colors hover:text-slate-900 hover:border-slate-300 dark:border-slate-800 dark:bg-slate-800/80 dark:text-slate-400 dark:hover:text-white dark:hover:border-slate-700 shadow-2xs"
             style={{ appearance: "none", WebkitAppearance: "none", outline: "none", borderRadius: "9999px" }}
           >
             <motion.span
@@ -268,7 +268,7 @@ export function AIChatCard({
               whileTap={{ scale: 0.9 }}
               title="Close assistant"
               aria-label="Close assistant"
-              className="ai-chat-btn flex h-[32px] w-[32px] shrink-0 items-center justify-center rounded-full border border-slate-200/80 bg-white text-slate-500 transition-colors hover:text-slate-900 hover:border-slate-300 dark:border-slate-800 dark:bg-slate-800/80 dark:text-slate-400 dark:hover:text-white dark:hover:border-slate-700 shadow-2xs"
+              className="ai-chat-btn flex h-[32px] w-[32px] shrink-0 items-center justify-center rounded-full border border-slate-200/80 text-slate-500 transition-colors hover:text-slate-900 hover:border-slate-300 dark:border-slate-800 dark:bg-slate-800/80 dark:text-slate-400 dark:hover:text-white dark:hover:border-slate-700 shadow-2xs"
               style={{ appearance: "none", WebkitAppearance: "none", outline: "none", borderRadius: "9999px" }}
             >
               <X className="h-4 w-4" />
@@ -392,7 +392,7 @@ export function AIChatCard({
                               "ai-chat-btn group inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-medium transition-all duration-200 shadow-2xs active:scale-95",
                               playingMessageId === m.id
                                 ? "border border-emerald-500 bg-emerald-600 text-white shadow-emerald-500/25 animate-pulse"
-                                : "border border-slate-200/90 bg-white/90 text-slate-700 hover:border-emerald-400 hover:bg-emerald-50 hover:text-emerald-800 dark:border-slate-700/80 dark:bg-slate-800/80 dark:text-slate-300 dark:hover:border-emerald-500/60 dark:hover:bg-slate-700 dark:hover:text-emerald-300"
+                                : "border border-slate-200/90 text-slate-700 hover:border-emerald-400 hover:bg-emerald-50 hover:text-emerald-800 dark:border-slate-700/80 dark:text-slate-300 dark:hover:border-emerald-500/60 dark:hover:bg-slate-700 dark:hover:text-emerald-300"
                             )}
                             style={{ appearance: "none", WebkitAppearance: "none", outline: "none", borderRadius: "9999px" }}
                           >
@@ -420,7 +420,7 @@ export function AIChatCard({
                             "ai-chat-btn group inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-medium transition-all duration-200 shadow-2xs active:scale-95",
                             copiedId === m.id
                               ? "border border-emerald-400 bg-emerald-50 text-emerald-700 dark:border-emerald-500 dark:bg-emerald-950/60 dark:text-emerald-300"
-                              : "border border-slate-200/90 bg-white/90 text-slate-700 hover:border-slate-300 hover:bg-slate-100 hover:text-slate-900 dark:border-slate-700/80 dark:bg-slate-800/80 dark:text-slate-300 dark:hover:border-slate-600 dark:hover:bg-slate-700 dark:hover:text-white"
+                              : "border border-slate-200/90 text-slate-700 hover:border-slate-300 hover:bg-slate-100 hover:text-slate-900 dark:border-slate-700/80 dark:text-slate-300 dark:hover:border-slate-600 dark:hover:bg-slate-700 dark:hover:text-white"
                           )}
                           style={{ appearance: "none", WebkitAppearance: "none", outline: "none", borderRadius: "9999px" }}
                         >
@@ -468,11 +468,11 @@ export function AIChatCard({
       <div className="px-5 pb-5 pt-2">
         <div
           data-chat-composer
-          className="relative flex flex-col rounded-[24px] border border-slate-200/90 bg-slate-50/70 p-3.5 shadow-xs transition-all duration-200 focus-within:border-emerald-500/60 focus-within:bg-white focus-within:shadow-[0_8px_30px_rgba(16,185,129,0.12)] focus-within:ring-2 focus-within:ring-emerald-500/20 dark:border-slate-800 dark:bg-slate-800/60 dark:focus-within:border-emerald-500/50 dark:focus-within:bg-slate-900 dark:focus-within:ring-emerald-500/15"
+          className="ai-chat-composer relative flex flex-col rounded-[24px] border border-slate-200/90 p-3.5 shadow-xs transition-all duration-200 focus-within:border-emerald-500/60 focus-within:shadow-[0_8px_30px_rgba(16,185,129,0.12)] focus-within:ring-2 focus-within:ring-emerald-500/20 dark:border-slate-800 dark:bg-slate-800/60 dark:focus-within:border-emerald-500/50 dark:focus-within:bg-slate-900 dark:focus-within:ring-emerald-500/15"
         >
           {/* File Attachment Preview Card */}
           {attachedFile && (
-            <div className="mb-2.5 flex items-center gap-3 rounded-2xl border border-slate-200/90 bg-white/95 p-2 pr-3 shadow-xs dark:border-slate-700/80 dark:bg-slate-800/95 max-w-fit">
+            <div className="mb-2.5 flex items-center gap-3 rounded-2xl border border-slate-200/90 p-2 pr-3 shadow-xs dark:border-slate-700/80 dark:bg-slate-800/95 max-w-fit">
               {attachedFile.isImage ? (
                 <img
                   src={attachedFile.preview}
@@ -540,7 +540,7 @@ export function AIChatCard({
             {!userMessage && (
               <div
                 aria-hidden="true"
-                className="pointer-events-none absolute inset-0 z-0 flex items-start px-1 py-1 select-none overflow-hidden text-[15px] font-normal leading-relaxed text-slate-400/80 dark:text-slate-500/80"
+                className="ai-chat-ghost-placeholder pointer-events-none absolute inset-0 z-0 flex items-start px-1 py-1 select-none overflow-hidden text-[15px] font-normal leading-relaxed text-slate-400 dark:text-slate-300"
               >
                 <span className="truncate">
                   {attachedFile
@@ -549,7 +549,7 @@ export function AIChatCard({
                 </span>
                 {!attachedFile && (
                   <motion.span
-                    className="ml-0.5 inline-block h-4 w-[1.5px] bg-slate-400/60 dark:bg-slate-500/60 align-middle shrink-0"
+                    className="ml-0.5 inline-block h-4 w-[1.5px] bg-slate-400/80 dark:bg-emerald-400/90 align-middle shrink-0"
                     animate={{ opacity: [1, 1, 0, 0] }}
                     transition={{
                       duration: 1,
@@ -572,7 +572,7 @@ export function AIChatCard({
                 whileTap={{ scale: 0.92 }}
                 title="Upload crop photo or document"
                 aria-label="Upload file"
-                className="ai-chat-btn group flex h-[34px] w-[34px] items-center justify-center rounded-full border border-slate-200/90 bg-white text-slate-600 shadow-2xs transition-colors hover:border-emerald-400 hover:bg-emerald-50 hover:text-emerald-700 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300 dark:hover:border-emerald-500/60 dark:hover:bg-slate-750 dark:hover:text-emerald-300"
+                className="ai-chat-btn group flex h-[34px] w-[34px] items-center justify-center rounded-full border border-slate-200/90 text-slate-600 shadow-2xs transition-colors hover:border-emerald-400 hover:bg-emerald-50 hover:text-emerald-700 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300 dark:hover:border-emerald-500/60 dark:hover:bg-slate-750 dark:hover:text-emerald-300"
                 style={{
                   appearance: "none",
                   WebkitAppearance: "none",
@@ -596,7 +596,7 @@ export function AIChatCard({
                     "ai-chat-btn flex h-[34px] w-[34px] items-center justify-center rounded-full border shadow-2xs transition-all duration-200",
                     isRecording
                       ? "border-red-500 bg-red-500 text-white shadow-md shadow-red-500/30 animate-pulse"
-                      : "border-slate-200/90 bg-white text-slate-600 hover:border-emerald-400 hover:bg-emerald-50 hover:text-emerald-700 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300 dark:hover:border-emerald-500/60 dark:hover:bg-slate-750 dark:hover:text-emerald-300"
+                      : "border-slate-200/90 text-slate-600 hover:border-emerald-400 hover:bg-emerald-50 hover:text-emerald-700 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300 dark:hover:border-emerald-500/60 dark:hover:bg-slate-750 dark:hover:text-emerald-300"
                   )}
                   style={{
                     appearance: "none",

@@ -14,7 +14,7 @@
     <script id="chat-history-data" type="application/json">{{ history_json|safe }}</script>
     <div id="ai-chat-card-root" data-react-island="AIChatIsland" data-user-name="{{ user_name|default:'Farmer' }}">
       <div
-        class="rounded-[26px] bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 p-8 shadow-xl flex flex-col items-center justify-center min-h-[500px] text-center">
+        class="ai-chat-card-surface rounded-[26px] border border-slate-200/80 p-8 shadow-xl flex flex-col items-center justify-center min-h-[500px] text-center">
         <div class="spinner-border text-success mb-3" role="status">
           <span class="visually-hidden">Loading...</span>
         </div>
