@@ -109,27 +109,27 @@ html:not(.dark) .bottom-nav-item.is-active .bottom-nav-icon {
 }
 
 /* Universal Typography in Light Mode (excl. footer, dark surfaces, and photo sliders) */
-html:not(.dark) h1:not(.app-footer-4col *):not(.bg-dark *):not(.bg-black *):not(.btn-primary *):not(.btn-21st-primary *):not(.auth-slider-panel *):not(.auth-photo-caption *):not(.auth-photo-back-btn *):not(.instagram-story-overlay *):not(.instagram-story-modal *):not(.pesticide-info-tooltip *),
-html:not(.dark) h2:not(.app-footer-4col *):not(.bg-dark *):not(.bg-black *):not(.btn-primary *):not(.btn-21st-primary *):not(.auth-slider-panel *):not(.auth-photo-caption *):not(.auth-photo-back-btn *):not(.instagram-story-overlay *):not(.instagram-story-modal *):not(.pesticide-info-tooltip *),
-html:not(.dark) h3:not(.app-footer-4col *):not(.bg-dark *):not(.bg-black *):not(.btn-primary *):not(.btn-21st-primary *):not(.auth-slider-panel *):not(.auth-photo-caption *):not(.auth-photo-back-btn *):not(.instagram-story-overlay *):not(.instagram-story-modal *):not(.pesticide-info-tooltip *),
-html:not(.dark) h4:not(.app-footer-4col *):not(.bg-dark *):not(.bg-black *):not(.btn-primary *):not(.btn-21st-primary *):not(.auth-slider-panel *):not(.auth-photo-caption *):not(.auth-photo-back-btn *):not(.instagram-story-overlay *):not(.instagram-story-modal *):not(.pesticide-info-tooltip *),
-html:not(.dark) h5:not(.app-footer-4col *):not(.bg-dark *):not(.bg-black *):not(.btn-primary *):not(.btn-21st-primary *):not(.auth-slider-panel *):not(.auth-photo-caption *):not(.auth-photo-back-btn *):not(.instagram-story-overlay *):not(.instagram-story-modal *):not(.pesticide-info-tooltip *),
-html:not(.dark) h6:not(.app-footer-4col *):not(.bg-dark *):not(.bg-black *):not(.btn-primary *):not(.btn-21st-primary *):not(.auth-slider-panel *):not(.auth-photo-caption *):not(.auth-photo-back-btn *):not(.instagram-story-overlay *):not(.instagram-story-modal *):not(.pesticide-info-tooltip *),
-html:not(.dark) p:not(.app-footer-4col *):not(.bg-dark *):not(.bg-black *):not(.btn-primary *):not(.btn-21st-primary *):not(.auth-slider-panel *):not(.auth-photo-caption *):not(.auth-photo-back-btn *):not(.instagram-story-overlay *):not(.instagram-story-modal *):not(.pesticide-info-tooltip *),
-html:not(.dark) label:not(.app-footer-4col *):not(.bg-dark *):not(.bg-black *):not(.btn-primary *):not(.btn-21st-primary *):not(.instagram-story-overlay *):not(.instagram-story-modal *):not(.pesticide-info-tooltip *),
-html:not(.dark) span:not(.app-footer-4col *):not(.bg-dark *):not(.bg-black *):not(.badge):not(i):not(svg):not(.btn-primary *):not(.btn-21st-primary *):not(.text-success):not(.text-danger):not(.text-warning):not(.text-primary):not(.auth-slider-panel *):not(.auth-photo-caption *):not(.auth-photo-back-btn *):not(.plantix-diag-badge):not(.plantix-badge-new):not(.plantix-spray-badge):not([class*="-badge"]):not(.instagram-story-overlay *):not(.instagram-story-modal *):not(.pesticide-info-tooltip *),
-html:not(.dark) div:not(.app-footer-4col *):not(.bg-dark *):not(.bg-black *):not(.badge):not(.btn-primary *):not(.btn-21st-primary *):not(.btn-21st-icon-circle):not(.auth-slider-panel *):not(.auth-photo-caption *):not(.auth-photo-back-btn *):not(.instagram-story-overlay *):not(.instagram-story-modal *):not(.pesticide-info-tooltip *),
-html:not(.dark) li:not(.app-footer-4col *):not(.bg-dark *):not(.bg-black *):not(.badge):not(.instagram-story-overlay *):not(.instagram-story-modal *):not(.pesticide-info-tooltip *),
-html:not(.dark) td:not(.app-footer-4col *):not(.bg-dark *):not(.bg-black *):not(.instagram-story-overlay *):not(.instagram-story-modal *):not(.pesticide-info-tooltip *),
-html:not(.dark) th:not(.app-footer-4col *):not(.bg-dark *):not(.bg-black *):not(.instagram-story-overlay *):not(.instagram-story-modal *):not(.pesticide-info-tooltip *),
-html:not(.dark) dt:not(.app-footer-4col *):not(.bg-dark *):not(.bg-black *):not(.instagram-story-overlay *):not(.instagram-story-modal *):not(.pesticide-info-tooltip *),
-html:not(.dark) dd:not(.app-footer-4col *):not(.bg-dark *):not(.bg-black *):not(.instagram-story-overlay *):not(.instagram-story-modal *):not(.pesticide-info-tooltip *),
-html:not(.dark) small:not(.app-footer-4col *):not(.bg-dark *):not(.bg-black *):not(.badge):not(.btn-primary *):not(.btn-21st-primary *):not(.auth-slider-panel *):not(.auth-photo-caption *):not(.auth-photo-back-btn *):not(.instagram-story-overlay *):not(.instagram-story-modal *):not(.pesticide-info-tooltip *),
-html:not(.dark) strong:not(.app-footer-4col *):not(.bg-dark *):not(.bg-black *):not(.badge):not(.btn-primary *):not(.btn-21st-primary *):not(.auth-slider-panel *):not(.auth-photo-caption *):not(.auth-photo-back-btn *):not(.instagram-story-overlay *):not(.instagram-story-modal *):not(.pesticide-info-tooltip *),
-html:not(.dark) b:not(.app-footer-4col *):not(.bg-dark *):not(.bg-black *):not(.badge):not(.btn-primary *):not(.btn-21st-primary *):not(.auth-slider-panel *):not(.auth-photo-caption *):not(.auth-photo-back-btn *):not(.instagram-story-overlay *):not(.instagram-story-modal *):not(.pesticide-info-tooltip *),
-html:not(.dark) em:not(.app-footer-4col *):not(.bg-dark *):not(.bg-black *):not(.badge):not(.btn-primary *):not(.btn-21st-primary *):not(.auth-slider-panel *):not(.auth-photo-caption *):not(.auth-photo-back-btn *):not(.instagram-story-overlay *):not(.instagram-story-modal *):not(.pesticide-info-tooltip *),
-html:not(.dark) .text-muted:not(.app-footer-4col *):not(.bg-dark *):not(.bg-black *):not(.instagram-story-overlay *):not(.instagram-story-modal *):not(.pesticide-info-tooltip *),
-html:not(.dark) .text-secondary:not(.app-footer-4col *):not(.bg-dark *):not(.bg-black *):not(.instagram-story-overlay *):not(.instagram-story-modal *):not(.pesticide-info-tooltip *),
+html:not(.dark) h1:not(.app-footer-4col *):not(.bg-dark *):not(.bg-black *):not(.btn-primary *):not(.btn-21st-primary *):not(.auth-slider-panel *):not(.auth-photo-caption *):not(.auth-photo-back-btn *):not(.instagram-story-overlay *):not(.instagram-story-modal *),
+html:not(.dark) h2:not(.app-footer-4col *):not(.bg-dark *):not(.bg-black *):not(.btn-primary *):not(.btn-21st-primary *):not(.auth-slider-panel *):not(.auth-photo-caption *):not(.auth-photo-back-btn *):not(.instagram-story-overlay *):not(.instagram-story-modal *),
+html:not(.dark) h3:not(.app-footer-4col *):not(.bg-dark *):not(.bg-black *):not(.btn-primary *):not(.btn-21st-primary *):not(.auth-slider-panel *):not(.auth-photo-caption *):not(.auth-photo-back-btn *):not(.instagram-story-overlay *):not(.instagram-story-modal *),
+html:not(.dark) h4:not(.app-footer-4col *):not(.bg-dark *):not(.bg-black *):not(.btn-primary *):not(.btn-21st-primary *):not(.auth-slider-panel *):not(.auth-photo-caption *):not(.auth-photo-back-btn *):not(.instagram-story-overlay *):not(.instagram-story-modal *),
+html:not(.dark) h5:not(.app-footer-4col *):not(.bg-dark *):not(.bg-black *):not(.btn-primary *):not(.btn-21st-primary *):not(.auth-slider-panel *):not(.auth-photo-caption *):not(.auth-photo-back-btn *):not(.instagram-story-overlay *):not(.instagram-story-modal *),
+html:not(.dark) h6:not(.app-footer-4col *):not(.bg-dark *):not(.bg-black *):not(.btn-primary *):not(.btn-21st-primary *):not(.auth-slider-panel *):not(.auth-photo-caption *):not(.auth-photo-back-btn *):not(.instagram-story-overlay *):not(.instagram-story-modal *),
+html:not(.dark) p:not(.app-footer-4col *):not(.bg-dark *):not(.bg-black *):not(.btn-primary *):not(.btn-21st-primary *):not(.auth-slider-panel *):not(.auth-photo-caption *):not(.auth-photo-back-btn *):not(.instagram-story-overlay *):not(.instagram-story-modal *),
+html:not(.dark) label:not(.app-footer-4col *):not(.bg-dark *):not(.bg-black *):not(.btn-primary *):not(.btn-21st-primary *):not(.instagram-story-overlay *):not(.instagram-story-modal *),
+html:not(.dark) span:not(.app-footer-4col *):not(.bg-dark *):not(.bg-black *):not(.badge):not(i):not(svg):not(.btn-primary *):not(.btn-21st-primary *):not(.text-success):not(.text-danger):not(.text-warning):not(.text-primary):not(.auth-slider-panel *):not(.auth-photo-caption *):not(.auth-photo-back-btn *):not(.plantix-diag-badge):not(.plantix-badge-new):not(.plantix-spray-badge):not([class*="-badge"]):not(.instagram-story-overlay *):not(.instagram-story-modal *),
+html:not(.dark) div:not(.app-footer-4col *):not(.bg-dark *):not(.bg-black *):not(.badge):not(.btn-primary *):not(.btn-21st-primary *):not(.btn-21st-icon-circle):not(.auth-slider-panel *):not(.auth-photo-caption *):not(.auth-photo-back-btn *):not(.instagram-story-overlay *):not(.instagram-story-modal *),
+html:not(.dark) li:not(.app-footer-4col *):not(.bg-dark *):not(.bg-black *):not(.badge):not(.instagram-story-overlay *):not(.instagram-story-modal *),
+html:not(.dark) td:not(.app-footer-4col *):not(.bg-dark *):not(.bg-black *):not(.instagram-story-overlay *):not(.instagram-story-modal *),
+html:not(.dark) th:not(.app-footer-4col *):not(.bg-dark *):not(.bg-black *):not(.instagram-story-overlay *):not(.instagram-story-modal *),
+html:not(.dark) dt:not(.app-footer-4col *):not(.bg-dark *):not(.bg-black *):not(.instagram-story-overlay *):not(.instagram-story-modal *),
+html:not(.dark) dd:not(.app-footer-4col *):not(.bg-dark *):not(.bg-black *):not(.instagram-story-overlay *):not(.instagram-story-modal *),
+html:not(.dark) small:not(.app-footer-4col *):not(.bg-dark *):not(.bg-black *):not(.badge):not(.btn-primary *):not(.btn-21st-primary *):not(.auth-slider-panel *):not(.auth-photo-caption *):not(.auth-photo-back-btn *):not(.instagram-story-overlay *):not(.instagram-story-modal *),
+html:not(.dark) strong:not(.app-footer-4col *):not(.bg-dark *):not(.bg-black *):not(.badge):not(.btn-primary *):not(.btn-21st-primary *):not(.auth-slider-panel *):not(.auth-photo-caption *):not(.auth-photo-back-btn *):not(.instagram-story-overlay *):not(.instagram-story-modal *),
+html:not(.dark) b:not(.app-footer-4col *):not(.bg-dark *):not(.bg-black *):not(.badge):not(.btn-primary *):not(.btn-21st-primary *):not(.auth-slider-panel *):not(.auth-photo-caption *):not(.auth-photo-back-btn *):not(.instagram-story-overlay *):not(.instagram-story-modal *),
+html:not(.dark) em:not(.app-footer-4col *):not(.bg-dark *):not(.bg-black *):not(.badge):not(.btn-primary *):not(.btn-21st-primary *):not(.auth-slider-panel *):not(.auth-photo-caption *):not(.auth-photo-back-btn *):not(.instagram-story-overlay *):not(.instagram-story-modal *),
+html:not(.dark) .text-muted:not(.app-footer-4col *):not(.bg-dark *):not(.bg-black *):not(.instagram-story-overlay *):not(.instagram-story-modal *),
+html:not(.dark) .text-secondary:not(.app-footer-4col *):not(.bg-dark *):not(.bg-black *):not(.instagram-story-overlay *):not(.instagram-story-modal *),
 html:not(.dark) .text-dark,
 html:not(.dark) .tool-number,
 html:not(.dark) .pest-alerts-badge,
@@ -172,6 +172,27 @@ html:not(.dark) .form-control::placeholder,
 html:not(.dark) input:not(.ai-chat-input)::placeholder,
 html:not(.dark) textarea:not(.ai-chat-textarea)::placeholder {
   color: #64748b !important;
+}
+
+/* File selector button in light mode */
+html:not(.dark) input[type="file"]::file-selector-button,
+html:not(.dark) input[type="file"]::-webkit-file-upload-button {
+  background: #f1f5f9 !important;
+  color: #0f172a !important;
+  -webkit-text-fill-color: #0f172a !important;
+  border: 1px solid #cbd5e1 !important;
+  border-radius: 6px !important;
+  padding: 5px 14px !important;
+  font-weight: 700 !important;
+  font-size: 13px !important;
+  margin-right: 12px !important;
+  cursor: pointer !important;
+  transition: all 0.15s ease !important;
+}
+html:not(.dark) input[type="file"]::file-selector-button:hover,
+html:not(.dark) input[type="file"]::-webkit-file-upload-button:hover {
+  background: #e2e8f0 !important;
+  border-color: #94a3b8 !important;
 }
 
 /* ─── 3. DARK SURFACES IN LIGHT MODE (FOOTER, BG-BLACK, BG-DARK -> PURE WHITE TEXT) ─── */
@@ -542,6 +563,38 @@ html.dark textarea:not(.ai-chat-textarea)::placeholder,
 [data-theme="dark"] input:not(.ai-chat-input)::placeholder,
 [data-theme="dark"] textarea:not(.ai-chat-textarea)::placeholder {
   color: rgba(255, 255, 255, 0.65) !important;
+}
+
+/* File selector button in dark mode (NO INVISIBLE WHITE ON WHITE!) */
+html.dark input[type="file"],
+[data-theme="dark"] input[type="file"] {
+  background-color: #1e293b !important;
+  color: #cbd5e1 !important;
+  -webkit-text-fill-color: #cbd5e1 !important;
+  border: 1px solid rgba(255, 255, 255, 0.22) !important;
+}
+html.dark input[type="file"]::file-selector-button,
+html.dark input[type="file"]::-webkit-file-upload-button,
+[data-theme="dark"] input[type="file"]::file-selector-button,
+[data-theme="dark"] input[type="file"]::-webkit-file-upload-button {
+  background: #2563eb !important;
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  border: 1px solid #3b82f6 !important;
+  border-radius: 6px !important;
+  padding: 5px 14px !important;
+  font-weight: 700 !important;
+  font-size: 13px !important;
+  margin-right: 12px !important;
+  cursor: pointer !important;
+  transition: all 0.15s ease !important;
+}
+html.dark input[type="file"]::file-selector-button:hover,
+html.dark input[type="file"]::-webkit-file-upload-button:hover,
+[data-theme="dark"] input[type="file"]::file-selector-button:hover,
+[data-theme="dark"] input[type="file"]::-webkit-file-upload-button:hover {
+  background: #1d4ed8 !important;
+  border-color: #60a5fa !important;
 }
 
 /* ─── 5. WHITE/LIGHT ELEMENTS IN DARK MODE (TABLE-LIGHT ONLY) ─── */
@@ -1600,35 +1653,43 @@ html:not(.dark) .library-conditions > div {
   border-color: #e2e8f0 !important;
   color: #000000 !important;
 }
-html:not(.dark) .cultivation-snapshot > div {
+html:not(.dark) .cultivation-snap-tile {
   background-color: #ffffff !important;
-  border-color: #e2e8f0 !important;
+  border: 1px solid #e2e8f0 !important;
 }
-html:not(.dark) .cultivation-snapshot span {
+html:not(.dark) .cultivation-snap-tile .snap-label {
   color: #64748b !important;
 }
-html:not(.dark) .cultivation-snapshot strong {
-  color: #000000 !important;
+html:not(.dark) .cultivation-snap-tile .snap-value {
+  color: #0f172a !important;
 }
-html:not(.dark) .cultivation-navigation {
+html:not(.dark) .cultivation-step-bar {
   background-color: #ffffff !important;
-  border-color: #e2e8f0 !important;
+  border: 1px solid #e2e8f0 !important;
 }
-html:not(.dark) .cultivation-navigation > a {
-  color: #000000 !important;
+html:not(.dark) .step-bar-item {
+  background-color: #f1f5f9 !important;
+  color: #334155 !important;
 }
-html:not(.dark) .cultivation-navigation > a:hover {
-  background-color: #edf2fe !important;
-  color: #005bf6 !important;
+html:not(.dark) .step-bar-item:hover {
+  background-color: #2563eb !important;
+  color: #ffffff !important;
 }
-html:not(.dark) .cultivation-topic {
+html:not(.dark) .cultivation-step-card {
   background-color: #ffffff !important;
-  border-color: #e2e8f0 !important;
+  border: 1px solid #e2e8f0 !important;
 }
-html:not(.dark) .cultivation-topic summary h3 {
-  color: #000000 !important;
+html:not(.dark) .step-title {
+  color: #0f172a !important;
 }
-html:not(.dark) .cultivation-topic-body li {
+html:not(.dark) .step-metric-tile {
+  background-color: #f8fafc !important;
+  border: 1px solid #e2e8f0 !important;
+}
+html:not(.dark) .metric-val {
+  color: #0f172a !important;
+}
+html:not(.dark) .step-actions-list li {
   color: #334155 !important;
 }
 
@@ -1743,45 +1804,145 @@ html.dark .library-conditions > div,
   border-color: #334155 !important;
   color: #ffffff !important;
 }
-html.dark .cultivation-snapshot > div,
-[data-theme="dark"] .cultivation-snapshot > div {
+html.dark .cultivation-snap-tile,
+[data-theme="dark"] .cultivation-snap-tile {
   background-color: #1e293b !important;
-  border-color: #334155 !important;
+  border: 1px solid rgba(255, 255, 255, 0.14) !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4) !important;
 }
-html.dark .cultivation-snapshot span,
-[data-theme="dark"] .cultivation-snapshot span {
-  color: #94a3b8 !important;
-}
-html.dark .cultivation-snapshot strong,
-[data-theme="dark"] .cultivation-snapshot strong {
-  color: #ffffff !important;
-}
-html.dark .cultivation-navigation,
-[data-theme="dark"] .cultivation-navigation {
-  background-color: #111827 !important;
-  border-color: #1e293b !important;
-}
-html.dark .cultivation-navigation > a,
-[data-theme="dark"] .cultivation-navigation > a {
-  color: #cbd5e1 !important;
-}
-html.dark .cultivation-navigation > a:hover,
-[data-theme="dark"] .cultivation-navigation > a:hover {
-  background-color: #1e293b !important;
+html.dark .cultivation-snap-tile .snap-icon,
+[data-theme="dark"] .cultivation-snap-tile .snap-icon {
+  background-color: rgba(37, 99, 235, 0.2) !important;
   color: #60a5fa !important;
 }
-html.dark .cultivation-topic,
-[data-theme="dark"] .cultivation-topic {
-  background-color: #111827 !important;
-  border-color: #1e293b !important;
+html.dark .cultivation-snap-tile .snap-label,
+[data-theme="dark"] .cultivation-snap-tile .snap-label {
+  color: #94a3b8 !important;
 }
-html.dark .cultivation-topic summary h3,
-[data-theme="dark"] .cultivation-topic summary h3 {
+html.dark .cultivation-snap-tile .snap-value,
+[data-theme="dark"] .cultivation-snap-tile .snap-value {
   color: #ffffff !important;
 }
-html.dark .cultivation-topic-body li,
-[data-theme="dark"] .cultivation-topic-body li {
+html.dark .cultivation-step-bar,
+[data-theme="dark"] .cultivation-step-bar {
+  background-color: #111827 !important;
+  border: 1px solid #1e293b !important;
+}
+html.dark .step-bar-label,
+[data-theme="dark"] .step-bar-label {
+  color: #94a3b8 !important;
+}
+html.dark .step-bar-item,
+[data-theme="dark"] .step-bar-item {
+  background-color: #1e293b !important;
   color: #cbd5e1 !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+html.dark .step-bar-item:hover,
+[data-theme="dark"] .step-bar-item:hover {
+  background-color: #2563eb !important;
+  color: #ffffff !important;
+  border-color: #3b82f6 !important;
+}
+html.dark .step-bar-mandi,
+[data-theme="dark"] .step-bar-mandi {
+  background-color: rgba(16, 185, 129, 0.15) !important;
+  color: #34d399 !important;
+  border-color: rgba(52, 211, 153, 0.3) !important;
+}
+html.dark .cultivation-step-card,
+[data-theme="dark"] .cultivation-step-card {
+  background-color: #111827 !important;
+  border: 1px solid rgba(255, 255, 255, 0.14) !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5) !important;
+}
+html.dark .cultivation-step-card:hover,
+[data-theme="dark"] .cultivation-step-card:hover {
+  border-color: rgba(96, 165, 250, 0.5) !important;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.7), 0 0 16px rgba(59, 130, 246, 0.15) !important;
+}
+html.dark .step-title,
+[data-theme="dark"] .step-title {
+  color: #ffffff !important;
+}
+html.dark .step-hindi-sub,
+[data-theme="dark"] .step-hindi-sub {
+  color: #34d399 !important;
+}
+html.dark .step-image-caption,
+[data-theme="dark"] .step-image-caption {
+  color: #94a3b8 !important;
+}
+html.dark .step-metric-tile,
+[data-theme="dark"] .step-metric-tile {
+  background-color: rgba(30, 41, 59, 0.8) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+}
+html.dark .step-metric-tile .metric-icon,
+[data-theme="dark"] .step-metric-tile .metric-icon {
+  color: #60a5fa !important;
+}
+html.dark .step-metric-tile .metric-label,
+[data-theme="dark"] .step-metric-tile .metric-label {
+  color: #94a3b8 !important;
+}
+html.dark .step-metric-tile .metric-val,
+[data-theme="dark"] .step-metric-tile .metric-val {
+  color: #ffffff !important;
+}
+html.dark .step-section-heading,
+[data-theme="dark"] .step-section-heading {
+  color: #cbd5e1 !important;
+}
+html.dark .step-actions-list li,
+[data-theme="dark"] .step-actions-list li {
+  color: #e2e8f0 !important;
+}
+html.dark .step-protip-box,
+[data-theme="dark"] .step-protip-box {
+  background-color: rgba(120, 53, 15, 0.28) !important;
+  border: 1px solid rgba(245, 158, 11, 0.35) !important;
+  border-left: 4px solid #f59e0b !important;
+}
+html.dark .protip-content,
+[data-theme="dark"] .protip-content {
+  color: #fde68a !important;
+}
+html.dark .protip-content strong,
+[data-theme="dark"] .protip-content strong {
+  color: #fef08a !important;
+}
+html.dark .btn-step-tool,
+[data-theme="dark"] .btn-step-tool {
+  background-color: rgba(30, 41, 59, 0.95) !important;
+  color: #60a5fa !important;
+  border: 1px solid rgba(96, 165, 250, 0.4) !important;
+}
+html.dark .btn-step-tool:hover,
+[data-theme="dark"] .btn-step-tool:hover {
+  background-color: #2563eb !important;
+  color: #ffffff !important;
+  border-color: #3b82f6 !important;
+}
+html.dark .cultivation-references,
+[data-theme="dark"] .cultivation-references {
+  background-color: #111827 !important;
+  border: 1px solid #1e293b !important;
+}
+html.dark .cultivation-references h3,
+[data-theme="dark"] .cultivation-references h3 {
+  color: #ffffff !important;
+}
+html.dark .cultivation-ref-links a,
+[data-theme="dark"] .cultivation-ref-links a {
+  background-color: #1e293b !important;
+  color: #cbd5e1 !important;
+  border-color: #334155 !important;
+}
+html.dark .cultivation-ref-links a:hover,
+[data-theme="dark"] .cultivation-ref-links a:hover {
+  background-color: #2563eb !important;
+  color: #ffffff !important;
 }
 
 /* ─── 13. PESTS & DISEASES CONTRAST ─── */
@@ -2245,17 +2406,71 @@ html:not(.dark) .assessment-urgent h3 {
 html:not(.dark) .assessment-empty {
   background-color: #ffffff !important;
   border: 2px dashed #cbd5e1 !important;
-  color: #000000 !important;
+  border-radius: 22px !important;
+  padding: 44px 32px !important;
+  color: #0f172a !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04) !important;
 }
 html:not(.dark) .assessment-empty h2 {
-  color: #000000 !important;
+  color: #0f172a !important;
+  font-weight: 800 !important;
+  letter-spacing: -0.02em !important;
 }
 html:not(.dark) .assessment-empty p {
   color: #475569 !important;
 }
+html:not(.dark) .assessment-empty .assessment-empty-icon,
 html:not(.dark) .assessment-empty > span {
-  background-color: #edf2fe !important;
+  width: 78px !important;
+  height: 78px !important;
+  border-radius: 22px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin-bottom: 20px !important;
+  background: linear-gradient(135deg, #ecfdf5 0%, #edf2fe 100%) !important;
+  border: 1.5px solid #bfdbfe !important;
+  box-shadow: 0 10px 25px -5px rgba(0, 91, 246, 0.16), 0 4px 10px rgba(16, 185, 129, 0.08) !important;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease !important;
+}
+html:not(.dark) .assessment-empty:hover .assessment-empty-icon {
+  transform: translateY(-2px) scale(1.04) !important;
+  box-shadow: 0 14px 32px -4px rgba(0, 91, 246, 0.22) !important;
+}
+html:not(.dark) .assessment-empty .assessment-svg-icon {
   color: #005bf6 !important;
+}
+html:not(.dark) .assessment-empty .scan-bracket {
+  stroke: #2563eb !important;
+  stroke-width: 2.2 !important;
+}
+html:not(.dark) .assessment-empty .scan-leaf {
+  stroke: #059669 !important;
+  fill: rgba(16, 185, 129, 0.16) !important;
+  stroke-width: 2.2 !important;
+}
+html:not(.dark) .assessment-empty .scan-leaf-stem {
+  stroke: #059669 !important;
+  stroke-width: 2 !important;
+}
+html:not(.dark) .assessment-empty-features {
+  display: inline-flex !important;
+  flex-direction: column !important;
+  gap: 10px !important;
+  text-align: left !important;
+  margin-top: 14px !important;
+  padding: 16px 22px !important;
+  border-radius: 14px !important;
+  background: #f8fafc !important;
+  border: 1px solid #e2e8f0 !important;
+}
+html:not(.dark) .assessment-empty-feat {
+  font-size: 13.5px !important;
+  font-weight: 500 !important;
+  display: flex !important;
+  align-items: center !important;
+  color: #334155 !important;
+  line-height: 1.4 !important;
 }
 html:not(.dark) .assessment-chemical {
   background-color: #f8fafc !important;
@@ -2278,6 +2493,115 @@ html:not(.dark) .assessment-footer {
   color: #64748b !important;
   border-top: 1px solid #e2e8f0 !important;
 }
+html:not(.dark) .disease-upload .form-label {
+  color: #1e293b !important;
+  -webkit-text-fill-color: #1e293b !important;
+  font-weight: 600 !important;
+}
+html:not(.dark) .disease-upload .form-text {
+  color: #64748b !important;
+  -webkit-text-fill-color: #64748b !important;
+}
+
+/* Page heading icons in Light Mode (Globally & Disease Checker) */
+html:not(.dark) .page-heading-icon,
+html:not(.dark) .page-intro .page-heading-icon,
+html:not(.dark) .disease-assessment .page-heading-icon {
+  margin-bottom: 0 !important;
+  width: 38px !important;
+  height: 38px !important;
+  min-width: 38px !important;
+  min-height: 38px !important;
+  font-size: 1.15rem !important;
+  border-radius: 50% !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex-shrink: 0 !important;
+  line-height: 1 !important;
+  background: #edf2fe !important;
+  border: 1px solid #bfdbfe !important;
+  color: #005bf6 !important;
+  box-shadow: 0 2px 6px rgba(0, 91, 246, 0.12) !important;
+}
+html:not(.dark) .page-heading-icon i,
+html:not(.dark) .page-heading-icon svg,
+html:not(.dark) .page-intro .page-heading-icon i,
+html:not(.dark) .page-intro .page-heading-icon svg,
+html:not(.dark) .disease-assessment .page-heading-icon i,
+html:not(.dark) .disease-assessment .page-heading-icon svg {
+  color: #005bf6 !important;
+  -webkit-text-fill-color: #005bf6 !important;
+}
+
+/* 21st Dev Back Button in Disease Checker */
+.disease-back-btn {
+  width: 42px !important;
+  height: 42px !important;
+  min-width: 42px !important;
+  min-height: 42px !important;
+  border-radius: 9999px !important;
+  padding: 0 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex-shrink: 0 !important;
+  cursor: pointer !important;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  text-decoration: none !important;
+  margin-top: 4px !important;
+}
+.disease-back-btn:active {
+  transform: scale(0.92) !important;
+}
+html:not(.dark) .disease-back-btn {
+  background: #ffffff !important;
+  border: 1px solid #cbd5e1 !important;
+  border-bottom: 2px solid #94a3b8 !important;
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.08), 0 1px 2px rgba(15, 23, 42, 0.04) !important;
+  color: #0f172a !important;
+}
+html:not(.dark) .disease-back-btn:hover {
+  background: #f8fafc !important;
+  border-color: #3b82f6 !important;
+  color: #2563eb !important;
+  box-shadow: 0 4px 14px rgba(59, 130, 246, 0.18) !important;
+  transform: translateY(-1px) !important;
+}
+html:not(.dark) .disease-back-btn svg {
+  stroke: #0f172a !important;
+  transition: transform 0.2s ease !important;
+}
+html:not(.dark) .disease-back-btn:hover svg {
+  stroke: #2563eb !important;
+  transform: translateX(-2px) !important;
+}
+html.dark .disease-back-btn,
+[data-theme="dark"] .disease-back-btn {
+  background: rgba(15, 23, 42, 0.85) !important;
+  border: 1px solid rgba(255, 255, 255, 0.18) !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.32) !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
+  color: #ffffff !important;
+}
+html.dark .disease-back-btn:hover,
+[data-theme="dark"] .disease-back-btn:hover {
+  background: rgba(30, 41, 59, 0.95) !important;
+  border-color: rgba(96, 165, 250, 0.6) !important;
+  color: #ffffff !important;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.85), 0 0 12px rgba(59, 130, 246, 0.3) !important;
+  transform: translateY(-1px) !important;
+}
+html.dark .disease-back-btn svg,
+[data-theme="dark"] .disease-back-btn svg {
+  stroke: #ffffff !important;
+  transition: transform 0.2s ease !important;
+}
+html.dark .disease-back-btn:hover svg,
+[data-theme="dark"] .disease-back-btn:hover svg {
+  stroke: #60a5fa !important;
+  transform: translateX(-2px) !important;
+}
 
 html.dark .disease-upload,
 [data-theme="dark"] .disease-upload {
@@ -2288,20 +2612,80 @@ html.dark .disease-upload,
 html.dark .disease-upload h2,
 [data-theme="dark"] .disease-upload h2 {
   color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
 }
 html.dark .disease-intro,
 [data-theme="dark"] .disease-intro {
   color: #cbd5e1 !important;
+  -webkit-text-fill-color: #cbd5e1 !important;
+}
+html.dark .disease-upload .form-label,
+[data-theme="dark"] .disease-upload .form-label {
+  color: #cbd5e1 !important;
+  -webkit-text-fill-color: #cbd5e1 !important;
+  font-weight: 600 !important;
+}
+html.dark .disease-upload .form-text,
+[data-theme="dark"] .disease-upload .form-text {
+  color: #94a3b8 !important;
+  -webkit-text-fill-color: #94a3b8 !important;
 }
 html.dark .disease-upload-notice,
 [data-theme="dark"] .disease-upload-notice {
   background: #1e293b !important;
   border: 1px solid #334155 !important;
   color: #cbd5e1 !important;
+  -webkit-text-fill-color: #cbd5e1 !important;
 }
 html.dark .disease-upload-notice > i,
 [data-theme="dark"] .disease-upload-notice > i {
   color: #60a5fa !important;
+}
+
+/* Page heading icons in Dark Mode (Globally & Disease Checker - NEVER WHITE ON WHITE!) */
+html.dark .page-heading-icon,
+html.dark .page-intro .page-heading-icon,
+html.dark header .page-heading-icon,
+html.dark .disease-assessment .page-heading-icon,
+[data-theme="dark"] .page-heading-icon,
+[data-theme="dark"] .page-intro .page-heading-icon,
+[data-theme="dark"] header .page-heading-icon,
+[data-theme="dark"] .disease-assessment .page-heading-icon {
+  margin-bottom: 0 !important;
+  width: 38px !important;
+  height: 38px !important;
+  min-width: 38px !important;
+  min-height: 38px !important;
+  font-size: 1.15rem !important;
+  border-radius: 50% !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex-shrink: 0 !important;
+  line-height: 1 !important;
+  background: rgba(30, 41, 59, 0.9) !important;
+  border: 1px solid rgba(255, 255, 255, 0.22) !important;
+  color: #60a5fa !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5), 0 0 10px rgba(59, 130, 246, 0.25) !important;
+}
+html.dark .page-heading-icon i,
+html.dark .page-heading-icon svg,
+html.dark .page-intro .page-heading-icon i,
+html.dark .page-intro .page-heading-icon svg,
+html.dark header .page-heading-icon i,
+html.dark header .page-heading-icon svg,
+html.dark .disease-assessment .page-heading-icon i,
+html.dark .disease-assessment .page-heading-icon svg,
+[data-theme="dark"] .page-heading-icon i,
+[data-theme="dark"] .page-heading-icon svg,
+[data-theme="dark"] .page-intro .page-heading-icon i,
+[data-theme="dark"] .page-intro .page-heading-icon svg,
+[data-theme="dark"] header .page-heading-icon i,
+[data-theme="dark"] header .page-heading-icon svg,
+[data-theme="dark"] .disease-assessment .page-heading-icon i,
+[data-theme="dark"] .disease-assessment .page-heading-icon svg {
+  color: #60a5fa !important;
+  -webkit-text-fill-color: #60a5fa !important;
 }
 html.dark .assessment-summary,
 [data-theme="dark"] .assessment-summary {
@@ -2363,22 +2747,94 @@ html.dark .assessment-urgent h3,
 }
 html.dark .assessment-empty,
 [data-theme="dark"] .assessment-empty {
-  background: #111827 !important;
+  background: linear-gradient(180deg, #111827 0%, #0f172a 100%) !important;
   border: 2px dashed #334155 !important;
+  border-radius: 22px !important;
+  padding: 44px 32px !important;
   color: #ffffff !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4) !important;
 }
 html.dark .assessment-empty h2,
 [data-theme="dark"] .assessment-empty h2 {
   color: #ffffff !important;
+  font-weight: 800 !important;
+  letter-spacing: -0.02em !important;
 }
 html.dark .assessment-empty p,
 [data-theme="dark"] .assessment-empty p {
   color: #cbd5e1 !important;
 }
+
+/* 21st Dev Diagnostic Scanner Icon in Dark Mode */
+html.dark .assessment-empty .assessment-empty-icon,
 html.dark .assessment-empty > span,
+[data-theme="dark"] .assessment-empty .assessment-empty-icon,
 [data-theme="dark"] .assessment-empty > span {
-  background: #1e293b !important;
+  width: 78px !important;
+  height: 78px !important;
+  border-radius: 22px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin-bottom: 20px !important;
+  background: linear-gradient(135deg, rgba(30, 41, 59, 0.95) 0%, rgba(15, 23, 42, 0.98) 100%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.18) !important;
+  border-top: 1px solid rgba(96, 165, 250, 0.55) !important;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.7), 0 0 24px rgba(59, 130, 246, 0.28) !important;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease !important;
+}
+html.dark .assessment-empty:hover .assessment-empty-icon,
+[data-theme="dark"] .assessment-empty:hover .assessment-empty-icon {
+  transform: translateY(-2px) scale(1.04) !important;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.85), 0 0 30px rgba(59, 130, 246, 0.4) !important;
+}
+html.dark .assessment-empty .assessment-svg-icon,
+[data-theme="dark"] .assessment-empty .assessment-svg-icon {
   color: #60a5fa !important;
+}
+html.dark .assessment-empty .scan-bracket,
+[data-theme="dark"] .assessment-empty .scan-bracket {
+  stroke: #60a5fa !important;
+  stroke-width: 2.2 !important;
+  opacity: 0.95 !important;
+}
+html.dark .assessment-empty .scan-leaf,
+[data-theme="dark"] .assessment-empty .scan-leaf {
+  stroke: #34d399 !important;
+  fill: rgba(52, 211, 153, 0.24) !important;
+  stroke-width: 2.2 !important;
+}
+html.dark .assessment-empty .scan-leaf-stem,
+[data-theme="dark"] .assessment-empty .scan-leaf-stem {
+  stroke: #34d399 !important;
+  stroke-width: 2 !important;
+}
+
+/* Feature Checklist in Dark Mode */
+html.dark .assessment-empty-features,
+[data-theme="dark"] .assessment-empty-features {
+  display: inline-flex !important;
+  flex-direction: column !important;
+  gap: 10px !important;
+  text-align: left !important;
+  margin-top: 14px !important;
+  padding: 16px 22px !important;
+  border-radius: 14px !important;
+  background: rgba(15, 23, 42, 0.65) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+html.dark .assessment-empty-feat,
+[data-theme="dark"] .assessment-empty-feat {
+  font-size: 13.5px !important;
+  font-weight: 500 !important;
+  display: flex !important;
+  align-items: center !important;
+  color: #cbd5e1 !important;
+  line-height: 1.4 !important;
+}
+html.dark .assessment-empty-feat i,
+[data-theme="dark"] .assessment-empty-feat i {
+  color: #34d399 !important;
 }
 html.dark .assessment-chemical,
 [data-theme="dark"] .assessment-chemical {
@@ -4759,159 +5215,224 @@ html.dark .pesticide-calc-page .pesticide-recent-card .text-slate-200,
   box-shadow: none !important;
 }
 
-/* ─── Pesticide Info Tooltip Popover (Both Light and Dark Mode) ─── */
-.pesticide-calc-page .pesticide-info-tooltip,
-html:not(.dark) .pesticide-calc-page .pesticide-info-tooltip,
-/* ─── Pesticide Info Tooltip Popover (Guaranteed Pure White Text in ALL Themes) ─── */
-.pesticide-calc-page .pesticide-info-tooltip,
-html:not(.dark) .pesticide-calc-page .pesticide-info-tooltip,
-html.dark .pesticide-calc-page .pesticide-info-tooltip,
-[data-theme="dark"] .pesticide-calc-page .pesticide-info-tooltip {
-  background: #0f172a !important;
-  background-color: #0f172a !important;
-  border: 1px solid rgba(255, 255, 255, 0.18) !important;
-  border-radius: 1rem !important;
-  box-shadow: 0 12px 30px -4px rgba(0, 0, 0, 0.5), 0 4px 12px -2px rgba(0, 0, 0, 0.3) !important;
-  color: #ffffff !important;
-}
+/* ==========================================================================
+   Pesticide Calculator - Tooltip Popover & Info Triggers (Pixel-Perfect Polish)
+   ========================================================================== */
 
-.pesticide-info-tooltip,
-.pesticide-info-tooltip *,
-html:not(.dark) .pesticide-calc-page .pesticide-info-tooltip,
-html:not(.dark) .pesticide-calc-page .pesticide-info-tooltip *,
-html:not(.dark) .pesticide-calc-page .pesticide-info-tooltip h4,
-html:not(.dark) .pesticide-calc-page .pesticide-info-tooltip p,
-html:not(.dark) .pesticide-calc-page .pesticide-info-tooltip span,
-html:not(.dark) .pesticide-calc-page .pesticide-info-tooltip div,
-html.dark .pesticide-calc-page .pesticide-info-tooltip,
-html.dark .pesticide-calc-page .pesticide-info-tooltip *,
-html.dark .pesticide-calc-page .pesticide-info-tooltip h4,
-html.dark .pesticide-calc-page .pesticide-info-tooltip p,
-html.dark .pesticide-calc-page .pesticide-info-tooltip span,
-html.dark .pesticide-calc-page .pesticide-info-tooltip div,
-[data-theme="dark"] .pesticide-calc-page .pesticide-info-tooltip,
-[data-theme="dark"] .pesticide-calc-page .pesticide-info-tooltip * {
-  color: #ffffff !important;
-}
-
-.pesticide-calc-page .pesticide-info-tooltip p,
-html:not(.dark) .pesticide-calc-page .pesticide-info-tooltip p,
-html.dark .pesticide-calc-page .pesticide-info-tooltip p,
-[data-theme="dark"] .pesticide-calc-page .pesticide-info-tooltip p {
-  color: #f8fafc !important;
-  font-size: 0.75rem !important;
-  line-height: 1.25rem !important;
-  font-weight: 500 !important;
-}
-
-.pesticide-calc-page .pesticide-info-tooltip h4,
-html:not(.dark) .pesticide-calc-page .pesticide-info-tooltip h4,
-html.dark .pesticide-calc-page .pesticide-info-tooltip h4,
-[data-theme="dark"] .pesticide-calc-page .pesticide-info-tooltip h4 {
-  color: #ffffff !important;
-  font-size: 0.875rem !important;
-  font-weight: 700 !important;
-}
-
-.pesticide-calc-page .pesticide-info-tooltip .tooltip-subtext,
-html:not(.dark) .pesticide-calc-page .pesticide-info-tooltip .tooltip-subtext,
-html.dark .pesticide-calc-page .pesticide-info-tooltip .tooltip-subtext,
-[data-theme="dark"] .pesticide-calc-page .pesticide-info-tooltip .tooltip-subtext {
-  color: #cbd5e1 !important;
-  font-size: 0.6875rem !important;
-  line-height: 1.125rem !important;
-}
-
-.pesticide-calc-page .pesticide-info-tooltip-arrow {
-  border-bottom-color: #0f172a !important;
-}
-
-/* Tooltip Close Button */
-.pesticide-calc-page .pesticide-tooltip-close {
-  background: rgba(255, 255, 255, 0.12) !important;
-  border: 1px solid rgba(255, 255, 255, 0.25) !important;
-  color: #ffffff !important;
-  border-radius: 9999px !important;
-  cursor: pointer !important;
-  transition: all 0.15s ease !important;
-}
-
-.pesticide-calc-page .pesticide-tooltip-close:hover {
-  background: rgba(255, 255, 255, 0.24) !important;
-  color: #ffffff !important;
-  transform: scale(1.08);
-}
-
-.pesticide-calc-page .pesticide-tooltip-close * {
-  color: #ffffff !important;
-}
-
-/* ─── Circular Info Trigger ((i) next to Product dosage & Water amount) ─── */
-.pesticide-calc-page .pesticide-info-trigger {
+/* 1. Circular Info Trigger Button ((i) next to Product dosage & Water amount) */
+html .pesticide-calc-page button.pesticide-info-trigger,
+html:not(.dark) .pesticide-calc-page button.pesticide-info-trigger,
+html.dark .pesticide-calc-page button.pesticide-info-trigger,
+[data-theme="dark"] .pesticide-calc-page button.pesticide-info-trigger,
+button.pesticide-info-trigger {
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  appearance: none !important;
   display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
   width: 1.25rem !important;
   height: 1.25rem !important;
+  min-width: 1.25rem !important;
+  min-height: 1.25rem !important;
+  max-width: 1.25rem !important;
+  max-height: 1.25rem !important;
   border-radius: 9999px !important;
   padding: 0 !important;
+  margin: 0 !important;
   cursor: pointer !important;
+  outline: none !important;
+  box-shadow: none !important;
+  box-sizing: border-box !important;
+  border-style: solid !important;
   transition: all 0.15s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
-html:not(.dark) .pesticide-calc-page .pesticide-info-trigger:not(.is-active) {
+/* Info Trigger - Inactive state in light mode */
+html:not(.dark) .pesticide-calc-page button.pesticide-info-trigger:not(.is-active) {
+  background-color: #f1f5f9 !important;
   background: #f1f5f9 !important;
   border: 1px solid #cbd5e1 !important;
   color: #64748b !important;
 }
-
-html:not(.dark) .pesticide-calc-page .pesticide-info-trigger:not(.is-active) * {
+html:not(.dark) .pesticide-calc-page button.pesticide-info-trigger:not(.is-active) svg {
   color: #64748b !important;
+  stroke: #64748b !important;
 }
-
-html:not(.dark) .pesticide-calc-page .pesticide-info-trigger:not(.is-active):hover {
+html:not(.dark) .pesticide-calc-page button.pesticide-info-trigger:not(.is-active):hover {
+  background-color: #eff6ff !important;
   background: #eff6ff !important;
   border-color: #3b82f6 !important;
   color: #2563eb !important;
-  transform: scale(1.1);
+  transform: scale(1.08);
 }
-
-html:not(.dark) .pesticide-calc-page .pesticide-info-trigger:not(.is-active):hover * {
+html:not(.dark) .pesticide-calc-page button.pesticide-info-trigger:not(.is-active):hover svg {
   color: #2563eb !important;
+  stroke: #2563eb !important;
 }
 
-html.dark .pesticide-calc-page .pesticide-info-trigger:not(.is-active),
-[data-theme="dark"] .pesticide-calc-page .pesticide-info-trigger:not(.is-active) {
+/* Info Trigger - Inactive state in dark mode */
+html.dark .pesticide-calc-page button.pesticide-info-trigger:not(.is-active),
+[data-theme="dark"] .pesticide-calc-page button.pesticide-info-trigger:not(.is-active) {
+  background-color: #1e293b !important;
   background: #1e293b !important;
-  border: 1px solid rgba(255, 255, 255, 0.18) !important;
+  border: 1px solid rgba(255, 255, 255, 0.22) !important;
   color: #94a3b8 !important;
 }
-
-html.dark .pesticide-calc-page .pesticide-info-trigger:not(.is-active) *,
-[data-theme="dark"] .pesticide-calc-page .pesticide-info-trigger:not(.is-active) * {
+html.dark .pesticide-calc-page button.pesticide-info-trigger:not(.is-active) svg,
+[data-theme="dark"] .pesticide-calc-page button.pesticide-info-trigger:not(.is-active) svg {
   color: #94a3b8 !important;
+  stroke: #94a3b8 !important;
 }
-
-html.dark .pesticide-calc-page .pesticide-info-trigger:not(.is-active):hover,
-[data-theme="dark"] .pesticide-calc-page .pesticide-info-trigger:not(.is-active):hover {
+html.dark .pesticide-calc-page button.pesticide-info-trigger:not(.is-active):hover,
+[data-theme="dark"] .pesticide-calc-page button.pesticide-info-trigger:not(.is-active):hover {
+  background-color: #334155 !important;
   background: #334155 !important;
   border-color: #60a5fa !important;
   color: #60a5fa !important;
-  transform: scale(1.1);
+  transform: scale(1.08);
 }
 
-.pesticide-calc-page .pesticide-info-trigger.is-active,
-html:not(.dark) .pesticide-calc-page .pesticide-info-trigger.is-active,
-html.dark .pesticide-calc-page .pesticide-info-trigger.is-active,
-[data-theme="dark"] .pesticide-calc-page .pesticide-info-trigger.is-active {
+/* Info Trigger - Active state (Vibrant blue circle with white icon) */
+html .pesticide-calc-page button.pesticide-info-trigger.is-active,
+html:not(.dark) .pesticide-calc-page button.pesticide-info-trigger.is-active,
+html.dark .pesticide-calc-page button.pesticide-info-trigger.is-active,
+[data-theme="dark"] .pesticide-calc-page button.pesticide-info-trigger.is-active,
+button.pesticide-info-trigger.is-active {
+  background-color: #2563eb !important;
   background: #2563eb !important;
   border: 1px solid #1d4ed8 !important;
   color: #ffffff !important;
   box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.25) !important;
 }
-
-.pesticide-calc-page .pesticide-info-trigger.is-active * {
+html .pesticide-calc-page button.pesticide-info-trigger.is-active svg,
+html:not(.dark) .pesticide-calc-page button.pesticide-info-trigger.is-active svg,
+html.dark .pesticide-calc-page button.pesticide-info-trigger.is-active svg {
   color: #ffffff !important;
+  stroke: #ffffff !important;
+}
+
+/* 2. Tooltip Popover Container */
+html .pesticide-calc-page .pesticide-info-tooltip,
+html:not(.dark) .pesticide-calc-page .pesticide-info-tooltip,
+html.dark .pesticide-calc-page .pesticide-info-tooltip,
+[data-theme="dark"] .pesticide-calc-page .pesticide-info-tooltip,
+.pesticide-info-tooltip {
+  background-color: #0f172a !important;
+  background: #0f172a !important;
+  border: 1px solid rgba(255, 255, 255, 0.18) !important;
+  border-radius: 1rem !important;
+  box-shadow: 0 12px 30px -4px rgba(0, 0, 0, 0.5), 0 4px 12px -2px rgba(0, 0, 0, 0.3) !important;
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  box-sizing: border-box !important;
+}
+
+.pesticide-calc-page .pesticide-info-tooltip-arrow,
+.pesticide-info-tooltip-arrow {
+  border-bottom-color: #0f172a !important;
+}
+
+/* 3. Pure White Text Inside Tooltip in BOTH Light and Dark Mode */
+html .pesticide-calc-page .pesticide-info-tooltip *,
+html:not(.dark) .pesticide-calc-page .pesticide-info-tooltip *,
+html.dark .pesticide-calc-page .pesticide-info-tooltip *,
+[data-theme="dark"] .pesticide-calc-page .pesticide-info-tooltip *,
+.pesticide-info-tooltip *,
+.pesticide-info-tooltip p,
+.pesticide-info-tooltip h4,
+.pesticide-info-tooltip span,
+.pesticide-info-tooltip div,
+.pesticide-tooltip-heading,
+.pesticide-tooltip-text {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+}
+
+html .pesticide-calc-page .pesticide-info-tooltip h4,
+html:not(.dark) .pesticide-calc-page .pesticide-info-tooltip h4,
+html.dark .pesticide-calc-page .pesticide-info-tooltip h4,
+.pesticide-info-tooltip h4,
+.pesticide-tooltip-heading {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  font-size: 0.875rem !important;
+  font-weight: 700 !important;
+  line-height: 1.25rem !important;
+  margin: 0 !important;
+}
+
+html .pesticide-calc-page .pesticide-info-tooltip p,
+html:not(.dark) .pesticide-calc-page .pesticide-info-tooltip p,
+html.dark .pesticide-calc-page .pesticide-info-tooltip p,
+.pesticide-info-tooltip p,
+.pesticide-tooltip-text {
+  color: #f8fafc !important;
+  -webkit-text-fill-color: #f8fafc !important;
+  font-size: 0.75rem !important;
+  font-weight: 500 !important;
+  line-height: 1.25rem !important;
+  margin: 0 !important;
+}
+
+html .pesticide-calc-page .pesticide-info-tooltip .pesticide-tooltip-subtext,
+html:not(.dark) .pesticide-calc-page .pesticide-info-tooltip .pesticide-tooltip-subtext,
+html.dark .pesticide-calc-page .pesticide-info-tooltip .pesticide-tooltip-subtext,
+.pesticide-info-tooltip .pesticide-tooltip-subtext,
+.pesticide-tooltip-subtext {
+  color: #cbd5e1 !important;
+  -webkit-text-fill-color: #cbd5e1 !important;
+  font-size: 0.6875rem !important;
+  font-weight: 400 !important;
+  line-height: 1.15rem !important;
+  margin: 0 !important;
+}
+
+/* 4. Tooltip Close Button (Circular X button matching screenshots) */
+html .pesticide-calc-page button.pesticide-tooltip-close,
+html:not(.dark) .pesticide-calc-page button.pesticide-tooltip-close,
+html.dark .pesticide-calc-page button.pesticide-tooltip-close,
+[data-theme="dark"] .pesticide-calc-page button.pesticide-tooltip-close,
+button.pesticide-tooltip-close {
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  appearance: none !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 1.5rem !important;
+  height: 1.5rem !important;
+  min-width: 1.5rem !important;
+  min-height: 1.5rem !important;
+  border-radius: 9999px !important;
+  background-color: rgba(255, 255, 255, 0.12) !important;
+  background: rgba(255, 255, 255, 0.12) !important;
+  border: 1px solid rgba(255, 255, 255, 0.25) !important;
+  border-style: solid !important;
+  color: #ffffff !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  cursor: pointer !important;
+  outline: none !important;
+  box-shadow: none !important;
+  box-sizing: border-box !important;
+  transition: all 0.15s ease !important;
+}
+
+html .pesticide-calc-page button.pesticide-tooltip-close:hover,
+html:not(.dark) .pesticide-calc-page button.pesticide-tooltip-close:hover,
+html.dark .pesticide-calc-page button.pesticide-tooltip-close:hover {
+  background-color: rgba(255, 255, 255, 0.24) !important;
+  background: rgba(255, 255, 255, 0.24) !important;
+  color: #ffffff !important;
+  transform: scale(1.08);
+}
+
+html .pesticide-calc-page button.pesticide-tooltip-close svg,
+html:not(.dark) .pesticide-calc-page button.pesticide-tooltip-close svg,
+html.dark .pesticide-calc-page button.pesticide-tooltip-close svg {
+  color: #ffffff !important;
+  stroke: #ffffff !important;
 }
 
 /* ─── Recent Card Delete Button ─── */
@@ -4948,6 +5469,1787 @@ html.dark .pesticide-calc-page .pesticide-recent-delete-btn:hover,
   color: #ffffff !important;
   transform: scale(1.05);
 }
+
+/* ==========================================================================
+   Farming Calculator - Light & Dark Theme High Contrast & 21st.dev Polish
+   ========================================================================== */
+.farming-calc-page {
+  width: 100%;
+}
+
+/* Reset any default browser button appearance inside farming calculator */
+.farming-calc-page button {
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  appearance: none !important;
+  outline: none !important;
+  box-sizing: border-box !important;
+}
+.farming-calc-page button:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+html:not(.dark) .farming-calc-page {
+  color: #0f172a;
+}
+
+html:not(.dark) .farming-calc-page input[type="number"],
+html:not(.dark) .farming-calc-page select {
+  color: #0f172a !important;
+  background-color: #f8fafc !important;
+  border-color: #cbd5e1 !important;
+}
+
+html.dark .farming-calc-page,
+[data-theme="dark"] .farming-calc-page {
+  color: #f8fafc;
+}
+
+html.dark .farming-calc-page input[type="number"],
+html.dark .farming-calc-page select,
+[data-theme="dark"] .farming-calc-page input[type="number"],
+[data-theme="dark"] .farming-calc-page select {
+  color: #ffffff !important;
+  background-color: #1e293b !important;
+  border-color: #334155 !important;
+}
+
+/* ─── 21st Primary Action Buttons (Pure White Text in BOTH Light & Dark Modes) ─── */
+html .farming-calc-page .btn-21st-primary,
+html:not(.dark) .farming-calc-page .btn-21st-primary,
+html.dark .farming-calc-page .btn-21st-primary,
+[data-theme="dark"] .farming-calc-page .btn-21st-primary,
+html .farming-calc-page .btn-21st-primary *,
+html:not(.dark) .farming-calc-page .btn-21st-primary *,
+html.dark .farming-calc-page .btn-21st-primary *,
+[data-theme="dark"] .farming-calc-page .btn-21st-primary *,
+html .farming-calc-page .btn-21st-primary span,
+html:not(.dark) .farming-calc-page .btn-21st-primary span,
+html.dark .farming-calc-page .btn-21st-primary span,
+[data-theme="dark"] .farming-calc-page .btn-21st-primary span {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  fill: #ffffff !important;
+}
+html .farming-calc-page .btn-21st-primary svg,
+html:not(.dark) .farming-calc-page .btn-21st-primary svg,
+html.dark .farming-calc-page .btn-21st-primary svg,
+[data-theme="dark"] .farming-calc-page .btn-21st-primary svg {
+  color: #ffffff !important;
+  stroke: #ffffff !important;
+}
+
+/* ─── 21st Secondary / Tactical Buttons in Light Mode (Crisp Black/Dark Slate) ─── */
+html:not(.dark) .farming-calc-page .btn-21st-secondary,
+html:not(.dark) .farming-calc-page .btn-21st-secondary span,
+html:not(.dark) .farming-calc-page .btn-21st-secondary div,
+html:not(.dark) .farming-calc-page .btn-21st-secondary p {
+  color: #0f172a !important;
+  -webkit-text-fill-color: #0f172a !important;
+}
+html:not(.dark) .farming-calc-page .btn-21st-secondary svg {
+  color: #334155 !important;
+  stroke: #334155 !important;
+}
+html:not(.dark) .farming-calc-page .btn-21st-secondary {
+  background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%) !important;
+  border: 1px solid #cbd5e1 !important;
+  border-top: 1.5px solid #ffffff !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05), inset 0 1px 1px rgba(255, 255, 255, 0.9) !important;
+}
+html:not(.dark) .farming-calc-page .btn-21st-secondary:hover {
+  background: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%) !important;
+  border-color: #94a3b8 !important;
+}
+
+/* ─── 21st Secondary / Tactical Buttons in Dark Mode (Crisp White on Glass) ─── */
+html.dark .farming-calc-page .btn-21st-secondary,
+[data-theme="dark"] .farming-calc-page .btn-21st-secondary,
+html.dark .farming-calc-page .btn-21st-secondary span,
+[data-theme="dark"] .farming-calc-page .btn-21st-secondary span,
+html.dark .farming-calc-page .btn-21st-secondary div,
+[data-theme="dark"] .farming-calc-page .btn-21st-secondary div,
+html.dark .farming-calc-page .btn-21st-secondary p,
+[data-theme="dark"] .farming-calc-page .btn-21st-secondary p {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+}
+html.dark .farming-calc-page .btn-21st-secondary svg,
+[data-theme="dark"] .farming-calc-page .btn-21st-secondary svg {
+  color: #e2e8f0 !important;
+  stroke: #e2e8f0 !important;
+}
+html.dark .farming-calc-page .btn-21st-secondary,
+[data-theme="dark"] .farming-calc-page .btn-21st-secondary {
+  background: rgba(15, 23, 42, 0.75) !important;
+  border: 1px solid rgba(255, 255, 255, 0.14) !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.28) !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.08) !important;
+}
+html.dark .farming-calc-page .btn-21st-secondary:hover,
+[data-theme="dark"] .farming-calc-page .btn-21st-secondary:hover {
+  background: rgba(30, 41, 59, 0.9) !important;
+  border-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+/* ─── Season Buttons (Summer Active) ─── */
+.farming-calc-page .farming-season-active-summer {
+  background: linear-gradient(180deg, #d97706 0%, #b45309 100%) !important;
+  color: #ffffff !important;
+  border-top: 2px solid rgba(255, 255, 255, 0.4) !important;
+  border-right: 1px solid rgba(0, 0, 0, 0.1) !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2) !important;
+  border-left: 1px solid rgba(0, 0, 0, 0.1) !important;
+  box-shadow: 0 2px 8px rgba(217, 119, 6, 0.35), inset 0 1px 1px rgba(255, 255, 255, 0.4) !important;
+}
+.farming-calc-page .farming-season-active-summer,
+.farming-calc-page .farming-season-active-summer * {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+}
+.farming-calc-page .farming-season-active-summer svg {
+  color: #fef08a !important;
+  stroke: #fef08a !important;
+}
+
+/* ─── Weed Pressure Buttons (Moderate & Severe Active States) ─── */
+.farming-calc-page .farming-weed-pressure-severe {
+  background: linear-gradient(180deg, #dc2626 0%, #b91c1c 100%) !important;
+  color: #ffffff !important;
+  border-top: 2px solid rgba(255, 255, 255, 0.4) !important;
+  border-right: 1px solid rgba(0, 0, 0, 0.1) !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2) !important;
+  border-left: 1px solid rgba(0, 0, 0, 0.1) !important;
+  box-shadow: 0 2px 8px rgba(220, 38, 38, 0.35), inset 0 1px 1px rgba(255, 255, 255, 0.4) !important;
+}
+.farming-calc-page .farming-weed-pressure-severe,
+.farming-calc-page .farming-weed-pressure-severe * {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+}
+
+.farming-calc-page .farming-weed-pressure-moderate {
+  background: linear-gradient(180deg, #d97706 0%, #b45309 100%) !important;
+  color: #ffffff !important;
+  border-top: 2px solid rgba(255, 255, 255, 0.4) !important;
+  border-right: 1px solid rgba(0, 0, 0, 0.1) !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2) !important;
+  border-left: 1px solid rgba(0, 0, 0, 0.1) !important;
+  box-shadow: 0 2px 8px rgba(217, 119, 6, 0.35), inset 0 1px 1px rgba(255, 255, 255, 0.4) !important;
+}
+.farming-calc-page .farming-weed-pressure-moderate,
+.farming-calc-page .farming-weed-pressure-moderate * {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+}
+
+/* ─── Weed Type Chips (Active Invasive Red Variant) ─── */
+.farming-calc-page .farming-weed-chip-invasive-active {
+  background: linear-gradient(180deg, #dc2626 0%, #b91c1c 100%) !important;
+  color: #ffffff !important;
+  border-top: 2px solid rgba(255, 255, 255, 0.4) !important;
+  border-right: 1px solid rgba(0, 0, 0, 0.1) !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2) !important;
+  border-left: 1px solid rgba(0, 0, 0, 0.1) !important;
+  box-shadow: 0 2px 8px rgba(220, 38, 38, 0.35), inset 0 1px 1px rgba(255, 255, 255, 0.4) !important;
+}
+.farming-calc-page .farming-weed-chip-invasive-active,
+.farming-calc-page .farming-weed-chip-invasive-active * {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+}
+.farming-calc-page .farming-weed-chip-invasive-active svg {
+  color: #ffffff !important;
+  stroke: #ffffff !important;
+}
+
+/* ─── Farming Calculator Cards (Light & Dark Surfaces) ─── */
+html:not(.dark) .farming-calc-page .farming-card {
+  background: #ffffff !important;
+  border: 1px solid #e2e8f0 !important;
+  color: #0f172a !important;
+  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.05) !important;
+}
+
+html.dark .farming-calc-page .farming-card,
+[data-theme="dark"] .farming-calc-page .farming-card {
+  background: linear-gradient(180deg, #131d33 0%, #0d1527 100%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.14) !important;
+  color: #ffffff !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6) !important;
+}
+
+/* ─── Typography Contrast in Dark Mode ─── */
+html.dark .farming-calc-page h1,
+html.dark .farming-calc-page h2,
+html.dark .farming-calc-page h3,
+html.dark .farming-calc-page h4,
+html.dark .farming-calc-page h5,
+html.dark .farming-calc-page h6,
+[data-theme="dark"] .farming-calc-page h1,
+[data-theme="dark"] .farming-calc-page h2,
+[data-theme="dark"] .farming-calc-page h3,
+[data-theme="dark"] .farming-calc-page h4,
+[data-theme="dark"] .farming-calc-page h5,
+[data-theme="dark"] .farming-calc-page h6 {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+}
+
+html.dark .farming-calc-page label,
+[data-theme="dark"] .farming-calc-page label {
+  color: #cbd5e1 !important;
+  -webkit-text-fill-color: #cbd5e1 !important;
+}
+
+html.dark .farming-calc-page p,
+[data-theme="dark"] .farming-calc-page p {
+  color: #cbd5e1 !important;
+}
+
+/* ─── Typography Contrast in Light Mode ─── */
+html:not(.dark) .farming-calc-page h1,
+html:not(.dark) .farming-calc-page h2,
+html:not(.dark) .farming-calc-page h3,
+html:not(.dark) .farming-calc-page h4,
+html:not(.dark) .farming-calc-page h5,
+html:not(.dark) .farming-calc-page h6 {
+  color: #0f172a !important;
+  -webkit-text-fill-color: #0f172a !important;
+}
+
+html:not(.dark) .farming-calc-page label {
+  color: #334155 !important;
+  -webkit-text-fill-color: #334155 !important;
+}
+
+html:not(.dark) .farming-calc-page p {
+  color: #475569 !important;
+}
+
+/* ─── Subcards, Dropdowns, and Inputs ─── */
+html:not(.dark) .farming-calc-page .farming-subcard {
+  background: #f8fafc !important;
+  border: 1px solid #e2e8f0 !important;
+  color: #0f172a !important;
+}
+html.dark .farming-calc-page .farming-subcard,
+[data-theme="dark"] .farming-calc-page .farming-subcard {
+  background: rgba(30, 41, 59, 0.75) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  color: #f1f5f9 !important;
+}
+
+html:not(.dark) .farming-calc-page .farming-dropdown-menu {
+  background: #ffffff !important;
+  border: 1px solid #cbd5e1 !important;
+  box-shadow: 0 12px 36px rgba(15, 23, 42, 0.12) !important;
+}
+html.dark .farming-calc-page .farming-dropdown-menu,
+[data-theme="dark"] .farming-calc-page .farming-dropdown-menu {
+  background: #1e293b !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.75) !important;
+}
+html:not(.dark) .farming-calc-page .farming-dropdown-header {
+  background: #ffffff !important;
+}
+html.dark .farming-calc-page .farming-dropdown-header,
+[data-theme="dark"] .farming-calc-page .farming-dropdown-header {
+  background: #1e293b !important;
+}
+
+html:not(.dark) .farming-calc-page .farming-input {
+  background: #ffffff !important;
+  border: 1px solid #cbd5e1 !important;
+  color: #0f172a !important;
+}
+html.dark .farming-calc-page .farming-input,
+[data-theme="dark"] .farming-calc-page .farming-input {
+  background: #1e293b !important;
+  border: 1px solid rgba(255, 255, 255, 0.22) !important;
+  color: #ffffff !important;
+}
+
+/* ─── Stat Cards & Numbers ─── */
+html:not(.dark) .farming-calc-page .farming-stat-card {
+  background: #f8fafc !important;
+  border: 1px solid #e2e8f0 !important;
+}
+html.dark .farming-calc-page .farming-stat-card,
+[data-theme="dark"] .farming-calc-page .farming-stat-card {
+  background: rgba(30, 41, 59, 0.7) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+}
+
+html:not(.dark) .farming-calc-page .farming-stat-purple {
+  background: #f5f3ff !important;
+  border: 1px solid #ddd6fe !important;
+}
+html.dark .farming-calc-page .farming-stat-purple,
+[data-theme="dark"] .farming-calc-page .farming-stat-purple {
+  background: rgba(88, 28, 135, 0.25) !important;
+  border: 1px solid rgba(168, 85, 247, 0.35) !important;
+}
+
+html:not(.dark) .farming-calc-page .farming-stat-profit {
+  background: #ecfdf5 !important;
+  border: 1px solid #a7f3d0 !important;
+}
+html.dark .farming-calc-page .farming-stat-profit,
+[data-theme="dark"] .farming-calc-page .farming-stat-profit {
+  background: rgba(6, 78, 59, 0.45) !important;
+  border: 1px solid rgba(52, 211, 153, 0.45) !important;
+}
+
+/* Stat labels */
+html:not(.dark) .farming-calc-page .farming-stat-label {
+  color: #64748b !important;
+}
+html.dark .farming-calc-page .farming-stat-label,
+[data-theme="dark"] .farming-calc-page .farming-stat-label {
+  color: #94a3b8 !important;
+}
+html:not(.dark) .farming-calc-page .farming-stat-label-purple {
+  color: #7c3aed !important;
+}
+html.dark .farming-calc-page .farming-stat-label-purple,
+[data-theme="dark"] .farming-calc-page .farming-stat-label-purple {
+  color: #c084fc !important;
+}
+html:not(.dark) .farming-calc-page .farming-stat-label-profit {
+  color: #065f46 !important;
+}
+html.dark .farming-calc-page .farming-stat-label-profit,
+[data-theme="dark"] .farming-calc-page .farming-stat-label-profit {
+  color: #6ee7b7 !important;
+}
+
+/* Stat values (big numbers) */
+html:not(.dark) .farming-calc-page .farming-stat-value {
+  color: #0f172a !important;
+  -webkit-text-fill-color: #0f172a !important;
+}
+html.dark .farming-calc-page .farming-stat-value,
+[data-theme="dark"] .farming-calc-page .farming-stat-value {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+}
+html:not(.dark) .farming-calc-page .farming-stat-profit-val {
+  color: #047857 !important;
+  -webkit-text-fill-color: #047857 !important;
+}
+html.dark .farming-calc-page .farming-stat-profit-val,
+[data-theme="dark"] .farming-calc-page .farming-stat-profit-val {
+  color: #34d399 !important;
+  -webkit-text-fill-color: #34d399 !important;
+  font-weight: 900 !important;
+}
+
+/* Stat subtext */
+html:not(.dark) .farming-calc-page .farming-stat-sub {
+  color: #64748b !important;
+}
+html.dark .farming-calc-page .farming-stat-sub,
+[data-theme="dark"] .farming-calc-page .farming-stat-sub {
+  color: #94a3b8 !important;
+}
+html:not(.dark) .farming-calc-page .farming-stat-sub-purple {
+  color: #7c3aed !important;
+}
+html.dark .farming-calc-page .farming-stat-sub-purple,
+[data-theme="dark"] .farming-calc-page .farming-stat-sub-purple {
+  color: #d8b4fe !important;
+}
+html:not(.dark) .farming-calc-page .farming-stat-sub-profit {
+  color: #065f46 !important;
+}
+html.dark .farming-calc-page .farming-stat-sub-profit,
+[data-theme="dark"] .farming-calc-page .farming-stat-sub-profit {
+  color: #a7f3d0 !important;
+}
+
+/* Step cards */
+html:not(.dark) .farming-calc-page .farming-step-card {
+  background: #f8fafc !important;
+  border: 1px solid #e2e8f0 !important;
+}
+html.dark .farming-calc-page .farming-step-card,
+[data-theme="dark"] .farming-calc-page .farming-step-card {
+  background: rgba(30, 41, 59, 0.6) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+}
+
+/* Operational Reminder */
+html:not(.dark) .farming-calc-page .farming-reminder-box {
+  background: #fffbeb !important;
+  border: 1px solid #fde68a !important;
+  color: #78350f !important;
+}
+html.dark .farming-calc-page .farming-reminder-box,
+[data-theme="dark"] .farming-calc-page .farming-reminder-box {
+  background: rgba(69, 26, 3, 0.45) !important;
+  border: 1px solid rgba(245, 158, 11, 0.4) !important;
+  color: #fef3c7 !important;
+}
+html.dark .farming-calc-page .farming-reminder-box p,
+[data-theme="dark"] .farming-calc-page .farming-reminder-box p {
+  color: #fde68a !important;
+}
+
+/* Weed invasive badge */
+html:not(.dark) .farming-calc-page .farming-weed-invasive-badge {
+  background: #fee2e2 !important;
+  color: #b91c1c !important;
+  border: 1px solid #fecaca !important;
+}
+html.dark .farming-calc-page .farming-weed-invasive-badge,
+[data-theme="dark"] .farming-calc-page .farming-weed-invasive-badge {
+  background: rgba(127, 29, 29, 0.5) !important;
+  color: #fca5a5 !important;
+  border: 1px solid rgba(239, 68, 68, 0.4) !important;
+}
+
+/* ==========================================================================
+   CROP ADVISOR (PRECISION ALL-INDIA CROP RECOMMENDATION)
+   High-Contrast Dark & Light Mode Theme Rules
+   ========================================================================== */
+
+/* ─── 21st Dev Professional Back Button ─── */
+.crop-advisor-page .crop-back-btn {
+  width: 42px !important;
+  height: 42px !important;
+  min-width: 42px !important;
+  min-height: 42px !important;
+  border-radius: 9999px !important;
+  padding: 0 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex-shrink: 0 !important;
+  cursor: pointer !important;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  text-decoration: none !important;
+  margin-top: 4px !important;
+}
+
+.crop-advisor-page .crop-back-btn:active {
+  transform: scale(0.92) !important;
+}
+
+/* Light mode 21st back button */
+html:not(.dark) .crop-advisor-page .crop-back-btn {
+  background: #ffffff !important;
+  border: 1px solid #cbd5e1 !important;
+  border-bottom: 2px solid #94a3b8 !important;
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.08), 0 1px 2px rgba(15, 23, 42, 0.04) !important;
+  color: #0f172a !important;
+}
+html:not(.dark) .crop-advisor-page .crop-back-btn:hover {
+  background: #f8fafc !important;
+  border-color: #3b82f6 !important;
+  color: #2563eb !important;
+  box-shadow: 0 4px 14px rgba(59, 130, 246, 0.18) !important;
+  transform: translateY(-1px) !important;
+}
+html:not(.dark) .crop-advisor-page .crop-back-btn svg {
+  stroke: #0f172a !important;
+  transition: transform 0.2s ease !important;
+}
+html:not(.dark) .crop-advisor-page .crop-back-btn:hover svg {
+  stroke: #2563eb !important;
+  transform: translateX(-2px) !important;
+}
+
+/* Dark mode 21st back button */
+html.dark .crop-advisor-page .crop-back-btn,
+[data-theme="dark"] .crop-advisor-page .crop-back-btn {
+  background: rgba(15, 23, 42, 0.85) !important;
+  border: 1px solid rgba(255, 255, 255, 0.18) !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.32) !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
+  color: #ffffff !important;
+}
+html.dark .crop-advisor-page .crop-back-btn:hover,
+[data-theme="dark"] .crop-advisor-page .crop-back-btn:hover {
+  background: rgba(30, 41, 59, 0.95) !important;
+  border-color: rgba(96, 165, 250, 0.6) !important;
+  color: #ffffff !important;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.85), 0 0 12px rgba(59, 130, 246, 0.3) !important;
+  transform: translateY(-1px) !important;
+}
+html.dark .crop-advisor-page .crop-back-btn svg,
+[data-theme="dark"] .crop-advisor-page .crop-back-btn svg {
+  stroke: #ffffff !important;
+  transition: transform 0.2s ease !important;
+}
+html.dark .crop-advisor-page .crop-back-btn:hover svg,
+[data-theme="dark"] .crop-advisor-page .crop-back-btn:hover svg {
+  stroke: #60a5fa !important;
+  transform: translateX(-2px) !important;
+}
+
+/* ─── Page Heading Icon in Crop Advisor (Strict High-Contrast in ALL Modes) ─── */
+.crop-advisor-page .page-heading-icon {
+  margin-bottom: 0 !important;
+  width: 38px !important;
+  height: 38px !important;
+  min-width: 38px !important;
+  min-height: 38px !important;
+  font-size: 1.15rem !important;
+  border-radius: 50% !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex-shrink: 0 !important;
+  line-height: 1 !important;
+}
+
+/* Light mode heading icon in Crop Advisor */
+html:not(.dark) .crop-advisor-page .page-heading-icon {
+  background: #ecfdf5 !important;
+  border: 1px solid #a7f3d0 !important;
+  color: #059669 !important;
+  box-shadow: 0 2px 6px rgba(16, 185, 129, 0.12) !important;
+}
+html:not(.dark) .crop-advisor-page .page-heading-icon i,
+html:not(.dark) .crop-advisor-page .page-heading-icon svg {
+  color: #059669 !important;
+  -webkit-text-fill-color: #059669 !important;
+}
+
+/* Dark mode heading icon in Crop Advisor (NO WASHED OUT WHITE-ON-WHITE!) */
+html.dark .crop-advisor-page .page-heading-icon,
+[data-theme="dark"] .crop-advisor-page .page-heading-icon {
+  background: rgba(6, 78, 59, 0.45) !important;
+  border: 1px solid rgba(52, 211, 153, 0.4) !important;
+  color: #34d399 !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5), 0 0 12px rgba(16, 185, 129, 0.25) !important;
+}
+html.dark .crop-advisor-page .page-heading-icon i,
+html.dark .crop-advisor-page .page-heading-icon svg,
+[data-theme="dark"] .crop-advisor-page .page-heading-icon i,
+[data-theme="dark"] .crop-advisor-page .page-heading-icon svg {
+  color: #34d399 !important;
+  -webkit-text-fill-color: #34d399 !important;
+}
+
+/* ─── Presets Grid Layout (5 Equal Columns on Desktop) ─── */
+.crop-advisor-page .crop-presets-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+@media (min-width: 576px) {
+  .crop-advisor-page .crop-presets-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (min-width: 992px) {
+  .crop-advisor-page .crop-presets-grid {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+}
+
+/* Presets button core */
+.crop-advisor-page .regional-preset-btn {
+  width: 100%;
+  text-align: left;
+  padding: 12px 14px;
+  border-radius: 12px;
+  cursor: pointer;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all 0.2s ease-in-out;
+}
+
+/* Preset Inner Typography */
+.crop-advisor-page .crop-preset-title {
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.35;
+  margin-bottom: 2px;
+}
+.crop-advisor-page .crop-preset-region {
+  font-size: 11px;
+  line-height: 1.3;
+  margin-bottom: 8px;
+  opacity: 0.85;
+}
+.crop-advisor-page .crop-preset-footer {
+  margin-top: auto;
+  padding-top: 8px;
+  font-size: 10px;
+  font-weight: 600;
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid;
+}
+
+/* ─── Parameter Grid (6 Metrics) ─── */
+.crop-advisor-page .crop-params-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+@media (min-width: 576px) {
+  .crop-advisor-page .crop-params-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* ─── Emoji Badge ─── */
+.crop-advisor-page .crop-emoji-badge {
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  flex-shrink: 0;
+}
+
+/* ─── Top Recommendation Gold Badge ─── */
+.crop-advisor-page .crop-top-badge,
+html.dark .crop-advisor-page .crop-top-badge,
+[data-theme="dark"] .crop-advisor-page .crop-top-badge,
+html:not(.dark) .crop-advisor-page .crop-top-badge {
+  background: #fbbf24 !important;
+  color: #78350f !important;
+  -webkit-text-fill-color: #78350f !important;
+  border: 1px solid #f59e0b !important;
+  font-size: 11px !important;
+  font-weight: 800 !important;
+  padding: 3px 10px !important;
+  border-radius: 9999px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  box-shadow: 0 2px 8px rgba(245, 158, 11, 0.25) !important;
+}
+.crop-advisor-page .crop-top-badge *,
+html.dark .crop-advisor-page .crop-top-badge *,
+[data-theme="dark"] .crop-advisor-page .crop-top-badge *,
+html:not(.dark) .crop-advisor-page .crop-top-badge * {
+  color: #78350f !important;
+  -webkit-text-fill-color: #78350f !important;
+}
+
+/* ─── Grade Badges (100% WCAG AAA Compliant) ─── */
+.crop-advisor-page .crop-badge-grade {
+  font-size: 10px !important;
+  font-weight: 700 !important;
+  padding: 3px 10px !important;
+  border-radius: 9999px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  white-space: nowrap !important;
+  letter-spacing: 0.02em !important;
+}
+.crop-advisor-page .crop-badge-grade-exceptional {
+  background: #10b981 !important;
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+}
+.crop-advisor-page .crop-badge-grade-high {
+  background: #2563eb !important;
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+}
+.crop-advisor-page .crop-badge-grade-good {
+  background: #d97706 !important;
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+}
+.crop-advisor-page .crop-badge-grade-viable {
+  background: #475569 !important;
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+}
+
+/* ─── Category & Season Badges ─── */
+.crop-advisor-page .crop-category-badge {
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  padding: 2px 8px !important;
+  border-radius: 9999px !important;
+}
+.crop-advisor-page .crop-season-badge {
+  font-size: 12px !important;
+  font-weight: 500 !important;
+}
+
+/* ══════════════════════════════════════════════════════════════════════════
+   LIGHT MODE STYLING
+   ══════════════════════════════════════════════════════════════════════════ */
+html:not(.dark) .crop-advisor-page .crop-advisor-card,
+html:not(.dark) .crop-advisor-page .crop-result-card {
+  background: #ffffff !important;
+  border: 1px solid #e2e8f0 !important;
+  color: #0f172a !important;
+  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.05) !important;
+}
+
+/* Presets button in Light Mode */
+html:not(.dark) .crop-advisor-page .regional-preset-btn {
+  background: #f8fafc !important;
+  border: 1px solid #e2e8f0 !important;
+  color: #0f172a !important;
+}
+html:not(.dark) .crop-advisor-page .regional-preset-btn:hover,
+html:not(.dark) .crop-advisor-page .regional-preset-btn.is-active {
+  background: #eff6ff !important;
+  border-color: #3b82f6 !important;
+  box-shadow: 0 4px 16px rgba(59, 130, 246, 0.15) !important;
+}
+html:not(.dark) .crop-advisor-page .crop-preset-title {
+  color: #0f172a !important;
+  -webkit-text-fill-color: #0f172a !important;
+}
+html:not(.dark) .crop-advisor-page .crop-preset-region {
+  color: #475569 !important;
+  -webkit-text-fill-color: #475569 !important;
+}
+html:not(.dark) .crop-advisor-page .crop-preset-footer {
+  border-color: #e2e8f0 !important;
+  color: #64748b !important;
+  -webkit-text-fill-color: #64748b !important;
+}
+
+/* Subtle Badges (Hindi name & Preset tags) in Light Mode */
+html:not(.dark) .crop-advisor-page .crop-badge-subtle {
+  background: #f1f5f9 !important;
+  color: #0f172a !important;
+  -webkit-text-fill-color: #0f172a !important;
+  border: 1px solid #cbd5e1 !important;
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  padding: 2px 8px !important;
+  border-radius: 9999px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+}
+html:not(.dark) .crop-advisor-page .crop-badge-subtle * {
+  color: #0f172a !important;
+  -webkit-text-fill-color: #0f172a !important;
+}
+
+html:not(.dark) .crop-advisor-page .crop-category-badge {
+  background: #dbeafe !important;
+  color: #1e40af !important;
+  -webkit-text-fill-color: #1e40af !important;
+  border: 1px solid #bfdbfe !important;
+}
+html:not(.dark) .crop-advisor-page .crop-season-badge {
+  color: #475569 !important;
+  -webkit-text-fill-color: #475569 !important;
+}
+
+html:not(.dark) .crop-advisor-page .crop-emoji-badge {
+  background: #f1f5f9 !important;
+  border: 1px solid #e2e8f0 !important;
+}
+
+/* Why Suited in Light Mode */
+html:not(.dark) .crop-advisor-page .crop-why-box {
+  background: #ecfdf5 !important;
+  border: 1px solid #a7f3d0 !important;
+  border-radius: 10px !important;
+  padding: 10px 14px !important;
+}
+html:not(.dark) .crop-advisor-page .crop-why-box i {
+  color: #059669 !important;
+}
+html:not(.dark) .crop-advisor-page .crop-why-text {
+  font-size: 12px !important;
+  line-height: 1.5 !important;
+  color: #065f46 !important;
+  -webkit-text-fill-color: #065f46 !important;
+}
+html:not(.dark) .crop-advisor-page .crop-why-text strong {
+  color: #064e3b !important;
+  -webkit-text-fill-color: #064e3b !important;
+}
+
+/* Parameters Card in Light Mode */
+html:not(.dark) .crop-advisor-page .crop-param-card {
+  background: #f8fafc !important;
+  border: 1px solid #e2e8f0 !important;
+  border-radius: 8px !important;
+  padding: 8px 10px !important;
+}
+html:not(.dark) .crop-advisor-page .crop-param-label {
+  font-size: 10px !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
+  color: #64748b !important;
+  -webkit-text-fill-color: #64748b !important;
+  margin-bottom: 2px !important;
+}
+html:not(.dark) .crop-advisor-page .crop-param-value {
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  color: #0f172a !important;
+  -webkit-text-fill-color: #0f172a !important;
+  line-height: 1.3 !important;
+}
+
+/* Tip Box in Light Mode */
+html:not(.dark) .crop-advisor-page .crop-tip-box {
+  background: #fffbeb !important;
+  border: 1px solid #fde68a !important;
+  border-radius: 10px !important;
+  padding: 10px 14px !important;
+}
+html:not(.dark) .crop-advisor-page .crop-tip-text {
+  font-size: 12px !important;
+  line-height: 1.5 !important;
+  color: #78350f !important;
+  -webkit-text-fill-color: #78350f !important;
+}
+html:not(.dark) .crop-advisor-page .crop-tip-text strong {
+  color: #92400e !important;
+  -webkit-text-fill-color: #92400e !important;
+}
+html:not(.dark) .crop-advisor-page .crop-states-text {
+  font-size: 11px !important;
+  color: #64748b !important;
+  -webkit-text-fill-color: #64748b !important;
+  border-color: #fde68a !important;
+}
+
+/* Inputs in Light Mode */
+html:not(.dark) .crop-advisor-page .form-control.crop-input {
+  background: #ffffff !important;
+  border: 1px solid #cbd5e1 !important;
+  color: #0f172a !important;
+  -webkit-text-fill-color: #0f172a !important;
+  font-weight: 600 !important;
+}
+html:not(.dark) .crop-advisor-page .form-control.crop-input:focus {
+  border-color: #10b981 !important;
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.15) !important;
+}
+html:not(.dark) .crop-advisor-page .input-group-text {
+  background: #f1f5f9 !important;
+  color: #475569 !important;
+  -webkit-text-fill-color: #475569 !important;
+  border: 1px solid #cbd5e1 !important;
+}
+html:not(.dark) .crop-advisor-page .top-crop-highlight {
+  border-color: #10b981 !important;
+  box-shadow: 0 8px 24px rgba(16, 185, 129, 0.12) !important;
+}
+
+/* ══════════════════════════════════════════════════════════════════════════
+   DARK MODE STYLING (PURE HIGH-CONTRAST SURFACES & CRISP WHITE TEXT)
+   ══════════════════════════════════════════════════════════════════════════ */
+html.dark .crop-advisor-page .crop-advisor-card,
+html.dark .crop-advisor-page .crop-result-card,
+[data-theme="dark"] .crop-advisor-page .crop-advisor-card,
+[data-theme="dark"] .crop-advisor-page .crop-result-card {
+  background: linear-gradient(180deg, #131d33 0%, #0d1527 100%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.14) !important;
+  color: #ffffff !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6) !important;
+}
+
+/* Presets button in Dark Mode */
+html.dark .crop-advisor-page .regional-preset-btn,
+[data-theme="dark"] .crop-advisor-page .regional-preset-btn {
+  background: rgba(30, 41, 59, 0.75) !important;
+  border: 1px solid rgba(255, 255, 255, 0.14) !important;
+  color: #ffffff !important;
+}
+html.dark .crop-advisor-page .regional-preset-btn:hover,
+html.dark .crop-advisor-page .regional-preset-btn.is-active,
+[data-theme="dark"] .crop-advisor-page .regional-preset-btn:hover,
+[data-theme="dark"] .crop-advisor-page .regional-preset-btn.is-active {
+  background: rgba(37, 99, 235, 0.3) !important;
+  border-color: #60a5fa !important;
+  box-shadow: 0 4px 16px rgba(37, 99, 235, 0.35) !important;
+}
+html.dark .crop-advisor-page .crop-preset-title,
+[data-theme="dark"] .crop-advisor-page .crop-preset-title {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+}
+html.dark .crop-advisor-page .crop-preset-region,
+[data-theme="dark"] .crop-advisor-page .crop-preset-region {
+  color: #cbd5e1 !important;
+  -webkit-text-fill-color: #cbd5e1 !important;
+}
+html.dark .crop-advisor-page .crop-preset-footer,
+[data-theme="dark"] .crop-advisor-page .crop-preset-footer {
+  border-color: rgba(255, 255, 255, 0.12) !important;
+  color: #94a3b8 !important;
+  -webkit-text-fill-color: #94a3b8 !important;
+}
+
+/* Subtle Badges (Hindi name & Preset tags) in Dark Mode - NO BLANK WHITE PILLS! */
+html.dark .crop-advisor-page .crop-badge-subtle,
+[data-theme="dark"] .crop-advisor-page .crop-badge-subtle {
+  background: rgba(30, 41, 59, 0.95) !important;
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  border: 1px solid rgba(255, 255, 255, 0.25) !important;
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  padding: 2px 8px !important;
+  border-radius: 9999px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+}
+html.dark .crop-advisor-page .crop-badge-subtle *,
+[data-theme="dark"] .crop-advisor-page .crop-badge-subtle * {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+}
+
+html.dark .crop-advisor-page .crop-category-badge,
+[data-theme="dark"] .crop-advisor-page .crop-category-badge {
+  background: rgba(37, 99, 235, 0.25) !important;
+  color: #93c5fd !important;
+  -webkit-text-fill-color: #93c5fd !important;
+  border: 1px solid rgba(96, 165, 250, 0.4) !important;
+}
+html.dark .crop-advisor-page .crop-season-badge,
+[data-theme="dark"] .crop-advisor-page .crop-season-badge {
+  color: #cbd5e1 !important;
+  -webkit-text-fill-color: #cbd5e1 !important;
+}
+
+html.dark .crop-advisor-page .crop-emoji-badge,
+[data-theme="dark"] .crop-advisor-page .crop-emoji-badge {
+  background: rgba(30, 41, 59, 0.85) !important;
+  border: 1px solid rgba(255, 255, 255, 0.16) !important;
+}
+
+/* Why Suited in Dark Mode */
+html.dark .crop-advisor-page .crop-why-box,
+[data-theme="dark"] .crop-advisor-page .crop-why-box {
+  background: rgba(6, 78, 59, 0.45) !important;
+  border: 1px solid rgba(52, 211, 153, 0.35) !important;
+  border-radius: 10px !important;
+  padding: 10px 14px !important;
+}
+html.dark .crop-advisor-page .crop-why-box i,
+[data-theme="dark"] .crop-advisor-page .crop-why-box i {
+  color: #34d399 !important;
+}
+html.dark .crop-advisor-page .crop-why-text,
+[data-theme="dark"] .crop-advisor-page .crop-why-text {
+  font-size: 12px !important;
+  line-height: 1.5 !important;
+  color: #d1fae5 !important;
+  -webkit-text-fill-color: #d1fae5 !important;
+}
+html.dark .crop-advisor-page .crop-why-text strong,
+[data-theme="dark"] .crop-advisor-page .crop-why-text strong {
+  color: #6ee7b7 !important;
+  -webkit-text-fill-color: #6ee7b7 !important;
+}
+
+/* Parameters Card in Dark Mode - 100% Crisp White Value Visibility! */
+html.dark .crop-advisor-page .crop-param-card,
+[data-theme="dark"] .crop-advisor-page .crop-param-card {
+  background: rgba(30, 41, 59, 0.85) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  border-radius: 8px !important;
+  padding: 8px 10px !important;
+}
+html.dark .crop-advisor-page .crop-param-label,
+[data-theme="dark"] .crop-advisor-page .crop-param-label {
+  font-size: 10px !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
+  color: #94a3b8 !important;
+  -webkit-text-fill-color: #94a3b8 !important;
+  margin-bottom: 2px !important;
+}
+html.dark .crop-advisor-page .crop-param-value,
+[data-theme="dark"] .crop-advisor-page .crop-param-value {
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  line-height: 1.3 !important;
+}
+
+/* Tip Box in Dark Mode */
+html.dark .crop-advisor-page .crop-tip-box,
+[data-theme="dark"] .crop-advisor-page .crop-tip-box {
+  background: rgba(120, 53, 15, 0.3) !important;
+  border: 1px solid rgba(245, 158, 11, 0.35) !important;
+  border-radius: 10px !important;
+  padding: 10px 14px !important;
+}
+html.dark .crop-advisor-page .crop-tip-text,
+[data-theme="dark"] .crop-advisor-page .crop-tip-text {
+  font-size: 12px !important;
+  line-height: 1.5 !important;
+  color: #fef3c7 !important;
+  -webkit-text-fill-color: #fef3c7 !important;
+}
+html.dark .crop-advisor-page .crop-tip-text strong,
+[data-theme="dark"] .crop-advisor-page .crop-tip-text strong {
+  color: #fde68a !important;
+  -webkit-text-fill-color: #fde68a !important;
+}
+html.dark .crop-advisor-page .crop-states-text,
+[data-theme="dark"] .crop-advisor-page .crop-states-text {
+  font-size: 11px !important;
+  color: #cbd5e1 !important;
+  -webkit-text-fill-color: #cbd5e1 !important;
+  border-color: rgba(245, 158, 11, 0.25) !important;
+}
+
+/* Inputs in Dark Mode */
+html.dark .crop-advisor-page .form-control.crop-input,
+[data-theme="dark"] .crop-advisor-page .form-control.crop-input {
+  background: #1e293b !important;
+  border: 1px solid rgba(255, 255, 255, 0.22) !important;
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  font-weight: 600 !important;
+}
+html.dark .crop-advisor-page .form-control.crop-input:focus,
+[data-theme="dark"] .crop-advisor-page .form-control.crop-input:focus {
+  border-color: #34d399 !important;
+  box-shadow: 0 0 0 3px rgba(52, 211, 153, 0.25) !important;
+}
+html.dark .crop-advisor-page .input-group-text,
+[data-theme="dark"] .crop-advisor-page .input-group-text {
+  background: #0f172a !important;
+  border: 1px solid rgba(255, 255, 255, 0.22) !important;
+  border-left: none !important;
+  color: #cbd5e1 !important;
+  -webkit-text-fill-color: #cbd5e1 !important;
+}
+html.dark .crop-advisor-page .top-crop-highlight,
+[data-theme="dark"] .crop-advisor-page .top-crop-highlight {
+  border-color: #10b981 !important;
+  box-shadow: 0 0 20px rgba(16, 185, 129, 0.25) !important;
+}
+
+/* Universal Typography in Dark Mode */
+html.dark .crop-advisor-page h1,
+html.dark .crop-advisor-page h2,
+html.dark .crop-advisor-page h3,
+html.dark .crop-advisor-page h4,
+[data-theme="dark"] .crop-advisor-page h1,
+[data-theme="dark"] .crop-advisor-page h2,
+[data-theme="dark"] .crop-advisor-page h3,
+[data-theme="dark"] .crop-advisor-page h4 {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+}
+
+html.dark .crop-advisor-page label,
+[data-theme="dark"] .crop-advisor-page label {
+  color: #cbd5e1 !important;
+  -webkit-text-fill-color: #cbd5e1 !important;
+}
+
+html.dark .crop-advisor-page p,
+html.dark .crop-advisor-page .text-muted,
+[data-theme="dark"] .crop-advisor-page p,
+[data-theme="dark"] .crop-advisor-page .text-muted {
+  color: #94a3b8 !important;
+  -webkit-text-fill-color: #94a3b8 !important;
+}
+
+/* ==========================================================================
+   Plantix Cultivation Tips · Dark Mode High Contrast
+   ========================================================================== */
+html.dark .plantix-title,
+[data-theme="dark"] .plantix-title,
+html.dark .plantix-timeline-group-heading,
+[data-theme="dark"] .plantix-timeline-group-heading,
+html.dark .plantix-card-title,
+[data-theme="dark"] .plantix-card-title,
+html.dark .task-name,
+[data-theme="dark"] .task-name,
+html.dark .plantix-back-to-menu-btn,
+[data-theme="dark"] .plantix-back-to-menu-btn,
+html.dark .modal-title,
+[data-theme="dark"] .modal-title,
+html.dark .modal-section-title,
+[data-theme="dark"] .modal-section-title {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+}
+
+html.dark .plantix-back-btn,
+[data-theme="dark"] .plantix-back-btn {
+  background-color: #1e293b !important;
+  border-color: #334155 !important;
+  color: #ffffff !important;
+}
+
+html.dark .plantix-back-btn:hover,
+[data-theme="dark"] .plantix-back-btn:hover {
+  background-color: #334155 !important;
+  color: #38bdf8 !important;
+}
+
+html.dark .plantix-crop-pill,
+[data-theme="dark"] .plantix-crop-pill {
+  background-color: #1e293b !important;
+  border-color: #334155 !important;
+  color: #ffffff !important;
+}
+
+html.dark .plantix-dropdown-menu,
+[data-theme="dark"] .plantix-dropdown-menu {
+  background-color: #0f172a !important;
+  border-color: #334155 !important;
+}
+
+html.dark .plantix-dropdown-menu .dropdown-item,
+[data-theme="dark"] .plantix-dropdown-menu .dropdown-item {
+  color: #cbd5e1 !important;
+}
+
+html.dark .plantix-dropdown-menu .dropdown-item:hover,
+[data-theme="dark"] .plantix-dropdown-menu .dropdown-item:hover,
+html.dark .plantix-dropdown-menu .dropdown-item.active,
+[data-theme="dark"] .plantix-dropdown-menu .dropdown-item.active {
+  background-color: #1e293b !important;
+  color: #38bdf8 !important;
+}
+
+html.dark .plantix-tabs-container,
+[data-theme="dark"] .plantix-tabs-container {
+  background-color: #1e293b !important;
+  border-color: #334155 !important;
+}
+
+html.dark .plantix-seg-btn,
+[data-theme="dark"] .plantix-seg-btn {
+  color: #94a3b8 !important;
+}
+
+html.dark .plantix-seg-btn.active,
+[data-theme="dark"] .plantix-seg-btn.active {
+  background-color: #2563eb !important;
+  color: #ffffff !important;
+}
+
+html.dark .plantix-task-list,
+[data-theme="dark"] .plantix-task-list {
+  background-color: #111827 !important;
+  border-color: #1e293b !important;
+}
+
+html.dark .plantix-task-item,
+[data-theme="dark"] .plantix-task-item,
+html.dark .plantix-stage-item,
+[data-theme="dark"] .plantix-stage-item {
+  border-bottom-color: #1e293b !important;
+}
+
+html.dark .plantix-task-item:hover,
+[data-theme="dark"] .plantix-task-item:hover,
+html.dark .plantix-stage-item:hover,
+[data-theme="dark"] .plantix-stage-item:hover {
+  background-color: #1e293b !important;
+}
+
+html.dark .task-counter,
+[data-theme="dark"] .task-counter {
+  color: #94a3b8 !important;
+}
+
+html.dark .plantix-crop-avatar-circle,
+[data-theme="dark"] .plantix-crop-avatar-circle {
+  background-color: #1e293b !important;
+  border-color: #334155 !important;
+}
+
+html.dark .plantix-filter-pill,
+[data-theme="dark"] .plantix-filter-pill {
+  background-color: #1e293b !important;
+  border-color: #334155 !important;
+  color: #cbd5e1 !important;
+}
+
+html.dark .plantix-filter-pill:hover,
+[data-theme="dark"] .plantix-filter-pill:hover {
+  background-color: #334155 !important;
+  color: #ffffff !important;
+}
+
+html.dark .plantix-filter-pill.active,
+[data-theme="dark"] .plantix-filter-pill.active {
+  background-color: #2563eb !important;
+  border-color: #2563eb !important;
+  color: #ffffff !important;
+}
+
+html.dark .plantix-badge-pill,
+[data-theme="dark"] .plantix-badge-pill {
+  background-color: #1e293b !important;
+  color: #93c5fd !important;
+  border: 1px solid rgba(147, 197, 253, 0.2) !important;
+}
+
+html.dark .plantix-read-more-link,
+[data-theme="dark"] .plantix-read-more-link {
+  color: #60a5fa !important;
+}
+
+html.dark .plantix-timeline-dotted-divider,
+[data-theme="dark"] .plantix-timeline-dotted-divider {
+  border-top-color: #475569 !important;
+}
+
+/* Modal in Dark Mode */
+html.dark .plantix-modal-dialog,
+[data-theme="dark"] .plantix-modal-dialog {
+  background-color: #111827 !important;
+  border-color: #1e293b !important;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.7) !important;
+}
+
+html.dark .modal-summary,
+[data-theme="dark"] .modal-summary {
+  color: #cbd5e1 !important;
+}
+
+html.dark .modal-why-box,
+[data-theme="dark"] .modal-why-box {
+  background-color: rgba(30, 58, 138, 0.3) !important;
+  border-color: rgba(59, 130, 246, 0.3) !important;
+}
+
+html.dark .why-text,
+[data-theme="dark"] .why-text {
+  color: #bfdbfe !important;
+}
+
+html.dark .modal-materials-list li,
+html.dark .modal-steps-list li,
+[data-theme="dark"] .modal-materials-list li,
+[data-theme="dark"] .modal-steps-list li {
+  color: #cbd5e1 !important;
+}
+
+html.dark .modal-protip-box,
+[data-theme="dark"] .modal-protip-box {
+  background-color: rgba(146, 64, 14, 0.2) !important;
+  border-color: rgba(245, 158, 11, 0.3) !important;
+}
+
+html.dark .modal-protip-box .protip-content,
+[data-theme="dark"] .modal-protip-box .protip-content {
+  color: #fde68a !important;
+}
+
+html.dark .plantix-sources-footer,
+[data-theme="dark"] .plantix-sources-footer {
+  border-top-color: #1e293b !important;
+}
+
+html.dark .sources-text,
+[data-theme="dark"] .sources-text {
+  color: #94a3b8 !important;
+}
+
+/* ─── 47. IOT FIELD DASHBOARD ABSOLUTE CONTRAST GUARANTEE ─── */
+/* Light Mode */
+html:not(.dark) body.iot-active,
+[data-theme="light"] body.iot-active {
+  background-color: #f8fafc !important;
+  color: #0f172a !important;
+}
+
+html:not(.dark) .iot-dashboard,
+[data-theme="light"] .iot-dashboard {
+  background-color: #f8fafc !important;
+  color: #0f172a !important;
+}
+
+html:not(.dark) .iot-dashboard .iot-sidebar,
+[data-theme="light"] .iot-dashboard .iot-sidebar,
+html:not(.dark) .iot-mobile-sidebar,
+[data-theme="light"] .iot-mobile-sidebar {
+  background-color: #ffffff !important;
+  border-color: #e2e8f0 !important;
+}
+
+html:not(.dark) .iot-dashboard .iot-topbar,
+[data-theme="light"] .iot-dashboard .iot-topbar {
+  background-color: #ffffff !important;
+  border-bottom-color: #e2e8f0 !important;
+}
+
+html:not(.dark) .iot-dashboard .iot-card[data-slot="card"],
+[data-theme="light"] .iot-dashboard .iot-card[data-slot="card"] {
+  background-color: #ffffff !important;
+  border-color: #e2e8f0 !important;
+  color: #0f172a !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05) !important;
+}
+
+html:not(.dark) .iot-dashboard .iot-card [data-slot="card-title"],
+[data-theme="light"] .iot-dashboard .iot-card [data-slot="card-title"] {
+  color: #0f172a !important;
+}
+
+html:not(.dark) .iot-dashboard .iot-metric strong,
+[data-theme="light"] .iot-dashboard .iot-metric strong {
+  color: #0f172a !important;
+}
+
+html:not(.dark) .iot-dashboard .iot-donut > div,
+[data-theme="light"] .iot-dashboard .iot-donut > div {
+  background-color: #ffffff !important;
+}
+
+html:not(.dark) .iot-dashboard .iot-donut strong,
+[data-theme="light"] .iot-dashboard .iot-donut strong {
+  color: #0f172a !important;
+}
+
+html:not(.dark) .iot-dashboard .iot-back-btn,
+[data-theme="light"] .iot-dashboard .iot-back-btn,
+html:not(.dark) .iot-dashboard .btn-iot-heading-back,
+[data-theme="light"] .iot-dashboard .btn-iot-heading-back {
+  background-color: #ffffff !important;
+  color: #0f172a !important;
+  border-color: #cbd5e1 !important;
+}
+
+html:not(.dark) .iot-dashboard .iot-back-btn:hover,
+[data-theme="light"] .iot-dashboard .iot-back-btn:hover,
+html:not(.dark) .iot-dashboard .btn-iot-heading-back:hover,
+[data-theme="light"] .iot-dashboard .btn-iot-heading-back:hover {
+  background-color: #f1f5f9 !important;
+  color: #0f172a !important;
+}
+
+html:not(.dark) .iot-dashboard .iot-export,
+[data-theme="light"] .iot-dashboard .iot-export {
+  background-color: #0f172a !important;
+  color: #ffffff !important;
+  border-color: #0f172a !important;
+}
+
+html:not(.dark) .iot-dashboard .iot-export:hover,
+[data-theme="light"] .iot-dashboard .iot-export:hover {
+  background-color: #1e293b !important;
+  color: #ffffff !important;
+}
+
+html:not(.dark) .iot-dashboard th,
+[data-theme="light"] .iot-dashboard th {
+  background-color: #f8fafc !important;
+  color: #475569 !important;
+  border-color: #e2e8f0 !important;
+}
+
+html:not(.dark) .iot-dashboard td,
+[data-theme="light"] .iot-dashboard td {
+  color: #1e293b !important;
+  border-color: #e2e8f0 !important;
+}
+
+html:not(.dark) .iot-dashboard .iot-search,
+[data-theme="light"] .iot-dashboard .iot-search,
+html:not(.dark) .iot-dashboard select,
+[data-theme="light"] .iot-dashboard select {
+  background-color: #ffffff !important;
+  color: #0f172a !important;
+  border-color: #cbd5e1 !important;
+}
+
+html:not(.dark) .iot-dashboard .iot-search input,
+[data-theme="light"] .iot-dashboard .iot-search input {
+  color: #0f172a !important;
+}
+
+html:not(.dark) .iot-dashboard .iot-demo-banner,
+[data-theme="light"] .iot-dashboard .iot-demo-banner {
+  background-color: #f0fdf4 !important;
+  border-color: #bbf7d0 !important;
+  color: #166534 !important;
+}
+
+html:not(.dark) .iot-dashboard .iot-roadmap,
+[data-theme="light"] .iot-dashboard .iot-roadmap {
+  background-color: #ffffff !important;
+  border-color: #e2e8f0 !important;
+}
+
+/* Dark Mode */
+html.dark body.iot-active,
+[data-theme="dark"] body.iot-active {
+  background-color: #09090b !important;
+  color: #fafafa !important;
+}
+
+html.dark .iot-dashboard,
+[data-theme="dark"] .iot-dashboard {
+  background-color: #09090b !important;
+  color: #fafafa !important;
+}
+
+html.dark .iot-dashboard .iot-sidebar,
+[data-theme="dark"] .iot-dashboard .iot-sidebar,
+html.dark .iot-mobile-sidebar,
+[data-theme="dark"] .iot-mobile-sidebar {
+  background-color: #0e0e10 !important;
+  border-color: #262629 !important;
+}
+
+html.dark .iot-dashboard .iot-topbar,
+[data-theme="dark"] .iot-dashboard .iot-topbar {
+  background-color: #0c0c0e !important;
+  border-bottom-color: #252529 !important;
+}
+
+html.dark .iot-dashboard .iot-card[data-slot="card"],
+[data-theme="dark"] .iot-dashboard .iot-card[data-slot="card"] {
+  background-color: #111113 !important;
+  border-color: #29292d !important;
+  color: #fafafa !important;
+}
+
+html.dark .iot-dashboard .iot-card [data-slot="card-title"],
+[data-theme="dark"] .iot-dashboard .iot-card [data-slot="card-title"] {
+  color: #e4e4e9 !important;
+}
+
+html.dark .iot-dashboard .iot-metric strong,
+[data-theme="dark"] .iot-dashboard .iot-metric strong {
+  color: #fafafa !important;
+}
+
+html.dark .iot-dashboard .iot-donut > div,
+[data-theme="dark"] .iot-dashboard .iot-donut > div {
+  background-color: #111113 !important;
+}
+
+html.dark .iot-dashboard .iot-donut strong,
+[data-theme="dark"] .iot-dashboard .iot-donut strong {
+  color: #fafafa !important;
+}
+
+html.dark .iot-dashboard .iot-back-btn,
+[data-theme="dark"] .iot-dashboard .iot-back-btn,
+html.dark .iot-dashboard .btn-iot-heading-back,
+[data-theme="dark"] .iot-dashboard .btn-iot-heading-back {
+  background-color: #18181c !important;
+  color: #c9c9d1 !important;
+  border-color: #34343b !important;
+}
+
+html.dark .iot-dashboard .iot-back-btn:hover,
+[data-theme="dark"] .iot-dashboard .iot-back-btn:hover,
+html.dark .iot-dashboard .btn-iot-heading-back:hover,
+[data-theme="dark"] .iot-dashboard .btn-iot-heading-back:hover {
+  background-color: #222228 !important;
+  color: #ffffff !important;
+}
+
+html.dark .iot-dashboard .iot-export,
+[data-theme="dark"] .iot-dashboard .iot-export {
+  background-color: #f4f4f5 !important;
+  color: #161618 !important;
+  border-color: #f4f4f5 !important;
+}
+
+html.dark .iot-dashboard th,
+[data-theme="dark"] .iot-dashboard th {
+  background-color: #161619 !important;
+  color: #777784 !important;
+  border-color: #27272d !important;
+}
+
+html.dark .iot-dashboard td,
+[data-theme="dark"] .iot-dashboard td {
+  color: #b1b1bc !important;
+  border-color: #232328 !important;
+}
+
+html.dark .iot-dashboard .iot-search,
+[data-theme="dark"] .iot-dashboard .iot-search,
+html.dark .iot-dashboard select,
+[data-theme="dark"] .iot-dashboard select {
+  background-color: #141417 !important;
+  color: #c9c9d1 !important;
+  border-color: #303036 !important;
+}
+
+html.dark .iot-dashboard .iot-search input,
+[data-theme="dark"] .iot-dashboard .iot-search input {
+  color: #d4d4dd !important;
+}
+
+html.dark .iot-dashboard .iot-demo-banner,
+[data-theme="dark"] .iot-dashboard .iot-demo-banner {
+  background-color: #181b12 !important;
+  border-color: #33342a !important;
+  color: #c1dba3 !important;
+}
+
+html.dark .iot-dashboard .iot-roadmap,
+[data-theme="dark"] .iot-dashboard .iot-roadmap {
+  background-color: #111113 !important;
+  border-color: #29292e !important;
+}
+
+/* ─── 48. FARMER COMMUNITY ABSOLUTE CONTRAST GUARANTEE ─── */
+/* Light Mode */
+html:not(.dark) .community-page-wrapper,
+[data-theme="light"] .community-page-wrapper,
+html:not(.dark) .community-ask-page,
+[data-theme="light"] .community-ask-page {
+  background-color: #f8fafc !important;
+  color: #0f172a !important;
+}
+
+html:not(.dark) .community-card,
+[data-theme="light"] .community-card,
+html:not(.dark) .community-empty-state,
+[data-theme="light"] .community-empty-state {
+  background-color: #ffffff !important;
+  border-color: #e2e8f0 !important;
+  color: #0f172a !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04) !important;
+}
+
+html:not(.dark) .community-post-title,
+[data-theme="light"] .community-post-title,
+html:not(.dark) .community-post-title a,
+[data-theme="light"] .community-post-title a,
+html:not(.dark) .author-name,
+[data-theme="light"] .author-name,
+html:not(.dark) .community-filter-title,
+[data-theme="light"] .community-filter-title,
+html:not(.dark) .ask-title,
+[data-theme="light"] .ask-title,
+html:not(.dark) .ask-field-label,
+[data-theme="light"] .ask-field-label {
+  color: #0f172a !important;
+}
+
+html:not(.dark) .community-post-desc,
+[data-theme="light"] .community-post-desc,
+html:not(.dark) .community-post-desc p,
+[data-theme="light"] .community-post-desc p,
+html:not(.dark) .answer-content,
+[data-theme="light"] .answer-content,
+html:not(.dark) .answer-content p,
+[data-theme="light"] .answer-content p {
+  color: #1e293b !important;
+}
+
+html:not(.dark) .community-search-box,
+[data-theme="light"] .community-search-box,
+html:not(.dark) .community-crop-pill:not(.is-active),
+[data-theme="light"] .community-crop-pill:not(.is-active),
+html:not(.dark) .btn-ask-add-image,
+[data-theme="light"] .btn-ask-add-image,
+html:not(.dark) .btn-ask-add-crop:not(.has-selection),
+[data-theme="light"] .btn-ask-add-crop:not(.has-selection),
+html:not(.dark) .ask-textarea,
+[data-theme="light"] .ask-textarea,
+html:not(.dark) .ask-input,
+[data-theme="light"] .ask-input,
+html:not(.dark) .community-reply-input,
+[data-theme="light"] .community-reply-input {
+  background-color: #ffffff !important;
+  border-color: #cbd5e1 !important;
+  color: #0f172a !important;
+}
+
+html:not(.dark) .community-search-input,
+[data-theme="light"] .community-search-input {
+  color: #0f172a !important;
+}
+
+html:not(.dark) .community-search-input::placeholder,
+[data-theme="light"] .community-search-input::placeholder,
+html:not(.dark) .ask-textarea::placeholder,
+[data-theme="light"] .ask-textarea::placeholder,
+html:not(.dark) .ask-input::placeholder,
+[data-theme="light"] .ask-input::placeholder {
+  color: #64748b !important;
+}
+
+html:not(.dark) .community-fab-btn,
+[data-theme="light"] .community-fab-btn,
+html:not(.dark) .btn-ask-send,
+[data-theme="light"] .btn-ask-send {
+  background-color: #005bf6 !important;
+  color: #ffffff !important;
+}
+
+html:not(.dark) .community-tag-badge,
+[data-theme="light"] .community-tag-badge {
+  background-color: #eff6ff !important;
+  border-color: #bfdbfe !important;
+  color: #1d4ed8 !important;
+}
+
+/* Dark Mode */
+html.dark .community-page-wrapper,
+[data-theme="dark"] .community-page-wrapper,
+html.dark .community-ask-page,
+[data-theme="dark"] .community-ask-page {
+  background-color: #09090b !important;
+  color: #ffffff !important;
+}
+
+html.dark .community-card,
+[data-theme="dark"] .community-card,
+html.dark .community-empty-state,
+[data-theme="dark"] .community-empty-state {
+  background-color: #111827 !important;
+  border-color: #1e293b !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4) !important;
+}
+
+html.dark .community-post-title,
+[data-theme="dark"] .community-post-title,
+html.dark .community-post-title a,
+[data-theme="dark"] .community-post-title a,
+html.dark .author-name,
+[data-theme="dark"] .author-name,
+html.dark .community-filter-title,
+[data-theme="dark"] .community-filter-title,
+html.dark .ask-title,
+[data-theme="dark"] .ask-title,
+html.dark .ask-field-label,
+[data-theme="dark"] .ask-field-label {
+  color: #ffffff !important;
+}
+
+html.dark .community-post-desc,
+[data-theme="dark"] .community-post-desc,
+html.dark .community-post-desc p,
+[data-theme="dark"] .community-post-desc p,
+html.dark .answer-content,
+[data-theme="dark"] .answer-content,
+html.dark .answer-content p,
+[data-theme="dark"] .answer-content p {
+  color: #f1f5f9 !important;
+}
+
+html.dark .community-search-box,
+[data-theme="dark"] .community-search-box,
+html.dark .community-crop-pill:not(.is-active),
+[data-theme="dark"] .community-crop-pill:not(.is-active),
+html.dark .btn-ask-add-image,
+[data-theme="dark"] .btn-ask-add-image,
+html.dark .btn-ask-add-crop:not(.has-selection),
+[data-theme="dark"] .btn-ask-add-crop:not(.has-selection),
+html.dark .ask-textarea,
+[data-theme="dark"] .ask-textarea,
+html.dark .ask-input,
+[data-theme="dark"] .ask-input,
+html.dark .community-reply-input,
+[data-theme="dark"] .community-reply-input {
+  background-color: #1e293b !important;
+  border-color: #334155 !important;
+  color: #ffffff !important;
+}
+
+html.dark .community-search-input,
+[data-theme="dark"] .community-search-input {
+  color: #ffffff !important;
+}
+
+html.dark .community-search-input::placeholder,
+[data-theme="dark"] .community-search-input::placeholder,
+html.dark .ask-textarea::placeholder,
+[data-theme="dark"] .ask-textarea::placeholder,
+html.dark .ask-input::placeholder,
+[data-theme="dark"] .ask-input::placeholder {
+  color: #94a3b8 !important;
+}
+
+html.dark .community-fab-btn,
+[data-theme="dark"] .community-fab-btn,
+html.dark .btn-ask-send,
+[data-theme="dark"] .btn-ask-send {
+  background-color: #2563eb !important;
+  color: #ffffff !important;
+}
+
+html.dark .community-tag-badge,
+[data-theme="dark"] .community-tag-badge {
+  background-color: #172554 !important;
+  border-color: #1e40af !important;
+  color: #93c5fd !important;
+}
+
+/* Community Notifications & Share Modal Contrast */
+html:not(.dark) .notif-item-card,
+[data-theme="light"] .notif-item-card {
+  background-color: #ffffff !important;
+  border-color: #e2e8f0 !important;
+  color: #0f172a !important;
+}
+html:not(.dark) .notif-title,
+[data-theme="light"] .notif-title {
+  color: #0f172a !important;
+}
+html:not(.dark) .notif-message,
+[data-theme="light"] .notif-message {
+  color: #334155 !important;
+}
+html:not(.dark) .share-channel-btn,
+[data-theme="light"] .share-channel-btn {
+  background-color: #f8fafc !important;
+  border-color: #cbd5e1 !important;
+  color: #0f172a !important;
+}
+html:not(.dark) .post-exact-time,
+[data-theme="light"] .post-exact-time {
+  color: #475569 !important;
+}
+
+html.dark .notif-item-card,
+[data-theme="dark"] .notif-item-card {
+  background-color: #111827 !important;
+  border-color: #1e293b !important;
+  color: #ffffff !important;
+}
+html.dark .notif-title,
+[data-theme="dark"] .notif-title {
+  color: #ffffff !important;
+}
+html.dark .notif-message,
+[data-theme="dark"] .notif-message {
+  color: #cbd5e1 !important;
+}
+html.dark .share-channel-btn,
+[data-theme="dark"] .share-channel-btn {
+  background-color: #1e293b !important;
+  border-color: #334155 !important;
+  color: #ffffff !important;
+}
+html.dark .post-exact-time,
+[data-theme="dark"] .post-exact-time {
+  color: #cbd5e1 !important;
+}
+
+
+
+
+
+
+
+
 
 
 

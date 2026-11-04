@@ -4,6 +4,7 @@ from django.contrib import admin
 from django.urls import include, path
 
 from accounts.views import home, service_worker, settings_view
+from crops.views import api_crop_vision_diagnose
 from django.views.i18n import JavaScriptCatalog
 
 urlpatterns = [
@@ -15,7 +16,9 @@ urlpatterns = [
     path('accounts/', include('accounts.urls')),
     path('chat/', include('chatbot.urls')),
     path('crops/', include('crops.urls')),
+    path('api/crop-vision/diagnose/', api_crop_vision_diagnose, name='api_crop_vision_root'),
     path('disease/', include('disease.urls')),
     path('weather/', include('weather.urls')),
     path('market/', include('market.urls')),
+    path('community/', include('community.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

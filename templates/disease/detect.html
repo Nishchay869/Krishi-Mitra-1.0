@@ -1,9 +1,37 @@
 {% extends 'base.html' %}
 {% load i18n farm_i18n static %}
 {% block title %}{% translate "Disease Check" %}{% endblock %}
-{% block extra_head %}<link rel="stylesheet" href="{% static 'css/disease-assessment.css' %}?v={{ STATIC_VERSION }}">{% endblock %}
+{% block extra_head %}
+<link rel="stylesheet" href="{% static 'css/you-dashboard.css' %}?v={{ STATIC_VERSION }}">
+<link rel="stylesheet" href="{% static 'css/disease-assessment.css' %}?v={{ STATIC_VERSION }}">
+{% endblock %}
 {% block content %}
-<header class="page-intro"><span class="page-heading-icon"><i class="bi bi-camera"></i></span><span class="eyebrow">LEAF PHOTO · ML TRAINED MODEL</span><h1>Understand what your leaf is showing.</h1><p>Share a clear leaf photo and a little field context for an AI-assisted assessment, detailed disease information, spray recommendations, and practical control steps.</p></header>
+<header class="page-intro mb-4">
+  <div class="d-flex flex-wrap align-items-center justify-content-between gap-3">
+    <div class="d-flex align-items-start gap-3">
+      <!-- 21st Dev Tactile Back Button -->
+      <a href="/"
+         class="btn-21st btn-21st-secondary btn-21st-pill disease-back-btn"
+         title="{% translate 'Back' %}"
+         aria-label="{% translate 'Back' %}"
+         onclick="if (window.history.length > 1) { event.preventDefault(); window.history.back(); }">
+        <svg class="disease-back-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="19" y1="12" x2="5" y2="12"></line>
+          <polyline points="12 19 5 12 12 5"></polyline>
+        </svg>
+      </a>
+
+      <div>
+        <div class="d-flex align-items-center gap-2 mb-1">
+          <span class="page-heading-icon"><i class="bi bi-camera"></i></span>
+          <span class="eyebrow">LEAF PHOTO · ML TRAINED MODEL</span>
+        </div>
+        <h1 class="h2 fw-black text-slate-900 dark:text-white mb-1">Understand what your leaf is showing.</h1>
+        <p class="text-muted mb-0">Share a clear leaf photo and a little field context for an AI-assisted assessment, detailed disease information, spray recommendations, and practical control steps.</p>
+      </div>
+    </div>
+  </div>
+</header>
 <div class="row g-4 disease-assessment">
   <div class="col-lg-5"><section class="card disease-upload"><div class="card-body">
     <h2>Your leaf and its context</h2>
@@ -64,7 +92,31 @@
       <footer class="assessment-footer"><i class="bi bi-journal-check"></i><p>This is an AI-generated photo assessment, not a field or laboratory diagnosis. Confirm important treatment decisions with your local Krishi Vigyan Kendra (KVK) or a certified agronomist before applying any pesticide.</p></footer>
     </article>
     {% elif not error %}
-    <section class="assessment-empty"><span><i class="bi bi-leaf" aria-hidden="true"></i></span><h2>A clearer picture starts here.</h2><p>Your assessment will explain the disease name, visible symptoms, possible causes, immediate actions, cultural and biological control options, specific pesticide/spray recommendations, and a spray schedule.</p><div><i class="bi bi-check2"></i> Disease name & description</div><div><i class="bi bi-check2"></i> Specific pesticides with active ingredients</div><div><i class="bi bi-check2"></i> Step-by-step spray schedule</div><div><i class="bi bi-check2"></i> Cultural, biological & chemical control</div><div><i class="bi bi-check2"></i> Prevention & follow-up steps</div></section>
+    <section class="assessment-empty">
+      <span class="assessment-empty-icon" aria-hidden="true">
+        <svg class="assessment-svg-icon" width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <!-- Viewfinder Scanner Brackets -->
+          <path d="M2 7V5a2 2 0 0 1 2-2h3" class="scan-bracket"></path>
+          <path d="M17 3h3a2 2 0 0 1 2 2v2" class="scan-bracket"></path>
+          <path d="M22 17v2a2 2 0 0 1-2 2h-3" class="scan-bracket"></path>
+          <path d="M7 21H4a2 2 0 0 1-2-2v-3" class="scan-bracket"></path>
+          <!-- Centered Diagnostic Leaf -->
+          <g transform="translate(4, 4) scale(0.67)">
+            <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z" class="scan-leaf"></path>
+            <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12" class="scan-leaf-stem"></path>
+          </g>
+        </svg>
+      </span>
+      <h2>A clearer picture starts here.</h2>
+      <p>Your assessment will explain the disease name, visible symptoms, possible causes, immediate actions, cultural and biological control options, specific pesticide/spray recommendations, and a spray schedule.</p>
+      <div class="assessment-empty-features">
+        <div class="assessment-empty-feat"><i class="bi bi-check2-circle text-success me-2"></i>Disease name & botanical description</div>
+        <div class="assessment-empty-feat"><i class="bi bi-check2-circle text-success me-2"></i>Specific pesticides with active ingredients</div>
+        <div class="assessment-empty-feat"><i class="bi bi-check2-circle text-success me-2"></i>Step-by-step spray schedule & application method</div>
+        <div class="assessment-empty-feat"><i class="bi bi-check2-circle text-success me-2"></i>Cultural, biological & chemical control measures</div>
+        <div class="assessment-empty-feat"><i class="bi bi-check2-circle text-success me-2"></i>Prevention & follow-up monitoring steps</div>
+      </div>
+    </section>
     {% endif %}
     </div>{# /result-container #}
   </div>

@@ -1,0 +1,1072 @@
+/* ==========================================================================
+   CropVisionScanner.css - Real-Time Plant Vision & IPM Advisory HUD
+   High-contrast 21st.dev aesthetic, WCAG AAA compliant in Light and Dark Modes
+   ========================================================================== */
+
+.crop-vision-scanner {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  animation: fadeIn 0.25s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ─── 1. TOP HEADER & HUD BAR ─── */
+.vision-header-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px 20px;
+  border-radius: 16px;
+  background-color: var(--iot-card-bg, #18181b);
+  border: 1px solid var(--iot-border, #27272a);
+}
+
+.vision-light .vision-header-row {
+  background-color: #ffffff;
+  border-color: #e2e8f0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.vision-title-group h2 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin: 4px 0 2px 0;
+  color: var(--iot-fg, #ffffff);
+}
+
+.vision-light .vision-title-group h2 {
+  color: #0f172a;
+}
+
+.vision-subtitle {
+  font-size: 0.82rem;
+  color: #a1a1aa;
+  margin: 0;
+}
+
+.vision-light .vision-subtitle {
+  color: #64748b;
+}
+
+.vision-live-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: #10b981;
+  text-transform: uppercase;
+}
+
+.live-pulse-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 9999px;
+  background-color: #10b981;
+  box-shadow: 0 0 10px #10b981;
+  animation: livePulse 1.4s infinite ease-in-out;
+}
+
+@keyframes livePulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.85); }
+}
+
+.vision-stream-fps {
+  font-size: 0.68rem;
+  padding: 2px 7px;
+  border-radius: 9999px;
+  background-color: rgba(16, 185, 129, 0.15);
+  color: #34d399;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.vision-header-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+
+.vision-select-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.select-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #71717a;
+}
+
+.vision-light .select-label {
+  color: #64748b;
+}
+
+.vision-target-select {
+  padding: 7px 12px;
+  border-radius: 9999px;
+  background-color: #27272a;
+  border: 1px solid #3f3f46;
+  color: #ffffff;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  outline: none;
+}
+
+.vision-light .vision-target-select {
+  background-color: #f8fafc;
+  border-color: #cbd5e1;
+  color: #0f172a;
+}
+
+.vision-cam-buttons {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.btn-upload-leaf,
+.btn-return-cam,
+.btn-snap-frame,
+.btn-open-camera {
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+}
+
+.btn-open-camera {
+  background-color: #10b981 !important;
+  color: #ffffff !important;
+  border-color: #059669 !important;
+  box-shadow: 0 0 10px rgba(16, 185, 129, 0.35);
+}
+
+.btn-snap-frame {
+  background-color: #10b981 !important;
+  color: #ffffff !important;
+  border-color: #059669 !important;
+  box-shadow: 0 0 10px rgba(16, 185, 129, 0.35);
+}
+
+.btn-snap-frame:hover {
+  background-color: #059669 !important;
+}
+
+.btn-return-cam {
+  background-color: #005bf6 !important;
+  color: #ffffff !important;
+}
+
+.analyzing-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 2px 8px;
+  border-radius: 9999px;
+  background-color: rgba(0, 91, 246, 0.2);
+  border: 1px solid rgba(0, 91, 246, 0.4);
+  color: #60a5fa;
+  font-size: 0.7rem;
+  font-weight: 600;
+}
+
+/* ─── SAMPLE LEAF PRESET QUICK-PICK BAR ─── */
+.vision-samples-bar {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 10px 16px;
+  border-radius: 12px;
+  background-color: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.vision-light .vision-samples-bar {
+  background-color: #f1f5f9;
+  border-color: #e2e8f0;
+}
+
+.samples-bar-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.vision-light .samples-bar-label {
+  color: #475569;
+}
+
+.samples-chips-list {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.sample-leaf-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  border-radius: 9999px;
+  background-color: #27272a;
+  border: 1px solid #3f3f46;
+  color: #e4e4e7;
+  font-size: 0.74rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.vision-light .sample-leaf-chip {
+  background-color: #ffffff;
+  border-color: #cbd5e1;
+  color: #1e293b;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.sample-leaf-chip:hover {
+  border-color: #10b981;
+  color: #34d399;
+  transform: translateY(-1px);
+}
+
+.sample-leaf-chip.is-active {
+  background-color: rgba(16, 185, 129, 0.18) !important;
+  border-color: #10b981 !important;
+  color: #34d399 !important;
+  box-shadow: 0 0 10px rgba(16, 185, 129, 0.3);
+}
+
+.chip-indicator {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #10b981;
+}
+
+.vision-notice-banner {
+  display: flex;
+  align-items: center;
+  padding: 8px 14px;
+  border-radius: 10px;
+  background-color: rgba(16, 185, 129, 0.12);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  color: #34d399;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+/* Futuristic Scanline Laser Beam */
+.vision-scan-beam {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, transparent 0%, #10b981 30%, #34d399 50%, #10b981 70%, transparent 100%);
+  box-shadow: 0 0 12px #10b981, 0 0 20px #34d399;
+  z-index: 12;
+  opacity: 0.75;
+  animation: scanLaser 2.4s infinite ease-in-out alternate;
+  pointer-events: none;
+}
+
+.vision-scan-beam.is-scanning {
+  height: 4px;
+  background: linear-gradient(90deg, transparent 0%, #ef4444 30%, #f59e0b 50%, #10b981 70%, transparent 100%);
+  box-shadow: 0 0 16px #ef4444;
+  animation-duration: 1.2s;
+}
+
+@keyframes scanLaser {
+  0% { top: 4%; }
+  100% { top: 96%; }
+}
+
+.vision-static-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.hud-badge.hud-mode {
+  background-color: rgba(0, 91, 246, 0.45);
+  border-color: rgba(0, 91, 246, 0.6);
+  color: #93c5fd;
+}
+
+.btn-frozen {
+  background-color: #ef4444 !important;
+  color: #ffffff !important;
+  border-color: #dc2626 !important;
+}
+
+/* ─── 2. BLUR REJECTION ALERT BANNER ─── */
+.vision-alert-banner {
+  display: flex;
+  align-items: center;
+  padding: 10px 16px;
+  border-radius: 12px;
+  font-size: 0.84rem;
+  background-color: rgba(245, 158, 11, 0.15);
+  border: 1px solid rgba(245, 158, 11, 0.35);
+  color: #fbbf24;
+}
+
+/* ─── 3. WORKSPACE VIEWPORT GRID ─── */
+.vision-viewport-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 18px;
+}
+
+@media (max-width: 992px) {
+  .vision-viewport-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ─── 4. CAMERA FEED WRAPPER & CANVAS OVERLAY ─── */
+.vision-stream-column {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.vision-feed-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: 18px;
+  overflow: hidden;
+  background-color: #000000;
+  border: 1px solid #27272a;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.vision-video-el {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.vision-demo-preview {
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, #1e293b 0%, #0f172a 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.demo-synthetic-badge {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  z-index: 20;
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 12px;
+  border-radius: 9999px;
+  background-color: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(16, 185, 129, 0.4);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #34d399;
+}
+
+.vision-overlay-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* HUD Overlay on Video */
+.vision-hud-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 15;
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 14px;
+}
+
+.hud-top-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.hud-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 10px;
+  border-radius: 9999px;
+  background-color: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #f4f4f5;
+  font-family: monospace;
+}
+
+/* Reticle Crosshairs */
+.hud-reticle-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 58%;
+  height: 58%;
+  pointer-events: none;
+}
+
+.reticle-corner {
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  border-color: rgba(16, 185, 129, 0.85);
+  border-style: solid;
+}
+
+.reticle-tl { top: 0; left: 0; border-width: 3px 0 0 3px; }
+.reticle-tr { top: 0; right: 0; border-width: 3px 3px 0 0; }
+.reticle-bl { bottom: 0; left: 0; border-width: 0 0 3px 3px; }
+.reticle-br { bottom: 0; right: 0; border-width: 0 3px 3px 0; }
+
+.reticle-crosshair {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 1.5px dashed rgba(16, 185, 129, 0.6);
+}
+
+.hud-bottom-legend {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background-color: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(6px);
+  padding: 6px 14px;
+  border-radius: 9999px;
+  width: fit-content;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #e4e4e7;
+}
+
+.legend-box {
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+}
+
+.legend-leaf .legend-box {
+  background-color: #10b981;
+  box-shadow: 0 0 6px #10b981;
+}
+
+.legend-lesion .legend-box {
+  background-color: #ef4444;
+  box-shadow: 0 0 6px #ef4444;
+}
+
+.legend-pest .legend-box {
+  background-color: #c084fc;
+  box-shadow: 0 0 6px #c084fc;
+}
+
+.vision-paused-backdrop {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.85);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 30;
+  color: #ffffff;
+}
+
+/* Camera Permission & Activation Card */
+.vision-camera-prompt-card {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 24px;
+  background: radial-gradient(circle at center, rgba(16, 185, 129, 0.08) 0%, rgba(15, 23, 42, 0.95) 75%);
+  backdrop-filter: blur(8px);
+  z-index: 25;
+  color: #f1f5f9;
+}
+
+.vision-light .vision-camera-prompt-card {
+  background: radial-gradient(circle at center, rgba(16, 185, 129, 0.12) 0%, rgba(248, 250, 252, 0.98) 75%);
+  color: #0f172a;
+}
+
+.camera-prompt-icon-ring {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(16, 185, 129, 0.15);
+  border: 2px solid rgba(16, 185, 129, 0.4);
+  box-shadow: 0 0 25px rgba(16, 185, 129, 0.25);
+  margin-bottom: 14px;
+  animation: pulseRing 2.2s infinite ease-in-out;
+}
+
+@keyframes pulseRing {
+  0%, 100% { transform: scale(1); box-shadow: 0 0 20px rgba(16, 185, 129, 0.2); }
+  50% { transform: scale(1.06); box-shadow: 0 0 35px rgba(16, 185, 129, 0.45); }
+}
+
+.vision-camera-prompt-card h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin: 0 0 6px 0;
+  color: inherit;
+}
+
+.vision-camera-prompt-card p {
+  font-size: 0.82rem;
+  max-width: 420px;
+  line-height: 1.45;
+  color: #94a3b8;
+  margin: 0;
+}
+
+.vision-light .vision-camera-prompt-card p {
+  color: #475569;
+}
+
+.btn-start-camera-prominent {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%) !important;
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  border: none !important;
+  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4) !important;
+  padding: 10px 20px !important;
+  transition: all 0.2s ease !important;
+}
+
+.btn-start-camera-prominent:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(16, 185, 129, 0.55) !important;
+}
+
+.vision-feed-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 4px;
+}
+
+/* ─── 5. QUANTITATIVE PATHOLOGY METRICS CARDS ─── */
+.vision-metrics-column {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.vision-card {
+  border-radius: 16px;
+  background-color: var(--iot-card-bg, #18181b);
+  border: 1px solid var(--iot-border, #27272a);
+}
+
+.vision-light .vision-card {
+  background-color: #ffffff;
+  border-color: #e2e8f0;
+}
+
+.badge-stage {
+  padding: 4px 10px;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  border: 1px solid transparent;
+}
+
+.pathology-stats-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.pathology-stat-box {
+  padding: 12px 14px;
+  border-radius: 12px;
+  background-color: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.vision-light .pathology-stat-box {
+  background-color: #f8fafc;
+  border-color: #e2e8f0;
+}
+
+.stat-severity {
+  grid-column: span 2;
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.1) 0%, rgba(245, 158, 11, 0.05) 100%);
+  border-color: rgba(239, 68, 68, 0.25);
+}
+
+.stat-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #a1a1aa;
+  text-transform: uppercase;
+}
+
+.vision-light .stat-label {
+  color: #64748b;
+}
+
+.stat-value-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.stat-number {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--iot-fg, #ffffff);
+  font-family: monospace;
+}
+
+.vision-light .stat-number {
+  color: #0f172a;
+}
+
+.stat-formula {
+  font-size: 0.7rem;
+  color: #71717a;
+  font-family: monospace;
+}
+
+.stat-subtext {
+  font-size: 0.72rem;
+  color: #71717a;
+}
+
+.stat-progress-bar {
+  width: 100%;
+  height: 6px;
+  border-radius: 9999px;
+  background-color: rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+  margin-top: 4px;
+}
+
+.stat-progress-fill {
+  height: 100%;
+  border-radius: 9999px;
+  background: linear-gradient(90deg, #10b981 0%, #f59e0b 50%, #ef4444 100%);
+  transition: width 0.3s ease;
+}
+
+/* ─── 6. STAGE 1 IPM PRESCRIPTION PROTOCOL CARD ─── */
+.prescription-card {
+  border-top: 3px solid #10b981;
+}
+
+.prescription-content {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* Stage Escalation Toggle Tabs */
+.prescription-stage-tabs {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.vision-light .prescription-stage-tabs {
+  background-color: #f1f5f9;
+  border-color: #e2e8f0;
+}
+
+.stage-tabs-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #94a3b8;
+  letter-spacing: 0.03em;
+}
+
+.vision-light .stage-tabs-label {
+  color: #475569;
+}
+
+.stage-tabs-buttons {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.btn-stage-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 10px;
+  border-radius: 8px;
+  background-color: #27272a;
+  border: 1px solid #3f3f46;
+  color: #e4e4e7;
+  font-size: 0.72rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.vision-light .btn-stage-tab {
+  background-color: #ffffff;
+  border-color: #cbd5e1;
+  color: #1e293b;
+}
+
+.btn-stage-tab:hover {
+  border-color: #10b981;
+  color: #34d399;
+}
+
+.btn-stage-tab.is-active {
+  background-color: #10b981 !important;
+  border-color: #059669 !important;
+  color: #ffffff !important;
+  box-shadow: 0 0 10px rgba(16, 185, 129, 0.35);
+}
+
+.detected-stage-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #34d399;
+  box-shadow: 0 0 6px #34d399;
+}
+
+.btn-stage-tab.is-active .detected-stage-dot {
+  background-color: #ffffff;
+  box-shadow: 0 0 6px #ffffff;
+}
+
+.prescription-hero-box {
+  padding: 14px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.12) 0%, rgba(6, 78, 59, 0.25) 100%);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.prescription-hero-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.active-agent-label {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: #34d399;
+}
+
+.active-agent-name {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 3px 0;
+}
+
+.vision-light .active-agent-name {
+  color: #064e3b;
+}
+
+.scientific-organism {
+  font-size: 0.76rem;
+  color: #cbd5e1;
+  font-style: italic;
+  display: block;
+}
+
+.vision-light .scientific-organism {
+  color: #047857;
+}
+
+.formulation-pill {
+  padding: 3px 8px;
+  border-radius: 6px;
+  background-color: #064e3b;
+  color: #a7f3d0;
+  border: 1px solid #10b981;
+  font-size: 0.72rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.prescription-badges-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.safety-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 9px;
+  border-radius: 9999px;
+  background-color: rgba(0, 0, 0, 0.4);
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #f1f5f9;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Tank Dilution Calculator */
+.tank-calculator-wrap {
+  padding: 12px 14px;
+  border-radius: 12px;
+  background-color: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.vision-light .tank-calculator-wrap {
+  background-color: #f8fafc;
+  border-color: #e2e8f0;
+}
+
+.calc-title {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--iot-fg, #ffffff);
+}
+
+.vision-light .calc-title {
+  color: #0f172a;
+}
+
+.tank-buttons-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 8px 0;
+  flex-wrap: wrap;
+}
+
+.btn-tank-vol {
+  padding: 5px 12px;
+  border-radius: 8px;
+  background-color: #27272a;
+  border: 1px solid #3f3f46;
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.vision-light .btn-tank-vol {
+  background-color: #e2e8f0;
+  border-color: #cbd5e1;
+  color: #0f172a;
+}
+
+.btn-tank-vol.is-selected {
+  background-color: #005bf6 !important;
+  color: #ffffff !important;
+  border-color: #005bf6 !important;
+}
+
+.custom-tank-input {
+  display: inline-flex;
+  align-items: center;
+  background-color: #27272a;
+  border: 1px solid #3f3f46;
+  border-radius: 8px;
+  padding: 3px 8px;
+}
+
+.vision-light .custom-tank-input {
+  background-color: #ffffff;
+  border-color: #cbd5e1;
+}
+
+.custom-tank-input input {
+  width: 44px;
+  background: transparent;
+  border: none;
+  color: inherit;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-align: center;
+  outline: none;
+}
+
+.custom-tank-input span {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #71717a;
+}
+
+.tank-result-box {
+  padding: 10px 12px;
+  border-radius: 8px;
+  background-color: rgba(0, 91, 246, 0.12);
+  border: 1px solid rgba(0, 91, 246, 0.3);
+  margin-top: 6px;
+}
+
+.dose-output {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #60a5fa;
+  font-family: monospace;
+}
+
+.tank-formula-caption {
+  font-size: 0.72rem;
+  color: #94a3b8;
+  margin: 4px 0 0 0;
+}
+
+/* Prescription Engineering Meta */
+.prescription-meta-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.presc-meta-item {
+  font-size: 0.75rem;
+  line-height: 1.35;
+}
+
+.presc-meta-item strong {
+  display: block;
+  font-size: 0.72rem;
+  color: #a1a1aa;
+  margin-bottom: 2px;
+}
+
+.vision-light .presc-meta-item strong {
+  color: #64748b;
+}
+
+.presc-meta-item p {
+  margin: 0;
+  color: #e4e4e7;
+}
+
+.vision-light .presc-meta-item p {
+  color: #1e293b;
+}
+
+.tank-mix-note {
+  font-size: 0.74rem;
+  padding: 8px 12px;
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.03);
+  border: 1px dashed rgba(255, 255, 255, 0.15);
+  color: #d4d4d8;
+}
+
+.vision-light .tank-mix-note {
+  background-color: #f1f5f9;
+  border-color: #cbd5e1;
+  color: #334155;
+}
+
+.action-plan-box {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background-color: rgba(16, 185, 129, 0.08);
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  font-size: 0.76rem;
+  color: #e2e8f0;
+}
+
+.vision-light .action-plan-box {
+  color: #064e3b;
+}
+
+.action-plan-box p {
+  margin: 0;
+}
+
+.prescription-empty {
+  text-align: center;
+  padding: 30px 15px;
+  color: #71717a;
+  font-size: 0.85rem;
+}
+

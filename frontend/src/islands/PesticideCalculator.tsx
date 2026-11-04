@@ -1131,22 +1131,30 @@ export default function PesticideCalculator() {
       <div className="py-3 border-b border-slate-200/80 dark:border-slate-800">
         <div className="flex items-center justify-between gap-3">
           <div className="pr-2 flex-1">
-            <label className="flex items-center gap-1.5 text-xs font-bold text-slate-900 dark:text-white">
-              <span>Product dosage</span>
+            <div className="flex items-center gap-1.5 text-xs font-bold text-slate-900 dark:text-white">
+              <span className="cursor-default">Product dosage</span>
               <button
                 type="button"
-                onClick={() => setActiveTooltip(activeTooltip === "dosage" ? null : "dosage")}
-                className={`pesticide-info-trigger inline-flex items-center justify-center w-5 h-5 rounded-full transition-all cursor-pointer ${
-                  activeTooltip === "dosage"
-                    ? "bg-blue-600 text-white shadow-sm shadow-blue-500/50"
-                    : "bg-slate-100 hover:bg-blue-50 text-slate-500 hover:text-blue-600 border border-slate-300/80 dark:bg-slate-800 dark:hover:bg-slate-700 dark:text-slate-400 dark:hover:text-blue-400 dark:border-slate-700"
-                }`}
+                onClick={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  setActiveTooltip(activeTooltip === "dosage" ? null : "dosage");
+                }}
+                className={`pesticide-info-trigger ${activeTooltip === "dosage" ? "is-active" : ""}`}
+                style={{
+                  WebkitAppearance: "none",
+                  MozAppearance: "none",
+                  appearance: "none",
+                  outline: "none",
+                  borderStyle: "solid",
+                  boxSizing: "border-box",
+                }}
                 title="Click for dosage instructions"
                 aria-label="Click for dosage instructions"
               >
                 <Info className="h-3 w-3 stroke-[2.5]" />
               </button>
-            </label>
+            </div>
             <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">
               Product dosage needed per acre or hectare
             </p>
@@ -1180,7 +1188,7 @@ export default function PesticideCalculator() {
         {/* Product Dosage Info Tooltip (matches Screenshot 1 & 6) */}
         {activeTooltip === "dosage" && (
           <div
-            className="pesticide-info-tooltip relative z-20 mt-3 p-4 rounded-2xl bg-slate-900 text-white shadow-xl border border-slate-700/80 animate-in fade-in slide-in-from-top-2 duration-200"
+            className="pesticide-info-tooltip relative z-20 mt-3 p-4 rounded-2xl shadow-xl animate-in fade-in slide-in-from-top-2 duration-200"
             style={{ backgroundColor: "#0f172a", color: "#ffffff" }}
           >
             <div
@@ -1189,15 +1197,27 @@ export default function PesticideCalculator() {
             />
             <div className="flex items-start justify-between gap-3">
               <p
-                className="text-xs leading-relaxed font-medium pr-1 !text-white"
-                style={{ color: "#ffffff", margin: 0 }}
+                className="pesticide-tooltip-text text-xs leading-relaxed font-medium pr-1"
+                style={{ color: "#ffffff", WebkitTextFillColor: "#ffffff", margin: 0 }}
               >
                 The product dosage indicates how much product to use per 1 acre or hectare, typically measured in g or ml per acre or hectare. You can find this information on the product label, usually under “Directions for Use,” or consult an advisor.
               </p>
               <button
                 type="button"
-                onClick={() => setActiveTooltip(null)}
-                className="pesticide-tooltip-close inline-flex items-center justify-center h-6 w-6 rounded-full text-slate-300 hover:text-white bg-white/10 hover:bg-white/20 border border-white/20 transition-all shrink-0 cursor-pointer active:scale-90"
+                onClick={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  setActiveTooltip(null);
+                }}
+                className="pesticide-tooltip-close"
+                style={{
+                  WebkitAppearance: "none",
+                  MozAppearance: "none",
+                  appearance: "none",
+                  outline: "none",
+                  borderStyle: "solid",
+                  boxSizing: "border-box",
+                }}
                 title="Close"
                 aria-label="Close tooltip"
               >
@@ -1212,22 +1232,30 @@ export default function PesticideCalculator() {
       <div className="py-3 border-b border-slate-200/80 dark:border-slate-800">
         <div className="flex items-center justify-between gap-3">
           <div className="pr-2 flex-1">
-            <label className="flex items-center gap-1.5 text-xs font-bold text-slate-900 dark:text-white">
-              <span>Water amount</span>
+            <div className="flex items-center gap-1.5 text-xs font-bold text-slate-900 dark:text-white">
+              <span className="cursor-default">Water amount</span>
               <button
                 type="button"
-                onClick={() => setActiveTooltip(activeTooltip === "water" ? null : "water")}
-                className={`pesticide-info-trigger inline-flex items-center justify-center w-5 h-5 rounded-full transition-all cursor-pointer ${
-                  activeTooltip === "water"
-                    ? "bg-blue-600 text-white shadow-sm shadow-blue-500/50"
-                    : "bg-slate-100 hover:bg-blue-50 text-slate-500 hover:text-blue-600 border border-slate-300/80 dark:bg-slate-800 dark:hover:bg-slate-700 dark:text-slate-400 dark:hover:text-blue-400 dark:border-slate-700"
-                }`}
+                onClick={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  setActiveTooltip(activeTooltip === "water" ? null : "water");
+                }}
+                className={`pesticide-info-trigger ${activeTooltip === "water" ? "is-active" : ""}`}
+                style={{
+                  WebkitAppearance: "none",
+                  MozAppearance: "none",
+                  appearance: "none",
+                  outline: "none",
+                  borderStyle: "solid",
+                  boxSizing: "border-box",
+                }}
                 title="Click for water amount instructions"
                 aria-label="Click for water amount instructions"
               >
                 <Info className="h-3 w-3 stroke-[2.5]" />
               </button>
-            </label>
+            </div>
             <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">
               Water required to mix with product dosage
             </p>
@@ -1252,7 +1280,7 @@ export default function PesticideCalculator() {
         {/* Water Amount Info Tooltip (matches Screenshot 2 & 10) */}
         {activeTooltip === "water" && (
           <div
-            className="pesticide-info-tooltip relative z-20 mt-3 p-4 rounded-2xl bg-slate-900 text-white shadow-xl border border-slate-700/80 animate-in fade-in slide-in-from-top-2 duration-200"
+            className="pesticide-info-tooltip relative z-20 mt-3 p-4 rounded-2xl shadow-xl animate-in fade-in slide-in-from-top-2 duration-200"
             style={{ backgroundColor: "#0f172a", color: "#ffffff" }}
           >
             <div
@@ -1262,28 +1290,40 @@ export default function PesticideCalculator() {
             <div className="flex items-start justify-between gap-3">
               <div className="space-y-2 pr-1">
                 <h4
-                  className="text-sm font-bold !text-white"
-                  style={{ color: "#ffffff", margin: 0 }}
+                  className="pesticide-tooltip-heading text-sm font-bold"
+                  style={{ color: "#ffffff", WebkitTextFillColor: "#ffffff", margin: 0 }}
                 >
                   Follow label instructions for water amount
                 </h4>
                 <p
-                  className="text-xs leading-relaxed font-medium !text-slate-100"
-                  style={{ color: "#f8fafc", margin: 0 }}
+                  className="pesticide-tooltip-text text-xs leading-relaxed font-medium"
+                  style={{ color: "#f8fafc", WebkitTextFillColor: "#f8fafc", margin: 0 }}
                 >
                   The water amount in which to apply the product is usually given as an amount per area (1 acre or hectare). This is found on the product label. For example 200 l/ac
                 </p>
                 <p
-                  className="tooltip-subtext text-[11px] leading-relaxed !text-slate-300"
-                  style={{ color: "#cbd5e1", margin: 0 }}
+                  className="pesticide-tooltip-subtext text-[11px] leading-relaxed"
+                  style={{ color: "#cbd5e1", WebkitTextFillColor: "#cbd5e1", margin: 0 }}
                 >
                   Using less water can cause plant damage and using more can reduce product effectiveness.
                 </p>
               </div>
               <button
                 type="button"
-                onClick={() => setActiveTooltip(null)}
-                className="pesticide-tooltip-close inline-flex items-center justify-center h-6 w-6 rounded-full text-slate-300 hover:text-white bg-white/10 hover:bg-white/20 border border-white/20 transition-all shrink-0 cursor-pointer active:scale-90"
+                onClick={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  setActiveTooltip(null);
+                }}
+                className="pesticide-tooltip-close"
+                style={{
+                  WebkitAppearance: "none",
+                  MozAppearance: "none",
+                  appearance: "none",
+                  outline: "none",
+                  borderStyle: "solid",
+                  boxSizing: "border-box",
+                }}
                 title="Close"
                 aria-label="Close tooltip"
               >

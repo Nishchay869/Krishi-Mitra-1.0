@@ -22,6 +22,7 @@ const islands: Record<string, Loader> = {
   AIChatIsland: () => import('./islands/AIChatIsland'),
   AIChatCard: () => import('./components/ui/ai-chat-card'),
   PesticideCalculator: () => import('./islands/PesticideCalculator'),
+  FarmingCalculator: () => import('./islands/FarmingCalculator'),
 }
 
 async function mount(el: HTMLElement, name: string, props: object = {}): Promise<() => void> {

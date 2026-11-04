@@ -5,6 +5,7 @@ from django.utils.text import slugify
 
 from accounts.onboarding import CROP_GROUPS
 from .library import catalog
+from .cultivation_guides import get_cultivation_guide
 
 
 def index(request):
@@ -30,4 +31,11 @@ def detail(request, slug):
     if crop is None:
         raise Http404
     companions = [c for c in catalog() if c['name'] in crop['companions']]
-    return render(request, 'crops/library_detail.html', {'crop': crop, 'companions': companions})
+    cultivation_guide = get_cultivation_guide(crop['name'], crop)
+    all_crops = [{'name': c['name'], 'slug': c['slug']} for c in catalog()]
+    return render(request, 'crops/library_detail.html', {
+        'crop': crop,
+        'companions': companions,
+        'cultivation_guide': cultivation_guide,
+        'all_crops': all_crops,
+    })

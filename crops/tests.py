@@ -27,6 +27,42 @@ class CropApiTests(TestCase):
         self.assertEqual(resp.status_code, 400)
         self.assertIn('ph', resp.json()['errors'])
 
+    def test_recommends_wheat_for_punjab_conditions(self):
+        punjab_cond = {'N': 120, 'P': 50, 'K': 40, 'temperature': 19.5, 'humidity': 58, 'ph': 6.8, 'rainfall': 65}
+        resp = self.client.post(reverse('crops:api'), json.dumps(punjab_cond), content_type='application/json')
+        self.assertEqual(resp.status_code, 200)
+        recs = resp.json()['recommendations']
+        self.assertEqual(recs[0]['crop'], 'wheat')
+        self.assertEqual(recs[0]['name'], 'Wheat (Gehun)')
+        self.assertEqual(recs[0]['hindi_name'], 'गेहूं')
+        self.assertEqual(recs[0]['emoji'], '🌾')
+        self.assertIn('alluvial', recs[0]['why_message'].lower())
+
+    def test_recommends_bajra_for_arid_conditions(self):
+        arid_cond = {'N': 68, 'P': 35, 'K': 25, 'temperature': 31.0, 'humidity': 42, 'ph': 7.4, 'rainfall': 38}
+        resp = self.client.post(reverse('crops:api'), json.dumps(arid_cond), content_type='application/json')
+        self.assertEqual(resp.status_code, 200)
+        recs = resp.json()['recommendations']
+        self.assertEqual(recs[0]['crop'], 'bajra')
+        self.assertEqual(recs[0]['category'], 'Millet')
+
+    def test_recommend_page_renders_with_presets_and_results(self):
+        from django.contrib.auth import get_user_model
+        User = get_user_model()
+        user = User.objects.create_user(username='farmer1', password='testpassword123')
+        self.client.login(username='farmer1', password='testpassword123')
+        resp = self.client.get(reverse('crops:recommend'))
+        self.assertEqual(resp.status_code, 200)
+        self.assertContains(resp, 'One-Tap Regional Soil & Climate Presets')
+        self.assertContains(resp, 'Indo-Gangetic Alluvial Belt')
+
+        # Submit POST form
+        punjab_cond = {'N': 120, 'P': 50, 'K': 40, 'temperature': 19.5, 'humidity': 58, 'ph': 6.8, 'rainfall': 65}
+        post_resp = self.client.post(reverse('crops:recommend'), punjab_cond)
+        self.assertEqual(post_resp.status_code, 200)
+        self.assertContains(post_resp, 'Wheat (Gehun)')
+        self.assertContains(post_resp, 'TOP RECOMMENDATION')
+
 
 YIELD_MODEL_EXISTS = (settings.ML_MODELS_DIR / 'yield_rf.joblib').exists()
 PUNJAB_WHEAT = {'crop': 'Wheat', 'season': 'Rabi', 'state': 'Punjab', 'rainfall': 650, 'area_ha': 2}

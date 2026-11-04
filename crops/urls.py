@@ -22,4 +22,6 @@ urlpatterns = [
     path('api/', views.api_recommend, name='api'),
     path('yield/', views.yield_page, name='yield'),
     path('yield/api/', views.api_yield, name='yield_api'),
+    path('yield/agronomy/', views.api_agronomy, name='agronomy_api'),
+    path('api/crop-vision/diagnose/', views.api_crop_vision_diagnose, name='crop_vision_diagnose'),
 ]

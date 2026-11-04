@@ -1,33 +1,478 @@
 {% extends 'base.html' %}
-{% load i18n farm_i18n %}
-{% block title %}{% translate "Crop Advisor" %}{% endblock %}
+{% load i18n farm_i18n static %}
+
+{% block title %}{% translate "Crop Advisor" %} · {% translate "Krishi Mitra" %}{% endblock %}
+
+{% block extra_head %}
+<link rel="stylesheet" href="{% static 'css/you-dashboard.css' %}?v={{ STATIC_VERSION }}">
+{% endblock %}
+
 {% block content %}
-<header class="page-intro"><span class="page-heading-icon"><i class="bi bi-flower2"></i></span><span class="eyebrow">{% translate "SOIL TO SEASON" %}</span><h1>{% translate "Find your next crop." %}</h1><p>{% translate "Enter values from your Soil Health Card and local climate to discover crops suited to your farm." %}</p></header>
-<p><a class="btn btn-outline-success" href="{% url 'crops:fertilizer' %}">{% translate "Fertilizer Calculator" %}</a></p>
-<div class="row g-4">
-  <div class="col-lg-7"><div class="card shadow-sm"><div class="card-body">
-    <form method="post" class="row">{% csrf_token %}
-      {% include 'partials/fields.html' with col='col-sm-6' %}
-      <div class="col-12"><button class="btn btn-agri">{% translate "Recommend crops" %}</button></div>
-    </form>
-  </div></div></div>
-  <div class="col-lg-5">
-    {% if error %}<div class="alert alert-warning">{{ error|ui_text }}</div>{% endif %}
-    {% if results %}
-    <div class="card shadow-sm"><div class="card-header bg-white fw-semibold">{% translate "Recommended crops" %}</div>
-      <ul class="list-group list-group-flush">
-        {% for r in results %}
-        <li class="list-group-item">
-          <div class="d-flex justify-content-between"><span class="fw-semibold">{% if forloop.first %}<i class="bi bi-star-fill text-warning"></i> {% endif %}{{ r.crop|title|ui_text }}</span><span>{% widthratio r.probability 1 100 %}%</span></div>
-          <div class="progress mt-1" style="height:6px"><div class="progress-bar bg-success" style="width: {% widthratio r.probability 1 100 %}%"></div></div>
-        </li>
-        {% endfor %}
-      </ul>
-      <div class="card-footer small text-muted">{% translate "Ask the assistant about fertilizer doses and pest management for your chosen crop." %}</div>
+<div class="crop-advisor-page py-3">
+  <!-- Page Intro Header with 21st Dev Professional Back Button -->
+  <header class="page-intro mb-4">
+    <div class="d-flex flex-wrap align-items-center justify-content-between gap-3">
+      <div class="d-flex align-items-start gap-3">
+        <!-- 21st Dev Tactile Back Button -->
+        <a href="/"
+           class="btn-21st btn-21st-secondary btn-21st-pill crop-back-btn"
+           title="{% translate 'Back' %}"
+           aria-label="{% translate 'Back' %}"
+           onclick="if (window.history.length > 1) { event.preventDefault(); window.history.back(); }">
+          <svg class="crop-back-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="19" y1="12" x2="5" y2="12"></line>
+            <polyline points="12 19 5 12 12 5"></polyline>
+          </svg>
+        </a>
+
+        <div>
+          <div class="d-flex align-items-center gap-2 mb-1">
+            <span class="page-heading-icon"><i class="bi bi-flower2"></i></span>
+            <span class="eyebrow">ALL-INDIA PRECISION AGRONOMIST</span>
+          </div>
+          <h1 class="h2 fw-black text-slate-900 dark:text-white mb-1">Find Your Next High-Yield Crop</h1>
+          <p class="text-muted mb-0">
+            Covers 69 major Indian crops across Cereals, Millets, Pulses, Oilseeds, Commercial & Cash crops, Vegetables, Spices, and Fruits. Evaluates your Soil Health Card (N-P-K & pH) with local climate data to suggest the most accurate, profitable crops.
+          </p>
+        </div>
+      </div>
+
+      <div class="d-flex gap-2 align-self-start align-self-md-center">
+        <a class="btn-21st btn-21st-secondary btn-21st-pill btn-21st-sm" href="{% url 'crops:yield' %}">
+          <i class="bi bi-calculator me-1.5 text-success"></i> Farming Calculator
+        </a>
+        <a class="btn-21st btn-21st-secondary btn-21st-pill btn-21st-sm" href="{% url 'crops:fertilizer' %}">
+          <i class="bi bi-droplet-half me-1.5 text-primary"></i> Fertilizer Schedule
+        </a>
+      </div>
     </div>
-    {% elif not error %}
-    <div class="soil-tip-card farm-info-card alert alert-light border small"><strong>{% translate "Tip:" %}</strong> {% translate "N, P, K values come from your soil test report. Rainfall is the expected seasonal rainfall in mm." %}</div>
-    {% endif %}
+  </header>
+
+  <!-- One-Tap Regional Presets -->
+  <section class="crop-presets-section mb-4">
+    <div class="card shadow-sm border-0 rounded-4 p-3 p-md-4 crop-advisor-card">
+      <div class="d-flex flex-wrap align-items-center justify-content-between gap-2 mb-3">
+        <div class="d-flex align-items-center gap-2">
+          <span class="badge bg-primary text-white rounded-pill px-2.5 py-1">⚡ Quick Fill</span>
+          <h2 class="h6 fw-bold mb-0 text-slate-900 dark:text-white">One-Tap Regional Soil & Climate Presets</h2>
+        </div>
+        <span class="text-muted small">Click an agro-climatic zone to instantly autofill realistic field values</span>
+      </div>
+
+      <!-- 5-Column Responsive Presets Grid -->
+      <div class="crop-presets-grid">
+        {% for preset in regional_presets %}
+        <button type="button"
+                class="regional-preset-btn"
+                data-preset-id="{{ preset.id }}"
+                data-n="{{ preset.inputs.N }}"
+                data-p="{{ preset.inputs.P }}"
+                data-k="{{ preset.inputs.K }}"
+                data-temp="{{ preset.inputs.temperature }}"
+                data-humidity="{{ preset.inputs.humidity }}"
+                data-ph="{{ preset.inputs.ph }}"
+                data-rainfall="{{ preset.inputs.rainfall }}"
+                data-title="{{ preset.title }}"
+                onclick="applyRegionalPreset(this)">
+          <div>
+            <div class="d-flex align-items-center justify-content-between mb-1.5">
+              <span class="fs-5">{{ preset.emoji }}</span>
+              <span class="crop-badge-subtle">{{ preset.badge }}</span>
+            </div>
+            <div class="crop-preset-title">{{ preset.title }}</div>
+            <div class="crop-preset-region">{{ preset.region }}</div>
+          </div>
+          <div class="crop-preset-footer">
+            <span>pH {{ preset.inputs.ph }}</span>
+            <span>Rain {{ preset.inputs.rainfall|floatformat:0 }}mm</span>
+          </div>
+        </button>
+        {% endfor %}
+      </div>
+
+      <div id="preset-applied-toast" class="alert alert-success py-1.5 px-3 mt-3 mb-0 small d-none align-items-center gap-2 rounded-pill">
+        <i class="bi bi-check-circle-fill text-success"></i>
+        <span id="preset-toast-text"></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Calculator & Recommendation Row -->
+  <div class="row g-4">
+    <!-- Left Column: Input Form -->
+    <div class="col-lg-5">
+      <div class="card shadow-sm border-0 rounded-4 p-4 crop-advisor-card h-100">
+        <div class="d-flex align-items-center justify-content-between border-bottom pb-3 mb-3">
+          <h2 class="h5 fw-bold mb-0 text-slate-900 dark:text-white d-flex align-items-center gap-2">
+            <i class="bi bi-sliders text-success"></i>
+            Soil & Climate Inputs
+          </h2>
+          <button type="button" class="btn btn-outline-secondary btn-sm py-0.5 px-2 rounded-pill text-xs" onclick="resetForm()">
+            <i class="bi bi-arrow-counterclockwise"></i> Reset
+          </button>
+        </div>
+
+        <form method="post" id="crop-advisor-form" class="row g-3">
+          {% csrf_token %}
+          {% if form.non_field_errors %}
+          <div class="col-12">
+            <div class="alert alert-danger py-2 small">{{ form.non_field_errors|join:" " }}</div>
+          </div>
+          {% endif %}
+
+          <!-- Section: Soil Macronutrients (N-P-K) -->
+          <div class="col-12">
+            <div class="text-xs font-bold uppercase tracking-wider text-muted mb-2">
+              <i class="bi bi-droplet text-primary me-1"></i> Soil Test Macronutrients (from SHC)
+            </div>
+            <div class="row g-2">
+              <div class="col-4">
+                <label class="form-label small fw-semibold text-slate-700 dark:text-slate-300 mb-1" for="id_N">
+                  {{ form.N.label }}
+                </label>
+                <div class="input-group input-group-sm">
+                  <input type="number" step="any" name="N" id="id_N" class="form-control crop-input"
+                         placeholder="90" required value="{{ form.N.value|default:'' }}">
+                  <span class="input-group-text text-[11px] text-muted">kg/ha</span>
+                </div>
+                {% if form.N.errors %}<div class="text-danger small mt-1">{{ form.N.errors.0 }}</div>{% endif %}
+              </div>
+              <div class="col-4">
+                <label class="form-label small fw-semibold text-slate-700 dark:text-slate-300 mb-1" for="id_P">
+                  {{ form.P.label }}
+                </label>
+                <div class="input-group input-group-sm">
+                  <input type="number" step="any" name="P" id="id_P" class="form-control crop-input"
+                         placeholder="42" required value="{{ form.P.value|default:'' }}">
+                  <span class="input-group-text text-[11px] text-muted">kg/ha</span>
+                </div>
+                {% if form.P.errors %}<div class="text-danger small mt-1">{{ form.P.errors.0 }}</div>{% endif %}
+              </div>
+              <div class="col-4">
+                <label class="form-label small fw-semibold text-slate-700 dark:text-slate-300 mb-1" for="id_K">
+                  {{ form.K.label }}
+                </label>
+                <div class="input-group input-group-sm">
+                  <input type="number" step="any" name="K" id="id_K" class="form-control crop-input"
+                         placeholder="43" required value="{{ form.K.value|default:'' }}">
+                  <span class="input-group-text text-[11px] text-muted">kg/ha</span>
+                </div>
+                {% if form.K.errors %}<div class="text-danger small mt-1">{{ form.K.errors.0 }}</div>{% endif %}
+              </div>
+            </div>
+          </div>
+
+          <!-- Section: Soil pH & Temperature -->
+          <div class="col-12">
+            <div class="text-xs font-bold uppercase tracking-wider text-muted mb-2 pt-2 border-top">
+              <i class="bi bi-thermometer-half text-danger me-1"></i> Soil Reaction & Climate Parameters
+            </div>
+            <div class="row g-2">
+              <div class="col-6">
+                <label class="form-label small fw-semibold text-slate-700 dark:text-slate-300 mb-1" for="id_ph">
+                  {% translate "Soil pH" %}
+                </label>
+                <div class="input-group input-group-sm">
+                  <input type="number" step="any" min="0" max="14" name="ph" id="id_ph" class="form-control crop-input"
+                         placeholder="6.5" required value="{{ form.ph.value|default:'' }}">
+                  <span class="input-group-text text-[11px] text-muted">0–14</span>
+                </div>
+                {% if form.ph.errors %}<div class="text-danger small mt-1">{{ form.ph.errors.0 }}</div>{% endif %}
+              </div>
+              <div class="col-6">
+                <label class="form-label small fw-semibold text-slate-700 dark:text-slate-300 mb-1" for="id_temperature">
+                  Temperature
+                </label>
+                <div class="input-group input-group-sm">
+                  <input type="number" step="any" name="temperature" id="id_temperature" class="form-control crop-input"
+                         placeholder="24" required value="{{ form.temperature.value|default:'' }}">
+                  <span class="input-group-text text-[11px] text-muted">°C</span>
+                </div>
+                {% if form.temperature.errors %}<div class="text-danger small mt-1">{{ form.temperature.errors.0 }}</div>{% endif %}
+              </div>
+            </div>
+          </div>
+
+          <!-- Section: Humidity & Rainfall -->
+          <div class="col-12">
+            <div class="row g-2">
+              <div class="col-6">
+                <label class="form-label small fw-semibold text-slate-700 dark:text-slate-300 mb-1" for="id_humidity">
+                  Humidity
+                </label>
+                <div class="input-group input-group-sm">
+                  <input type="number" step="any" min="0" max="100" name="humidity" id="id_humidity" class="form-control crop-input"
+                         placeholder="70" required value="{{ form.humidity.value|default:'' }}">
+                  <span class="input-group-text text-[11px] text-muted">%</span>
+                </div>
+                {% if form.humidity.errors %}<div class="text-danger small mt-1">{{ form.humidity.errors.0 }}</div>{% endif %}
+              </div>
+              <div class="col-6">
+                <label class="form-label small fw-semibold text-slate-700 dark:text-slate-300 mb-1" for="id_rainfall">
+                  Seasonal Rainfall
+                </label>
+                <div class="input-group input-group-sm">
+                  <input type="number" step="any" min="0" name="rainfall" id="id_rainfall" class="form-control crop-input"
+                         placeholder="120" required value="{{ form.rainfall.value|default:'' }}">
+                  <span class="input-group-text text-[11px] text-muted">mm</span>
+                </div>
+                {% if form.rainfall.errors %}<div class="text-danger small mt-1">{{ form.rainfall.errors.0 }}</div>{% endif %}
+              </div>
+            </div>
+          </div>
+
+          <!-- Submit Button -->
+          <div class="col-12 pt-2">
+            <button type="submit" class="btn btn-agri w-100 py-2.5 rounded-3 fw-bold shadow-sm d-flex align-items-center justify-center gap-2">
+              <i class="bi bi-stars"></i>
+              <span>Recommend Accurate Crops</span>
+            </button>
+            <div class="text-[11px] text-muted text-center mt-2">
+              Evaluates 69 Indian crops using Random Forest ML + ICAR Agronomic Distance Match
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Right Column: Results or Guide -->
+    <div class="col-lg-7">
+      {% if error %}
+      <div class="alert alert-warning border-0 shadow-sm rounded-4 p-4 mb-4">
+        <div class="d-flex align-items-center gap-3">
+          <i class="bi bi-exclamation-triangle-fill fs-3 text-warning"></i>
+          <div>
+            <h5 class="fw-bold mb-1">Recommendation Notice</h5>
+            <p class="mb-0 small">{{ error|ui_text }}</p>
+          </div>
+        </div>
+      </div>
+      {% endif %}
+
+      {% if results %}
+      <!-- Recommendations Results List -->
+      <div class="recommendations-container">
+        <div class="d-flex flex-wrap align-items-center justify-content-between gap-2 mb-3">
+          <div>
+            <h2 class="h5 fw-bold mb-0 text-slate-900 dark:text-white d-flex align-items-center gap-2">
+              <span class="text-success"><i class="bi bi-check-circle-fill"></i></span>
+              Recommended Indian Crops
+            </h2>
+            <p class="text-muted small mb-0">Ranked by ML class probability and ICAR agro-climatic fit score</p>
+          </div>
+          <span class="badge bg-success-subtle text-success border border-success-subtle rounded-pill px-3 py-1.5 fw-bold">
+            {{ results|length }} Crops Evaluated
+          </span>
+        </div>
+
+        <div class="d-flex flex-column gap-3">
+          {% for r in results %}
+          <div class="card shadow-sm border rounded-4 crop-result-card {% if forloop.first %}top-crop-highlight border-success border-2{% endif %}">
+            <div class="card-body p-3 p-md-4">
+              <!-- Top Header Row -->
+              <div class="d-flex flex-wrap align-items-center justify-content-between gap-2 mb-2.5">
+                <div class="d-flex align-items-center gap-2.5">
+                  <div class="crop-emoji-badge">
+                    {{ r.emoji }}
+                  </div>
+                  <div>
+                    <div class="d-flex flex-wrap align-items-center gap-2">
+                      <span class="badge bg-secondary text-white rounded-pill px-2 py-0.5 text-xs">#{{ r.rank }}</span>
+                      <h3 class="h5 fw-black mb-0 text-slate-900 dark:text-white">{{ r.name }}</h3>
+                      {% if r.hindi_name %}
+                      <span class="crop-badge-subtle">{{ r.hindi_name }}</span>
+                      {% endif %}
+                    </div>
+                    <div class="d-flex flex-wrap align-items-center gap-2 mt-1">
+                      <span class="crop-category-badge">{{ r.category }}</span>
+                      <span class="crop-season-badge"><i class="bi bi-calendar-event me-1"></i>{{ r.season }}</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="text-end">
+                  {% if forloop.first %}
+                  <div class="crop-top-badge mb-1">
+                    <i class="bi bi-star-fill me-1"></i> TOP RECOMMENDATION
+                  </div>
+                  {% endif %}
+                  <div class="d-flex align-items-baseline justify-content-end gap-1">
+                    <span class="h4 fw-black text-success mb-0">{{ r.percentage }}%</span>
+                    <span class="text-muted text-xs">Match</span>
+                  </div>
+                  <span class="crop-badge-grade {{ r.badge_class }}">{{ r.match_grade }}</span>
+                </div>
+              </div>
+
+              <!-- Match Progress Bar -->
+              <div class="progress rounded-pill mb-3" style="height: 7px;">
+                <div class="progress-bar {% if forloop.first %}bg-success{% else %}bg-primary{% endif %}"
+                     role="progressbar"
+                     style="width: {{ r.percentage }}%"
+                     aria-valuenow="{{ r.percentage }}"
+                     aria-valuemin="0"
+                     aria-valuemax="100"></div>
+              </div>
+
+              <!-- Why Suited Banner -->
+              <div class="crop-why-box mb-3">
+                <div class="d-flex align-items-start gap-2">
+                  <i class="bi bi-shield-check mt-0.5 shrink-0"></i>
+                  <div class="crop-why-text">
+                    <strong>Agronomic Rationale:</strong> {{ r.why_message }}
+                  </div>
+                </div>
+              </div>
+
+              <!-- Key Agronomic Parameters Grid (6 Metrics) -->
+              <div class="crop-params-grid mb-3">
+                <div class="crop-param-card">
+                  <div class="crop-param-label">Ideal Soil</div>
+                  <div class="crop-param-value">{{ r.soil_type }}</div>
+                </div>
+                <div class="crop-param-card">
+                  <div class="crop-param-label">Ideal N-P-K</div>
+                  <div class="crop-param-value">{{ r.ideal_npk }}</div>
+                </div>
+                <div class="crop-param-card">
+                  <div class="crop-param-label">Soil pH Range</div>
+                  <div class="crop-param-value">{{ r.ideal_ph }}</div>
+                </div>
+                <div class="crop-param-card">
+                  <div class="crop-param-label">Ideal Temp</div>
+                  <div class="crop-param-value">{{ r.ideal_temp }}</div>
+                </div>
+                <div class="crop-param-card">
+                  <div class="crop-param-label">Seasonal Rain</div>
+                  <div class="crop-param-value">{{ r.ideal_rainfall }}</div>
+                </div>
+                <div class="crop-param-card">
+                  <div class="crop-param-label">Duration</div>
+                  <div class="crop-param-value">{{ r.duration_days }}</div>
+                </div>
+              </div>
+
+              <!-- Field Tip & States Box -->
+              <div class="crop-tip-box mb-3">
+                <div class="d-flex align-items-start gap-2">
+                  <i class="bi bi-lightbulb-fill text-warning mt-0.5 shrink-0"></i>
+                  <div class="crop-tip-text">
+                    <strong>Field Agronomy Tip:</strong> {{ r.agronomic_tip }}
+                  </div>
+                </div>
+                {% if r.key_states %}
+                <div class="crop-states-text mt-2 pt-2 border-top">
+                  <i class="bi bi-geo-alt-fill text-danger me-1"></i>
+                  <span><strong>Key States:</strong> {{ r.key_states }}</span>
+                </div>
+                {% endif %}
+              </div>
+
+              <!-- Card Action Bar -->
+              <div class="d-flex flex-wrap align-items-center justify-content-between gap-2 pt-2 border-top border-slate-100 dark:border-slate-800">
+                <span class="text-xs text-muted">
+                  Ready to plan?
+                </span>
+                <div class="d-flex gap-2">
+                  <a href="{% url 'crops:yield' %}" class="btn btn-outline-success btn-sm rounded-pill text-xs fw-bold px-2.5">
+                    <i class="bi bi-calculator me-1"></i> Yield & Economics
+                  </a>
+                  <a href="{% url 'crops:fertilizer' %}" class="btn btn-outline-primary btn-sm rounded-pill text-xs fw-bold px-2.5">
+                    <i class="bi bi-droplet-half me-1"></i> Fertilizer Schedule
+                  </a>
+                  <a href="{% url 'chatbot:chat' %}" class="btn btn-outline-secondary btn-sm rounded-pill text-xs fw-bold px-2.5">
+                    <i class="bi bi-chat-dots me-1"></i> Ask AI
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+      {% else %}
+      <!-- Initial State Guide Card -->
+      <div class="card shadow-sm border-0 rounded-4 p-4 crop-advisor-card">
+        <div class="text-center py-3">
+          <div class="fs-1 mb-2">🌾</div>
+          <h2 class="h5 fw-bold text-slate-900 dark:text-white mb-2">Comprehensive Indian Crop Intelligence</h2>
+          <p class="text-muted small mx-auto" style="max-w: 520px;">
+            Enter your soil test parameters on the left or select a regional preset above. Our engine compares your field data against all 69 Indian agricultural crops to suggest the top matches with actionable agronomic management tips.
+          </p>
+        </div>
+
+        <div class="row g-3 mt-1">
+          <div class="col-sm-6">
+            <div class="p-3 rounded-3 border crop-param-card h-100">
+              <div class="crop-param-label">
+                <i class="bi bi-card-checklist text-success me-1"></i> Soil Health Card (SHC) Guide
+              </div>
+              <p class="crop-param-value text-[11px] mb-0 leading-relaxed font-normal">
+                Extract available Nitrogen (N), Phosphorus (P2O5), Potassium (K2O), and pH from your SHC report. If values are reported in kg/ha, enter them directly.
+              </p>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="p-3 rounded-3 border crop-param-card h-100">
+              <div class="crop-param-label">
+                <i class="bi bi-layers text-primary me-1"></i> 69 Crops Across 8 Categories
+              </div>
+              <p class="crop-param-value text-[11px] mb-0 leading-relaxed font-normal">
+                Cereals & millets (Wheat, Rice, Bajra, Ragi), Pulses (Gram, Pigeonpea), Oilseeds (Mustard, Soybean, Groundnut), Cash crops (Cotton, Sugarcane), and Vegetables & Spices.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="alert alert-info border-0 rounded-3 p-3 mt-4 mb-0 text-xs d-flex align-items-center gap-2">
+          <i class="bi bi-info-circle-fill fs-5 text-info shrink-0"></i>
+          <div>
+            <strong>Pro Tip:</strong> In summer seasons, combine crop selection with strip weeding and green mulching to preserve 35% soil moisture and prevent thermal shock.
+          </div>
+        </div>
+      </div>
+      {% endif %}
+    </div>
   </div>
 </div>
+
+<script>
+  function applyRegionalPreset(button) {
+    const dataset = button.dataset;
+    document.getElementById('id_N').value = dataset.n;
+    document.getElementById('id_P').value = dataset.p;
+    document.getElementById('id_K').value = dataset.k;
+    document.getElementById('id_temperature').value = dataset.temp;
+    document.getElementById('id_humidity').value = dataset.humidity;
+    document.getElementById('id_ph').value = dataset.ph;
+    document.getElementById('id_rainfall').value = dataset.rainfall;
+
+    // Highlight active preset
+    document.querySelectorAll('.regional-preset-btn').forEach(btn => {
+      btn.classList.remove('is-active');
+    });
+    button.classList.add('is-active');
+
+    // Toast feedback
+    const toast = document.getElementById('preset-applied-toast');
+    const toastText = document.getElementById('preset-toast-text');
+    if (toast && toastText) {
+      toastText.textContent = `Applied preset: ${dataset.title}. Click 'Recommend Accurate Crops' to run the model.`;
+      toast.classList.remove('d-none');
+      toast.classList.add('d-flex');
+    }
+  }
+
+  function resetForm() {
+    document.getElementById('crop-advisor-form').reset();
+    document.querySelectorAll('.regional-preset-btn').forEach(btn => {
+      btn.classList.remove('is-active');
+    });
+    const toast = document.getElementById('preset-applied-toast');
+    if (toast) {
+      toast.classList.remove('d-flex');
+      toast.classList.add('d-none');
+    }
+  }
+</script>
 {% endblock %}

@@ -13,6 +13,8 @@ https://docs.djangoproject.com/en/6.1/ref/settings/
 import os
 from pathlib import Path
 
+os.environ.setdefault('KERAS_HOME', '/tmp/.keras')
+
 
 def _load_dotenv(path):
     """Load KEY=value lines from .env so `python manage.py runserver` works without `source .env`.
@@ -61,6 +63,7 @@ INSTALLED_APPS = [
     'disease',
     'weather',
     'market',
+    'community',
 ]
 
 MIDDLEWARE = [

@@ -8,16 +8,18 @@ from django.http import JsonResponse
 from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.views.decorators.http import require_POST
+from django.views.decorators.csrf import csrf_exempt
 
 from accounts.models import PredictionLog
 
 from .forms import CropForm, YieldForm
+from .crop_metadata import REGIONAL_PRESETS
 from .predictor import ModelNotTrained, recommend
 from .yield_predictor import load_bundle, predict_yield
 
 
-def _run(request, data):
-    results = recommend(data)
+def _run(request, data, top_n=3):
+    results = recommend(data, top_n=top_n)
     PredictionLog.objects.create(
         user=request.user if request.user.is_authenticated else None,
         kind=PredictionLog.KIND_CROP, inputs=data, result={'top': results},
@@ -31,10 +33,15 @@ def recommend_page(request):
     results, error = None, None
     if request.method == 'POST' and form.is_valid():
         try:
-            results = _run(request, form.cleaned_data)
+            results = _run(request, form.cleaned_data, top_n=5)
         except ModelNotTrained as exc:
             error = _('This tool is temporarily unavailable. Please try again later.')
-    return render(request, 'crops/recommend.html', {'form': form, 'results': results, 'error': error})
+    return render(request, 'crops/recommend.html', {
+        'form': form,
+        'results': results,
+        'error': error,
+        'regional_presets': REGIONAL_PRESETS,
+    })
 
 
 @require_POST
@@ -47,7 +54,8 @@ def api_recommend(request):
     if not form.is_valid():
         return JsonResponse({'errors': form.errors}, status=400)
     try:
-        return JsonResponse({'recommendations': _run(request, form.cleaned_data)})
+        top_n = int(payload.get('top_n', 3))
+        return JsonResponse({'recommendations': _run(request, form.cleaned_data, top_n=top_n)})
     except ModelNotTrained as exc:
         return JsonResponse({'error': _('This tool is temporarily unavailable. Please try again later.')}, status=503)
 
@@ -61,31 +69,113 @@ def _run_yield(request, data):
     return result
 
 
-@login_required
 def yield_page(request):
+    """Farming Calculator: Precision Agronomist Decision-Support Engine & Yield Planner."""
+    bundle = None
     try:
         bundle = load_bundle()
-    except ModelNotTrained as exc:
-        return render(request, 'crops/yield.html', {'error': _('This tool is temporarily unavailable. Please try again later.')})
-    profile_state = request.user.profile.state.strip().lower()
-    state = next((st for st in bundle['states'] if st.lower() == profile_state), None)
+    except Exception:
+        bundle = None
+
+    profile_state = ''
+    user_crops = []
+    if request.user.is_authenticated:
+        try:
+            profile = getattr(request.user, 'profile', None)
+            if profile:
+                profile_state = getattr(profile, 'state', '') or ''
+                raw = getattr(profile, 'selected_crops', None)
+                if raw is None and hasattr(profile, 'saved_crops'):
+                    raw = [c.name for c in profile.saved_crops.all()]
+                if raw:
+                    user_crops = [c if isinstance(c, str) else getattr(c, 'name', str(c)) for c in raw]
+        except Exception:
+            pass
+
+    if not user_crops:
+        try:
+            raw = request.session.get('farm_preferences', {}).get('selected_crops', [])
+            user_crops = [c if isinstance(c, str) else str(c) for c in raw]
+        except Exception:
+            user_crops = []
+
+    state = None
+    if bundle and profile_state:
+        state = next((st for st in bundle.get('states', []) if st.lower() == profile_state.lower().strip()), None)
     initial = {'state': state} if state else None
-    form = YieldForm(request.POST or None, initial=initial, bundle=bundle)
+
+    form = None
+    if bundle:
+        form = YieldForm(request.POST or None, initial=initial, bundle=bundle)
+
     result = None
-    if request.method == 'POST' and form.is_valid():
-        result = _run_yield(request, form.cleaned_data)
+    agronomy_result = None
+
+    if request.method == 'POST':
+        if 'weed_pressure' in request.POST or 'field_size' in request.POST or 'crop_name' in request.POST:
+            from .agronomy import calculate_precision_agronomy
+            agronomy_result = calculate_precision_agronomy(
+                crop_name=request.POST.get('crop_name', 'Maize'),
+                field_size=float(request.POST.get('field_size', 1.0)),
+                field_unit=request.POST.get('field_unit', 'Acre'),
+                season=request.POST.get('season', 'Summer'),
+                soil_type=request.POST.get('soil_type', 'Loamy'),
+                irrigation_status=request.POST.get('irrigation_status', 'Drip'),
+                weed_pressure=request.POST.get('weed_pressure', 'Low (<15%)'),
+                weed_types_present=request.POST.getlist('weed_types_present') or request.POST.get('weed_types_present', '').split(','),
+            )
+        elif form and form.is_valid():
+            result = _run_yield(request, form.cleaned_data)
+
+    metrics = bundle['metrics']['time_2016_2020']['random_forest'] if bundle and 'metrics' in bundle else None
+    latest_year = bundle.get('latest_year', '2020') if bundle else '2020'
+
     return render(request, 'crops/yield.html', {
-        'form': form, 'result': result, 'metrics': bundle['metrics']['time_2016_2020']['random_forest'],
-        'latest_year': bundle['latest_year'],
+        'form': form,
+        'result': result,
+        'agronomy_result': agronomy_result,
+        'metrics': metrics,
+        'latest_year': latest_year,
+        'user_crops_json': json.dumps(user_crops),
+        'user_state': profile_state,
     })
 
 
 @require_POST
 def api_yield(request):
+    """JSON endpoint for yield prediction and precision agronomy calculations."""
     try:
         payload = json.loads(request.body or '{}')
     except json.JSONDecodeError:
         return JsonResponse({'error': _('Invalid JSON body.')}, status=400)
+
+    # Check if this is a Precision Agronomy calculation request
+    if any(k in payload for k in ('weed_pressure', 'field_size', 'weed_types_present', 'crop_name')) or (
+        payload.get('action') == 'precision_agronomy'
+    ):
+        from .agronomy import calculate_precision_agronomy
+        crop_name = payload.get('crop_name') or payload.get('crop') or 'Maize'
+        field_size = float(payload.get('field_size') or payload.get('area') or payload.get('area_ha') or 1.0)
+        field_unit = payload.get('field_unit') or payload.get('unit') or ('Hectare' if 'area_ha' in payload else 'Acre')
+        season = payload.get('season') or 'Summer'
+        soil_type = payload.get('soil_type') or 'Loamy'
+        irrigation_status = payload.get('irrigation_status') or 'Drip'
+        weed_pressure = payload.get('weed_pressure') or 'Moderate (15–35%)'
+        weed_types = payload.get('weed_types_present') or payload.get('weed_types') or []
+
+        assessment = calculate_precision_agronomy(
+            crop_name=crop_name,
+            field_size=field_size,
+            field_unit=field_unit,
+            season=season,
+            soil_type=soil_type,
+            irrigation_status=irrigation_status,
+            weed_pressure=weed_pressure,
+            weed_types_present=weed_types,
+        )
+        return JsonResponse(assessment.to_dict())
+
+    # Fallback to legacy ML model prediction
     try:
         bundle = load_bundle()
     except ModelNotTrained as exc:
@@ -94,6 +184,28 @@ def api_yield(request):
     if not form.is_valid():
         return JsonResponse({'errors': form.errors}, status=400)
     return JsonResponse(_run_yield(request, form.cleaned_data))
+
+
+@require_POST
+def api_agronomy(request):
+    """Direct JSON API endpoint for the Precision Farming & Agronomist Decision Engine."""
+    try:
+        payload = json.loads(request.body or '{}')
+    except json.JSONDecodeError:
+        return JsonResponse({'error': _('Invalid JSON body.')}, status=400)
+
+    from .agronomy import calculate_precision_agronomy
+    assessment = calculate_precision_agronomy(
+        crop_name=payload.get('crop_name') or payload.get('crop') or 'Maize',
+        field_size=float(payload.get('field_size') or payload.get('area') or payload.get('area_ha') or 1.0),
+        field_unit=payload.get('field_unit') or payload.get('unit') or 'Acre',
+        season=payload.get('season') or 'Summer',
+        soil_type=payload.get('soil_type') or 'Loamy',
+        irrigation_status=payload.get('irrigation_status') or 'Drip',
+        weed_pressure=payload.get('weed_pressure') or 'Moderate (15–35%)',
+        weed_types_present=payload.get('weed_types_present') or payload.get('weed_types') or [],
+    )
+    return JsonResponse(assessment.to_dict())
 
 
 def _fertilizer_context(request, data=None, params=None):
@@ -432,6 +544,40 @@ def pesticide_calculator(request):
     return render(request, 'crops/pesticide_calculator.html', {
         'user_crops_json': json.dumps(user_crops),
     })
+
+
+@csrf_exempt
+def api_crop_vision_diagnose(request):
+    """
+    Real-Time Plant Vision & IPM Advisory Diagnostic Endpoint.
+    Accepts base64 video frame or image file, executes Laplacian blur rejection,
+    CLAHE lighting normalization, multi-class segmentation, and returns
+    digital pathology metrics, polygon boundaries, and IPM prescription.
+    """
+    if request.method != 'POST':
+        return JsonResponse({'error': 'Method not allowed. Use POST.'}, status=405)
+
+    try:
+        if request.content_type and 'application/json' in request.content_type:
+            body = json.loads(request.body or '{}')
+            frame_data = body.get('frame')
+            target_hint = body.get('target_hint')
+        else:
+            frame_data = request.POST.get('frame')
+            target_hint = request.POST.get('target_hint')
+            if not frame_data and 'file' in request.FILES:
+                frame_data = request.FILES['file'].read()
+
+        if not frame_data:
+            return JsonResponse({'success': False, 'error': 'No frame provided'}, status=400)
+
+        from vision_engine import PlantVisionEngine
+        engine = PlantVisionEngine()
+        result = engine.analyze_frame(frame_data, target_hint=target_hint)
+        return JsonResponse(result.model_dump())
+    except Exception as e:
+        return JsonResponse({'success': False, 'error': str(e)}, status=500)
+
 
 
 

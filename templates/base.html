@@ -338,16 +338,15 @@
         <span class="bottom-nav-label">{% translate "Your crops" %}</span>
       </a>
 
-      {# 2. Community (Chat / Assistant) #}
-      <a href="{% url 'chatbot:chat' %}"
-        class="bottom-nav-item {% if request.resolver_match.app_name == 'chatbot' %}is-active{% endif %}">
+      {# 2. Community (Public Farmer Community) #}
+      <a href="{% url 'community:feed' %}"
+        class="bottom-nav-item {% if request.resolver_match.app_name == 'community' %}is-active{% endif %}">
         <div class="bottom-nav-icon-wrap">
           <svg class="bottom-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
             stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
-            <path d="M9 10h.01"></path>
-            <path d="M15 10h.01"></path>
-            <path d="M12 10h.01"></path>
+            <circle cx="12" cy="10" r="2.8"></circle>
+            <path d="M14.2 12.2L16 14"></path>
           </svg>
         </div>
         <span class="bottom-nav-label">{% translate "Community" %}</span>
@@ -412,6 +411,7 @@
   </script>
 
   {% block scripts %}{% endblock %}
+  {% block extra_js %}{% endblock %}
 </body>
 
 </html>

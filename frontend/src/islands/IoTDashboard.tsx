@@ -1,17 +1,19 @@
 import { useEffect, useId, useMemo, useRef, useState, type ElementType } from 'react'
-import { Activity, ArrowDownToLine, ArrowLeft, ArrowUpRight, Battery, Bell, BookOpen, ChevronRight, CircleHelp, CloudSun, Cpu, Droplets, FlaskConical, LayoutDashboard, Leaf, Menu, Radio, RefreshCw, Search, Signal, Sprout, Sun, Thermometer, Wifi, WifiOff, X } from 'lucide-react'
+import { Activity, ArrowDownToLine, ArrowLeft, ArrowUpRight, Battery, Bell, BookOpen, ChevronRight, CircleHelp, CloudSun, Cpu, Droplets, FlaskConical, LayoutDashboard, Leaf, Menu, Radio, RefreshCw, Scan, Search, Signal, Sprout, Sun, Thermometer, Wifi, WifiOff, X } from 'lucide-react'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { devices, fields, metrics, sampleSeries, type FieldKey, type Metric, type Period } from './iot-demo-data'
+import CropVisionScanner from './CropVisionScanner'
 import './IoTDashboard.css'
 
 type Point = ReturnType<typeof sampleSeries>[number]
-type View = 'overview' | 'analytics' | 'devices'
+type View = 'overview' | 'analytics' | 'devices' | 'vision'
 const metricIcons: Record<Metric, ElementType> = { moisture: Droplets, temperature: Thermometer, humidity: CloudSun, light: Sun }
 const t = (text: string) => (window as Window & { gettext?: (s: string) => string }).gettext?.(text) ?? text
-function SensorChart({ series, metric, compact = false }: { series: Point[]; metric: Metric; compact?: boolean }) {
+
+function SensorChart({ series, metric, compact = false, isDark = true }: { series: Point[]; metric: Metric; compact?: boolean; isDark?: boolean }) {
   const [hovered, setHovered] = useState<number | null>(null)
   const id = useId().replaceAll(':', '')
   const info = metrics[metric]
@@ -24,10 +26,75 @@ function SensorChart({ series, metric, compact = false }: { series: Point[]; met
   const area = `${line} L${x(series.length - 1)},${height - bottom} L${left},${height - bottom} Z`
   const selectedIndex = Math.min(hovered ?? series.length - 1, series.length - 1)
   const selected = series[selectedIndex]
-  return <div className="iot-chart"><div className="iot-chart-readout" aria-live="polite"><span style={{ color: info.color }}>{selected[metric].toFixed(1)} <small>{info.unit}</small></span><span>{selected.label} · {t('sample')}</span></div><svg viewBox={`0 0 ${width} ${height}`} role="img" aria-labelledby={`${id}-title ${id}-description`} onPointerLeave={() => setHovered(null)}><title id={`${id}-title`}>{t(info.label)} — {t('demonstration chart')}</title><desc id={`${id}-description`}>{t(info.description)} {t('Use the sample selector below to inspect individual readings.')}</desc><defs><linearGradient id={`${id}-fill`} x1="0" x2="0" y1="0" y2="1"><stop offset="0%" stopColor={info.color} stopOpacity=".2" /><stop offset="100%" stopColor={info.color} stopOpacity="0" /></linearGradient></defs>{Array.from({ length: 5 }, (_, i) => { const value = info.domain[0] + (info.domain[1] - info.domain[0]) * i / 4; return <g key={i}><line x1={left} x2={width - right} y1={y(value)} y2={y(value)} stroke="#262626" strokeDasharray="3 5" /><text x={left - 10} y={y(value) + 4} textAnchor="end">{Math.round(value)}</text></g> })}<path d={area} fill={`url(#${id}-fill)`} /><path d={line} stroke={info.color} strokeWidth="2.5" fill="none" strokeLinejoin="round" strokeLinecap="round" />{series.filter((_, i) => i === 0 || i === Math.floor(series.length / 3) || i === Math.floor(series.length * 2 / 3) || i === series.length - 1).map(point => { const i = series.indexOf(point); return <text key={i} x={x(i)} y={height - 9} textAnchor={i === 0 ? 'start' : i === series.length - 1 ? 'end' : 'middle'}>{point.label}</text> })}<line x1={x(selectedIndex)} x2={x(selectedIndex)} y1={top} y2={height - bottom} stroke="#666" strokeDasharray="4 4" /><circle cx={x(selectedIndex)} cy={y(selected[metric])} r="4" fill={info.color} stroke="#111" strokeWidth="2" /><rect x={left} y={top} width={chartWidth} height={chartHeight} fill="transparent" onPointerMove={event => { const bounds = event.currentTarget.getBoundingClientRect(); setHovered(Math.max(0, Math.min(series.length - 1, Math.round((event.clientX - bounds.left) / bounds.width * (series.length - 1))))) }} /></svg><label className="iot-chart-scrubber"><span>{t('Inspect sample')}</span><input aria-label={`${t('Inspect')} ${t(info.label)} ${t('sample')}`} type="range" min="0" max={series.length - 1} value={selectedIndex} onChange={event => setHovered(Number(event.target.value))} /></label></div>
+
+  return (
+    <div className="iot-chart">
+      <div className="iot-chart-readout" aria-live="polite">
+        <span style={{ color: info.color }}>{selected[metric].toFixed(1)} <small>{info.unit}</small></span>
+        <span>{selected.label} · {t('sample')}</span>
+      </div>
+      <svg viewBox={`0 0 ${width} ${height}`} role="img" aria-labelledby={`${id}-title ${id}-description`} onPointerLeave={() => setHovered(null)}>
+        <title id={`${id}-title`}>{t(info.label)} — {t('demonstration chart')}</title>
+        <desc id={`${id}-description`}>{t(info.description)} {t('Use the sample selector below to inspect individual readings.')}</desc>
+        <defs>
+          <linearGradient id={`${id}-fill`} x1="0" x2="0" y1="0" y2="1">
+            <stop offset="0%" stopColor={info.color} stopOpacity=".2" />
+            <stop offset="100%" stopColor={info.color} stopOpacity="0" />
+          </linearGradient>
+        </defs>
+        {Array.from({ length: 5 }, (_, i) => { 
+          const value = info.domain[0] + (info.domain[1] - info.domain[0]) * i / 4; 
+          return (
+            <g key={i}>
+              <line x1={left} x2={width - right} y1={y(value)} y2={y(value)} stroke={isDark ? "#262626" : "#e2e8f0"} strokeDasharray="3 5" />
+              <text x={left - 10} y={y(value) + 4} textAnchor="end" fill={isDark ? "#72727e" : "#64748b"}>{Math.round(value)}</text>
+            </g>
+          ) 
+        })}
+        <path d={area} fill={`url(#${id}-fill)`} />
+        <path d={line} stroke={info.color} strokeWidth="2.5" fill="none" strokeLinejoin="round" strokeLinecap="round" />
+        {series.filter((_, i) => i === 0 || i === Math.floor(series.length / 3) || i === Math.floor(series.length * 2 / 3) || i === series.length - 1).map(point => { 
+          const i = series.indexOf(point); 
+          return <text key={i} x={x(i)} y={height - 9} textAnchor={i === 0 ? 'start' : i === series.length - 1 ? 'end' : 'middle'} fill={isDark ? "#72727e" : "#64748b"}>{point.label}</text> 
+        })}
+        <line x1={x(selectedIndex)} x2={x(selectedIndex)} y1={top} y2={height - bottom} stroke={isDark ? "#666" : "#94a3b8"} strokeDasharray="4 4" />
+        <circle cx={x(selectedIndex)} cy={y(selected[metric])} r="4" fill={info.color} stroke={isDark ? "#111" : "#ffffff"} strokeWidth="2" />
+        <rect x={left} y={top} width={chartWidth} height={chartHeight} fill="transparent" onPointerMove={event => { 
+          const bounds = event.currentTarget.getBoundingClientRect(); 
+          setHovered(Math.max(0, Math.min(series.length - 1, Math.round((event.clientX - bounds.left) / bounds.width * (series.length - 1))))) 
+        }} />
+      </svg>
+      <label className="iot-chart-scrubber">
+        <span>{t('Inspect sample')}</span>
+        <input aria-label={`${t('Inspect')} ${t(info.label)} ${t('sample')}`} type="range" min="0" max={series.length - 1} value={selectedIndex} onChange={event => setHovered(Number(event.target.value))} />
+      </label>
+    </div>
+  )
 }
-function StatusBadge({ status }: { status: string }) { return <Badge variant="outline" className={`iot-status ${status === 'Online' ? 'online' : status === 'Low battery' ? 'warning' : 'offline'}`}><span />{t(status)}</Badge> }
+
+function StatusBadge({ status }: { status: string }) { 
+  return (
+    <Badge variant="outline" className={`iot-status ${status === 'Online' ? 'online' : status === 'Low battery' ? 'warning' : 'offline'}`}>
+      <span />{t(status)}
+    </Badge>
+  )
+}
+
 export default function IoTDashboard({ routes }: { routes: Record<string, string> }) {
+  const [isDark, setIsDark] = useState(() => {
+    return typeof document !== 'undefined' && document.documentElement.classList.contains('dark')
+  })
+
+  useEffect(() => {
+    const updateTheme = () => {
+      setIsDark(document.documentElement.classList.contains('dark'))
+    }
+    updateTheme()
+    const observer = new MutationObserver(updateTheme)
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class', 'data-theme'] })
+    return () => observer.disconnect()
+  }, [])
+
   const [view, setView] = useState<View>(() => {
     const requested = new URLSearchParams(window.location.search).get('view')
     return requested === 'analytics' || requested === 'devices' ? requested : 'overview'
@@ -46,18 +113,22 @@ export default function IoTDashboard({ routes }: { routes: Record<string, string
   const scopedDevices = devices.filter(device => field === 'all' || device.field === field)
   const filteredDevices = scopedDevices.filter(device => (status === 'all' || device.status === status) && `${device.id} ${device.name} ${device.type} ${fields.find(item => item.key === device.field)?.name}`.toLowerCase().includes(query.toLowerCase()))
   const active = scopedDevices.filter(device => device.status !== 'Offline').length
+
   useEffect(() => {
     const title = document.title
     document.title = 'IoT Field Dashboard · Krishi Mitra'
     document.body.classList.add('iot-active')
     return () => { document.title = title; document.body.classList.remove('iot-active') }
   }, [])
+
   useEffect(() => {
     if (!notice) return
     const timer = window.setTimeout(() => setNotice(''), 7000)
     return () => window.clearTimeout(timer)
   }, [notice])
+
   const go = (next: View) => { setView(next); drawer.current?.close() }
+
   function exportCsv() {
     const csv = ['demo_data,field,period,sample,soil_moisture_percent,air_temperature_c,relative_humidity_percent,light_klx', ...series.map(row => `true,${field},${period},"${row.label}",${row.moisture},${row.temperature},${row.humidity},${row.light}`)].join('\r\n')
     const url = URL.createObjectURL(new Blob([csv], { type: 'text/csv;charset=utf-8;' }))
@@ -66,22 +137,369 @@ export default function IoTDashboard({ routes }: { routes: Record<string, string
     setTimeout(() => URL.revokeObjectURL(url), 1000)
     setNotice(t('Demo readings exported as CSV.'))
   }
-  function Sidebar() {
-    return <><a className="iot-brand d-inline-flex align-items-center" href="/"><img src="/static/images/logo-dark.png" alt="Krishi Mitra" className="brand-logo" style={{ height: 38, width: 'auto' }} /></a><div className="iot-workspace"><span className="iot-workspace-icon"><Leaf size={18} /></span><div>{t('My farm workspace')}<small>{t('IoT preview')}</small></div><Badge variant="outline">DEMO</Badge></div><span className="iot-nav-label">{t('WORKSPACE')}</span><nav aria-label={t('IoT dashboard navigation')}>{([[LayoutDashboard, 'overview', 'Overview'], [Activity, 'analytics', 'Analytics'], [Cpu, 'devices', 'Devices']] as const).map(([Icon, key, title]) => <button key={key} onClick={() => go(key)} aria-current={view === key ? 'page' : undefined}><Icon size={17} />{t(title)}{key === 'devices' && <span className="iot-nav-count">6</span>}</button>)}</nav><span className="iot-nav-label">{t('FARM TOOLS')}</span><nav aria-label={t('Farm tools')}><a href={routes.weather}><CloudSun size={17} />{t('Weather & Advisory')}<ArrowUpRight size={13} /></a><a href={routes.library}><BookOpen size={17} />{t('Crop Library')}<ArrowUpRight size={13} /></a><a href={routes.fertilizer}><FlaskConical size={17} />{t('Fertilizer Calculator')}<ArrowUpRight size={13} /></a></nav><div className="iot-sidebar-bottom"><div className="iot-integration-note"><Radio size={20} /><strong>{t('Your fields, connected.')}</strong><p>{t('Real sensor connections will become available with the planned IoT integration.')}</p><Badge variant="outline">{t('Coming soon')}</Badge></div><a className="iot-return" href={routes.dashboard ?? routes.start}><ArrowLeft size={15} />{t('Farm dashboard')}</a></div></>
+
+  function handleBack() {
+    if (window.history.length > 1) {
+      window.history.back()
+    } else {
+      window.location.href = routes.dashboard || routes.start || '/'
+    }
   }
-  const deviceTable = <><div className="iot-table-controls"><label className="iot-search"><Search size={15} /><input type="search" aria-label={t('Search demo devices')} placeholder={t('Search devices…')} value={query} onChange={event => setQuery(event.target.value)} /></label><select aria-label={t('Filter device status')} value={status} onChange={event => setStatus(event.target.value)}><option value="all">{t('All statuses')}</option><option value="Online">{t('Online')}</option><option value="Low battery">{t('Low battery')}</option><option value="Offline">{t('Offline')}</option></select></div><div className="iot-table-scroll" tabIndex={0} role="region" aria-label={t('Demo device readings table')}><table><caption className="iot-sr-only">{t('Simulated device inventory. No physical devices are connected.')}</caption><thead><tr><th>{t('Device')}</th><th>{t('Field')}</th><th>{t('Status')}</th><th>{t('Battery')}</th><th>{t('Signal')}</th><th>{t('Sample age')}</th></tr></thead><tbody>{filteredDevices.map(device => <tr key={device.id}><td><div className="iot-device-name"><span><Cpu size={16} /></span><div><strong>{device.name}</strong><small>{device.id} · {t(device.type)}</small></div></div></td><td>{t(fields.find(item => item.key === device.field)!.name)}</td><td><StatusBadge status={device.status} /></td><td><div className={`iot-battery ${device.battery < 20 ? 'low' : ''}`}><Battery size={15} />{device.battery}%</div></td><td>{device.signal !== null ? <span className="iot-signal"><Signal size={13} />{device.signal} dBm</span> : <span className="iot-muted">—</span>}</td><td className="iot-muted">{device.age}</td></tr>)}</tbody></table>{!filteredDevices.length && <div className="iot-empty"><Search size={25} /><strong>{t('No demo devices match')}</strong><p>{t('Try another search, field, or status.')}</p><Button variant="outline" onClick={() => { setQuery(''); setStatus('all'); setField('all') }}>{t('Reset filters')}</Button></div>}</div><div className="iot-table-footer"><span>{filteredDevices.length} {t('of')} {scopedDevices.length} {t('demo devices')}</span><span>{t('Sample ages and statuses are illustrative.')}</span></div></>
-  return <div className="iot-dashboard dark"><aside className="iot-sidebar">{Sidebar()}</aside><dialog className="iot-mobile-sidebar" ref={drawer} onClose={() => menuButton.current?.focus()} onClick={event => { if (event.target === event.currentTarget) drawer.current?.close() }}><Button className="iot-drawer-close" variant="ghost" size="icon" aria-label={t('Close navigation')} onClick={() => drawer.current?.close()}><X size={18} /></Button>{Sidebar()}</dialog><main className="iot-main"><header className="iot-topbar"><div><Button ref={menuButton} className="iot-menu-button" variant="ghost" size="icon" aria-label={t('Open dashboard navigation')} onClick={() => drawer.current?.showModal()}><Menu size={20} /></Button><span>{t('Workspace')}</span><ChevronRight size={13} /><strong>{t('IoT field dashboard')}</strong></div><div><span className="iot-top-status"><span />{t('Demo workspace')}</span><a href="/" aria-label={t('Back to website')} className="iot-avatar">KM</a></div></header><div className="iot-content"><div className="iot-page-heading"><div><div className="iot-overline"><span />{t('FARM ANALYTICS')}</div><h1>{t('Your farm, in focus.')}<span>✳</span></h1><p>{t('A clearer picture of the conditions across your fields.')}</p></div><div className="iot-heading-actions"><Button variant="outline" onClick={() => setNotice(`${t('Demo view refreshed at')} ${new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}. ${t('Sample values are unchanged; no sensors were contacted.')}`)}><RefreshCw size={14} />{t('Refresh demo')}</Button><Button className="iot-export" onClick={exportCsv}><ArrowDownToLine size={14} />{t('Export CSV')}</Button></div></div>
-      <div className="iot-demo-banner"><span><FlaskConical size={17} /><strong>{t('Demo data')}</strong></span><p>{t('All readings, fields, and devices below are simulated. No physical sensors are connected.')}</p><Badge variant="outline">{t('IoT integration · Coming soon')}</Badge></div>
-      <div className="iot-filter-row"><label><Leaf size={14} /><select aria-label={t('Select field')} value={field} onChange={event => setField(event.target.value as FieldKey)}><option value="all">{t('All fields')}</option>{fields.map(item => <option value={item.key} key={item.key}>{t(item.name)}</option>)}</select></label><div className="iot-period-filter" role="group" aria-label={t('Sample time range')}>{(['24h', '7d', '30d'] as const).map(value => <button key={value} aria-pressed={period === value} onClick={() => setPeriod(value)}>{value === '24h' ? t('24 hours') : value === '7d' ? t('7 days') : t('30 days')}</button>)}</div><span className="iot-filter-caption">{t('Illustrative sample window')}</span></div>
-      <Tabs value={view} onValueChange={value => setView(value as View)} className="iot-tabs"><TabsList variant="line" className="iot-view-tabs"><TabsTrigger value="overview">{t('Overview')}</TabsTrigger><TabsTrigger value="analytics">{t('Analytics')}</TabsTrigger><TabsTrigger value="devices">{t('Devices')}<span>6</span></TabsTrigger></TabsList>
-      <TabsContent value="overview"><div className="iot-metric-grid">{(Object.keys(metrics) as Metric[]).map(key => { const Icon = metricIcons[key]; return <Card className="iot-card iot-metric" key={key}><CardContent><div><span>{t(metrics[key].label)}</span><Icon size={16} style={{ color: metrics[key].color }} /></div><strong>{last[key].toFixed(1)}<small>{metrics[key].unit}</small></strong><p><span style={{ background: metrics[key].color }} />{t('Latest sample')}<span className="iot-metric-mini">{field === 'all' ? t('Across demo fields') : t(selectedFields[0].name)}</span></p></CardContent></Card> })}</div>
-      <div className="iot-primary-grid"><Card className="iot-card iot-chart-card"><CardHeader><div className="iot-card-heading"><div><CardTitle>{t('Field conditions')}</CardTitle><p>{t('Explore trends across the selected sample window.')}</p></div><Badge variant="outline">{t('Simulated')}</Badge></div><div className="iot-chart-metrics" role="group" aria-label={t('Chart measurement')}>{(Object.keys(metrics) as Metric[]).map(key => <button key={key} aria-pressed={metric === key} onClick={() => setMetric(key)}><span style={{ background: metrics[key].color }} />{t(metrics[key].label)}</button>)}</div></CardHeader><CardContent><SensorChart series={series} metric={metric} /></CardContent></Card><Card className="iot-card iot-health-card"><CardHeader><CardTitle>{t('Device health')}</CardTitle><p>{t('Selected demo field inventory')}</p></CardHeader><CardContent><div className="iot-donut" style={{ '--online': `${active / scopedDevices.length * 100}%` } as React.CSSProperties}><div><strong>{active}<small>/{scopedDevices.length}</small></strong><span>{t('reporting')}</span></div></div><div className="iot-health-legend"><span><i className="online" />{t('Reporting')}<strong>{active}</strong></span><span><i className="warning" />{t('Low battery')}<strong>{scopedDevices.filter(d => d.status === 'Low battery').length}</strong></span><span><i />{t('Offline')}<strong>{scopedDevices.filter(d => d.status === 'Offline').length}</strong></span></div><p className="iot-health-note">{t('Low-battery nodes are included in reporting. These are demo statuses.')}</p></CardContent></Card></div>
-      <div className="iot-section-heading"><div><h2>{t('Field overview')}</h2><p>{t('Illustrative plots. Replace with your fields when integration is available.')}</p></div><span>{selectedFields.length} {t('demo fields')}</span></div><div className="iot-fields-grid">{selectedFields.map((item, i) => <Card className="iot-card iot-field-card" key={item.key}><CardContent><div className="iot-field-heading"><span className={`iot-field-pattern pattern-${i}`}><Sprout size={20} /></span><div><h3>{t(item.name)}</h3><p>{t(item.crop)}<span>·</span>{item.area}</p></div><Badge variant="outline">DEMO</Badge></div><div className="iot-field-values"><span>{t('Soil moisture')}<strong>{item.moisture}%</strong></span><span>{t('Temperature')}<strong>{item.temperature}°C</strong></span></div><button onClick={() => { setField(item.key); setView('analytics') }}>{t('View field analytics')}<ArrowUpRight size={14} /></button></CardContent></Card>)}</div>
-      <Card className="iot-card iot-devices-card"><CardHeader><div className="iot-card-heading"><div><CardTitle>{t('Sensor inventory')}</CardTitle><p>{t('Example device readings and connection states.')}</p></div><Badge variant="outline">{t('Demo devices')}</Badge></div></CardHeader><CardContent>{deviceTable}</CardContent></Card>
-      </TabsContent>
-      <TabsContent value="analytics"><div className="iot-analytics-grid">{(['moisture', 'temperature', 'humidity', 'light'] as const).map(key => <Card className="iot-card iot-chart-card" key={key}><CardHeader><CardTitle>{t(metrics[key].label)}</CardTitle><p>{t(metrics[key].description)}</p></CardHeader><CardContent><SensorChart series={series} metric={key} compact /><div className="iot-chart-stats"><span>{t('Minimum')}<strong>{Math.min(...series.map(p => p[key])).toFixed(1)} {metrics[key].unit}</strong></span><span>{t('Average')}<strong>{(series.reduce((sum, p) => sum + p[key], 0) / series.length).toFixed(1)} {metrics[key].unit}</strong></span><span>{t('Maximum')}<strong>{Math.max(...series.map(p => p[key])).toFixed(1)} {metrics[key].unit}</strong></span></div></CardContent></Card>)}</div></TabsContent>
-      <TabsContent value="devices"><div className="iot-device-summary"><Card className="iot-card"><CardContent><Cpu size={20} /><strong>0</strong><span>{t('Physical devices connected')}</span></CardContent></Card><Card className="iot-card"><CardContent><Wifi size={20} /><strong>{active}</strong><span>{t('Demo nodes reporting')}</span></CardContent></Card><Card className="iot-card"><CardContent><WifiOff size={20} /><strong>{scopedDevices.length - active}</strong><span>{t('Demo nodes offline')}</span></CardContent></Card></div><Card className="iot-card iot-devices-card"><CardHeader><CardTitle>{t('Device inventory')}</CardTitle><p>{t('Search and filter the demonstration inventory.')}</p></CardHeader><CardContent>{deviceTable}</CardContent></Card><Card className="iot-card iot-connect-note"><CardContent><Radio size={23} /><div><h2>{t('Connect real sensors — coming soon')}</h2><p>{t('Device pairing, telemetry ingestion, calibration, and connection monitoring will be added with your IoT integration. This preview does not connect to hardware or control irrigation.')}</p></div></CardContent></Card></TabsContent>
-      </Tabs>
-      <div className="iot-roadmap"><div><span><Bell size={19} /></span><div><h2>{t('Pest & disease alerts')}<Badge variant="outline">{t('Coming soon')}</Badge></h2><p>{t('IoT integration is planned. Pest and disease alert notifications are not available yet.')}</p></div></div><Cpu size={27} strokeWidth={1} /></div><footer className="iot-footer"><span><CircleHelp size={13} />{t('Demo workspace · No live telemetry')}</span><a href="/">{t('Back to Krishi Mitra')}<ArrowUpRight size={12} /></a></footer><div className="iot-action-notice" role="status" aria-live="polite">{notice}</div>
-    </div></main></div>
+
+  function Sidebar() {
+    return (
+      <>
+        <a className="iot-brand d-inline-flex align-items-center" href="/">
+          <img src={isDark ? "/static/images/logo-dark.png" : "/static/images/logo-light.png"} alt="Krishi Mitra" className="brand-logo" style={{ height: 38, width: 'auto' }} />
+        </a>
+        <div className="iot-workspace">
+          <span className="iot-workspace-icon"><Leaf size={18} /></span>
+          <div>{t('My farm workspace')}<small>{t('IoT preview')}</small></div>
+          <Badge variant="outline">DEMO</Badge>
+        </div>
+        <span className="iot-nav-label">{t('WORKSPACE')}</span>
+        <nav aria-label={t('IoT dashboard navigation')}>
+          {([[LayoutDashboard, 'overview', 'Overview'], [Activity, 'analytics', 'Analytics'], [Cpu, 'devices', 'Devices'], [Scan, 'vision', 'Plant Vision & IPM']] as const).map(([Icon, key, title]) => (
+            <button key={key} onClick={() => go(key)} aria-current={view === key ? 'page' : undefined}>
+              <Icon size={17} />{t(title)}{key === 'devices' && <span className="iot-nav-count">6</span>}{key === 'vision' && <span className="iot-nav-pulse-badge">LIVE AI</span>}
+            </button>
+          ))}
+        </nav>
+        <span className="iot-nav-label">{t('FARM TOOLS')}</span>
+        <nav aria-label={t('Farm tools')}>
+          <a href={routes.weather}><CloudSun size={17} />{t('Weather & Advisory')}<ArrowUpRight size={13} /></a>
+          <a href={routes.library}><BookOpen size={17} />{t('Crop Library')}<ArrowUpRight size={13} /></a>
+          <a href={routes.fertilizer}><FlaskConical size={17} />{t('Fertilizer Calculator')}<ArrowUpRight size={13} /></a>
+        </nav>
+        <div className="iot-sidebar-bottom">
+          <div className="iot-integration-note">
+            <Radio size={20} />
+            <strong>{t('Your fields, connected.')}</strong>
+            <p>{t('Real sensor connections will become available with the planned IoT integration.')}</p>
+            <Badge variant="outline">{t('Coming soon')}</Badge>
+          </div>
+          <a className="iot-return" href={routes.dashboard ?? routes.start}>
+            <ArrowLeft size={15} />{t('Farm dashboard')}
+          </a>
+        </div>
+      </>
+    )
+  }
+
+  const deviceTable = (
+    <>
+      <div className="iot-table-controls">
+        <label className="iot-search">
+          <Search size={15} />
+          <input type="search" aria-label={t('Search demo devices')} placeholder={t('Search devices…')} value={query} onChange={event => setQuery(event.target.value)} />
+        </label>
+        <select aria-label={t('Filter device status')} value={status} onChange={event => setStatus(event.target.value)}>
+          <option value="all">{t('All statuses')}</option>
+          <option value="Online">{t('Online')}</option>
+          <option value="Low battery">{t('Low battery')}</option>
+          <option value="Offline">{t('Offline')}</option>
+        </select>
+      </div>
+      <div className="iot-table-scroll" tabIndex={0} role="region" aria-label={t('Demo device readings table')}>
+        <table>
+          <caption className="iot-sr-only">{t('Simulated device inventory. No physical devices are connected.')}</caption>
+          <thead>
+            <tr>
+              <th>{t('Device')}</th>
+              <th>{t('Field')}</th>
+              <th>{t('Status')}</th>
+              <th>{t('Battery')}</th>
+              <th>{t('Signal')}</th>
+              <th>{t('Sample age')}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {filteredDevices.map(device => (
+              <tr key={device.id}>
+                <td>
+                  <div className="iot-device-name">
+                    <span><Cpu size={16} /></span>
+                    <div><strong>{device.name}</strong><small>{device.id} · {t(device.type)}</small></div>
+                  </div>
+                </td>
+                <td>{t(fields.find(item => item.key === device.field)!.name)}</td>
+                <td><StatusBadge status={device.status} /></td>
+                <td>
+                  <div className={`iot-battery ${device.battery < 20 ? 'low' : ''}`}>
+                    <Battery size={15} />{device.battery}%
+                  </div>
+                </td>
+                <td>
+                  {device.signal !== null ? <span className="iot-signal"><Signal size={13} />{device.signal} dBm</span> : <span className="iot-muted">—</span>}
+                </td>
+                <td className="iot-muted">{device.age}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+        {!filteredDevices.length && (
+          <div className="iot-empty">
+            <Search size={25} />
+            <strong>{t('No demo devices match')}</strong>
+            <p>{t('Try another search, field, or status.')}</p>
+            <Button variant="outline" onClick={() => { setQuery(''); setStatus('all'); setField('all') }}>{t('Reset filters')}</Button>
+          </div>
+        )}
+      </div>
+      <div className="iot-table-footer">
+        <span>{filteredDevices.length} {t('of')} {scopedDevices.length} {t('demo devices')}</span>
+        <span>{t('Sample ages and statuses are illustrative.')}</span>
+      </div>
+    </>
+  )
+
+  return (
+    <div className={`iot-dashboard ${isDark ? 'dark iot-dark' : 'iot-light'}`}>
+      <aside className="iot-sidebar">{Sidebar()}</aside>
+      <dialog className="iot-mobile-sidebar" ref={drawer} onClose={() => menuButton.current?.focus()} onClick={event => { if (event.target === event.currentTarget) drawer.current?.close() }}>
+        <Button className="iot-drawer-close" variant="ghost" size="icon" aria-label={t('Close navigation')} onClick={() => drawer.current?.close()}><X size={18} /></Button>
+        {Sidebar()}
+      </dialog>
+      <main className="iot-main">
+        <header className="iot-topbar">
+          <div className="iot-topbar-left">
+            <button type="button" className="iot-back-btn" aria-label={t('Go back')} onClick={handleBack}>
+              <ArrowLeft size={16} />
+              <span>{t('Back')}</span>
+            </button>
+            <span className="iot-topbar-divider" />
+            <Button ref={menuButton} className="iot-menu-button" variant="ghost" size="icon" aria-label={t('Open dashboard navigation')} onClick={() => drawer.current?.showModal()}><Menu size={20} /></Button>
+            <span>{t('Workspace')}</span>
+            <ChevronRight size={13} />
+            <strong>{t('IoT field dashboard')}</strong>
+          </div>
+          <div className="iot-topbar-right">
+            <span className="iot-top-status"><span />{t('Demo workspace')}</span>
+            <a href={routes.dashboard || routes.start || "/"} aria-label={t('Back to website')} className="iot-avatar">KM</a>
+          </div>
+        </header>
+
+        <div className="iot-content">
+          <div className="iot-page-heading">
+            <div>
+              <div className="iot-overline"><span />{t('FARM ANALYTICS')}</div>
+              <h1>{t('Your farm, in focus.')}<span>✳</span></h1>
+              <p>{t('A clearer picture of the conditions across your fields.')}</p>
+            </div>
+            <div className="iot-heading-actions">
+              <button type="button" className="btn-iot-heading-back" onClick={handleBack}>
+                <ArrowLeft size={15} />
+                <span>{t('Back to Dashboard')}</span>
+              </button>
+              <Button variant="outline" onClick={() => setNotice(`${t('Demo view refreshed at')} ${new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}. ${t('Sample values are unchanged; no sensors were contacted.')}`)}><RefreshCw size={14} />{t('Refresh demo')}</Button>
+              <Button className="iot-export" onClick={exportCsv}><ArrowDownToLine size={14} />{t('Export CSV')}</Button>
+            </div>
+          </div>
+
+          <div className="iot-demo-banner">
+            <span><FlaskConical size={17} /><strong>{t('Demo data')}</strong></span>
+            <p>{t('All readings, fields, and devices below are simulated. No physical sensors are connected.')}</p>
+            <Badge variant="outline">{t('IoT integration · Coming soon')}</Badge>
+          </div>
+
+          <div className="iot-filter-row">
+            <label>
+              <Leaf size={14} />
+              <select aria-label={t('Select field')} value={field} onChange={event => setField(event.target.value as FieldKey)}>
+                <option value="all">{t('All fields')}</option>
+                {fields.map(item => <option value={item.key} key={item.key}>{t(item.name)}</option>)}
+              </select>
+            </label>
+            <div className="iot-period-filter" role="group" aria-label={t('Sample time range')}>
+              {(['24h', '7d', '30d'] as const).map(value => (
+                <button key={value} aria-pressed={period === value} onClick={() => setPeriod(value)}>
+                  {value === '24h' ? t('24 hours') : value === '7d' ? t('7 days') : t('30 days')}
+                </button>
+              ))}
+            </div>
+            <span className="iot-filter-caption">{t('Illustrative sample window')}</span>
+          </div>
+
+          <Tabs value={view} onValueChange={value => setView(value as View)} className="iot-tabs">
+            <TabsList variant="line" className="iot-view-tabs">
+              <TabsTrigger value="overview">{t('Overview')}</TabsTrigger>
+              <TabsTrigger value="analytics">{t('Analytics')}</TabsTrigger>
+              <TabsTrigger value="devices">{t('Devices')}<span>6</span></TabsTrigger>
+              <TabsTrigger value="vision">
+                <span className="iot-tab-live-dot" />
+                {t('Plant Vision & IPM')}
+                <span className="iot-view-badge">LIVE AI</span>
+              </TabsTrigger>
+            </TabsList>
+
+            <TabsContent value="overview">
+              <div className="iot-metric-grid">
+                {(Object.keys(metrics) as Metric[]).map(key => { 
+                  const Icon = metricIcons[key]; 
+                  return (
+                    <Card className="iot-card iot-metric" key={key}>
+                      <CardContent>
+                        <div><span>{t(metrics[key].label)}</span><Icon size={16} style={{ color: metrics[key].color }} /></div>
+                        <strong>{last[key].toFixed(1)}<small>{metrics[key].unit}</small></strong>
+                        <p><span style={{ background: metrics[key].color }} />{t('Latest sample')}<span className="iot-metric-mini">{field === 'all' ? t('Across demo fields') : t(selectedFields[0].name)}</span></p>
+                      </CardContent>
+                    </Card>
+                  ) 
+                })}
+              </div>
+
+              <div className="iot-primary-grid">
+                <Card className="iot-card iot-chart-card">
+                  <CardHeader>
+                    <div className="iot-card-heading">
+                      <div>
+                        <CardTitle>{t('Field conditions')}</CardTitle>
+                        <p>{t('Explore trends across the selected sample window.')}</p>
+                      </div>
+                      <Badge variant="outline">{t('Simulated')}</Badge>
+                    </div>
+                    <div className="iot-chart-metrics" role="group" aria-label={t('Chart measurement')}>
+                      {(Object.keys(metrics) as Metric[]).map(key => (
+                        <button key={key} aria-pressed={metric === key} onClick={() => setMetric(key)}>
+                          <span style={{ background: metrics[key].color }} />{t(metrics[key].label)}
+                        </button>
+                      ))}
+                    </div>
+                  </CardHeader>
+                  <CardContent>
+                    <SensorChart series={series} metric={metric} isDark={isDark} />
+                  </CardContent>
+                </Card>
+
+                <Card className="iot-card iot-health-card">
+                  <CardHeader>
+                    <CardTitle>{t('Device health')}</CardTitle>
+                    <p>{t('Selected demo field inventory')}</p>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="iot-donut" style={{ '--online': `${active / scopedDevices.length * 100}%` } as React.CSSProperties}>
+                      <div><strong>{active}<small>/{scopedDevices.length}</small></strong><span>{t('reporting')}</span></div>
+                    </div>
+                    <div className="iot-health-legend">
+                      <span><i className="online" />{t('Reporting')}<strong>{active}</strong></span>
+                      <span><i className="warning" />{t('Low battery')}<strong>{scopedDevices.filter(d => d.status === 'Low battery').length}</strong></span>
+                      <span><i />{t('Offline')}<strong>{scopedDevices.filter(d => d.status === 'Offline').length}</strong></span>
+                    </div>
+                    <p className="iot-health-note">{t('Low-battery nodes are included in reporting. These are demo statuses.')}</p>
+                  </CardContent>
+                </Card>
+              </div>
+
+              <div className="iot-section-heading">
+                <div>
+                  <h2>{t('Field overview')}</h2>
+                  <p>{t('Illustrative plots. Replace with your fields when integration is available.')}</p>
+                </div>
+                <span>{selectedFields.length} {t('demo fields')}</span>
+              </div>
+
+              <div className="iot-fields-grid">
+                {selectedFields.map((item, i) => (
+                  <Card className="iot-card iot-field-card" key={item.key}>
+                    <CardContent>
+                      <div className="iot-field-heading">
+                        <span className={`iot-field-pattern pattern-${i}`}><Sprout size={20} /></span>
+                        <div><h3>{t(item.name)}</h3><p>{t(item.crop)}<span>·</span>{item.area}</p></div>
+                        <Badge variant="outline">DEMO</Badge>
+                      </div>
+                      <div className="iot-field-values">
+                        <span>{t('Soil moisture')}<strong>{item.moisture}%</strong></span>
+                        <span>{t('Temperature')}<strong>{item.temperature}°C</strong></span>
+                      </div>
+                      <button onClick={() => { setField(item.key); setView('analytics') }}>{t('View field analytics')}<ArrowUpRight size={14} /></button>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+
+              <Card className="iot-card iot-devices-card">
+                <CardHeader>
+                  <div className="iot-card-heading">
+                    <div>
+                      <CardTitle>{t('Sensor inventory')}</CardTitle>
+                      <p>{t('Example device readings and connection states.')}</p>
+                    </div>
+                    <Badge variant="outline">{t('Demo devices')}</Badge>
+                  </div>
+                </CardHeader>
+                <CardContent>{deviceTable}</CardContent>
+              </Card>
+            </TabsContent>
+
+            <TabsContent value="analytics">
+              <div className="iot-analytics-grid">
+                {(['moisture', 'temperature', 'humidity', 'light'] as const).map(key => (
+                  <Card className="iot-card iot-chart-card" key={key}>
+                    <CardHeader>
+                      <CardTitle>{t(metrics[key].label)}</CardTitle>
+                      <p>{t(metrics[key].description)}</p>
+                    </CardHeader>
+                    <CardContent>
+                      <SensorChart series={series} metric={key} compact isDark={isDark} />
+                      <div className="iot-chart-stats">
+                        <span>{t('Minimum')}<strong>{Math.min(...series.map(p => p[key])).toFixed(1)} {metrics[key].unit}</strong></span>
+                        <span>{t('Average')}<strong>{(series.reduce((sum, p) => sum + p[key], 0) / series.length).toFixed(1)} {metrics[key].unit}</strong></span>
+                        <span>{t('Maximum')}<strong>{Math.max(...series.map(p => p[key])).toFixed(1)} {metrics[key].unit}</strong></span>
+                      </div>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+            </TabsContent>
+
+            <TabsContent value="devices">
+              <div className="iot-device-summary">
+                <Card className="iot-card"><CardContent><Cpu size={20} /><strong>0</strong><span>{t('Physical devices connected')}</span></CardContent></Card>
+                <Card className="iot-card"><CardContent><Wifi size={20} /><strong>{active}</strong><span>{t('Demo nodes reporting')}</span></CardContent></Card>
+                <Card className="iot-card"><CardContent><WifiOff size={20} /><strong>{scopedDevices.length - active}</strong><span>{t('Demo nodes offline')}</span></CardContent></Card>
+              </div>
+              <Card className="iot-card iot-devices-card">
+                <CardHeader>
+                  <CardTitle>{t('Device inventory')}</CardTitle>
+                  <p>{t('Search and filter the demonstration inventory.')}</p>
+                </CardHeader>
+                <CardContent>{deviceTable}</CardContent>
+              </Card>
+              <Card className="iot-card iot-connect-note">
+                <CardContent>
+                  <Radio size={23} />
+                  <div>
+                    <h2>{t('Connect real sensors — coming soon')}</h2>
+                    <p>{t('Device pairing, telemetry ingestion, calibration, and connection monitoring will be added with your IoT integration. This preview does not connect to hardware or control irrigation.')}</p>
+                  </div>
+                </CardContent>
+              </Card>
+            </TabsContent>
+
+            <TabsContent value="vision" className="iot-vision-tab-content">
+              <CropVisionScanner isDark={isDark} />
+            </TabsContent>
+          </Tabs>
+
+          <div className="iot-roadmap">
+            <div>
+              <span><Bell size={19} /></span>
+              <div>
+                <h2>{t('Pest & disease alerts')}<Badge variant="outline">{t('Coming soon')}</Badge></h2>
+                <p>{t('IoT integration is planned. Pest and disease alert notifications are not available yet.')}</p>
+              </div>
+            </div>
+            <Cpu size={27} strokeWidth={1} />
+          </div>
+
+          <footer className="iot-footer">
+            <span><CircleHelp size={13} />{t('Demo workspace · No live telemetry')}</span>
+            <a href="/">{t('Back to Krishi Mitra')}<ArrowUpRight size={12} /></a>
+          </footer>
+
+          <div className="iot-action-notice" role="status" aria-live="polite">{notice}</div>
+        </div>
+      </main>
+    </div>
+  )
 }

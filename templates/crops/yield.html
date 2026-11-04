@@ -1,44 +1,67 @@
 {% extends 'base.html' %}
-{% load i18n farm_i18n %}
-{% block title %}{% translate "Yield Estimate" %}{% endblock %}
+{% load i18n farm_i18n static %}
+{% block title %}Farming Calculator · {% translate "Krishi Mitra" %}{% endblock %}
+
+{% block extra_head %}
+<link rel="stylesheet" href="{% static 'css/you-dashboard.css' %}?v={{ STATIC_VERSION }}">
+{% endblock %}
+
 {% block content %}
-<header class="page-intro"><span class="page-heading-icon"><i class="bi bi-graph-up-arrow"></i></span><span class="eyebrow">{% translate "A LOOK AT YOUR NEXT HARVEST" %}</span><h1>{% translate "Plan with a clearer picture." %}</h1><p>{% translate "Estimates the expected harvest per hectare for your crop, season and state, learned from Indian state-level yields (" %}{{ latest_year|default:'2020' }} {% translate "and earlier)." %}</p></header>
-<div class="row g-4">
-  <div class="col-lg-6">
-    {% if form %}
-    <div class="card shadow-sm"><div class="card-body">
-      <form method="post" class="row">{% csrf_token %}
-        {% include 'partials/fields.html' with col='col-sm-6' %}
-        <div class="col-12"><button class="btn btn-agri">{% translate "Estimate yield" %}</button></div>
-      </form>
-    </div></div>
-    {% endif %}
-  </div>
-  <div class="col-lg-6">
-    {% if error %}<div class="alert alert-warning">{{ error|ui_text }}</div>{% endif %}
-    {% if result %}
-    <div class="card shadow-sm border-success"><div class="card-body">
-      <div class="text-muted small">{{ result.crop|ui_text }} · {{ result.season|ui_text }} · {{ result.state|ui_text }}</div>
-      <div class="display-6 fw-semibold text-agri">{{ result.yield_per_ha }} <span class="fs-5">{{ result.unit|ui_text }}</span></div>
-      <div class="small text-muted mb-3">{% translate "Likely range:" %} {{ result.range_low }} – {{ result.range_high }} {{ result.unit|ui_text }}</div>
-      {% if result.total %}
-      <p class="mb-2"><i class="bi bi-basket"></i> {% translate "For your" %} {{ result.area_ha }} {% translate "ha: about" %} <strong>{{ result.total }} {{ result.total_unit|ui_text }}</strong></p>
-      {% endif %}
-      {% if result.historical_median %}
-      <p class="small mb-2"><i class="bi bi-clock-history"></i> {{ result.state|ui_text }} {% translate "recent average for" %} {{ result.crop|ui_text }}: {{ result.historical_median }} {{ result.unit|ui_text }}</p>
-      {% else %}
-      <div class="alert alert-warning small py-2 mb-2">{% translate "No historical record of" %} {{ result.crop|ui_text }} {% translate "in" %} {{ result.state|ui_text }} {% translate "— treat this estimate with caution." %}</div>
-      {% endif %}
-      {% if not result.season_typical %}
-      <div class="alert alert-warning small py-2 mb-2">{{ result.crop|ui_text }} {% translate "is not usually recorded in the" %} {{ result.season|ui_text }} {% translate "season; the estimate may be unreliable." %}</div>
-      {% endif %}
-      <div class="small text-muted">{% translate "This is a state-level average estimate. Your actual yield depends on variety, soil, irrigation, fertilizer and pest management — ask the assistant for crop-specific advice." %}</div>
-    </div></div>
-    {% elif metrics %}
-    <div class="model-accuracy-card farm-info-card alert alert-light border small">
-      <strong>{% translate "How accurate is it?" %}</strong> {% translate "Tested on 2016–2020 data the model never saw: R²" %} {{ metrics.r2|floatformat:2 }}{% translate ", RMSE" %} {{ metrics.rmse|floatformat:2 }}{% translate ". Most units are tonnes per hectare; cotton, jute and mesta are in bales per hectare." %}
+<div class="farming-calc-page py-2">
+  <script id="user-crops-data" type="application/json">{{ user_crops_json|safe }}</script>
+  <div id="farming-calculator-root" data-react-island="FarmingCalculator">
+    <!-- Server-rendered fallback while island mounts -->
+    <div class="max-w-4xl mx-auto p-6 farming-card rounded-3xl min-h-[500px] flex flex-col items-center justify-center text-center">
+      <div class="spinner-border text-primary mb-3" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+      <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-1">Farming Calculator</h3>
+      <p class="text-sm text-slate-500 dark:text-slate-400">Loading Precision Agronomist & Decision Support Engine…</p>
     </div>
-    {% endif %}
   </div>
+
+  {% if form or result %}
+  <!-- Optional Historical State Average Benchmark (Collapsible) -->
+  <div class="max-w-4xl mx-auto mt-8 pt-6 border-t border-slate-200 dark:border-slate-800">
+    <details class="group bg-slate-50 dark:bg-slate-800/50 rounded-2xl border border-slate-200 dark:border-slate-700/60 p-4 transition-all">
+      <summary class="font-bold text-sm text-slate-700 dark:text-slate-300 cursor-pointer flex items-center justify-between">
+        <span><i class="bi bi-graph-up-arrow me-2 text-agri"></i> Historical State Yield Benchmark (Optional Model Reference)</span>
+        <span class="text-xs text-muted group-open:rotate-180 transition-transform">▼</span>
+      </summary>
+      <div class="row g-4 mt-2">
+        <div class="col-lg-6">
+          {% if form %}
+          <div class="card shadow-sm border-0"><div class="card-body">
+            <form method="post" class="row">{% csrf_token %}
+              {% include 'partials/fields.html' with col='col-sm-6' %}
+              <div class="col-12"><button class="btn btn-agri w-100">Estimate State Historical Yield</button></div>
+            </form>
+          </div></div>
+          {% endif %}
+        </div>
+        <div class="col-lg-6">
+          {% if error %}<div class="alert alert-warning">{{ error|ui_text }}</div>{% endif %}
+          {% if result %}
+          <div class="card shadow-sm border-success"><div class="card-body">
+            <div class="text-muted small">{{ result.crop|ui_text }} · {{ result.season|ui_text }} · {{ result.state|ui_text }}</div>
+            <div class="display-6 fw-semibold text-agri">{{ result.yield_per_ha }} <span class="fs-5">{{ result.unit|ui_text }}</span></div>
+            <div class="small text-muted mb-3">{% translate "Likely range:" %} {{ result.range_low }} – {{ result.range_high }} {{ result.unit|ui_text }}</div>
+            {% if result.total %}
+            <p class="mb-2"><i class="bi bi-basket"></i> {% translate "For your" %} {{ result.area_ha }} {% translate "ha: about" %} <strong>{{ result.total }} {{ result.total_unit|ui_text }}</strong></p>
+            {% endif %}
+            {% if result.historical_median %}
+            <p class="small mb-2"><i class="bi bi-clock-history"></i> {{ result.state|ui_text }} {% translate "recent average for" %} {{ result.crop|ui_text }}: {{ result.historical_median }} {{ result.unit|ui_text }}</p>
+            {% endif %}
+          </div></div>
+          {% elif metrics %}
+          <div class="farm-info-card alert alert-light border small">
+            <strong>Model Accuracy:</strong> Trained on Indian state yields (2016–2020): R² {{ metrics.r2|floatformat:2 }}{% translate ", RMSE" %} {{ metrics.rmse|floatformat:2 }}.
+          </div>
+          {% endif %}
+        </div>
+      </div>
+    </details>
+  </div>
+  {% endif %}
 </div>
 {% endblock %}
