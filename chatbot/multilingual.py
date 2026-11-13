@@ -1,8 +1,25 @@
 """Answer in the farmer's own language using Gemini's native multilingual understanding."""
 import logging
+import re
 from . import engine, sarvam
 
 logger = logging.getLogger(__name__)
+
+ROMANIZED_LEXICONS = {
+    'kn-IN': {'bele', 'belege', 'gobbara', 'hakbeku', 'madbeku', 'enu', 'hege', 'yava', 'yavaga', 'rooga', 'aushadhi', 'neeru', 'bittane', 'namaskara', 'oota', 'tumba'},
+    'hi-IN': {'kya', 'kaise', 'kaun', 'kitna', 'khad', 'kheti', 'bimari', 'karein', 'dalein', 'dalna', 'chahiye', 'dawai', 'lag', 'namaste', 'bhav', 'kisan', 'pani'},
+    'te-IN': {'ela', 'eppudu', 'enti', 'panta', 'pantalo', 'eruvulu', 'mandu', 'purugulu', 'kottali', 'cheyali', 'namaskaram', 'vesthe'},
+    'ta-IN': {'enna', 'eppadi', 'eppothu', 'uram', 'marundhu', 'sedikku', 'payir', 'podanum', 'podalam', 'vanakkam'},
+    'mr-IN': {'kasa', 'kiti', 'khad', 'pik', 'sheti', 'aushadh', 'namaskar'},
+}
+
+
+def detect_romanized_language(text):
+    """Detect Indian language written in Latin/English script via distinctive agricultural words."""
+    words = set(re.findall(r'\b[a-zA-Z]{2,}\b', str(text).lower()))
+    scores = {lang: len(words.intersection(lex)) for lang, lex in ROMANIZED_LEXICONS.items()}
+    best_lang, best_score = max(scores.items(), key=lambda x: x[1])
+    return best_lang if best_score >= 1 else None
 
 
 def detect_script_language(text):
@@ -31,31 +48,46 @@ def detect_script_language(text):
 def respond(message, language=None, output_language=None):
     """Return (BotReply, reply_text_in_user_language, language_code, english_query).
     
-    Optimized for zero-latency responses:
-    - Non-ASCII Indian scripts detected instantly via Unicode blocks (<0.001ms)
-    - ASCII English text detected locally (<0.001ms) without blocking on remote HTTP LID
-    - Gemini natively understands multilingual and Romanized queries directly
+    Optimized for strict language fidelity:
+    - Non-ASCII Indian scripts (Kannada, Telugu, Tamil, Bengali, Hindi) detected instantly (<0.001ms)
+    - Romanized regional words (e.g. 'ragi bele ge yava gobbara') detected via lexicon
+    - User's active language always takes precedence over foreign defaults
+    - Gemini instructed with strict language requirement
     """
     message_str = str(message or '').strip()
+    detected_lang = None
+
     if not language:
         script_lang = detect_script_language(message_str)
         if script_lang:
-            language = script_lang
-        elif message_str.isascii():
-            # Standard ASCII English: zero network latency
-            language = output_language or sarvam.ENGLISH
-        elif sarvam.is_configured():
-            try:
-                language = sarvam.detect_language(message_str)
-            except Exception:
-                language = output_language or sarvam.ENGLISH
+            detected_lang = script_lang
         else:
-            language = output_language or sarvam.ENGLISH
+            roman_lang = detect_romanized_language(message_str)
+            if roman_lang:
+                detected_lang = roman_lang
+            elif message_str.isascii():
+                # ASCII text without regional words -> English
+                detected_lang = sarvam.ENGLISH
+            elif sarvam.is_configured():
+                try:
+                    detected_lang = sarvam.detect_language(message_str)
+                except Exception:
+                    detected_lang = sarvam.ENGLISH
+            else:
+                detected_lang = sarvam.ENGLISH
+        language = detected_lang
 
-    target = output_language or language or sarvam.ENGLISH
+    # Priority rule: If the user's message is detected in a specific Indian language (script or romanized),
+    # ALWAYS respect that language! Do NOT override it with Hindi or English.
+    if detected_lang and detected_lang != sarvam.ENGLISH:
+        target = detected_lang
+    else:
+        target = output_language or language or sarvam.ENGLISH
+
     reply = engine.answer(message_str, language=target)
     text = reply.text
 
+    # If the response is in English but user asked in regional language:
     if target != sarvam.ENGLISH and not any(ord(ch) > 127 for ch in text):
         translated = False
         if sarvam.is_configured():
@@ -65,7 +97,11 @@ def respond(message, language=None, output_language=None):
             except sarvam.SarvamError:
                 translated = False
         if not translated:
-            target = sarvam.ENGLISH
+            if detected_lang and detected_lang != sarvam.ENGLISH:
+                localized = engine.get_localized_fallback(target)
+                if text == engine.FALLBACK_REPLY or reply.intent == 'general':
+                    text = localized
+            else:
+                target = sarvam.ENGLISH
 
     return reply, text, target, message_str
-

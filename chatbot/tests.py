@@ -398,4 +398,140 @@ class GeminiResilienceTests(TestCase):
         self.assertIsNone(reply.entry)
 
 
+class CIARIRAGTests(TestCase):
+    """Unit tests for ICAR-CIARI RAG Knowledge Base and Prompt Augmentation."""
+
+    def test_ciari_rag_retrieves_organic_tomato_package(self):
+        from chatbot import rag
+        matches = rag.retrieve_relevant_ciari_docs('how to control fruit borer in tomato organically', top_k=2)
+        self.assertTrue(len(matches) > 0)
+        top = matches[0].entry
+        self.assertEqual(top['crop'], 'Tomato')
+        self.assertIn('Fruit Borer', top['answer'])
+        self.assertIn('Neem Oil', top['answer'])
+
+    def test_ciari_rag_retrieves_coconut_package(self):
+        from chatbot import rag
+        matches = rag.retrieve_relevant_ciari_docs('what is the spacing and pit size for coconut in andaman', top_k=2)
+        self.assertTrue(len(matches) > 0)
+        top = matches[0].entry
+        self.assertEqual(top['crop'], 'Coconut')
+        self.assertIn('7.5 m x 7.5 m', top['answer'])
+        self.assertIn('1 m x 1 m x 1 m', top['answer'])
+
+    def test_ciari_rag_retrieves_broad_dhaniya_intercrop(self):
+        from chatbot import rag
+        matches = rag.retrieve_relevant_ciari_docs('how to cultivate broad dhaniya in coconut garden', top_k=2)
+        self.assertTrue(len(matches) > 0)
+        titles = [m.entry['title'] for m in matches]
+        self.assertTrue(any('Broad Dhaniya' in t or 'Coconut' in t for t in titles))
+
+    def test_ciari_rag_retrieves_arecanut_koleroga(self):
+        from chatbot import rag
+        matches = rag.retrieve_relevant_ciari_docs('how to control koleroga disease in arecanut', top_k=2)
+        self.assertTrue(len(matches) > 0)
+        top = matches[0].entry
+        self.assertEqual(top['crop'], 'Arecanut')
+        self.assertIn('Koleroga', top['title'])
+        self.assertIn('Bordeaux mixture', top['answer'])
+
+    def test_ciari_rag_retrieves_elephant_foot_yam(self):
+        from chatbot import rag
+        matches = rag.retrieve_relevant_ciari_docs('how to prepare elephant foot yam corm setts for planting', top_k=2)
+        self.assertTrue(len(matches) > 0)
+        top = matches[0].entry
+        self.assertEqual(top['crop'], 'Elephant Foot Yam')
+        self.assertIn('Gajendra', top['answer'])
+        self.assertIn('cow dung slurry', top['answer'])
+
+    def test_ciari_rag_prompt_augmentation(self):
+        from chatbot import rag
+        matches = rag.retrieve_relevant_ciari_docs('how to control fruit borer in tomato organically', top_k=1)
+        prompt_context = rag.format_rag_prompt_context(matches)
+        self.assertIn('ICAR-CIARI', prompt_context)
+        self.assertIn('Tomato', prompt_context)
+        self.assertIn('CRITICAL INSTRUCTIONS FOR RESPONSE GENERATION', prompt_context)
+
+    @override_settings(GEMINI_API_KEY='test-key')
+    @patch('chatbot.engine.requests.post')
+    def test_engine_passes_ciari_rag_context_to_gemini(self, mock_post):
+        mock_resp = MagicMock()
+        mock_resp.status_code = 200
+        mock_resp.json.return_value = {
+            'candidates': [{'content': {'parts': [{'text': 'Based on ICAR-CIARI recommendations, spray Neem oil 5 ml/L for fruit borer in tomato.'}]}}]
+        }
+        mock_post.return_value = mock_resp
+
+        reply = engine.answer('how to control fruit borer in tomato organically')
+        self.assertIn('ICAR-CIARI', reply.text)
+        self.assertIn('Neem oil', reply.text)
+
+        # Verify that prompt payload sent to Gemini contains the CIARI context
+        call_kwargs = mock_post.call_args[1]
+        json_body = call_kwargs['json']
+        user_content = json_body['contents'][0]['parts'][0]['text']
+        self.assertIn('AUTHORITATIVE AGRICULTURAL REFERENCE (ICAR-CIARI PACKAGE OF PRACTICES)', user_content)
+        self.assertIn('Tomato', user_content)
+
+    def test_seed_knowledge_populates_ciari_database(self):
+        from chatbot.models import KnowledgeEntry
+        initial_count = KnowledgeEntry.objects.count()
+        call_command('seed_knowledge')
+        self.assertGreaterEqual(KnowledgeEntry.objects.count(), 50)
+        self.assertTrue(KnowledgeEntry.objects.filter(source__icontains='ICAR-CIARI').exists())
+
+
+class ExtendedAgriculturalRAGTests(TestCase):
+    """Tests for multi-document RAG retrieval across CPG 2012, Horticulture, UAS Dharwad & Farmer Book."""
+
+    def test_ragi_fertilizer_retrieval_and_cross_crop_isolation(self):
+        """Querying Ragi fertilizer must retrieve Finger Millet (Ragi) and never Wheat, Cotton, or Tomato."""
+        from chatbot import rag
+        matches = rag.retrieve_relevant_ciari_docs('What is the fertilizer dose for Ragi?', top_k=3)
+        self.assertTrue(len(matches) > 0)
+        top = matches[0].entry
+        self.assertIn('Ragi', top['crop'])
+        self.assertEqual(top['topic'], 'fertilizer_management')
+        self.assertIn('60 kg N', top['answer'])
+        # Verify no other crops in top matches
+        for m in matches:
+            self.assertIn('Ragi', m.entry['crop'])
+
+    def test_cotton_pest_management_retrieval(self):
+        """Querying cotton pests returns Cotton plant protection."""
+        from chatbot import rag
+        matches = rag.retrieve_relevant_ciari_docs('How to manage bollworm and sucking pests in cotton?', top_k=2)
+        self.assertTrue(len(matches) > 0)
+        self.assertEqual(matches[0].entry['crop'], 'Cotton')
+        self.assertIn('Cotton', matches[0].entry['title'])
+
+    def test_uas_dharwad_natural_farming_retrieval(self):
+        """Natural farming biostimulant query returns UAS Dharwad Jeevamrit advisory."""
+        from chatbot import rag
+        matches = rag.retrieve_relevant_ciari_docs('How to prepare Jeevamrit and Beejamrit for natural farming in Karnataka?', top_k=2)
+        self.assertTrue(len(matches) > 0)
+        titles = [m.entry['title'] for m in matches]
+        self.assertTrue(any('Jeevamrit' in t for t in titles))
+        top = matches[0].entry
+        self.assertIn('Jeevamrit', top['answer'])
+
+    def test_farmerbook_soil_plant_nutrition_retrieval(self):
+        """Deficiency query returns Farmer Book soil plant nutrition guide."""
+        from chatbot import rag
+        matches = rag.retrieve_relevant_ciari_docs('What are nitrogen and phosphorus deficiency symptoms in crops?', top_k=2)
+        self.assertTrue(len(matches) > 0)
+        top = matches[0].entry
+        self.assertTrue('deficiency' in top['answer'].lower() or 'nitrogen' in top['answer'].lower())
+
+    def test_horticulture_mango_fertilizer_table(self):
+        """Mango query retrieves Horticulture guide with table data."""
+        from chatbot import rag
+        matches = rag.retrieve_relevant_ciari_docs('What is the fertilizer schedule for Mango trees?', top_k=2)
+        self.assertTrue(len(matches) > 0)
+        self.assertEqual(matches[0].entry['crop'], 'Mango')
+        self.assertTrue('|' in matches[0].entry['answer'] or 'FYM' in matches[0].entry['answer'])
+
+
+
+
 

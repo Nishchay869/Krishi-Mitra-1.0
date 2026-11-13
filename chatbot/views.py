@@ -33,14 +33,16 @@ def chat_page(request):
 @require_POST
 def api_chat(request):
     try:
-        message = json.loads(request.body or '{}').get('message', '')
+        data = json.loads(request.body or '{}')
+        message = data.get('message', '')
+        language = data.get('language')
     except json.JSONDecodeError:
         return JsonResponse({'error': _('Invalid JSON body.')}, status=400)
     message = str(message).strip()[:MAX_MESSAGE_LENGTH]
     if not message:
         return JsonResponse({'error': _('Message is required.')}, status=400)
 
-    return JsonResponse(_answer(request, message))
+    return JsonResponse(_answer(request, message, language=language))
 
 
 @csrf_exempt
