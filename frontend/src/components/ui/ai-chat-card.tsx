@@ -10,7 +10,6 @@ import {
   MicOff,
   Copy,
   Check,
-  Sparkles,
   Sprout,
   X,
   FileText,
@@ -60,17 +59,17 @@ const DEFAULT_AGRI_PROMPTS = [
 ];
 
 const SUGGESTION_CHIPS = [
-  { label: "🍅 Tomato Blight", query: "What are tomato early blight symptoms and treatments?" },
-  { label: "🌾 Urea Dose", query: "What is the recommended fertilizer and urea dose for paddy?" },
-  { label: "🌧️ Spray Weather", query: "What are the optimal weather conditions for pesticide spraying?" },
-  { label: "💰 PM-KISAN", query: "How does PM-KISAN scheme work and who is eligible?" },
-  { label: "📈 Mandi Prices", query: "How to check today's APMC mandi market prices for crops?" },
+  { label: "Tomato Blight", query: "What are tomato early blight symptoms and treatments?" },
+  { label: "Urea Dosage", query: "What is the recommended fertilizer and urea dose for paddy?" },
+  { label: "Spray Weather", query: "What are the optimal weather conditions for pesticide spraying?" },
+  { label: "PM-KISAN", query: "How does PM-KISAN scheme work and who is eligible?" },
+  { label: "Mandi Prices", query: "How to check today's APMC mandi market prices for crops?" },
 ];
 
 export function AIChatCard({
   title = "Farm Assistant",
-  subtitle = "Smart AI Farming Companion",
-  greeting = "Namaste, Farmer!",
+  subtitle = "Agricultural Advisory & Field Guidance",
+  greeting = "Namaste, Farmer",
   prompt = "Ask anything about crops, pests, fertilizers, weather, or mandi prices in any language.",
   prompts = DEFAULT_AGRI_PROMPTS,
   autoType = true,
@@ -209,36 +208,32 @@ export function AIChatCard({
     <div
       ref={rootRef}
       className={cn(
-        "ai-chat-card-surface flex w-full flex-col rounded-[26px] overflow-hidden transition-all",
-        "border border-slate-200/80 shadow-[0_12px_40px_rgba(0,0,0,0.06),0_2px_6px_rgba(0,0,0,0.04)]",
-        "dark:border-slate-800/80 dark:shadow-[0_12px_40px_rgba(0,0,0,0.35),0_0_0_1px_rgba(255,255,255,0.08)]",
+        "ai-chat-card-surface flex w-full flex-col rounded-2xl overflow-hidden transition-all",
+        "border border-slate-200 shadow-sm",
+        "dark:border-slate-800 dark:shadow-[0_4px_20px_rgba(0,0,0,0.35)]",
         className
       )}
     >
       {/* Header */}
-      <div className="flex items-center justify-between gap-4 border-b border-slate-100 dark:border-slate-800/80 px-5 py-4">
-        <div className="flex items-center gap-3">
-          <div className="relative flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-emerald-500 to-green-600 text-white shadow-md shadow-emerald-500/20">
-            <Sprout className="h-5 w-5" />
-            <span className="absolute -bottom-0.5 -right-0.5 flex h-3 w-3">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
-              <span className="relative inline-flex h-3 w-3 rounded-full border-2 border-white bg-emerald-500 dark:border-slate-900" />
-            </span>
+      <div className="flex items-center justify-between gap-3 border-b border-slate-100 dark:border-slate-800/80 px-3.5 sm:px-5 py-3 sm:py-4">
+        <div className="flex items-center gap-2.5 sm:gap-3">
+          <div className="flex h-8 w-8 sm:h-9 sm:w-9 shrink-0 items-center justify-center rounded-lg bg-emerald-700 text-white">
+            <Sprout className="h-4 w-4 sm:h-5 sm:w-5" />
           </div>
           <div>
-            <div className="flex items-center gap-2">
-              <h3 className="text-[15px] font-semibold tracking-tight text-slate-900 dark:text-white">
+            <div className="flex items-center gap-1.5 sm:gap-2">
+              <h3 className="text-sm sm:text-[15px] font-semibold tracking-tight text-slate-900 dark:text-white">
                 {title}
               </h3>
-              <span className="rounded-full bg-emerald-50 px-2 py-0.5 text-[10px] font-medium text-emerald-700 dark:bg-emerald-950/60 dark:text-emerald-400 border border-emerald-200/60 dark:border-emerald-800/60">
-                Krishi AI
+              <span className="rounded-md bg-emerald-50 px-1.5 sm:px-2 py-0.5 text-[9px] sm:text-[10px] font-medium text-emerald-800 dark:bg-emerald-950/60 dark:text-emerald-400 border border-emerald-200/60 dark:border-emerald-800/60">
+                Advisory
               </span>
             </div>
-            <p className="text-xs text-slate-500 dark:text-slate-400">{subtitle}</p>
+            <p className="text-[11px] sm:text-xs text-slate-500 dark:text-slate-400 line-clamp-1">{subtitle}</p>
           </div>
         </div>
 
-        <div className="flex items-center gap-1.5">
+        <div className="flex items-center gap-1 sm:gap-1.5">
           <motion.button
             type="button"
             onClick={() => {
@@ -246,11 +241,10 @@ export function AIChatCard({
               setUserMessage("");
               onReset?.();
             }}
-            whileTap={{ scale: 0.9 }}
+            whileTap={{ scale: 0.95 }}
             title="Reset conversation"
             aria-label="Reset conversation"
-            className="ai-chat-btn flex h-[32px] w-[32px] shrink-0 items-center justify-center rounded-full border border-slate-200/80 text-slate-500 transition-colors hover:text-slate-900 hover:border-slate-300 dark:border-slate-800 dark:bg-slate-800/80 dark:text-slate-400 dark:hover:text-white dark:hover:border-slate-700 shadow-2xs"
-            style={{ appearance: "none", WebkitAppearance: "none", outline: "none", borderRadius: "9999px" }}
+            className="ai-chat-btn flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border border-slate-200 text-slate-500 transition-colors hover:text-slate-900 hover:border-slate-300 dark:border-slate-800 dark:bg-slate-800/80 dark:text-slate-400 dark:hover:text-white"
           >
             <motion.span
               animate={{ rotate: spins * 360 }}
@@ -265,11 +259,10 @@ export function AIChatCard({
             <motion.button
               type="button"
               onClick={onClose}
-              whileTap={{ scale: 0.9 }}
+              whileTap={{ scale: 0.95 }}
               title="Close assistant"
               aria-label="Close assistant"
-              className="ai-chat-btn flex h-[32px] w-[32px] shrink-0 items-center justify-center rounded-full border border-slate-200/80 text-slate-500 transition-colors hover:text-slate-900 hover:border-slate-300 dark:border-slate-800 dark:bg-slate-800/80 dark:text-slate-400 dark:hover:text-white dark:hover:border-slate-700 shadow-2xs"
-              style={{ appearance: "none", WebkitAppearance: "none", outline: "none", borderRadius: "9999px" }}
+              className="ai-chat-btn flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border border-slate-200 text-slate-500 transition-colors hover:text-slate-900 hover:border-slate-300 dark:border-slate-800 dark:bg-slate-800/80 dark:text-slate-400 dark:hover:text-white"
             >
               <X className="h-4 w-4" />
             </motion.button>
@@ -279,39 +272,20 @@ export function AIChatCard({
 
       {/* Body: Empty State OR Messages Stream */}
       {!hasMessages ? (
-        <div className="flex flex-1 flex-col items-center justify-center px-6 py-10 text-center">
-          <motion.div
-            animate={{ y: [0, -4, 0] }}
-            transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-            className="flex h-12 w-12 items-center justify-center rounded-2xl bg-emerald-50 text-emerald-600 dark:bg-emerald-950/50 dark:text-emerald-400 border border-emerald-100 dark:border-emerald-900/40 shadow-inner"
-          >
-            {icon ?? <Sparkles className="h-6 w-6" />}
-          </motion.div>
+        <div className="flex flex-1 flex-col items-center justify-center px-4 sm:px-6 py-6 sm:py-10 text-center">
+          <div className="flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-xl bg-emerald-50 text-emerald-700 dark:bg-emerald-950/50 dark:text-emerald-400 border border-emerald-100 dark:border-emerald-900/40">
+            {icon ?? <Sprout className="h-5 w-5" />}
+          </div>
 
-          <motion.p
-            initial={{ opacity: 0, y: 8 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, delay: 0.1 }}
-            className="mt-4 text-[17px] font-semibold tracking-tight text-slate-900 dark:text-white"
-          >
+          <p className="mt-3 sm:mt-4 text-[15px] sm:text-[16px] font-semibold tracking-tight text-slate-900 dark:text-white">
             {greeting}
-          </motion.p>
-          <motion.p
-            initial={{ opacity: 0, y: 8 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, delay: 0.2 }}
-            className="mt-1.5 max-w-[340px] text-xs leading-relaxed text-slate-500 dark:text-slate-400"
-          >
+          </p>
+          <p className="mt-1 max-w-[340px] text-xs leading-relaxed text-slate-500 dark:text-slate-400">
             {prompt}
-          </motion.p>
+          </p>
 
           {/* Quick suggestion chips */}
-          <motion.div
-            initial={{ opacity: 0, y: 8 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, delay: 0.3 }}
-            className="mt-5 flex flex-wrap justify-center gap-1.5 max-w-[420px]"
-          >
+          <div className="mt-4 sm:mt-5 flex flex-wrap justify-center gap-1.5 max-w-full sm:max-w-[440px]">
             {SUGGESTION_CHIPS.map((chip) => (
               <button
                 key={chip.label}
@@ -320,18 +294,17 @@ export function AIChatCard({
                   setUserMessage(chip.query);
                   onSend?.(chip.query);
                 }}
-                className="ai-chat-btn rounded-full border border-slate-200/90 bg-slate-50/80 px-3.5 py-1.5 text-xs font-medium text-slate-700 transition-all hover:border-emerald-400 hover:bg-emerald-50 hover:text-emerald-800 dark:border-slate-800 dark:bg-slate-800/60 dark:text-slate-300 dark:hover:border-emerald-500/50 dark:hover:bg-emerald-950/40 dark:hover:text-emerald-300 shadow-2xs"
-                style={{ appearance: "none", WebkitAppearance: "none", outline: "none", borderRadius: "9999px" }}
+                className="ai-chat-btn rounded-lg border border-slate-200 bg-slate-50 px-2.5 sm:px-3 py-1 sm:py-1.5 text-[11px] sm:text-xs font-medium text-slate-700 transition-colors hover:border-emerald-400 hover:bg-emerald-50 hover:text-emerald-800 dark:border-slate-800 dark:bg-slate-850 dark:text-slate-300 dark:hover:border-emerald-500/50 dark:hover:bg-emerald-950/40 dark:hover:text-emerald-300"
               >
                 {chip.label}
               </button>
             ))}
-          </motion.div>
+          </div>
         </div>
       ) : (
         <div
           ref={messagesContainerRef}
-          className="flex-1 overflow-y-auto px-5 py-4 space-y-4 max-h-[480px] min-h-[320px] scroll-smooth"
+          className="flex-1 overflow-y-auto px-3 sm:px-5 py-3 sm:py-4 space-y-3.5 sm:space-y-4 max-h-[500px] min-h-[300px] scroll-smooth"
         >
           <AnimatePresence initial={false}>
             {messages.map((m) => (
@@ -348,53 +321,52 @@ export function AIChatCard({
               >
                 <div
                   className={cn(
-                    "relative max-w-[85%] rounded-2xl px-4 py-3 text-sm leading-relaxed",
+                    "relative max-w-[92%] sm:max-w-[85%] rounded-xl px-3.5 sm:px-4 py-2 sm:py-2.5 text-sm leading-relaxed",
                     m.role === "user"
-                      ? "bg-emerald-600 text-white shadow-sm rounded-tr-xs dark:bg-emerald-600"
-                      : "bg-slate-100/90 text-slate-900 border border-slate-200/70 rounded-tl-xs dark:bg-slate-800/90 dark:text-slate-100 dark:border-slate-700/60"
+                      ? "bg-emerald-700 text-white rounded-tr-xs shadow-xs dark:bg-emerald-600"
+                      : "bg-slate-100 text-slate-900 border border-slate-200/80 rounded-tl-xs dark:bg-slate-800/90 dark:text-slate-100 dark:border-slate-700/60"
                   )}
                 >
                   {/* Attached photo in message bubble if present */}
                   {m.image && (
-                    <div className="mb-2 max-w-[260px] overflow-hidden rounded-xl border border-white/20 shadow-xs">
+                    <div className="mb-2 max-w-[260px] overflow-hidden rounded-lg border border-black/10">
                       <img
                         src={m.image}
                         alt="Uploaded crop photo"
-                        className="max-h-52 w-full rounded-xl object-cover bg-black/10"
+                        className="max-h-52 w-full rounded-lg object-cover bg-black/10"
                       />
                     </div>
                   )}
 
                   {m.isVoice && (
                     <span className="mr-1.5 inline-flex items-center text-xs opacity-90">
-                      🎤
+                      <Mic className="h-3.5 w-3.5" />
                     </span>
                   )}
                   <FormattedMessage content={m.content} isUser={m.role === "user"} />
 
-                  {/* Actions for assistant message: Professional Speaker & Copy Buttons */}
+                  {/* Actions for assistant message */}
                   {m.role === "assistant" && (
-                    <div className="mt-3 flex flex-wrap items-center justify-between gap-2 border-t border-slate-200/70 pt-2.5 dark:border-slate-700/60">
-                      <span className="flex items-center gap-1.5 text-[11px] font-semibold text-emerald-700 dark:text-emerald-400 select-none">
+                    <div className="mt-3 flex flex-wrap items-center justify-between gap-2 border-t border-slate-200/70 pt-2 dark:border-slate-700/60">
+                      <span className="flex items-center gap-1.5 text-[11px] font-medium text-emerald-800 dark:text-emerald-400 select-none">
                         <Sprout className="h-3.5 w-3.5" />
-                        <span>Krishi Mitra AI</span>
+                        <span>Krishi Mitra</span>
                       </span>
 
-                      <div className="flex items-center gap-2">
-                        {/* Professional Speaker (Listen) Button */}
+                      <div className="flex items-center gap-1.5">
+                        {/* Listen Button */}
                         {onListen && (
                           <button
                             type="button"
                             onClick={() => onListen(m.id, m.content)}
-                            title={playingMessageId === m.id ? "Stop voice audio" : "Listen to answer in voice"}
+                            title={playingMessageId === m.id ? "Stop voice audio" : "Listen to answer"}
                             aria-label="Listen to answer"
                             className={cn(
-                              "ai-chat-btn group inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-medium transition-all duration-200 shadow-2xs active:scale-95",
+                              "ai-chat-btn inline-flex items-center gap-1.5 rounded-md px-2.5 py-1 text-xs font-medium transition-colors border active:scale-95",
                               playingMessageId === m.id
-                                ? "border border-emerald-500 bg-emerald-600 text-white shadow-emerald-500/25 animate-pulse"
-                                : "border border-slate-200/90 text-slate-700 hover:border-emerald-400 hover:bg-emerald-50 hover:text-emerald-800 dark:border-slate-700/80 dark:text-slate-300 dark:hover:border-emerald-500/60 dark:hover:bg-slate-700 dark:hover:text-emerald-300"
+                                ? "border-emerald-600 bg-emerald-700 text-white"
+                                : "border-slate-200 text-slate-700 hover:border-slate-300 hover:bg-slate-200/60 dark:border-slate-700 dark:text-slate-300 dark:hover:bg-slate-700"
                             )}
-                            style={{ appearance: "none", WebkitAppearance: "none", outline: "none", borderRadius: "9999px" }}
                           >
                             {playingMessageId === m.id ? (
                               <>
@@ -403,35 +375,34 @@ export function AIChatCard({
                               </>
                             ) : (
                               <>
-                                <Volume2 className="h-3.5 w-3.5 text-slate-500 group-hover:text-emerald-600 dark:text-slate-400 dark:group-hover:text-emerald-300" />
+                                <Volume2 className="h-3.5 w-3.5 text-slate-500 dark:text-slate-400" />
                                 <span>Listen</span>
                               </>
                             )}
                           </button>
                         )}
 
-                        {/* Professional Copy Button */}
+                        {/* Copy Button */}
                         <button
                           type="button"
                           onClick={() => handleCopy(m.id, m.content)}
-                          title="Copy response to clipboard"
+                          title="Copy response"
                           aria-label="Copy response"
                           className={cn(
-                            "ai-chat-btn group inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-medium transition-all duration-200 shadow-2xs active:scale-95",
+                            "ai-chat-btn inline-flex items-center gap-1.5 rounded-md px-2.5 py-1 text-xs font-medium transition-colors border active:scale-95",
                             copiedId === m.id
-                              ? "border border-emerald-400 bg-emerald-50 text-emerald-700 dark:border-emerald-500 dark:bg-emerald-950/60 dark:text-emerald-300"
-                              : "border border-slate-200/90 text-slate-700 hover:border-slate-300 hover:bg-slate-100 hover:text-slate-900 dark:border-slate-700/80 dark:text-slate-300 dark:hover:border-slate-600 dark:hover:bg-slate-700 dark:hover:text-white"
+                              ? "border-emerald-500 bg-emerald-50 text-emerald-800 dark:border-emerald-600 dark:bg-emerald-950/60 dark:text-emerald-300"
+                              : "border-slate-200 text-slate-700 hover:border-slate-300 hover:bg-slate-200/60 dark:border-slate-700 dark:text-slate-300 dark:hover:bg-slate-700"
                           )}
-                          style={{ appearance: "none", WebkitAppearance: "none", outline: "none", borderRadius: "9999px" }}
                         >
                           {copiedId === m.id ? (
                             <>
-                              <Check className="h-3.5 w-3.5 text-emerald-600 dark:text-emerald-400" />
-                              <span>Copied!</span>
+                              <Check className="h-3.5 w-3.5 text-emerald-700 dark:text-emerald-400" />
+                              <span>Copied</span>
                             </>
                           ) : (
                             <>
-                              <Copy className="h-3.5 w-3.5 text-slate-500 group-hover:text-slate-800 dark:text-slate-400 dark:group-hover:text-slate-200" />
+                              <Copy className="h-3.5 w-3.5 text-slate-500 dark:text-slate-400" />
                               <span>Copy</span>
                             </>
                           )}
@@ -444,52 +415,48 @@ export function AIChatCard({
             ))}
           </AnimatePresence>
 
-          {/* Typing shimmer while awaiting response */}
+          {/* Response loading indicator */}
           {isLoading && (
-            <motion.div
-              initial={{ opacity: 0, y: 8 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="flex items-center gap-2 rounded-2xl rounded-tl-xs bg-slate-100/90 dark:bg-slate-800/90 border border-slate-200/70 dark:border-slate-700/60 px-4 py-3 text-xs text-slate-500 dark:text-slate-400 max-w-[180px]"
-            >
+            <div className="flex items-center gap-2 rounded-xl rounded-tl-xs bg-slate-100 dark:bg-slate-800/90 border border-slate-200/70 dark:border-slate-700/60 px-3.5 py-2.5 text-xs text-slate-500 dark:text-slate-400 max-w-[180px]">
               <div className="flex gap-1 items-center">
-                <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-bounce [animation-delay:-0.3s]" />
-                <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-bounce [animation-delay:-0.15s]" />
-                <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-bounce" />
+                <span className="h-1.5 w-1.5 rounded-full bg-slate-400 dark:bg-slate-500 animate-pulse" />
+                <span className="h-1.5 w-1.5 rounded-full bg-slate-400 dark:bg-slate-500 animate-pulse [animation-delay:0.2s]" />
+                <span className="h-1.5 w-1.5 rounded-full bg-slate-400 dark:bg-slate-500 animate-pulse [animation-delay:0.4s]" />
               </div>
               <span className="ml-1 text-[11px] font-medium text-slate-600 dark:text-slate-300">
-                AI is typing…
+                Consulting advisory…
               </span>
-            </motion.div>
+            </div>
           )}
         </div>
       )}
 
-      {/* Composer (21st.dev signature AI PromptBox) */}
-      <div className="px-5 pb-5 pt-2">
+      {/* Composer */}
+      <div className="px-3 sm:px-5 pb-3 sm:pb-5 pt-1.5 sm:pt-2">
         <div
           data-chat-composer
-          className="ai-chat-composer relative flex flex-col rounded-[24px] border border-slate-200/90 p-3.5 shadow-xs transition-all duration-200 focus-within:border-emerald-500/60 focus-within:shadow-[0_8px_30px_rgba(16,185,129,0.12)] focus-within:ring-2 focus-within:ring-emerald-500/20 dark:border-slate-800 dark:bg-slate-800/60 dark:focus-within:border-emerald-500/50 dark:focus-within:bg-slate-900 dark:focus-within:ring-emerald-500/15"
+          className="ai-chat-composer relative flex flex-col rounded-xl border border-slate-200 p-2.5 sm:p-3 shadow-2xs transition-colors focus-within:border-emerald-600 focus-within:ring-1 focus-within:ring-emerald-600 dark:border-slate-800 dark:bg-slate-850 dark:focus-within:border-emerald-500 dark:focus-within:ring-emerald-500"
         >
           {/* File Attachment Preview Card */}
           {attachedFile && (
-            <div className="mb-2.5 flex items-center gap-3 rounded-2xl border border-slate-200/90 p-2 pr-3 shadow-xs dark:border-slate-700/80 dark:bg-slate-800/95 max-w-fit">
+            <div className="mb-2 flex items-center gap-2.5 rounded-lg border border-slate-200 p-1.5 pr-2.5 shadow-2xs dark:border-slate-700 dark:bg-slate-800 max-w-fit">
               {attachedFile.isImage ? (
                 <img
                   src={attachedFile.preview}
                   alt={attachedFile.name}
-                  className="h-12 w-12 rounded-xl object-cover border border-slate-200/80 dark:border-slate-700/80"
+                  className="h-10 w-10 rounded-md object-cover border border-slate-200 dark:border-slate-700"
                 />
               ) : (
-                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-emerald-50 text-emerald-600 dark:bg-emerald-950 dark:text-emerald-400">
-                  <FileText className="h-6 w-6" />
+                <div className="flex h-10 w-10 items-center justify-center rounded-md bg-emerald-50 text-emerald-700 dark:bg-emerald-950 dark:text-emerald-400">
+                  <FileText className="h-5 w-5" />
                 </div>
               )}
               <div className="flex flex-col text-left pr-1">
-                <span className="text-xs font-semibold text-slate-800 dark:text-slate-100 max-w-[190px] truncate">
+                <span className="text-xs font-medium text-slate-800 dark:text-slate-100 max-w-[190px] truncate">
                   {attachedFile.name}
                 </span>
-                <span className="text-[10px] text-slate-400 dark:text-slate-500">
-                  {attachedFile.size} • Ready to upload & analyze
+                <span className="text-[10px] text-slate-500">
+                  {attachedFile.size} • Ready
                 </span>
               </div>
               <button
@@ -497,8 +464,7 @@ export function AIChatCard({
                 onClick={() => setAttachedFile(null)}
                 title="Remove attachment"
                 aria-label="Remove attachment"
-                className="ai-chat-btn flex h-6 w-6 items-center justify-center rounded-full bg-slate-100 text-slate-500 hover:bg-red-50 hover:text-red-600 dark:bg-slate-700 dark:text-slate-400 dark:hover:bg-red-950/60 dark:hover:text-red-400 transition-colors"
-                style={{ appearance: "none", WebkitAppearance: "none", outline: "none", borderRadius: "9999px" }}
+                className="ai-chat-btn flex h-5 w-5 items-center justify-center rounded-md text-slate-400 hover:bg-slate-100 hover:text-slate-700 dark:hover:bg-slate-700 dark:hover:text-slate-200 transition-colors"
               >
                 <X className="h-3.5 w-3.5" />
               </button>
@@ -512,10 +478,10 @@ export function AIChatCard({
             onChange={handleFileChange}
             className="hidden"
             accept="image/*, .png, .jpg, .jpeg, .webp, .pdf, .txt"
-            aria-label="Upload crop image or document"
+            aria-label="Upload crop photo or document"
           />
 
-          {/* Main Input Textarea with Low-Shade Ghost Animated Hint */}
+          {/* Main Input Textarea */}
           <div className="relative w-full">
             <textarea
               ref={textareaRef}
@@ -524,7 +490,7 @@ export function AIChatCard({
               onKeyDown={handleKeyDown}
               rows={1}
               aria-label="Your farming question"
-              className="ai-chat-textarea relative z-10 w-full resize-none border-0 bg-transparent px-1 py-1 text-[15px] font-normal leading-relaxed text-slate-900 focus:outline-none dark:text-slate-100 min-h-[42px] max-h-[160px]"
+              className="ai-chat-textarea relative z-10 w-full resize-none border-0 bg-transparent px-1 py-1 text-[14px] font-normal leading-relaxed text-slate-900 focus:outline-none dark:text-slate-100 min-h-[40px] max-h-[160px]"
               style={{
                 border: "none",
                 outline: "none",
@@ -536,126 +502,75 @@ export function AIChatCard({
               }}
             />
 
-            {/* Low-shade animated hint example (purely visual ghost placeholder; cannot be clicked, used or submitted) */}
             {!userMessage && (
               <div
                 aria-hidden="true"
-                className="ai-chat-ghost-placeholder pointer-events-none absolute inset-0 z-0 flex items-start px-1 py-1 select-none overflow-hidden text-[15px] font-normal leading-relaxed text-slate-400 dark:text-slate-300"
+                className="ai-chat-ghost-placeholder pointer-events-none absolute inset-0 z-0 flex items-start px-1 py-1 select-none overflow-hidden text-[14px] font-normal leading-relaxed text-slate-400 dark:text-slate-500"
               >
                 <span className="truncate">
                   {attachedFile
                     ? "Add any details or ask a question about this crop…"
                     : typedMessage || placeholder}
                 </span>
-                {!attachedFile && (
-                  <motion.span
-                    className="ml-0.5 inline-block h-4 w-[1.5px] bg-slate-400/80 dark:bg-emerald-400/90 align-middle shrink-0"
-                    animate={{ opacity: [1, 1, 0, 0] }}
-                    transition={{
-                      duration: 1,
-                      repeat: Infinity,
-                      times: [0, 0.5, 0.5, 1],
-                    }}
-                  />
-                )}
               </div>
             )}
           </div>
 
-          <div className="mt-2.5 flex items-center justify-between border-t border-slate-200/60 dark:border-slate-700/50 pt-2">
-            <div className="flex items-center gap-2">
+          <div className="mt-2 flex items-center justify-between border-t border-slate-100 dark:border-slate-800 pt-2">
+            <div className="flex items-center gap-1.5">
               {/* Attach / Scan leaf action */}
-              <motion.button
+              <button
                 type="button"
                 onClick={handlePlusClick}
-                whileHover={{ scale: 1.06 }}
-                whileTap={{ scale: 0.92 }}
                 title="Upload crop photo or document"
                 aria-label="Upload file"
-                className="ai-chat-btn group flex h-[34px] w-[34px] items-center justify-center rounded-full border border-slate-200/90 text-slate-600 shadow-2xs transition-colors hover:border-emerald-400 hover:bg-emerald-50 hover:text-emerald-700 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300 dark:hover:border-emerald-500/60 dark:hover:bg-slate-750 dark:hover:text-emerald-300"
-                style={{
-                  appearance: "none",
-                  WebkitAppearance: "none",
-                  outline: "none",
-                  borderRadius: "9999px",
-                }}
+                className="ai-chat-btn group flex h-8 w-8 items-center justify-center rounded-full border border-slate-200 text-slate-600 transition-colors hover:border-slate-300 hover:bg-slate-50 hover:text-slate-900 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700"
               >
-                <Plus className="h-4 w-4 transition-transform duration-200 group-hover:rotate-90" strokeWidth={2.2} />
-              </motion.button>
+                <Plus className="h-4 w-4" strokeWidth={1.75} />
+              </button>
 
               {/* Voice / Mic dictate button */}
               {onToggleMic && (
-                <motion.button
+                <button
                   type="button"
                   onClick={onToggleMic}
-                  whileHover={{ scale: 1.06 }}
-                  whileTap={{ scale: 0.92 }}
                   title={isRecording ? "Stop dictation" : "Dictate in Kannada, Hindi, English…"}
                   aria-label="Voice input"
                   className={cn(
-                    "ai-chat-btn flex h-[34px] w-[34px] items-center justify-center rounded-full border shadow-2xs transition-all duration-200",
+                    "ai-chat-btn flex h-8 w-8 items-center justify-center rounded-full border transition-colors",
                     isRecording
-                      ? "border-red-500 bg-red-500 text-white shadow-md shadow-red-500/30 animate-pulse"
-                      : "border-slate-200/90 text-slate-600 hover:border-emerald-400 hover:bg-emerald-50 hover:text-emerald-700 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300 dark:hover:border-emerald-500/60 dark:hover:bg-slate-750 dark:hover:text-emerald-300"
+                      ? "border-red-600 bg-red-600 text-white"
+                      : "border-slate-200 text-slate-600 hover:border-slate-300 hover:bg-slate-50 hover:text-slate-900 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700"
                   )}
-                  style={{
-                    appearance: "none",
-                    WebkitAppearance: "none",
-                    outline: "none",
-                    borderRadius: "9999px",
-                  }}
                 >
-                  {isRecording ? <MicOff className="h-4 w-4" strokeWidth={2.2} /> : <Mic className="h-4 w-4" strokeWidth={2.2} />}
-                </motion.button>
+                  {isRecording ? <MicOff className="h-4 w-4" strokeWidth={1.75} /> : <Mic className="h-4 w-4" strokeWidth={1.75} />}
+                </button>
               )}
 
-              {/* Multilingual Badge (21st.dev style indicator) */}
-              <div className="hidden sm:inline-flex items-center gap-1.5 rounded-full border border-emerald-200/60 bg-emerald-50/80 px-2.5 py-1 text-[11px] font-medium text-emerald-800 dark:border-emerald-800/40 dark:bg-emerald-950/40 dark:text-emerald-300 select-none">
-                <Sprout className="h-3 w-3 text-emerald-600 dark:text-emerald-400" />
-                <span>Multilingual AI</span>
-              </div>
+              {/* Language guidance */}
+              <span className="hidden sm:inline-block text-[11px] text-slate-500 dark:text-slate-400 select-none px-1">
+                ಕನ್ನಡ · हिन्दी · English
+              </span>
             </div>
 
-            {/* Send button: only active when user explicitly typed something or attached a file */}
+            {/* Send button */}
             {(() => {
               const canSend = (userMessage.trim().length > 0 || Boolean(attachedFile)) && !isLoading;
               return (
-                <motion.button
+                <button
                   type="button"
                   onClick={handleSend}
                   disabled={!canSend}
-                  whileHover={
-                    canSend
-                      ? {
-                          scale: 1.08,
-                          transition: { type: "spring", bounce: 0.5, duration: 0.3 },
-                        }
-                      : {}
-                  }
-                  whileTap={
-                    canSend
-                      ? {
-                          scale: 0.9,
-                          transition: { type: "spring", bounce: 0.5, duration: 0.2 },
-                        }
-                      : {}
-                  }
                   aria-label="Send message"
                   className={cn(
-                    "ai-chat-btn group flex h-[34px] w-[34px] items-center justify-center rounded-full transition-all duration-200 shadow-sm",
+                    "ai-chat-btn flex h-8 w-8 items-center justify-center rounded-full transition-colors",
                     canSend
-                      ? "bg-emerald-600 text-white shadow-emerald-600/30 hover:bg-emerald-500 hover:shadow-md dark:bg-emerald-500 dark:text-slate-950 dark:hover:bg-emerald-400 cursor-pointer"
-                      : "bg-slate-200/80 text-slate-400 dark:bg-slate-800 dark:text-slate-600 border border-slate-200/60 dark:border-slate-700/60 cursor-not-allowed opacity-60"
+                      ? "bg-emerald-700 text-white hover:bg-emerald-800 dark:bg-emerald-600 dark:hover:bg-emerald-500 cursor-pointer"
+                      : "bg-slate-100 text-slate-400 dark:bg-slate-800 dark:text-slate-600 border border-slate-200 dark:border-slate-700 cursor-not-allowed opacity-60"
                   )}
-                  style={{
-                    appearance: "none",
-                    WebkitAppearance: "none",
-                    outline: "none",
-                    borderRadius: "9999px",
-                  }}
                 >
-                  <ArrowUp className="h-4 w-4 transition-transform duration-200 group-hover:-translate-y-0.5" strokeWidth={2.4} />
-                </motion.button>
+                  <ArrowUp className="h-4 w-4" strokeWidth={2} />
+                </button>
               );
             })()}
           </div>

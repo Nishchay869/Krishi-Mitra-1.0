@@ -60,7 +60,9 @@
             </button>
             <ul class="dropdown-menu dropdown-menu-end 21st-dropdown">
               <li><a class="dropdown-item" href="javascript:void(0)" onclick="openShareModal({{ post.id }}, '{{ post.title|escapejs }}', window.location.href)"><i class="bi bi-share me-2"></i>Share Problem</a></li>
-              <li><a class="dropdown-item" href="/admin/community/communitypost/{{ post.id }}/delete/" target="_blank"><i class="bi bi-trash3 text-danger me-2"></i>Delete in Admin Portal</a></li>
+              {% if user.is_authenticated and user.profile.is_admin and request.session.portal == 'admin' %}
+                <li><a class="dropdown-item" href="/admin/community/communitypost/{{ post.id }}/delete/" target="_blank"><i class="bi bi-trash3 text-danger me-2"></i>Delete in Admin Portal</a></li>
+              {% endif %}
             </ul>
           </div>
         </div>

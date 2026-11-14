@@ -28,6 +28,26 @@ class AccountTests(TestCase):
         self.assertEqual(self.client.get(reverse('accounts:admin_dashboard')).status_code, 200)
         self.assertRedirects(self.client.get(reverse('accounts:dashboard')), reverse('accounts:admin_dashboard'))
 
+    def test_farmer_portal_login_restricts_admin_dashboard(self):
+        User.objects.create_user('admin_user', email='adm@example.com', password='pw', is_staff=True)
+        # Login via farmer portal
+        resp = self.client.post(reverse('accounts:login') + '?portal=farmer', {'email': 'adm@example.com', 'password': 'pw', 'portal': 'farmer'})
+        self.assertRedirects(resp, reverse('accounts:dashboard'))
+        self.assertEqual(self.client.session.get('portal'), 'farmer')
+        # Dashboard remains farmer dashboard, not redirected to admin_dashboard
+        dash_resp = self.client.get(reverse('accounts:dashboard'))
+        self.assertEqual(dash_resp.status_code, 200)
+        # Direct navigation to admin_dashboard while in farmer portal redirects to admin login
+        admin_resp = self.client.get(reverse('accounts:admin_dashboard'))
+        self.assertEqual(admin_resp.status_code, 302)
+        self.assertIn('/accounts/login/?portal=admin', admin_resp.url)
+
+    def test_admin_portal_login_grants_admin_dashboard(self):
+        User.objects.create_user('admin_user2', email='adm2@example.com', password='pw', is_staff=True)
+        resp = self.client.post(reverse('accounts:login') + '?portal=admin', {'email': 'adm2@example.com', 'password': 'pw', 'portal': 'admin'})
+        self.assertRedirects(resp, reverse('accounts:admin_dashboard'))
+        self.assertEqual(self.client.session.get('portal'), 'admin')
+
 
 class ProfileTests(TestCase):
     def test_profile_updates_name_used_for_greeting(self):

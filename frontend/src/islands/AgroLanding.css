@@ -14,14 +14,74 @@
 /* Dashboard App Shell Container */
 .plantix-dashboard {
   width: 100%;
-  max-width: 500px;
+  max-width: 100%;
   margin: 0 auto;
-  padding: 12px 16px 40px;
+  padding: 12px 14px 48px;
   background-color: transparent;
   box-sizing: border-box;
 }
 
-/* Floating Sticky "Take a picture" Button (Photo 2) */
+/* Small tablet / phablet */
+@media (min-width: 481px) {
+  .plantix-dashboard {
+    max-width: 720px;
+    padding: 16px 18px 56px;
+  }
+}
+
+/* Tablet landscape */
+@media (min-width: 769px) {
+  .plantix-dashboard {
+    max-width: 860px;
+    padding: 18px 20px 60px;
+  }
+}
+
+/* Desktop 2-column layout */
+@media (min-width: 920px) {
+  .plantix-dashboard {
+    display: grid;
+    grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
+    gap: 24px;
+    max-width: 1120px;
+    padding: 20px 24px 64px;
+    align-items: start;
+  }
+  .plantix-crop-bar-wrap {
+    grid-column: 1 / -1;
+  }
+  .plantix-weather-card {
+    grid-column: 1 / -1;
+  }
+  .plantix-hero-card {
+    grid-column: 1;
+    margin-bottom: 20px;
+  }
+  .plantix-diagnoses-carousel {
+    grid-column: 1;
+    margin-bottom: 24px;
+  }
+  .plantix-tools-section {
+    grid-column: 2;
+  }
+  .plantix-library-section {
+    grid-column: 2;
+  }
+  .plantix-advisory-section {
+    grid-column: 1 / -1;
+    margin-top: 8px;
+  }
+}
+
+/* Wide Desktop */
+@media (min-width: 1200px) {
+  .plantix-dashboard {
+    max-width: 1200px;
+    gap: 28px;
+  }
+}
+
+/* Floating Sticky "Take a picture" Button */
 .plantix-floating-cta-wrap {
   position: fixed;
   top: 14px;
@@ -35,21 +95,24 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background-color: #005bf6;
+  background-color: #15803d;
   color: #ffffff !important;
-  font-size: 14px;
-  font-weight: 700;
-  border-radius: 9999px;
-  padding: 9px 24px;
-  box-shadow: 0 4px 18px rgba(0, 91, 246, 0.38);
+  font-size: 13px;
+  font-weight: 600;
+  border-radius: 8px;
+  padding: 8px 18px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.08);
   text-decoration: none !important;
   letter-spacing: -0.01em;
-  transition: transform 0.15s ease, background-color 0.15s ease;
+  transition: background-color 0.15s ease, transform 0.1s ease;
 }
 
 .plantix-floating-btn:hover {
-  background-color: #004ecc;
-  transform: scale(1.02);
+  background-color: #166534;
+}
+
+.plantix-floating-btn:active {
+  transform: scale(0.98);
 }
 
 /* 1. Crop Selection Bar */
@@ -66,6 +129,30 @@
   padding: 6px 4px 10px;
   scrollbar-width: none;
   -webkit-overflow-scrolling: touch;
+}
+
+@media (max-width: 480px) {
+  .plantix-crop-bar {
+    gap: 12px;
+    padding: 4px 6px 8px 10px;
+    padding-right: 22px;
+  }
+  .plantix-crop-avatar {
+    width: 60px !important;
+    height: 60px !important;
+  }
+  .plantix-crop-add-btn {
+    width: 60px !important;
+    height: 60px !important;
+  }
+  .plantix-add-icon-circle {
+    width: 36px !important;
+    height: 36px !important;
+  }
+  .plantix-crop-label {
+    font-size: 11px !important;
+    max-width: 66px !important;
+  }
 }
 
 .plantix-crop-bar::-webkit-scrollbar {
@@ -163,7 +250,7 @@
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  background-color: #005bf6;
+  background-color: #15803d;
   color: #ffffff;
   display: flex;
   align-items: center;
@@ -172,7 +259,7 @@
 }
 
 .plantix-add-icon-circle:hover {
-  background-color: #004ecc;
+  background-color: #166534;
 }
 
 .plantix-add-label {
@@ -183,18 +270,54 @@
 /* 2. Weather & Spraying Conditions Card */
 .plantix-weather-card {
   display: flex;
-  gap: 10px;
-  background: linear-gradient(135deg, #e4f9f0 0%, #eaf4fd 100%);
-  border-radius: 24px;
-  padding: 10px;
-  margin-bottom: 14px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+  gap: 12px;
+  background-color: #ffffff;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: 14px;
+  padding: 12px;
+  margin-bottom: 16px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+}
+
+@media (max-width: 480px) {
+  .plantix-weather-card {
+    flex-direction: row;
+    align-items: stretch;
+    gap: 8px;
+    padding: 8px 10px;
+  }
+  .plantix-weather-left {
+    min-width: 72px !important;
+    padding: 8px 8px !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+  }
+  .plantix-weather-icon {
+    margin: 4px 0 !important;
+  }
+  .plantix-weather-temp {
+    font-size: 14px !important;
+  }
+  .plantix-weather-right {
+    padding: 8px 12px !important;
+    gap: 8px !important;
+  }
+  .plantix-weather-title {
+    font-size: 11px !important;
+  }
+  .plantix-weather-status-text {
+    font-size: 14px !important;
+  }
+  .plantix-weather-time {
+    font-size: 10.5px !important;
+  }
 }
 
 .plantix-weather-left {
-  background-color: #ffffff;
-  border-radius: 18px;
-  padding: 10px 14px;
+  background-color: #f8fafc;
+  border-radius: 10px;
+  padding: 12px 14px;
   min-width: 90px;
   display: flex;
   flex-direction: column;
@@ -202,123 +325,128 @@
   justify-content: space-between;
   text-decoration: none !important;
   color: inherit !important;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.8);
-  transition: transform 0.15s ease;
+  border: 1px solid rgba(15, 23, 42, 0.06);
+  transition: background-color 0.15s ease;
 }
 
 .plantix-weather-left:hover {
-  transform: translateY(-1px);
+  background-color: #f1f5f9;
 }
 
 .plantix-weather-date {
   font-size: 12px;
   font-weight: 600;
-  color: #334155;
+  color: #475569;
   line-height: 1.2;
 }
 
 .plantix-weather-icon {
-  margin: 4px 0;
-  color: #64748b;
+  margin: 6px 0;
+  color: #475569;
   display: flex;
   align-items: center;
 }
 
 .plantix-weather-temp {
   font-size: 15px;
-  font-weight: 700;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
   color: #0f172a;
   line-height: 1.2;
 }
 
 .plantix-weather-right {
   flex: 1;
-  background-color: #ffffff;
-  border-radius: 9999px;
-  padding: 10px 18px;
+  background-color: #f8fafc;
+  border-radius: 10px;
+  padding: 12px 18px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 8px;
+  gap: 12px;
   text-decoration: none !important;
   color: inherit !important;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.8);
-  transition: transform 0.15s ease;
+  border: 1px solid rgba(15, 23, 42, 0.06);
+  transition: background-color 0.15s ease;
 }
 
 .plantix-weather-right:hover {
-  transform: translateY(-1px);
+  background-color: #f1f5f9;
 }
 
 .plantix-spray-info {
   display: flex;
   flex-direction: column;
-  line-height: 1.2;
+  line-height: 1.3;
 }
 
 .plantix-spray-title {
   font-size: 11px;
+  font-weight: 500;
   color: #64748b;
   white-space: nowrap;
 }
 
 .plantix-spray-status {
   font-size: 15px;
-  font-weight: 700;
+  font-weight: 600;
   color: #0f172a;
 }
 
 .plantix-spray-time {
-  font-size: 11px;
+  font-size: 12px;
   color: #64748b;
   white-space: nowrap;
 }
 
 .plantix-spray-badge {
-  width: 26px;
-  height: 26px;
+  width: 28px;
+  height: 28px;
   border-radius: 50%;
   background-color: #dcfce7;
-  color: #16a34a;
+  color: #15803d;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+  border: 1px solid rgba(21, 128, 61, 0.2);
   transition: all 0.2s ease;
 }
 
 .plantix-spray-badge.is-optimal {
   background-color: #dcfce7;
-  color: #16a34a;
+  color: #15803d;
+  border-color: rgba(21, 128, 61, 0.2);
 }
 
 .plantix-spray-badge.is-marginal,
 .plantix-spray-badge.is-moderate {
   background-color: #fef3c7;
-  color: #d97706;
+  color: #b45309;
+  border-color: rgba(180, 83, 9, 0.2);
 }
 
 .plantix-spray-badge.is-poor {
   background-color: #ffedd5;
-  color: #ea580c;
+  color: #c2410c;
+  border-color: rgba(194, 65, 12, 0.2);
 }
 
 .plantix-spray-badge.is-avoid,
 .plantix-spray-badge.is-unfavourable {
   background-color: #fee2e2;
-  color: #dc2626;
+  color: #b91c1c;
+  border-color: rgba(185, 28, 28, 0.2);
 }
 
 /* 3. Leaf Doctor / Diagnosis Hero Card */
 .plantix-hero-card {
   background-color: #ffffff;
-  border-radius: 24px;
-  border: 1px solid #edf2f7;
-  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.03);
-  padding: 22px 18px 18px;
-  margin-bottom: 22px;
+  border-radius: 14px;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+  padding: 20px;
+  margin-bottom: 20px;
 }
 
 .plantix-steps-row {
@@ -329,6 +457,31 @@
   margin-bottom: 20px;
 }
 
+@media (max-width: 420px) {
+  .plantix-hero-card {
+    padding: 14px 12px !important;
+  }
+  .plantix-steps-row {
+    margin-bottom: 14px;
+    gap: 2px;
+  }
+  .plantix-step-graphic-clean {
+    width: 42px !important;
+    height: 42px !important;
+    margin-bottom: 4px !important;
+  }
+  .plantix-step-graphic-clean svg {
+    width: 20px !important;
+    height: 20px !important;
+  }
+  .plantix-step-label {
+    font-size: 11px !important;
+  }
+  .plantix-step-arrow {
+    margin-bottom: 14px !important;
+  }
+}
+
 .plantix-step-col {
   display: flex;
   flex-direction: column;
@@ -336,18 +489,27 @@
   flex: 1;
 }
 
-.plantix-step-graphic {
-  height: 62px;
+.plantix-step-graphic-clean {
+  width: 52px;
+  height: 52px;
+  border-radius: 10px;
+  background-color: #f1f5f9;
+  border: 1px solid rgba(15, 23, 42, 0.06);
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 8px;
+  color: #475569;
+}
+
+.plantix-step-graphic-clean .is-accent {
+  color: #15803d;
 }
 
 .plantix-step-label {
   font-size: 12px;
-  font-weight: 600;
-  color: #1e293b;
+  font-weight: 500;
+  color: #334155;
   line-height: 1.2;
   white-space: nowrap;
 }
@@ -363,21 +525,24 @@
   align-items: center;
   justify-content: center;
   width: 100%;
-  background-color: #005bf6;
+  background-color: #15803d;
   color: #ffffff !important;
-  font-size: 16px;
-  font-weight: 700;
-  border-radius: 9999px;
-  padding: 13px 20px;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 10px;
+  padding: 12px 20px;
   text-decoration: none !important;
-  box-shadow: 0 4px 14px rgba(0, 91, 246, 0.28);
-  transition: transform 0.15s ease, background-color 0.15s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.08);
+  transition: background-color 0.15s ease, transform 0.1s ease;
   letter-spacing: -0.01em;
 }
 
 .plantix-hero-cta:hover {
-  background-color: #004ecc;
-  transform: translateY(-1px);
+  background-color: #166534;
+}
+
+.plantix-hero-cta:active {
+  transform: scale(0.99);
 }
 
 /* 4. Tools Section */
@@ -395,13 +560,31 @@
 
 .plantix-tools-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 12px;
 }
 
-@media (min-width: 640px) {
+@media (max-width: 480px) {
   .plantix-tools-grid {
-    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 8px;
+  }
+  .plantix-tool-card {
+    padding: 10px 8px !important;
+    gap: 8px !important;
+  }
+  .plantix-tool-icon {
+    width: 32px !important;
+    height: 32px !important;
+  }
+  .plantix-tool-title {
+    font-size: 12px !important;
+  }
+}
+
+@media (min-width: 640px) and (max-width: 919px) {
+  .plantix-tools-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
   }
 }
 
@@ -410,37 +593,38 @@
     grid-column: 1 / -1;
     flex-direction: row;
     align-items: center;
-    gap: 14px;
-    padding: 14px 16px;
+    gap: 12px;
+    padding: 12px 14px;
   }
 }
 
 .plantix-tool-card {
   position: relative;
   background-color: #ffffff;
-  border-radius: 18px;
-  border: 1px solid #edf2f7;
-  padding: 16px 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  padding: 14px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 14px;
+  gap: 12px;
   text-decoration: none !important;
   color: inherit !important;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+  transition: border-color 0.15s ease, background-color 0.15s ease;
 }
 
 .plantix-tool-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.04);
+  border-color: rgba(15, 23, 42, 0.18);
+  background-color: #f8fafc;
 }
 
 .plantix-tool-icon {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background-color: #e8ecfc;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background-color: #f1f5f9;
+  color: #15803d;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -448,37 +632,44 @@
 }
 
 .plantix-rupee-sign {
-  font-size: 18px;
-  font-weight: 700;
-  color: #1e3a8a;
+  font-size: 16px;
+  font-weight: 600;
+  color: #15803d;
   line-height: 1;
 }
 
 .plantix-tool-title {
   font-size: 13px;
-  font-weight: 600;
+  font-weight: 500;
   color: #0f172a;
   line-height: 1.3;
 }
 
 .plantix-badge-new {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background-color: #f3e8ff;
-  color: #7c3aed;
-  font-size: 10px;
-  font-weight: 700;
-  padding: 2px 8px;
-  border-radius: 9999px;
-  line-height: 1.3;
+  display: none;
 }
 
 /* 5. Library Section */
 .plantix-library-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 12px;
+}
+
+@media (max-width: 480px) {
+  .plantix-library-grid {
+    gap: 8px;
+  }
+  .plantix-lib-card {
+    padding: 10px 8px !important;
+  }
+  .plantix-lib-title {
+    font-size: 12px !important;
+  }
+  .plantix-lib-icon-circle {
+    width: 28px !important;
+    height: 28px !important;
+  }
 }
 
 .plantix-lib-column {
@@ -487,26 +678,34 @@
   gap: 12px;
 }
 
+@media (max-width: 480px) {
+  .plantix-lib-column {
+    gap: 8px;
+  }
+}
+
 .plantix-lib-card {
-  background-color: #edf2fe;
-  border-radius: 18px;
-  padding: 16px 14px;
+  background-color: #f8fafc;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: 12px;
+  padding: 14px;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
   text-decoration: none !important;
   color: inherit !important;
-  transition: transform 0.15s ease;
+  transition: border-color 0.15s ease, background-color 0.15s ease;
   box-sizing: border-box;
 }
 
 .plantix-lib-card:hover {
-  transform: translateY(-2px);
+  border-color: rgba(15, 23, 42, 0.18);
+  background-color: #f1f5f9;
 }
 
 .plantix-lib-title {
-  font-size: 14px;
-  font-weight: 700;
+  font-size: 13px;
+  font-weight: 600;
   color: #1e293b;
   line-height: 1.3;
 }
@@ -514,13 +713,14 @@
 .plantix-lib-icon-circle {
   width: 32px;
   height: 32px;
-  border-radius: 50%;
+  border-radius: 8px;
   background-color: #ffffff;
+  border: 1px solid rgba(15, 23, 42, 0.06);
+  color: #15803d;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
 }
 
 .plantix-lib-card.card-crops {
@@ -528,12 +728,12 @@
 }
 
 .plantix-lib-card.card-cultivation {
-  min-height: 110px;
+  min-height: 100px;
   align-items: flex-end;
 }
 
 .plantix-lib-card.card-pests {
-  min-height: 114px;
+  min-height: 104px;
   align-items: flex-end;
 }
 
@@ -542,84 +742,108 @@
   align-items: center;
 }
 
-/* 6. Sponsored Section */
-.plantix-sponsored-section {
-  margin-top: 14px;
+/* 6. Authoritative Extension Advisory Bulletin */
+.plantix-advisory-section {
+  margin-top: 16px;
   margin-bottom: 24px;
 }
 
-.plantix-sponsored-label {
-  display: block;
-  font-size: 11px;
-  font-weight: 600;
-  color: #64748b;
-  margin-bottom: 8px;
-  letter-spacing: 0.02em;
-}
-
-.plantix-sponsored-card {
-  display: block;
-  background-color: #fed812;
-  border-radius: 22px;
-  overflow: hidden;
-  text-decoration: none !important;
-  color: inherit !important;
-  box-shadow: 0 4px 16px rgba(254, 216, 18, 0.22);
-  transition: transform 0.15s ease;
-}
-
-.plantix-sponsored-card:hover {
-  transform: translateY(-2px);
-}
-
-.plantix-sponsored-banner-top {
-  width: 100%;
-  background-color: #fed812;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.plantix-sponsored-img {
-  width: 100%;
-  height: auto;
-  display: block;
-  object-fit: cover;
-}
-
-.plantix-sponsored-footer {
-  background-color: #ffffff;
-  padding: 12px 16px;
+.plantix-advisory-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-bottom: 8px;
 }
 
-.plantix-sponsored-footer-text {
-  display: flex;
-  flex-direction: column;
-  line-height: 1.3;
+.plantix-advisory-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #15803d;
 }
 
-.plantix-sponsored-footer-title {
-  font-size: 13px;
-  font-weight: 700;
-  color: #0f172a;
-}
-
-.plantix-sponsored-footer-sub {
+.plantix-advisory-source {
   font-size: 11px;
   color: #64748b;
 }
 
-.plantix-sponsored-arrow {
-  color: #005bf6;
+.plantix-advisory-card {
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  background-color: #ffffff;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: 12px;
+  padding: 18px 20px;
+  text-decoration: none !important;
+  color: inherit !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+  transition: border-color 0.15s ease, background-color 0.15s ease;
 }
 
-/* ─── Recent Diagnoses Carousel (Plantix Style) ─── */
+@media (max-width: 640px) {
+  .plantix-advisory-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 14px;
+  }
+}
+
+.plantix-advisory-card:hover {
+  border-color: rgba(15, 23, 42, 0.2);
+  background-color: #f8fafc;
+}
+
+.plantix-advisory-body {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.plantix-advisory-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: #0f172a;
+  margin: 0;
+}
+
+.plantix-advisory-desc {
+  font-size: 13px;
+  color: #475569;
+  margin: 0;
+  line-height: 1.4;
+  max-width: 680px;
+}
+
+@media (max-width: 640px) {
+  .plantix-advisory-desc {
+    font-size: 12px;
+  }
+}
+
+.plantix-advisory-action {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #15803d;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+@media (max-width: 640px) {
+  .plantix-advisory-action {
+    font-size: 12px;
+    align-self: flex-start;
+  }
+}
+
+/* ─── Recent Diagnoses Carousel ─── */
 .plantix-diagnoses-carousel {
   display: flex;
   gap: 12px;
@@ -637,30 +861,29 @@
 
 .plantix-diag-card {
   background: #ffffff;
-  border: 1px solid #edf2f7;
-  border-radius: 20px;
-  padding: 12px 16px;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: 12px;
+  padding: 12px 14px;
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 12px;
   min-width: 250px;
   max-width: 280px;
   flex-shrink: 0;
-  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.03);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
   text-decoration: none;
   color: inherit;
-  transition: all 0.2s ease;
+  transition: border-color 0.15s ease;
 }
 
 .plantix-diag-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+  border-color: rgba(15, 23, 42, 0.2);
 }
 
 .plantix-diag-thumb-wrap {
-  width: 60px;
-  height: 60px;
-  border-radius: 14px;
+  width: 52px;
+  height: 52px;
+  border-radius: 8px;
   overflow: hidden;
   flex-shrink: 0;
   background-color: #f1f5f9;
@@ -723,25 +946,26 @@
 
 .plantix-diag-view-all-btn {
   background: #ffffff;
-  border: 1px solid #edf2f7;
-  border-radius: 20px;
-  padding: 12px 18px;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: 10px;
+  padding: 10px 16px;
   display: flex;
   align-items: center;
   gap: 6px;
-  color: #005bf6;
+  color: #15803d;
   font-size: 13px;
-  font-weight: 700;
+  font-weight: 600;
   text-decoration: none;
   flex-shrink: 0;
-  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.03);
-  transition: all 0.2s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+  transition: background-color 0.15s ease, border-color 0.15s ease;
   white-space: nowrap;
 }
 
 .plantix-diag-view-all-btn:hover {
-  background-color: #edf2fe;
-  color: #004ecc;
+  background-color: #f8fafc;
+  border-color: rgba(15, 23, 42, 0.18);
+  color: #166534;
 }
 
 /* ─── Plantix Dark Mode Overrides (White Text on Black/Dark Surfaces) ─── */
@@ -783,7 +1007,7 @@ html.dark .plantix-crop-add-btn {
 }
 
 html.dark .plantix-add-icon-circle {
-  background-color: #2563eb !important;
+  background-color: #15803d !important;
   color: #ffffff !important;
 }
 
@@ -897,17 +1121,49 @@ html.dark .plantix-badge-new {
   font-weight: 700 !important;
 }
 
-html.dark .plantix-sponsored-label {
+html.dark .plantix-advisory-card,
+[data-theme="dark"] .plantix-advisory-card {
+  background-color: #111827 !important;
+  border-color: #1e293b !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5) !important;
+}
+
+html.dark .plantix-advisory-tag,
+[data-theme="dark"] .plantix-advisory-tag {
+  color: #4ade80 !important;
+}
+
+html.dark .plantix-advisory-source,
+[data-theme="dark"] .plantix-advisory-source {
   color: #94a3b8 !important;
 }
 
-html.dark .plantix-sponsored-footer-title {
+html.dark .plantix-advisory-title,
+[data-theme="dark"] .plantix-advisory-title {
   color: #ffffff !important;
-  font-weight: 750 !important;
 }
 
-html.dark .plantix-sponsored-footer-sub {
+html.dark .plantix-advisory-desc,
+[data-theme="dark"] .plantix-advisory-desc {
   color: #cbd5e1 !important;
+}
+
+html.dark .plantix-advisory-action,
+[data-theme="dark"] .plantix-advisory-action {
+  color: #4ade80 !important;
+}
+
+html.dark .plantix-step-graphic-clean,
+[data-theme="dark"] .plantix-step-graphic-clean {
+  background-color: #1e293b !important;
+  border-color: #334155 !important;
+  color: #94a3b8 !important;
+}
+
+html.dark .plantix-step-graphic-clean .is-accent,
+[data-theme="dark"] .plantix-step-graphic-clean .is-accent {
+  color: #4ade80 !important;
 }
 
 html.dark .plantix-lib-card {
@@ -920,7 +1176,7 @@ html.dark .plantix-lib-icon-circle {
   border: 1px solid #334155 !important;
 }
 html.dark .plantix-lib-icon-circle svg {
-  stroke: #60a5fa !important;
+  stroke: #4ade80 !important;
 }
 
 html.dark .plantix-tool-icon {
@@ -928,20 +1184,16 @@ html.dark .plantix-tool-icon {
   border: 1px solid #334155 !important;
 }
 html.dark .plantix-tool-icon svg {
-  stroke: #60a5fa !important;
+  stroke: #4ade80 !important;
 }
 html.dark .plantix-rupee-sign {
-  color: #60a5fa !important;
-}
-
-html.dark .plantix-sponsored-footer {
-  background-color: #111827 !important;
+  color: #4ade80 !important;
 }
 
 html.dark .plantix-diag-view-all-btn {
   background-color: #1e293b !important;
   border-color: #334155 !important;
-  color: #60a5fa !important;
+  color: #4ade80 !important;
 }
 
 /* Light mode overrides for high contrast badges */
@@ -1009,74 +1261,33 @@ html:not(.dark) .plantix-diag-date {
   font-weight: 600 !important;
 }
 
-/* Responsive adjustments */
-@media (min-width: 640px) {
-  .plantix-dashboard {
-    max-width: 520px;
-    padding-top: 20px;
-  }
-}
-
 /* ==========================================================================
-   Instagram-Style Story Unique Animated Gradient Ring & Story Viewer Modal
+   Botanical Crop Advisory Indicator & Story Viewer Modal
    ========================================================================== */
 
-@keyframes rotateStoryGradient {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-/* Unique Animated Rotating Multi-Color Gradient Story Ring (Strictly Circular Border Only) */
+/* Clean, purposeful botanical status ring for crops with active advisories */
 .plantix-crop-avatar.has-story-ring {
   position: relative !important;
   display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
   border-radius: 50% !important;
-  border: none !important;
+  border: 2px solid #15803d !important;
   background: transparent !important;
-  padding: 3.5px !important;
+  padding: 3px !important;
   overflow: visible !important;
   z-index: 1 !important;
   box-shadow: none !important;
   filter: none !important;
-  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+  transition: border-color 0.15s ease !important;
 }
 
-.plantix-crop-item:hover .plantix-crop-avatar.has-story-ring {
-  transform: scale(1.06) !important;
+html.dark .plantix-crop-avatar.has-story-ring {
+  border-color: #22c55e !important;
 }
 
-/* Rotating Multi-Color Conic Gradient (Masked strictly to 3.5px circular border) */
 .plantix-crop-avatar.has-story-ring::before {
-  content: '' !important;
-  position: absolute !important;
-  inset: -3.5px !important;
-  border-radius: 50% !important;
-  background: conic-gradient(
-    from 0deg,
-    #f09433 0%,
-    #e6683c 11%,
-    #dc2743 23%,
-    #cc2366 35%,
-    #bc1888 48%,
-    #833ab4 60%,
-    #405de6 72%,
-    #00c6ff 84%,
-    #22c55e 94%,
-    #f09433 100%
-  ) !important;
-  animation: rotateStoryGradient 3s linear infinite !important;
-  z-index: 1 !important;
-  pointer-events: none !important;
-  box-shadow: none !important;
-  filter: none !important;
-  -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 3.5px), #fff calc(100% - 3px)) !important;
-          mask: radial-gradient(farthest-side, transparent calc(100% - 3.5px), #fff calc(100% - 3px)) !important;
+  display: none !important;
 }
 
 .plantix-crop-avatar.has-story-ring::after {

@@ -99,6 +99,14 @@
   </div>
   <script>
     (function () {
+      var params = new URLSearchParams(window.location.search);
+      if (!params.has('intro')) {
+        var loader = document.getElementById('site-intro-loader');
+        if (loader && loader.parentNode) {
+          loader.parentNode.removeChild(loader);
+        }
+        return;
+      }
       var loader = document.getElementById('site-intro-loader');
       if (!loader) return;
 
@@ -231,7 +239,7 @@
           <ul class="dropdown-menu dropdown-menu-end shadow-sm site-header-dropdown" aria-labelledby="siteMenuBtn">
             {% if user.is_authenticated %}
               <li><a class="dropdown-item" href="{% url 'accounts:dashboard' %}"><i class="bi bi-person me-2 text-muted" aria-hidden="true"></i> {% translate "Profile" %}</a></li>
-              {% if user.profile.is_admin %}
+              {% if user.profile.is_admin and request.session.portal == 'admin' %}
                 <li><a class="dropdown-item text-primary fw-semibold" href="{% url 'accounts:admin_dashboard' %}"><i class="bi bi-shield-lock me-2 text-primary" aria-hidden="true"></i> Admin Portal</a></li>
               {% endif %}
               <li>

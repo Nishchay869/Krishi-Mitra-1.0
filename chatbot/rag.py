@@ -284,18 +284,22 @@ def retrieve_relevant_ciari_docs(query: str, top_k: int = 3, threshold: float = 
                 if (matches_word(detected, item_crop_lower) or
                     any(matches_word(alias, item_crop_lower) for alias in aliases_for_detected) or
                     detected in item_crop_lower):
-                    score += 25.0
+                    score += 50.0  # Massive priority boost for exact crop match
                     crop_matched = True
                     break
                 elif any(matches_word(alias, item_title_lower) for alias in aliases_for_detected):
-                    score += 15.0
+                    score += 35.0
                     crop_matched = True
                     break
 
-            if not crop_matched and not is_general_crop:
-                # User asked about a specific crop (e.g. Ragi) but this item is for another specific crop (e.g. Cotton)
-                # Heavily penalize to completely isolate crop dosages and pest recommendations
-                score -= 30.0
+            if not crop_matched:
+                if is_general_crop:
+                    # Deprioritize generic manuals when the user asked about a specific crop
+                    score -= 15.0
+                else:
+                    # User asked about a specific crop (e.g. Cabbage) but this item is for another specific crop (e.g. Cotton)
+                    # Heavily penalize to completely isolate crop dosages and pest recommendations
+                    score -= 40.0
         else:
             # Query did not specify a crop; check if query contains crop name words
             if any(matches_word(w, query) for w in item_crop_lower.split() if len(w) > 3):

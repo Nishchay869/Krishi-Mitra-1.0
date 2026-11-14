@@ -282,7 +282,7 @@ def onboarding(request):
 
 @login_required
 def dashboard(request):
-    if request.user.profile.is_admin:
+    if request.session.get('portal') != 'farmer' and request.user.profile.is_admin:
         return redirect('accounts:admin_dashboard')
     return render(request, 'accounts/dashboard.html', {
         'growing_place_label': dict(GROWING_PLACES).get(request.user.profile.growing_place, ''),
@@ -323,8 +323,14 @@ def login_view(request):
     next_url = request.GET.get('next') or request.POST.get('next') or ''
 
     if request.user.is_authenticated:
-        if portal == 'admin' and getattr(getattr(request.user, 'profile', None), 'is_admin', False):
-            return redirect('accounts:admin_dashboard')
+        if portal == 'admin':
+            if getattr(getattr(request.user, 'profile', None), 'is_admin', False):
+                request.session['portal'] = 'admin'
+                return redirect('accounts:admin_dashboard')
+            messages.error(request, _('Access denied. Administrator privileges required.'))
+            return redirect('accounts:dashboard')
+        if portal == 'farmer':
+            request.session['portal'] = 'farmer'
         if next_url and next_url.startswith('/'):
             return redirect(next_url)
         return redirect('accounts:dashboard')
@@ -333,12 +339,24 @@ def login_view(request):
 
     if request.method == 'POST' and form.is_valid():
         user = form.get_user()
+        is_user_admin = getattr(getattr(user, 'profile', None), 'is_admin', False)
+
+        if portal == 'admin' and not is_user_admin:
+            form.add_error(None, _('Access denied. This account does not have administrator privileges.'))
+            return render(request, 'accounts/login.html', {
+                'form': form,
+                'portal': portal,
+                'next': next_url,
+            })
+
         login(request, user)
+        request.session['portal'] = portal
+
         if hasattr(user, 'profile') and user.profile.preferred_language:
             translation.activate(user.profile.preferred_language)
             request.LANGUAGE_CODE = user.profile.preferred_language
 
-        if portal == 'admin' or (getattr(getattr(user, 'profile', None), 'is_admin', False) and not next_url):
+        if portal == 'admin' and is_user_admin:
             return redirect('accounts:admin_dashboard')
 
         if next_url and next_url.startswith('/'):
@@ -358,6 +376,9 @@ def admin_login_redirect(request):
 
 @user_passes_test(_is_admin, login_url='accounts:login')
 def admin_dashboard(request):
+    if request.session.get('portal') == 'farmer':
+        messages.error(request, _('Admin dashboard is only accessible via the Admin Portal.'))
+        return redirect('/accounts/login/?portal=admin')
     feedback_ratings_list = Feedback.objects.values_list('rating').annotate(n=Count('id'))
     feedback_ratings = {Feedback.RATING_GOOD: 0, Feedback.RATING_AVERAGE: 0, Feedback.RATING_BAD: 0}
     for r, count in feedback_ratings_list:

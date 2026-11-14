@@ -12,7 +12,15 @@ import {
   Bug,
   Sprout,
   Cpu,
-  Bot
+  Camera,
+  Microscope,
+  ShieldCheck,
+  MessageSquareText,
+  Layers,
+  ShieldAlert,
+  Calculator,
+  TrendingUp,
+  BookOpen
 } from 'lucide-react'
 import './AgroLanding.css'
 import CropCursorEffect from './CropCursorEffect'
@@ -636,7 +644,8 @@ function PlantixDashboard({ routes, assetBase, userCrops, weatherData, diagnoses
                 type="button"
                 className={`plantix-crop-item ${isSelected ? 'is-selected' : ''}`}
                 onClick={() => handleCropClick(crop)}
-                title={hasStory ? `${labelText} - Click to view status` : labelText}
+                title={hasStory ? `${labelText} - Click to view status` : undefined}
+                aria-label={labelText}
               >
                 <div className={`plantix-crop-avatar ${hasStory ? 'has-story-ring' : (hasRing ? 'has-ring' : '')}`}>
                   <img
@@ -710,65 +719,36 @@ function PlantixDashboard({ routes, assetBase, userCrops, weatherData, diagnoses
         <h2 id="leaf-doctor-heading" className="visually-hidden">{t('Leaf Doctor Diagnosis')}</h2>
 
         <div className="plantix-steps-row">
-          {/* Step 1: Smartphone */}
+          {/* Step 1: Camera photo */}
           <div className="plantix-step-col">
-            <div className="plantix-step-graphic">
-              <svg width="44" height="60" viewBox="0 0 44 60" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                <rect x="2" y="2" width="40" height="56" rx="8" stroke="#1e293b" strokeWidth="2.5" fill="#ffffff" />
-                <rect x="6" y="8" width="32" height="42" rx="4" fill="#f8fafc" />
-                <circle cx="22" cy="5" r="1.5" fill="#94a3b8" />
-                {/* Seedling in phone */}
-                <path d="M22 38V22" stroke="#16a34a" strokeWidth="2.2" strokeLinecap="round" />
-                <path d="M22 28C18 26 15 22 16 18C20 18 22 22 22 25" fill="#4ade80" stroke="#16a34a" strokeWidth="1.2" />
-                <path d="M22 25C24 23 27 20 29 21C29 25 26 27 22 28" fill="#22c55e" stroke="#16a34a" strokeWidth="1.2" />
-              </svg>
+            <div className="plantix-step-graphic-clean">
+              <Camera size={26} strokeWidth={1.5} className="plantix-step-icon" />
             </div>
             <span className="plantix-step-label">{t('Take a picture')}</span>
           </div>
 
-          <ChevronRight className="plantix-step-arrow" size={20} strokeWidth={2.4} aria-hidden="true" />
+          <ChevronRight className="plantix-step-arrow" size={16} strokeWidth={1.5} aria-hidden="true" />
 
-          {/* Step 2: Plant Seedling with Blue Checkmark */}
+          {/* Step 2: Clinical diagnosis */}
           <div className="plantix-step-col">
-            <div className="plantix-step-graphic">
-              <svg width="56" height="60" viewBox="0 0 56 60" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                <path d="M28 48V20" stroke="#16a34a" strokeWidth="2.8" strokeLinecap="round" />
-                <path d="M28 32C20 30 14 24 16 18C22 18 27 24 28 28" fill="#4ade80" stroke="#16a34a" strokeWidth="1.8" />
-                <path d="M28 26C36 24 42 18 40 12C34 12 29 18 28 22" fill="#22c55e" stroke="#16a34a" strokeWidth="1.8" />
-                <path d="M28 20C28 12 22 6 22 6C22 6 30 8 32 16" fill="#86efac" stroke="#16a34a" strokeWidth="1.8" />
-                {/* Circular blue checkmark */}
-                <circle cx="38" cy="42" r="10" fill="#005bf6" stroke="#ffffff" strokeWidth="2" />
-                <path d="M34 42L36.8 44.8L42.5 39" stroke="#ffffff" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
+            <div className="plantix-step-graphic-clean">
+              <Microscope size={26} strokeWidth={1.5} className="plantix-step-icon is-accent" />
             </div>
             <span className="plantix-step-label">{t('See diagnosis')}</span>
           </div>
 
-          <ChevronRight className="plantix-step-arrow" size={20} strokeWidth={2.4} aria-hidden="true" />
+          <ChevronRight className="plantix-step-arrow" size={16} strokeWidth={1.5} aria-hidden="true" />
 
-          {/* Step 3: Trigger Spray Bottle */}
+          {/* Step 3: Verified treatment prescription */}
           <div className="plantix-step-col">
-            <div className="plantix-step-graphic">
-              <svg width="56" height="60" viewBox="0 0 56 60" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                {/* Purple bottle body */}
-                <path d="M19 28H37L39 52C39 54 37 56 35 56H21C19 56 17 54 17 52L19 28Z" fill="#a855f7" stroke="#7e22ce" strokeWidth="1.8" />
-                {/* Neck */}
-                <rect x="23" y="22" width="10" height="6" fill="#9333ea" stroke="#7e22ce" strokeWidth="1.2" />
-                {/* Nozzle trigger */}
-                <path d="M22 22V14H34V18H38L42 22H34V22" fill="#cbd5e1" stroke="#475569" strokeWidth="1.5" strokeLinejoin="round" />
-                <path d="M22 14L15 22" stroke="#475569" strokeWidth="2.4" strokeLinecap="round" />
-                <rect x="38" y="19" width="4" height="4" rx="1" fill="#3b82f6" />
-                {/* Spray mist droplets */}
-                <circle cx="47" cy="18" r="1.5" fill="#60a5fa" />
-                <circle cx="50" cy="22" r="1.5" fill="#60a5fa" />
-                <circle cx="46" cy="26" r="1.5" fill="#60a5fa" />
-              </svg>
+            <div className="plantix-step-graphic-clean">
+              <ShieldCheck size={26} strokeWidth={1.5} className="plantix-step-icon" />
             </div>
             <span className="plantix-step-label">{t('Get medicine')}</span>
           </div>
         </div>
 
-        {/* Primary Blue Button */}
+        {/* Primary Action Button */}
         <a href={routes.disease || '/disease/detect/'} className="plantix-hero-cta">
           {t('Take a picture')}
         </a>
@@ -809,14 +789,13 @@ function PlantixDashboard({ routes, assetBase, userCrops, weatherData, diagnoses
       )}
 
       {/* 4. Tools Section */}
-      <section className="plantix-section" aria-labelledby="tools-heading">
+      <section className="plantix-section plantix-tools-section" aria-labelledby="tools-heading">
         <h2 id="tools-heading" className="plantix-section-title">{t('Tools')}</h2>
         <div className="plantix-tools-grid">
           {/* Tool 0: Farm Assistant */}
-          <a href={routes.chat || '/chat/'} className="plantix-tool-card has-badge">
-            <span className="plantix-badge-new">{t('AI')}</span>
+          <a href={routes.chat || '/chat/'} className="plantix-tool-card">
             <div className="plantix-tool-icon">
-              <Bot size={22} strokeWidth={2.2} color="#1e3a8a" />
+              <MessageSquareText size={20} strokeWidth={1.5} />
             </div>
             <span className="plantix-tool-title">{t('Farm Assistant')}</span>
           </a>
@@ -824,11 +803,7 @@ function PlantixDashboard({ routes, assetBase, userCrops, weatherData, diagnoses
           {/* Tool 1: Fertilizer calculator */}
           <a href={routes.fertilizer || '/crops/fertilizer/'} className="plantix-tool-card">
             <div className="plantix-tool-icon">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1e3a8a" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                <path d="M6 3h12l2 6v11a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V9l2-6z" />
-                <path d="M6 9h12" />
-                <circle cx="12" cy="15" r="2.5" fill="#93c5fd" stroke="#1e3a8a" strokeWidth="1.5" />
-              </svg>
+              <Layers size={20} strokeWidth={1.5} />
             </div>
             <span className="plantix-tool-title">{t('Fertilizer calculator')}</span>
           </a>
@@ -836,12 +811,7 @@ function PlantixDashboard({ routes, assetBase, userCrops, weatherData, diagnoses
           {/* Tool 2: Pesticide calculator */}
           <a href="/crops/pesticide/" className="plantix-tool-card">
             <div className="plantix-tool-icon">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1e3a8a" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                <rect x="5" y="10" width="14" height="11" rx="2" />
-                <path d="M9 10V6a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v4" />
-                <line x1="12" y1="2" x2="12" y2="4" />
-                <path d="M12 14v3" />
-              </svg>
+              <ShieldAlert size={20} strokeWidth={1.5} />
             </div>
             <span className="plantix-tool-title">{t('Pesticide calculator')}</span>
           </a>
@@ -849,27 +819,15 @@ function PlantixDashboard({ routes, assetBase, userCrops, weatherData, diagnoses
           {/* Tool 3: Farming calculator */}
           <a href={routes.yield || '/crops/yield/'} className="plantix-tool-card">
             <div className="plantix-tool-icon">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1e3a8a" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                <rect x="4" y="2" width="16" height="20" rx="3" />
-                <line x1="8" y1="6" x2="16" y2="6" />
-                <line x1="16" y1="14" x2="16" y2="18" />
-                <path d="M16 10h.01" />
-                <path d="M12 10h.01" />
-                <path d="M8 10h.01" />
-                <path d="M12 14h.01" />
-                <path d="M8 14h.01" />
-                <path d="M12 18h.01" />
-                <path d="M8 18h.01" />
-              </svg>
+              <Calculator size={20} strokeWidth={1.5} />
             </div>
             <span className="plantix-tool-title">{t('Farming calculator')}</span>
           </a>
 
           {/* Tool 4: Mandi prices */}
-          <a href={routes.market || '/market/'} className="plantix-tool-card has-badge">
-            <span className="plantix-badge-new">{t('New')}</span>
+          <a href={routes.market || '/market/'} className="plantix-tool-card">
             <div className="plantix-tool-icon">
-              <span className="plantix-rupee-sign" aria-hidden="true">₹</span>
+              <TrendingUp size={20} strokeWidth={1.5} />
             </div>
             <span className="plantix-tool-title">{t('Mandi prices')}</span>
           </a>
@@ -877,7 +835,7 @@ function PlantixDashboard({ routes, assetBase, userCrops, weatherData, diagnoses
           {/* Tool 5: Crop Advisor */}
           <a href={routes.crop || '/crops/'} className="plantix-tool-card">
             <div className="plantix-tool-icon">
-              <Sprout size={22} strokeWidth={2.2} color="#1e3a8a" />
+              <Sprout size={20} strokeWidth={1.5} />
             </div>
             <span className="plantix-tool-title">{t('Crop Advisor')}</span>
           </a>
@@ -885,7 +843,7 @@ function PlantixDashboard({ routes, assetBase, userCrops, weatherData, diagnoses
           {/* Tool 6: IoT Sensors dashboard */}
           <a href={routes.iot || '/?experience=iot'} className="plantix-tool-card">
             <div className="plantix-tool-icon">
-              <Cpu size={22} strokeWidth={2.2} color="#1e3a8a" />
+              <Cpu size={20} strokeWidth={1.5} />
             </div>
             <span className="plantix-tool-title">{t('IoT Sensors dashboard')}</span>
           </a>
@@ -893,7 +851,7 @@ function PlantixDashboard({ routes, assetBase, userCrops, weatherData, diagnoses
       </section>
 
       {/* 5. Library Section */}
-      <section className="plantix-section" aria-labelledby="library-heading">
+      <section className="plantix-section plantix-library-section" aria-labelledby="library-heading">
         <h2 id="library-heading" className="plantix-section-title">{t('Library')}</h2>
         <div className="plantix-library-grid">
           {/* Left Column */}
@@ -902,7 +860,7 @@ function PlantixDashboard({ routes, assetBase, userCrops, weatherData, diagnoses
             <a href={routes.library || '/crops/library/'} className="plantix-lib-card card-crops">
               <span className="plantix-lib-title">{t('Crops')}</span>
               <div className="plantix-lib-icon-circle">
-                <Sprout size={18} strokeWidth={2.4} color="#1e3a8a" />
+                <Sprout size={18} strokeWidth={1.5} />
               </div>
             </a>
 
@@ -910,11 +868,7 @@ function PlantixDashboard({ routes, assetBase, userCrops, weatherData, diagnoses
             <a href={routes.library || '/crops/library/'} className="plantix-lib-card card-cultivation">
               <span className="plantix-lib-title">{t('Cultivation Tips')}</span>
               <div className="plantix-lib-icon-circle">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1e3a8a" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                  <path d="M12 22V8" />
-                  <path d="M5 12H2a10 10 0 0 0 20 0h-3" />
-                  <circle cx="12" cy="5" r="3" />
-                </svg>
+                <BookOpen size={18} strokeWidth={1.5} />
               </div>
             </a>
           </div>
@@ -925,7 +879,7 @@ function PlantixDashboard({ routes, assetBase, userCrops, weatherData, diagnoses
             <a href={routes.pests || '/crops/library/pests/'} className="plantix-lib-card card-pests">
               <span className="plantix-lib-title">{t('Pests & diseases')}</span>
               <div className="plantix-lib-icon-circle">
-                <Bug size={18} strokeWidth={2.4} color="#1e3a8a" />
+                <Bug size={18} strokeWidth={1.5} />
               </div>
             </a>
 
@@ -933,39 +887,33 @@ function PlantixDashboard({ routes, assetBase, userCrops, weatherData, diagnoses
             <a href={routes.pests || '/crops/library/pests/'} className="plantix-lib-card card-alerts">
               <span className="plantix-lib-title">{t('Pests & Disease Alert')}</span>
               <div className="plantix-lib-icon-circle">
-                <AlertTriangle size={18} strokeWidth={2.4} color="#1e3a8a" />
+                <AlertTriangle size={18} strokeWidth={1.5} />
               </div>
             </a>
           </div>
         </div>
       </section>
 
-      {/* 6. Sponsored / Advisory Banner */}
-      <section className="plantix-sponsored-section" aria-labelledby="sponsored-label">
-        <span id="sponsored-label" className="plantix-sponsored-label">{t('Sponsored')}</span>
+      {/* 6. Authoritative Extension Advisory Bulletin */}
+      <section className="plantix-advisory-section" aria-labelledby="advisory-label">
+        <div className="plantix-advisory-header">
+          <span id="advisory-label" className="plantix-advisory-tag">{t('Extension Advisory')}</span>
+          <span className="plantix-advisory-source">ICAR & State Agricultural Universities</span>
+        </div>
         <a
-          href={routes.chat || '/chat/'}
-          className="plantix-sponsored-card"
-          aria-label={t('One Home, One Chance — Build with confidence')}
+          href={routes.library || '/crops/library/'}
+          className="plantix-advisory-card"
+          aria-label={t('Standard Package of Practices and crop management guidelines')}
         >
-          <div className="plantix-sponsored-banner-top">
-            <img
-              src={`${assetBase}/landing/sponsored-banner-art.png`}
-              alt="One Home, One Chance — Build with confidence"
-              className="plantix-sponsored-img"
-              loading="lazy"
-              width="398"
-              height="223"
-            />
+          <div className="plantix-advisory-body">
+            <h3 className="plantix-advisory-title">{t('Package of Practices')}</h3>
+            <p className="plantix-advisory-desc">
+              {t('Verified agronomic schedules for crop nutrition, seed treatment, irrigation intervals, and integrated pest management.')}
+            </p>
           </div>
-          <div className="plantix-sponsored-footer">
-            <div className="plantix-sponsored-footer-text">
-              <span className="plantix-sponsored-footer-title">{t('One Home, One Chance')}</span>
-              <span className="plantix-sponsored-footer-sub">{t('To build your identity')}</span>
-            </div>
-            <span className="plantix-sponsored-arrow">
-              <ArrowUpRight size={22} strokeWidth={2.4} />
-            </span>
+          <div className="plantix-advisory-action">
+            <span>{t('View guidelines')}</span>
+            <ArrowUpRight size={16} strokeWidth={1.5} />
           </div>
         </a>
       </section>

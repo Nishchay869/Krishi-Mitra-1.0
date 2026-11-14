@@ -713,9 +713,9 @@ html.dark .answer-role-badge.badge-verified {
 /* ─── 7. FLOATING ACTION BUTTON (Photo 1 FAB) ─── */
 .community-fab-container {
   position: fixed;
-  bottom: 84px;
+  bottom: 152px; /* Positioned cleanly above live conversation floating button (#chat-toggle) to prevent overlapping */
   right: 20px;
-  z-index: 90;
+  z-index: 1045;
   pointer-events: none;
 }
 
@@ -1306,9 +1306,14 @@ html.dark .share-channel-btn.btn-x:hover {
   .community-post-desc {
     font-size: 12.5px;
   }
+  .community-fab-container {
+    bottom: 146px;
+    right: 16px;
+  }
   .community-fab-btn {
-    padding: 11px 18px;
+    padding: 10px 16px;
     font-size: 13px;
+    gap: 6px;
   }
 }
 

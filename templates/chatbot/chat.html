@@ -8,13 +8,21 @@
   <p>{% translate "From your first seed to your next harvest, ask what’s on your mind." %}</p>
 </header>
 
+<style>
+  /* Dedicated chatbot page: hide floating chat-toggle so it never collides with composer send button */
+  #chat-toggle,
+  #chat-widget {
+    display: none !important;
+  }
+</style>
+
 <div class="row justify-content-center chat-page">
   <div class="col-lg-8">
     {% if VOICE_ENABLED %}<span class="d-none" data-mic aria-hidden="true"></span>{% endif %}
     <script id="chat-history-data" type="application/json">{{ history_json|safe }}</script>
     <div id="ai-chat-card-root" data-react-island="AIChatIsland" data-user-name="{{ user_name|default:'Farmer' }}">
       <div
-        class="ai-chat-card-surface rounded-[26px] border border-slate-200/80 p-8 shadow-xl flex flex-col items-center justify-center min-h-[500px] text-center">
+        class="ai-chat-card-surface rounded-2xl border border-slate-200/80 p-4 sm:p-8 shadow-sm flex flex-col items-center justify-center min-h-[440px] text-center">
         <div class="spinner-border text-success mb-3" role="status">
           <span class="visually-hidden">Loading...</span>
         </div>

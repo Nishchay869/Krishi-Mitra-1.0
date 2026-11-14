@@ -60,6 +60,8 @@ html:not(.dark) .plantix-weather-card,
 html:not(.dark) .plantix-tool-card,
 html:not(.dark) .plantix-lib-card,
 html:not(.dark) .plantix-diag-card,
+html:not(.dark) .plantix-advisory-card,
+html:not(.dark) .plantix-advisory-section,
 html:not(.dark) .weather-hero-card,
 html:not(.dark) .weather-ai-card,
 html:not(.dark) .weather-days-card,
@@ -398,6 +400,8 @@ html.dark .plantix-weather-card,
 html.dark .plantix-tool-card,
 html.dark .plantix-lib-card,
 html.dark .plantix-diag-card,
+html.dark .plantix-advisory-card,
+html.dark .plantix-advisory-section,
 html.dark .weather-hero-card,
 html.dark .weather-ai-card,
 html.dark .weather-days-card,
@@ -425,6 +429,8 @@ html.dark .accordion-button,
 [data-theme="dark"] .plantix-tool-card,
 [data-theme="dark"] .plantix-lib-card,
 [data-theme="dark"] .plantix-diag-card,
+[data-theme="dark"] .plantix-advisory-card,
+[data-theme="dark"] .plantix-advisory-section,
 [data-theme="dark"] .weather-hero-card,
 [data-theme="dark"] .weather-ai-card,
 [data-theme="dark"] .weather-days-card,
@@ -4572,19 +4578,32 @@ html.dark #ai-chat-card-root .text-\[17px\],
   font-weight: 600 !important;
 }
 
-/* Quick Suggestion Chips */
-html.dark #ai-chat-card-root .ai-chat-btn.rounded-full,
-[data-theme="dark"] #ai-chat-card-root .ai-chat-btn.rounded-full {
+/* Quick Suggestion Chips & Action Buttons */
+html.dark #ai-chat-card-root .ai-chat-btn:not([class*="bg-emerald"]):not([class*="bg-red"]),
+[data-theme="dark"] #ai-chat-card-root .ai-chat-btn:not([class*="bg-emerald"]):not([class*="bg-red"]) {
   background-color: #1e293b !important;
   border-color: #334155 !important;
   color: #e2e8f0 !important;
 }
 
-html.dark #ai-chat-card-root .ai-chat-btn.rounded-full:hover,
-[data-theme="dark"] #ai-chat-card-root .ai-chat-btn.rounded-full:hover {
-  background-color: rgba(16, 185, 129, 0.15) !important;
-  border-color: rgba(52, 211, 153, 0.4) !important;
-  color: #6ee7b7 !important;
+html.dark #ai-chat-card-root .ai-chat-btn:not([class*="bg-emerald"]):not([class*="bg-red"]):hover,
+[data-theme="dark"] #ai-chat-card-root .ai-chat-btn:not([class*="bg-emerald"]):not([class*="bg-red"]):hover {
+  background-color: #334155 !important;
+  border-color: #475569 !important;
+  color: #ffffff !important;
+}
+
+/* Rounder border buttons in composer (plus, mic, send) */
+#ai-chat-card-root .ai-chat-btn.rounded-full {
+  border-radius: 9999px !important;
+}
+
+/* Dedicated chatbot page: hide floating chat-toggle */
+body:has(.chat-page) #chat-toggle,
+body:has(.chat-page) #chat-widget,
+.chat-page ~ #chat-toggle,
+.chat-page ~ #chat-widget {
+  display: none !important;
 }
 
 /* Composer / PromptBox in Dark Mode */

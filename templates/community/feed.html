@@ -70,7 +70,9 @@
           <ul class="dropdown-menu dropdown-menu-end 21st-dropdown">
             <li><a class="dropdown-item" href="{% url 'community:ask' %}"><i class="bi bi-pencil-square me-2 text-primary"></i>Ask a Question</a></li>
             <li><a class="dropdown-item" href="{% url 'community:feed' %}"><i class="bi bi-arrow-repeat me-2 text-success"></i>Refresh Feed</a></li>
-            <li><a class="dropdown-item" href="/admin/community/" target="_blank"><i class="bi bi-shield-lock me-2 text-warning"></i>Admin Portal (Manage & Delete)</a></li>
+            {% if user.is_authenticated and user.profile.is_admin and request.session.portal == 'admin' %}
+              <li><a class="dropdown-item" href="/admin/community/" target="_blank"><i class="bi bi-shield-lock me-2 text-warning"></i>Admin Portal (Manage & Delete)</a></li>
+            {% endif %}
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="{% url 'chatbot:chat' %}"><i class="bi bi-robot me-2 text-info"></i>Ask Krishi AI Assistant</a></li>
           </ul>
@@ -156,7 +158,9 @@
                 <ul class="dropdown-menu dropdown-menu-end 21st-dropdown">
                   <li><a class="dropdown-item" href="javascript:void(0)" onclick="openShareModal({{ post.id }}, '{{ post.title|escapejs }}', '{% url 'community:detail' post.id %}')"><i class="bi bi-share me-2"></i>Share Problem</a></li>
                   <li><a class="dropdown-item" href="{% url 'community:detail' post.id %}"><i class="bi bi-chat-text me-2"></i>View Full Discussion</a></li>
-                  <li><a class="dropdown-item" href="/admin/community/communitypost/{{ post.id }}/delete/" target="_blank"><i class="bi bi-trash3 text-danger me-2"></i>Delete in Admin Portal</a></li>
+                  {% if user.is_authenticated and user.profile.is_admin and request.session.portal == 'admin' %}
+                    <li><a class="dropdown-item" href="/admin/community/communitypost/{{ post.id }}/delete/" target="_blank"><i class="bi bi-trash3 text-danger me-2"></i>Delete in Admin Portal</a></li>
+                  {% endif %}
                 </ul>
               </div>
             </div>
