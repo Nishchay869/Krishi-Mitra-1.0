@@ -11,6 +11,8 @@
             src="{% static 'images/logo-icon.png' %}?v={{ STATIC_VERSION }}"
             alt="Krishi Mitra"
             class="footer-brand-logo rounded-circle"
+            loading="lazy"
+            decoding="async"
             width="34"
             height="34"
             onerror="this.src='{% static 'favicon.png' %}'"

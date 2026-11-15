@@ -89,8 +89,9 @@
     aria-label="Krishi Mitra">
     <div class="intro-loader-content">
       <div class="intro-video-wrapper">
-        <video id="intro-loader-video" src="{% static 'videos/intro.mp4' %}" autoplay muted playsinline
-          preload="auto">
+        {# data-src: the video is only downloaded when the intro actually plays (?intro), not on every page #}
+        <video id="intro-loader-video" data-src="{% static 'videos/intro.mp4' %}" muted playsinline
+          preload="none">
         </video>
       </div>
     </div>
@@ -121,6 +122,11 @@
       } catch (e) { }
 
       var video = document.getElementById('intro-loader-video');
+      if (video && video.dataset.src) {
+        video.preload = 'auto';
+        video.autoplay = true;
+        video.src = video.dataset.src;
+      }
       var skipBtn = document.getElementById('intro-skip-btn');
       var dismissed = false;
 

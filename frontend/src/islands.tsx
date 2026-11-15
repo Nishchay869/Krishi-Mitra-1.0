@@ -68,8 +68,28 @@ document.querySelectorAll<HTMLElement>('[data-react-island]').forEach((el) => {
     }
   }
 
-  mount(el, islandName, props)
+  mountWhenNear(el, islandName, props)
 })
+
+// Lazy mounting: an island further down the page only downloads its code when it comes within
+// ~300px of the screen. Islands already on screen, and hidden ones (e.g. the chat widget, which
+// cannot be "seen" until it opens), mount straight away as before.
+function mountWhenNear(el: HTMLElement, name: string, props: object) {
+  const rect = el.getBoundingClientRect()
+  const hidden = rect.width === 0 && rect.height === 0
+  const nearScreen = rect.top < window.innerHeight + 300
+  if (hidden || nearScreen || !('IntersectionObserver' in window)) {
+    mount(el, name, props)
+    return
+  }
+  const observer = new IntersectionObserver((entries) => {
+    if (entries.some((e) => e.isIntersecting)) {
+      observer.disconnect()
+      mount(el, name, props)
+    }
+  }, { rootMargin: '300px 0px' })
+  observer.observe(el)
+}
 
 import "./experience"
 

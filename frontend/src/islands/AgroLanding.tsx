@@ -764,6 +764,7 @@ function PlantixDashboard({ routes, assetBase, userCrops, weatherData, diagnoses
                   src={item.image_url}
                   alt={item.disease}
                   className="plantix-diag-thumb"
+                  decoding="async"
                   width="60"
                   height="60"
                   loading="lazy"
