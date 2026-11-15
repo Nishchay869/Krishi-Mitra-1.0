@@ -88,3 +88,49 @@
     }, {enableHighAccuracy:true, timeout:12000, maximumAge:60000});
   });
 })();
+
+/* data.gov.in refuses some servers (e.g. hosting outside India) but allows browsers.
+   When the page asks for it, fetch the mandi records here, hand them to the server
+   (validated + kept for this farmer only), then reload to show them normally. */
+(() => {
+  const box = document.getElementById('mandi-browser-fetch');
+  const cfgEl = document.getElementById('mandi-browser-fetch-config');
+  if (!box || !cfgEl) return;
+  const cfg = JSON.parse(cfgEl.textContent);
+  const csrf = (document.cookie.match(/(?:^|;\s*)csrftoken=([^;]+)/) || [])[1] || '';
+  const reloadSeeded = () => {
+    const url = new URL(window.location.href);
+    url.searchParams.set('seeded', '1');
+    window.location.replace(url.toString());
+  };
+
+  (async () => {
+    const records = [];
+    let offset = 0, total = Infinity;
+    try {
+      for (let page = 0; page < 5 && offset < total; page++) {
+        const url = new URL(cfg.endpoint);
+        url.search = new URLSearchParams({
+          'api-key': cfg.api_key, format: 'json', limit: '200', offset: String(offset),
+          'filters[state]': cfg.state, 'filters[commodity]': cfg.crop,
+        }).toString();
+        const resp = await fetch(url, { cache: 'no-store' });
+        if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
+        const data = await resp.json();
+        const batch = Array.isArray(data.records) ? data.records : [];
+        total = Number(data.total) || 0;
+        records.push(...batch);
+        offset += batch.length;
+        if (!batch.length) break;
+      }
+      await fetch(box.dataset.seedUrl, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'X-CSRFToken': decodeURIComponent(csrf) },
+        body: JSON.stringify({ state: cfg.state, crop: cfg.crop, records, truncated: offset < total }),
+      });
+    } catch (err) {
+      console.warn('Mandi prices could not be fetched in the browser:', err);
+    }
+    reloadSeeded(); // shows the prices, or the "unavailable" message if this failed too
+  })();
+})();

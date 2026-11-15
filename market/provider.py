@@ -22,6 +22,51 @@ class LocalPriceError(Exception):
     pass
 
 
+class ProviderUnreachable(LocalPriceError):
+    """The server cannot connect to data.gov.in at all (it refuses non-Indian servers such as
+    Render's Singapore region). Farmers' browsers in India can still fetch it directly."""
+
+
+BROWSER_SEED_SECONDS = 300
+MAX_BROWSER_RECORDS = 1000
+
+
+def _browser_cache_key(user_id, state, crop):
+    return 'mandi:browser:' + hashlib.sha256(f'{user_id}|{state}|{crop}'.encode()).hexdigest()
+
+
+def _summarize(records, truncated):
+    """Latest observation per market/variety/grade; same-day conflicting prices are dropped."""
+    latest = {}
+    conflicts = set()
+    for row in records:
+        identity = (place_key(row['district_name']),normalize(row['name']),row['variety'],row['grade'])
+        existing = latest.get(identity)
+        if existing is None or row['date'] > existing['date']:
+            latest[identity] = row
+            conflicts.discard(identity)
+        elif row['date'] == existing['date'] and any(row[k] != existing[k] for k in ('min_price','modal_price','max_price')):
+            conflicts.add(identity)
+    # Without a revision timestamp, two different prices for the same report
+    # cannot be resolved safely by choosing whichever row arrived first.
+    return {'rows':[r for key,r in latest.items() if key not in conflicts],
+            'truncated':truncated, 'conflicts':len(conflicts), 'fetched_at':timezone.now()}
+
+
+def seed_from_browser(user_id, state, crop, raw_records, truncated=False):
+    """Store records the farmer's browser fetched from data.gov.in, for that farmer only.
+
+    Every record goes through the same strict parse_record() checks (state/crop must match,
+    no future dates, valid price units/ranges); nothing is shared with other users, so a
+    tampered upload can only affect the uploader's own view. Returns the number of rows kept.
+    """
+    if not isinstance(raw_records, list) or len(raw_records) > MAX_BROWSER_RECORDS:
+        raise LocalPriceError('Market prices are unavailable right now. Please try again later.')
+    rows = [r for r in (parse_record(raw, state, crop) for raw in raw_records if isinstance(raw, dict)) if r]
+    cache.set(_browser_cache_key(user_id, state, crop), _summarize(rows, bool(truncated)), BROWSER_SEED_SECONDS)
+    return len(rows)
+
+
 def normalize(value):
     value = re.sub(r'\s+apmc\s*$', '', str(value).strip(), flags=re.I)
     return re.sub(r'[^\w]+', '', value.casefold())
@@ -74,7 +119,7 @@ def parse_record(raw, state, crop):
 
 
 @sensitive_variables('api_key', 'params')
-def fetch_local_prices(state, crop):
+def fetch_local_prices(state, crop, user_id=None):
     api_key = settings.DATA_GOV_IN_API_KEY.strip()
     if not api_key:
         raise LocalPriceError('Live local prices are not connected yet.')
@@ -83,6 +128,10 @@ def fetch_local_prices(state, crop):
     cached = cache.get(key)
     if cached is not None:
         return cached
+    if user_id is not None:
+        seeded = cache.get(_browser_cache_key(user_id, state, crop))
+        if seeded is not None:
+            return seeded
     records, offset, total = [], 0, None
     deadline = time.monotonic()+30
     for _ in range(5):
@@ -105,6 +154,8 @@ def fetch_local_prices(state, crop):
             raise LocalPriceError('Market prices are unavailable right now. Please try again later.') from None
         except (requests.RequestException, ValueError) as exc:
             logger.warning('data.gov.in mandi request failed: %s after %.1fs', type(exc).__name__, time.monotonic()-started)
+            if isinstance(exc, (requests.ConnectionError, requests.ConnectTimeout)) and not isinstance(exc, requests.ReadTimeout):
+                raise ProviderUnreachable('Market prices are unavailable right now. Please try again later.') from None
             raise LocalPriceError('Market prices are unavailable right now. Please try again later.') from None
         if not isinstance(payload, dict) or payload.get('status') not in ('ok','success') or not isinstance(payload.get('records'),list):
             logger.warning('data.gov.in mandi response not usable: status=%r message=%r',
@@ -127,20 +178,6 @@ def fetch_local_prices(state, crop):
             break
         if not batch:
             raise LocalPriceError('Market prices are unavailable right now. Please try again later.')
-    # Keep each market/variety/grade's latest observation, without averaging varieties.
-    latest = {}
-    conflicts = set()
-    for row in records:
-        identity = (place_key(row['district_name']),normalize(row['name']),row['variety'],row['grade'])
-        existing = latest.get(identity)
-        if existing is None or row['date'] > existing['date']:
-            latest[identity] = row
-            conflicts.discard(identity)
-        elif row['date'] == existing['date'] and any(row[k] != existing[k] for k in ('min_price','modal_price','max_price')):
-            conflicts.add(identity)
-    # Without a revision timestamp, two different prices for the same report
-    # cannot be resolved safely by choosing whichever row arrived first.
-    result = {'rows':[r for key,r in latest.items() if key not in conflicts],
-              'truncated':offset < total, 'conflicts':len(conflicts), 'fetched_at':timezone.now()}
+    result = _summarize(records, offset < total)
     cache.set(key,result,300)
     return result

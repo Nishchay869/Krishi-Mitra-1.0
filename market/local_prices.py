@@ -6,10 +6,13 @@ import json
 from decimal import Decimal
 from django.conf import settings
 from django.utils import timezone
-from .provider import fetch_local_prices, LocalPriceError, place_key, normalize, SOURCE_URL
+from .provider import (fetch_local_prices, LocalPriceError, ProviderUnreachable, seed_from_browser,
+                       place_key, normalize, SOURCE_URL, ENDPOINT)
 
 from django.contrib.auth.decorators import login_required
+from django.http import JsonResponse
 from django.shortcuts import render
+from django.views.decorators.http import require_POST
 from django.utils.translation import gettext as _
 
 
@@ -45,9 +48,10 @@ def local_prices_page(request):
     cards, error, truncated = [], None, False
     expanded_scope, reported_markets_url = False, None
     fetched_at, conflicts = None, 0
+    browser_fetch = None
     if live_connected and state and crop:
         try:
-            response = fetch_local_prices(state['name'],crop['name'])
+            response = fetch_local_prices(state['name'],crop['name'],user_id=request.user.pk)
             truncated = response['truncated']
             fetched_at = response.get('fetched_at')
             conflicts = response.get('conflicts',0)
@@ -92,6 +96,14 @@ def local_prices_page(request):
                         row[key] = row[key]/divisor
                 row['days_old'] = max(0,(timezone.localdate()-row['date']).days)
             cards.sort(key=lambda r:(-r['date'].toordinal(),r['name'],r['variety']))
+        except ProviderUnreachable as exc:
+            # data.gov.in refuses this server (e.g. outside India): let the farmer's browser fetch
+            # the records and hand them back (see seed_local_prices). One try per page load.
+            if request.GET.get('seeded'):
+                error = str(exc)
+            else:
+                browser_fetch = {'endpoint': ENDPOINT, 'api_key': settings.DATA_GOV_IN_API_KEY.strip(),
+                                 'state': state['name'], 'crop': crop['name']}
         except LocalPriceError as exc:
             error = str(exc)
     elif not live_connected:
@@ -115,6 +127,20 @@ def local_prices_page(request):
         'cards':cards,'live_connected':live_connected,'error':error,'truncated':truncated,
         'expanded_scope':expanded_scope,'reported_markets_url':reported_markets_url,
         **nearby,
-        'fetched_at':fetched_at,'conflicts':conflicts,
+        'fetched_at':fetched_at,'conflicts':conflicts,'browser_fetch':browser_fetch,
         'source_url':SOURCE_URL,'latest_date':max((c['date'] for c in nearby['cards'] if c.get('date')),default=None),
     })
+
+
+@login_required
+@require_POST
+def seed_local_prices(request):
+    """Receive mandi records the farmer's browser fetched from data.gov.in (the server itself is
+    refused). Records are validated and cached for this user only."""
+    try:
+        body = json.loads(request.body or b'{}')
+        state, crop = str(body['state'])[:100], str(body['crop'])[:100]
+        kept = seed_from_browser(request.user.pk, state, crop, body.get('records'), bool(body.get('truncated')))
+    except (ValueError, KeyError, TypeError, LocalPriceError):
+        return JsonResponse({'ok': False}, status=400)
+    return JsonResponse({'ok': True, 'rows': kept})
