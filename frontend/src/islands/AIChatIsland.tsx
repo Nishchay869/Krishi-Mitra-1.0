@@ -570,6 +570,12 @@ export default function AIChatIsland({
       onSend={handleSend}
       onReset={handleReset}
       onClose={isWidget ? handleClose : undefined}
+      onBack={isWidget ? undefined : () => {
+        // Return to the previous page of this site, otherwise to the home page.
+        const sameSite = document.referrer.startsWith(window.location.origin);
+        if (sameSite && window.history.length > 1) window.history.back();
+        else window.location.href = "/";
+      }}
       onToggleMic={handleToggleMic}
       onListen={handleListen}
       className="w-full min-h-[540px] shadow-2xl"

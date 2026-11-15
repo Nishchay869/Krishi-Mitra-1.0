@@ -18,24 +18,26 @@
     display: none !important;
   }
 
-  /* Phones: the assistant fills the screen below the top bar, like a chat app. */
+  /* Phones: the assistant covers the whole screen like a chat app (back arrow in its header). */
   @media (max-width: 767.98px) {
-    html:has(.chat-page-body), body.chat-page-body { overflow-x: hidden; }
+    html:has(.chat-page-body), body.chat-page-body { overflow: hidden; }
     .chat-page-intro { display: none !important; }
-    body.chat-page-body .site-bottom-nav { display: none !important; }
+    body.chat-page-body .site-bottom-nav,
+    body.chat-page-body .site-header { display: none !important; }
     .chat-page #ai-chat-card-root > .ai-chat-card-surface {
       position: fixed;
-      top: var(--chat-top, 64px);
+      top: 0;
       left: 0;
       right: 0;
       bottom: 0;
-      z-index: 1010;
+      z-index: 1030;
       min-height: 0 !important;
+      /* keep clear of phone notches and the gesture bar */
+      padding-top: env(safe-area-inset-top);
+      padding-bottom: env(safe-area-inset-bottom);
       height: auto;
       border-radius: 0 !important;
-      border-left: 0 !important;
-      border-right: 0 !important;
-      border-bottom: 0 !important;
+      border: 0 !important;
       box-shadow: none !important;
     }
     .chat-page #ai-chat-card-root .ai-chat-messages {
@@ -44,18 +46,7 @@
     }
   }
 </style>
-<script>
-  // Start the full-screen chat exactly below the site header (its height varies by phone).
-  (function () {
-    function place() {
-      var header = document.querySelector('.site-header');
-      if (header) document.documentElement.style.setProperty('--chat-top', header.getBoundingClientRect().bottom + 'px');
-    }
-    window.addEventListener('DOMContentLoaded', place);
-    window.addEventListener('resize', place);
-    window.addEventListener('orientationchange', place);
-  })();
-</script>
+
 
 <div class="row justify-content-center chat-page">
   <div class="col-lg-8">

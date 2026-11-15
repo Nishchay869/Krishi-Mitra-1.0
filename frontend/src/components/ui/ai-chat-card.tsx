@@ -1,6 +1,7 @@
 import * as React from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
+  ArrowLeft,
   ArrowUp,
   Plus,
   RefreshCw,
@@ -44,6 +45,8 @@ export interface AIChatCardProps {
   onReset?: () => void;
   onAttach?: () => void;
   onClose?: () => void;
+  /** Phone-only back arrow in the header (full-screen chat page). */
+  onBack?: () => void;
   onToggleMic?: () => void;
   onListen?: (messageId: string | number, text: string) => void;
   className?: string;
@@ -83,6 +86,7 @@ export function AIChatCard({
   onReset,
   onAttach,
   onClose,
+  onBack,
   onToggleMic,
   onListen,
   className,
@@ -217,6 +221,16 @@ export function AIChatCard({
       {/* Header */}
       <div className="flex items-center justify-between gap-3 border-b border-slate-100 dark:border-slate-800/80 px-3.5 sm:px-5 py-3 sm:py-4">
         <div className="flex items-center gap-2.5 sm:gap-3">
+          {onBack && (
+            <button
+              type="button"
+              onClick={onBack}
+              aria-label="Back"
+              className="ai-chat-btn ai-chat-back flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border border-slate-200 text-slate-600 md:hidden dark:border-slate-800 dark:text-slate-300"
+            >
+              <ArrowLeft className="h-4 w-4" />
+            </button>
+          )}
           <div className="flex h-8 w-8 sm:h-9 sm:w-9 shrink-0 items-center justify-center rounded-lg bg-emerald-700 text-white">
             <Sprout className="h-4 w-4 sm:h-5 sm:w-5" />
           </div>
