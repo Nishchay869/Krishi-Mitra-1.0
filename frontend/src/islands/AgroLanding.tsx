@@ -370,6 +370,50 @@ function PlantixDashboard({ routes, assetBase, userCrops, weatherData, diagnoses
   const [selectedCrop, setSelectedCrop] = useState<string>(crops[0]?.id || 'tomato')
   const [showSticky, setShowSticky] = useState<boolean>(false)
 
+  // "Take a picture": open the phone camera right here (browsers only allow it from a tap),
+  // then post the photo to the disease check page, which shows the diagnosis.
+  const diseaseUrl = routes.disease || '/disease/'
+  const cameraFormRef = useRef<HTMLFormElement>(null)
+  const cameraInputRef = useRef<HTMLInputElement>(null)
+  const [uploadingPhoto, setUploadingPhoto] = useState(false)
+  const selectedCropName = crops.find((c) => c.id === selectedCrop)?.name || ''
+
+  const openCamera = (e: { preventDefault(): void }) => {
+    // Logged-out visitors follow the normal link (the disease page asks them to log in first).
+    if (!document.body.hasAttribute('data-authenticated') || !cameraInputRef.current) return
+    e.preventDefault()
+    cameraInputRef.current.click()
+  }
+
+  const submitPhoto = async () => {
+    const input = cameraInputRef.current
+    const form = cameraFormRef.current
+    const file = input?.files?.[0]
+    if (!input || !form || !file) return
+    setUploadingPhoto(true)
+    try {
+      // Phone photos are often over the 5 MB limit: shrink to max 2048 px before uploading.
+      const bitmap = await createImageBitmap(file)
+      const scale = Math.min(1, 2048 / Math.max(bitmap.width, bitmap.height))
+      const canvas = document.createElement('canvas')
+      canvas.width = Math.round(bitmap.width * scale)
+      canvas.height = Math.round(bitmap.height * scale)
+      canvas.getContext('2d')?.drawImage(bitmap, 0, 0, canvas.width, canvas.height)
+      const blob = await new Promise<Blob | null>((resolve) => canvas.toBlob(resolve, 'image/jpeg', 0.9))
+      if (blob) {
+        const dt = new DataTransfer()
+        dt.items.add(new File([blob], 'leaf.jpg', { type: 'image/jpeg' }))
+        input.files = dt.files
+      }
+    } catch {
+      // keep the original photo if resizing is not supported
+    }
+    const csrf = document.cookie.match(/(?:^|;\s*)csrftoken=([^;]+)/)?.[1] || ''
+    const csrfInput = form.querySelector<HTMLInputElement>('input[name=csrfmiddlewaretoken]')
+    if (csrfInput) csrfInput.value = decodeURIComponent(csrf)
+    form.submit()
+  }
+
   // Instagram Story / Status Viewer State
   const [activeStoryCrop, setActiveStoryCrop] = useState<CropItem | null>(null)
   const [activeStoryIndex, setActiveStoryIndex] = useState<number>(0)
@@ -613,6 +657,17 @@ function PlantixDashboard({ routes, assetBase, userCrops, weatherData, diagnoses
 
   return (
     <div className="plantix-dashboard" id="plantix-main">
+      <form ref={cameraFormRef} method="post" action={diseaseUrl} encType="multipart/form-data" hidden>
+        <input type="hidden" name="csrfmiddlewaretoken" value="" />
+        <input type="hidden" name="crop" value={selectedCropName} />
+        <input ref={cameraInputRef} type="file" name="image" accept="image/*" capture="environment" onChange={submitPhoto} />
+      </form>
+      {uploadingPhoto && (
+        <div className="plantix-upload-overlay" role="status" aria-live="polite">
+          <Camera size={34} strokeWidth={1.5} />
+          <span>{t('Analyzing leaf photo…')}</span>
+        </div>
+      )}
       {/* Floating Sticky CTA on Scroll */}
       <AnimatePresence>
         {showSticky && (
@@ -623,7 +678,8 @@ function PlantixDashboard({ routes, assetBase, userCrops, weatherData, diagnoses
             exit={{ opacity: 0, y: -16, scale: 0.95 }}
             transition={{ duration: 0.2 }}
           >
-            <a href={routes.disease || '/disease/detect/'} className="plantix-floating-btn">
+            <a href={diseaseUrl} className="plantix-floating-btn" onClick={openCamera}>
+              <Camera size={16} strokeWidth={2} aria-hidden="true" />
               {t('Take a picture')}
             </a>
           </motion.div>
@@ -749,7 +805,7 @@ function PlantixDashboard({ routes, assetBase, userCrops, weatherData, diagnoses
         </div>
 
         {/* Primary Action Button */}
-        <a href={routes.disease || '/disease/detect/'} className="plantix-hero-cta">
+        <a href={diseaseUrl} className="plantix-hero-cta" onClick={openCamera}>
           {t('Take a picture')}
         </a>
       </section>

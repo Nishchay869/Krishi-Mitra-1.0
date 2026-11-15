@@ -1419,12 +1419,12 @@ html.dark .diagnosis-status-pill.incomplete, html.dark .diagnosis-status-pill.is
 }
 
 /* 9D. Content Links in Dark Mode (Bright, High-Contrast Accessible Sky Blue) */
-html.dark a:not(.btn):not(.dropdown-item):not(.nav-link):not(.navbar-brand):not(.bottom-nav-item):not(.plantix-tool-card):not(.plantix-lib-card):not(.plantix-weather-left):not(.plantix-weather-right):not(.plantix-hero-cta):not(.plantix-diag-card):not(.plantix-diag-view-all-btn):not(.plantix-sponsored-card):not(.crop-box),
-[data-theme="dark"] a:not(.btn):not(.dropdown-item):not(.nav-link):not(.navbar-brand):not(.bottom-nav-item):not(.plantix-tool-card):not(.plantix-lib-card):not(.plantix-weather-left):not(.plantix-weather-right):not(.plantix-hero-cta):not(.plantix-diag-card):not(.plantix-diag-view-all-btn):not(.plantix-sponsored-card):not(.crop-box) {
+html.dark a:not(.btn):not(.dropdown-item):not(.nav-link):not(.navbar-brand):not(.bottom-nav-item):not(.plantix-tool-card):not(.plantix-lib-card):not(.plantix-weather-left):not(.plantix-weather-right):not(.plantix-hero-cta):not(.plantix-diag-card):not(.plantix-diag-view-all-btn):not(.plantix-sponsored-card):not(.crop-box):not(.plantix-floating-btn),
+[data-theme="dark"] a:not(.btn):not(.dropdown-item):not(.nav-link):not(.navbar-brand):not(.bottom-nav-item):not(.plantix-tool-card):not(.plantix-lib-card):not(.plantix-weather-left):not(.plantix-weather-right):not(.plantix-hero-cta):not(.plantix-diag-card):not(.plantix-diag-view-all-btn):not(.plantix-sponsored-card):not(.crop-box):not(.plantix-floating-btn) {
   color: #60a5fa !important;
 }
-html.dark a:not(.btn):not(.dropdown-item):not(.nav-link):not(.navbar-brand):not(.bottom-nav-item):not(.plantix-tool-card):not(.plantix-lib-card):not(.plantix-weather-left):not(.plantix-weather-right):not(.plantix-hero-cta):not(.plantix-diag-card):not(.plantix-diag-view-all-btn):not(.plantix-sponsored-card):not(.crop-box):hover,
-[data-theme="dark"] a:not(.btn):not(.dropdown-item):not(.nav-link):not(.navbar-brand):not(.bottom-nav-item):not(.plantix-tool-card):not(.plantix-lib-card):not(.plantix-weather-left):not(.plantix-weather-right):not(.plantix-hero-cta):not(.plantix-diag-card):not(.plantix-diag-view-all-btn):not(.plantix-sponsored-card):not(.crop-box):hover {
+html.dark a:not(.btn):not(.dropdown-item):not(.nav-link):not(.navbar-brand):not(.bottom-nav-item):not(.plantix-tool-card):not(.plantix-lib-card):not(.plantix-weather-left):not(.plantix-weather-right):not(.plantix-hero-cta):not(.plantix-diag-card):not(.plantix-diag-view-all-btn):not(.plantix-sponsored-card):not(.crop-box):not(.plantix-floating-btn):hover,
+[data-theme="dark"] a:not(.btn):not(.dropdown-item):not(.nav-link):not(.navbar-brand):not(.bottom-nav-item):not(.plantix-tool-card):not(.plantix-lib-card):not(.plantix-weather-left):not(.plantix-weather-right):not(.plantix-hero-cta):not(.plantix-diag-card):not(.plantix-diag-view-all-btn):not(.plantix-sponsored-card):not(.crop-box):not(.plantix-floating-btn):hover {
   color: #93c5fd !important;
 }
 

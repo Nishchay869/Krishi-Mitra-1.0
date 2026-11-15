@@ -84,7 +84,7 @@
   </script>
 </head>
 
-<body class="{% block body_class %}{% endblock %}">
+<body class="{% block body_class %}{% endblock %}"{% if user.is_authenticated %} data-authenticated{% endif %}>
   <div id="site-intro-loader" class="site-intro-loader" style="background: #ffffff;"
     aria-label="Krishi Mitra">
     <div class="intro-loader-content">

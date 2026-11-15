@@ -82,16 +82,22 @@
 }
 
 /* Floating Sticky "Take a picture" Button */
+/* Full-width strip that centres the button. (The entry animation sets `transform` on this
+   element, so centring with translateX(-50%) was overridden and the button sat right of centre.) */
 .plantix-floating-cta-wrap {
   position: fixed;
   top: 14px;
-  left: 50%;
-  transform: translateX(-50%);
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
   z-index: 1060;
-  pointer-events: auto;
+  pointer-events: none;
 }
 
 .plantix-floating-btn {
+  pointer-events: auto;
+  gap: 6px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -1628,4 +1634,28 @@ html.dark .plantix-story-badge {
 
 .instagram-story-cta-btn.secondary:hover {
   background: rgba(255, 255, 255, 0.32) !important;
+}
+
+/* Shown while the camera photo is uploaded and analysed (the next page renders the result). */
+.plantix-upload-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  background: rgba(15, 23, 42, 0.82);
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  backdrop-filter: blur(4px);
+}
+.plantix-upload-overlay svg {
+  animation: plantix-pulse 1.2s ease-in-out infinite;
+}
+@keyframes plantix-pulse {
+  0%, 100% { opacity: 0.55; transform: scale(0.94); }
+  50% { opacity: 1; transform: scale(1.06); }
 }
