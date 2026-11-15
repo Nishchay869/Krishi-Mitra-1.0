@@ -260,6 +260,18 @@ msgstr "परत गणिताकडेन"
 msgid "Back to home"
 msgstr "होम पर वापस जाएँ"
 
+msgid "Back to login"
+msgstr "लॉगिन करपाक परत वच"
+
+msgid "Bacterial leaf blight"
+msgstr "जीवाणू पानांचो रोग"
+
+msgid "Bacterial leaf streak"
+msgstr "बॅक्टेरियाच्या पानांचेर चोळणेचे खूण"
+
+msgid "Bacterial panicle blight"
+msgstr "बॅक्टिरियल पैनिकल ब्लायट रोग"
+
 msgid "Bacterial spot"
 msgstr "बॅक्टिरियल स्पॉट"
 
@@ -305,11 +317,17 @@ msgstr "काळे कुसप"
 msgid "Blackgram"
 msgstr "काळे चणे"
 
+msgid "Blast"
+msgstr "तांदळाचें ब्लास्ट रोग (Blast)"
+
 msgid "Blueberry"
 msgstr "ब्लूबेरी"
 
 msgid "Brinjal"
 msgstr "वांगें"
+
+msgid "Brown spot"
+msgstr "ब्राउन स्पॉट"
 
 msgid "Built for Indian farmers"
 msgstr "भारतीय शेतकारां खातीर तयार केल्लें"
@@ -394,6 +412,9 @@ msgstr "पयलीं माती तपासात"
 
 msgid "Check the forecast"
 msgstr "अदमास पळय."
+
+msgid "Check your email"
+msgstr "तुजी ईमेल तपास."
 
 msgid "Cherry (including sour)"
 msgstr "चेरी (आंबट धरून)"
@@ -572,6 +593,9 @@ msgstr "डॅशबोर्ड"
 msgid "Daylight"
 msgstr "दिसाचो उजवाड"
 
+msgid "Dead heart"
+msgstr "डेड हार्ट (Dead heart)"
+
 msgid "December"
 msgstr "डिसेंबर"
 
@@ -619,6 +643,9 @@ msgstr "छिड़काव न करें"
 
 msgid "Done speaking"
 msgstr "उलयून जालो"
+
+msgid "Downy mildew"
+msgstr "डाउनी मिल्ड्यू रोग"
 
 msgid "Drainage"
 msgstr "उदकाचो निचरो"
@@ -685,6 +712,9 @@ msgstr "सत्यापना खातीर आदीं दिल्लो
 
 msgid "Enter values from your Soil Health Card and local climate to discover crops suited to your farm."
 msgstr "तुमच्या शेताक फावोशीं पिकां सोदून काडपा खातीर तुमच्या मातयेचे भलायकेचें कार्ड आनी थळाव्या हवामानांतल्यान मोलां घालचीं."
+
+msgid "Enter your account email. We will send you a link to set a new password."
+msgstr "तुज्या खात्याचो ईमेल घाल. आमी तुका नवो पासवर्ड सेट करपाची लिंक धाडटले."
 
 msgid "Esca black measles"
 msgstr "एस्का काळे खोरजेचे रोग"
@@ -808,6 +838,9 @@ msgstr "दर 3 वरांचो अदमास; थळावो वेळ."
 
 msgid "Forecast for the village area; local field conditions may differ."
 msgstr "गांवगिऱ्या वाठारा खातीर अदमास; थळाव्या मळार परिस्थिती वेगळी आसूं येता."
+
+msgid "Forgot password?"
+msgstr "पासवर्ड विसरलां काय?"
 
 msgid "Fri"
 msgstr "शुक्र"
@@ -971,6 +1004,9 @@ msgstr "सगळ्यांत चड नोंद जाल्ली मो�
 msgid "Himachal Pradesh"
 msgstr "हिमाचल प्रदेश"
 
+msgid "Hispa"
+msgstr "हिस्पा"
+
 msgid "Home garden"
 msgstr "घरची बाग"
 
@@ -994,6 +1030,9 @@ msgstr "संकर"
 
 msgid "Ideal window"
 msgstr "सही समय"
+
+msgid "If an account exists for that email, a password reset link has been sent. It may take a few minutes to arrive."
+msgstr "त्या ईमेल खातीर एक खातें आसल्यार, पासवर्ड रिसेट लिंक धाडल्या. ती पावपाक कांय मिण्टां लागूं येतात."
 
 msgid "Image"
 msgstr "चित्र"
@@ -1895,6 +1934,9 @@ msgstr "लागसार आशिल्ले जुनिपर/सिडर
 msgid "Report date"
 msgstr "अहवालाची तारीख"
 
+msgid "Reset your password"
+msgstr "तुजो पासवर्ड परत सेट कर"
+
 msgid "Rest of the day"
 msgstr "दिन का शेष समय"
 
@@ -1985,6 +2027,9 @@ msgstr "धाडचें"
 msgid "Send now, interrupt, or resume"
 msgstr "आतां धाडचें, आडमेळो घालचो वा परत सुरू करचो"
 
+msgid "Send reset link"
+msgstr "रीसेट लिंक धाड."
+
 msgid "September–October"
 msgstr "सप्टेंबर-ऑक्टोबर"
 
@@ -1993,6 +2038,9 @@ msgstr "सॅप्टोरिया लीफ स्पॉट"
 
 msgid "Sesamum"
 msgstr "तिळो"
+
+msgid "Set a new password"
+msgstr "नवो पासवर्ड सेट कर"
 
 msgid "Settings"
 msgstr "सेटिंग्स"
@@ -2300,6 +2348,9 @@ msgstr "हो पासवर्ड पुरायपणान आंकड्
 msgid "This password is too common."
 msgstr "हो पासवर्ड सामकोच सामान्य आसा."
 
+msgid "This password reset link is invalid or has expired. Please request a new one."
+msgstr "हो पासवर्ड रिसेट लिंक अमान्य आसा वा कालबाह्य जाला. उपकार करून नवो मागयात."
+
 msgid "This tool is temporarily unavailable. Please try again later."
 msgstr "हें साधन तात्पुरतें मेळना. उपकार करून मागीर यत्न कर."
 
@@ -2362,6 +2413,9 @@ msgstr "कंद"
 
 msgid "Tue"
 msgstr "मंगल"
+
+msgid "Tungro"
+msgstr "तुंग्रो"
 
 msgid "Turmeric"
 msgstr "हळडी"
@@ -2632,6 +2686,9 @@ msgstr "तुजी भास ह्या उपकरणाचेर सु�
 
 msgid "Your name"
 msgstr "तुजें नांव"
+
+msgid "Your password has been changed. You can now log in."
+msgstr "तुजो पासवर्ड बदललां. आतां तूं लॉग इन करूंक शकता."
 
 msgid "Your selected crops"
 msgstr "आपकी चुनी हुई फसलें"

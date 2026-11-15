@@ -260,6 +260,18 @@ msgstr "حساب کُن واپس"
 msgid "Back to home"
 msgstr "होम पर वापस जाएँ"
 
+msgid "Back to login"
+msgstr "واپس لاگ ان کٔرِو"
+
+msgid "Bacterial leaf blight"
+msgstr "بیکٹیریل لیف بلائٹ"
+
+msgid "Bacterial leaf streak"
+msgstr "بیکٹیریل لیف سٹریک"
+
+msgid "Bacterial panicle blight"
+msgstr "بیکٹیریل پینکِل بِلائٹ بیمارِ"
+
 msgid "Bacterial spot"
 msgstr "بیکٹیریل سپاٹ"
 
@@ -305,11 +317,17 @@ msgstr "بلیک روٹ"
 msgid "Blackgram"
 msgstr "کالٕہ مٔٹۍ"
 
+msgid "Blast"
+msgstr "بلاسٹ (Blast)"
+
 msgid "Blueberry"
 msgstr "بلو بیری"
 
 msgid "Brinjal"
 msgstr "وانٛگُن"
+
+msgid "Brown spot"
+msgstr "براؤن سپاٹ"
 
 msgid "Built for Indian farmers"
 msgstr "ہنٛدوستٲنہِ  کٔمِلین خٲطرٕ بناونہٕ آمٗت ۔"
@@ -394,6 +412,9 @@ msgstr "گۄڈٕ مٔژ جانٛچ کٔرِو"
 
 msgid "Check the forecast"
 msgstr "پیشین گوئی وٗچھِو ۔"
+
+msgid "Check your email"
+msgstr "پنٕنۍ ای میل وُچھِو۔"
 
 msgid "Cherry (including sour)"
 msgstr "چیری (تر٘وِتھ )"
@@ -572,6 +593,9 @@ msgstr "ڈیش بورڈ"
 msgid "Daylight"
 msgstr "دۄہُک گاش"
 
+msgid "Dead heart"
+msgstr "ڈیڈ ہارٹ (Dead heart)"
+
 msgid "December"
 msgstr "دسمبر"
 
@@ -619,6 +643,9 @@ msgstr "छिड़काव न करें"
 
 msgid "Done speaking"
 msgstr "بولٗن گوٚو۔"
+
+msgid "Downy mildew"
+msgstr "ڈاوٗنی مِلڈیو بٮ۪مارِ"
 
 msgid "Drainage"
 msgstr "آب نکاٚسی"
@@ -685,6 +712,9 @@ msgstr "تصدیق باپت دِیِو گۄڈٕکۍ پٲنۍ پاس ورڈ۔"
 
 msgid "Enter values from your Soil Health Card and local climate to discover crops suited to your farm."
 msgstr "پننِس مٹی ہیتھ کارڈ تہٕ مقٲمی آب و ہوا پیٹھہٕ کٔرِو قدر درج تاکہ تٗہندِ زٔمینس منز چھِ لایق فصل دریافت کرنہٕ۔"
+
+msgid "Enter your account email. We will send you a link to set a new password."
+msgstr "پنن اکاونٹ ای میل دِیِو اِنٹر۔ أسۍ سوزو تۄہہ اکھ نوٚو پاس ورڈ سیٹ کرنہٕ خٲطرٕ اکھ لنک۔"
 
 msgid "Esca black measles"
 msgstr "ایسکا بلیک میزلس"
@@ -808,6 +838,9 @@ msgstr "ہر 3 گھنٹہٕ پیشگوئی؛ مقٲمی وقت۔"
 
 msgid "Forecast for the village area; local field conditions may differ."
 msgstr "گام کِس علاقس خٲطرٕ پیشین گوئی۔ مقٲمی میدٲنی حالات ہیکن مختلف ٲستھ۔"
+
+msgid "Forgot password?"
+msgstr "پاس ورڈ گوٚو مۄکلاونہ؟"
 
 msgid "Fri"
 msgstr "शुक्र"
@@ -971,6 +1004,9 @@ msgstr "ساروی کھوتہٕ زیادٕ موڈل قیمت رپورٹ کرنہ
 msgid "Himachal Pradesh"
 msgstr "ہماچل پردیش"
 
+msgid "Hispa"
+msgstr "ہِسپا"
+
 msgid "Home garden"
 msgstr "گَرُک باغ"
 
@@ -994,6 +1030,9 @@ msgstr "ہایبرڈز"
 
 msgid "Ideal window"
 msgstr "सही समय"
+
+msgid "If an account exists for that email, a password reset link has been sent. It may take a few minutes to arrive."
+msgstr "اگر امہ ای میلہ خٲطرٕ کانٛہہ اکاونٹ موٗجوٗد چھُ، اکھ پاس ورڈ ری سیٹ لنک چھُ سوزنہٕ آمُت۔ اتھ ہیٚکہ واتنس کینٛہہ منٹ لٔگِتھ۔"
 
 msgid "Image"
 msgstr "تصویر"
@@ -1895,6 +1934,9 @@ msgstr "نزدیکی جونیپر/سدٕر میزبان ہٹٲیو ییٚتہ م
 msgid "Report date"
 msgstr "رپورٹٕچ تٲریخ"
 
+msgid "Reset your password"
+msgstr "پنُن پاس ورڈ دُوبارٕ کٔرِو سیٹ۔"
+
 msgid "Rest of the day"
 msgstr "दिन का शेष समय"
 
@@ -1985,6 +2027,9 @@ msgstr "سوزِو"
 msgid "Send now, interrupt, or resume"
 msgstr "وۄنۍ سوزِیو٘ ، رٗکاوٗن، یا بییہ شروع کٔرِو ۔"
 
+msgid "Send reset link"
+msgstr "ری سیٹ لِنک سوزِو۔"
+
 msgid "September–October"
 msgstr "ستمبر-اکتوبر"
 
@@ -1993,6 +2038,9 @@ msgstr "سیپٹوریا لیف سپاٹ"
 
 msgid "Sesamum"
 msgstr "تیلہٕ"
+
+msgid "Set a new password"
+msgstr "اکھ نوٚو پاس ورڈ تھٲیو۔"
 
 msgid "Settings"
 msgstr "सेटिंग्स"
@@ -2300,6 +2348,9 @@ msgstr "یہِ پاس ورڈ چھٗ پوُرٕ پٲٹھہِ  عددی ۔"
 msgid "This password is too common."
 msgstr "یہِ پاس ورڈ چھُ واریاہ عام۔"
 
+msgid "This password reset link is invalid or has expired. Please request a new one."
+msgstr "یہِ پاس ورڈ ری سیٹ لِنک چھٗ غٲر قٲبِل یا ختم گومُت۔ مہربٲنی کٔرتھ کٔریو نوِ ہٗند درخواست ۔"
+
 msgid "This tool is temporarily unavailable. Please try again later."
 msgstr "یہِ ٹوٗل چھُ عارضی طور غٲر دستیاب۔ مہربٲنی کٔرتھ کٔریو پتہٕ بییہِ کوٗشش۔"
 
@@ -2362,6 +2413,9 @@ msgstr "گنٛڈ"
 
 msgid "Tue"
 msgstr "मंगल"
+
+msgid "Tungro"
+msgstr "ٹٗنگرو"
 
 msgid "Turmeric"
 msgstr "لتر"
@@ -2632,6 +2686,9 @@ msgstr "تٗہنز زبٲنہِ چھِ اتھ ڈیوایسس پیٹھ محفوظ
 
 msgid "Your name"
 msgstr "تٗہٗند ناو"
+
+msgid "Your password has been changed. You can now log in."
+msgstr "تٗہٗند پاس ورڈ چھٗ تبدیل كرنہٕ آمٗت ۔ تو٘ہہِ ہیكو وۄنہِ لاگ ان کٔرتھ ۔"
 
 msgid "Your selected crops"
 msgstr "आपकी चुनी हुई फसलें"

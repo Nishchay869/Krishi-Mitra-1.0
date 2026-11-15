@@ -9,3 +9,4 @@ nltk==3.10.3
 psycopg[binary]==3.3.6
 gunicorn==26.2.0
 whitenoise==6.9.0
+sentry-sdk==2.35.0

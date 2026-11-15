@@ -260,6 +260,18 @@ msgstr "গণনার দিকে ফিরে যান"
 msgid "Back to home"
 msgstr "হোমে ফিরে যান"
 
+msgid "Back to login"
+msgstr "লগইন করুন"
+
+msgid "Bacterial leaf blight"
+msgstr "ব্যাকটেরিয়াজনিত পাতাপ্রদাহ"
+
+msgid "Bacterial leaf streak"
+msgstr "ব্যাকটেরিয়াল লিফ স্ট্রিক"
+
+msgid "Bacterial panicle blight"
+msgstr "ব্যাকটেরিয়াল প্যানিকল ব্লাইট রোগ"
+
 msgid "Bacterial spot"
 msgstr "ব্যাকটেরিয়াল স্পট"
 
@@ -305,11 +317,17 @@ msgstr "কালো পচন"
 msgid "Blackgram"
 msgstr "কালোজিরা"
 
+msgid "Blast"
+msgstr "ধানের ব্লাস্ট রোগ (Blast)"
+
 msgid "Blueberry"
 msgstr "ব্লুবেরি"
 
 msgid "Brinjal"
 msgstr "বেগুন"
+
+msgid "Brown spot"
+msgstr "বাদামী দাগ"
 
 msgid "Built for Indian farmers"
 msgstr "ভারতীয় কৃষকদের জন্য নির্মিত"
@@ -394,6 +412,9 @@ msgstr "আগে মাটি পরীক্ষা করুন"
 
 msgid "Check the forecast"
 msgstr "আবহাওয়ার পূর্বাভাস দেখুন।"
+
+msgid "Check your email"
+msgstr "আপনার ই-মেইল দেখুন।"
 
 msgid "Cherry (including sour)"
 msgstr "চেরি (টক সহ)"
@@ -572,6 +593,9 @@ msgstr "ড্যাশবোর্ড"
 msgid "Daylight"
 msgstr "দিনের আলো"
 
+msgid "Dead heart"
+msgstr "ডেড হার্ট (Dead heart)"
+
 msgid "December"
 msgstr "ডিসেম্বর"
 
@@ -619,6 +643,9 @@ msgstr "স্প্রে করবেন না"
 
 msgid "Done speaking"
 msgstr "বলা হয়ে গেল।"
+
+msgid "Downy mildew"
+msgstr "ডাউনি মিলডিউ রোগ"
 
 msgid "Drainage"
 msgstr "জল নিষ্কাশন"
@@ -685,6 +712,9 @@ msgstr "যাচাইকরণের জন্য আগের মতোই �
 
 msgid "Enter values from your Soil Health Card and local climate to discover crops suited to your farm."
 msgstr "আপনার জমির জন্য উপযুক্ত ফসল খুঁজে বের করতে আপনার মৃত্তিকা স্বাস্থ্য কার্ড এবং স্থানীয় জলবায়ু থেকে মান লিখুন।"
+
+msgid "Enter your account email. We will send you a link to set a new password."
+msgstr "আপনার অ্যাকাউন্টের ইমেল লিখুন। আমরা আপনাকে একটি নতুন পাসওয়ার্ড সেট করার জন্য একটি লিঙ্ক পাঠাবো।"
 
 msgid "Esca black measles"
 msgstr "স্কারি হাম"
@@ -808,6 +838,9 @@ msgstr "প্রতি 3 ঘণ্টার পূর্বাভাস; স্
 
 msgid "Forecast for the village area; local field conditions may differ."
 msgstr "গ্রাম এলাকার পূর্বাভাস; স্থানীয় ক্ষেত্রের অবস্থা ভিন্ন হতে পারে।"
+
+msgid "Forgot password?"
+msgstr "পাসওয়ার্ড ভুলে গেছেন?"
 
 msgid "Fri"
 msgstr "শুক্র"
@@ -971,6 +1004,9 @@ msgstr "সর্বোচ্চ নথিভুক্ত মডেল মূল
 msgid "Himachal Pradesh"
 msgstr "হিমাচল প্রদেশ"
 
+msgid "Hispa"
+msgstr "হিস্পা"
+
 msgid "Home garden"
 msgstr "বাড়ির বাগান"
 
@@ -994,6 +1030,9 @@ msgstr "সংকর"
 
 msgid "Ideal window"
 msgstr "উপযুক্ত সময়"
+
+msgid "If an account exists for that email, a password reset link has been sent. It may take a few minutes to arrive."
+msgstr "যদি সেই ইমেলের জন্য একটি অ্যাকাউন্ট থাকে, তাহলে একটি পাসওয়ার্ড রিসেট লিঙ্ক পাঠানো হয়েছে। এটি আসতে কয়েক মিনিট সময় লাগতে পারে।"
 
 msgid "Image"
 msgstr "ছবি"
@@ -1895,6 +1934,9 @@ msgstr "সম্ভব হলে কাছাকাছি জুনিপার
 msgid "Report date"
 msgstr "রিপোর্ট দেওয়ার তারিখ"
 
+msgid "Reset your password"
+msgstr "আপনার পাসওয়ার্ড রিসেট করুন।"
+
 msgid "Rest of the day"
 msgstr "দিনের বাকি সময়"
 
@@ -1985,6 +2027,9 @@ msgstr "পাঠান"
 msgid "Send now, interrupt, or resume"
 msgstr "এখন পাঠান, বাধা দিন অথবা আবার শুরু করুন।"
 
+msgid "Send reset link"
+msgstr "রিসেট লিঙ্ক পাঠান।"
+
 msgid "September–October"
 msgstr "সেপ্টেম্বর-অক্টোবর"
 
@@ -1993,6 +2038,9 @@ msgstr "সেপ্টোরিয়া লিফ স্পট"
 
 msgid "Sesamum"
 msgstr "তিল"
+
+msgid "Set a new password"
+msgstr "নতুন পাসওয়ার্ড সেট করুন।"
 
 msgid "Settings"
 msgstr "সেটিংস"
@@ -2300,6 +2348,9 @@ msgstr "এই পাসওয়ার্ডটি সম্পূর্ণর�
 msgid "This password is too common."
 msgstr "এই পাসওয়ার্ডটি খুবই সাধারণ।"
 
+msgid "This password reset link is invalid or has expired. Please request a new one."
+msgstr "এই পাসওয়ার্ড রিসেট লিঙ্কটি অবৈধ অথবা এর মেয়াদ শেষ হয়ে গেছে। অনুগ্রহ করে একটি নতুন পাসওয়ার্ড চেয়ে নিন।"
+
 msgid "This tool is temporarily unavailable. Please try again later."
 msgstr "এই সরঞ্জামটি সাময়িকভাবে উপলব্ধ নয়। অনুগ্রহ করে পরে আবার চেষ্টা করুন।"
 
@@ -2362,6 +2413,9 @@ msgstr "কন্দ"
 
 msgid "Tue"
 msgstr "মঙ্গল"
+
+msgid "Tungro"
+msgstr "টুংরো"
 
 msgid "Turmeric"
 msgstr "হলুদ"
@@ -2632,6 +2686,9 @@ msgstr "আপনার ভাষা এই যন্ত্রে সংরক�
 
 msgid "Your name"
 msgstr "আপনার নাম"
+
+msgid "Your password has been changed. You can now log in."
+msgstr "আপনার পাসওয়ার্ড পরিবর্তন করা হয়েছে। আপনি এখন লগইন করতে পারেন।"
 
 msgid "Your selected crops"
 msgstr "আপনার নির্বাচিত ফসল"

@@ -260,6 +260,18 @@ msgstr "गणनेकडे परत"
 msgid "Back to home"
 msgstr "मुख्यपृष्ठावर परत जा"
 
+msgid "Back to login"
+msgstr "लॉगिनवर परत जा"
+
+msgid "Bacterial leaf blight"
+msgstr "जीवाणूजन्य पर्णकुज"
+
+msgid "Bacterial leaf streak"
+msgstr "जीवाणूजन्य पानांची रेषा"
+
+msgid "Bacterial panicle blight"
+msgstr "बॅक्टेरिया पॅनिकल ब्लाइट रोग"
+
 msgid "Bacterial spot"
 msgstr "जिवाणू ठिपके"
 
@@ -305,11 +317,17 @@ msgstr "काळी कूज"
 msgid "Blackgram"
 msgstr "उडीद"
 
+msgid "Blast"
+msgstr "ब्लास्ट रोग (Blast)"
+
 msgid "Blueberry"
 msgstr "ब्लूबेरी"
 
 msgid "Brinjal"
 msgstr "वांगी"
+
+msgid "Brown spot"
+msgstr "ब्राऊन स्पॉट"
 
 msgid "Built for Indian farmers"
 msgstr "भारतीय शेतकऱ्यांसाठी"
@@ -394,6 +412,9 @@ msgstr "आधी माती तपासा"
 
 msgid "Check the forecast"
 msgstr "हवामान अंदाज पहा"
+
+msgid "Check your email"
+msgstr "तुमचा ईमेल तपासा"
 
 msgid "Cherry (including sour)"
 msgstr "चेरी (आंबटसह)"
@@ -572,6 +593,9 @@ msgstr "मुख्य पान"
 msgid "Daylight"
 msgstr "दिवसाचा प्रकाश"
 
+msgid "Dead heart"
+msgstr "डेड हार्ट (Dead heart)"
+
 msgid "December"
 msgstr "डिसेंबर"
 
@@ -619,6 +643,9 @@ msgstr "फवारणी करू नका"
 
 msgid "Done speaking"
 msgstr "बोलून झाले"
+
+msgid "Downy mildew"
+msgstr "डाउनी मिल्ड्यू रोग"
 
 msgid "Drainage"
 msgstr "पाण्याचा निचरा"
@@ -685,6 +712,9 @@ msgstr "खात्रीसाठी तोच पासवर्ड पुन
 
 msgid "Enter values from your Soil Health Card and local climate to discover crops suited to your farm."
 msgstr "योग्य पिके शोधण्यासाठी मृदा आरोग्य पत्रिका आणि स्थानिक हवामानाचे आकडे भरा."
+
+msgid "Enter your account email. We will send you a link to set a new password."
+msgstr "तुमचा खाते ईमेल प्रविष्ट करा. आम्ही तुम्हाला नवीन संकेतशब्द सेट करण्यासाठी एक दुवा पाठवू."
 
 msgid "Esca black measles"
 msgstr "एस्का काळे ठिपके"
@@ -808,6 +838,9 @@ msgstr "दर 3 तासांचा अंदाज; स्थानिक �
 
 msgid "Forecast for the village area; local field conditions may differ."
 msgstr "गावाकडील भागासाठी अंदाज; स्थानिक मैदानाची परिस्थिती वेगळी असू शकते."
+
+msgid "Forgot password?"
+msgstr "पासवर्ड विसरलात का?"
 
 msgid "Fri"
 msgstr "शुक्र"
@@ -971,6 +1004,9 @@ msgstr "सर्वाधिक नोंदवलेला मोडल दर
 msgid "Himachal Pradesh"
 msgstr "हिमाचल प्रदेश"
 
+msgid "Hispa"
+msgstr "हिस्पा"
+
 msgid "Home garden"
 msgstr "घरची बाग"
 
@@ -994,6 +1030,9 @@ msgstr "संकर"
 
 msgid "Ideal window"
 msgstr "योग्य वेळ"
+
+msgid "If an account exists for that email, a password reset link has been sent. It may take a few minutes to arrive."
+msgstr "त्या ईमेलसाठी खाते असल्यास, पासवर्ड रीसेट लिंक पाठवली गेली आहे. ती येण्यासाठी काही मिनिटे लागू शकतात."
 
 msgid "Image"
 msgstr "प्रतिमा"
@@ -1895,6 +1934,9 @@ msgstr "शक्य असल्यास जवळची ज्युनिप
 msgid "Report date"
 msgstr "अहवाल तारीख"
 
+msgid "Reset your password"
+msgstr "तुमचा संकेतशब्द पुन्हा सेट करा"
+
 msgid "Rest of the day"
 msgstr "दिवसाचा उर्वरित वेळ"
 
@@ -1985,6 +2027,9 @@ msgstr "पाठवा"
 msgid "Send now, interrupt, or resume"
 msgstr "आता पाठवा, थांबवा किंवा पुन्हा सुरू करा"
 
+msgid "Send reset link"
+msgstr "रीसेट लिंक पाठवा"
+
 msgid "September–October"
 msgstr "सप्टेंबर-ऑक्टोबर"
 
@@ -1993,6 +2038,9 @@ msgstr "सेप्टोरिया पान ठिपके"
 
 msgid "Sesamum"
 msgstr "तीळ"
+
+msgid "Set a new password"
+msgstr "नवीन संकेतशब्द सेट करा"
 
 msgid "Settings"
 msgstr "सेटिंग्ज"
@@ -2300,6 +2348,9 @@ msgstr "या पासवर्डमध्ये केवळ अंक आ�
 msgid "This password is too common."
 msgstr "हा पासवर्ड खूप सामान्य आहे."
 
+msgid "This password reset link is invalid or has expired. Please request a new one."
+msgstr "ही पासवर्ड रीसेट लिंक अवैध आहे किंवा कालबाह्य झाली आहे. कृपया नवीन विनंती करा."
+
 msgid "This tool is temporarily unavailable. Please try again later."
 msgstr "ही सुविधा तात्पुरती उपलब्ध नाही. नंतर प्रयत्न करा."
 
@@ -2362,6 +2413,9 @@ msgstr "कंद"
 
 msgid "Tue"
 msgstr "मंगळ"
+
+msgid "Tungro"
+msgstr "तुंग्रो"
 
 msgid "Turmeric"
 msgstr "हळद"
@@ -2632,6 +2686,9 @@ msgstr "तुमची भाषा या उपकरणावर जतन �
 
 msgid "Your name"
 msgstr "तुमचे नाव"
+
+msgid "Your password has been changed. You can now log in."
+msgstr "तुमचा पासवर्ड बदलण्यात आला आहे. तुम्ही आता लॉग इन करू शकता."
 
 msgid "Your selected crops"
 msgstr "तुमची निवडलेली पिके"

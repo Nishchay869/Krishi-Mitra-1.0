@@ -1,7 +1,8 @@
 from django.contrib.auth import views as auth_views
-from django.urls import path
+from django.urls import path, reverse_lazy
 
 from . import views
+from .forms import StyledPasswordResetForm, StyledSetPasswordForm
 
 app_name = 'accounts'
 urlpatterns = [
@@ -10,6 +11,19 @@ urlpatterns = [
     path('login/', views.login_view, name='login'),
     path('admin-login/', views.admin_login_redirect, name='admin_login'),
     path('logout/', auth_views.LogoutView.as_view(), name='logout'),
+    # Forgot password: email link -> set new password
+    path('password-reset/', auth_views.PasswordResetView.as_view(
+        template_name='accounts/password_reset_form.html', form_class=StyledPasswordResetForm,
+        email_template_name='accounts/password_reset_email.txt',
+        subject_template_name='accounts/password_reset_subject.txt',
+        success_url=reverse_lazy('accounts:password_reset_done')), name='password_reset'),
+    path('password-reset/sent/', auth_views.PasswordResetDoneView.as_view(
+        template_name='accounts/password_reset_done.html'), name='password_reset_done'),
+    path('password-reset/<uidb64>/<token>/', auth_views.PasswordResetConfirmView.as_view(
+        template_name='accounts/password_reset_confirm.html', form_class=StyledSetPasswordForm,
+        success_url=reverse_lazy('accounts:password_reset_complete')), name='password_reset_confirm'),
+    path('password-reset/complete/', auth_views.PasswordResetCompleteView.as_view(
+        template_name='accounts/password_reset_complete.html'), name='password_reset_complete'),
     path('dashboard/', views.dashboard, name='dashboard'),
     path('profile/', views.profile, name='profile'),
     path('settings/', views.settings_view, name='settings'),

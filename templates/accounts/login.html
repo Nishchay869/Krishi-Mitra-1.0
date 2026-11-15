@@ -16,6 +16,7 @@
       "errorMessage": "{% if form.errors %}{% for error in form.non_field_errors %}{{ error }}{% empty %}{% translate "Invalid email or password." %}{% endfor %}{% endif %}",
       "loginUrl": "{% url "accounts:login" %}",
       "registerUrl": "{% url "accounts:register" %}",
+      "forgotUrl": "{% url "accounts:password_reset" %}",
       "images": [
         "{% static "images/auth/farmer-1.jpg" %}",
         "{% static "images/auth/farmer-2.jpg" %}",
@@ -74,6 +75,7 @@
           <div class="mb-3">
             <label class="form-label font-weight-bold" for="id_password">{% translate "Password" %}</label>
             {{ form.password }}
+            <div class="text-end mt-1"><a href="{% url 'accounts:password_reset' %}" class="small">{% translate "Forgot password?" %}</a></div>
           </div>
           <input type="hidden" name="next" value="{{ next|default:'/' }}">
           <button class="btn-21st btn-21st-primary w-100 py-2.5 font-bold" type="submit" id="fallbackSubmitBtn">

@@ -14,6 +14,7 @@ export interface AuthIslandProps {
   errorMessage?: string;
   loginUrl?: string;
   registerUrl?: string;
+  forgotUrl?: string;
   images?: string[];
 }
 
@@ -52,6 +53,7 @@ export default function AuthIsland({
   errorMessage = "",
   loginUrl = "/accounts/login/",
   registerUrl = "/accounts/register/",
+  forgotUrl = "/accounts/password-reset/",
   images = defaultImages,
 }: AuthIslandProps) {
   const isLogin = mode === "login";
@@ -266,11 +268,7 @@ export default function AuthIsland({
                   </label>
                   {isLogin && (
                     <a
-                      href="#forgot"
-                      onClick={(e) => {
-                        e.preventDefault();
-                        alert("Password reset is managed by your administrator or farm support.");
-                      }}
+                      href={forgotUrl}
                       className="auth-forgot-link"
                     >
                       Forgot password?

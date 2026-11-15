@@ -260,6 +260,18 @@ msgstr "കണക്കുകൂട്ടലിലേക്ക് മടങ്�
 msgid "Back to home"
 msgstr "ഹോമിലേക്ക് മടങ്ങുക"
 
+msgid "Back to login"
+msgstr "ലോഗിൻ ചെയ്യുക"
+
+msgid "Bacterial leaf blight"
+msgstr "ബാക്ടീരിയൽ ലീഫ് ബ്ലൈറ്റ്"
+
+msgid "Bacterial leaf streak"
+msgstr "ബാക്ടീരിയൽ ലീഫ് സ്ട്രീക്ക്"
+
+msgid "Bacterial panicle blight"
+msgstr "ബാക്ടീരിയൽ പാനിക്ൾ ബ്ലൈറ്റ് രോഗം"
+
 msgid "Bacterial spot"
 msgstr "ബാക്ടീരിയൽ സ്പോട്ട്"
 
@@ -305,11 +317,17 @@ msgstr "കരിപ്പച്ച"
 msgid "Blackgram"
 msgstr "ചെറുപയർ"
 
+msgid "Blast"
+msgstr "ബ്ലാസ്റ്റ് രോഗം (Blast)"
+
 msgid "Blueberry"
 msgstr "ബ്ലൂബെറി"
 
 msgid "Brinjal"
 msgstr "വഴുതന"
+
+msgid "Brown spot"
+msgstr "തവിട്ടു പുള്ളി രോഗം"
 
 msgid "Built for Indian farmers"
 msgstr "ഇന്ത്യൻ കർഷകർക്കായി നിർമ്മിച്ചത്"
@@ -394,6 +412,9 @@ msgstr "ആദ്യം മണ്ണ് പരിശോധിക്കുക"
 
 msgid "Check the forecast"
 msgstr "പ്രവചനം പരിശോധിക്കുക"
+
+msgid "Check your email"
+msgstr "നിങ്ങളുടെ ഇമെയിൽ പരിശോധിക്കുക"
 
 msgid "Cherry (including sour)"
 msgstr "ചെറി (പുളിയുള്ളതുൾപ്പെടെ)"
@@ -572,6 +593,9 @@ msgstr "ഡാഷ്‌ബോർഡ്"
 msgid "Daylight"
 msgstr "പകൽ വെളിച്ചം"
 
+msgid "Dead heart"
+msgstr "ഡെഡ് ഹാർട്ട് (Dead heart)"
+
 msgid "December"
 msgstr "ഡിസംബർ"
 
@@ -619,6 +643,9 @@ msgstr "തളിക്കരുത്"
 
 msgid "Done speaking"
 msgstr "സംസാരിച്ചു തീർത്തു"
+
+msgid "Downy mildew"
+msgstr "ഡൗണി മില്‍ഡ്യൂ രോഗം"
 
 msgid "Drainage"
 msgstr "നീർവാർച്ച"
@@ -685,6 +712,9 @@ msgstr "പരിശോധനയ്ക്കായി മുമ്പത്ത�
 
 msgid "Enter values from your Soil Health Card and local climate to discover crops suited to your farm."
 msgstr "നിങ്ങളുടെ കൃഷിസ്ഥലത്തിന് അനുയോജ്യമായ വിളകൾ കണ്ടെത്താൻ നിങ്ങളുടെ മണ്ണ് ആരോഗ്യ കാർഡിൽ നിന്നും പ്രാദേശിക കാലാവസ്ഥയിൽ നിന്നുമുള്ള മൂല്യങ്ങൾ നൽകുക."
+
+msgid "Enter your account email. We will send you a link to set a new password."
+msgstr "നിങ്ങളുടെ അക്കൗണ്ട് ഇമെയിൽ നൽകുക. ഒരു പുതിയ പാസ്‌വേഡ് സജ്ജമാക്കുന്നതിനുള്ള ലിങ്ക് ഞങ്ങൾ നിങ്ങൾക്ക് അയച്ചുതരും."
 
 msgid "Esca black measles"
 msgstr "എസ്ക കറുത്ത മീസില്‍സ്"
@@ -808,6 +838,9 @@ msgstr "ഓരോ 3 മണിക്കൂറിലുമുള്ള പ്ര�
 
 msgid "Forecast for the village area; local field conditions may differ."
 msgstr "ഗ്രാമപ്രദേശത്തിനുള്ള പ്രവചനം; പ്രാദേശിക ഫീൽഡ് സാഹചര്യങ്ങൾ വ്യത്യസ്തമായിരിക്കാം."
+
+msgid "Forgot password?"
+msgstr "പാസ്‌വേഡ് മറന്നോ?"
 
 msgid "Fri"
 msgstr "വെള്ളി"
@@ -971,6 +1004,9 @@ msgstr "ഏറ്റവും ഉയർന്ന മോഡൽ വില"
 msgid "Himachal Pradesh"
 msgstr "ഹിമാചൽ പ്രദേശ്"
 
+msgid "Hispa"
+msgstr "ഹിസ്പ"
+
 msgid "Home garden"
 msgstr "വീട്ടുതോട്ടം"
 
@@ -994,6 +1030,9 @@ msgstr "ഹൈബ്രിഡുകൾ"
 
 msgid "Ideal window"
 msgstr "അനുയോജ്യ സമയം"
+
+msgid "If an account exists for that email, a password reset link has been sent. It may take a few minutes to arrive."
+msgstr "ആ ഇമെയിലിന് ഒരു അക്കൗണ്ട് ഉണ്ടെങ്കിൽ, പാസ്‌വേഡ് പുനഃസജ്ജമാക്കാനുള്ള ലിങ്ക് അയച്ചിട്ടുണ്ട്. അത് എത്തിച്ചേരാൻ കുറച്ച് മിനിറ്റുകൾ എടുത്തേക്കാം."
 
 msgid "Image"
 msgstr "ചിത്രം"
@@ -1895,6 +1934,9 @@ msgstr "സാധ്യമാകുമ്പോഴെല്ലാം അടു�
 msgid "Report date"
 msgstr "റിപ്പോർട്ട് തീയതി"
 
+msgid "Reset your password"
+msgstr "നിങ്ങളുടെ പാസ്‌വേഡ് പുനഃസജ്ജമാക്കുക"
+
 msgid "Rest of the day"
 msgstr "ദിവസത്തിന്റെ ബാക്കി സമയം"
 
@@ -1985,6 +2027,9 @@ msgstr "അയക്കുക"
 msgid "Send now, interrupt, or resume"
 msgstr "ഇപ്പോൾ അയക്കുക, തടസ്സപ്പെടുത്തുക അല്ലെങ്കിൽ പുനരാരംഭിക്കുക"
 
+msgid "Send reset link"
+msgstr "റീസെറ്റ് ലിങ്ക് അയയ്ക്കുക"
+
 msgid "September–October"
 msgstr "സെപ്റ്റംബർ-ഒക്ടോബർ"
 
@@ -1993,6 +2038,9 @@ msgstr "സെപ്റ്റോറിയ ലീഫ് സ്പോട്ട്"
 
 msgid "Sesamum"
 msgstr "എള്ള്"
+
+msgid "Set a new password"
+msgstr "ഒരു പുതിയ പാസ്‌വേഡ് സജ്ജമാക്കുക"
 
 msgid "Settings"
 msgstr "ക്രമീകരണങ്ങൾ"
@@ -2300,6 +2348,9 @@ msgstr "ഈ പാസ്‌വേഡ് പൂർണ്ണമായും സം
 msgid "This password is too common."
 msgstr "ഈ പാസ്‌വേഡ് വളരെ സാധാരണമാണ്."
 
+msgid "This password reset link is invalid or has expired. Please request a new one."
+msgstr "ഈ പാസ്‌വേഡ് റീസെറ്റ് ലിങ്ക് അസാധുവായതോ കാലഹരണപ്പെട്ടതോ ആണ്. ദയവായി പുതിയൊരെണ്ണം അഭ്യർത്ഥിക്കുക."
+
 msgid "This tool is temporarily unavailable. Please try again later."
 msgstr "ഈ ഉപകരണം താൽക്കാലികമായി ലഭ്യമല്ല. ദയവായി പിന്നീട് വീണ്ടും ശ്രമിക്കുക."
 
@@ -2362,6 +2413,9 @@ msgstr "കിഴങ്ങുകൾ"
 
 msgid "Tue"
 msgstr "ചൊവ്വ"
+
+msgid "Tungro"
+msgstr "തുൻഗ്രോ"
 
 msgid "Turmeric"
 msgstr "മഞ്ഞൾ"
@@ -2632,6 +2686,9 @@ msgstr "നിങ്ങളുടെ ഭാഷ ഈ ഉപകരണത്തിൽ
 
 msgid "Your name"
 msgstr "നിങ്ങളുടെ പേര്"
+
+msgid "Your password has been changed. You can now log in."
+msgstr "നിങ്ങളുടെ പാസ്‌വേഡ് മാറ്റിയിട്ടുണ്ട്. നിങ്ങൾക്ക് ഇപ്പോൾ ലോഗിൻ ചെയ്യാം."
 
 msgid "Your selected crops"
 msgstr "നിങ്ങൾ തിരഞ്ഞെടുത്ത വിളകൾ"

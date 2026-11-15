@@ -38,11 +38,20 @@ _load_dotenv(BASE_DIR / '.env')
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/6.1/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django-insecure-58ed*zp!f_rw=#^vl9jbbd4bstbh#%y3_o5pg(6%5nm=q#9!_c')
-
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get('DJANGO_DEBUG', '1') == '1'
+# Off unless explicitly enabled (DJANGO_DEBUG=1 in your local .env).
+DEBUG = os.environ.get('DJANGO_DEBUG', '0') == '1'
+
+# SECURITY WARNING: keep the secret key used in production secret!
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', '')
+if not SECRET_KEY:
+    if not DEBUG:
+        from django.core.exceptions import ImproperlyConfigured
+        raise ImproperlyConfigured(
+            'DJANGO_SECRET_KEY is not set. Generate one with: '
+            'python -c "import secrets; print(secrets.token_urlsafe(50))"'
+        )
+    SECRET_KEY = 'django-insecure-local-development-only'
 
 ALLOWED_HOSTS = os.environ.get('DJANGO_ALLOWED_HOSTS', 'localhost,127.0.0.1').split(',')
 
@@ -207,11 +216,39 @@ SARVAM_API_KEY = os.environ.get('SARVAM_API_KEY', '')  # multilingual chat + voi
 # Email
 # https://docs.djangoproject.com/en/6.1/topics/email/#topic-email-configuration
 
-MAILERS = {
-    'default': {
-        'BACKEND': 'django.core.mail.backends.console.EmailBackend',
-    },
-}
+# Email (password reset). Set EMAIL_HOST etc. to send real email over SMTP
+# (Gmail app password, Brevo, SendGrid ...); otherwise emails are printed to the console.
+if os.environ.get('EMAIL_HOST'):
+    MAILERS = {
+        'default': {
+            'BACKEND': 'django.core.mail.backends.smtp.EmailBackend',
+            'OPTIONS': {
+                'host': os.environ['EMAIL_HOST'],
+                'port': int(os.environ.get('EMAIL_PORT', '587')),
+                'username': os.environ.get('EMAIL_HOST_USER', ''),
+                'password': os.environ.get('EMAIL_HOST_PASSWORD', ''),
+                'use_tls': os.environ.get('EMAIL_USE_TLS', '1') == '1',
+                'timeout': 15,
+            },
+        },
+    }
+else:
+    MAILERS = {
+        'default': {
+            'BACKEND': 'django.core.mail.backends.console.EmailBackend',
+        },
+    }
+DEFAULT_FROM_EMAIL = os.environ.get('DEFAULT_FROM_EMAIL', 'Krishi Mitra <noreply@krishimitra.local>')
+
+# Error alerts: set SENTRY_DSN (from sentry.io, free tier) to get an email for every server error.
+if os.environ.get('SENTRY_DSN'):
+    import sentry_sdk
+    sentry_sdk.init(
+        dsn=os.environ['SENTRY_DSN'],
+        environment='development' if DEBUG else 'production',
+        traces_sample_rate=0.0,
+        send_default_pii=False,  # never send farmers' emails, IPs or form data
+    )
 
 LOGGING = {
     'version': 1,
@@ -227,7 +264,7 @@ LOGGING = {
     },
     'root': {'handlers': ['console'], 'level': 'WARNING'},
     'loggers': {
-        'disease': {'handlers': ['console'], 'level': 'DEBUG', 'propagate': False},
+        'disease': {'handlers': ['console'], 'level': 'DEBUG' if DEBUG else 'INFO', 'propagate': False},
         'django.request': {'handlers': ['console'], 'level': 'ERROR', 'propagate': False},
     },
 }

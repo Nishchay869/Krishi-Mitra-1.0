@@ -260,6 +260,18 @@ msgstr "ꯍꯟꯅ ꯃꯁꯤꯡ ꯄꯥꯕꯗ ꯆꯠꯂꯨ"
 msgid "Back to home"
 msgstr "হোমে ফিরে যান"
 
+msgid "Back to login"
+msgstr "ꯂꯣꯒꯤꯟ ꯑꯃꯨꯛ ꯍꯟꯅ ꯆꯠꯁꯤꯟꯕꯤꯌꯨ"
+
+msgid "Bacterial leaf blight"
+msgstr "ꯕꯦꯛꯇꯤꯔꯤꯌꯜ ꯂꯤꯐ ꯕ꯭ꯂꯥꯏꯠ"
+
+msgid "Bacterial leaf streak"
+msgstr "ꯕꯦꯛꯇꯤꯔꯤꯌꯜ ꯂꯤꯐ ꯁ꯭ꯇ꯭ꯔꯤꯛ"
+
+msgid "Bacterial panicle blight"
+msgstr "ꯕꯦꯛꯇꯤꯔꯤꯌꯜ ꯄꯦꯅꯤꯀꯜ ꯕ꯭ꯂꯥꯏꯠ ꯂꯥꯏꯅꯥ"
+
 msgid "Bacterial spot"
 msgstr "ꯕꯦꯛꯇꯤꯔꯤꯌꯜ ꯁ꯭ꯄꯣꯠ"
 
@@ -305,11 +317,17 @@ msgstr "ꯕ꯭ꯂꯦꯛ ꯔꯣꯠ"
 msgid "Blackgram"
 msgstr "ꯀꯥꯡꯆꯨ ꯃꯣꯠ ꯑꯁꯤ ꯄꯥꯟꯕꯤ ꯃꯔꯨ ꯑꯃꯅꯤ ꯫"
 
+msgid "Blast"
+msgstr "ꯕ꯭ꯂꯥꯁ꯭ꯠ ꯂꯥꯏꯅꯥ (Blast)"
+
 msgid "Blueberry"
 msgstr "ꯕ꯭ꯂꯨꯕꯦꯔꯤ"
 
 msgid "Brinjal"
 msgstr "ꯈꯥꯃꯦꯟ"
+
+msgid "Brown spot"
+msgstr "ꯕ꯭ꯔꯥꯎꯟ ꯁ꯭ꯄꯣꯠ"
 
 msgid "Built for Indian farmers"
 msgstr "ꯚꯥꯔꯠꯀꯤ ꯂꯧꯃꯤꯁꯤꯡꯒꯤꯗꯃꯛ ꯁꯥꯕꯅꯤ"
@@ -394,6 +412,9 @@ msgstr "ꯍꯥꯟꯅ ꯂꯩꯕꯥꯛ ꯌꯦꯡꯎ"
 
 msgid "Check the forecast"
 msgstr "ꯐꯣꯔꯀꯥꯁꯠ ꯑꯗꯨ ꯌꯦꯡꯕꯤꯌꯨ"
+
+msgid "Check your email"
+msgstr "ꯅꯍꯥꯛꯀꯤ ꯏꯃꯦꯜ ꯑꯗꯨ ꯌꯦꯡꯕꯤꯌꯨ"
 
 msgid "Cherry (including sour)"
 msgstr "ꯆꯦꯔꯤ (ꯑꯁꯤꯟꯕ ꯌꯥꯎꯅ)"
@@ -572,6 +593,9 @@ msgstr "ꯗꯦꯁꯕꯣꯔ꯭ꯗ"
 msgid "Daylight"
 msgstr "ꯅꯨꯃꯤꯠꯀꯤ ꯃꯉꯥꯜ"
 
+msgid "Dead heart"
+msgstr "ꯗꯦꯠ ꯍꯥꯔꯠ (Dead heart)"
+
 msgid "December"
 msgstr "ꯗꯤꯁꯦꯝꯕꯔ"
 
@@ -619,6 +643,9 @@ msgstr "স্প্রে করবেন না"
 
 msgid "Done speaking"
 msgstr "ꯉꯥꯡꯂꯣꯟ ꯂꯣꯏꯔꯦ"
+
+msgid "Downy mildew"
+msgstr "ꯗꯥꯎꯅꯤ ꯃꯤꯜꯌꯨ ꯂꯥꯏꯅꯥ"
 
 msgid "Drainage"
 msgstr "ঈশিং চেথোকপা"
@@ -685,6 +712,9 @@ msgstr "ꯆꯦꯛꯁꯤꯟ-ꯌꯦꯡꯁꯤꯟ ꯇꯧꯅꯕꯒꯤꯗꯃꯛ ꯃꯃ
 
 msgid "Enter values from your Soil Health Card and local climate to discover crops suited to your farm."
 msgstr "ꯅꯍꯥꯛꯀꯤ ꯂꯧꯕꯨꯛꯇ ꯃꯇꯦꯡ ꯑꯣꯏꯔꯒꯗꯕ ꯃꯍꯩ-ꯃꯔꯣꯡꯁꯤꯡ ꯈꯪꯗꯣꯛꯅꯕ ꯅꯍꯥꯛꯀꯤ ꯁꯣꯏꯜ ꯍꯦꯜꯊ ꯀꯥꯔꯗ ꯑꯃꯁꯨꯡ ꯃꯐꯝ ꯑꯗꯨꯒꯤ ꯑꯏꯪ-ꯑꯁꯥꯗꯒꯤ ꯃꯇꯦꯡ ꯐꯪꯕ ꯌꯥꯏ꯫"
+
+msgid "Enter your account email. We will send you a link to set a new password."
+msgstr "ꯅꯍꯥꯛꯀꯤ ꯑꯦꯀꯥꯎꯟꯠꯀꯤ ꯏꯃꯦꯜ ꯑꯗꯨ ꯍꯥꯞꯆꯤꯟꯕꯤꯌꯨ꯫ ꯑꯩꯈꯣꯏꯅ ꯅꯉꯣꯟꯗ ꯑꯅꯧꯕ ꯄꯥꯁꯋꯔ꯭ꯗ ꯑꯃ ꯊꯣꯟꯅꯕ ꯂꯤꯡꯛ ꯑꯃ ꯊꯥꯔꯒꯦ꯫"
 
 msgid "Esca black measles"
 msgstr "ꯑꯦꯁꯀꯥ ꯕ꯭ꯂꯦꯛ ꯃꯤꯖꯜꯁ"
@@ -808,6 +838,9 @@ msgstr "ꯄꯨꯡ 3 ꯈꯨꯗꯤꯡꯒꯤ ꯄꯥꯎ; ꯂꯣꯀꯦꯜ ꯃꯇꯝ�
 
 msgid "Forecast for the village area; local field conditions may differ."
 msgstr "ꯈꯨꯡꯒꯪꯒꯤ ꯃꯐꯝꯒꯤ ꯑꯣꯏꯕ ꯄꯥꯔꯨꯁꯤꯟꯕ; ꯃꯐꯝ ꯑꯗꯨꯒꯤ ꯂꯧꯎ-ꯁꯤꯡꯎꯕꯒꯤ ꯐꯤꯚꯝꯁꯤꯡ ꯑꯁꯤ ꯈꯦꯠꯅꯕ ꯌꯥꯏ꯫"
+
+msgid "Forgot password?"
+msgstr "ꯄꯥꯁꯋꯔꯗ ꯀꯥꯎꯕ꯭ꯔꯥ?"
 
 msgid "Fri"
 msgstr "শুক্র"
@@ -971,6 +1004,9 @@ msgstr "ꯈ꯭ꯋꯥꯏꯗꯒꯤ ꯋꯥꯡꯕ ꯔꯤꯄꯣꯔꯠ ꯇꯧꯔꯕ �
 msgid "Himachal Pradesh"
 msgstr "ꯍꯤꯃꯥꯆꯜ ꯄ꯭ꯔꯗꯦꯁ"
 
+msgid "Hispa"
+msgstr "ꯍꯤꯁꯄꯥ"
+
 msgid "Home garden"
 msgstr "ꯏꯃꯨꯡꯒꯤ ꯏꯉꯈꯣꯜ"
 
@@ -994,6 +1030,9 @@ msgstr "ꯍꯥꯏꯕ꯭ꯔꯤꯗꯁ"
 
 msgid "Ideal window"
 msgstr "উপযুক্ত সময়"
+
+msgid "If an account exists for that email, a password reset link has been sent. It may take a few minutes to arrive."
+msgstr "ꯀꯔꯤꯒꯨꯝꯕ ꯑꯦꯃꯦꯜ ꯑꯗꯨꯒꯤꯗꯃꯛꯇ ꯑꯦꯀꯥꯎꯟꯠ ꯑꯃ ꯂꯩꯔꯕꯗꯤ, ꯄꯥꯁꯋꯔ꯭ꯗ ꯔꯤꯁꯦꯠ ꯇꯧꯕꯒꯤ ꯂꯤꯡꯛ ꯑꯃ ꯊꯥꯔꯦ꯫ ꯃꯁꯤ ꯌꯧꯕꯗ ꯃꯤꯅꯤꯠ ꯈꯔ ꯆꯪꯕ ꯌꯥꯏ꯫"
 
 msgid "Image"
 msgstr "ꯃꯁꯛ ꯑꯣꯟꯕ"
@@ -1895,6 +1934,9 @@ msgstr "ꯌꯥꯔꯕꯃꯈꯩ ꯑꯅꯛꯄꯗ ꯂꯩꯕ ꯖꯨꯅꯤꯄꯔ/ꯁ�
 msgid "Report date"
 msgstr "ꯄꯥꯎꯗꯝ ꯇꯧꯕꯒꯤ ꯇꯥꯡ ꯑꯁꯤ"
 
+msgid "Reset your password"
+msgstr "ꯅꯍꯥꯛꯀꯤ ꯄꯥꯁꯋꯔꯗ ꯑꯃꯨꯛ ꯍꯟꯅ ꯁꯦꯠ ꯇꯧꯕꯤꯌꯨ"
+
 msgid "Rest of the day"
 msgstr "দিনের বাকি সময়"
 
@@ -1985,6 +2027,9 @@ msgstr "ꯊꯥꯕꯤꯌꯨ"
 msgid "Send now, interrupt, or resume"
 msgstr "ꯍꯧꯖꯤꯛ ꯊꯥꯕꯤꯌꯨ, ꯑꯣꯟꯅ-ꯇꯩꯅꯕꯤꯌꯨ, ꯅꯠꯇ꯭ꯔꯒ ꯑꯃꯨꯛ ꯍꯟꯅ ꯍꯧꯕꯤꯌꯨ"
 
+msgid "Send reset link"
+msgstr "ꯔꯤꯁꯦꯠ ꯂꯤꯡꯛ ꯊꯥꯕꯤꯌꯨ"
+
 msgid "September–October"
 msgstr "ꯁꯦꯞꯇꯦꯝꯕꯔ-ꯑꯣꯛꯇꯣꯕꯔ"
 
@@ -1993,6 +2038,9 @@ msgstr "ꯁꯦꯞꯇꯣꯔꯤꯌꯥ ꯂꯤꯐ ꯁ꯭ꯄꯣꯠ"
 
 msgid "Sesamum"
 msgstr "ꯊꯣꯡꯅꯥ"
+
+msgid "Set a new password"
+msgstr "ꯑꯅꯧꯕ ꯄꯥꯁꯋꯔꯗ ꯑꯃ ꯊꯝꯃꯨ"
 
 msgid "Settings"
 msgstr "সেটিংস"
@@ -2300,6 +2348,9 @@ msgstr "ꯃꯁꯤꯒꯤ ꯄꯥꯁꯋꯔꯗ ꯑꯁꯤ ꯃꯄꯨꯡ ꯐꯥꯅ ꯃ�
 msgid "This password is too common."
 msgstr "ꯃꯁꯤꯒꯤ ꯄꯥꯁꯋꯔꯗ ꯑꯁꯤ ꯌꯥꯝꯅ ꯇꯣꯏꯅ ꯊꯣꯛꯄ ꯑꯃꯅꯤ꯫"
 
+msgid "This password reset link is invalid or has expired. Please request a new one."
+msgstr "ꯃꯁꯤꯒꯤ ꯄꯥꯁꯋꯔꯗ ꯔꯤꯁꯦꯠ ꯂꯤꯡꯛ ꯑꯁꯤ ꯆꯨꯝꯗꯦ ꯅꯠꯇ꯭ꯔꯒ ꯃꯇꯝ ꯂꯣꯏꯔꯦ꯫ ꯆꯥꯟꯕꯤꯗꯨꯅ ꯑꯅꯧꯕ ꯑꯃ ꯍꯥꯏꯖꯔꯣꯌꯨ꯫"
+
 msgid "This tool is temporarily unavailable. Please try again later."
 msgstr "ꯃꯁꯤꯒꯤ ꯇꯨꯜ ꯑꯁꯤ ꯃꯇꯝ ꯈꯔꯒꯤ ꯑꯣꯏꯅ ꯐꯪꯗꯦ꯫ ꯆꯥꯟꯕꯤꯗꯨꯅ ꯃꯇꯨꯡꯗ ꯑꯃꯨꯛ ꯍꯟꯅ ꯆꯦꯟꯕꯤꯌꯨ꯫"
 
@@ -2362,6 +2413,9 @@ msgstr "টিউবর"
 
 msgid "Tue"
 msgstr "মঙ্গল"
+
+msgid "Tungro"
+msgstr "ꯇꯨꯡꯔꯣ"
 
 msgid "Turmeric"
 msgstr "ꯌꯥꯡꯉꯤ ꯫"
@@ -2632,6 +2686,9 @@ msgstr "ꯅꯍꯥꯛꯀꯤ ꯂꯣꯟ ꯑꯁꯤ ꯗꯤꯕꯥꯏꯁ ꯑꯁꯤꯗ �
 
 msgid "Your name"
 msgstr "ꯅꯍꯥꯛꯀꯤ ꯃꯃꯤꯡ"
+
+msgid "Your password has been changed. You can now log in."
+msgstr "ꯅꯍꯥꯛꯀꯤ ꯄꯥꯁꯋꯔꯗ ꯑꯗꯨ ꯍꯣꯡꯂꯦ꯫ ꯅꯍꯥꯛ ꯍꯧꯖꯤꯛ ꯂꯣꯒ ꯏꯟ ꯇꯧꯕ ꯌꯥꯔꯦ꯫"
 
 msgid "Your selected crops"
 msgstr "আপনার নির্বাচিত ফসল"

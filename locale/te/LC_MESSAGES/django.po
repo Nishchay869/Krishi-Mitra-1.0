@@ -260,6 +260,18 @@ msgstr "తిరిగి లెక్కింపుకు"
 msgid "Back to home"
 msgstr "హోమ్‌కు తిరిగి వెళ్లండి"
 
+msgid "Back to login"
+msgstr "తిరిగి లాగిన్ అవ్వండి"
+
+msgid "Bacterial leaf blight"
+msgstr "బాక్టీరియల్ లీఫ్ బ్లైట్"
+
+msgid "Bacterial leaf streak"
+msgstr "బాక్టీరియల్ లీఫ్ స్ట్రీక్"
+
+msgid "Bacterial panicle blight"
+msgstr "బాక్టీరియల్ పానికల్ బ్లైట్ వ్యాధి"
+
 msgid "Bacterial spot"
 msgstr "బ్యాక్టీరియా మచ్చ"
 
@@ -305,11 +317,17 @@ msgstr "నల్ల కుళ్లు"
 msgid "Blackgram"
 msgstr "మినుము"
 
+msgid "Blast"
+msgstr "వరి బ్లాస్ట్ వ్యాధి (Blast)"
+
 msgid "Blueberry"
 msgstr "బ్లూబెర్రీ"
 
 msgid "Brinjal"
 msgstr "వంకాయ"
+
+msgid "Brown spot"
+msgstr "బ్రౌన్ స్పాట్"
 
 msgid "Built for Indian farmers"
 msgstr "భారతీయ రైతుల కోసం"
@@ -394,6 +412,9 @@ msgstr "ముందుగా నేలను పరిశీలించండ�
 
 msgid "Check the forecast"
 msgstr "వాతావరణ సూచన చూడండి"
+
+msgid "Check your email"
+msgstr "మీ ఈ-మెయిల్‌ను తనిఖీ చేసుకోండి"
 
 msgid "Cherry (including sour)"
 msgstr "చెర్రీ (పుల్లని రకం సహా)"
@@ -572,6 +593,9 @@ msgstr "డ్యాష్‌బోర్డ్"
 msgid "Daylight"
 msgstr "పగటి వెలుతురు"
 
+msgid "Dead heart"
+msgstr "డెడ్ హార్ట్ (Dead heart)"
+
 msgid "December"
 msgstr "డిసెంబర్"
 
@@ -619,6 +643,9 @@ msgstr "స్ప్రే చేయవద్దు"
 
 msgid "Done speaking"
 msgstr "మాట్లాడటం పూర్తయింది"
+
+msgid "Downy mildew"
+msgstr "డౌనీ బూజు తెగులు"
 
 msgid "Drainage"
 msgstr "నీటి పారుదల"
@@ -685,6 +712,9 @@ msgstr "నిర్ధారణకు అదే పాస్‌వర్డ్ 
 
 msgid "Enter values from your Soil Health Card and local climate to discover crops suited to your farm."
 msgstr "మీ పొలానికి అనువైన పంటల కోసం నేల ఆరోగ్య కార్డు, స్థానిక వాతావరణ వివరాలు నమోదు చేయండి."
+
+msgid "Enter your account email. We will send you a link to set a new password."
+msgstr "మీ ఖాతా ఇమెయిల్‌ను నమోదు చేయండి. కొత్త పాస్‌వర్డ్‌ను సెట్ చేయడానికి మీకు లింక్‌ను పంపుతాము."
 
 msgid "Esca black measles"
 msgstr "ఎస్కా నల్ల మచ్చలు"
@@ -808,6 +838,9 @@ msgstr "ప్రతి 3 గంటల అంచనా; స్థానిక �
 
 msgid "Forecast for the village area; local field conditions may differ."
 msgstr "గ్రామీణ ప్రాంతం కోసం సూచనలు; స్థానిక క్షేత్ర పరిస్థితులు భిన్నంగా ఉండవచ్చు."
+
+msgid "Forgot password?"
+msgstr "పాస్‌వర్డ్ మర్చిపోయారా?"
 
 msgid "Fri"
 msgstr "శుక్ర"
@@ -971,6 +1004,9 @@ msgstr "అత్యధికంగా నివేదించబడిన మ�
 msgid "Himachal Pradesh"
 msgstr "హిమాచల్ ప్రదేశ్"
 
+msgid "Hispa"
+msgstr "హిస్పా"
+
 msgid "Home garden"
 msgstr "ఇంటి తోట"
 
@@ -994,6 +1030,9 @@ msgstr "సంకరజాతులు"
 
 msgid "Ideal window"
 msgstr "అనువైన సమయం"
+
+msgid "If an account exists for that email, a password reset link has been sent. It may take a few minutes to arrive."
+msgstr "ఆ ఈమెయిల్ కోసం ఒక ఖాతా ఉంటే, పాస్‌వర్డ్ రీసెట్ లింక్ పంపబడింది. అది రావడానికి కొన్ని నిమిషాలు పట్టవచ్చు."
 
 msgid "Image"
 msgstr "చిత్రం"
@@ -1895,6 +1934,9 @@ msgstr "వీలైతే సమీప జూనిపర్/సీడర్ �
 msgid "Report date"
 msgstr "నివేదిక తేదీ"
 
+msgid "Reset your password"
+msgstr "మీ పాస్‌వర్డ్‌ను రీసెట్ చేసుకోండి"
+
 msgid "Rest of the day"
 msgstr "రోజులో మిగిలిన సమయం"
 
@@ -1985,6 +2027,9 @@ msgstr "పంపండి"
 msgid "Send now, interrupt, or resume"
 msgstr "ఇప్పుడే పంపండి, ఆపండి లేదా కొనసాగించండి"
 
+msgid "Send reset link"
+msgstr "రీసెట్ లింక్‌ను పంపండి"
+
 msgid "September–October"
 msgstr "సెప్టెంబర్-అక్టోబర్"
 
@@ -1993,6 +2038,9 @@ msgstr "సెప్టోరియా ఆకు మచ్చ"
 
 msgid "Sesamum"
 msgstr "నువ్వులు"
+
+msgid "Set a new password"
+msgstr "కొత్త పాస్‌వర్డ్‌ను సెట్ చేయండి"
 
 msgid "Settings"
 msgstr "సెట్టింగ్‌లు"
@@ -2300,6 +2348,9 @@ msgstr "ఈ పాస్‌వర్డ్‌లో అంకెలు మాత
 msgid "This password is too common."
 msgstr "ఈ పాస్‌వర్డ్ చాలా సాధారణమైనది."
 
+msgid "This password reset link is invalid or has expired. Please request a new one."
+msgstr "ఈ పాస్‌వర్డ్ రీసెట్ లింక్ చెల్లదు లేదా గడువు ముగిసింది. దయచేసి కొత్తది అభ్యర్థించండి."
+
 msgid "This tool is temporarily unavailable. Please try again later."
 msgstr "ఈ సాధనం తాత్కాలికంగా అందుబాటులో లేదు. తర్వాత ప్రయత్నించండి."
 
@@ -2362,6 +2413,9 @@ msgstr "దుంపలు"
 
 msgid "Tue"
 msgstr "మంగళ"
+
+msgid "Tungro"
+msgstr "తుంగ్రో"
 
 msgid "Turmeric"
 msgstr "పసుపు"
@@ -2632,6 +2686,9 @@ msgstr "మీ భాష ఈ పరికరంలో భద్రపరచబ�
 
 msgid "Your name"
 msgstr "మీ పేరు"
+
+msgid "Your password has been changed. You can now log in."
+msgstr "మీ పాస్‌వర్డ్ మార్చబడింది. మీరు ఇప్పుడు లాగిన్ అవ్వవచ్చు."
 
 msgid "Your selected crops"
 msgstr "మీరు ఎంచుకున్న పంటలు"

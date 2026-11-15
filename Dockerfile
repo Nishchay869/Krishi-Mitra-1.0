@@ -11,7 +11,7 @@ RUN pip install --no-cache-dir -r requirements-ml.txt
 COPY --chown=user:user . .
 RUN chown user:user /app
 USER user
-RUN python -m ml.train_crop && python -m ml.train_yield && DJANGO_DEBUG=0 python manage.py collectstatic --noinput
+RUN python -m ml.train_crop && python -m ml.train_yield && DJANGO_DEBUG=0 DJANGO_SECRET_KEY=build-only-not-used-at-runtime python manage.py collectstatic --noinput
 
 EXPOSE 8000
 CMD ["sh", "-c", "python manage.py migrate --noinput && python manage.py seed_knowledge && gunicorn agri_assistant.wsgi --bind 0.0.0.0:${PORT} --timeout 60 --workers 2 --threads 4"]

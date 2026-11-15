@@ -260,6 +260,18 @@ msgstr "ಲೆಕ್ಕಾಚಾರಕ್ಕೆ ಹಿಂತಿರುಗಿ"
 msgid "Back to home"
 msgstr "ಮುಖಪುಟಕ್ಕೆ ಹಿಂತಿರುಗಿ"
 
+msgid "Back to login"
+msgstr "ಮರಳಿ ಲಾಗಿನ್‌ಗೆ"
+
+msgid "Bacterial leaf blight"
+msgstr "ಬ್ಯಾಕ್ಟೀರಿಯಾದ ಎಲೆ ರೋಗ"
+
+msgid "Bacterial leaf streak"
+msgstr "ಬ್ಯಾಕ್ಟೀರಿಯಾದ ಎಲೆ ಪಟ್ಟೆ"
+
+msgid "Bacterial panicle blight"
+msgstr "ಬ್ಯಾಕ್ಟೀರಿಯಲ್ ಪ್ಯಾನಿಕಲ್ ಬ್ಲೈಟ್ ರೋಗ"
+
 msgid "Bacterial spot"
 msgstr "ಬ್ಯಾಕ್ಟೀರಿಯಾ ಎಲೆಚುಕ್ಕೆ"
 
@@ -305,11 +317,17 @@ msgstr "ಕಪ್ಪು ಕೊಳೆ"
 msgid "Blackgram"
 msgstr "ಉದ್ದು"
 
+msgid "Blast"
+msgstr "ಭತ್ತದ ಬ್ಲಾಸ್ಟ್ ರೋಗ (Blast)"
+
 msgid "Blueberry"
 msgstr "ಬ್ಲೂಬೆರಿ"
 
 msgid "Brinjal"
 msgstr "ಬದನೆಕಾಯಿ"
+
+msgid "Brown spot"
+msgstr "ಕಂದು ಚುಕ್ಕೆ"
 
 msgid "Built for Indian farmers"
 msgstr "ಭಾರತೀಯ ರೈತರಿಗಾಗಿ"
@@ -394,6 +412,9 @@ msgstr "ಮೊದಲು ಮಣ್ಣು ಪರಿಶೀಲಿಸಿ"
 
 msgid "Check the forecast"
 msgstr "ಹವಾಮಾನ ಮುನ್ಸೂಚನೆ ನೋಡಿ"
+
+msgid "Check your email"
+msgstr "ನಿಮ್ಮ ಇಮೇಲ್‌ ಪರಿಶೀಲಿಸಿ"
 
 msgid "Cherry (including sour)"
 msgstr "ಚೆರಿ (ಹುಳಿ ಸೇರಿ)"
@@ -572,6 +593,9 @@ msgstr "ಮುಖಪುಟ"
 msgid "Daylight"
 msgstr "ಹಗಲು"
 
+msgid "Dead heart"
+msgstr "ಡೆಡ್ ಹಾರ್ಟ್ (Dead heart)"
+
 msgid "December"
 msgstr "ಡಿಸೆಂಬರ್"
 
@@ -619,6 +643,9 @@ msgstr "ಸಿಂಪಡಿಸಬೇಡಿ"
 
 msgid "Done speaking"
 msgstr "ಮಾತು ಮುಗಿಯಿತು"
+
+msgid "Downy mildew"
+msgstr "ಡೌನಿ ಮಿಲ್ಡ್ಯೂ ರೋಗ"
 
 msgid "Drainage"
 msgstr "ನೀರು ಬಸಿಯುವಿಕೆ"
@@ -685,6 +712,9 @@ msgstr "ದೃಢೀಕರಣಕ್ಕಾಗಿ ಅದೇ ಗುಪ್ತಪದ 
 
 msgid "Enter values from your Soil Health Card and local climate to discover crops suited to your farm."
 msgstr "ನಿಮ್ಮ ಕೃಷಿಗೆ ಸೂಕ್ತ ಬೆಳೆ ತಿಳಿಯಲು ಮಣ್ಣಿನ ಆರೋಗ್ಯ ಕಾರ್ಡ್ ಮತ್ತು ಸ್ಥಳೀಯ ಹವಾಮಾನ ಮೌಲ್ಯಗಳನ್ನು ನಮೂದಿಸಿ."
+
+msgid "Enter your account email. We will send you a link to set a new password."
+msgstr "ನಿಮ್ಮ ಖಾತೆಯ ಇಮೇಲ್ ಅನ್ನು ನಮೂದಿಸಿ. ಹೊಸ ಪಾಸ್‌ವರ್ಡ್‌ಅನ್ನು ಹೊಂದಿಸಲು ನಾವು ನಿಮಗೆ ಲಿಂಕ್ ಕಳುಹಿಸುತ್ತೇವೆ."
 
 msgid "Esca black measles"
 msgstr "ಎಸ್ಕಾ ಕಪ್ಪು ರೋಗ"
@@ -808,6 +838,9 @@ msgstr "ಪ್ರತಿ 3 ಗಂಟೆಯ ಮುನ್ಸೂಚನೆ; ಸ್ಥ
 
 msgid "Forecast for the village area; local field conditions may differ."
 msgstr "ಗ್ರಾಮೀಣ ಪ್ರದೇಶದ ಮುನ್ಸೂಚನೆ; ಸ್ಥಳೀಯ ಕ್ಷೇತ್ರ ಪರಿಸ್ಥಿತಿಗಳು ಭಿನ್ನವಾಗಿರಬಹುದು."
+
+msgid "Forgot password?"
+msgstr "ಪಾಸ್‌ವರ್ಡ್ ಮರೆತಿರಾ?"
 
 msgid "Fri"
 msgstr "ಶುಕ್ರ"
@@ -971,6 +1004,9 @@ msgstr "ವರದಿಯಾದ ಅತ್ಯಧಿಕ ಮಾದರಿ ಬೆಲೆ
 msgid "Himachal Pradesh"
 msgstr "ಹಿಮಾಚಲ ಪ್ರದೇಶ"
 
+msgid "Hispa"
+msgstr "ಹಿಸ್ಪಾ"
+
 msgid "Home garden"
 msgstr "ಮನೆಯ ತೋಟ"
 
@@ -994,6 +1030,9 @@ msgstr "ಸಂಕರೀಕರಣಗಳು"
 
 msgid "Ideal window"
 msgstr "ಸೂಕ್ತ ಸಮಯ"
+
+msgid "If an account exists for that email, a password reset link has been sent. It may take a few minutes to arrive."
+msgstr "ಆ ಇಮೇಲ್‌ಗೆ ಖಾತೆಯೊಂದಿದ್ದರೆ, ಪಾಸ್‌ವರ್ಡ್ ಮರುಹೊಂದಿಸುವ ಕೊಂಡಿಯನ್ನು ಕಳುಹಿಸಲಾಗಿದೆ. ಅದು ಬರಲು ಕೆಲವು ನಿಮಿಷಗಳು ಬೇಕಾಗಬಹುದು."
 
 msgid "Image"
 msgstr "ಚಿತ್ರ"
@@ -1895,6 +1934,9 @@ msgstr "ಸಾಧ್ಯವಾದರೆ ಹತ್ತಿರದ ಜುನಿಪರ�
 msgid "Report date"
 msgstr "ವರದಿಯ ದಿನಾಂಕ"
 
+msgid "Reset your password"
+msgstr "ನಿಮ್ಮ ಗುಪ್ತಪದವನ್ನು ಮರುಹೊಂದಿಸಿ"
+
 msgid "Rest of the day"
 msgstr "ದಿನದ ಉಳಿದ ಸಮಯ"
 
@@ -1985,6 +2027,9 @@ msgstr "ಕಳುಹಿಸಿ"
 msgid "Send now, interrupt, or resume"
 msgstr "ಈಗ ಕಳುಹಿಸಿ, ನಿಲ್ಲಿಸಿ ಅಥವಾ ಮುಂದುವರಿಸಿ"
 
+msgid "Send reset link"
+msgstr "ಮರುಹೊಂದಿಸುವ ಕೊಂಡಿಯನ್ನು ಕಳುಹಿಸಿ"
+
 msgid "September–October"
 msgstr "ಸೆಪ್ಟೆಂಬರ್-ಅಕ್ಟೋಬರ್"
 
@@ -1993,6 +2038,9 @@ msgstr "ಸೆಪ್ಟೋರಿಯಾ ಎಲೆಚುಕ್ಕೆ"
 
 msgid "Sesamum"
 msgstr "ಎಳ್ಳು"
+
+msgid "Set a new password"
+msgstr "ಹೊಸ ಪಾಸ್‌ವರ್ಡ್‌ಅನ್ನು ಹೊಂದಿಸಿ"
 
 msgid "Settings"
 msgstr "ಸೆಟ್ಟಿಂಗ್‌ಗಳು"
@@ -2300,6 +2348,9 @@ msgstr "ಈ ಗುಪ್ತಪದದಲ್ಲಿ ಅಂಕಿಗಳು ಮಾತ
 msgid "This password is too common."
 msgstr "ಈ ಗುಪ್ತಪದ ತುಂಬಾ ಸಾಮಾನ್ಯವಾಗಿದೆ."
 
+msgid "This password reset link is invalid or has expired. Please request a new one."
+msgstr "ಈ ಪಾಸ್‌ವರ್ಡ್ ರೀಸೆಟ್ ಲಿಂಕ್ ಅಸಿಂಧುವಾಗಿದೆ ಅಥವಾ ಅವಧಿ ಮುಗಿದಿದೆ. ದಯವಿಟ್ಟು ಹೊಸದನ್ನು ವಿನಂತಿಸಿ."
+
 msgid "This tool is temporarily unavailable. Please try again later."
 msgstr "ಈ ಸಾಧನ ತಾತ್ಕಾಲಿಕವಾಗಿ ಲಭ್ಯವಿಲ್ಲ. ನಂತರ ಪ್ರಯತ್ನಿಸಿ."
 
@@ -2362,6 +2413,9 @@ msgstr "ಗೆಡ್ಡೆಗಳು"
 
 msgid "Tue"
 msgstr "ಮಂಗಳ"
+
+msgid "Tungro"
+msgstr "ತುಂಗ್ರೊ"
 
 msgid "Turmeric"
 msgstr "ಅರಿಶಿನ"
@@ -2632,6 +2686,9 @@ msgstr "ನಿಮ್ಮ ಭಾಷೆ ಈ ಸಾಧನದಲ್ಲಿ ಉಳಿ�
 
 msgid "Your name"
 msgstr "ನಿಮ್ಮ ಹೆಸರು"
+
+msgid "Your password has been changed. You can now log in."
+msgstr "ನಿಮ್ಮ ಪಾಸ್‌ವರ್ಡ್ ಬದಲಾಯಿಸಲಾಗಿದೆ. ನೀವು ಈಗ ಲಾಗ್ ಇನ್ ಮಾಡಬಹುದು."
 
 msgid "Your selected crops"
 msgstr "ನಿಮ್ಮ ಆಯ್ಕೆ ಮಾಡಿದ ಬೆಳೆಗಳು"
