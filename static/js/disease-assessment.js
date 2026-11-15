@@ -206,7 +206,7 @@
 
         <header class="assessment-summary ${esc(r.status)}">
           <div class="assessment-top">
-            <span class="eyebrow">${t('ML MODEL · LEAF PHOTO ASSESSMENT')}</span>
+            <span class="eyebrow">${t('AI · LEAF PHOTO ASSESSMENT')}</span>
             <span class="assessment-state">${statusLabel(r.status)}</span>
           </div>
           <p class="assessment-plant">${esc(r.plant || '')}</p>
