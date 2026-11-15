@@ -2267,6 +2267,9 @@ msgstr "कणंगाची कंद"
 msgid "Take a picture"
 msgstr "फोटो लें"
 
+msgid "Take photo"
+msgstr "फोटो घेयात"
+
 msgid "Take your next step"
 msgstr "तुजी फुडली पावंडो घे."
 

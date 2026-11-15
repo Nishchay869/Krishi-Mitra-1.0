@@ -950,5 +950,6 @@
   "If an account exists for that email, a password reset link has been sent. It may take a few minutes to arrive.": "જો તે ઈમેઇલ માટે એક ખાતું અસ્તિત્વમાં છે, તો પાસવર્ડ રીસેટ લિંક મોકલવામાં આવી છે. તે આવતા થોડી મિનિટો લાગી શકે છે.",
   "Set a new password": "નવો પાસવર્ડ સેટ કરો",
   "This password reset link is invalid or has expired. Please request a new one.": "આ પાસવર્ડ રીસેટ લિંક અમાન્ય છે અથવા તેની સમયસીમા સમાપ્ત થઈ ગઈ છે. કૃપા કરીને નવી વિનંતી કરો.",
-  "Your password has been changed. You can now log in.": "તમારો પાસવર્ડ બદલાઈ ગયો છે. હવે તમે લોગ ઇન કરી શકો છો."
+  "Your password has been changed. You can now log in.": "તમારો પાસવર્ડ બદલાઈ ગયો છે. હવે તમે લોગ ઇન કરી શકો છો.",
+  "Take photo": "ફોટો લો"
 }

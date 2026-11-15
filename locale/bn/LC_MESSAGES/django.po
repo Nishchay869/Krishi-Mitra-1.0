@@ -2267,6 +2267,9 @@ msgstr "মিষ্টি আলু"
 msgid "Take a picture"
 msgstr "ছবি তুলুন"
 
+msgid "Take photo"
+msgstr "ছবি তুলুন।"
+
 msgid "Take your next step"
 msgstr "আপনার পরবর্তী পদক্ষেপ নিন।"
 

@@ -2267,6 +2267,9 @@ msgstr "શક્કરિયાં"
 msgid "Take a picture"
 msgstr "ફોટો લો"
 
+msgid "Take photo"
+msgstr "ફોટો લો"
+
 msgid "Take your next step"
 msgstr "તમારું આગલું પગલું ભરો"
 

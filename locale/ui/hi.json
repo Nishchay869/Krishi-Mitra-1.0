@@ -950,5 +950,6 @@
   "If an account exists for that email, a password reset link has been sent. It may take a few minutes to arrive.": "यदि उस ईमेल के लिए एक खाता मौजूद है, तो एक पासवर्ड रीसेट लिंक भेजा गया है। इसे आने में कुछ मिनट लग सकते हैं।",
   "Set a new password": "एक नया पासवर्ड सेट करें",
   "This password reset link is invalid or has expired. Please request a new one.": "यह पासवर्ड रीसेट लिंक अमान्य है या इसकी समय सीमा समाप्त हो चुकी है। कृपया एक नया पासवर्ड रीसेट करने का अनुरोध करें।",
-  "Your password has been changed. You can now log in.": "आपका पासवर्ड बदल दिया गया है। अब आप लॉग इन कर सकते हैं।"
+  "Your password has been changed. You can now log in.": "आपका पासवर्ड बदल दिया गया है। अब आप लॉग इन कर सकते हैं।",
+  "Take photo": "फोटो लें"
 }

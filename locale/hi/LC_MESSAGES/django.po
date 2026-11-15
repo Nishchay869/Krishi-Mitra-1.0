@@ -2267,6 +2267,9 @@ msgstr "शकरकंद"
 msgid "Take a picture"
 msgstr "फोटो लें"
 
+msgid "Take photo"
+msgstr "फोटो लें"
+
 msgid "Take your next step"
 msgstr "अगला कदम उठाएँ"
 

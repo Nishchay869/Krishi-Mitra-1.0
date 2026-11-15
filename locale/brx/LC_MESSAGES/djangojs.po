@@ -2267,6 +2267,9 @@ msgstr "थागुना"
 msgid "Take a picture"
 msgstr "फोटो लें"
 
+msgid "Take photo"
+msgstr "सावगारि ला।"
+
 msgid "Take your next step"
 msgstr "नोंनि उन आगानखौ ला।"
 

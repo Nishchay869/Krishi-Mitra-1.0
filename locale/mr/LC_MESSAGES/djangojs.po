@@ -2267,6 +2267,9 @@ msgstr "रताळे"
 msgid "Take a picture"
 msgstr "फोटो काढा"
 
+msgid "Take photo"
+msgstr "फोटो घ्या"
+
 msgid "Take your next step"
 msgstr "पुढचे पाऊल टाका"
 

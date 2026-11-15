@@ -2267,6 +2267,9 @@ msgstr "ꯃꯪꯒꯦꯠ ꯑꯁꯤ ꯌꯥꯝꯅ ꯊꯣꯡꯕ ꯆꯥꯎꯔꯕ ꯃ�
 msgid "Take a picture"
 msgstr "ছবি তুলুন"
 
+msgid "Take photo"
+msgstr "ꯐꯣꯇꯣ ꯂꯧꯕꯤꯌꯨ"
+
 msgid "Take your next step"
 msgstr "ꯅꯍꯥꯛꯀꯤ ꯃꯊꯪꯒꯤ ꯈꯣꯡꯖꯦꯜ ꯑꯗꯨ ꯂꯧꯕꯤꯌꯨ"
 

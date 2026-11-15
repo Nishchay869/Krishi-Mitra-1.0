@@ -2267,6 +2267,9 @@ msgstr "مۄدُر آلوٗ"
 msgid "Take a picture"
 msgstr "फोटो लें"
 
+msgid "Take photo"
+msgstr "تصویر تُلِو۔"
+
 msgid "Take your next step"
 msgstr "پنُن بیٛاکھ قدم تُل ۔"
 

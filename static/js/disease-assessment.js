@@ -19,12 +19,42 @@
     preview.classList.remove('d-none');
   });
 
+  /* ── Take photo with the camera (mobile) ── */
+  const camera = document.getElementById('camera-input');
+  const takePhoto = document.getElementById('take-photo');
+  if (input && camera && takePhoto) {
+    input.closest('.mb-3')?.after(takePhoto);   // show it right under the image field
+    takePhoto.addEventListener('click', () => camera.click());
+    camera.addEventListener('change', () => {
+      const file = camera.files[0];
+      if (!file) return;
+      try {
+        const dt = new DataTransfer();
+        dt.items.add(file);
+        input.files = dt.files;                   // the normal image field now holds the photo
+      } catch (err) {
+        // Very old browsers: submit the camera input itself as the image field.
+        camera.name = input.name;
+        input.removeAttribute('name');
+        input.removeAttribute('required');
+        input.value = '';
+      }
+      input.dispatchEvent(new Event('change'));   // refresh preview
+      if (!input.files[0]) {                       // fallback path: preview from camera input
+        if (objectUrl) URL.revokeObjectURL(objectUrl);
+        objectUrl = URL.createObjectURL(file);
+        preview.src = objectUrl;
+        preview.classList.remove('d-none');
+      }
+    });
+  }
+
   /* ── AJAX submit ── */
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
 
-    // Validate file chosen
-    if (!input.files[0]) {
+    // Validate file chosen (gallery upload or camera photo)
+    if (!input.files[0] && !document.getElementById('camera-input')?.files[0]) {
       showError(t('Please choose a leaf photo first.'));
       return;
     }

@@ -2267,6 +2267,9 @@ msgstr "മധുരക്കിഴങ്ങ്"
 msgid "Take a picture"
 msgstr "ചിത്രമെടുക്കുക"
 
+msgid "Take photo"
+msgstr "ഫോട്ടോ എടുക്കുക"
+
 msgid "Take your next step"
 msgstr "നിങ്ങളുടെ അടുത്ത പടി എടുക്കുക"
 

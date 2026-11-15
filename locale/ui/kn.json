@@ -950,5 +950,6 @@
   "If an account exists for that email, a password reset link has been sent. It may take a few minutes to arrive.": "ಆ ಇಮೇಲ್‌ಗೆ ಖಾತೆಯೊಂದಿದ್ದರೆ, ಪಾಸ್‌ವರ್ಡ್ ಮರುಹೊಂದಿಸುವ ಕೊಂಡಿಯನ್ನು ಕಳುಹಿಸಲಾಗಿದೆ. ಅದು ಬರಲು ಕೆಲವು ನಿಮಿಷಗಳು ಬೇಕಾಗಬಹುದು.",
   "Set a new password": "ಹೊಸ ಪಾಸ್‌ವರ್ಡ್‌ಅನ್ನು ಹೊಂದಿಸಿ",
   "This password reset link is invalid or has expired. Please request a new one.": "ಈ ಪಾಸ್‌ವರ್ಡ್ ರೀಸೆಟ್ ಲಿಂಕ್ ಅಸಿಂಧುವಾಗಿದೆ ಅಥವಾ ಅವಧಿ ಮುಗಿದಿದೆ. ದಯವಿಟ್ಟು ಹೊಸದನ್ನು ವಿನಂತಿಸಿ.",
-  "Your password has been changed. You can now log in.": "ನಿಮ್ಮ ಪಾಸ್‌ವರ್ಡ್ ಬದಲಾಯಿಸಲಾಗಿದೆ. ನೀವು ಈಗ ಲಾಗ್ ಇನ್ ಮಾಡಬಹುದು."
+  "Your password has been changed. You can now log in.": "ನಿಮ್ಮ ಪಾಸ್‌ವರ್ಡ್ ಬದಲಾಯಿಸಲಾಗಿದೆ. ನೀವು ಈಗ ಲಾಗ್ ಇನ್ ಮಾಡಬಹುದು.",
+  "Take photo": "ಫೋಟೋ ತೆಗೆಯಿರಿ"
 }

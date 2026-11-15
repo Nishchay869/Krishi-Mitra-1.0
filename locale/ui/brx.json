@@ -950,5 +950,6 @@
   "If an account exists for that email, a password reset link has been sent. It may take a few minutes to arrive.": "बै इमेलनि थाखाय मोनसे एकाउन्ट दंब्ला, मोनसे पासवर्ड रिसेट लिंक दैथायहरनाय जादों। सौहैनो माखासे मिनिटसो लानो हागौ।",
   "Set a new password": "मोनसे गोदान पासवर्ड थि खालाम।",
   "This password reset link is invalid or has expired. Please request a new one.": "बे पासवर्ड रिसेट लिंकआ गोरोन्थि एबा जोबलांबाय। अन्नानै मोनसे गोदान बिदिनो खावलाय।",
-  "Your password has been changed. You can now log in.": "नोंथांनि पासवर्डखौ सोलायनाय जाबाय। नोंथाङा दा लग इन खालामनो हायो।"
+  "Your password has been changed. You can now log in.": "नोंथांनि पासवर्डखौ सोलायनाय जाबाय। नोंथाङा दा लग इन खालामनो हायो।",
+  "Take photo": "सावगारि ला।"
 }

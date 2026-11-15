@@ -950,5 +950,6 @@
   "If an account exists for that email, a password reset link has been sent. It may take a few minutes to arrive.": "যদি সেই ইমেইলৰ বাবে এটা একাউণ্ট আছে, এটা পাছৱৰ্ড ৰিছেট লিংক পঠোৱা হৈছে। আহিবলৈ কেইমিনিটমান লাগিব পাৰে।",
   "Set a new password": "এটা নতুন পাছৱৰ্ড ছেট কৰক",
   "This password reset link is invalid or has expired. Please request a new one.": "এই পাছৱৰ্ড ৰিছেট লিংকটো অবৈধ বা ম্যাদ উকলি গৈছে। অনুগ্ৰহ কৰি এটা নতুন বিচাৰক।",
-  "Your password has been changed. You can now log in.": "আপোনাৰ পাছৱৰ্ড সলনি কৰা হৈছে। আপুনি এতিয়া লগ ইন কৰিব পাৰে।"
+  "Your password has been changed. You can now log in.": "আপোনাৰ পাছৱৰ্ড সলনি কৰা হৈছে। আপুনি এতিয়া লগ ইন কৰিব পাৰে।",
+  "Take photo": "ফটো তোলক"
 }

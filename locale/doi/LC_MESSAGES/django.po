@@ -2267,6 +2267,9 @@ msgstr "टट्टू"
 msgid "Take a picture"
 msgstr "फोटो लें"
 
+msgid "Take photo"
+msgstr "फोटो लैओ।"
+
 msgid "Take your next step"
 msgstr "अपना अगला गैं चुक्को।"
 

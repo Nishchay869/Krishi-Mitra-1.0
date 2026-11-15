@@ -2267,6 +2267,9 @@ msgstr "ಗೆಣಸು"
 msgid "Take a picture"
 msgstr "ಚಿತ್ರ ತೆಗೆಯಿರಿ"
 
+msgid "Take photo"
+msgstr "ಫೋಟೋ ತೆಗೆಯಿರಿ"
+
 msgid "Take your next step"
 msgstr "ಮುಂದಿನ ಹೆಜ್ಜೆ ಇಡಿ"
 

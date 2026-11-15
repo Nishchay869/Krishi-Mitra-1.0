@@ -2267,6 +2267,9 @@ msgstr "చిలగడదుంప"
 msgid "Take a picture"
 msgstr "ఫోటో తీయండి"
 
+msgid "Take photo"
+msgstr "ఫోటో తీయండి"
+
 msgid "Take your next step"
 msgstr "తదుపరి అడుగు వేయండి"
 

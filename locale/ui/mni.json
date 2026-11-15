@@ -950,5 +950,6 @@
   "If an account exists for that email, a password reset link has been sent. It may take a few minutes to arrive.": "ꯀꯔꯤꯒꯨꯝꯕ ꯑꯦꯃꯦꯜ ꯑꯗꯨꯒꯤꯗꯃꯛꯇ ꯑꯦꯀꯥꯎꯟꯠ ꯑꯃ ꯂꯩꯔꯕꯗꯤ, ꯄꯥꯁꯋꯔ꯭ꯗ ꯔꯤꯁꯦꯠ ꯇꯧꯕꯒꯤ ꯂꯤꯡꯛ ꯑꯃ ꯊꯥꯔꯦ꯫ ꯃꯁꯤ ꯌꯧꯕꯗ ꯃꯤꯅꯤꯠ ꯈꯔ ꯆꯪꯕ ꯌꯥꯏ꯫",
   "Set a new password": "ꯑꯅꯧꯕ ꯄꯥꯁꯋꯔꯗ ꯑꯃ ꯊꯝꯃꯨ",
   "This password reset link is invalid or has expired. Please request a new one.": "ꯃꯁꯤꯒꯤ ꯄꯥꯁꯋꯔꯗ ꯔꯤꯁꯦꯠ ꯂꯤꯡꯛ ꯑꯁꯤ ꯆꯨꯝꯗꯦ ꯅꯠꯇ꯭ꯔꯒ ꯃꯇꯝ ꯂꯣꯏꯔꯦ꯫ ꯆꯥꯟꯕꯤꯗꯨꯅ ꯑꯅꯧꯕ ꯑꯃ ꯍꯥꯏꯖꯔꯣꯌꯨ꯫",
-  "Your password has been changed. You can now log in.": "ꯅꯍꯥꯛꯀꯤ ꯄꯥꯁꯋꯔꯗ ꯑꯗꯨ ꯍꯣꯡꯂꯦ꯫ ꯅꯍꯥꯛ ꯍꯧꯖꯤꯛ ꯂꯣꯒ ꯏꯟ ꯇꯧꯕ ꯌꯥꯔꯦ꯫"
+  "Your password has been changed. You can now log in.": "ꯅꯍꯥꯛꯀꯤ ꯄꯥꯁꯋꯔꯗ ꯑꯗꯨ ꯍꯣꯡꯂꯦ꯫ ꯅꯍꯥꯛ ꯍꯧꯖꯤꯛ ꯂꯣꯒ ꯏꯟ ꯇꯧꯕ ꯌꯥꯔꯦ꯫",
+  "Take photo": "ꯐꯣꯇꯣ ꯂꯧꯕꯤꯌꯨ"
 }

@@ -950,5 +950,6 @@
   "If an account exists for that email, a password reset link has been sent. It may take a few minutes to arrive.": "ఆ ఈమెయిల్ కోసం ఒక ఖాతా ఉంటే, పాస్‌వర్డ్ రీసెట్ లింక్ పంపబడింది. అది రావడానికి కొన్ని నిమిషాలు పట్టవచ్చు.",
   "Set a new password": "కొత్త పాస్‌వర్డ్‌ను సెట్ చేయండి",
   "This password reset link is invalid or has expired. Please request a new one.": "ఈ పాస్‌వర్డ్ రీసెట్ లింక్ చెల్లదు లేదా గడువు ముగిసింది. దయచేసి కొత్తది అభ్యర్థించండి.",
-  "Your password has been changed. You can now log in.": "మీ పాస్‌వర్డ్ మార్చబడింది. మీరు ఇప్పుడు లాగిన్ అవ్వవచ్చు."
+  "Your password has been changed. You can now log in.": "మీ పాస్‌వర్డ్ మార్చబడింది. మీరు ఇప్పుడు లాగిన్ అవ్వవచ్చు.",
+  "Take photo": "ఫోటో తీయండి"
 }

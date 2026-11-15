@@ -2267,6 +2267,9 @@ msgstr "சர்க்கரைவள்ளிக் கிழங்கு"
 msgid "Take a picture"
 msgstr "புகைப்படம் எடுக்கவும்"
 
+msgid "Take photo"
+msgstr "புகைப்படம் எடு"
+
 msgid "Take your next step"
 msgstr "அடுத்த படியை எடுங்கள்"
 

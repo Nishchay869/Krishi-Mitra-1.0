@@ -2267,6 +2267,9 @@ msgstr "মিঠা আলু"
 msgid "Take a picture"
 msgstr "ছবি তুলুন"
 
+msgid "Take photo"
+msgstr "ফটো তোলক"
+
 msgid "Take your next step"
 msgstr "আপোনাৰ পৰৱৰ্তী পদক্ষেপ লওক"
 
