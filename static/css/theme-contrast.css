@@ -7348,3 +7348,30 @@ html.dark .post-exact-time,
 
 
 
+
+/* Chat suggestion chips ("Tomato Blight", "Mandi Prices" ...): readable in both themes.
+   The generic dark .ai-chat-btn rule skips them because their hover class contains bg-emerald. */
+html:not(.dark) #ai-chat-card-root .ai-chat-chip,
+[data-theme="light"] #ai-chat-card-root .ai-chat-chip {
+  background-color: #f1f5f9 !important;
+  border-color: #cbd5e1 !important;
+  color: #1e293b !important;
+}
+html:not(.dark) #ai-chat-card-root .ai-chat-chip:hover,
+[data-theme="light"] #ai-chat-card-root .ai-chat-chip:hover {
+  background-color: #ecfdf5 !important;
+  border-color: #34d399 !important;
+  color: #065f46 !important;
+}
+html.dark #ai-chat-card-root .ai-chat-chip,
+[data-theme="dark"] #ai-chat-card-root .ai-chat-chip {
+  background-color: #1e293b !important;
+  border-color: #334155 !important;
+  color: #e2e8f0 !important;
+}
+html.dark #ai-chat-card-root .ai-chat-chip:hover,
+[data-theme="dark"] #ai-chat-card-root .ai-chat-chip:hover {
+  background-color: rgba(16, 185, 129, 0.16) !important;
+  border-color: rgba(52, 211, 153, 0.55) !important;
+  color: #a7f3d0 !important;
+}

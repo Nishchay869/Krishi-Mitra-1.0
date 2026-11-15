@@ -294,7 +294,7 @@ export function AIChatCard({
                   setUserMessage(chip.query);
                   onSend?.(chip.query);
                 }}
-                className="ai-chat-btn rounded-lg border border-slate-200 bg-slate-50 px-2.5 sm:px-3 py-1 sm:py-1.5 text-[11px] sm:text-xs font-medium text-slate-700 transition-colors hover:border-emerald-400 hover:bg-emerald-50 hover:text-emerald-800 dark:border-slate-800 dark:bg-slate-850 dark:text-slate-300 dark:hover:border-emerald-500/50 dark:hover:bg-emerald-950/40 dark:hover:text-emerald-300"
+                className="ai-chat-btn ai-chat-chip rounded-lg border border-slate-200 bg-slate-50 px-2.5 sm:px-3 py-1 sm:py-1.5 text-[11px] sm:text-xs font-medium text-slate-700 transition-colors hover:border-emerald-400 hover:bg-emerald-50 hover:text-emerald-800 dark:border-slate-800 dark:bg-slate-800 dark:text-slate-300 dark:hover:border-emerald-500/50 dark:hover:bg-emerald-950/40 dark:hover:text-emerald-300"
               >
                 {chip.label}
               </button>
@@ -304,7 +304,7 @@ export function AIChatCard({
       ) : (
         <div
           ref={messagesContainerRef}
-          className="flex-1 overflow-y-auto px-3 sm:px-5 py-3 sm:py-4 space-y-3.5 sm:space-y-4 max-h-[500px] min-h-[300px] scroll-smooth"
+          className="ai-chat-messages flex-1 overflow-y-auto px-3 sm:px-5 py-3 sm:py-4 space-y-3.5 sm:space-y-4 max-h-[500px] min-h-[300px] scroll-smooth"
         >
           <AnimatePresence initial={false}>
             {messages.map((m) => (
@@ -435,7 +435,7 @@ export function AIChatCard({
       <div className="px-3 sm:px-5 pb-3 sm:pb-5 pt-1.5 sm:pt-2">
         <div
           data-chat-composer
-          className="ai-chat-composer relative flex flex-col rounded-xl border border-slate-200 p-2.5 sm:p-3 shadow-2xs transition-colors focus-within:border-emerald-600 focus-within:ring-1 focus-within:ring-emerald-600 dark:border-slate-800 dark:bg-slate-850 dark:focus-within:border-emerald-500 dark:focus-within:ring-emerald-500"
+          className="ai-chat-composer relative flex flex-col rounded-xl border border-slate-200 p-2.5 sm:p-3 shadow-2xs transition-colors focus-within:border-emerald-600 focus-within:ring-1 focus-within:ring-emerald-600 dark:border-slate-800 dark:bg-slate-800 dark:focus-within:border-emerald-500 dark:focus-within:ring-emerald-500"
         >
           {/* File Attachment Preview Card */}
           {attachedFile && (

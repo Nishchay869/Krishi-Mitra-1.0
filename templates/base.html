@@ -276,7 +276,7 @@
     {% block content %}{% endblock %}
   </main>
 
-  {% include 'partials/footer.html' %}
+  {% block footer %}{% include 'partials/footer.html' %}{% endblock %}
 
   {% if user.is_authenticated %}
   {% if VOICE_ENABLED %}
