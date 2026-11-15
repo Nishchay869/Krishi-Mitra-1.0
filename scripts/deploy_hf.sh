@@ -36,8 +36,9 @@ echo "3/4 Storing binary files with Git LFS..."
 cd "$APP"
 git init -q -b main
 git lfs install --local >/dev/null
-exts="$( { git ls-files --others -z | xargs -0 grep -IL '' 2>/dev/null || true; } \
-        | while read -r f; do if [ -s "$f" ]; then echo "${f##*.}"; fi; done | tr 'A-Z' 'a-z' | sort -u)"
+exts="$(git ls-files --others -z \
+        | xargs -0 perl -e 'for (@ARGV) { print lc((/\.([^.\/]+)$/)[0] // ""), "\n" if -s && -B }' \
+        | grep -v '^$' | sort -u || true)"
 for e in $exts; do git lfs track "*.$e" >/dev/null; done
 echo "    LFS file types: $(echo $exts | tr '\n' ' ')"
 git add -A
