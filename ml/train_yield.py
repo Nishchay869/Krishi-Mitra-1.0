@@ -60,7 +60,8 @@ def make_model(regressor):
 
 def candidates():
     return {
-        'random_forest': make_model(RandomForestRegressor(n_estimators=300, min_samples_leaf=2, random_state=42, n_jobs=-1)),
+        # 100 trees: 59 MB instead of 176 MB with the same R² (0.950 vs 0.949), so the app fits 512 MB hosts
+        'random_forest': make_model(RandomForestRegressor(n_estimators=100, min_samples_leaf=2, random_state=42, n_jobs=-1)),
         'linear_regression': make_model(LinearRegression()),
         'decision_tree': make_model(DecisionTreeRegressor(min_samples_leaf=3, random_state=42)),
     }

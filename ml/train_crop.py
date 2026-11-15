@@ -33,7 +33,8 @@ def main():
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42, stratify=y)
 
     candidates = {
-        'random_forest': RandomForestClassifier(n_estimators=200, random_state=42, n_jobs=-1),
+        # 60 trees / leaf 2: 18 MB instead of 70 MB at 99.4% vs 99.6% accuracy, so the app fits 512 MB hosts
+        'random_forest': RandomForestClassifier(n_estimators=60, min_samples_leaf=2, random_state=42, n_jobs=-1),
         'decision_tree': DecisionTreeClassifier(random_state=42),
         'svm': make_pipeline(StandardScaler(), SVC(random_state=42)),
     }

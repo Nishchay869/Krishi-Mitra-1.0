@@ -25,11 +25,18 @@ def analyze_leaf(image_file, crop='', location='', notes='', language='en'):
         if exc.code in PHOTO_ERRORS:
             raise
         logger.warning('Gemini unavailable (%s), using local model: %s', exc.code, exc)
-        reason = exc.code
+        reason, gemini_error = exc.code, exc
 
     if hasattr(image_file, 'seek'):
         image_file.seek(0)
-    result = predictor.predict(image_file, crop=crop, location=location, notes=notes, language=language)
+    try:
+        result = predictor.predict(image_file, crop=crop, location=location, notes=notes, language=language)
+    except DiagnosisError as exc:
+        # Small hosts run without TensorFlow / the backup model: show Gemini's own,
+        # farmer-friendly message ("busy, try again") instead of a model-loading error.
+        if exc.code in ('model_not_found', 'model_init_error'):
+            raise gemini_error from exc
+        raise
     result['fallback_reason'] = reason
     note = _('Offline model used because the online AI was unavailable; please confirm with your local KVK.')
     result['summary'] = f"{note} {result.get('summary', '')}".strip()

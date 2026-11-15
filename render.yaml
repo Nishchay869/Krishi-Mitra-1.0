@@ -1,0 +1,45 @@
+# Render Blueprint: Dashboard -> New -> Blueprint -> pick this GitHub repo.
+# Free plan (512 MB): runs without TensorFlow; Gemini does the disease check.
+services:
+  - type: web
+    name: krishimitra
+    runtime: python
+    plan: free
+    region: singapore
+    buildCommand: >-
+      pip install -r requirements.txt &&
+      python -m ml.train_crop &&
+      python -m ml.train_yield &&
+      python manage.py collectstatic --noinput
+    startCommand: >-
+      python manage.py migrate --noinput &&
+      python manage.py seed_knowledge &&
+      gunicorn agri_assistant.wsgi --bind 0.0.0.0:$PORT --timeout 60 --workers 1 --threads 4
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.13.14"
+      - key: DJANGO_DEBUG
+        value: "0"
+      - key: DJANGO_SECRET_KEY
+        generateValue: true
+      - key: DB_PORT
+        value: "5432"
+      - key: DB_SSLMODE
+        value: require
+      # Render asks you for these when you create the Blueprint:
+      - key: DB_NAME
+        sync: false
+      - key: DB_USER
+        sync: false
+      - key: DB_PASSWORD
+        sync: false
+      - key: DB_HOST
+        sync: false
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: OPENWEATHER_API_KEY
+        sync: false
+      - key: SARVAM_API_KEY
+        sync: false
+      - key: DATA_GOV_IN_API_KEY
+        sync: false

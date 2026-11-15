@@ -188,6 +188,10 @@ SERVE_MEDIA = DEBUG or os.environ.get('SERVE_MEDIA', '1') == '1'
 
 # Production behind an HTTPS proxy (Hugging Face Spaces, Railway, Render, nginx ...)
 CSRF_TRUSTED_ORIGINS = [o for o in os.environ.get('DJANGO_CSRF_TRUSTED_ORIGINS', '').split(',') if o]
+# Render sets this to the site's address (e.g. krishimitra.onrender.com): allow it automatically.
+if os.environ.get('RENDER_EXTERNAL_HOSTNAME'):
+    ALLOWED_HOSTS.append(os.environ['RENDER_EXTERNAL_HOSTNAME'])
+    CSRF_TRUSTED_ORIGINS.append('https://' + os.environ['RENDER_EXTERNAL_HOSTNAME'])
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 if not DEBUG:
     SESSION_COOKIE_SECURE = True

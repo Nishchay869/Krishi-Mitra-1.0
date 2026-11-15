@@ -1,7 +1,5 @@
-# Production install (used by the Dockerfile): web app + local disease model + crop vision.
-# The disease check uses Gemini first; TensorFlow runs the backup model in ml/models.
+# Full install (Dockerfile / bigger servers): adds TensorFlow for the backup disease model.
+# Small free hosts (Render free, 512 MB) use requirements.txt only; Gemini does disease checks there.
 -r requirements.txt
 tensorflow==2.20.0
 keras==3.15.1
-opencv-python-headless==4.14.0.94
-pydantic==2.14.0

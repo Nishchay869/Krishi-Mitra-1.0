@@ -133,3 +133,17 @@ class HybridDiagnosisTests(SimpleTestCase):
         with self.assertRaises(DiagnosisError):
             analyze_leaf(self._image())
         local_call.assert_not_called()
+
+
+class HybridWithoutLocalModelTests(SimpleTestCase):
+    """Hosts without TensorFlow: a Gemini outage shows Gemini's message, not a model error."""
+
+    @patch('disease.predictor.predict', side_effect=DiagnosisError('no tf', 'model_init_error', 500))
+    @patch('disease.gemini.analyze_leaf', side_effect=DiagnosisError('AI is busy, try again', 'high_demand', 503))
+    def test_gemini_message_shown_when_backup_model_missing(self, gemini_call, local_call):
+        from .hybrid import analyze_leaf
+        buf = io.BytesIO()
+        Image.new('RGB', (256, 256), (60, 140, 50)).save(buf, format='JPEG')
+        with self.assertRaises(DiagnosisError) as ctx:
+            analyze_leaf(SimpleUploadedFile('leaf.jpg', buf.getvalue(), content_type='image/jpeg'))
+        self.assertEqual(ctx.exception.code, 'high_demand')
