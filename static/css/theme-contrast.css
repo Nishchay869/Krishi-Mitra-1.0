@@ -1419,12 +1419,12 @@ html.dark .diagnosis-status-pill.incomplete, html.dark .diagnosis-status-pill.is
 }
 
 /* 9D. Content Links in Dark Mode (Bright, High-Contrast Accessible Sky Blue) */
-html.dark a:not(.btn):not(.dropdown-item):not(.nav-link):not(.navbar-brand):not(.bottom-nav-item):not(.plantix-tool-card):not(.plantix-lib-card):not(.plantix-weather-left):not(.plantix-weather-right):not(.plantix-hero-cta):not(.plantix-diag-card):not(.plantix-diag-view-all-btn):not(.plantix-sponsored-card):not(.crop-box):not(.plantix-floating-btn),
-[data-theme="dark"] a:not(.btn):not(.dropdown-item):not(.nav-link):not(.navbar-brand):not(.bottom-nav-item):not(.plantix-tool-card):not(.plantix-lib-card):not(.plantix-weather-left):not(.plantix-weather-right):not(.plantix-hero-cta):not(.plantix-diag-card):not(.plantix-diag-view-all-btn):not(.plantix-sponsored-card):not(.crop-box):not(.plantix-floating-btn) {
+html.dark a:not(.btn):not(.dropdown-item):not(.nav-link):not(.navbar-brand):not(.bottom-nav-item):not(.plantix-tool-card):not(.plantix-lib-card):not(.plantix-weather-left):not(.plantix-weather-right):not(.plantix-hero-cta):not(.plantix-diag-card):not(.plantix-diag-view-all-btn):not(.plantix-sponsored-card):not(.crop-box):not(.plantix-floating-btn):not(.community-post-link),
+[data-theme="dark"] a:not(.btn):not(.dropdown-item):not(.nav-link):not(.navbar-brand):not(.bottom-nav-item):not(.plantix-tool-card):not(.plantix-lib-card):not(.plantix-weather-left):not(.plantix-weather-right):not(.plantix-hero-cta):not(.plantix-diag-card):not(.plantix-diag-view-all-btn):not(.plantix-sponsored-card):not(.crop-box):not(.plantix-floating-btn):not(.community-post-link) {
   color: #60a5fa !important;
 }
-html.dark a:not(.btn):not(.dropdown-item):not(.nav-link):not(.navbar-brand):not(.bottom-nav-item):not(.plantix-tool-card):not(.plantix-lib-card):not(.plantix-weather-left):not(.plantix-weather-right):not(.plantix-hero-cta):not(.plantix-diag-card):not(.plantix-diag-view-all-btn):not(.plantix-sponsored-card):not(.crop-box):not(.plantix-floating-btn):hover,
-[data-theme="dark"] a:not(.btn):not(.dropdown-item):not(.nav-link):not(.navbar-brand):not(.bottom-nav-item):not(.plantix-tool-card):not(.plantix-lib-card):not(.plantix-weather-left):not(.plantix-weather-right):not(.plantix-hero-cta):not(.plantix-diag-card):not(.plantix-diag-view-all-btn):not(.plantix-sponsored-card):not(.crop-box):not(.plantix-floating-btn):hover {
+html.dark a:not(.btn):not(.dropdown-item):not(.nav-link):not(.navbar-brand):not(.bottom-nav-item):not(.plantix-tool-card):not(.plantix-lib-card):not(.plantix-weather-left):not(.plantix-weather-right):not(.plantix-hero-cta):not(.plantix-diag-card):not(.plantix-diag-view-all-btn):not(.plantix-sponsored-card):not(.crop-box):not(.plantix-floating-btn):not(.community-post-link):hover,
+[data-theme="dark"] a:not(.btn):not(.dropdown-item):not(.nav-link):not(.navbar-brand):not(.bottom-nav-item):not(.plantix-tool-card):not(.plantix-lib-card):not(.plantix-weather-left):not(.plantix-weather-right):not(.plantix-hero-cta):not(.plantix-diag-card):not(.plantix-diag-view-all-btn):not(.plantix-sponsored-card):not(.crop-box):not(.plantix-floating-btn):not(.community-post-link):hover {
   color: #93c5fd !important;
 }
 
@@ -7374,4 +7374,11 @@ html.dark #ai-chat-card-root .ai-chat-chip:hover,
   background-color: rgba(16, 185, 129, 0.16) !important;
   border-color: rgba(52, 211, 153, 0.55) !important;
   color: #a7f3d0 !important;
+}
+
+/* Community on phones: one seamless page (no solid inset panel behind the post cards). */
+@media (max-width: 576px) {
+  :is(html.dark, html:not(.dark), [data-theme]) .community-page-wrapper {
+    background-color: transparent !important;
+  }
 }

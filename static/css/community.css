@@ -1318,3 +1318,73 @@ html.dark .share-channel-btn.btn-x:hover {
 }
 
 
+
+/* ─── 12. POLISHED FEED (phones + both themes) ─── */
+/* Post meta: "2 hours ago" + crop pill on one tidy line (full date in the tooltip). */
+.post-time-line {
+  flex-wrap: wrap;
+  gap: 6px 8px;
+  margin-top: 3px;
+  font-size: 12px;
+}
+.post-exact-time { white-space: nowrap; }
+.post-crop-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 1px 9px;
+  border-radius: 999px;
+  font-size: 11.5px;
+  font-weight: 600;
+  white-space: nowrap;
+  background: #ecfdf5;
+  color: #047857 !important;
+  border: 1px solid #a7f3d0;
+}
+html.dark .post-crop-tag,
+[data-theme="dark"] .post-crop-tag {
+  background: rgba(16, 185, 129, 0.12);
+  color: #6ee7b7 !important;
+  border-color: rgba(52, 211, 153, 0.28);
+}
+.community-author-row { align-items: flex-start; }
+.btn-author-menu { margin-top: 2px; }
+
+/* Post title: normal text colour (the dark-mode link rule made it blue). */
+.community-post-title .community-post-link { color: var(--comm-fg) !important; }
+.community-post-title .community-post-link:hover { color: var(--comm-primary-btn) !important; }
+
+@media (max-width: 576px) {
+  /* One seamless page instead of a dark panel inset inside the page. */
+  .community-page-wrapper {
+    background: transparent;
+    padding: 6px 0 180px;   /* room to scroll the last post above the floating buttons */
+  }
+  .community-card { border-radius: 16px; margin-bottom: 14px; }
+  .community-card-media { aspect-ratio: 4 / 3; }
+
+  /* Floating buttons: "Ask Community" becomes a round button stacked right above the mic,
+     same size and column, instead of a wide pill covering Share/Reply. */
+  .community-fab-container {
+    right: 20px;
+    bottom: 152px;
+  }
+  .community-fab-btn {
+    width: 56px;
+    height: 56px;
+    padding: 0;
+    justify-content: center;
+    border-radius: 50%;
+  }
+  .community-fab-btn .fab-label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+  .community-fab-btn .fab-icon { width: 22px; height: 22px; }
+}
+.community-answers-toggle { gap: 4px; }
+.post-exact-time .bi-clock { margin-right: 3px; font-size: 11px; }

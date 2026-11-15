@@ -138,12 +138,9 @@
                 </div>
                 <!-- Exact Published Time -->
                 <div class="post-time-line">
-                  <span class="post-exact-time" title="{{ post.created_at|date:'l, d F Y, h:i:s A' }}">
-                    <i class="bi bi-clock me-1"></i>{{ post.created_at|date:"d M Y, h:i A" }}
-                    <span class="post-age-relative">({{ post.created_at|timesince }} ago)</span>
-                  </span>
+                  <time class="post-exact-time" datetime="{{ post.created_at|date:'c' }}" title="{{ post.created_at|date:'l, d F Y, h:i A' }}"><i class="bi bi-clock" aria-hidden="true"></i> {{ post.created_at|short_ago }}</time>
                   {% if post.crop and post.crop != 'General' %}
-                  <span class="post-crop-tag">· {{ post.crop_icon }} {{ post.crop }}</span>
+                  <span class="post-crop-tag">{{ post.crop_icon }} {{ post.crop }}</span>
                   {% endif %}
                 </div>
               </div>
@@ -167,7 +164,7 @@
 
             <!-- Post Title -->
             <h3 class="community-post-title" id="postTitle-{{ post.id }}">
-              <a href="{% url 'community:detail' post.id %}">{{ post.title }}</a>
+              <a class="community-post-link" href="{% url 'community:detail' post.id %}">{{ post.title }}</a>
             </h3>
 
             <!-- Post Description with problem tags -->
@@ -202,7 +199,7 @@
               </button>
               <button type="button" class="community-answers-toggle" onclick="toggleAnswers({{ post.id }})">
                 <span class="answers-count-num" id="answersCount-{{ post.id }}">{{ post.answers.count }}</span>
-                <span>answers</span>
+                <span>answer{{ post.answers.count|pluralize }}</span>
                 <i class="bi bi-chevron-down ms-1 toggle-chevron"></i>
               </button>
             </div>
