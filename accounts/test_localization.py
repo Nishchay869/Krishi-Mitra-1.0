@@ -87,6 +87,9 @@ class FarmerLanguageTests(TestCase):
         self.assertContains(response, 'ಸಂಖ್ಯೆ ನಮೂದಿಸಿ')
         self.assertContains(response, 'ಈ ಮಾಹಿತಿ ಅಗತ್ಯ')
 
+    # A placeholder Gemini key makes the chat take its normal (English greeting) path in every
+    # environment; the greeting is answered locally, so no network call is made.
+    @override_settings(GEMINI_API_KEY='test-placeholder')
     @patch('chatbot.sarvam.translate', return_value='ನಿಮ್ಮ ಬೆಳೆ ಸಲಹೆ')
     @patch('chatbot.sarvam.detect_language', return_value='en-IN')
     @patch('chatbot.sarvam.is_configured', return_value=True)
@@ -98,7 +101,9 @@ class FarmerLanguageTests(TestCase):
         self.assertEqual(response.json()['reply'], 'ನಿಮ್ಮ ಬೆಳೆ ಸಲಹೆ')
         self.assertFalse(response.json()['translation_unavailable'])
 
-    def test_chat_reports_translation_outage_without_claiming_english_is_native(self):
+    @override_settings(GEMINI_API_KEY='test-placeholder')
+    @patch('chatbot.sarvam.is_configured', return_value=False)  # translation service unavailable
+    def test_chat_reports_translation_outage_without_claiming_english_is_native(self, configured):
         self.set_language('kn')
         response = self.client.post('/chat/api/', json.dumps({'message': 'Hello'}), content_type='application/json')
         self.assertTrue(response.json()['translation_unavailable'])
