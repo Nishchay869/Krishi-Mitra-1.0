@@ -285,6 +285,9 @@ def _prepare_image(image_file):
                     _('The leaf photo is too small. Upload a closer, higher-resolution photo.'),
                     'image_quality', 422
                 )
+            # Decode JPEGs directly at a reduced scale (still >= 1024 px, plenty to see leaf
+            # lesions): phone photos then need far less memory, which matters on 512 MB hosts.
+            original.draft('RGB', (1024, 1024))
             image = ImageOps.exif_transpose(original).convert('RGB')
             image.thumbnail((2048, 2048), Image.Resampling.LANCZOS)
             output = io.BytesIO()
