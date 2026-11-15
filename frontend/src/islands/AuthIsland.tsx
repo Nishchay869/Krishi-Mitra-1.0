@@ -88,15 +88,15 @@ export default function AuthIsland({
   const slideImages = images && images.length > 0 ? images : defaultImages;
 
   return (
-    <div className="w-full min-h-[580px] md:h-screen flex items-center justify-center p-2 sm:p-4">
+    <div className="w-full md:min-h-[580px] md:h-screen flex items-start md:items-center justify-center sm:p-4">
       <motion.div
-        className="auth-card w-full max-w-5xl h-[560px] sm:h-[640px] md:h-[720px] flex flex-row rounded-2xl overflow-hidden"
+        className="auth-card w-full max-w-5xl md:h-[720px] flex flex-col md:flex-row rounded-2xl overflow-hidden"
         initial={{ opacity: 0, scale: 0.96 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.45, ease: "easeOut" }}
       >
-        {/* Left column: Photo Slider (Horizontal Even on Mobile) */}
-        <div className="auth-slider-panel w-5/12 sm:w-1/2 h-full relative overflow-hidden flex-shrink-0">
+        {/* Photo slider: a short banner on top on phones, the left column from tablets up */}
+        <div className="auth-slider-panel w-full md:w-1/2 h-44 sm:h-60 md:h-full relative overflow-hidden flex-shrink-0">
           <ImageSlider
             images={slideImages}
             interval={4500}
@@ -104,7 +104,7 @@ export default function AuthIsland({
           />
 
           {/* Frosted Glass Back Button on Photo */}
-          <div className="absolute top-4 left-4 z-30">
+          <div className="absolute top-4 left-4 z-30 hidden md:block">
             <a
               href="/"
               className="auth-photo-back-btn"
@@ -116,7 +116,7 @@ export default function AuthIsland({
           </div>
 
           {/* Photo Caption Overlay (Pure White Typography) */}
-          <div className="auth-photo-caption absolute bottom-8 left-6 right-6 z-20 pointer-events-none hidden sm:block">
+          <div className="auth-photo-caption absolute bottom-8 left-6 right-6 z-20 pointer-events-none hidden md:block">
             <span className="auth-photo-pill">
               Krishi Mitra
             </span>
@@ -130,7 +130,7 @@ export default function AuthIsland({
         </div>
 
         {/* Right column: Login / Register Form Panel */}
-        <div className="auth-form-panel w-7/12 sm:w-1/2 h-full flex flex-col items-center justify-center p-4 sm:p-8 md:p-12 overflow-y-auto">
+        <div className="auth-form-panel w-full md:w-1/2 h-auto md:h-full flex flex-col items-center justify-center px-5 py-6 sm:p-8 md:p-12 md:overflow-y-auto">
           <motion.div
             className="w-full max-w-sm"
             variants={containerVariants}
