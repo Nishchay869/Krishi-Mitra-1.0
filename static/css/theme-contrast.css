@@ -1386,6 +1386,38 @@ html.dark .disease-type-nutritional, [data-theme="dark"] .disease-type-nutrition
 }
 html.dark .disease-type-badge i, [data-theme="dark"] .disease-type-badge i { color: inherit !important; }
 
+/* Diagnosis history: row hover was near-white (#fcfcfd) behind white text */
+html.dark .diagnosis-row-item:hover,
+[data-theme="dark"] .diagnosis-row-item:hover {
+  background-color: rgba(255, 255, 255, 0.06) !important;
+}
+
+/* Diagnosis history: selection bar was light blue (#edf2fe) behind white "Select all" text */
+html.dark .diagnoses-selection-bar,
+[data-theme="dark"] .diagnoses-selection-bar {
+  background-color: rgba(59, 130, 246, 0.12) !important;
+  border-color: rgba(96, 165, 250, 0.35) !important;
+}
+html.dark .selection-bar-left, html.dark .selection-bar-left span:not(.selection-count-badge),
+[data-theme="dark"] .selection-bar-left, [data-theme="dark"] .selection-bar-left span:not(.selection-count-badge) {
+  color: #dbeafe !important;
+}
+html.dark .btn-delete-selected, [data-theme="dark"] .btn-delete-selected { color: #f87171 !important; }
+html.dark .btn-delete-selected:not(:disabled):hover,
+[data-theme="dark"] .btn-delete-selected:not(:disabled):hover {
+  background-color: rgba(239, 68, 68, 0.16) !important;
+}
+
+/* Diagnosis history: Complete / Incomplete pills */
+html.dark .diagnosis-status-pill.complete, html.dark .diagnosis-status-pill.is-complete,
+[data-theme="dark"] .diagnosis-status-pill.complete, [data-theme="dark"] .diagnosis-status-pill.is-complete {
+  background: rgba(34, 197, 94, 0.16) !important; border-color: rgba(74, 222, 128, 0.5) !important; color: #86efac !important;
+}
+html.dark .diagnosis-status-pill.incomplete, html.dark .diagnosis-status-pill.is-incomplete,
+[data-theme="dark"] .diagnosis-status-pill.incomplete, [data-theme="dark"] .diagnosis-status-pill.is-incomplete {
+  background: rgba(239, 68, 68, 0.16) !important; border-color: rgba(248, 113, 113, 0.5) !important; color: #fca5a5 !important;
+}
+
 /* 9D. Content Links in Dark Mode (Bright, High-Contrast Accessible Sky Blue) */
 html.dark a:not(.btn):not(.dropdown-item):not(.nav-link):not(.navbar-brand):not(.bottom-nav-item):not(.plantix-tool-card):not(.plantix-lib-card):not(.plantix-weather-left):not(.plantix-weather-right):not(.plantix-hero-cta):not(.plantix-diag-card):not(.plantix-diag-view-all-btn):not(.plantix-sponsored-card):not(.crop-box),
 [data-theme="dark"] a:not(.btn):not(.dropdown-item):not(.nav-link):not(.navbar-brand):not(.bottom-nav-item):not(.plantix-tool-card):not(.plantix-lib-card):not(.plantix-weather-left):not(.plantix-weather-right):not(.plantix-hero-cta):not(.plantix-diag-card):not(.plantix-diag-view-all-btn):not(.plantix-sponsored-card):not(.crop-box) {

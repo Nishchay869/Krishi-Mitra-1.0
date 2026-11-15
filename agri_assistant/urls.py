@@ -1,5 +1,7 @@
 from django.conf import settings
 from django.conf.urls.static import static
+from django.urls import re_path
+from django.views.static import serve as serve_media
 from django.contrib import admin
 from django.urls import include, path
 
@@ -21,4 +23,10 @@ urlpatterns = [
     path('weather/', include('weather.urls')),
     path('market/', include('market.urls')),
     path('community/', include('community.urls')),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+elif settings.SERVE_MEDIA:
+    # static() is a no-op when DEBUG is off; serve uploaded leaf photos explicitly
+    urlpatterns += [re_path(r'^media/(?P<path>.*)$', serve_media, {'document_root': settings.MEDIA_ROOT})]

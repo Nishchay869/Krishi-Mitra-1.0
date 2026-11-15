@@ -1,3 +1,7 @@
-# Optional legacy CNN training only. Disease Check uses Gemini without TensorFlow.
+# Production install (used by the Dockerfile): web app + local disease model + crop vision.
+# The disease check uses Gemini first; TensorFlow runs the backup model in ml/models.
 -r requirements.txt
-tensorflow>=2.20
+tensorflow==2.20.0
+keras==3.15.1
+opencv-python-headless==4.14.0.94
+pydantic==2.14.0
