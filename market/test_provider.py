@@ -174,3 +174,25 @@ class LiveMandiViewTests(TestCase):
         page=self.client.get('/market/')
         self.assertEqual(page.context['cards'],[])
         self.assertContains(page,'Market prices are unavailable right now.')
+
+
+class ProviderLoggingTests(TestCase):
+    """Failures are logged with a reason for debugging, but never with the API key."""
+
+    @override_settings(DATA_GOV_IN_API_KEY='SECRET-KEY-123')
+    @patch('market.provider.requests.get')
+    def test_failure_reason_logged_without_key(self, get):
+        import requests
+        from django.core.cache import cache
+        from market.provider import LocalPriceError, fetch_local_prices
+        cache.clear()
+        resp = requests.models.Response()
+        resp.status_code = 403
+        resp._content = b'{"message":"Invalid key SECRET-KEY-123"}'
+        resp.url = 'https://api.data.gov.in/resource/x?api-key=SECRET-KEY-123'
+        get.return_value = resp
+        with self.assertLogs('market.provider', level='WARNING') as logs, self.assertRaises(LocalPriceError):
+            fetch_local_prices('Karnataka', 'Tomato')
+        text = '\n'.join(logs.output)
+        self.assertIn('HTTP 403', text)
+        self.assertNotIn('SECRET-KEY-123', text)

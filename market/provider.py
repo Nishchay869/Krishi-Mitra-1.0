@@ -5,12 +5,15 @@ import hashlib
 import re
 import time
 
+import logging
+
 import requests
 from django.conf import settings
 from django.utils import timezone
 from django.core.cache import cache
 from django.views.decorators.debug import sensitive_variables
 
+logger = logging.getLogger(__name__)
 ENDPOINT = 'https://api.data.gov.in/resource/9ef84268-d588-465a-a308-a864a43d0070'
 SOURCE_URL = 'https://www.data.gov.in/catalog/current-daily-price-various-commodities-various-markets-mandi'
 
@@ -88,15 +91,25 @@ def fetch_local_prices(state, crop):
         remaining = deadline-time.monotonic()
         if remaining < 1:
             raise LocalPriceError('Market prices are unavailable right now. Please try again later.')
+        started = time.monotonic()
         try:
             response = requests.get(ENDPOINT, params=params, headers={'User-Agent':'KrishiMitra/1.0'},
                                     timeout=(3,min(10,remaining)))
             response.raise_for_status()
             payload = response.json()
-        except (requests.RequestException, ValueError):
-            # Never propagate provider exception URLs: they contain the API key.
+        except requests.HTTPError as exc:
+            # Log only the status and the provider's own message: never the URL, it contains the API key.
+            status = getattr(exc.response, 'status_code', '?')
+            body = (getattr(exc.response, 'text', '') or '')[:200].replace(api_key, '<key>')
+            logger.warning('data.gov.in mandi request failed: HTTP %s after %.1fs: %s', status, time.monotonic()-started, body)
+            raise LocalPriceError('Market prices are unavailable right now. Please try again later.') from None
+        except (requests.RequestException, ValueError) as exc:
+            logger.warning('data.gov.in mandi request failed: %s after %.1fs', type(exc).__name__, time.monotonic()-started)
             raise LocalPriceError('Market prices are unavailable right now. Please try again later.') from None
         if not isinstance(payload, dict) or payload.get('status') not in ('ok','success') or not isinstance(payload.get('records'),list):
+            logger.warning('data.gov.in mandi response not usable: status=%r message=%r',
+                           payload.get('status') if isinstance(payload, dict) else type(payload).__name__,
+                           str(payload.get('message', ''))[:200].replace(api_key, '<key>') if isinstance(payload, dict) else '')
             raise LocalPriceError('Market prices are unavailable right now. Please try again later.')
         batch = payload['records']
         try:
