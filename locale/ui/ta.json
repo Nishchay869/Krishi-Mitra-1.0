@@ -951,5 +951,6 @@
   "Set a new password": "புதிய கடவுச்சொல்லை அமைக்கவும்",
   "This password reset link is invalid or has expired. Please request a new one.": "இந்த பாஸ்வேர்ட் ரீசெட் லிங்க் சரியில்ல, இல்லன்னா எக்ஸ்பயர் ஆயிடுச்சு. தயவு செஞ்சு புதுசா ஒண்ணு ரெகுவெஸ்ட் பண்ணுங்க",
   "Your password has been changed. You can now log in.": "உங்களுடைய பாஸ்வேர்ட் மாற்றப்பட்டுவிட்டது, இனி நீங்கள் உள்நுழையலாம்",
-  "Take photo": "புகைப்படம் எடு"
+  "Take photo": "புகைப்படம் எடு",
+  "Loading…": "ஏற்றுகிறது..."
 }

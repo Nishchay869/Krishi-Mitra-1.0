@@ -1226,6 +1226,9 @@ msgstr "थळाव्या बाजाराचे ताजे भाव �
 msgid "Live voice conversation"
 msgstr "जिवीत आवाज संवाद"
 
+msgid "Loading…"
+msgstr "लोड जाता..."
+
 msgid "Loamy soil"
 msgstr "दोमट माती"
 

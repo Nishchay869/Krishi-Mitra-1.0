@@ -59,8 +59,8 @@
       return;
     }
 
+    clearResult();      // clear the old result first, then show the loading skeleton
     setLoading(true);
-    clearResult();
 
     const data = new FormData(form);
 
@@ -113,13 +113,31 @@
 
   function showLoader() {
     if (!resultEl) return;
-    resultEl.innerHTML = `
-      <div class="assessment-loading" role="status" aria-live="polite">
-        <div class="assessment-loading-spinner">
-          <span class="spinner-border" style="width:2.5rem;height:2.5rem;color:#6a9a4a" role="status"></span>
+    // Skeleton shaped like the result card while the photo is analysed (5-15 s).
+    const section = (lines) => `
+      <div class="card mb-3" style="border-radius:20px"><div class="card-body p-4 sk-row" style="align-items:flex-start">
+        <div class="sk sk-circle" style="width:36px;height:36px"></div>
+        <div class="sk-stack flex-grow-1">
+          <div class="sk sk-title" style="width:40%"></div>
+          ${lines.map((w) => `<div class="sk sk-line" style="width:${w}%"></div>`).join('')}
         </div>
-        <p class="assessment-loading-text">${t('ML model is analyzing your leaf photo…')}</p>
-        <p class="assessment-loading-sub">${t('Running deep learning disease classification…')}</p>
+      </div></div>`;
+    resultEl.innerHTML = `
+      <div role="status" aria-live="polite" aria-busy="true">
+        <p class="assessment-loading-text mb-3">${t('Analyzing leaf photo…')}</p>
+        <div class="card mb-3" style="border-radius:20px"><div class="card-body p-4">
+          <div class="d-flex justify-content-between mb-3">
+            <div class="sk sk-pill" style="width:210px"></div>
+            <div class="sk sk-pill" style="width:150px"></div>
+          </div>
+          <div class="sk sk-line" style="width:90px"></div>
+          <div class="sk sk-title" style="width:75%;height:30px"></div>
+          <div class="sk sk-pill mb-3" style="width:140px"></div>
+          <div class="sk sk-line" style="width:100%"></div>
+          <div class="sk sk-line" style="width:85%"></div>
+        </div></div>
+        ${section([100, 92, 70])}
+        ${section([88, 80, 84, 60])}
       </div>`;
   }
 

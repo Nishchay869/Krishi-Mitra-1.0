@@ -10,13 +10,25 @@
 <div class="farming-calc-page py-2">
   <script id="user-crops-data" type="application/json">{{ user_crops_json|safe }}</script>
   <div id="farming-calculator-root" data-react-island="FarmingCalculator">
-    <!-- Server-rendered fallback while island mounts -->
-    <div class="max-w-4xl mx-auto p-6 farming-card rounded-3xl min-h-[500px] flex flex-col items-center justify-center text-center">
-      <div class="spinner-border text-primary mb-3" role="status">
-        <span class="visually-hidden">Loading...</span>
+    <!-- Skeleton shaped like the calculator, replaced as soon as it loads -->
+    <div class="max-w-4xl mx-auto p-6 farming-card rounded-3xl min-h-[500px]" role="status" aria-busy="true">
+      <span class="visually-hidden">{% translate "Loading…" %}</span>
+      <div class="d-flex gap-2 mb-4">
+        <div class="sk sk-pill" style="width:120px"></div>
+        <div class="sk sk-pill" style="width:120px"></div>
+        <div class="sk sk-pill" style="width:120px"></div>
       </div>
-      <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-1">Farming Calculator</h3>
-      <p class="text-sm text-slate-500 dark:text-slate-400">Loading Precision Agronomist & Decision Support Engine…</p>
+      <div class="sk sk-title" style="width:45%"></div>
+      <div class="sk sk-line" style="width:70%;margin-bottom:22px"></div>
+      <div class="row g-3">
+        <div class="col-sm-6"><div class="sk sk-line" style="width:45%"></div><div class="sk sk-input"></div></div>
+        <div class="col-sm-6"><div class="sk sk-line" style="width:45%"></div><div class="sk sk-input"></div></div>
+        <div class="col-sm-6"><div class="sk sk-line" style="width:45%"></div><div class="sk sk-input"></div></div>
+        <div class="col-sm-6"><div class="sk sk-line" style="width:45%"></div><div class="sk sk-input"></div></div>
+        <div class="col-sm-6"><div class="sk sk-line" style="width:45%"></div><div class="sk sk-input"></div></div>
+        <div class="col-sm-6"><div class="sk sk-line" style="width:45%"></div><div class="sk sk-input"></div></div>
+      </div>
+      <div class="sk sk-button mt-2" style="max-width:220px"></div>
     </div>
   </div>
 

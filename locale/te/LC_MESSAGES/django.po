@@ -1226,6 +1226,9 @@ msgstr "స్థానిక మార్కెట్ తాజా ధరలు
 msgid "Live voice conversation"
 msgstr "ప్రత్యక్ష వాయిస్ సంభాషణ"
 
+msgid "Loading…"
+msgstr "లోడ్ అవుతోంది..."
+
 msgid "Loamy soil"
 msgstr "లోమీ నేల"
 

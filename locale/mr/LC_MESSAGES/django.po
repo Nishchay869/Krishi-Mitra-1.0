@@ -1226,6 +1226,9 @@ msgstr "स्थानिक बाजाराचे ताजे भाव �
 msgid "Live voice conversation"
 msgstr "थेट आवाजातील संभाषण"
 
+msgid "Loading…"
+msgstr "लोड होत आहे..."
+
 msgid "Loamy soil"
 msgstr "पोयट्याची माती"
 

@@ -1226,6 +1226,9 @@ msgstr "স্থানীয় বাজারের নতুন দাম �
 msgid "Live voice conversation"
 msgstr "সরাসরি কণ্ঠস্বর কথোপকথন"
 
+msgid "Loading…"
+msgstr "লোড হচ্ছে..."
+
 msgid "Loamy soil"
 msgstr "দোআঁশ মাটি"
 

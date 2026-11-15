@@ -1226,6 +1226,9 @@ msgstr "સ્થાનિક બજારના તાજા ભાવ હજ�
 msgid "Live voice conversation"
 msgstr "જીવંત અવાજની વાતચીત"
 
+msgid "Loading…"
+msgstr "લોડ થઈ રહ્યું છે..."
+
 msgid "Loamy soil"
 msgstr "ગોરાડુ જમીન"
 

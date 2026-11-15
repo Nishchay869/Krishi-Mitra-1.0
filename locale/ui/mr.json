@@ -951,5 +951,6 @@
   "Set a new password": "नवीन संकेतशब्द सेट करा",
   "This password reset link is invalid or has expired. Please request a new one.": "ही पासवर्ड रीसेट लिंक अवैध आहे किंवा कालबाह्य झाली आहे. कृपया नवीन विनंती करा.",
   "Your password has been changed. You can now log in.": "तुमचा पासवर्ड बदलण्यात आला आहे. तुम्ही आता लॉग इन करू शकता.",
-  "Take photo": "फोटो घ्या"
+  "Take photo": "फोटो घ्या",
+  "Loading…": "लोड होत आहे..."
 }

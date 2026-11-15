@@ -951,5 +951,6 @@
   "Set a new password": "एकटा नव पासवर्ड सेट करू।",
   "This password reset link is invalid or has expired. Please request a new one.": "ई पासवर्ड रीसेट लिङ्क अमान्य वा समाप्त भऽ गेल अछि। कृपया एकटा नव लिङ्क मँगू।",
   "Your password has been changed. You can now log in.": "अहाँक पासवर्ड बदलि देल गेल अछि। आब अहाँ लॉग इन कऽ सकैत छी।",
-  "Take photo": "फोटो लिअ"
+  "Take photo": "फोटो लिअ",
+  "Loading…": "लोड भऽ रहल अछि..."
 }

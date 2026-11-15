@@ -951,5 +951,6 @@
   "Set a new password": "मोनसे गोदान पासवर्ड थि खालाम।",
   "This password reset link is invalid or has expired. Please request a new one.": "बे पासवर्ड रिसेट लिंकआ गोरोन्थि एबा जोबलांबाय। अन्नानै मोनसे गोदान बिदिनो खावलाय।",
   "Your password has been changed. You can now log in.": "नोंथांनि पासवर्डखौ सोलायनाय जाबाय। नोंथाङा दा लग इन खालामनो हायो।",
-  "Take photo": "सावगारि ला।"
+  "Take photo": "सावगारि ला।",
+  "Loading…": "लडिं खालामगासिनो दं..."
 }

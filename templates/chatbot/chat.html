@@ -53,13 +53,33 @@
     {% if VOICE_ENABLED %}<span class="d-none" data-mic aria-hidden="true"></span>{% endif %}
     <script id="chat-history-data" type="application/json">{{ history_json|safe }}</script>
     <div id="ai-chat-card-root" data-react-island="AIChatIsland" data-user-name="{{ user_name|default:'Farmer' }}">
-      <div
-        class="ai-chat-card-surface rounded-2xl border border-slate-200/80 p-4 sm:p-8 shadow-sm flex flex-col items-center justify-center min-h-[440px] text-center">
-        <div class="spinner-border text-success mb-3" role="status">
-          <span class="visually-hidden">Loading...</span>
+      {# Skeleton shaped like the chat card, replaced as soon as the chat loads #}
+      <div class="ai-chat-card-surface rounded-2xl border border-slate-200/80 shadow-sm flex flex-col min-h-[540px]" role="status" aria-busy="true">
+        <span class="visually-hidden">{% translate "Loading…" %}</span>
+        <div class="sk-row px-4 py-3" style="border-bottom:1px solid var(--sk-base)">
+          <div class="sk sk-circle" style="width:36px;height:36px"></div>
+          <div class="sk-stack flex-grow-1">
+            <div class="sk sk-title" style="width:58%;margin-bottom:8px"></div>
+            <div class="sk sk-line" style="width:40%;margin-bottom:0"></div>
+          </div>
+          <div class="sk sk-block" style="width:32px;height:32px"></div>
         </div>
-        <h4 class="fw-semibold text-slate-800 dark:text-slate-100 mb-1">Loading…</h4>
-        <p class="text-muted small">Connecting…</p>
+        <div class="flex flex-1 flex-col items-center justify-center px-4 py-8 text-center">
+          <div class="sk sk-circle mb-3" style="width:44px;height:44px"></div>
+          <div class="sk sk-line" style="width:150px;height:16px"></div>
+          <div class="sk sk-line" style="width:min(320px,80%)"></div>
+          <div class="sk sk-line" style="width:min(240px,60%)"></div>
+          <div class="d-flex flex-wrap justify-content-center gap-2 mt-3" style="max-width:420px">
+            <div class="sk sk-block" style="width:110px;height:32px"></div>
+            <div class="sk sk-block" style="width:100px;height:32px"></div>
+            <div class="sk sk-block" style="width:120px;height:32px"></div>
+            <div class="sk sk-block" style="width:90px;height:32px"></div>
+            <div class="sk sk-block" style="width:110px;height:32px"></div>
+          </div>
+        </div>
+        <div class="px-3 pb-3 pt-2">
+          <div class="sk sk-block" style="height:96px;border-radius:16px"></div>
+        </div>
       </div>
     </div>
   </div>

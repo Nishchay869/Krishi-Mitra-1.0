@@ -951,5 +951,6 @@
   "Set a new password": "ഒരു പുതിയ പാസ്‌വേഡ് സജ്ജമാക്കുക",
   "This password reset link is invalid or has expired. Please request a new one.": "ഈ പാസ്‌വേഡ് റീസെറ്റ് ലിങ്ക് അസാധുവായതോ കാലഹരണപ്പെട്ടതോ ആണ്. ദയവായി പുതിയൊരെണ്ണം അഭ്യർത്ഥിക്കുക.",
   "Your password has been changed. You can now log in.": "നിങ്ങളുടെ പാസ്‌വേഡ് മാറ്റിയിട്ടുണ്ട്. നിങ്ങൾക്ക് ഇപ്പോൾ ലോഗിൻ ചെയ്യാം.",
-  "Take photo": "ഫോട്ടോ എടുക്കുക"
+  "Take photo": "ഫോട്ടോ എടുക്കുക",
+  "Loading…": "ലോഡ് ചെയ്യുന്നു..."
 }

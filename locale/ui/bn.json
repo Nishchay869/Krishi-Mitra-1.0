@@ -951,5 +951,6 @@
   "Set a new password": "নতুন পাসওয়ার্ড সেট করুন।",
   "This password reset link is invalid or has expired. Please request a new one.": "এই পাসওয়ার্ড রিসেট লিঙ্কটি অবৈধ অথবা এর মেয়াদ শেষ হয়ে গেছে। অনুগ্রহ করে একটি নতুন পাসওয়ার্ড চেয়ে নিন।",
   "Your password has been changed. You can now log in.": "আপনার পাসওয়ার্ড পরিবর্তন করা হয়েছে। আপনি এখন লগইন করতে পারেন।",
-  "Take photo": "ছবি তুলুন।"
+  "Take photo": "ছবি তুলুন।",
+  "Loading…": "লোড হচ্ছে..."
 }

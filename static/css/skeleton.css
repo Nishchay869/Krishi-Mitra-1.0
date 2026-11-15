@@ -1,0 +1,42 @@
+/* Skeleton loading placeholders: grey blocks shaped like the content that is loading.
+   Usage: <div class="sk sk-line" style="width:60%"></div>. Wrap a skeleton in an element
+   with role="status" aria-busy="true" and a visually-hidden "Loading…" for screen readers. */
+
+:root {
+  --sk-base: #e2e8f0;
+  --sk-shine: #f8fafc;
+}
+html.dark,
+[data-theme="dark"] {
+  --sk-base: #1e293b;
+  --sk-shine: #2b3a52;
+}
+
+.sk {
+  display: block;
+  background: linear-gradient(90deg, var(--sk-base) 25%, var(--sk-shine) 37%, var(--sk-base) 63%) !important;
+  background-size: 400% 100% !important;
+  border: 0 !important;
+  border-radius: 8px;
+  animation: sk-shimmer 1.4s ease-in-out infinite;
+  color: transparent !important;
+  pointer-events: none;
+  user-select: none;
+}
+.sk-line   { height: 12px; margin-bottom: 10px; }
+.sk-title  { height: 22px; margin-bottom: 14px; }
+.sk-pill   { height: 28px; border-radius: 999px; }
+.sk-circle { border-radius: 50%; flex-shrink: 0; }
+.sk-input  { height: 44px; border-radius: 12px; margin-bottom: 16px; }
+.sk-button { height: 46px; border-radius: 12px; }
+.sk-block  { border-radius: 14px; }
+.sk-row    { display: flex; align-items: center; gap: 12px; }
+.sk-stack  { display: flex; flex-direction: column; }
+
+@keyframes sk-shimmer {
+  0%   { background-position: 100% 50%; }
+  100% { background-position: 0 50%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .sk { animation: none; }
+}

@@ -951,5 +951,6 @@
   "Set a new password": "এটা নতুন পাছৱৰ্ড ছেট কৰক",
   "This password reset link is invalid or has expired. Please request a new one.": "এই পাছৱৰ্ড ৰিছেট লিংকটো অবৈধ বা ম্যাদ উকলি গৈছে। অনুগ্ৰহ কৰি এটা নতুন বিচাৰক।",
   "Your password has been changed. You can now log in.": "আপোনাৰ পাছৱৰ্ড সলনি কৰা হৈছে। আপুনি এতিয়া লগ ইন কৰিব পাৰে।",
-  "Take photo": "ফটো তোলক"
+  "Take photo": "ফটো তোলক",
+  "Loading…": "ল'ডিং হৈ আছে..."
 }
