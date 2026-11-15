@@ -262,9 +262,71 @@ export default function AIChatIsland({
       return;
     }
 
+    const win = window as unknown as { CHAT_API_URL?: string };
+    const endpoint = win.CHAT_API_URL || apiUrl;
+    const botId = `bot-stream-${Date.now()}`;
+    let shown = false; // has the reply bubble been added yet?
+
+    // The bubble keeps the same id while it streams (changing it would make React re-create it
+    // and flicker); the saved message id goes into serverId for voice playback.
+    const showReply = (content: string, serverId?: string | number) => {
+      const append = !shown; // decide now: React may run the updater later
+      shown = true;
+      setMessages((prev) =>
+        append
+          ? [...prev, { id: botId, role: "assistant", content, serverId }]
+          : prev.map((m) => (m.id === botId ? { ...m, content, serverId: serverId ?? m.serverId } : m))
+      );
+    };
+
     try {
-      const win = window as unknown as { CHAT_API_URL?: string };
-      const endpoint = win.CHAT_API_URL || apiUrl;
+      // 1) Streaming: the reply appears piece by piece while it is being written.
+      let streamed = false;
+      try {
+        const resp = await fetch("/chat/api/stream/", {
+          method: "POST",
+          headers: { "Content-Type": "application/json", "X-CSRFToken": getCsrfToken() },
+          body: JSON.stringify({ message: text }),
+        });
+        if (resp.ok && resp.body) {
+          const reader = resp.body.getReader();
+          const decoder = new TextDecoder();
+          let buffer = "";
+          let replyText = "";
+          for (;;) {
+            const { value, done } = await reader.read();
+            if (done) break;
+            buffer += decoder.decode(value, { stream: true });
+            const lines = buffer.split("\n");
+            buffer = lines.pop() || "";
+            for (const line of lines) {
+              if (!line.trim()) continue;
+              const event = JSON.parse(line);
+              if (event.type === "delta") {
+                replyText += event.text;
+                setIsLoading(false); // hide the typing dots once words start arriving
+                showReply(replyText);
+                streamed = true;
+              } else if (event.type === "replace") {
+                replyText = event.text;
+                showReply(replyText);
+                streamed = true;
+              } else if (event.type === "done") {
+                showReply(event.reply || replyText, event.message_id);
+                streamed = true;
+              } else if (event.type === "error") {
+                showReply(replyText ? `${replyText}\n\n${event.error}` : event.error);
+                streamed = true;
+              }
+            }
+          }
+        }
+      } catch {
+        // fall through to the non-streaming request below if nothing was shown yet
+      }
+      if (streamed) return;
+
+      // 2) Fallback: the original one-shot request.
       const resp = await fetch(endpoint, {
         method: "POST",
         headers: {
@@ -280,25 +342,9 @@ export default function AIChatIsland({
 
       const data = await resp.json();
       const botReply = data.reply || data.error || "Sorry, I could not process that request.";
-
-      setMessages((prev) => [
-        ...prev,
-        {
-          id: data.message_id ? `bot-${data.message_id}` : `bot-${Date.now()}`,
-          role: "assistant",
-          content: botReply,
-        },
-      ]);
+      showReply(botReply, data.message_id);
     } catch {
-      setMessages((prev) => [
-        ...prev,
-        {
-          id: `bot-err-${Date.now()}`,
-          role: "assistant",
-          content:
-            "Connection issue. Please verify your network or try asking again in a moment.",
-        },
-      ]);
+      showReply("Connection issue. Please verify your network or try asking again in a moment.");
     } finally {
       setIsLoading(false);
     }
@@ -421,7 +467,8 @@ export default function AIChatIsland({
     activeMessageIdRef.current = messageId;
     setPlayingId(messageId);
 
-    const numericId = String(messageId).replace(/^(bot-|user-)/, "");
+    const serverId = messages.find((m) => m.id === messageId)?.serverId;
+    const numericId = String(serverId ?? messageId).replace(/^(bot-|user-)/, "");
     if (!numericId || isNaN(Number(numericId))) {
       playWithSpeechSynthesis(messageId, text);
       return;

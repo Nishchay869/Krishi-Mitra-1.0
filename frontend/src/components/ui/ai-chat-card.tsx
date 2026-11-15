@@ -26,6 +26,8 @@ export interface ChatMessageItem {
   image?: string;
   isVoice?: boolean;
   time?: string;
+  /** Saved ChatMessage id when it differs from `id` (streamed replies keep a stable id). */
+  serverId?: string | number;
 }
 
 export interface AIChatCardProps {
@@ -197,6 +199,16 @@ export function AIChatCard({
       behavior: "smooth",
     });
   }, [messages.length, isLoading]);
+
+  // Follow a streaming reply as it grows, unless the farmer has scrolled up to read.
+  const lastContent = messages[messages.length - 1]?.content;
+  React.useEffect(() => {
+    const el = messagesContainerRef.current;
+    if (!el) return;
+    if (el.scrollHeight - el.scrollTop - el.clientHeight < 120) {
+      el.scrollTop = el.scrollHeight;
+    }
+  }, [lastContent]);
 
   // Dynamic auto-grow for textarea without native scrollbars
   React.useLayoutEffect(() => {

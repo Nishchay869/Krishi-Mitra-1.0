@@ -45,7 +45,7 @@ def detect_script_language(text):
     return None
 
 
-def respond(message, language=None, output_language=None):
+def _resolve_target(message, language=None, output_language=None):
     """Return (BotReply, reply_text_in_user_language, language_code, english_query).
     
     Optimized for strict language fidelity:
@@ -83,9 +83,11 @@ def respond(message, language=None, output_language=None):
         target = detected_lang
     else:
         target = output_language or language or sarvam.ENGLISH
+    return message_str, detected_lang, target
 
-    reply = engine.answer(message_str, language=target)
-    text = reply.text
+
+def _localize(reply, text, target, detected_lang):
+    """Translate an English reply into the user's language when needed (Sarvam)."""
 
     # If the response is in English but user asked in regional language:
     if target != sarvam.ENGLISH and not any(ord(ch) > 127 for ch in text):
@@ -104,4 +106,38 @@ def respond(message, language=None, output_language=None):
             else:
                 target = sarvam.ENGLISH
 
+    return text, target
+
+
+def respond(message, language=None, output_language=None):
+    """Return (BotReply, reply_text_in_user_language, language_code, english_query).
+
+    Optimized for strict language fidelity:
+    - Non-ASCII Indian scripts (Kannada, Telugu, Tamil, Bengali, Hindi) detected instantly (<0.001ms)
+    - Romanized regional words (e.g. 'ragi bele ge yava gobbara') detected via lexicon
+    - User's active language always takes precedence over foreign defaults
+    - Gemini instructed with strict language requirement
+    """
+    message_str, detected_lang, target = _resolve_target(message, language, output_language)
+    reply = engine.answer(message_str, language=target)
+    text, target = _localize(reply, reply.text, target, detected_lang)
     return reply, text, target, message_str
+
+
+def respond_stream(message, language=None, output_language=None):
+    """Streaming respond(): yields ('delta', text_piece) while the answer is written, then
+    ('final', (BotReply, reply_text_in_user_language, language_code, english_query)).
+
+    If the reply had to be translated afterwards, the final text differs from the streamed
+    pieces and the client should replace what it showed.
+    """
+    message_str, detected_lang, target = _resolve_target(message, language, output_language)
+    pieces = engine.stream_answer(message_str, language=target)
+    while True:
+        try:
+            yield ('delta', next(pieces))
+        except StopIteration as done:
+            reply = done.value
+            break
+    text, target = _localize(reply, reply.text, target, detected_lang)
+    yield ('final', (reply, text, target, message_str))

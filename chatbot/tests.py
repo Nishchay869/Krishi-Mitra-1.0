@@ -535,3 +535,91 @@ class ExtendedAgriculturalRAGTests(TestCase):
 
 
 
+
+
+def _sse_response(chunks, status=200):
+    """Fake Gemini streamGenerateContent (alt=sse) response."""
+    resp = MagicMock(status_code=status, text='')
+    resp.iter_lines.return_value = [
+        'data: ' + json.dumps({'candidates': [{'content': {'parts': [{'text': c}]}}]}) for c in chunks
+    ]
+    return resp
+
+
+@override_settings(GEMINI_API_KEY='test-placeholder', SARVAM_API_KEY='')
+class StreamingChatTests(TestCase):
+    def setUp(self):
+        from django.core.cache import cache
+        cache.clear()
+
+    def _events(self, message):
+        response = self.client.post(reverse('chatbot:api_stream'), json.dumps({'message': message}),
+                                    content_type='application/json')
+        self.assertEqual(response.status_code, 200)
+        self.assertTrue(response.streaming)
+        self.assertEqual(response['Content-Type'], 'application/x-ndjson; charset=utf-8')
+        return [json.loads(line) for line in b''.join(response.streaming_content).decode().splitlines() if line]
+
+    @patch('chatbot.engine.requests.post')
+    def test_reply_arrives_piece_by_piece_and_is_saved(self, post):
+        post.return_value = _sse_response(['Apply ', 'neem oil ', 'every 7 days.'])
+        events = self._events('How do I control aphids on my chilli crop?')
+        deltas = [e['text'] for e in events if e['type'] == 'delta']
+        self.assertEqual(deltas, ['Apply ', 'neem oil ', 'every 7 days.'])
+        done = events[-1]
+        self.assertEqual(done['type'], 'done')
+        self.assertEqual(done['reply'], 'Apply neem oil every 7 days.')
+        self.assertFalse(any(e['type'] == 'replace' for e in events))
+        self.assertEqual(ChatMessage.objects.get(pk=done['message_id']).response, 'Apply neem oil every 7 days.')
+        self.assertEqual(post.call_args.kwargs['params']['alt'], 'sse')
+        self.assertTrue(post.call_args.kwargs['stream'])
+
+    @patch('chatbot.engine.requests.post')
+    def test_greeting_is_sent_in_one_piece_without_calling_gemini(self, post):
+        events = self._events('Hello')
+        self.assertEqual(len([e for e in events if e['type'] == 'delta']), 1)
+        self.assertEqual(events[-1]['type'], 'done')
+        post.assert_not_called()
+
+    @patch('chatbot.engine.requests.post')
+    def test_gemini_failure_falls_back_to_a_reply(self, post):
+        post.return_value = _sse_response([], status=503)
+        events = self._events('How do I control aphids on my chilli crop?')
+        self.assertEqual(events[-1]['type'], 'done')
+        self.assertTrue(events[-1]['reply'])
+
+    @patch('chatbot.sarvam.translate', return_value='ನೀಮ್ ಎಣ್ಣೆ ಬಳಸಿ')
+    @patch('chatbot.sarvam.is_configured', return_value=True)
+    @patch('chatbot.engine.requests.post')
+    def test_translated_reply_replaces_streamed_english(self, post, configured, translate):
+        post.return_value = _sse_response(['Use ', 'neem oil.'])
+        response = self.client.post(reverse('chatbot:api_stream'),
+                                    json.dumps({'message': 'How do I control aphids on chilli?', 'language': 'kn-IN'}),
+                                    content_type='application/json')
+        events = [json.loads(l) for l in b''.join(response.streaming_content).decode().splitlines() if l]
+        replace = [e for e in events if e['type'] == 'replace']
+        self.assertEqual(replace[0]['text'], 'ನೀಮ್ ಎಣ್ಣೆ ಬಳಸಿ')
+        self.assertEqual(events[-1]['reply'], 'ನೀಮ್ ಎಣ್ಣೆ ಬಳಸಿ')
+
+    def test_empty_message_is_rejected(self):
+        response = self.client.post(reverse('chatbot:api_stream'), json.dumps({'message': ' '}),
+                                    content_type='application/json')
+        self.assertEqual(response.status_code, 400)
+
+
+class StreamingEncodingTests(TestCase):
+    @override_settings(GEMINI_API_KEY='test-placeholder')
+    @patch('chatbot.engine.requests.post')
+    def test_indian_language_text_is_not_garbled(self, post):
+        """Gemini's SSE has no charset; without forcing UTF-8, Kannada came out as 'à²...'."""
+        import io
+        import requests
+        kannada = 'ಭತ್ತಕ್ಕೆ ಯೂರಿಯಾ ಹಾಕಿ'
+        raw = ('data: ' + json.dumps({'candidates': [{'content': {'parts': [{'text': kannada}]}}]},
+                                     ensure_ascii=False) + '\n\n').encode('utf-8')
+        resp = requests.models.Response()
+        resp.status_code = 200
+        resp.headers['Content-Type'] = 'text/event-stream'
+        resp.raw = io.BytesIO(raw)
+        post.return_value = resp
+        self.assertEqual(''.join(engine.stream_gemini('paddy urea?', target_language='kn-IN')), kannada)
