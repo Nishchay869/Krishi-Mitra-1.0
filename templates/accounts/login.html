@@ -16,13 +16,7 @@
       "errorMessage": "{% if form.errors %}{% for error in form.non_field_errors %}{{ error }}{% empty %}{% translate "Invalid email or password." %}{% endfor %}{% endif %}",
       "loginUrl": "{% url "accounts:login" %}",
       "registerUrl": "{% url "accounts:register" %}",
-      "forgotUrl": "{% url "accounts:password_reset" %}",
-      "images": [
-        "{% static "images/auth/farmer-1.jpg" %}",
-        "{% static "images/auth/farmer-2.jpg" %}",
-        "{% static "images/auth/farmer-3.jpg" %}",
-        "{% static "images/auth/farmer-4.jpg" %}"
-      ]
+      "forgotUrl": "{% url "accounts:password_reset" %}"
     }'
   >
     <!-- Server-rendered accessible fallback with 21st.dev tactile back button -->

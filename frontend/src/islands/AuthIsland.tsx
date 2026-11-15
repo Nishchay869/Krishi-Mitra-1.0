@@ -1,7 +1,6 @@
 import { useState } from "react";
 import type { Variants } from "framer-motion";
 import { motion } from "framer-motion";
-import { ImageSlider } from "@/components/ui/image-slider";
 import { ArrowLeft } from "lucide-react";
 import "./AuthIsland.css";
 
@@ -15,7 +14,6 @@ export interface AuthIslandProps {
   loginUrl?: string;
   registerUrl?: string;
   forgotUrl?: string;
-  images?: string[];
 }
 
 function GoogleIcon({ className = "h-4 w-4" }: { className?: string }) {
@@ -37,13 +35,6 @@ function AppleIcon({ className = "h-4 w-4" }: { className?: string }) {
   );
 }
 
-const defaultImages = [
-  "/static/images/auth/farmer-1.jpg",
-  "/static/images/auth/farmer-2.jpg",
-  "/static/images/auth/farmer-3.jpg",
-  "/static/images/auth/farmer-4.jpg",
-];
-
 export default function AuthIsland({
   mode = "login",
   portal = "farmer",
@@ -54,7 +45,6 @@ export default function AuthIsland({
   loginUrl = "/accounts/login/",
   registerUrl = "/accounts/register/",
   forgotUrl = "/accounts/password-reset/",
-  images = defaultImages,
 }: AuthIslandProps) {
   const isLogin = mode === "login";
   const [activePortal, setActivePortal] = useState<"farmer" | "admin">(
@@ -85,52 +75,17 @@ export default function AuthIsland({
     },
   };
 
-  const slideImages = images && images.length > 0 ? images : defaultImages;
 
   return (
-    <div className="w-full md:min-h-[580px] md:h-screen flex items-start md:items-center justify-center sm:p-4">
+    <div className="w-full flex items-start justify-center sm:p-4 md:py-10">
       <motion.div
-        className="auth-card w-full max-w-5xl md:h-[720px] flex flex-col md:flex-row rounded-2xl overflow-hidden"
+        className="auth-card w-full max-w-md flex flex-col rounded-2xl overflow-hidden"
         initial={{ opacity: 0, scale: 0.96 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.45, ease: "easeOut" }}
       >
-        {/* Photo slider: a short banner on top on phones, the left column from tablets up */}
-        <div className="auth-slider-panel w-full md:w-1/2 h-44 sm:h-60 md:h-full relative overflow-hidden flex-shrink-0">
-          <ImageSlider
-            images={slideImages}
-            interval={4500}
-            className="h-full w-full"
-          />
-
-          {/* Frosted Glass Back Button on Photo */}
-          <div className="absolute top-4 left-4 z-30 hidden md:block">
-            <a
-              href="/"
-              className="auth-photo-back-btn"
-              title="Return to home page"
-            >
-              <ArrowLeft size={13} />
-              <span>Back to home</span>
-            </a>
-          </div>
-
-          {/* Photo Caption Overlay (Pure White Typography) */}
-          <div className="auth-photo-caption absolute bottom-8 left-6 right-6 z-20 pointer-events-none hidden md:block">
-            <span className="auth-photo-pill">
-              Krishi Mitra
-            </span>
-            <h2 className="auth-photo-title">
-              Empowering India's Farmers
-            </h2>
-            <p className="auth-photo-desc">
-              Intelligent crop advisory, real-time weather & mandi market intelligence.
-            </p>
-          </div>
-        </div>
-
-        {/* Right column: Login / Register Form Panel */}
-        <div className="auth-form-panel w-full md:w-1/2 h-auto md:h-full flex flex-col items-center justify-center px-5 py-6 sm:p-8 md:p-12 md:overflow-y-auto">
+        {/* Login form */}
+        <div className="auth-form-panel w-full flex flex-col items-center px-5 py-6 sm:p-8">
           <motion.div
             className="w-full max-w-sm"
             variants={containerVariants}
