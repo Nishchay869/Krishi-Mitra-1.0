@@ -175,7 +175,11 @@ LOGOUT_REDIRECT_URL = 'home'
 ML_MODELS_DIR = BASE_DIR / 'ml' / 'models'
 # Server-side leaf image assessment. Never expose this key to templates or browser JS.
 GEMINI_API_KEY = os.environ.get('GEMINI_API_KEY') or os.environ.get('GOOGLE_API_KEY', '')
-GEMINI_DISEASE_MODEL = os.environ.get('GEMINI_DISEASE_MODEL', 'gemini-3.8-flash')
+# flash-lite: ~6 s per leaf photo and matched/beat the local model on field photos;
+# gemini-3.8-flash took ~2 minutes per photo, beyond the web server's request limit.
+GEMINI_DISEASE_MODEL = os.environ.get('GEMINI_DISEASE_MODEL', 'gemini-3.5-flash-lite')
+# Seconds to wait for Gemini before the local model (ml/models) answers instead.
+GEMINI_DISEASE_TIMEOUT = int(os.environ.get('GEMINI_DISEASE_TIMEOUT', '25'))
 GEMINI_CHAT_MODEL = os.environ.get('GEMINI_CHAT_MODEL', 'gemini-3.5-flash-lite')
 
 DATA_GOV_IN_API_KEY = os.environ.get('DATA_GOV_IN_API_KEY', '')

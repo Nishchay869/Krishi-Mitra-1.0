@@ -345,7 +345,7 @@ def analyze_leaf(image_file, *, crop='', location='', notes='', language='en'):
         response = requests.post(
             'https://generativelanguage.googleapis.com/v1beta/interactions',
             headers={'x-goog-api-key': api_key, 'Content-Type': 'application/json'},
-            json=payload, timeout=(8, 120), allow_redirects=False,
+            json=payload, timeout=(8, getattr(settings, 'GEMINI_DISEASE_TIMEOUT', 25)), allow_redirects=False,
         )
     except requests.Timeout as exc:
         raise DiagnosisError(

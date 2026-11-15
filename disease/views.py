@@ -15,7 +15,7 @@ from django.views.decorators.http import require_POST
 from accounts.models import PredictionLog
 
 from .forms import LeafImageForm
-from .predictor import DiagnosisError, predict as analyze_leaf
+from .hybrid import DiagnosisError, analyze_leaf  # Gemini first, local model as backup
 
 
 def _format_diagnosis(log):

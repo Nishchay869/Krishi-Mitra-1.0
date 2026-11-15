@@ -1348,6 +1348,44 @@ html.dark .disease-type-environmental,
   border-color: #334155 !important;
 }
 
+/* Disease result badges: dark tinted pill + light text (pastel light-mode fills were unreadable) */
+html.dark .assessment-state,
+[data-theme="dark"] .assessment-state {
+  background: rgba(239, 68, 68, 0.16) !important;
+  border-color: rgba(248, 113, 113, 0.5) !important;
+  color: #fca5a5 !important;
+}
+html.dark .assessment-summary.healthy .assessment-state,
+[data-theme="dark"] .assessment-summary.healthy .assessment-state {
+  background: rgba(34, 197, 94, 0.16) !important;
+  border-color: rgba(74, 222, 128, 0.5) !important;
+  color: #86efac !important;
+}
+html.dark .uncertain .assessment-state,
+html.dark .not_leaf .assessment-state,
+[data-theme="dark"] .uncertain .assessment-state,
+[data-theme="dark"] .not_leaf .assessment-state {
+  background: rgba(245, 158, 11, 0.16) !important;
+  border-color: rgba(251, 191, 36, 0.5) !important;
+  color: #fcd34d !important;
+}
+html.dark .disease-type-fungal, [data-theme="dark"] .disease-type-fungal {
+  background: rgba(59, 130, 246, 0.16) !important; border-color: rgba(96, 165, 250, 0.5) !important; color: #93c5fd !important;
+}
+html.dark .disease-type-bacterial, [data-theme="dark"] .disease-type-bacterial {
+  background: rgba(249, 115, 22, 0.16) !important; border-color: rgba(251, 146, 60, 0.5) !important; color: #fdba74 !important;
+}
+html.dark .disease-type-viral, [data-theme="dark"] .disease-type-viral {
+  background: rgba(236, 72, 153, 0.16) !important; border-color: rgba(244, 114, 182, 0.5) !important; color: #f9a8d4 !important;
+}
+html.dark .disease-type-pest, [data-theme="dark"] .disease-type-pest {
+  background: rgba(234, 179, 8, 0.16) !important; border-color: rgba(250, 204, 21, 0.5) !important; color: #fde047 !important;
+}
+html.dark .disease-type-nutritional, [data-theme="dark"] .disease-type-nutritional {
+  background: rgba(16, 185, 129, 0.16) !important; border-color: rgba(52, 211, 153, 0.5) !important; color: #6ee7b7 !important;
+}
+html.dark .disease-type-badge i, [data-theme="dark"] .disease-type-badge i { color: inherit !important; }
+
 /* 9D. Content Links in Dark Mode (Bright, High-Contrast Accessible Sky Blue) */
 html.dark a:not(.btn):not(.dropdown-item):not(.nav-link):not(.navbar-brand):not(.bottom-nav-item):not(.plantix-tool-card):not(.plantix-lib-card):not(.plantix-weather-left):not(.plantix-weather-right):not(.plantix-hero-cta):not(.plantix-diag-card):not(.plantix-diag-view-all-btn):not(.plantix-sponsored-card):not(.crop-box),
 [data-theme="dark"] a:not(.btn):not(.dropdown-item):not(.nav-link):not(.navbar-brand):not(.bottom-nav-item):not(.plantix-tool-card):not(.plantix-lib-card):not(.plantix-weather-left):not(.plantix-weather-right):not(.plantix-hero-cta):not(.plantix-diag-card):not(.plantix-diag-view-all-btn):not(.plantix-sponsored-card):not(.crop-box) {

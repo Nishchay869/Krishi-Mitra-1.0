@@ -511,7 +511,9 @@ class PlantVisionEngine:
         try:
             from PIL import Image
             rgb = cv2.cvtColor(bgr_image, cv2.COLOR_BGR2RGB)
-            pil_img = Image.fromarray(rgb).resize((64, 64))
+            shape = getattr(model, 'input_shape', None) or (None, 64, 64, 3)
+            size = (int(shape[2] or 64), int(shape[1] or 64))
+            pil_img = Image.fromarray(rgb).resize(size)
             arr = np.asarray(pil_img, dtype='float32')
             batch = np.expand_dims(arr, 0)
             probs = model.predict(batch, verbose=0)[0]

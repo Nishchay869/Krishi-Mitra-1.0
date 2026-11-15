@@ -10,7 +10,7 @@ from pathlib import Path
 
 import numpy as np
 from django.conf import settings
-from PIL import Image
+from PIL import Image, ImageOps
 
 from .gemini import DiagnosisError
 from .treatments import (
@@ -19,9 +19,40 @@ from .treatments import (
     parse_class,
 )
 
-IMG_SIZE = (64, 64)
+IMG_SIZE = (64, 64)  # fallback only; the real size is read from the loaded model
 
 ModelNotTrained = DiagnosisError
+
+
+CROP_SYNONYMS = {
+    'paddy': 'rice', 'dhan': 'rice', 'maize': 'corn', 'makka': 'corn', 'brinjal': 'eggplant',
+    'aubergine': 'eggplant', 'capsicum': 'pepper', 'soya': 'soybean', 'soyabean': 'soybean',
+    'groundnut': 'peanut', 'lady finger': 'okra', 'bhindi': 'okra',
+}
+
+
+def _plant_key(text):
+    words = ' '.join(text.lower().replace('_', ' ').replace(',', ' ').replace('(', ' ').replace(')', ' ').split())
+    return CROP_SYNONYMS.get(words, words)
+
+
+def crop_class_mask(classes, crop):
+    """Boolean mask of classes belonging to the farmer's crop, or None if the crop is unknown to the model."""
+    key = _plant_key(crop or '')
+    if not key:
+        return None
+    key_words = set(key.split())
+    # whole-word match: "corn" matches "Corn (maize)", "pepper" matches "Pepper bell", "pea" does not match "Peach"
+    mask = np.array([key_words <= set(_plant_key(parse_class(c)[0]).split()) for c in classes])
+    return mask if mask.any() else None
+
+
+def model_input_size(model):
+    """(width, height) the model expects, e.g. 224x224 for the transfer-learning model."""
+    shape = getattr(model, 'input_shape', None)
+    if shape and len(shape) == 4 and shape[1] and shape[2]:
+        return int(shape[2]), int(shape[1])
+    return IMG_SIZE
 
 
 @lru_cache(maxsize=1)
@@ -75,7 +106,8 @@ def predict(image_file, crop='', location='', notes='', language='en'):
         if isinstance(image_file, Image.Image):
             img = image_file.convert('RGB')
         else:
-            img = Image.open(image_file).convert('RGB')
+            # exif_transpose: phone photos are often stored sideways with a rotation tag
+            img = ImageOps.exif_transpose(Image.open(image_file)).convert('RGB')
     except Exception as exc:
         raise DiagnosisError(
             'The uploaded file is not a valid or readable image. Please provide a clear JPG or PNG photo.',
@@ -83,13 +115,20 @@ def predict(image_file, crop='', location='', notes='', language='en'):
             status=400
         ) from exc
 
-    # Resize to model input shape (64, 64)
-    img_resized = img.resize(IMG_SIZE)
+    # Resize to the model's input shape (raw 0-255 pixels; the model normalises itself)
+    img_resized = img.resize(model_input_size(model))
     arr = np.asarray(img_resized, dtype='float32')
-    batch = np.expand_dims(arr, 0)
+    batch = np.stack([arr, arr[:, ::-1, :]])  # photo + mirror image
 
-    # Run neural network inference
-    probs = model.predict(batch, verbose=0)[0]
+    # Run neural network inference; average both views for a steadier answer
+    probs = model.predict(batch, verbose=0).mean(axis=0)
+
+    # If the farmer named a crop the model knows, only compare diseases of that crop.
+    # Scores are NOT rescaled to 100%: if the model was unsure, the farmer must see a low
+    # confidence (and "needs confirmation") rather than an inflated one.
+    mask = crop_class_mask(classes, crop)
+    if mask is not None:
+        probs = np.where(mask, probs, 0.0)
 
     # Sort prediction indices descending by confidence
     top_indices = np.argsort(probs)[::-1]

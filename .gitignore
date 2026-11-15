@@ -137,3 +137,13 @@ Thumbs.db
 *.swo
 *~
 *.bak
+
+# Local model backups & training leftovers (keep on disk, never commit)
+ml/models/*.old.*
+ml/models/*.prev.*
+ml/models/*.v[0-9]*.*
+ml/models/*.training.keras
+data/raw/
+data/disease_merged*/
+data/field_test/
+data/test_model/

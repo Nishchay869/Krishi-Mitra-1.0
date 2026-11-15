@@ -6,4 +6,4 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY . .
 RUN python -m ml.train_crop && python -m ml.train_yield && DJANGO_DEBUG=0 python manage.py collectstatic --noinput
 EXPOSE 8000
-CMD ["sh", "-c", "python manage.py migrate --noinput && python manage.py seed_knowledge && gunicorn agri_assistant.wsgi --bind 0.0.0.0:8000"]
+CMD ["sh", "-c", "python manage.py migrate --noinput && python manage.py seed_knowledge && gunicorn agri_assistant.wsgi --bind 0.0.0.0:8000 --timeout 60"]

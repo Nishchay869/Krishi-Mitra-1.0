@@ -1290,9 +1290,13 @@ def get_diagnosis_details(class_name, confidence=1.0, crop_context='', location=
     meta = get_disease_metadata(norm_disease)
 
     # Determine status and certainty
-    if is_healthy:
+    if is_healthy and confidence >= 0.50:
         status = 'healthy'
         certainty = 'high' if confidence >= 0.70 else 'medium'
+    elif is_healthy:
+        # an unsure "healthy" must not reassure the farmer; a real disease may be missed
+        status = 'needs_confirmation'
+        certainty = 'low'
     elif confidence >= 0.35:
         status = 'likely_disease'
         certainty = 'high' if confidence >= 0.75 else ('medium' if confidence >= 0.50 else 'low')
