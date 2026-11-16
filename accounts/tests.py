@@ -257,3 +257,45 @@ class FeedbackTests(TestCase):
         self.assertEqual(tomato_crop['stories'][0]['title'], 'Late Blight Advisory')
 
 
+
+
+class NoNPlusOneQueryTests(TestCase):
+    """Pages that list rows must not run one extra query per row (N+1)."""
+
+    def queries_for(self, url):
+        from django.db import connection
+        from django.test.utils import CaptureQueriesContext
+        with CaptureQueriesContext(connection) as ctx:
+            self.assertEqual(self.client.get(url).status_code, 200)
+        return len(ctx.captured_queries)
+
+    def add_feedback(self, n):
+        from .models import Feedback
+        for _ in range(n):
+            user = User.objects.create_user(f'farmer-{User.objects.count()}')
+            user.profile.district = 'Mandya'; user.profile.save()
+            Feedback.objects.create(user=user, rating='good')
+
+    def test_admin_dashboard_query_count_does_not_grow_with_feedback(self):
+        User.objects.create_user('officer', password='pw', is_staff=True)
+        self.client.login(username='officer', password='pw')
+        self.add_feedback(2)
+        few = self.queries_for(reverse('accounts:admin_dashboard'))
+        self.add_feedback(6)
+        self.assertEqual(self.queries_for(reverse('accounts:admin_dashboard')), few)
+
+    def test_post_admin_list_query_count_does_not_grow_with_posts(self):
+        from community.models import CommunityAnswer, CommunityPost
+        User.objects.create_superuser('root', password='pw')
+        self.client.login(username='root', password='pw')
+
+        def add_posts(n):
+            for i in range(n):
+                post = CommunityPost.objects.create(title=f'Post {i}', description='x', crop='Tomato', author_name='A')
+                CommunityAnswer.objects.create(post=post, author_name='B', content='Use neem oil.')
+        add_posts(2)
+        url = reverse('admin:community_communitypost_changelist')
+        few = self.queries_for(url)
+        add_posts(6)
+        self.assertEqual(self.queries_for(url), few)
+        self.assertContains(self.client.get(url), '<td class="field-answers_count">1</td>', count=8)

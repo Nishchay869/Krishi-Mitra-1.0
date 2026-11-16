@@ -1,4 +1,5 @@
 from django.contrib import admin
+from django.db.models import Count
 from django.utils.html import format_html
 from .models import CommunityPost, CommunityAnswer, CommunityNotification
 
@@ -25,9 +26,13 @@ class CommunityPostAdmin(admin.ModelAdmin):
         return format_html('<span>{} {}</span>', obj.crop_icon, obj.crop)
     crop_badge.short_description = 'Crop'
 
+    def get_queryset(self, request):
+        # Count replies in the list query itself (one COUNT per row otherwise).
+        return super().get_queryset(request).annotate(answer_total=Count('answers'))
+
+    @admin.display(description='Replies', ordering='answer_total')
     def answers_count(self, obj):
-        return obj.answers.count()
-    answers_count.short_description = 'Replies'
+        return obj.answer_total
 
     def exact_published_time(self, obj):
         return obj.created_at.strftime('%d %b %Y, %I:%M %p')

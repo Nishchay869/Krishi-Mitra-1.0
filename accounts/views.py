@@ -411,7 +411,7 @@ def admin_dashboard(request):
         'recent_predictions': PredictionLog.objects.select_related('user')[:10],
         'feedback_count': Feedback.objects.count(),
         'feedback_ratings': feedback_ratings,
-        'recent_feedbacks': Feedback.objects.select_related('user')[:15],
+        'recent_feedbacks': Feedback.objects.select_related('user__profile')[:15],   # template shows user.profile.district
         'active_statuses': active_statuses,
         'available_crops': available_crops,
         'badge_choices': CropStatus.BADGE_CHOICES,
