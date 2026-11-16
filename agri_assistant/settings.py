@@ -178,10 +178,20 @@ USE_TZ = True
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [BASE_DIR / 'static']
 STATIC_ROOT = BASE_DIR / 'staticfiles'
+# Production: fingerprinted file names (skeleton.c690ddc00e73.css) so browsers and CDNs can keep
+# static files for a year; a changed file gets a new name, so updates still show at once.
+# Development/tests keep plain names (no collectstatic needed).
 STORAGES = {
     'default': {'BACKEND': 'django.core.files.storage.FileSystemStorage'},
-    'staticfiles': {'BACKEND': 'whitenoise.storage.CompressedStaticFilesStorage'},
+    'staticfiles': {'BACKEND': 'whitenoise.storage.CompressedStaticFilesStorage' if DEBUG
+                    else 'whitenoise.storage.CompressedManifestStaticFilesStorage'},
 }
+# A file present on disk but missing from the manifest falls back to its plain name instead of a 500.
+WHITENOISE_MANIFEST_STRICT = False
+# Vite's chunks (frontend/chunks/AgroLanding-C2u0MKy6.js) already carry a content hash in their
+# name: cache them for a year too (WhiteNoise does this automatically for Django's hashed names).
+# This replaces WhiteNoise's default test, so Django's 12-hex fingerprints are listed explicitly.
+WHITENOISE_IMMUTABLE_FILE_TEST = r'^/static/(?:.+\.[0-9a-f]{12}\.[A-Za-z0-9]+|frontend/chunks/.+-[0-9A-Za-z_-]{8}\.(?:js|css))$'
 
 MEDIA_URL = 'media/'
 MEDIA_ROOT = BASE_DIR / 'media'
