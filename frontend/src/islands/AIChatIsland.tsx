@@ -506,7 +506,7 @@ export default function AIChatIsland({
             stopAnySpeech();
             return;
           }
-          const audioSrc = `data:audio/mp3;base64,${data.audios[chunkIdx]}`;
+          const audioSrc = `data:audio/${data.format || "mp3"};base64,${data.audios[chunkIdx]}`; // wav (Gemini) or mp3 (Sarvam)
           const audio = new Audio(audioSrc);
           currentAudioRef.current = audio;
           chunkIdx++;

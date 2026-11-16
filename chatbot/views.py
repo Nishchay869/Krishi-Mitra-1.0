@@ -10,7 +10,7 @@ from django.shortcuts import get_object_or_404, render
 from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_POST
 
-from . import multilingual, sarvam, translation
+from . import multilingual, sarvam, translation, voice
 from accounts.languages import SARVAM_CODES
 from .models import ChatMessage
 
@@ -70,7 +70,7 @@ def _transcribe(request):
     if audio.size > MAX_AUDIO_BYTES:
         return None, None, JsonResponse({'error': _('Recording is too long. Please keep it under 30 seconds.')}, status=400)
     try:
-        transcript, language = sarvam.transcribe(audio)
+        transcript, language = voice.transcribe(audio)
     except sarvam.SarvamError:
         return None, None, JsonResponse({'error': _('Voice service is unavailable right now. Please type your question.')}, status=503)
     if not transcript:
@@ -137,10 +137,10 @@ def api_greeting(request):
         language = sarvam.ENGLISH  # no translation service: greet in English
         text = greeting_text(name, hour)
     try:
-        audios = sarvam.speak(text, language)
+        audios, audio_format = voice.speak(text, language)
     except sarvam.SarvamError:
-        audios = []  # voice unavailable (e.g. no Sarvam credits): keep the translated greeting
-    return JsonResponse({'text': text, 'language': language, 'audios': audios})
+        audios, audio_format = [], 'wav'  # voice unavailable: keep the translated greeting
+    return JsonResponse({'text': text, 'language': language, 'audios': audios, 'format': audio_format})
 
 
 @require_POST
@@ -153,10 +153,10 @@ def api_speak(request, pk):
     if not owns:
         return JsonResponse({'error': _('Not found.')}, status=404)
     try:
-        audios = sarvam.speak_reply(msg.response_en or msg.response, msg.language)
+        audios, audio_format = voice.speak_reply(msg.response_en or msg.response, msg.language)
     except sarvam.SarvamError:
         return JsonResponse({'error': _('Voice reply is unavailable right now.')}, status=503)
-    return JsonResponse({'audios': audios, 'format': 'mp3'})
+    return JsonResponse({'audios': audios, 'format': audio_format})
 
 
 # The assistant remembers the current conversation: the last few exchanges of this chat,

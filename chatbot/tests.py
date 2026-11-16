@@ -184,7 +184,7 @@ class VoiceTests(TestCase):
         from django.contrib.auth.models import User
         self.client.force_login(User.objects.create_user('f', password='pw'))
         self.assertContains(self.client.get(reverse('chatbot:chat')), 'data-mic')
-        with override_settings(SARVAM_API_KEY=''):
+        with override_settings(SARVAM_API_KEY='', GEMINI_API_KEY=''):   # no voice service at all
             self.assertNotContains(self.client.get(reverse('chatbot:chat')), 'data-mic')
 
 
@@ -209,7 +209,7 @@ class PlainLanguageTests(TestCase):
 
 
 @override_settings(SARVAM_API_KEY='test-key', GEMINI_API_KEY='test-gemini-key')
-@patch.object(sarvam, 'speak_reply', return_value=['bXAz'])
+@patch('chatbot.voice.speak_reply', return_value=(['bXAz'], 'wav'))
 class SpeakTests(TestCase):
     def setUp(self):
         from django.contrib.auth.models import User
@@ -221,7 +221,7 @@ class SpeakTests(TestCase):
     def test_owner_gets_female_voice_audio_in_reply_language(self, speak):
         self.client.force_login(self.owner)
         data = self.client.post(reverse('chatbot:speak', args=[self.msg.pk])).json()
-        self.assertEqual(data, {'audios': ['bXAz'], 'format': 'mp3'})
+        self.assertEqual(data, {'audios': ['bXAz'], 'format': 'wav'})
         speak.assert_called_once_with('Answer', 'kn-IN')
 
     def test_cannot_speak_someone_elses_reply(self, speak):
@@ -742,3 +742,46 @@ class GeminiTranslationTests(TestCase):
         post.return_value = _gemini_json('Klingon')
         self.assertEqual(translation.detect_language('qapla'), 'en-IN')
 
+
+
+@override_settings(GEMINI_API_KEY='test-placeholder', SARVAM_API_KEY='')
+class GeminiVoiceTests(TestCase):
+    def setUp(self):
+        from django.core.cache import cache
+        cache.clear()
+
+    @patch('chatbot.voice.requests.post')
+    def test_voice_input_is_transcribed_in_spoken_language(self, post):
+        from . import voice
+        post.return_value = _gemini_json(json.dumps({'transcript': KANNADA_Q, 'language': 'kn-IN'}))
+        audio = SimpleUploadedFile('q.webm', b'webm-bytes', content_type='audio/webm;codecs=opus')
+        self.assertEqual(voice.transcribe(audio), (KANNADA_Q, 'kn-IN'))
+        inline = post.call_args.kwargs['json']['contents'][0]['parts'][0]['inline_data']
+        self.assertEqual(inline['mime_type'], 'audio/webm')          # codec suffix removed
+
+    @patch('chatbot.voice.requests.post')
+    def test_voice_reply_returns_compressed_audio(self, post):
+        import base64, io, wave
+        from . import voice
+        pcm = b'\x00\x01' * 2400                                  # raw 16-bit audio as some models return
+        resp = MagicMock(status_code=200)
+        resp.json.return_value = {'candidates': [{'content': {'parts': [{'inlineData': {
+            'mimeType': 'audio/L16; rate=24000', 'data': base64.b64encode(pcm).decode()}}]}}]}
+        post.return_value = resp
+        clips, fmt = voice.speak('ನಮಸ್ಕಾರ', 'kn-IN')
+        self.assertEqual(fmt, 'mp3')                                    # compressed for mobile data
+        data = base64.b64decode(clips[0])
+        self.assertTrue(data[:3] == b'ID3' or (data[0] == 0xFF and data[1] & 0xE0 == 0xE0))   # MP3 frame sync
+        with patch.dict('sys.modules', {'lameenc': None}):             # no encoder: still playable WAV
+            from django.core.cache import cache; cache.clear()
+            clips, fmt = voice.speak('ನಮಸ್ಕಾರ', 'kn-IN')
+            self.assertEqual(fmt, 'wav')
+            with wave.open(io.BytesIO(base64.b64decode(clips[0]))) as w:
+                self.assertEqual((w.getframerate(), w.getnchannels()), (24000, 1))
+
+    @patch.object(sarvam, 'speak', return_value=['bXAz'])
+    @patch('chatbot.voice.requests.post', side_effect=__import__('requests').ConnectionError())
+    @override_settings(SARVAM_API_KEY='test-key')
+    def test_falls_back_to_sarvam_mp3(self, post, sarvam_speak):
+        from . import voice
+        self.assertEqual(voice.speak('Hello', 'en-IN'), (['bXAz'], 'mp3'))

@@ -22,7 +22,9 @@ def _static_version():
 def features(request):
     from accounts.languages import SARVAM_CODES, available_languages
     from .sarvam import VOICE_LANGUAGES
-    voice = bool(settings.SARVAM_API_KEY) and SARVAM_CODES.get(getattr(request, 'LANGUAGE_CODE', 'en')) in VOICE_LANGUAGES
+    # Voice works with Gemini (chatbot.voice) or Sarvam as backup.
+    has_voice_service = bool(settings.GEMINI_API_KEY or settings.SARVAM_API_KEY)
+    voice = has_voice_service and SARVAM_CODES.get(getattr(request, 'LANGUAGE_CODE', 'en')) in VOICE_LANGUAGES
     return {
         'VOICE_ENABLED': voice,
         'STATIC_VERSION': _static_version(),
