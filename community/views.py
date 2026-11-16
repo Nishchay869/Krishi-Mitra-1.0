@@ -10,6 +10,7 @@ from django.views.decorators.http import require_POST, require_http_methods
 from .models import CommunityPost, CommunityAnswer, CommunityNotification
 from .seed_data import ensure_community_seed_data
 from .tasks import get_or_create_translation, translate_post
+from accounts.languages import LANGUAGE_CHOICES, LANGUAGE_CODES
 from chatbot import translation
 
 POPULAR_CROPS = [
@@ -326,24 +327,39 @@ def answer_vote_view(request, answer_id):
     })
 
 
+LANGUAGE_NAMES = dict(LANGUAGE_CHOICES)
+
+
+def _reader_language(request, requested=''):
+    """Language to translate into: ?lang= if valid, else the language saved in the reader's
+    profile, else the language the app is shown in."""
+    if requested in LANGUAGE_CODES:
+        return requested
+    if request.user.is_authenticated:
+        saved = getattr(getattr(request.user, 'profile', None), 'preferred_language', '')
+        if saved in LANGUAGE_CODES:
+            return saved
+    current = (getattr(request, 'LANGUAGE_CODE', '') or '').lower()
+    return current if current in LANGUAGE_CODES else 'en'
+
+
 def post_translate_view(request, post_id):
-    """Translate post title and description to Hindi or requested language."""
+    """Translate a post into the reader's app language (from their profile), or ?lang=<code>."""
     post = get_object_or_404(CommunityPost, pk=post_id)
-    target_lang = request.GET.get('lang', 'hi').strip()[:10]
+    target_lang = _reader_language(request, request.GET.get('lang', ''))
 
     # Saved translation (prepared in the background when the post was created); translated now
     # and saved only if missing or if the post text changed.
     saved = get_or_create_translation(post, target_lang)
     translated_title, translated_desc, translated_tags = saved.title, saved.description, saved.tags
 
-    lang_names = {'hi': 'हिन्दी (Hindi)', 'mr': 'मराठी (Marathi)', 'kn': 'ಕನ್ನಡ (Kannada)'}
-
     return JsonResponse({
         'success': True,
         'title': translated_title,
         'description': translated_desc,
         'tags': translated_tags,
-        'target_lang': lang_names.get(target_lang, 'Hindi'),
+        'target_lang': LANGUAGE_NAMES.get(target_lang, target_lang),
+        'target_code': target_lang,
         'original_title': post.title,
         'original_desc': post.description
     })

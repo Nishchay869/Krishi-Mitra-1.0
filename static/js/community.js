@@ -334,7 +334,7 @@ window.toggleTranslation = async function(btn, postId) {
     btn.disabled = true;
 
     try {
-      const res = await fetch(`/community/post/${postId}/translate/?lang=hi`, {
+      const res = await fetch(`/community/post/${postId}/translate/`, {
         headers: { 'X-Requested-With': 'XMLHttpRequest' }
       });
       if (!res.ok) throw new Error('Translation failed');

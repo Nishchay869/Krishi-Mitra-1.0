@@ -172,7 +172,7 @@ class CommunityTests(TestCase):
         self.assertTrue(data['success'])
         self.assertIn('title', data)
         self.assertIn('description', data)
-        self.assertIn('Hindi', data['target_lang'])
+        self.assertEqual(data['target_lang'], 'हिन्दी')
 
     def test_notifications_api_and_mark_read(self):
         # Fetch notifications endpoint
@@ -245,6 +245,18 @@ class SavedTranslationTests(TestCase):
         self.assertEqual(first['title'], '[kn] Leaf curl in chilli')
         self.assertEqual(second, first)
         self.assertEqual(tr.call_count, calls)                       # second tap: no new translation calls
+
+    def test_translates_into_the_language_saved_in_the_readers_profile(self):
+        from unittest.mock import patch
+        from django.contrib.auth.models import User
+        for saved, expected in [('ta', 'ta'), ('mr', 'mr'), ('en', 'en')]:
+            user = User.objects.create_user(f'reader-{saved}', password='x-pass-123')
+            user.profile.preferred_language = saved; user.profile.save()
+            self.client.force_login(user)
+            with patch('community.translator.translate_text', side_effect=lambda t, l: f'[{l}] {t}'):
+                data = self.client.get(reverse('community:translate', args=[self.post.id])).json()
+            self.assertEqual(data['target_code'], expected)
+            self.assertEqual(data['title'], f'[{expected}] Leaf curl in chilli')
 
     def test_edited_post_is_translated_again(self):
         from unittest.mock import patch

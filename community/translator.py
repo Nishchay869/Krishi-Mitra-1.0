@@ -5,6 +5,7 @@ with robust agricultural fallback translations when offline or in sandboxed netw
 """
 import logging
 from django.conf import settings
+from accounts.languages import SARVAM_CODES
 from chatbot import translation
 
 logger = logging.getLogger(__name__)
@@ -60,15 +61,16 @@ def translate_text(text: str, target_lang: str = 'hi') -> str:
         return text
 
     # Check exact glossary match
-    lang_code = target_lang[:2].lower()
+    lang_code = target_lang.lower()
     if lang_code in AGRI_GLOSSARY and text.strip() in AGRI_GLOSSARY[lang_code]:
         return AGRI_GLOSSARY[lang_code][text.strip()]
 
     # Gemini first, Sarvam AI as backup (chatbot.translation)
     if translation.is_configured():
         try:
-            target_bcp47 = f"{lang_code}-IN" if lang_code != 'en' else 'en-IN'
-            source_bcp47 = 'en-IN'
+            target_bcp47 = SARVAM_CODES.get(target_lang, f'{lang_code}-IN')
+            # Posts are mostly English; for an English reader, find the post's own language.
+            source_bcp47 = translation.detect_language(text) if target_bcp47 == 'en-IN' else 'en-IN'
             res = translation.translate(text, source_bcp47, target_bcp47)
             if res and res.strip():
                 return res
