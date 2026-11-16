@@ -1,7 +1,7 @@
 # Render Blueprint: Dashboard -> New -> Blueprint -> pick this GitHub repo.
 # Free plan (512 MB): runs without TensorFlow; Gemini does the disease check.
 # gevent: while one request waits on Gemini/weather/data.gov.in, the worker serves others
-# (load test: 40 slow requests 22.5s -> 4.7s; 100 at once all OK).
+# (load test: 40 slow requests 22.5s -> 4.7s). Worker settings live in gunicorn.conf.py.
 services:
   - type: web
     name: krishimitra
@@ -16,8 +16,7 @@ services:
     startCommand: >-
       python manage.py migrate --noinput &&
       python manage.py seed_knowledge &&
-      gunicorn agri_assistant.wsgi --bind 0.0.0.0:$PORT --timeout 60 --workers 1
-      --worker-class gevent --worker-connections 50
+      gunicorn agri_assistant.wsgi
     envVars:
       - key: PYTHON_VERSION
         value: "3.13.14"
