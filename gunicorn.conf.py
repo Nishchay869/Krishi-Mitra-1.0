@@ -30,3 +30,9 @@ else:
     monkey.patch_all()
     worker_class = 'gevent'
     worker_connections = 50
+
+
+def post_worker_init(worker):
+    """Start the background-job worker in each server process (also runs jobs left from a restart)."""
+    from jobs.worker import ensure_started
+    ensure_started()

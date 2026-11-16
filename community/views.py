@@ -9,7 +9,8 @@ from django.views.decorators.http import require_POST, require_http_methods
 
 from .models import CommunityPost, CommunityAnswer, CommunityNotification
 from .seed_data import ensure_community_seed_data
-from .translator import translate_text
+from .tasks import get_or_create_translation, translate_post
+from chatbot import sarvam
 
 POPULAR_CROPS = [
     {"name": "Capsicum & Chilli", "icon": "🌶️"},
@@ -151,6 +152,8 @@ def ask_community_view(request):
             tags=f"#{crop}, #FarmerAdvice"
         )
 
+        if sarvam.is_configured():
+            translate_post.enqueue(post.id)   # translations ready before anyone taps "Translate"
         messages.success(request, 'Your question has been shared with the community! Fellow farmers & agronomists will answer soon.')
         return redirect(reverse('community:feed'))
 
@@ -326,15 +329,12 @@ def answer_vote_view(request, answer_id):
 def post_translate_view(request, post_id):
     """Translate post title and description to Hindi or requested language."""
     post = get_object_or_404(CommunityPost, pk=post_id)
-    target_lang = request.GET.get('lang', 'hi').strip()
+    target_lang = request.GET.get('lang', 'hi').strip()[:10]
 
-    translated_title = translate_text(post.title, target_lang)
-    translated_desc = translate_text(post.description, target_lang)
-
-    # Translate tags if present
-    translated_tags = []
-    for tag in post.get_tags():
-        translated_tags.append(translate_text(tag, target_lang))
+    # Saved translation (prepared in the background when the post was created); translated now
+    # and saved only if missing or if the post text changed.
+    saved = get_or_create_translation(post, target_lang)
+    translated_title, translated_desc, translated_tags = saved.title, saved.description, saved.tags
 
     lang_names = {'hi': 'हिन्दी (Hindi)', 'mr': 'मराठी (Marathi)', 'kn': 'ಕನ್ನಡ (Kannada)'}
 

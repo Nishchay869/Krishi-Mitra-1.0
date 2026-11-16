@@ -143,6 +143,16 @@ class StyledPasswordResetForm(PasswordResetForm):
         super().__init__(*args, **kwargs)
         self.fields['email'].widget.attrs.update({'class': 'form-control', 'autocomplete': 'email'})
 
+    def send_mail(self, subject_template_name, email_template_name, context, from_email, to_email,
+                  html_email_template_name=None):
+        """Queue the reset email instead of making the farmer wait for the mail server."""
+        from django.template import loader
+        from .tasks import send_email
+        subject = ''.join(loader.render_to_string(subject_template_name, context).splitlines())
+        body = loader.render_to_string(email_template_name, context)
+        html = loader.render_to_string(html_email_template_name, context) if html_email_template_name else None
+        send_email.enqueue(subject, body, from_email, [to_email], html)
+
 
 class StyledSetPasswordForm(SetPasswordForm):
     def __init__(self, *args, **kwargs):

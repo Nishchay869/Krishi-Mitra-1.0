@@ -127,3 +127,21 @@ class CommunityNotification(models.Model):
 
     def __str__(self):
         return f"Notification for {self.recipient_name or self.recipient_user}: {self.title[:30]}"
+
+
+class PostTranslation(models.Model):
+    """A post translated into one language, saved so "Translate" is instant next time.
+    Filled in the background when a post is created (community.tasks.translate_post)."""
+    post = models.ForeignKey(CommunityPost, on_delete=models.CASCADE, related_name='translations')
+    lang = models.CharField(max_length=10)
+    source_hash = models.CharField(max_length=64)   # changes when the post text changes -> retranslate
+    title = models.TextField()
+    description = models.TextField()
+    tags = models.JSONField(default=list)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        constraints = [models.UniqueConstraint(fields=['post', 'lang'], name='unique_post_translation')]
+
+    def __str__(self):
+        return f'{self.post_id} [{self.lang}]'

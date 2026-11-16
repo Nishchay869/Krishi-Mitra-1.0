@@ -226,3 +226,52 @@ class FeedPaginationTests(TestCase):
     def test_out_of_range_page_shows_last_page(self):
         response = self.client.get(reverse('community:feed'), {'page': 99})
         self.assertEqual(len(self.titles(response)), 5)
+
+
+class SavedTranslationTests(TestCase):
+    def setUp(self):
+        self.post = CommunityPost.objects.create(title='Leaf curl in chilli', description='Leaves curling upward.',
+                                                 crop='Chilli', author_name='Farmer', tags='Virus')
+
+    def translate(self):
+        return self.client.get(reverse('community:translate', args=[self.post.id]) + '?lang=kn').json()
+
+    def test_translation_is_saved_and_reused(self):
+        from unittest.mock import patch
+        with patch('community.translator.translate_text', side_effect=lambda t, l: f'[{l}] {t}') as tr:
+            first = self.translate()
+            calls = tr.call_count
+            second = self.translate()
+        self.assertEqual(first['title'], '[kn] Leaf curl in chilli')
+        self.assertEqual(second, first)
+        self.assertEqual(tr.call_count, calls)                       # second tap: no new translation calls
+
+    def test_edited_post_is_translated_again(self):
+        from unittest.mock import patch
+        with patch('community.translator.translate_text', side_effect=lambda t, l: f'[{l}] {t}'):
+            self.translate()
+            self.post.title = 'Leaf curl and yellowing in chilli'; self.post.save()
+            self.assertIn('yellowing', self.translate()['title'])
+
+    def test_new_post_is_translated_in_the_background(self):
+        from unittest.mock import patch
+        from .models import PostTranslation
+        with patch('chatbot.sarvam.is_configured', return_value=True), \
+             patch('community.translator.translate_text', side_effect=lambda t, l: f'[{l}] {t}'):
+            self.client.post(reverse('community:ask'), {'title': 'Wilting tomato plants', 'description': 'Plants wilt at noon.', 'crop': 'Tomato'})
+        post = CommunityPost.objects.get(title='Wilting tomato plants')
+        self.assertEqual(sorted(PostTranslation.objects.filter(post=post).values_list('lang', flat=True)), ['hi', 'kn', 'mr'])
+
+
+class FailedTranslationTests(TestCase):
+    def test_failed_translation_is_not_saved_and_job_retries(self):
+        from unittest.mock import patch
+        from .models import PostTranslation
+        from .tasks import TranslationUnavailable, translate_post
+        post = CommunityPost.objects.create(title='Leaf curl', description='Leaves curl.', crop='Chilli', author_name='F')
+        with patch('community.translator.translate_text', side_effect=lambda t, l: t):   # service down: returns English
+            r = self.client.get(reverse('community:translate', args=[post.id]) + '?lang=kn').json()
+            self.assertEqual(r['title'], 'Leaf curl')                  # original shown
+            with self.assertRaises(TranslationUnavailable):
+                translate_post.call(post.id)                           # job fails -> queue retries it
+        self.assertFalse(PostTranslation.objects.exists())             # nothing wrong was saved

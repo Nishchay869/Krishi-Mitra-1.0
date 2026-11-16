@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/6.1/ref/settings/
 """
 
 import os
+import sys
 from pathlib import Path
 
 os.environ.setdefault('KERAS_HOME', '/tmp/.keras')
@@ -73,6 +74,7 @@ INSTALLED_APPS = [
     'weather',
     'market',
     'community',
+    'jobs',
 ]
 
 MIDDLEWARE = [
@@ -284,3 +286,12 @@ LOGGING = {
         'django.request': {'handlers': ['console'], 'level': 'ERROR', 'propagate': False},
     },
 }
+
+
+# Background jobs (Django Tasks API + jobs app): slow work such as emails and translations runs
+# after the response, inside the web process, with retries. Tests run tasks immediately.
+TASKS = {'default': {'BACKEND': 'jobs.backend.DatabaseBackend'}}
+JOBS_RUN_IN_PROCESS = True
+if 'test' in sys.argv:
+    TASKS = {'default': {'BACKEND': 'django.tasks.backends.immediate.ImmediateBackend'}}
+    JOBS_RUN_IN_PROCESS = False
