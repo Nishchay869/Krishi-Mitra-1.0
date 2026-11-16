@@ -1,5 +1,7 @@
 # Render Blueprint: Dashboard -> New -> Blueprint -> pick this GitHub repo.
 # Free plan (512 MB): runs without TensorFlow; Gemini does the disease check.
+# gevent: while one request waits on Gemini/weather/data.gov.in, the worker serves others
+# (load test: 40 slow requests 22.5s -> 4.7s; 100 at once all OK).
 services:
   - type: web
     name: krishimitra
@@ -14,7 +16,8 @@ services:
     startCommand: >-
       python manage.py migrate --noinput &&
       python manage.py seed_knowledge &&
-      gunicorn agri_assistant.wsgi --bind 0.0.0.0:$PORT --timeout 60 --workers 1 --threads 4
+      gunicorn agri_assistant.wsgi --bind 0.0.0.0:$PORT --timeout 60 --workers 1
+      --worker-class gevent --worker-connections 50
     envVars:
       - key: PYTHON_VERSION
         value: "3.13.14"
@@ -26,6 +29,8 @@ services:
         value: "5432"
       - key: DB_SSLMODE
         value: require
+      - key: DB_CONN_MAX_AGE   # close DB connections after each request (gevent: many requests at once)
+        value: "0"
       # Render asks you for these when you create the Blueprint:
       - key: DB_NAME
         sync: false

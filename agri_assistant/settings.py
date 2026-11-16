@@ -123,7 +123,9 @@ if os.environ.get('DB_NAME'):
             'PORT': os.environ.get('DB_PORT', '5432'),
             # Hosted Postgres (Neon, Supabase) needs DB_SSLMODE=require
             'OPTIONS': {'sslmode': os.environ['DB_SSLMODE']} if os.environ.get('DB_SSLMODE') else {},
-            'CONN_MAX_AGE': 60,
+            # 0 with gevent workers (render.yaml): every waiting request would otherwise keep its own
+            # open connection, and hosted Postgres plans cap the number of connections.
+            'CONN_MAX_AGE': int(os.environ.get('DB_CONN_MAX_AGE', '60')),
         }
     }
 else:
