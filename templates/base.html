@@ -283,7 +283,8 @@
     {% block content %}{% endblock %}
   </main>
 
-  {% block footer %}{% include 'partials/footer.html' %}{% endblock %}
+  {# Footer only on the home page ("Your crops"); every other page ends at its content. #}
+  {% block footer %}{% if request.resolver_match.url_name == 'home' %}{% include 'partials/footer.html' %}{% endif %}{% endblock %}
 
   {% if user.is_authenticated %}
   {% if VOICE_ENABLED %}
