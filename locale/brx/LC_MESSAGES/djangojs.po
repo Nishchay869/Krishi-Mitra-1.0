@@ -1226,6 +1226,9 @@ msgstr "थाखोनि हाथाइनि गोदान बेसेन
 msgid "Live voice conversation"
 msgstr "गोथां गारां रायज्लायनाय"
 
+msgid "Load more"
+msgstr "बांसिन लाद।"
+
 msgid "Loading…"
 msgstr "लडिं खालामगासिनो दं..."
 

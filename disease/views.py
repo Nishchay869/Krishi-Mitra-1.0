@@ -4,6 +4,7 @@ import time
 import uuid
 
 from django.core.cache import cache
+from django.core.paginator import Paginator
 from django.core.files.storage import default_storage
 from django.utils.translation import gettext as _
 from django.contrib import messages
@@ -65,19 +66,23 @@ def _format_diagnosis(log):
     }
 
 
+def _user_diagnosis_logs(request):
+    """This user's (or session's) diagnoses, newest first; None when there are none."""
+    if request.user.is_authenticated:
+        return PredictionLog.objects.filter(user=request.user, kind=PredictionLog.KIND_DISEASE).order_by('-created_at', '-id')
+    history_ids = request.session.get('diagnosis_history', [])
+    if not history_ids:
+        return None
+    return PredictionLog.objects.filter(id__in=history_ids, kind=PredictionLog.KIND_DISEASE).order_by('-created_at', '-id')
+
+
 def get_user_diagnoses(request, limit=None):
     """Retrieve formatted past diagnoses for current user or session."""
-    if request.user.is_authenticated:
-        qs = PredictionLog.objects.filter(user=request.user, kind=PredictionLog.KIND_DISEASE).order_by('-created_at')
-    else:
-        history_ids = request.session.get('diagnosis_history', [])
-        if not history_ids:
-            return []
-        qs = PredictionLog.objects.filter(id__in=history_ids, kind=PredictionLog.KIND_DISEASE).order_by('-created_at')
-
+    qs = _user_diagnosis_logs(request)
+    if qs is None:
+        return []
     if limit:
         qs = qs[:limit]
-
     return [_format_diagnosis(log) for log in qs]
 
 
@@ -172,12 +177,24 @@ def api_detect(request):
         return JsonResponse({'error': str(exc), 'code': exc.code}, status=exc.status)
 
 
+HISTORY_PAGE_SIZE = 20
+
+
 def history_page(request):
     """View all past diagnoses with batch and selected delete options."""
-    diagnoses = get_user_diagnoses(request)
+    # Pagination: 20 per page; "Load more" (load-more.js) appends the next page.
+    qs = _user_diagnosis_logs(request)
+    page_obj = Paginator(qs if qs is not None else PredictionLog.objects.none(), HISTORY_PAGE_SIZE).get_page(request.GET.get('page'))
+    next_query = ''
+    if page_obj.has_next():
+        query = request.GET.copy()
+        query['page'] = page_obj.next_page_number()
+        next_query = query.urlencode()
     return render(request, 'disease/history.html', {
-        'diagnoses': diagnoses,
-        'count': len(diagnoses),
+        'diagnoses': [_format_diagnosis(log) for log in page_obj.object_list],
+        'count': page_obj.paginator.count,
+        'page_obj': page_obj,
+        'next_page_query': next_query,
     })
 
 

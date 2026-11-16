@@ -1226,6 +1226,9 @@ msgstr "உள்ளூர் சந்தையின் புதிய வி
 msgid "Live voice conversation"
 msgstr "நேரடிக் குரல் உரையாடல்"
 
+msgid "Load more"
+msgstr "இன்னும் ஏற்றவும்"
+
 msgid "Loading…"
 msgstr "ஏற்றுகிறது..."
 

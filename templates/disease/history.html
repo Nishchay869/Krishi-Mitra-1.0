@@ -94,6 +94,11 @@
           </div>
           {% endfor %}
         </div>
+        {% if page_obj.has_next %}
+        <div class="load-more-wrap" data-load-more="#diagnoses-list">
+          <a class="load-more-btn" href="?{{ next_page_query }}" data-load-more-link>{% translate "Load more" %}</a>
+        </div>
+        {% endif %}
       {% else %}
         <!-- Empty State -->
         <div class="diagnoses-empty-state">
@@ -174,12 +179,14 @@
   </div>
 </div>
 
+<script src="{% static 'js/load-more.js' %}?v={{ STATIC_VERSION }}" defer></script>
 <script>
   document.addEventListener('DOMContentLoaded', function() {
     const toggleSelectBtn = document.getElementById('btn-toggle-select');
     const selectionBar = document.getElementById('selection-bar');
     const selectAllCheckbox = document.getElementById('select-all-checkbox');
-    const itemCheckboxes = document.querySelectorAll('.item-checkbox');
+    const itemCheckboxes = { forEach: (fn) => document.querySelectorAll('.item-checkbox').forEach(fn),
+                             get length() { return document.querySelectorAll('.item-checkbox').length; } };
     const countBadge = document.getElementById('selected-count');
     const deleteSelectedBtn = document.getElementById('btn-delete-selected');
     const confirmDeleteBtn = document.getElementById('confirm-delete-selected');
@@ -226,8 +233,13 @@
       });
     }
 
-    itemCheckboxes.forEach(cb => {
-      cb.addEventListener('change', updateSelectedCount);
+    document.addEventListener('change', (event) => {
+      if (event.target.matches('.item-checkbox')) updateSelectedCount();
+    });
+    // Rows added by "Load more": show their checkboxes if select mode is on.
+    document.addEventListener('load-more:appended', () => {
+      document.querySelectorAll('.diagnosis-checkbox-wrap').forEach(el => el.classList.toggle('d-none', !selectMode));
+      updateSelectedCount();
     });
 
     if (confirmDeleteBtn && deleteSelectedForm) {

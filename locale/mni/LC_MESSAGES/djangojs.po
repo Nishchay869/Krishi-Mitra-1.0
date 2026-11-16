@@ -1226,6 +1226,9 @@ msgstr "ꯂꯣꯀꯦꯜ ꯀꯩꯊꯦꯜꯒꯤ ꯃꯃꯜ ꯍꯧꯖꯤꯛ ꯐꯪ�
 msgid "Live voice conversation"
 msgstr "ꯄꯨꯟꯁꯤ ꯃꯇꯝꯒꯤ ꯋꯥꯔꯤ-ꯋꯥꯇꯥꯏ"
 
+msgid "Load more"
+msgstr "ꯍꯦꯟꯅ ꯄꯣꯠ ꯍꯥꯞꯆꯤꯟꯕꯤꯌꯨ"
+
 msgid "Loading…"
 msgstr "ꯂꯣꯗꯤꯡ..."
 

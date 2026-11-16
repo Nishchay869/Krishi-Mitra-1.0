@@ -1226,6 +1226,9 @@ msgstr "പ്രാദേശിക ചന്തയിലെ പുതിയ വ
 msgid "Live voice conversation"
 msgstr "തത്സമയ ശബ്ദ സംഭാഷണം"
 
+msgid "Load more"
+msgstr "കൂടുതൽ ലോഡ് ചെയ്യുക"
+
 msgid "Loading…"
 msgstr "ലോഡ് ചെയ്യുന്നു..."
 

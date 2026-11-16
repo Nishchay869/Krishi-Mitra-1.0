@@ -194,3 +194,35 @@ class CommunityTests(TestCase):
         self.assertIn(CommunityAnswer, admin.site._registry)
         self.assertIn(CommunityNotification, admin.site._registry)
 
+
+
+class FeedPaginationTests(TestCase):
+    def setUp(self):
+        CommunityPost.objects.all().delete()
+        for i in range(25):
+            CommunityPost.objects.create(title=f'Paddy question {i:02d}', description='Leaves turning yellow.',
+                                         crop='Rice' if i % 2 else 'Tomato', author_name='Farmer')
+
+    def titles(self, response):
+        return [p.title for p in response.context['posts']]
+
+    def test_pages_of_ten_without_repeats_or_gaps(self):
+        seen = []
+        for page in (1, 2, 3):
+            response = self.client.get(reverse('community:feed'), {'page': page})
+            seen += self.titles(response)
+        self.assertEqual([len(self.titles(self.client.get(reverse('community:feed'), {'page': p}))) for p in (1, 2, 3)], [10, 10, 5])
+        self.assertEqual(len(seen), 25)
+        self.assertEqual(len(set(seen)), 25)
+
+    def test_load_more_link_keeps_filters_and_stops_on_last_page(self):
+        first = self.client.get(reverse('community:feed'), {'q': 'Paddy'})
+        self.assertContains(first, 'data-load-more="#communityPostsList"')
+        self.assertIn('q=Paddy', first.context['next_page_query'])
+        self.assertIn('page=2', first.context['next_page_query'])
+        last = self.client.get(reverse('community:feed'), {'q': 'Paddy', 'page': 3})
+        self.assertNotContains(last, 'data-load-more=')
+
+    def test_out_of_range_page_shows_last_page(self):
+        response = self.client.get(reverse('community:feed'), {'page': 99})
+        self.assertEqual(len(self.titles(response)), 5)

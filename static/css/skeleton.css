@@ -55,3 +55,20 @@ html.dark,
 
 /* Live search: dim the old results briefly while the new ones load. */
 .live-search-loading { opacity: 0.55; transition: opacity 0.15s ease; pointer-events: none; }
+
+/* Pagination: "Load more" (also loads automatically when scrolled into view). */
+.load-more-wrap { display: flex; justify-content: center; padding: 8px 0 24px; }
+.load-more-btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-width: 160px; padding: 10px 22px; border-radius: 999px;
+  font-weight: 600; font-size: 14px; text-decoration: none !important;
+  background: #f1f5f9; color: #0f172a !important; border: 1px solid #cbd5e1;
+}
+.load-more-btn:hover { background: #e2e8f0; }
+html.dark .load-more-btn, [data-theme="dark"] .load-more-btn {
+  background: #1e293b; color: #e2e8f0 !important; border-color: #334155;
+}
+html.dark .load-more-btn:hover, [data-theme="dark"] .load-more-btn:hover { background: #273449; }
+.load-more-btn.is-loading { opacity: 0.6; pointer-events: none; animation: load-more-pulse 1s ease-in-out infinite; }
+@keyframes load-more-pulse { 50% { opacity: 0.35; } }
+@media (prefers-reduced-motion: reduce) { .load-more-btn.is-loading { animation: none; } }

@@ -1,3 +1,4 @@
+from django.core.paginator import Paginator
 import json
 from django.contrib import messages
 from django.db.models import Q
@@ -28,6 +29,18 @@ def _ensure_session_key(request):
     if not request.session.session_key:
         request.session.save()
     return request.session.session_key
+
+
+FEED_PAGE_SIZE = 10
+
+
+def next_page_query(request, page_obj):
+    """Query string for the next page, keeping the current filters (crop, search...)."""
+    if not page_obj.has_next():
+        return ''
+    query = request.GET.copy()
+    query['page'] = page_obj.next_page_number()
+    return query.urlencode()
 
 
 def feed_view(request):
@@ -72,8 +85,14 @@ def feed_view(request):
     user_votes = request.session.get('community_votes', {})
     answer_votes = request.session.get('community_answer_votes', {})
 
+    # Pagination: 10 posts per page; "Load more" (load-more.js) appends the next page.
+    # '-id' breaks timestamp ties so no post repeats or goes missing between pages.
+    page_obj = Paginator(posts.order_by('-created_at', '-id'), FEED_PAGE_SIZE).get_page(request.GET.get('page'))
+
     context = {
-        'posts': posts,
+        'posts': page_obj.object_list,
+        'page_obj': page_obj,
+        'next_page_query': next_page_query(request, page_obj),
         'active_crop': crop_filter or 'All',
         'search_query': search_query,
         'crops': POPULAR_CROPS,

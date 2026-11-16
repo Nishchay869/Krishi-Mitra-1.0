@@ -1226,6 +1226,9 @@ msgstr "मकामी मंडी दे ताजे भाव अजें 
 msgid "Live voice conversation"
 msgstr "जीवंत अवाज गल्लबात"
 
+msgid "Load more"
+msgstr "होर लोड करो"
+
 msgid "Loading…"
 msgstr "लोड होआ दा ऐ..."
 

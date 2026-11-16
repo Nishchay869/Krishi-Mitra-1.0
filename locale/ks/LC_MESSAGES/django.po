@@ -1226,6 +1226,9 @@ msgstr "مقٲمی بازارچ تازٕ قٟمت چھِ نہٕ وُنہِ دس�
 msgid "Live voice conversation"
 msgstr "زندٕ آوازِ سۭتۍ کتھ باتھ"
 
+msgid "Load more"
+msgstr "مزید لوڈ کٔرِو"
+
 msgid "Loading…"
 msgstr "لوڈ گژھان چھُ..."
 

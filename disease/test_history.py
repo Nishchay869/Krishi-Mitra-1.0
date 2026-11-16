@@ -155,3 +155,23 @@ class DiagnosisHistoryTests(TestCase):
         # Check rendered HTML
         self.assertContains(response, 'Tomato Early Blight')
 
+
+
+class HistoryPaginationTests(TestCase):
+    def setUp(self):
+        user = get_user_model().objects.create_user(username='paginate-farmer', password='x-Pass-1234')
+        for i in range(25):
+            PredictionLog.objects.create(user=user, kind=PredictionLog.KIND_DISEASE,
+                                         inputs={'crop': 'Tomato'}, result={'disease': f'Issue {i}', 'status': 'likely_disease'})
+        self.client.force_login(user)
+
+    def test_twenty_per_page_with_load_more(self):
+        first = self.client.get(reverse('disease:history'))
+        self.assertEqual(len(first.context['diagnoses']), 20)
+        self.assertEqual(first.context['count'], 25)
+        self.assertContains(first, 'data-load-more="#diagnoses-list"')
+        second = self.client.get(reverse('disease:history'), {'page': 2})
+        self.assertEqual(len(second.context['diagnoses']), 5)
+        self.assertNotContains(second, 'data-load-more=')
+        ids = [d['id'] for d in first.context['diagnoses'] + second.context['diagnoses']]
+        self.assertEqual(len(set(ids)), 25)

@@ -1226,6 +1226,9 @@ msgstr "स्थानीय मंडी के ताज़ा भाव अ�
 msgid "Live voice conversation"
 msgstr "आवाज़ में सीधी बातचीत"
 
+msgid "Load more"
+msgstr "और लोड करें"
+
 msgid "Loading…"
 msgstr "लोड हो रहा है..."
 

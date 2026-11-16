@@ -1226,6 +1226,9 @@ msgstr "ಸ್ಥಳೀಯ ಮಾರುಕಟ್ಟೆಯ ತಾಜಾ ಬೆಲ
 msgid "Live voice conversation"
 msgstr "ನೇರ ಧ್ವನಿ ಸಂಭಾಷಣೆ"
 
+msgid "Load more"
+msgstr "ಇನ್ನಷ್ಟು ಲೋಡ್ ಮಾಡಿ"
+
 msgid "Loading…"
 msgstr "ಲೋಡ್ ಆಗುತ್ತಿದೆ..."
 

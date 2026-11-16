@@ -1226,6 +1226,9 @@ msgstr "স্থানীয় বজাৰৰ শেহতীয়া দা
 msgid "Live voice conversation"
 msgstr "সজীৱ কণ্ঠৰ কথোপকথন"
 
+msgid "Load more"
+msgstr "আৰু লোড কৰক"
+
 msgid "Loading…"
 msgstr "ল'ডিং হৈ আছে..."
 
