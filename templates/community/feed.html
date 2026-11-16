@@ -26,6 +26,8 @@
           <input type="search"
                  name="q"
                  class="community-search-input"
+                 data-live-search="#communityPostsList"
+                 autocomplete="off"
                  placeholder="Search in Community"
                  value="{{ search_query }}"
                  aria-label="Search in Community">
@@ -164,7 +166,7 @@
 
             <!-- Post Title -->
             <h3 class="community-post-title" id="postTitle-{{ post.id }}">
-              <a class="community-post-link" href="{% url 'community:detail' post.id %}">{{ post.title }}</a>
+              <a class="community-post-link" data-suggest href="{% url 'community:detail' post.id %}">{{ post.title }}</a>
             </h3>
 
             <!-- Post Description with problem tags -->
@@ -454,4 +456,5 @@
 
 {% block scripts %}
 <script src="{% static 'js/community.js' %}?v={{ STATIC_VERSION }}"></script>
+<script src="{% static 'js/live-search.js' %}?v={{ STATIC_VERSION }}" defer></script>
 {% endblock %}

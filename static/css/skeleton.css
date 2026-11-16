@@ -52,3 +52,6 @@ html.dark,
 @media (prefers-reduced-motion: reduce) {
   .sk::after { animation: none; display: none; }
 }
+
+/* Live search: dim the old results briefly while the new ones load. */
+.live-search-loading { opacity: 0.55; transition: opacity 0.15s ease; pointer-events: none; }

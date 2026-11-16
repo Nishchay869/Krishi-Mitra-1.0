@@ -39,7 +39,7 @@
     <label for="pest-search-input" class="pest-filter-label">Search issues</label>
     <div class="pest-input-wrap">
       <i class="bi bi-search pest-input-icon" aria-hidden="true"></i>
-      <input id="pest-search-input" name="q" type="search" value="{{ query }}" maxlength="100" placeholder="Name or symptom" class="pest-text-input" autocomplete="off">
+      <input id="pest-search-input" name="q" type="search" data-live-search="#pest-results" value="{{ query }}" maxlength="100" placeholder="Name or symptom" class="pest-text-input" autocomplete="off">
       {% if query %}
       <a href="?crop={{ crop.slug }}{% if stage %}&amp;stage={{ stage }}{% endif %}{% if kind and kind != 'all' %}&amp;type={{ kind }}{% endif %}" class="pest-input-clear" aria-label="Clear search" title="Clear search">
         <i class="bi bi-x-circle-fill" aria-hidden="true"></i>
@@ -70,6 +70,7 @@
   </div>
 </form>
 {% include 'partials/pest_alerts_coming_soon.html' %}
+<div id="pest-results">
 <div class="pest-intro"><h2>Issues by growth stage</h2><p>{{ total_issues }} documented issues for {{ crop.name|ui_text }}. Stages are scouting windows, not predictions of an outbreak. This curated guide is not an exhaustive list.</p></div>
 <nav class="pest-chips" aria-label="Growth stages"><a href="?crop={{ crop.slug }}" {% if not stage %}aria-current="page"{% endif %}>All stages</a>{% for item in stage_choices %}<a href="?crop={{ crop.slug }}&amp;stage={{ item.slug }}&amp;type={{ kind }}&amp;q={{ query|urlencode }}" {% if stage == item.slug %}aria-current="page"{% endif %}>{{ item.name }}</a>{% endfor %}</nav>
 {% for section in sections %}
@@ -112,7 +113,7 @@
         </span>
       </div>
       <div class="pest-card-body">
-        <h3 class="pest-card-title">{{ issue.name }}</h3>
+        <h3 class="pest-card-title" data-suggest>{{ issue.name }}</h3>
         {% if issue.early %}
           <p class="pest-card-early"><i class="bi bi-eye pest-early-icon" aria-hidden="true"></i><span>{{ issue.early|truncatechars:95 }}</span></p>
         {% elif issue.conditions %}
@@ -138,4 +139,6 @@
 </section>
 {% endfor %}
 <aside class="pest-diagnosis"><div><span class="pest-eyebrow">CROP DIAGNOSIS</span><h2>Something looks wrong?</h2><p>Upload a clear crop photograph to help investigate the symptoms.</p></div><a class="pest-button" href="{% url 'disease:detect' %}">Start diagnosis →</a></aside>
+</div>
 <footer class="pest-sources"><h2>Crop reference guides</h2><p>Detailed reference text is currently in English. Only photographs verified for the selected crop are shown.</p>{% for source in references %}<a href="{{ source.url }}" target="_blank" rel="noopener noreferrer">{{ source.label }} ↗</a>{% endfor %}</footer></main>{% endblock %}
+{% block scripts %}<script src="{% static 'js/live-search.js' %}?v={{ STATIC_VERSION }}" defer></script>{% endblock %}

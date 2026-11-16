@@ -9,9 +9,10 @@
   <section class="library-cultivation-feature" aria-labelledby="library-cultivation-title"><div><span class="eyebrow">CULTIVATION TIPS · 13 TOPICS FOR YOUR CROP</span><h2 id="library-cultivation-title">From the first planting to post-harvest.</h2><p>Open a crop to explore plant and site selection, field preparation, planting, monitoring, weeding, irrigation, organic and chemical fertilization, prevention, plant protection, harvesting, and post-harvest care.</p></div><a class="btn btn-agri" href="#library-crops">Choose your crop ↓</a></section>
   <form class="library-search" method="get" role="search">
     <label for="library-search">{% translate "Search crop" %}</label>
-    <div class="library-input-row"><input id="library-search" type="search" name="q" value="{{ query }}" placeholder="{% translate 'Search crop…' %}" maxlength="100"><button class="btn btn-agri" type="submit">{% translate "Search crop" %}</button></div>
+    <div class="library-input-row"><input id="library-search" type="search" name="q" data-live-search="#library-results" autocomplete="off" value="{{ query }}" placeholder="{% translate 'Search crop…' %}" maxlength="100"><button class="btn btn-agri" type="submit">{% translate "Search crop" %}</button></div>
     {% if category %}<input type="hidden" name="category" value="{{ category }}">{% endif %}
   </form>
+  <div id="library-results">
   <nav class="library-categories" aria-label="{% translate 'Select your crops' %}">
     <a href="?q={{ query|urlencode }}" {% if not category %}aria-current="page"{% endif %}>{% translate "All crops" %}</a>
     {% for item in categories %}<a href="?category={{ item.slug }}&amp;q={{ query|urlencode }}" {% if category == item.slug %}aria-current="page"{% endif %}>{{ item.name|ui_text }}</a>{% endfor %}
@@ -20,9 +21,11 @@
   <div id="library-crops">
   {% for group in groups %}
   <section class="library-group" aria-labelledby="group-{{ group.slug }}"><h2 id="group-{{ group.slug }}">{{ group.name|ui_text }} <span>{{ group.crops|length }}</span></h2><div class="library-grid">
-    {% for crop in group.crops %}<a class="library-card" href="{% url 'crops:library_detail' crop.slug %}"><div class="library-photo"><img src="{% static crop.photo %}" alt="" width="240" height="180" loading="lazy" decoding="async"></div><div class="library-card-text"><h3>{{ crop.name|ui_text }}</h3><span>{{ crop.climate|ui_text }}</span><span class="library-card-tip">Cultivation tips · 13 topics</span><span class="library-arrow" aria-hidden="true">↗</span></div></a>{% endfor %}
+    {% for crop in group.crops %}<a class="library-card" href="{% url 'crops:library_detail' crop.slug %}"><div class="library-photo"><img src="{% static crop.photo %}" alt="" width="240" height="180" loading="lazy" decoding="async"></div><div class="library-card-text"><h3 data-suggest>{{ crop.name|ui_text }}</h3><span>{{ crop.climate|ui_text }}</span><span class="library-card-tip">Cultivation tips · 13 topics</span><span class="library-arrow" aria-hidden="true">↗</span></div></a>{% endfor %}
   </div></section>
   {% empty %}<div class="library-empty"><h2>{% translate "No crops found." %}</h2><a href="{% url 'crops:library' %}">{% translate "All crops" %}</a></div>{% endfor %}
   </div>
+  </div>
 </div>
 {% endblock %}
+{% block scripts %}<script src="{% static 'js/live-search.js' %}?v={{ STATIC_VERSION }}" defer></script>{% endblock %}
