@@ -378,6 +378,10 @@ export default function AIChatIsland({
     if (widget) {
       widget.classList.add("d-none");
     }
+    // Closing the chat ends the conversation: the assistant only remembers the current chat.
+    if (messages.length > 0) {
+      void handleReset();
+    }
   };
 
   const handleToggleMic = async () => {

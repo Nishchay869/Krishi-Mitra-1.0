@@ -109,7 +109,7 @@ def _localize(reply, text, target, detected_lang):
     return text, target
 
 
-def respond(message, language=None, output_language=None):
+def respond(message, language=None, output_language=None, history=None):
     """Return (BotReply, reply_text_in_user_language, language_code, english_query).
 
     Optimized for strict language fidelity:
@@ -119,12 +119,12 @@ def respond(message, language=None, output_language=None):
     - Gemini instructed with strict language requirement
     """
     message_str, detected_lang, target = _resolve_target(message, language, output_language)
-    reply = engine.answer(message_str, language=target)
+    reply = engine.answer(message_str, language=target, history=history)
     text, target = _localize(reply, reply.text, target, detected_lang)
     return reply, text, target, message_str
 
 
-def respond_stream(message, language=None, output_language=None):
+def respond_stream(message, language=None, output_language=None, history=None):
     """Streaming respond(): yields ('delta', text_piece) while the answer is written, then
     ('final', (BotReply, reply_text_in_user_language, language_code, english_query)).
 
@@ -132,7 +132,7 @@ def respond_stream(message, language=None, output_language=None):
     pieces and the client should replace what it showed.
     """
     message_str, detected_lang, target = _resolve_target(message, language, output_language)
-    pieces = engine.stream_answer(message_str, language=target)
+    pieces = engine.stream_answer(message_str, language=target, history=history)
     while True:
         try:
             yield ('delta', next(pieces))

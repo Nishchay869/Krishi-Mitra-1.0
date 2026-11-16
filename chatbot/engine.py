@@ -269,7 +269,29 @@ RETRYABLE_STATUS_CODES = {429, 500, 502, 503, 504}
 MAX_RETRIES_PER_MODEL = 1
 
 
-def _gemini_payload(message, target_language=None, rag_context: Optional[str] = None):
+# Conversation memory: how much of the current chat Gemini sees with each new question.
+MAX_HISTORY_TURNS = 6
+MAX_HISTORY_CHARS = 1200
+
+
+def _history_contents(history):
+    """Earlier (question, answer) pairs of this chat as Gemini conversation turns."""
+    contents = []
+    for question, reply in (history or [])[-MAX_HISTORY_TURNS:]:
+        if question and reply:
+            contents.append({'role': 'user', 'parts': [{'text': str(question)[:MAX_HISTORY_CHARS]}]})
+            contents.append({'role': 'model', 'parts': [{'text': str(reply)[:MAX_HISTORY_CHARS]}]})
+    return contents
+
+
+def _retrieval_query(message, history):
+    """Short follow-ups ("how much?") are searched together with the previous question."""
+    if history and history[-1][0]:
+        return f"{history[-1][0]} {message}"
+    return message
+
+
+def _gemini_payload(message, target_language=None, rag_context: Optional[str] = None, history=None):
     """Request body for Gemini generateContent / streamGenerateContent."""
     user_prompt = str(message).strip()
     if rag_context:
@@ -290,7 +312,7 @@ def _gemini_payload(message, target_language=None, rag_context: Optional[str] = 
 
     payload = {
         'system_instruction': {'parts': [{'text': SYSTEM_PROMPT}]},
-        'contents': [{'parts': [{'text': user_prompt}]}],
+        'contents': _history_contents(history) + [{'role': 'user', 'parts': [{'text': user_prompt}]}],
         'generationConfig': {
             'temperature': 0.3,
             'maxOutputTokens': 800,
@@ -299,7 +321,7 @@ def _gemini_payload(message, target_language=None, rag_context: Optional[str] = 
     return payload
 
 
-def call_gemini(message, target_language=None, rag_context: Optional[str] = None):
+def call_gemini(message, target_language=None, rag_context: Optional[str] = None, history=None):
     """Call Google Gemini generateContent API with RAG context, exponential backoff, and multi-model fallback."""
     api_key = getattr(settings, 'GEMINI_API_KEY', '')
     if not api_key:
@@ -312,7 +334,7 @@ def call_gemini(message, target_language=None, rag_context: Optional[str] = None
         if fallback not in candidate_models:
             candidate_models.append(fallback)
 
-    payload = _gemini_payload(message, target_language, rag_context)
+    payload = _gemini_payload(message, target_language, rag_context, history)
 
     last_error = None
     for model_name in candidate_models:
@@ -376,7 +398,7 @@ def _reply_cache_key(message, language):
     return f"krishi_ai_reply:{language or 'auto'}:{hashlib.sha256(message.lower().encode('utf-8')).hexdigest()}"
 
 
-def answer(message, language=None):
+def answer(message, language=None, history=None):
     """Answer farmer questions via agricultural RAG retrieval and Google Gemini in the user's language."""
     message = (message or '').strip()
     target_lang = language or 'en-IN'
@@ -403,7 +425,7 @@ def answer(message, language=None):
 
     # 2. Check query cache (instant response for duplicate prompt)
     cache_key = _reply_cache_key(message, language)
-    cached_text = cache.get(cache_key)
+    cached_text = None if history else cache.get(cache_key)
     if cached_text:
         return BotReply(
             text=cached_text,
@@ -413,14 +435,15 @@ def answer(message, language=None):
         )
 
     # 3. RAG Retrieval from Agricultural Knowledge Base
-    rag_matches = rag.retrieve_relevant_ciari_docs(message, top_k=2)
+    rag_matches = rag.retrieve_relevant_ciari_docs(_retrieval_query(message, history), top_k=2)
     rag_context = rag.format_rag_prompt_context(rag_matches) if rag_matches else None
 
     # 4. DIRECT GEMINI CALL: Questions are answered by Google Gemini augmented with RAG
     if api_key:
-        gemini_text = call_gemini(message, target_language=language, rag_context=rag_context)
+        gemini_text = call_gemini(message, target_language=language, rag_context=rag_context, history=history)
         if gemini_text:
-            cache.set(cache_key, gemini_text, 7 * 24 * 3600)
+            if not history:
+                cache.set(cache_key, gemini_text, 7 * 24 * 3600)
             return BotReply(
                 text=gemini_text,
                 intent=intent,
@@ -451,7 +474,7 @@ def answer(message, language=None):
 GEMINI_STREAM_ENDPOINT = "https://generativelanguage.googleapis.com/v1beta/models/{model}:streamGenerateContent"
 
 
-def stream_gemini(message, target_language=None, rag_context: Optional[str] = None):
+def stream_gemini(message, target_language=None, rag_context: Optional[str] = None, history=None):
     """Yield Gemini's answer in small text pieces as it is written (server-sent events).
 
     Tries the same models as call_gemini. A model is only skipped while nothing has been
@@ -462,7 +485,7 @@ def stream_gemini(message, target_language=None, rag_context: Optional[str] = No
         return
     configured_model = getattr(settings, 'GEMINI_CHAT_MODEL', 'gemini-3.5-flash-lite')
     candidate_models = [configured_model] + [m for m in DEFAULT_CANDIDATE_MODELS if m != configured_model]
-    payload = _gemini_payload(message, target_language, rag_context)
+    payload = _gemini_payload(message, target_language, rag_context, history)
 
     for model_name in candidate_models:
         cooldown_key = f"gemini_cooldown_{model_name}"
@@ -509,7 +532,7 @@ def stream_gemini(message, target_language=None, rag_context: Optional[str] = No
     logger.error('Gemini streaming: no model produced an answer')
 
 
-def stream_answer(message, language=None):
+def stream_answer(message, language=None, history=None):
     """Like answer(), but yields the reply text piece by piece while Gemini writes it.
 
     The final BotReply is the generator's return value (StopIteration.value).
@@ -519,21 +542,22 @@ def stream_answer(message, language=None):
     api_key = getattr(settings, 'GEMINI_API_KEY', '')
     intent = detect_intent(message) if message else 'general'
     if (not message or not api_key or match_fast_path(message, intent, language=language)
-            or cache.get(_reply_cache_key(message, language))):
-        reply = answer(message, language)
+            or (not history and cache.get(_reply_cache_key(message, language)))):
+        reply = answer(message, language, history)
         if reply.text:
             yield reply.text
         return reply
 
-    rag_matches = rag.retrieve_relevant_ciari_docs(message, top_k=2)
+    rag_matches = rag.retrieve_relevant_ciari_docs(_retrieval_query(message, history), top_k=2)
     rag_context = rag.format_rag_prompt_context(rag_matches) if rag_matches else None
     pieces = []
-    for piece in stream_gemini(message, target_language=language, rag_context=rag_context):
+    for piece in stream_gemini(message, target_language=language, rag_context=rag_context, history=history):
         pieces.append(piece)
         yield piece
     text = ''.join(pieces).strip()
     if text:
-        cache.set(_reply_cache_key(message, language), text, 7 * 24 * 3600)
+        if not history:
+            cache.set(_reply_cache_key(message, language), text, 7 * 24 * 3600)
         return BotReply(text=text, intent=intent, confidence=1.0, entry=None)
 
     # Gemini wrote nothing: same fallbacks as answer()

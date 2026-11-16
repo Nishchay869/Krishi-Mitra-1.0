@@ -1,9 +1,11 @@
 from django.utils.translation import gettext as _
 import json
+from datetime import timedelta
 import logging
 
 from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse, StreamingHttpResponse
+from django.utils import timezone
 from django.shortcuts import get_object_or_404, render
 from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_POST
@@ -154,6 +156,24 @@ def api_speak(request, pk):
     return JsonResponse({'audios': audios, 'format': 'mp3'})
 
 
+# The assistant remembers the current conversation: the last few exchanges of this chat,
+# until the farmer resets/closes it (api_clear) or opens the chat page again (chat_page).
+HISTORY_TURNS = 6
+HISTORY_WINDOW = timedelta(hours=2)   # an old, forgotten chat does not leak into a new question
+
+
+def _conversation_history(request):
+    """[(question, answer), ...] of this user's/session's current chat, oldest first."""
+    if request.user.is_authenticated:
+        qs = ChatMessage.objects.filter(user=request.user)
+    elif request.session.session_key:
+        qs = ChatMessage.objects.filter(session_key=request.session.session_key, user__isnull=True)
+    else:
+        return []
+    qs = qs.filter(created_at__gte=timezone.now() - HISTORY_WINDOW).order_by('-created_at')
+    return [(m.message, m.response) for m in reversed(qs[:HISTORY_TURNS])]
+
+
 def _preferred_language(request):
     """The farmer's saved reply language (Sarvam code), or None for English."""
     if request.user.is_authenticated:
@@ -184,7 +204,9 @@ def _store(request, message, reply, text, language, message_en, preferred, is_vo
 
 def _answer(request, message, language=None, is_voice=False):
     preferred = _preferred_language(request)
-    reply, text, language, message_en = multilingual.respond(message, language, output_language=preferred)
+    history = _conversation_history(request)
+    reply, text, language, message_en = multilingual.respond(message, language, output_language=preferred,
+                                                             history=history)
     if not request.session.session_key:
         request.session.save()
     return _store(request, message, reply, text, language, message_en, preferred, is_voice)
@@ -212,11 +234,13 @@ def api_chat_stream(request):
     preferred = _preferred_language(request)
     if not request.session.session_key:
         request.session.save()  # must happen before streaming starts: cookies cannot be set later
+    history = _conversation_history(request)
 
     def events():
         streamed = []
         try:
-            for kind, value in multilingual.respond_stream(message, language, output_language=preferred):
+            for kind, value in multilingual.respond_stream(message, language, output_language=preferred,
+                                                           history=history):
                 if kind == 'delta':
                     streamed.append(value)
                     yield json.dumps({'type': 'delta', 'text': value}, ensure_ascii=False) + '\n'

@@ -623,3 +623,82 @@ class StreamingEncodingTests(TestCase):
         resp.raw = io.BytesIO(raw)
         post.return_value = resp
         self.assertEqual(''.join(engine.stream_gemini('paddy urea?', target_language='kn-IN')), kannada)
+
+
+def _gemini_json(text):
+    resp = MagicMock(status_code=200)
+    resp.json.return_value = {'candidates': [{'content': {'parts': [{'text': text}]}}]}
+    return resp
+
+
+@override_settings(GEMINI_API_KEY='test-placeholder', SARVAM_API_KEY='')
+class ConversationMemoryTests(TestCase):
+    """The assistant remembers the current chat until it is reset/closed."""
+
+    def setUp(self):
+        from django.core.cache import cache
+        cache.clear()
+
+    def ask(self, message, url='chatbot:api'):
+        response = self.client.post(reverse(url), json.dumps({'message': message}), content_type='application/json')
+        if url == 'chatbot:api_stream':
+            b''.join(response.streaming_content)
+        return response
+
+    @staticmethod
+    def sent_contents(post):
+        return post.call_args.kwargs['json']['contents']
+
+    @patch('chatbot.engine.requests.post')
+    def test_follow_up_question_includes_earlier_turns(self, post):
+        post.return_value = _gemini_json('Use neem oil spray every 7 days for aphids.')
+        self.ask('How do I control aphids on my chilli crop?')
+        self.assertEqual(len(self.sent_contents(post)), 1)          # first question: no history
+
+        post.return_value = _gemini_json('About 5 ml per litre of water.')
+        self.ask('How much should I mix per litre?')
+        contents = self.sent_contents(post)
+        self.assertEqual([c['role'] for c in contents], ['user', 'model', 'user'])
+        self.assertIn('aphids on my chilli', contents[0]['parts'][0]['text'])
+        self.assertIn('neem oil', contents[1]['parts'][0]['text'])
+        self.assertIn('How much should I mix', contents[2]['parts'][0]['text'])
+
+    @patch('chatbot.engine.requests.post')
+    def test_streaming_chat_also_remembers(self, post):
+        post.return_value = _gemini_json('Late blight needs a copper fungicide.')
+        self.ask('My tomato leaves have dark wet patches, what is it?')
+        stream = MagicMock(status_code=200, text='')
+        stream.iter_lines.return_value = ['data: ' + json.dumps({'candidates': [{'content': {'parts': [{'text': 'Every 10 days.'}]}}]})]
+        post.return_value = stream
+        self.ask('How often should I spray it?', url='chatbot:api_stream')
+        self.assertEqual([c['role'] for c in self.sent_contents(post)], ['user', 'model', 'user'])
+
+    @patch('chatbot.engine.requests.post')
+    def test_follow_up_is_not_answered_from_another_chats_cache(self, post):
+        from django.core.cache import cache
+        cache.set(engine._reply_cache_key('How much should I mix per litre?', 'en-IN'), 'CACHED UNRELATED', 3600)
+        post.return_value = _gemini_json('Use neem oil.')
+        self.ask('How do I control aphids on my chilli crop?')
+        post.return_value = _gemini_json('About 5 ml per litre.')
+        reply = self.ask('How much should I mix per litre?').json()['reply']
+        self.assertEqual(reply, 'About 5 ml per litre.')
+
+    @patch('chatbot.engine.requests.post')
+    def test_reset_ends_the_conversation(self, post):
+        post.return_value = _gemini_json('Use neem oil.')
+        self.ask('How do I control aphids on my chilli crop?')
+        self.client.post(reverse('chatbot:clear'))
+        post.return_value = _gemini_json('Fresh answer.')
+        self.ask('What fertilizer suits paddy in Karnataka?')
+        self.assertEqual(len(self.sent_contents(post)), 1)
+
+    @patch('chatbot.engine.requests.post')
+    def test_old_messages_are_not_remembered(self, post):
+        from datetime import timedelta
+        from django.utils import timezone
+        post.return_value = _gemini_json('Use neem oil.')
+        self.ask('How do I control aphids on my chilli crop?')
+        ChatMessage.objects.update(created_at=timezone.now() - timedelta(hours=3))
+        post.return_value = _gemini_json('Fresh answer.')
+        self.ask('What fertilizer suits paddy in Karnataka?')
+        self.assertEqual(len(self.sent_contents(post)), 1)
