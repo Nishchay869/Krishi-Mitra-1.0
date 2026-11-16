@@ -261,7 +261,7 @@ class SpeechTextTests(TestCase):
 
     @override_settings(SARVAM_API_KEY='test-key')
     @patch.object(sarvam, 'speak', return_value=['bXAz'])
-    @patch.object(sarvam, 'translate', side_effect=lambda text, s, t: f'[{t}] {text}')
+    @patch.object(sarvam, 'translate', side_effect=lambda text, s, t, kind='answer': f'[{t}] {text}')
     def test_speak_reply_cleans_then_translates(self, translate, speak):
         sarvam.speak_reply('DAP + urea', 'hi-IN')
         speak.assert_called_once_with('[hi-IN] DAP and urea', 'hi-IN')
@@ -285,7 +285,7 @@ class GreetingTests(TestCase):
 
     @override_settings(SARVAM_API_KEY='test-key')
     @patch.object(sarvam, 'speak', return_value=['bXAz'])
-    @patch.object(sarvam, 'translate', side_effect=lambda text, s, t: f'[{t}] {text}')
+    @patch.object(sarvam, 'translate', side_effect=lambda text, s, t, kind='answer': f'[{t}] {text}')
     def test_greets_by_name_in_preferred_language(self, translate, speak):
         self.client.force_login(self.user)
         data = self.client.post(self.url, json.dumps({'hour': 9}), content_type='application/json').json()
@@ -702,3 +702,43 @@ class ConversationMemoryTests(TestCase):
         post.return_value = _gemini_json('Fresh answer.')
         self.ask('What fertilizer suits paddy in Karnataka?')
         self.assertEqual(len(self.sent_contents(post)), 1)
+
+
+@override_settings(GEMINI_API_KEY='test-placeholder', SARVAM_API_KEY='test-key')
+class GeminiTranslationTests(TestCase):
+    def setUp(self):
+        from django.core.cache import cache
+        cache.clear()
+
+    @patch('chatbot.translation.requests.post')
+    def test_gemini_translates_and_result_is_cached(self, post):
+        from . import translation
+        post.return_value = _gemini_json('ಬೇವಿನ ಎಣ್ಣೆ ಸಿಂಪಡಿಸಿ')
+        self.assertEqual(translation.translate('Spray neem oil', 'en-IN', 'kn-IN'), 'ಬೇವಿನ ಎಣ್ಣೆ ಸಿಂಪಡಿಸಿ')
+        translation.translate('Spray neem oil', 'en-IN', 'kn-IN')
+        self.assertEqual(post.call_count, 1)                              # second time from cache
+        prompt = post.call_args.kwargs['json']['system_instruction']['parts'][0]['text']
+        self.assertIn('kn-IN', prompt)
+
+    @patch.object(sarvam, 'translate', return_value='ಸರ್ವಮ್ ಅನುವಾದ')
+    @patch('chatbot.translation.requests.post', side_effect=__import__('requests').ConnectionError())
+    def test_falls_back_to_sarvam_when_gemini_fails(self, post, sarvam_translate):
+        from . import translation
+        self.assertEqual(translation.translate('Spray neem oil', 'en-IN', 'kn-IN'), 'ಸರ್ವಮ್ ಅನುವಾದ')
+
+    @patch.object(sarvam, 'translate', side_effect=sarvam.SarvamError('No credits available'))
+    @patch('chatbot.translation.requests.post')
+    def test_untranslated_echo_counts_as_failure(self, post, sarvam_translate):
+        from . import translation
+        post.return_value = _gemini_json('Spray neem oil')                # Gemini returned English
+        with self.assertRaises(sarvam.SarvamError):
+            translation.translate('Spray neem oil', 'en-IN', 'kn-IN')
+
+    @patch('chatbot.translation.requests.post')
+    def test_detect_language_accepts_only_known_codes(self, post):
+        from . import translation
+        post.return_value = _gemini_json('kn-IN')
+        self.assertEqual(translation.detect_language('ನಮಸ್ಕಾರ'), 'kn-IN')
+        post.return_value = _gemini_json('Klingon')
+        self.assertEqual(translation.detect_language('qapla'), 'en-IN')
+

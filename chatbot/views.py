@@ -10,7 +10,7 @@ from django.shortcuts import get_object_or_404, render
 from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_POST
 
-from . import multilingual, sarvam
+from . import multilingual, sarvam, translation
 from accounts.languages import SARVAM_CODES
 from .models import ChatMessage
 
@@ -132,11 +132,14 @@ def api_greeting(request):
     text = greeting_text(name, hour)
     audios = []
     try:
-        text = sarvam.translate(text, sarvam.ENGLISH, language)
+        text = translation.translate(text, sarvam.ENGLISH, language)
+    except sarvam.SarvamError:
+        language = sarvam.ENGLISH  # no translation service: greet in English
+        text = greeting_text(name, hour)
+    try:
         audios = sarvam.speak(text, language)
     except sarvam.SarvamError:
-        language = sarvam.ENGLISH  # still greet on screen; the conversation starts without audio
-        text = greeting_text(name, hour)
+        audios = []  # voice unavailable (e.g. no Sarvam credits): keep the translated greeting
     return JsonResponse({'text': text, 'language': language, 'audios': audios})
 
 

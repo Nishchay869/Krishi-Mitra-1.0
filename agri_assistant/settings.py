@@ -295,3 +295,5 @@ JOBS_RUN_IN_PROCESS = True
 if 'test' in sys.argv:
     TASKS = {'default': {'BACKEND': 'django.tasks.backends.immediate.ImmediateBackend'}}
     JOBS_RUN_IN_PROCESS = False
+    # Tests never call real services, whatever is in your local .env (same as CI, which has none).
+    GEMINI_API_KEY = SARVAM_API_KEY = OPENWEATHER_API_KEY = DATA_GOV_IN_API_KEY = ''

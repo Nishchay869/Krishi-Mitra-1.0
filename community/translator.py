@@ -5,7 +5,7 @@ with robust agricultural fallback translations when offline or in sandboxed netw
 """
 import logging
 from django.conf import settings
-from chatbot import sarvam
+from chatbot import translation
 
 logger = logging.getLogger(__name__)
 
@@ -64,16 +64,16 @@ def translate_text(text: str, target_lang: str = 'hi') -> str:
     if lang_code in AGRI_GLOSSARY and text.strip() in AGRI_GLOSSARY[lang_code]:
         return AGRI_GLOSSARY[lang_code][text.strip()]
 
-    # Attempt Sarvam AI if configured
-    if sarvam.is_configured():
+    # Gemini first, Sarvam AI as backup (chatbot.translation)
+    if translation.is_configured():
         try:
             target_bcp47 = f"{lang_code}-IN" if lang_code != 'en' else 'en-IN'
             source_bcp47 = 'en-IN'
-            res = sarvam.translate(text, source_bcp47, target_bcp47)
+            res = translation.translate(text, source_bcp47, target_bcp47)
             if res and res.strip():
                 return res
         except Exception as e:
-            logger.info("Sarvam AI translation unavailable, applying fallback: %s", e)
+            logger.info("Translation service unavailable, applying fallback: %s", e)
 
     # Word-level fallback replacement if phrase wasn't found in glossary
     translated = text

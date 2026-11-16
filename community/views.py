@@ -10,7 +10,7 @@ from django.views.decorators.http import require_POST, require_http_methods
 from .models import CommunityPost, CommunityAnswer, CommunityNotification
 from .seed_data import ensure_community_seed_data
 from .tasks import get_or_create_translation, translate_post
-from chatbot import sarvam
+from chatbot import translation
 
 POPULAR_CROPS = [
     {"name": "Capsicum & Chilli", "icon": "🌶️"},
@@ -152,7 +152,7 @@ def ask_community_view(request):
             tags=f"#{crop}, #FarmerAdvice"
         )
 
-        if sarvam.is_configured():
+        if translation.is_configured():
             translate_post.enqueue(post.id)   # translations ready before anyone taps "Translate"
         messages.success(request, 'Your question has been shared with the community! Fellow farmers & agronomists will answer soon.')
         return redirect(reverse('community:feed'))

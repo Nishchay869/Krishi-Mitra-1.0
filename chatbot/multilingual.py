@@ -1,7 +1,7 @@
 """Answer in the farmer's own language using Gemini's native multilingual understanding."""
 import logging
 import re
-from . import engine, sarvam
+from . import engine, sarvam, translation
 
 logger = logging.getLogger(__name__)
 
@@ -68,9 +68,9 @@ def _resolve_target(message, language=None, output_language=None):
             elif message_str.isascii():
                 # ASCII text without regional words -> English
                 detected_lang = sarvam.ENGLISH
-            elif sarvam.is_configured():
+            elif translation.is_configured():
                 try:
-                    detected_lang = sarvam.detect_language(message_str)
+                    detected_lang = translation.detect_language(message_str)
                 except Exception:
                     detected_lang = sarvam.ENGLISH
             else:
@@ -92,9 +92,9 @@ def _localize(reply, text, target, detected_lang):
     # If the response is in English but user asked in regional language:
     if target != sarvam.ENGLISH and not any(ord(ch) > 127 for ch in text):
         translated = False
-        if sarvam.is_configured():
+        if translation.is_configured():
             try:
-                text = sarvam.translate(text, sarvam.ENGLISH, target)
+                text = translation.translate(text, sarvam.ENGLISH, target)
                 translated = True
             except sarvam.SarvamError:
                 translated = False
