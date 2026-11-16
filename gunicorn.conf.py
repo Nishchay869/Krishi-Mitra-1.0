@@ -21,5 +21,12 @@ except Exception as exc:  # ImportError, or a broken binary wheel
     worker_class = 'gthread'
     threads = 4
 else:
+    # Patch before the app is loaded. Render passes its own GUNICORN_CMD_ARGS including
+    # --preload, which imports Django in the master process *before* the gevent worker would
+    # patch; Django's DB connections then live in a real threading.local shared by every
+    # request ("DatabaseWrapper objects created in a thread can only be used in that same
+    # thread" -> every page 500). Patching here, first, keeps them per request.
+    from gevent import monkey
+    monkey.patch_all()
     worker_class = 'gevent'
     worker_connections = 50
