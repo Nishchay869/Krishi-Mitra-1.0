@@ -41,6 +41,8 @@ services:
         sync: false
       - key: GEMINI_API_KEY
         sync: false
+      - key: REDIS_URL   # optional: free Upstash Redis keeps the cache across sleeps/deploys
+        sync: false
       - key: OPENWEATHER_API_KEY
         sync: false
       - key: SARVAM_API_KEY

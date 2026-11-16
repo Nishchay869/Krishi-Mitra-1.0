@@ -297,3 +297,17 @@ if 'test' in sys.argv:
     JOBS_RUN_IN_PROCESS = False
     # Tests never call real services, whatever is in your local .env (same as CI, which has none).
     GEMINI_API_KEY = SARVAM_API_KEY = OPENWEATHER_API_KEY = DATA_GOV_IN_API_KEY = ''
+
+# Cache: Redis when REDIS_URL is set (e.g. a free Upstash database, "rediss://default:<password>@<host>:6379"),
+# so cached Gemini answers, translations and voice replies survive the free server sleeping and
+# redeploying. Without REDIS_URL (and in tests) each server process keeps its own memory cache.
+REDIS_URL = os.environ.get('REDIS_URL', '').strip()
+if REDIS_URL and 'test' not in sys.argv:
+    CACHES = {'default': {
+        'BACKEND': 'agri_assistant.cache.SafeRedisCache',   # falls back to memory if Redis is down
+        'LOCATION': REDIS_URL,
+        'KEY_PREFIX': 'km',
+        'OPTIONS': {'socket_connect_timeout': 2, 'socket_timeout': 2},
+    }}
+else:
+    CACHES = {'default': {'BACKEND': 'django.core.cache.backends.locmem.LocMemCache'}}
