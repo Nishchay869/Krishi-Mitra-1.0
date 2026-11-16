@@ -1,4 +1,5 @@
 import * as React from "react";
+import "./FarmingCalculator.css";
 import {
   ArrowLeft,
   Volume2,
@@ -6,21 +7,13 @@ import {
   Plus,
   Minus,
   Search,
-  Sparkles,
-  Droplets,
   Sun,
   CloudRain,
   Snowflake,
-  ShieldAlert,
-  Layers,
-  ThermometerSun,
   RotateCcw,
   CheckCircle2,
   AlertTriangle,
   ChevronDown,
-  TrendingUp,
-  Coins,
-  Scale,
   Settings2,
 } from "lucide-react";
 
@@ -100,7 +93,6 @@ export function calculateCropYieldAndNetMargin({
 
 interface CropInfo {
   name: string;
-  emoji: string;
   n: number; // kg/ha
   p: number; // kg/ha
   k: number; // kg/ha
@@ -117,7 +109,6 @@ const COMMON_CROPS: CropInfo[] = [
   // ─── Cereals & Millets ───
   {
     name: "Maize",
-    emoji: "🌽",
     n: 120,
     p: 60,
     k: 40,
@@ -131,7 +122,6 @@ const COMMON_CROPS: CropInfo[] = [
   },
   {
     name: "Rice",
-    emoji: "🌾",
     n: 120,
     p: 50,
     k: 50,
@@ -145,7 +135,6 @@ const COMMON_CROPS: CropInfo[] = [
   },
   {
     name: "Wheat",
-    emoji: "🌾",
     n: 120,
     p: 60,
     k: 40,
@@ -159,7 +148,6 @@ const COMMON_CROPS: CropInfo[] = [
   },
   {
     name: "Bajra",
-    emoji: "🌾",
     n: 80,
     p: 40,
     k: 20,
@@ -173,7 +161,6 @@ const COMMON_CROPS: CropInfo[] = [
   },
   {
     name: "Jowar",
-    emoji: "🌾",
     n: 80,
     p: 40,
     k: 40,
@@ -187,7 +174,6 @@ const COMMON_CROPS: CropInfo[] = [
   },
   {
     name: "Ragi",
-    emoji: "🌾",
     n: 60,
     p: 30,
     k: 30,
@@ -201,7 +187,6 @@ const COMMON_CROPS: CropInfo[] = [
   },
   {
     name: "Barley",
-    emoji: "🌾",
     n: 60,
     p: 30,
     k: 20,
@@ -217,7 +202,6 @@ const COMMON_CROPS: CropInfo[] = [
   // ─── Pulses & Legumes ───
   {
     name: "Pigeonpea",
-    emoji: "🫘",
     n: 25,
     p: 50,
     k: 20,
@@ -231,7 +215,6 @@ const COMMON_CROPS: CropInfo[] = [
   },
   {
     name: "Chickpea",
-    emoji: "🫘",
     n: 20,
     p: 40,
     k: 20,
@@ -245,7 +228,6 @@ const COMMON_CROPS: CropInfo[] = [
   },
   {
     name: "Green Gram",
-    emoji: "🫘",
     n: 20,
     p: 40,
     k: 20,
@@ -259,7 +241,6 @@ const COMMON_CROPS: CropInfo[] = [
   },
   {
     name: "Black Gram",
-    emoji: "🫘",
     n: 20,
     p: 40,
     k: 20,
@@ -273,7 +254,6 @@ const COMMON_CROPS: CropInfo[] = [
   },
   {
     name: "Lentil",
-    emoji: "🫘",
     n: 20,
     p: 40,
     k: 20,
@@ -287,7 +267,6 @@ const COMMON_CROPS: CropInfo[] = [
   },
   {
     name: "Field Pea",
-    emoji: "🫛",
     n: 25,
     p: 50,
     k: 25,
@@ -301,7 +280,6 @@ const COMMON_CROPS: CropInfo[] = [
   },
   {
     name: "Cowpea",
-    emoji: "🫘",
     n: 25,
     p: 50,
     k: 25,
@@ -317,7 +295,6 @@ const COMMON_CROPS: CropInfo[] = [
   // ─── Oilseeds ───
   {
     name: "Groundnut",
-    emoji: "🥜",
     n: 25,
     p: 50,
     k: 75,
@@ -331,7 +308,6 @@ const COMMON_CROPS: CropInfo[] = [
   },
   {
     name: "Soybean",
-    emoji: "🫘",
     n: 30,
     p: 60,
     k: 40,
@@ -345,7 +321,6 @@ const COMMON_CROPS: CropInfo[] = [
   },
   {
     name: "Mustard",
-    emoji: "🌼",
     n: 80,
     p: 40,
     k: 40,
@@ -359,7 +334,6 @@ const COMMON_CROPS: CropInfo[] = [
   },
   {
     name: "Sunflower",
-    emoji: "🌻",
     n: 60,
     p: 60,
     k: 30,
@@ -373,7 +347,6 @@ const COMMON_CROPS: CropInfo[] = [
   },
   {
     name: "Sesame",
-    emoji: "🌱",
     n: 40,
     p: 25,
     k: 25,
@@ -387,7 +360,6 @@ const COMMON_CROPS: CropInfo[] = [
   },
   {
     name: "Castor",
-    emoji: "🌱",
     n: 80,
     p: 40,
     k: 20,
@@ -401,7 +373,6 @@ const COMMON_CROPS: CropInfo[] = [
   },
   {
     name: "Safflower",
-    emoji: "🌼",
     n: 50,
     p: 40,
     k: 20,
@@ -417,7 +388,6 @@ const COMMON_CROPS: CropInfo[] = [
   // ─── Commercial & Fibre ───
   {
     name: "Cotton",
-    emoji: "☁️",
     n: 120,
     p: 60,
     k: 60,
@@ -431,7 +401,6 @@ const COMMON_CROPS: CropInfo[] = [
   },
   {
     name: "Sugarcane",
-    emoji: "🎋",
     n: 250,
     p: 100,
     k: 120,
@@ -445,7 +414,6 @@ const COMMON_CROPS: CropInfo[] = [
   },
   {
     name: "Jute",
-    emoji: "🎋",
     n: 60,
     p: 30,
     k: 30,
@@ -459,7 +427,6 @@ const COMMON_CROPS: CropInfo[] = [
   },
   {
     name: "Tobacco",
-    emoji: "🍃",
     n: 100,
     p: 50,
     k: 100,
@@ -475,7 +442,6 @@ const COMMON_CROPS: CropInfo[] = [
   // ─── Vegetables ───
   {
     name: "Tomato",
-    emoji: "🍅",
     n: 150,
     p: 100,
     k: 120,
@@ -489,7 +455,6 @@ const COMMON_CROPS: CropInfo[] = [
   },
   {
     name: "Potato",
-    emoji: "🥔",
     n: 180,
     p: 100,
     k: 150,
@@ -503,7 +468,6 @@ const COMMON_CROPS: CropInfo[] = [
   },
   {
     name: "Onion",
-    emoji: "🧅",
     n: 100,
     p: 50,
     k: 80,
@@ -517,7 +481,6 @@ const COMMON_CROPS: CropInfo[] = [
   },
   {
     name: "Chilli",
-    emoji: "🌶️",
     n: 120,
     p: 60,
     k: 60,
@@ -531,7 +494,6 @@ const COMMON_CROPS: CropInfo[] = [
   },
   {
     name: "Brinjal",
-    emoji: "🍆",
     n: 120,
     p: 80,
     k: 60,
@@ -545,7 +507,6 @@ const COMMON_CROPS: CropInfo[] = [
   },
   {
     name: "Cabbage",
-    emoji: "🥬",
     n: 150,
     p: 80,
     k: 90,
@@ -559,7 +520,6 @@ const COMMON_CROPS: CropInfo[] = [
   },
   {
     name: "Cauliflower",
-    emoji: "🥦",
     n: 150,
     p: 80,
     k: 90,
@@ -573,7 +533,6 @@ const COMMON_CROPS: CropInfo[] = [
   },
   {
     name: "Okra",
-    emoji: "🌱",
     n: 80,
     p: 50,
     k: 50,
@@ -587,7 +546,6 @@ const COMMON_CROPS: CropInfo[] = [
   },
   {
     name: "Capsicum",
-    emoji: "🫑",
     n: 150,
     p: 100,
     k: 120,
@@ -601,7 +559,6 @@ const COMMON_CROPS: CropInfo[] = [
   },
   {
     name: "Cucumber",
-    emoji: "🥒",
     n: 120,
     p: 60,
     k: 60,
@@ -615,7 +572,6 @@ const COMMON_CROPS: CropInfo[] = [
   },
   {
     name: "Bitter Gourd",
-    emoji: "🥒",
     n: 100,
     p: 60,
     k: 60,
@@ -629,7 +585,6 @@ const COMMON_CROPS: CropInfo[] = [
   },
   {
     name: "Bottle Gourd",
-    emoji: "🥒",
     n: 80,
     p: 50,
     k: 50,
@@ -643,7 +598,6 @@ const COMMON_CROPS: CropInfo[] = [
   },
   {
     name: "Watermelon",
-    emoji: "🍉",
     n: 100,
     p: 60,
     k: 60,
@@ -657,7 +611,6 @@ const COMMON_CROPS: CropInfo[] = [
   },
   {
     name: "Muskmelon",
-    emoji: "🍈",
     n: 100,
     p: 60,
     k: 60,
@@ -671,7 +624,6 @@ const COMMON_CROPS: CropInfo[] = [
   },
   {
     name: "Carrot",
-    emoji: "🥕",
     n: 80,
     p: 50,
     k: 80,
@@ -685,7 +637,6 @@ const COMMON_CROPS: CropInfo[] = [
   },
   {
     name: "Radish",
-    emoji: "🥕",
     n: 60,
     p: 40,
     k: 50,
@@ -699,7 +650,6 @@ const COMMON_CROPS: CropInfo[] = [
   },
   {
     name: "Spinach",
-    emoji: "🥬",
     n: 80,
     p: 40,
     k: 40,
@@ -715,7 +665,6 @@ const COMMON_CROPS: CropInfo[] = [
   // ─── Spices & Plantation ───
   {
     name: "Garlic",
-    emoji: "🧄",
     n: 100,
     p: 50,
     k: 50,
@@ -729,7 +678,6 @@ const COMMON_CROPS: CropInfo[] = [
   },
   {
     name: "Ginger",
-    emoji: "🫚",
     n: 100,
     p: 50,
     k: 100,
@@ -743,7 +691,6 @@ const COMMON_CROPS: CropInfo[] = [
   },
   {
     name: "Turmeric",
-    emoji: "🌿",
     n: 120,
     p: 60,
     k: 120,
@@ -757,7 +704,6 @@ const COMMON_CROPS: CropInfo[] = [
   },
   {
     name: "Coriander",
-    emoji: "🌿",
     n: 50,
     p: 30,
     k: 20,
@@ -771,7 +717,6 @@ const COMMON_CROPS: CropInfo[] = [
   },
   {
     name: "Cumin",
-    emoji: "🌿",
     n: 30,
     p: 20,
     k: 10,
@@ -785,7 +730,6 @@ const COMMON_CROPS: CropInfo[] = [
   },
   {
     name: "Cardamom",
-    emoji: "🌿",
     n: 75,
     p: 75,
     k: 150,
@@ -799,7 +743,6 @@ const COMMON_CROPS: CropInfo[] = [
   },
   {
     name: "Tea",
-    emoji: "🍵",
     n: 150,
     p: 40,
     k: 100,
@@ -813,7 +756,6 @@ const COMMON_CROPS: CropInfo[] = [
   },
   {
     name: "Coffee",
-    emoji: "☕",
     n: 140,
     p: 90,
     k: 140,
@@ -829,7 +771,6 @@ const COMMON_CROPS: CropInfo[] = [
   // ─── Fruits ───
   {
     name: "Banana",
-    emoji: "🍌",
     n: 200,
     p: 60,
     k: 300,
@@ -843,7 +784,6 @@ const COMMON_CROPS: CropInfo[] = [
   },
   {
     name: "Papaya",
-    emoji: "🍈",
     n: 150,
     p: 150,
     k: 200,
@@ -857,7 +797,6 @@ const COMMON_CROPS: CropInfo[] = [
   },
   {
     name: "Mango",
-    emoji: "🥭",
     n: 100,
     p: 50,
     k: 100,
@@ -871,7 +810,6 @@ const COMMON_CROPS: CropInfo[] = [
   },
   {
     name: "Pomegranate",
-    emoji: "🍎",
     n: 125,
     p: 60,
     k: 125,
@@ -976,7 +914,6 @@ export default function FarmingCalculator() {
 
   // UI state
   const [hasCalculated, setHasCalculated] = React.useState<boolean>(false);
-  const [isCalculating, setIsCalculating] = React.useState<boolean>(false);
   const [isSpeaking, setIsSpeaking] = React.useState<boolean>(false);
   const resultsRef = React.useRef<HTMLDivElement>(null);
 
@@ -994,7 +931,6 @@ export default function FarmingCalculator() {
   const currentCropObj =
     COMMON_CROPS.find((c) => c.name.toLowerCase() === selectedCrop.toLowerCase()) || {
       name: selectedCrop,
-      emoji: "🌱",
       n: 100,
       p: 50,
       k: 50,
@@ -1140,15 +1076,10 @@ export default function FarmingCalculator() {
   });
 
   // Handle Calculate click
+  // Results are computed on every render; this only reveals them and scrolls to them.
   const handleCalculate = () => {
-    setIsCalculating(true);
-    setTimeout(() => {
-      setIsCalculating(false);
-      setHasCalculated(true);
-      if (resultsRef.current) {
-        resultsRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
-      }
-    }, 300);
+    setHasCalculated(true);
+    requestAnimationFrame(() => resultsRef.current?.scrollIntoView({ behavior: "smooth", block: "start" }));
   };
 
   // Handle Reset click
@@ -1210,24 +1141,18 @@ export default function FarmingCalculator() {
                 window.history.back();
               }
             }}
-            className="btn-21st btn-21st-secondary btn-21st-pill w-9 h-9 sm:w-10 sm:h-10 p-0 flex items-center justify-center shrink-0 cursor-pointer transition-all active:scale-95"
+            className="btn-21st btn-21st-secondary btn-21st-pill w-9 h-9 sm:w-10 sm:h-10 p-0 flex items-center justify-center shrink-0 cursor-pointer transition-all"
             title="Back to home"
             aria-label="Back to home"
           >
             <ArrowLeft className="w-4 h-4 sm:w-5 sm:h-5" />
           </a>
           <div className="min-w-0">
-            <div className="flex flex-wrap items-center gap-1.5 sm:gap-2">
-              <span className="text-lg sm:text-2xl">{currentCropObj.emoji}</span>
-              <h1 className="text-lg sm:text-2xl font-black tracking-tight text-slate-900 dark:text-white truncate">
-                Farming Calculator
-              </h1>
-              <span className="text-[10px] sm:text-xs font-bold px-2 py-0.5 rounded-full bg-blue-100 text-blue-700 dark:bg-blue-900/60 dark:text-blue-300 whitespace-nowrap">
-                Precision Agronomist
-              </span>
-            </div>
-            <p className="text-[11px] sm:text-xs md:text-sm text-slate-500 dark:text-slate-400 mt-0.5 line-clamp-1 sm:line-clamp-none">
-              Seed Requirements · Crop Yield & Net Margin · Precision Nutrients & Microclimate
+            <h1 className="text-lg sm:text-2xl font-semibold text-slate-900 dark:text-white">
+              Farming calculator
+            </h1>
+            <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-0.5">
+              Seed, fertilizer, yield and profit for your field.
             </p>
           </div>
         </div>
@@ -1237,22 +1162,22 @@ export default function FarmingCalculator() {
             <button
               type="button"
               onClick={handleToggleSpeak}
-              className={`btn-21st btn-21st-pill btn-21st-xs font-bold transition-all cursor-pointer active:scale-95 ${
-                isSpeaking ? "btn-21st-primary animate-pulse" : "btn-21st-secondary"
+              className={`btn-21st btn-21st-pill btn-21st-xs font-bold transition-all cursor-pointer ${
+                isSpeaking ? "btn-21st-primary" : "btn-21st-secondary"
               }`}
               title="Listen to agronomic advisory"
             >
               {isSpeaking ? (
                 <VolumeX className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-white" />
               ) : (
-                <Volume2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-blue-600 dark:text-blue-400" />
+                <Volume2 className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
               )}
-              <span>{isSpeaking ? "Mute" : "Listen"}</span>
+              <span>{isSpeaking ? "Stop" : "Listen"}</span>
             </button>
             <button
               type="button"
               onClick={handleReset}
-              className="btn-21st btn-21st-secondary btn-21st-pill btn-21st-xs font-bold transition-all cursor-pointer active:scale-95"
+              className="btn-21st btn-21st-secondary btn-21st-pill btn-21st-xs font-bold transition-all cursor-pointer"
               title="Reset inputs"
             >
               <RotateCcw className="w-3.5 h-3.5" />
@@ -1263,39 +1188,37 @@ export default function FarmingCalculator() {
       </div>
 
       {/* ── Calculator Form Card ── */}
-      <div className="farming-card rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-7 mb-6 sm:mb-8">
+      <div className="farming-card rounded-xl p-4 sm:p-6 md:p-7 mb-6 sm:mb-8">
         <div className="flex flex-col xs:flex-row xs:items-center justify-between gap-2 mb-4 sm:mb-5">
-          <h2 className="text-sm sm:text-base md:text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
-            <Layers className="w-4 h-4 sm:w-5 sm:h-5 text-blue-600 dark:text-blue-400 shrink-0" />
-            <span>Field & Agronomic Parameters</span>
+          <h2 className="text-sm sm:text-base font-semibold text-slate-900 dark:text-white">
+            Your field
           </h2>
 
           <button
             type="button"
             onClick={() => setShowAdvancedSettings(!showAdvancedSettings)}
-            className={`btn-21st btn-21st-pill btn-21st-xs font-bold transition-all cursor-pointer active:scale-95 self-start xs:self-auto ${
+            className={`btn-21st btn-21st-pill btn-21st-xs font-bold transition-all cursor-pointer self-start xs:self-auto ${
               showAdvancedSettings ? "btn-21st-primary" : "btn-21st-secondary"
             }`}
           >
             <Settings2 className="w-3.5 h-3.5 shrink-0" />
-            <span>{showAdvancedSettings ? "Hide Custom Spacing & Economics" : "Customize Spacing & Economics"}</span>
+            <span>{showAdvancedSettings ? "Hide spacing & prices" : "Edit spacing & prices"}</span>
           </button>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
           {/* 1. Target Crop */}
           <div className="relative" ref={dropdownRef}>
-            <label className="block text-[11px] sm:text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-300 mb-1.5">
-              1. Target Crop
+            <label className="block text-xs sm:text-sm font-medium text-slate-700 dark:text-slate-300 mb-1.5">
+              Crop
             </label>
             <button
               type="button"
               onClick={() => setIsCropDropdownOpen(!isCropDropdownOpen)}
-              className="btn-21st btn-21st-secondary w-full justify-between p-2.5 sm:p-3 rounded-xl sm:rounded-2xl cursor-pointer hover:border-blue-500 transition-all text-left shadow-2xs"
+              className="btn-21st btn-21st-secondary w-full justify-between p-2.5 sm:p-3 rounded-lg cursor-pointer hover:border-slate-400 transition-all text-left"
             >
               <div className="flex items-center gap-2 min-w-0">
-                <span className="text-lg sm:text-xl shrink-0">{currentCropObj.emoji}</span>
-                <span className="font-bold text-xs sm:text-sm truncate">
+                <span className="font-semibold text-xs sm:text-sm truncate">
                   {currentCropObj.name}
                 </span>
                 <span className="text-[11px] opacity-70 font-normal truncate hidden xs:inline">
@@ -1306,7 +1229,7 @@ export default function FarmingCalculator() {
             </button>
 
             {isCropDropdownOpen && (
-              <div className="absolute z-30 mt-2 w-full farming-dropdown-menu rounded-2xl shadow-2xl overflow-hidden max-h-72 flex flex-col">
+              <div className="absolute z-30 mt-2 w-full farming-dropdown-menu rounded-lg shadow-lg overflow-hidden max-h-72 flex flex-col">
                 <div className="p-2 border-b border-slate-100 dark:border-slate-700/60 sticky top-0 farming-dropdown-header">
                   <div className="relative">
                     <Search className="w-4 h-4 absolute left-3 top-2.5 text-slate-400" />
@@ -1320,8 +1243,7 @@ export default function FarmingCalculator() {
                     />
                   </div>
                   <div className="flex items-center justify-between mt-1.5 px-1 text-[10px] text-slate-400 dark:text-slate-500">
-                    <span>{filteredCrops.length} targeted crops</span>
-                    <span>Search by name or category</span>
+                    <span>{filteredCrops.length} crops</span>
                   </div>
                 </div>
                 <div className="overflow-y-auto p-1 divide-y divide-slate-100 dark:divide-slate-700/40 max-h-64">
@@ -1330,10 +1252,9 @@ export default function FarmingCalculator() {
                       key={c.name}
                       type="button"
                       onClick={() => handleCropSelect(c.name)}
-                      className="w-full flex items-center justify-between px-3 py-2 text-left hover:bg-blue-50 dark:hover:bg-slate-700/60 transition-colors rounded-xl cursor-pointer"
+                      className="w-full flex items-center justify-between px-3 py-2 text-left hover:bg-slate-50 dark:hover:bg-slate-700/60 transition-colors rounded-xl cursor-pointer"
                     >
                       <div className="flex items-center gap-2.5 truncate">
-                        <span className="text-base shrink-0">{c.emoji}</span>
                         <div className="truncate">
                           <span className="text-xs sm:text-sm font-semibold text-slate-800 dark:text-slate-100 truncate block">
                             {c.name}
@@ -1350,7 +1271,7 @@ export default function FarmingCalculator() {
                   ))}
                   {filteredCrops.length === 0 && (
                     <div className="py-6 text-center text-xs text-slate-400">
-                      No matching targeted crops found.
+                      No crop found.
                     </div>
                   )}
                 </div>
@@ -1368,12 +1289,11 @@ export default function FarmingCalculator() {
                     key={c.name}
                     type="button"
                     onClick={() => handleCropSelect(c.name)}
-                    className={`btn-21st btn-21st-pill btn-21st-xs font-bold transition-all cursor-pointer active:scale-95 ${
-                      isSelected ? "btn-21st-primary shadow-xs" : "btn-21st-secondary"
+                    className={`btn-21st btn-21st-pill btn-21st-xs font-bold transition-all cursor-pointer ${
+                      isSelected ? "btn-21st-primary" : "btn-21st-secondary"
                     }`}
                   >
-                    <span>{c.emoji}</span>
-                    <span>{c.name}</span>
+                    {c.name}
                   </button>
                 );
               })}
@@ -1382,16 +1302,16 @@ export default function FarmingCalculator() {
 
           {/* 2. Field Size & Unit */}
           <div>
-            <label className="block text-[11px] sm:text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-300 mb-1.5">
-              2. Field Size & Unit
+            <label className="block text-xs sm:text-sm font-medium text-slate-700 dark:text-slate-300 mb-1.5">
+              Field size
             </label>
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 mb-2">
               {/* Numeric stepper */}
-              <div className="flex-1 flex items-center justify-between bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 rounded-xl sm:rounded-2xl p-1 shadow-2xs">
+              <div className="flex-1 flex items-center justify-between bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 rounded-lg p-1">
                 <button
                   type="button"
                   onClick={() => setFieldSize(Math.max(0.1, Number((fieldSize - 0.5).toFixed(1))))}
-                  className="btn-21st btn-21st-secondary rounded-lg sm:rounded-xl w-8 h-8 sm:w-9 sm:h-9 p-0 flex items-center justify-center shrink-0 cursor-pointer active:scale-90"
+                  className="btn-21st btn-21st-secondary rounded-md w-8 h-8 sm:w-9 sm:h-9 p-0 flex items-center justify-center shrink-0 cursor-pointer"
                   title="Decrease field size"
                   aria-label="Decrease field size"
                 >
@@ -1404,12 +1324,12 @@ export default function FarmingCalculator() {
                   inputMode="decimal"
                   value={fieldSize}
                   onChange={(e) => setFieldSize(Math.max(0.01, parseFloat(e.target.value) || 0))}
-                  className="w-full text-center font-black text-base sm:text-lg text-slate-900 dark:text-white bg-transparent focus:outline-none"
+                  className="w-full text-center font-semibold text-base sm:text-lg text-slate-900 dark:text-white bg-transparent focus:outline-none"
                 />
                 <button
                   type="button"
                   onClick={() => setFieldSize(Number((fieldSize + 0.5).toFixed(1)))}
-                  className="btn-21st btn-21st-secondary rounded-lg sm:rounded-xl w-8 h-8 sm:w-9 sm:h-9 p-0 flex items-center justify-center shrink-0 cursor-pointer active:scale-90"
+                  className="btn-21st btn-21st-secondary rounded-md w-8 h-8 sm:w-9 sm:h-9 p-0 flex items-center justify-center shrink-0 cursor-pointer"
                   title="Increase field size"
                   aria-label="Increase field size"
                 >
@@ -1418,7 +1338,7 @@ export default function FarmingCalculator() {
               </div>
 
               {/* Units segmented toggle */}
-              <div className="flex bg-slate-100 dark:bg-slate-800/90 p-1 rounded-xl sm:rounded-2xl border border-slate-200 dark:border-slate-700 justify-center gap-1 shadow-2xs">
+              <div className="flex bg-slate-100 dark:bg-slate-800/90 p-1 rounded-lg border border-slate-200 dark:border-slate-700 justify-center gap-1">
                 {(["Acre", "Hectare", "Gunta"] as const).map((unit) => {
                   const isSelected = fieldUnit === unit;
                   return (
@@ -1427,7 +1347,7 @@ export default function FarmingCalculator() {
                       type="button"
                       onClick={() => setFieldUnit(unit)}
                       className={`btn-21st btn-21st-pill btn-21st-xs font-bold transition-all cursor-pointer ${
-                        isSelected ? "btn-21st-primary shadow-xs" : "btn-21st-secondary"
+                        isSelected ? "btn-21st-primary" : "btn-21st-secondary"
                       }`}
                     >
                       {unit}
@@ -1443,8 +1363,8 @@ export default function FarmingCalculator() {
 
           {/* 3. Season */}
           <div>
-            <label className="block text-[11px] sm:text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-300 mb-1.5">
-              3. Season
+            <label className="block text-xs sm:text-sm font-medium text-slate-700 dark:text-slate-300 mb-1.5">
+              Season
             </label>
             <div className="grid grid-cols-3 gap-1.5 sm:gap-2">
               {SEASONS.map((s) => {
@@ -1455,37 +1375,21 @@ export default function FarmingCalculator() {
                     key={s.id}
                     type="button"
                     onClick={() => setSeason(s.id)}
-                    className={`btn-21st farming-season-btn p-2 sm:p-2.5 rounded-xl sm:rounded-2xl text-left flex flex-col justify-between transition-all cursor-pointer ${
-                      isSel
-                        ? s.id === "Summer"
-                          ? "farming-season-active-summer"
-                          : "btn-21st-primary shadow-xs"
-                        : "btn-21st-secondary"
+                    className={`btn-21st farming-season-btn p-2 sm:p-2.5 rounded-lg text-left flex flex-col justify-between transition-all cursor-pointer ${
+                      isSel ? "btn-21st-primary" : "btn-21st-secondary"
                     }`}
                   >
                     <div className="w-full flex items-center justify-between mb-1">
-                      <Icon
-                        className={`w-3.5 h-3.5 sm:w-4 sm:h-4 ${
-                          isSel ? (s.id === "Summer" ? "text-amber-200" : "text-white") : "text-slate-500 dark:text-slate-400"
-                        }`}
-                      />
-                      {isSel && (
-                        <div
-                          className={`w-1.5 h-1.5 rounded-full ${
-                            s.id === "Summer" ? "bg-amber-200" : "bg-emerald-400"
-                          }`}
-                        />
-                      )}
+                      <Icon className="w-3.5 h-3.5 sm:w-4 sm:h-4 opacity-80" />
                     </div>
-                    <span className="text-[11px] sm:text-xs font-bold leading-tight truncate">{s.label}</span>
+                    <span className="text-[11px] sm:text-xs font-medium leading-tight truncate">{s.label}</span>
                   </button>
                 );
               })}
             </div>
             {season === "Summer" && (
-              <p className="text-[11px] sm:text-xs text-amber-600 dark:text-amber-400 font-medium mt-1.5 flex items-center gap-1">
-                <ThermometerSun className="w-3.5 h-3.5 inline shrink-0" />
-                <span>Microclimate preservation active: balances heat stress & evaporation.</span>
+              <p className="text-[11px] sm:text-xs text-slate-500 dark:text-slate-400 mt-1.5">
+                Summer plan keeps some weed cover between rows to hold moisture.
               </p>
             )}
           </div>
@@ -1493,13 +1397,13 @@ export default function FarmingCalculator() {
           {/* 4. Soil Type & 5. Irrigation */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div>
-              <label className="block text-[11px] sm:text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-300 mb-1.5">
-                4. Soil Type
+              <label className="block text-xs sm:text-sm font-medium text-slate-700 dark:text-slate-300 mb-1.5">
+                Soil
               </label>
               <select
                 value={soilType}
                 onChange={(e) => setSoilType(e.target.value)}
-                className="w-full p-2.5 text-xs sm:text-sm font-semibold bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 rounded-xl sm:rounded-2xl text-slate-900 dark:text-white focus:outline-none focus:border-blue-500"
+                className="w-full p-2.5 text-xs sm:text-sm font-semibold bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 rounded-lg text-slate-900 dark:text-white focus:outline-none focus:border-blue-500"
               >
                 {SOIL_TYPES.map((st) => (
                   <option key={st} value={st}>
@@ -1510,13 +1414,13 @@ export default function FarmingCalculator() {
             </div>
 
             <div>
-              <label className="block text-[11px] sm:text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-300 mb-1.5">
-                5. Irrigation Status
+              <label className="block text-xs sm:text-sm font-medium text-slate-700 dark:text-slate-300 mb-1.5">
+                Irrigation
               </label>
               <select
                 value={irrigationStatus}
                 onChange={(e) => setIrrigationStatus(e.target.value)}
-                className="w-full p-2.5 text-xs sm:text-sm font-semibold bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 rounded-xl sm:rounded-2xl text-slate-900 dark:text-white focus:outline-none focus:border-blue-500"
+                className="w-full p-2.5 text-xs sm:text-sm font-semibold bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 rounded-lg text-slate-900 dark:text-white focus:outline-none focus:border-blue-500"
               >
                 {IRRIGATION_STATUSES.map((ir) => (
                   <option key={ir} value={ir}>
@@ -1530,11 +1434,11 @@ export default function FarmingCalculator() {
           {/* 6. Weed Pressure */}
           <div className="md:col-span-2">
             <div className="flex flex-col xs:flex-row xs:items-center justify-between gap-1 mb-2">
-              <label className="text-[11px] sm:text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-300">
-                6. Weed Pressure & Ground Cover
+              <label className="text-xs sm:text-sm font-medium text-slate-700 dark:text-slate-300">
+                Weed cover
               </label>
-              <span className="text-[11px] sm:text-xs text-blue-600 dark:text-blue-400 font-semibold">
-                Rule A: Nutrient Steal Adjustment
+              <span className="text-[11px] sm:text-xs text-slate-500 dark:text-slate-400">
+                More weeds means more fertilizer
               </span>
             </div>
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-2.5">
@@ -1545,20 +1449,14 @@ export default function FarmingCalculator() {
                     key={wp.id}
                     type="button"
                     onClick={() => setWeedPressure(wp.label)}
-                    className={`btn-21st farming-weed-pressure-btn p-2.5 sm:p-3 rounded-xl sm:rounded-2xl text-left transition-all relative overflow-hidden cursor-pointer ${
-                      isSel
-                        ? wp.id === "severe"
-                          ? "farming-weed-pressure-severe shadow-xs"
-                          : wp.id === "moderate"
-                          ? "farming-weed-pressure-moderate shadow-xs"
-                          : "btn-21st-primary shadow-xs"
-                        : "btn-21st-secondary"
+                    className={`btn-21st farming-weed-pressure-btn p-2.5 sm:p-3 rounded-lg text-left transition-all relative overflow-hidden cursor-pointer ${
+                      isSel ? "btn-21st-primary" : "btn-21st-secondary"
                     }`}
                   >
                     <div className="w-full">
-                      <div className="text-[11px] sm:text-xs font-bold mb-0.5 sm:mb-1 truncate">{wp.label}</div>
-                      <div className="text-[10px] sm:text-[11px] opacity-80 font-medium truncate">
-                        {wp.buffer > 0 ? `+${wp.buffer}% Buffer` : "Optimal Baseline"}
+                      <div className="text-[11px] sm:text-xs font-medium mb-0.5 truncate">{wp.label}</div>
+                      <div className="text-[10px] sm:text-[11px] opacity-75 truncate">
+                        {wp.buffer > 0 ? `+${wp.buffer}% fertilizer` : "No change"}
                       </div>
                     </div>
                   </button>
@@ -1569,8 +1467,8 @@ export default function FarmingCalculator() {
 
           {/* 7. Weed Types Present */}
           <div className="md:col-span-2">
-            <label className="block text-[11px] sm:text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-300 mb-1.5">
-              7. Weed Types Present (Select all found in field)
+            <label className="block text-xs sm:text-sm font-medium text-slate-700 dark:text-slate-300 mb-1.5">
+              Weeds in the field
             </label>
             <div className="flex flex-wrap gap-1.5 sm:gap-2">
               {AVAILABLE_WEED_TYPES.map((wt) => {
@@ -1580,12 +1478,8 @@ export default function FarmingCalculator() {
                     key={wt.id}
                     type="button"
                     onClick={() => toggleWeedType(wt.label)}
-                    className={`btn-21st btn-21st-pill btn-21st-xs font-bold transition-all cursor-pointer select-none active:scale-95 ${
-                      isChecked
-                        ? wt.isInvasive
-                          ? "farming-weed-chip-invasive-active shadow-xs"
-                          : "btn-21st-primary shadow-xs"
-                        : "btn-21st-secondary"
+                    className={`btn-21st btn-21st-pill btn-21st-xs font-medium transition-all cursor-pointer select-none max-w-full min-w-0 ${
+                      isChecked ? "btn-21st-primary" : "btn-21st-secondary"
                     }`}
                   >
                     <div
@@ -1597,18 +1491,8 @@ export default function FarmingCalculator() {
                     >
                       {isChecked && <CheckCircle2 className="w-3 h-3 text-white" />}
                     </div>
-                    <span className="truncate">{wt.label}</span>
-                    {wt.isInvasive && (
-                      <span
-                        className={`text-[9px] px-1.5 py-0.5 rounded-full uppercase font-black tracking-tight shrink-0 ${
-                          isChecked
-                            ? "bg-white/25 text-white"
-                            : "farming-weed-invasive-badge"
-                        }`}
-                      >
-                        Invasive
-                      </span>
-                    )}
+                    <span className="truncate" title={wt.label}>{wt.label}</span>
+                    {wt.isInvasive && <span className="opacity-70 font-normal shrink-0">· invasive</span>}
                   </button>
                 );
               })}
@@ -1617,12 +1501,9 @@ export default function FarmingCalculator() {
 
           {/* ── Optional Customizable Parameters: Seed Spacing & Net Margin Economics ── */}
           {showAdvancedSettings && (
-            <div className="md:col-span-2 p-3.5 sm:p-4 rounded-xl sm:rounded-2xl bg-blue-50/50 dark:bg-slate-800/50 border border-blue-200 dark:border-slate-700 space-y-4">
+            <div className="md:col-span-2 p-3.5 sm:p-4 rounded-lg bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 space-y-4">
               <div>
-                <h4 className="text-xs font-black uppercase tracking-wider text-blue-900 dark:text-blue-300 mb-2.5 flex items-center gap-1.5">
-                  <Scale className="w-3.5 h-3.5" />
-                  <span>Seed Requirement & Plant Spacing Parameters</span>
-                </h4>
+                <h4 className="text-sm font-semibold text-slate-800 dark:text-slate-200 mb-2.5">Seed and spacing</h4>
                 <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2.5 sm:gap-3">
                   <div>
                     <label className="block text-[10px] sm:text-[11px] font-bold text-slate-600 dark:text-slate-300 mb-1">
@@ -1700,10 +1581,7 @@ export default function FarmingCalculator() {
               </div>
 
               <div className="pt-3 border-t border-slate-200 dark:border-slate-700">
-                <h4 className="text-xs font-black uppercase tracking-wider text-emerald-900 dark:text-emerald-300 mb-2.5 flex items-center gap-1.5">
-                  <Coins className="w-3.5 h-3.5" />
-                  <span>Crop Yield & Net Margin Parameters</span>
-                </h4>
+                <h4 className="text-sm font-semibold text-slate-800 dark:text-slate-200 mb-2.5">Yield, price and cost</h4>
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 sm:gap-3">
                   <div>
                     <label className="block text-[10px] sm:text-[11px] font-bold text-slate-600 dark:text-slate-300 mb-1">
@@ -1756,26 +1634,15 @@ export default function FarmingCalculator() {
         {/* ── Action Button ── */}
         <div className="mt-5 sm:mt-7 pt-4 border-t border-slate-100 dark:border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="text-[11px] sm:text-xs text-slate-500 dark:text-slate-400 text-center sm:text-left">
-            Calculates seed requirements, crop yield, net profit margins, and precision nutrient buffers simultaneously.
+            Estimates only. Check your soil test card before buying fertilizer.
           </p>
 
           <button
             type="button"
             onClick={handleCalculate}
-            disabled={isCalculating}
-            className="btn-21st btn-21st-primary btn-21st-pill w-full sm:w-auto px-7 sm:px-8 py-3.5 text-xs sm:text-sm font-black shadow-lg shadow-blue-500/25 flex items-center justify-center gap-2.5 transition-all active:scale-95 disabled:opacity-50 cursor-pointer"
+            className="btn-21st btn-21st-primary w-full sm:w-auto px-6 py-2.5 text-sm font-semibold cursor-pointer"
           >
-            {isCalculating ? (
-              <>
-                <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                <span className="text-white font-black">Evaluating Full Farm Model…</span>
-              </>
-            ) : (
-              <>
-                <Sparkles className="w-4 h-4 text-white" />
-                <span className="text-white font-black">Calculate Precision Plan</span>
-              </>
-            )}
+            Calculate
           </button>
         </div>
       </div>
@@ -1784,19 +1651,13 @@ export default function FarmingCalculator() {
       {hasCalculated && (
         <div ref={resultsRef} className="space-y-4 sm:space-y-6 animate-in fade-in duration-300">
           {/* Header Summary Banner */}
-          <div className="bg-gradient-to-r from-blue-700 via-indigo-700 to-sky-700 text-white rounded-2xl sm:rounded-3xl p-4 sm:p-5 md:p-6 shadow-xl">
+          <div className="farming-card rounded-xl p-4 sm:p-5">
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
               <div>
-                <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-white/20 text-xs font-semibold backdrop-blur-sm mb-2">
-                  <span>{currentCropObj.emoji}</span>
-                  <span>{currentCropObj.name} Decision Support</span>
-                  <span>·</span>
-                  <span>{season}</span>
-                </div>
-                <h2 className="text-lg sm:text-xl md:text-2xl font-black">
-                  Farming Decision & Net Margin Assessment
+                <h2 className="text-base sm:text-lg font-semibold text-slate-900 dark:text-white">
+                  {currentCropObj.name} · {season}
                 </h2>
-                <p className="text-xs sm:text-sm text-blue-100 mt-1 max-w-xl">
+                <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1 max-w-xl">
                   Formulated for {fieldSize} {fieldUnit} ({acres.toFixed(2)} Acres / {hectares.toFixed(2)} Ha) on{" "}
                   {soilType} soil with {irrigationStatus} irrigation.
                 </p>
@@ -1804,77 +1665,71 @@ export default function FarmingCalculator() {
 
               <div className="grid grid-cols-2 sm:flex sm:items-center gap-2 sm:gap-3 w-full sm:w-auto">
                 {weedLossPenaltyPct > 0 && (
-                  <div className="bg-white/10 backdrop-blur-md rounded-xl sm:rounded-2xl p-2.5 sm:p-3 border border-white/20 text-left sm:text-right">
-                    <div className="text-[10px] sm:text-[11px] text-blue-100 font-medium truncate">Weed Loss Risk</div>
-                    <div className="text-base sm:text-lg font-black text-amber-300">~{weedLossPenaltyPct}% Steal</div>
-                    <div className="text-[10px] sm:text-[11px] text-blue-200">+{bufferPercent}% Buffer</div>
+                  <div className="rounded-lg p-2.5 sm:p-3 border border-slate-200 dark:border-slate-700 text-left sm:text-right">
+                    <div className="text-[11px] text-slate-500 dark:text-slate-400 truncate">Yield lost to weeds</div>
+                    <div className="text-base sm:text-lg font-semibold text-slate-900 dark:text-white">~{weedLossPenaltyPct}%</div>
+                    <div className="text-[11px] text-slate-500 dark:text-slate-400">+{bufferPercent}% fertilizer</div>
                   </div>
                 )}
-                <div className="bg-white/10 backdrop-blur-md rounded-xl sm:rounded-2xl p-2.5 sm:p-3 border border-white/20 text-left sm:text-right">
-                  <div className="text-[10px] sm:text-[11px] text-blue-100 font-medium truncate">Estimated Net Margin</div>
-                  <div className="text-base sm:text-xl font-black text-emerald-300 truncate">
+                <div className="rounded-lg p-2.5 sm:p-3 border border-slate-200 dark:border-slate-700 text-left sm:text-right">
+                  <div className="text-[11px] text-slate-500 dark:text-slate-400 truncate">Profit</div>
+                  <div className={`text-base sm:text-xl font-semibold truncate ${economics.netMargin >= 0 ? "text-emerald-700 dark:text-emerald-400" : "text-red-600 dark:text-red-400"}`}>
                     ₹{economics.netMargin.toLocaleString()}
                   </div>
-                  <div className="text-[10px] sm:text-[11px] text-blue-200">ROI: +{economics.roiPercent}%</div>
+                  <div className="text-[11px] text-slate-500 dark:text-slate-400">{economics.roiPercent}% on cost</div>
                 </div>
               </div>
             </div>
           </div>
 
           {/* ── Navigation Tab Switcher ── */}
-          <div className="flex bg-slate-100 dark:bg-slate-800 p-1 sm:p-1.5 rounded-xl sm:rounded-2xl border border-slate-200 dark:border-slate-700 overflow-x-auto no-scrollbar scroll-smooth gap-1 sm:gap-1.5">
+          <div className="flex bg-slate-100 dark:bg-slate-800 p-1 sm:p-1.5 rounded-lg border border-slate-200 dark:border-slate-700 overflow-x-auto no-scrollbar scroll-smooth gap-1 sm:gap-1.5">
             <button
               type="button"
               onClick={() => setActiveTab("all")}
               className={`btn-21st btn-21st-pill btn-21st-xs font-bold whitespace-nowrap transition-all cursor-pointer ${
-                activeTab === "all" ? "btn-21st-primary shadow-xs" : "btn-21st-secondary"
+                activeTab === "all" ? "btn-21st-primary" : "btn-21st-secondary"
               }`}
             >
-              All Sections
+              All
             </button>
             <button
               type="button"
               onClick={() => setActiveTab("seed")}
               className={`btn-21st btn-21st-pill btn-21st-xs font-bold whitespace-nowrap transition-all cursor-pointer flex items-center justify-center gap-1.5 ${
-                activeTab === "seed" ? "btn-21st-primary shadow-xs" : "btn-21st-secondary"
+                activeTab === "seed" ? "btn-21st-primary" : "btn-21st-secondary"
               }`}
             >
-              <Scale className="w-3.5 h-3.5 shrink-0" />
-              <span>Seed Requirement</span>
+              Seed
             </button>
             <button
               type="button"
               onClick={() => setActiveTab("economics")}
               className={`btn-21st btn-21st-pill btn-21st-xs font-bold whitespace-nowrap transition-all cursor-pointer flex items-center justify-center gap-1.5 ${
-                activeTab === "economics" ? "btn-21st-primary shadow-xs" : "btn-21st-secondary"
+                activeTab === "economics" ? "btn-21st-primary" : "btn-21st-secondary"
               }`}
             >
-              <Coins className="w-3.5 h-3.5 shrink-0" />
-              <span>Yield & Net Margin</span>
+              Yield & profit
             </button>
             <button
               type="button"
               onClick={() => setActiveTab("nutrition")}
               className={`btn-21st btn-21st-pill btn-21st-xs font-bold whitespace-nowrap transition-all cursor-pointer flex items-center justify-center gap-1.5 ${
-                activeTab === "nutrition" ? "btn-21st-primary shadow-xs" : "btn-21st-secondary"
+                activeTab === "nutrition" ? "btn-21st-primary" : "btn-21st-secondary"
               }`}
             >
-              <Droplets className="w-3.5 h-3.5 shrink-0" />
-              <span>Nutrients & Weeding</span>
+              Fertilizer & weeds
             </button>
           </div>
 
           {/* ════════ PILLAR A: SEED REQUIREMENT CALCULATOR ════════ */}
           {(activeTab === "all" || activeTab === "seed") && (
-            <div className="farming-card rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-7">
+            <div className="farming-card rounded-xl p-4 sm:p-6 md:p-7">
               <div className="flex items-center justify-between mb-4">
                 <div className="flex items-center gap-2.5">
-                  <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-xl bg-purple-100 dark:bg-purple-900/50 text-purple-700 dark:text-purple-300 flex items-center justify-center font-bold text-xs sm:text-sm shrink-0">
-                    🌱
-                  </div>
                   <div>
-                    <h3 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white">
-                      Seed Requirement & Plant Population
+                    <h3 className="text-base font-semibold text-slate-900 dark:text-white">
+                      Seed
                     </h3>
                     <p className="text-[11px] sm:text-xs text-slate-500 dark:text-slate-400">
                       Calculated using crop spacing ({rowSpacingInches}&Prime; &times; {plantSpacingInches}&Prime;), {germinationPercent}% germination, and {purityPercent}% seed purity.
@@ -1885,23 +1740,23 @@ export default function FarmingCalculator() {
 
               {/* Stat Cards for Seed Requirements */}
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-3.5 mb-4 sm:mb-5">
-                <div className="farming-stat-card farming-stat-purple rounded-xl sm:rounded-2xl p-3.5 sm:p-4">
-                  <div className="text-[11px] sm:text-xs font-bold farming-stat-label-purple mb-1">
-                    TOTAL WEIGHT NEEDED
+                <div className="farming-stat-card rounded-lg p-3.5 sm:p-4">
+                  <div className="text-[11px] sm:text-xs font-bold farming-stat-label mb-1">
+                    Seed to buy
                   </div>
-                  <div className="text-2xl sm:text-3xl font-black farming-stat-value truncate">
+                  <div className="text-2xl sm:text-3xl font-semibold farming-stat-value truncate">
                     {seedRequirement.totalWeightKg} <span className="text-xs sm:text-sm font-semibold opacity-75">kg</span>
                   </div>
-                  <div className="text-[10px] sm:text-xs farming-stat-sub-purple mt-1.5 font-medium">
+                  <div className="text-[10px] sm:text-xs farming-stat-sub mt-1.5 font-medium">
                     Test Weight: {seedWeightGramsThousand}g per 1000 seeds
                   </div>
                 </div>
 
-                <div className="farming-stat-card rounded-xl sm:rounded-2xl p-3.5 sm:p-4">
+                <div className="farming-stat-card rounded-lg p-3.5 sm:p-4">
                   <div className="text-[11px] sm:text-xs font-bold farming-stat-label mb-1">
-                    TARGET PLANT COUNT
+                    Plants
                   </div>
-                  <div className="text-2xl sm:text-3xl font-black farming-stat-value truncate">
+                  <div className="text-2xl sm:text-3xl font-semibold farming-stat-value truncate">
                     {seedRequirement.totalPlants.toLocaleString()}
                   </div>
                   <div className="text-[10px] sm:text-xs farming-stat-sub mt-1.5 font-medium">
@@ -1909,11 +1764,11 @@ export default function FarmingCalculator() {
                   </div>
                 </div>
 
-                <div className="farming-stat-card rounded-xl sm:rounded-2xl p-3.5 sm:p-4">
+                <div className="farming-stat-card rounded-lg p-3.5 sm:p-4">
                   <div className="text-[11px] sm:text-xs font-bold farming-stat-label mb-1">
-                    TOTAL SEEDS TO SOW
+                    Seeds to sow
                   </div>
-                  <div className="text-2xl sm:text-3xl font-black farming-stat-value truncate">
+                  <div className="text-2xl sm:text-3xl font-semibold farming-stat-value truncate">
                     {seedRequirement.totalSeeds.toLocaleString()}
                   </div>
                   <div className="text-[10px] sm:text-xs farming-stat-sub mt-1.5 font-medium">
@@ -1923,7 +1778,7 @@ export default function FarmingCalculator() {
               </div>
 
               {/* Spacing Details Bar */}
-              <div className="p-3 sm:p-3.5 rounded-xl sm:rounded-2xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 text-xs">
+              <div className="p-3 sm:p-3.5 rounded-lg bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 text-xs">
                 <div className="flex flex-wrap items-center gap-3 sm:gap-4">
                   <div>
                     <span className="text-slate-400 font-medium">Row Spacing:</span>{" "}
@@ -1949,15 +1804,12 @@ export default function FarmingCalculator() {
 
           {/* ════════ PILLAR B: CROP YIELD & NET MARGIN ════════ */}
           {(activeTab === "all" || activeTab === "economics") && (
-            <div className="farming-card rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-7">
+            <div className="farming-card rounded-xl p-4 sm:p-6 md:p-7">
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
                 <div className="flex items-center gap-2.5">
-                  <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-xl bg-emerald-100 dark:bg-emerald-900/50 text-emerald-700 dark:text-emerald-300 flex items-center justify-center font-bold text-xs sm:text-sm shrink-0">
-                    💰
-                  </div>
                   <div>
-                    <h3 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white">
-                      Crop Yield & Net Margin Analysis
+                    <h3 className="text-base font-semibold text-slate-900 dark:text-white">
+                      Yield and profit
                     </h3>
                     <p className="text-[11px] sm:text-xs text-slate-500 dark:text-slate-400">
                       Financial forecast based on {expectedYieldQtlAc} Qtl/ac harvest and ₹{sellingPriceQtl}/Qtl market price.
@@ -1965,20 +1817,17 @@ export default function FarmingCalculator() {
                   </div>
                 </div>
                 <div className="self-start sm:self-auto">
-                  <span className="inline-flex items-center gap-1 text-[11px] sm:text-xs font-black px-2.5 py-1 rounded-full bg-emerald-100 dark:bg-emerald-950/60 text-emerald-800 dark:text-emerald-300">
-                    <TrendingUp className="w-3.5 h-3.5" />
-                    <span>+{economics.roiPercent}% Return on Cost</span>
-                  </span>
+                  <span className="text-xs text-slate-500 dark:text-slate-400">{economics.roiPercent}% return on cost</span>
                 </div>
               </div>
 
               {/* Economic KPI Cards */}
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3.5 mb-4 sm:mb-5">
-                <div className="farming-stat-card rounded-xl sm:rounded-2xl p-3 sm:p-4">
+                <div className="farming-stat-card rounded-lg p-3 sm:p-4">
                   <div className="text-[10px] sm:text-xs font-bold farming-stat-label mb-1 truncate">
-                    EXPECTED HARVEST
+                    Harvest
                   </div>
-                  <div className="text-lg xs:text-xl sm:text-2xl font-black farming-stat-value truncate">
+                  <div className="text-lg xs:text-xl sm:text-2xl font-semibold farming-stat-value truncate">
                     {economics.totalProductionQtl} <span className="text-[11px] sm:text-xs font-semibold opacity-70">Qtl</span>
                   </div>
                   <div className="text-[10px] sm:text-[11px] farming-stat-sub mt-1 truncate">
@@ -1986,11 +1835,11 @@ export default function FarmingCalculator() {
                   </div>
                 </div>
 
-                <div className="farming-stat-card rounded-xl sm:rounded-2xl p-3 sm:p-4">
+                <div className="farming-stat-card rounded-lg p-3 sm:p-4">
                   <div className="text-[10px] sm:text-xs font-bold farming-stat-label mb-1 truncate">
-                    GROSS REVENUE
+                    Income
                   </div>
-                  <div className="text-lg xs:text-xl sm:text-2xl font-black text-blue-600 dark:text-blue-400 truncate" title={`₹${economics.grossRevenue.toLocaleString()}`}>
+                  <div className="text-lg xs:text-xl sm:text-2xl font-semibold farming-stat-value truncate" title={`₹${economics.grossRevenue.toLocaleString()}`}>
                     ₹{economics.grossRevenue.toLocaleString()}
                   </div>
                   <div className="text-[10px] sm:text-[11px] farming-stat-sub mt-1 truncate">
@@ -1998,11 +1847,11 @@ export default function FarmingCalculator() {
                   </div>
                 </div>
 
-                <div className="farming-stat-card rounded-xl sm:rounded-2xl p-3 sm:p-4">
+                <div className="farming-stat-card rounded-lg p-3 sm:p-4">
                   <div className="text-[10px] sm:text-xs font-bold farming-stat-label mb-1 truncate">
-                    ESTIMATED COSTS
+                    Cost
                   </div>
-                  <div className="text-lg xs:text-xl sm:text-2xl font-black text-amber-600 dark:text-amber-400 truncate" title={`₹${economics.totalCost.toLocaleString()}`}>
+                  <div className="text-lg xs:text-xl sm:text-2xl font-semibold farming-stat-value truncate" title={`₹${economics.totalCost.toLocaleString()}`}>
                     ₹{economics.totalCost.toLocaleString()}
                   </div>
                   <div className="text-[10px] sm:text-[11px] farming-stat-sub mt-1 truncate">
@@ -2010,11 +1859,11 @@ export default function FarmingCalculator() {
                   </div>
                 </div>
 
-                <div className="farming-stat-card farming-stat-profit rounded-xl sm:rounded-2xl p-3 sm:p-4">
-                  <div className="text-[10px] sm:text-xs font-black farming-stat-label-profit mb-1 truncate">
-                    PROJECTED NET PROFIT
+                <div className="farming-stat-card farming-stat-profit rounded-lg p-3 sm:p-4">
+                  <div className="text-[10px] sm:text-xs font-semibold farming-stat-label-profit mb-1 truncate">
+                    Profit
                   </div>
-                  <div className="text-lg xs:text-xl sm:text-2xl font-black farming-stat-profit-val truncate" title={`₹${economics.netMargin.toLocaleString()}`}>
+                  <div className="text-lg xs:text-xl sm:text-2xl font-semibold farming-stat-profit-val truncate" title={`₹${economics.netMargin.toLocaleString()}`}>
                     ₹{economics.netMargin.toLocaleString()}
                   </div>
                   <div className="text-[10px] sm:text-[11px] font-bold farming-stat-sub-profit mt-1 truncate">
@@ -2024,21 +1873,9 @@ export default function FarmingCalculator() {
               </div>
 
               {/* Benefit-Cost Ratio Bar */}
-              <div className="p-3 sm:p-3.5 rounded-xl sm:rounded-2xl bg-emerald-50/50 dark:bg-slate-800/60 border border-emerald-200 dark:border-slate-700 flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs">
-                <div className="flex flex-wrap items-center gap-2 sm:gap-3">
-                  <Coins className="w-4 h-4 text-emerald-600 shrink-0" />
-                  <span className="font-bold text-slate-800 dark:text-slate-200">
-                    Benefit-Cost Ratio (BCR): {economics.benefitCostRatio}x
-                  </span>
-                  <span className="text-slate-400 hidden xs:inline">|</span>
-                  <span className="text-slate-600 dark:text-slate-300 text-[11px] sm:text-xs">
-                    For every ₹1 invested, the farm produces ₹{economics.benefitCostRatio} in revenue.
-                  </span>
-                </div>
-                <div className="text-slate-500 dark:text-slate-400 text-[10px] sm:text-[11px]">
-                  Net Margin = Gross Revenue &minus; Cultivation Costs
-                </div>
-              </div>
+              <p className="text-xs text-slate-600 dark:text-slate-300">
+                Every ₹1 spent brings back ₹{economics.benefitCostRatio}. Profit = income &minus; cost.
+              </p>
             </div>
           )}
 
@@ -2046,17 +1883,14 @@ export default function FarmingCalculator() {
           {(activeTab === "all" || activeTab === "nutrition") && (
             <div className="space-y-4 sm:space-y-6">
               {/* Section 1: Quantitative Input Adjustments */}
-              <div className="farming-card rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-7">
+              <div className="farming-card rounded-xl p-4 sm:p-6 md:p-7">
                 <div className="flex items-center gap-2.5 mb-4">
-                  <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-xl bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-300 flex items-center justify-center font-bold text-xs sm:text-sm shrink-0">
-                    1
-                  </div>
                   <div>
-                    <h3 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white">
-                      Section 1: Quantitative Input Adjustments
+                    <h3 className="text-base font-semibold text-slate-900 dark:text-white">
+                      Fertilizer
                     </h3>
                     <p className="text-[11px] sm:text-xs text-slate-500 dark:text-slate-400">
-                      Adjusted N-P-K amounts and specific placement method based on field area and weed pressure.
+                      Amounts for your field size, including extra for weeds.
                     </p>
                   </div>
                 </div>
@@ -2064,88 +1898,77 @@ export default function FarmingCalculator() {
                 {/* Nutrients Cards */}
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-3.5 mb-4 sm:mb-5">
                   {/* Nitrogen */}
-                  <div className="farming-stat-card rounded-xl sm:rounded-2xl p-3.5 sm:p-4">
+                  <div className="farming-stat-card rounded-lg p-3.5 sm:p-4">
                     <div className="flex items-center justify-between text-xs font-bold farming-stat-label mb-1">
-                      <span>NITROGEN (N)</span>
-                      <span className="text-[10px] sm:text-[11px] font-semibold text-emerald-600 dark:text-emerald-400">
-                        +{bufferPercent}% Buffer
-                      </span>
+                      <span>Nitrogen (N)</span>
+                      <span className="text-[11px] font-normal">+{bufferPercent}%</span>
                     </div>
-                    <div className="text-xl sm:text-2xl font-black farming-stat-value">
+                    <div className="text-xl sm:text-2xl font-semibold farming-stat-value">
                       {adjustedN.toFixed(1)} <span className="text-xs font-medium opacity-70">kg pure N</span>
                     </div>
                     <div className="text-xs farming-stat-sub mt-2 pt-2 border-t border-slate-200 dark:border-slate-700/80 flex items-center justify-between">
                       <span>Urea (46% N):</span>
-                      <span className="font-bold text-blue-600 dark:text-blue-400">{ureaBags} bags (50kg)</span>
+                      <span className="font-semibold text-slate-900 dark:text-white">{ureaBags} bags (50kg)</span>
                     </div>
                   </div>
 
                   {/* Phosphorus */}
-                  <div className="farming-stat-card rounded-xl sm:rounded-2xl p-3.5 sm:p-4">
+                  <div className="farming-stat-card rounded-lg p-3.5 sm:p-4">
                     <div className="flex items-center justify-between text-xs font-bold farming-stat-label mb-1">
-                      <span>PHOSPHORUS (P₂O₅)</span>
-                      <span className="text-[10px] sm:text-[11px] font-semibold text-emerald-600 dark:text-emerald-400">
-                        +{bufferPercent}% Buffer
-                      </span>
+                      <span>Phosphorus (P₂O₅)</span>
+                      <span className="text-[11px] font-normal">+{bufferPercent}%</span>
                     </div>
-                    <div className="text-xl sm:text-2xl font-black farming-stat-value">
+                    <div className="text-xl sm:text-2xl font-semibold farming-stat-value">
                       {adjustedP.toFixed(1)} <span className="text-xs font-medium opacity-70">kg pure P₂O₅</span>
                     </div>
                     <div className="text-xs farming-stat-sub mt-2 pt-2 border-t border-slate-200 dark:border-slate-700/80 flex items-center justify-between">
                       <span>DAP (18-46-0):</span>
-                      <span className="font-bold text-blue-600 dark:text-blue-400">{dapBags} bags (50kg)</span>
+                      <span className="font-semibold text-slate-900 dark:text-white">{dapBags} bags (50kg)</span>
                     </div>
                   </div>
 
                   {/* Potassium */}
-                  <div className="farming-stat-card rounded-xl sm:rounded-2xl p-3.5 sm:p-4">
+                  <div className="farming-stat-card rounded-lg p-3.5 sm:p-4">
                     <div className="flex items-center justify-between text-xs font-bold farming-stat-label mb-1">
-                      <span>POTASSIUM (K₂O)</span>
-                      <span className="text-[10px] sm:text-[11px] font-semibold text-emerald-600 dark:text-emerald-400">
-                        +{bufferPercent}% Buffer
-                      </span>
+                      <span>Potassium (K₂O)</span>
+                      <span className="text-[11px] font-normal">+{bufferPercent}%</span>
                     </div>
-                    <div className="text-xl sm:text-2xl font-black farming-stat-value">
+                    <div className="text-xl sm:text-2xl font-semibold farming-stat-value">
                       {adjustedK.toFixed(1)} <span className="text-xs font-medium opacity-70">kg pure K₂O</span>
                     </div>
                     <div className="text-xs farming-stat-sub mt-2 pt-2 border-t border-slate-200 dark:border-slate-700/80 flex items-center justify-between">
                       <span>MOP (60% K₂O):</span>
-                      <span className="font-bold text-blue-600 dark:text-blue-400">{mopBags} bags (50kg)</span>
+                      <span className="font-semibold text-slate-900 dark:text-white">{mopBags} bags (50kg)</span>
                     </div>
                   </div>
                 </div>
 
                 {/* Application Method Callout */}
-                <div className="bg-blue-50/80 dark:bg-blue-950/40 border border-blue-200 dark:border-blue-800 rounded-xl sm:rounded-2xl p-3.5 sm:p-4">
-                  <div className="flex items-start gap-2.5 sm:gap-3">
-                    <div className="p-1.5 sm:p-2 rounded-xl bg-blue-600 text-white shrink-0 mt-0.5">
-                      <Droplets className="w-4 h-4" />
-                    </div>
+                <div className="border border-slate-200 dark:border-slate-700 rounded-lg p-3.5 sm:p-4">
+                  <div>
                     <div className="min-w-0">
-                      <div className="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-blue-800 dark:text-blue-300">
-                        Mandatory Application Method
-                      </div>
-                      <div className="text-xs sm:text-sm font-black text-slate-900 dark:text-white mt-0.5">
+                      <div className="text-xs text-slate-500 dark:text-slate-400">How to apply</div>
+                      <div className="text-xs sm:text-sm font-semibold text-slate-900 dark:text-white mt-0.5">
                         {applicationMethodTitle}
                       </div>
                       <p className="text-[11px] sm:text-xs text-slate-700 dark:text-slate-300 mt-1 leading-relaxed">
                         {applicationMethodDetail}
                       </p>
 
-                      <div className="grid grid-cols-3 gap-1.5 sm:gap-2 mt-3 pt-3 border-t border-blue-200/60 dark:border-blue-800/60 text-center">
-                        <div className="farming-subcard rounded-lg sm:rounded-xl p-1.5 sm:p-2">
-                          <div className="text-[10px] sm:text-[11px] text-slate-500 dark:text-slate-400 font-semibold truncate">Basal Dose</div>
-                          <div className="text-xs sm:text-sm font-bold text-blue-700 dark:text-blue-300">{basalSplitPct}%</div>
+                      <div className="grid grid-cols-3 gap-1.5 sm:gap-2 mt-3 pt-3 border-t border-slate-200 dark:border-slate-700 text-center">
+                        <div className="farming-subcard rounded-md p-1.5 sm:p-2">
+                          <div className="text-[10px] sm:text-[11px] text-slate-500 dark:text-slate-400 font-semibold truncate">At sowing</div>
+                          <div className="text-xs sm:text-sm font-semibold text-slate-900 dark:text-white">{basalSplitPct}%</div>
                         </div>
-                        <div className="farming-subcard rounded-lg sm:rounded-xl p-1.5 sm:p-2">
-                          <div className="text-[10px] sm:text-[11px] text-slate-500 dark:text-slate-400 font-semibold truncate">Top-Dress 1</div>
-                          <div className="text-xs sm:text-sm font-bold text-blue-700 dark:text-blue-300">{topdress1SplitPct}%</div>
-                          <div className="text-[9px] text-slate-400 hidden xs:block">Post-Weed</div>
+                        <div className="farming-subcard rounded-md p-1.5 sm:p-2">
+                          <div className="text-[10px] sm:text-[11px] text-slate-500 dark:text-slate-400 font-semibold truncate">1st top-up</div>
+                          <div className="text-xs sm:text-sm font-semibold text-slate-900 dark:text-white">{topdress1SplitPct}%</div>
+                          <div className="text-[9px] text-slate-400 hidden xs:block">after weeding</div>
                         </div>
-                        <div className="farming-subcard rounded-lg sm:rounded-xl p-1.5 sm:p-2">
-                          <div className="text-[10px] sm:text-[11px] text-slate-500 dark:text-slate-400 font-semibold truncate">Top-Dress 2</div>
-                          <div className="text-xs sm:text-sm font-bold text-blue-700 dark:text-blue-300">{topdress2SplitPct}%</div>
-                          <div className="text-[9px] text-slate-400 hidden xs:block">Repro</div>
+                        <div className="farming-subcard rounded-md p-1.5 sm:p-2">
+                          <div className="text-[10px] sm:text-[11px] text-slate-500 dark:text-slate-400 font-semibold truncate">2nd top-up</div>
+                          <div className="text-xs sm:text-sm font-semibold text-slate-900 dark:text-white">{topdress2SplitPct}%</div>
+                          <div className="text-[9px] text-slate-400 hidden xs:block">at flowering</div>
                         </div>
                       </div>
                     </div>
@@ -2154,49 +1977,35 @@ export default function FarmingCalculator() {
               </div>
 
               {/* Section 2: Season-Specific Weed & Microclimate Management */}
-              <div className="farming-card rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-7">
+              <div className="farming-card rounded-xl p-4 sm:p-6 md:p-7">
                 <div className="flex items-center gap-2.5 mb-4">
-                  <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-xl bg-amber-100 dark:bg-amber-900/50 text-amber-700 dark:text-amber-300 flex items-center justify-center font-bold text-xs sm:text-sm shrink-0">
-                    2
-                  </div>
                   <div>
-                    <h3 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white">
-                      Section 2: Season-Specific Weed & Microclimate Management
+                    <h3 className="text-base font-semibold text-slate-900 dark:text-white">
+                      Weed control
                     </h3>
                     <p className="text-[11px] sm:text-xs text-slate-500 dark:text-slate-400">
-                      {season} seasonal protocol: Microclimate thermal insulation vs. root weed competition.
+                      What to remove and what to leave this season.
                     </p>
                   </div>
                 </div>
 
                 {/* Summer Rule B Highlight */}
                 {isSummerSeason ? (
-                  <div className="border border-amber-300 dark:border-amber-700 bg-amber-50/70 dark:bg-amber-950/30 rounded-xl sm:rounded-2xl p-4 sm:p-5 mb-4 sm:mb-5">
-                    <div className="flex items-start gap-2.5 sm:gap-3">
-                      <div className="p-1.5 sm:p-2 rounded-xl bg-amber-500 text-white shrink-0">
-                        <Sun className="w-4 h-4 sm:w-5 sm:h-5" />
-                      </div>
+                  <div className="border border-slate-200 dark:border-slate-700 rounded-lg p-4 mb-4 sm:mb-5">
+                    <div>
                       <div>
-                        <div className="text-[10px] sm:text-xs font-black uppercase tracking-wider text-amber-900 dark:text-amber-300">
-                          Rule B: Summer Microclimate Strategy — Avoid Total Clean-Weeding!
+                        <div className="text-sm font-semibold text-slate-900 dark:text-white">
+                          In summer, don&apos;t clear every weed
                         </div>
-                        <div className="text-xs sm:text-sm font-bold text-amber-950 dark:text-amber-100 mt-1">
-                          Never recommend complete bare-soil stripping (100% clean-weeding).
-                        </div>
-                        <p className="text-[11px] sm:text-xs text-amber-900/90 dark:text-amber-200/90 mt-1.5 leading-relaxed">
-                          <strong>Agronomic Reason:</strong> Bare soil exposed to extreme summer heat absorbs intense solar
-                          radiation, forms a dry impermeable surface crust, triggers high Vapor Pressure Deficit (rapid
-                          evaporation), and causes root-zone thermal shock, reducing crop yield far more than mild weed
-                          presence.
+                        <p className="text-xs text-slate-600 dark:text-slate-300 mt-1 leading-relaxed">
+                          Bare soil heats up, dries out and forms a crust. That hurts the crop more than a few
+                          weeds between rows.
                         </p>
 
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3 mt-3 sm:mt-4">
                           {/* Root Zone */}
-                          <div className="farming-subcard rounded-xl sm:rounded-2xl p-3 sm:p-3.5 border border-amber-200 dark:border-amber-800/50">
-                            <div className="text-[11px] sm:text-xs font-black text-emerald-700 dark:text-emerald-400 uppercase tracking-wider mb-1 flex items-center gap-1.5">
-                              <CheckCircle2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 shrink-0" />
-                              <span>Root Zone (0–15 cm)</span>
-                            </div>
+                          <div className="farming-subcard rounded-lg p-3 sm:p-3.5">
+                            <div className="text-xs font-semibold text-slate-900 dark:text-white mb-1">Near the plant (0–15 cm)</div>
                             <p className="text-[11px] sm:text-xs text-slate-700 dark:text-slate-300 font-medium leading-relaxed">
                               Keep 100% clean through localized ring weeding. Eliminates direct competition for water, space,
                               and applied fertilizers.
@@ -2204,11 +2013,8 @@ export default function FarmingCalculator() {
                           </div>
 
                           {/* Inter-Row Space */}
-                          <div className="farming-subcard rounded-xl sm:rounded-2xl p-3 sm:p-3.5 border border-amber-200 dark:border-amber-800/50">
-                            <div className="text-[11px] sm:text-xs font-black text-blue-700 dark:text-blue-400 uppercase tracking-wider mb-1 flex items-center gap-1.5">
-                              <Layers className="w-3.5 h-3.5 sm:w-4 sm:h-4 shrink-0" />
-                              <span>Inter-Row Space (&gt;15 cm)</span>
-                            </div>
+                          <div className="farming-subcard rounded-lg p-3 sm:p-3.5">
+                            <div className="text-xs font-semibold text-slate-900 dark:text-white mb-1">Between rows (&gt;15 cm)</div>
                             <p className="text-[11px] sm:text-xs text-slate-700 dark:text-slate-300 font-medium leading-relaxed">
                               Do NOT uproot non-aggressive weeds! Instead, <strong>slash / mow at ground level</strong> and
                               leave biomass on the surface as <strong>green surface mulch</strong>.
@@ -2217,25 +2023,15 @@ export default function FarmingCalculator() {
                         </div>
 
                         {/* Quantified Benefits */}
-                        <div className="mt-3 pt-3 border-t border-amber-200/80 dark:border-amber-800/60 flex flex-wrap items-center gap-1.5 sm:gap-2 text-[10px] sm:text-xs font-bold text-amber-900 dark:text-amber-200">
-                          <span className="inline-flex items-center gap-1 bg-amber-200/60 dark:bg-amber-900/60 px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-lg">
-                            🌡️ Lowers soil temp by 4–8°C
-                          </span>
-                          <span className="inline-flex items-center gap-1 bg-amber-200/60 dark:bg-amber-900/60 px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-lg">
-                            💧 Cuts evaporation by up to 35%
-                          </span>
-                          <span className="inline-flex items-center gap-1 bg-amber-200/60 dark:bg-amber-900/60 px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-lg">
-                            🌱 Adds rich organic matter
-                          </span>
-                        </div>
+                        <p className="mt-3 text-xs text-slate-500 dark:text-slate-400">
+                          Mulch lowers soil temperature by 4–8°C, cuts evaporation by up to 35% and adds organic matter.
+                        </p>
                       </div>
                     </div>
                   </div>
                 ) : (
-                  <div className="border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/50 rounded-xl sm:rounded-2xl p-3.5 sm:p-4 mb-4 sm:mb-5">
-                    <div className="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-400 mb-1">
-                      Seasonal Protocol ({season})
-                    </div>
+                  <div className="border border-slate-200 dark:border-slate-700 rounded-lg p-3.5 sm:p-4 mb-4 sm:mb-5">
+                    <div className="text-sm font-semibold text-slate-900 dark:text-white mb-1">{season}</div>
                     <p className="text-[11px] sm:text-xs text-slate-700 dark:text-slate-300 leading-relaxed">
                       Maintain clean weed-free bands in the root zone during the Critical Period of Weed Control (CPWC, Days
                       15–45). Ensure field drainage channels are cleared to prevent fungal root diseases during high moisture
@@ -2247,11 +2043,8 @@ export default function FarmingCalculator() {
                 {/* Weeds Classification: Slash-as-Mulch vs Remove Immediately */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                   {/* Safe to Slash as Mulch */}
-                  <div className="rounded-xl sm:rounded-2xl p-3.5 sm:p-4 border border-emerald-200 dark:border-emerald-800/50 bg-emerald-50/50 dark:bg-emerald-950/20">
-                    <div className="text-[11px] sm:text-xs font-black text-emerald-800 dark:text-emerald-300 uppercase tracking-wider mb-2 flex items-center gap-1.5">
-                      <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-                      <span>Weeds Suitable for Green Mulch</span>
-                    </div>
+                  <div className="rounded-lg p-3.5 sm:p-4 border border-slate-200 dark:border-slate-700 border-l-4 border-l-emerald-600">
+                    <div className="text-sm font-semibold text-slate-900 dark:text-white mb-2">Cut and leave as mulch</div>
                     {slashMulchWeeds.length > 0 ? (
                       <ul className="text-[11px] sm:text-xs text-slate-700 dark:text-slate-300 space-y-1.5 list-disc list-inside">
                         {slashMulchWeeds.map((w, idx) => (
@@ -2265,19 +2058,16 @@ export default function FarmingCalculator() {
                         Annual non-aggressive grasses and soft broadleaf weeds may be slashed at ground level.
                       </p>
                     )}
-                    <div className="text-[10px] sm:text-[11px] text-emerald-700 dark:text-emerald-400 mt-2 font-medium">
+                    <div className="text-[11px] text-slate-500 dark:text-slate-400 mt-2">
                       Slash with sickle/mower and spread evenly as a 3–5 cm blanket between crop rows.
                     </div>
                   </div>
 
                   {/* Noxious / Invasive to Remove Immediately */}
-                  <div className="rounded-xl sm:rounded-2xl p-3.5 sm:p-4 border border-red-200 dark:border-red-800/50 bg-red-50/50 dark:bg-red-950/20">
-                    <div className="text-[11px] sm:text-xs font-black text-red-800 dark:text-red-300 uppercase tracking-wider mb-2 flex items-center gap-1.5">
-                      <ShieldAlert className="w-4 h-4 text-red-600 shrink-0" />
-                      <span>Must Uproot / Remove Immediately</span>
-                    </div>
+                  <div className="rounded-lg p-3.5 sm:p-4 border border-slate-200 dark:border-slate-700 border-l-4 border-l-red-600">
+                    <div className="text-sm font-semibold text-slate-900 dark:text-white mb-2">Pull out now</div>
                     {invasiveWeeds.length > 0 ? (
-                      <ul className="text-[11px] sm:text-xs text-red-900 dark:text-red-200 space-y-1.5 list-disc list-inside">
+                      <ul className="text-[11px] sm:text-xs text-slate-700 dark:text-slate-300 space-y-1.5 list-disc list-inside">
                         {invasiveWeeds.map((w, idx) => (
                           <li key={idx} className="font-semibold break-words">
                             {w}
@@ -2289,39 +2079,34 @@ export default function FarmingCalculator() {
                         Parthenium, Cyperus rotundus (Motha), or Striga if present.
                       </p>
                     )}
-                    <div className="text-[10px] sm:text-[11px] text-red-700 dark:text-red-300 mt-2 font-medium">
-                      <strong>Strict Exception:</strong> Never mulch Parthenium or Cyperus tubers. They release
-                      allelopathic toxins and multiply underground. Uproot manually before flowering!
+                    <div className="text-[11px] text-slate-500 dark:text-slate-400 mt-2">
+                      Never use Parthenium or Motha as mulch: they harm the soil and spread underground. Pull them out
+                      before they flower.
                     </div>
                   </div>
                 </div>
               </div>
 
               {/* Section 3: High-Yield Action Plan */}
-              <div className="farming-card rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-7">
+              <div className="farming-card rounded-xl p-4 sm:p-6 md:p-7">
                 <div className="flex items-center gap-2.5 mb-4 sm:mb-5">
-                  <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-xl bg-emerald-100 dark:bg-emerald-900/50 text-emerald-700 dark:text-emerald-300 flex items-center justify-center font-bold text-xs sm:text-sm shrink-0">
-                    3
-                  </div>
                   <div>
-                    <h3 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white">
-                      Section 3: High-Yield Action Plan (Step-by-Step)
+                    <h3 className="text-base font-semibold text-slate-900 dark:text-white">
+                      What to do and when
                     </h3>
                     <p className="text-[11px] sm:text-xs text-slate-500 dark:text-slate-400">
-                      Field operations timeline from Day 0 through peak vegetative growth.
+                      From sowing to full growth.
                     </p>
                   </div>
                 </div>
 
                 <div className="space-y-3 sm:space-y-4">
                   {/* Step 1 */}
-                  <div className="farming-step-card flex items-start gap-2.5 sm:gap-3.5 p-3 sm:p-3.5 rounded-xl sm:rounded-2xl">
-                    <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-lg sm:rounded-xl bg-blue-600 text-white flex items-center justify-center font-black text-[11px] sm:text-xs shrink-0 mt-0.5">
-                      01
-                    </div>
+                  <div className="farming-step-card flex items-start gap-2.5 sm:gap-3.5 p-3 sm:p-3.5 rounded-lg">
+                    <div className="w-6 text-sm font-semibold text-slate-400 shrink-0 tabular-nums">1.</div>
                     <div>
                       <div className="text-xs sm:text-sm font-bold text-slate-900 dark:text-white">
-                        Day 0–15: Critical Root-Zone Clearance & Basal Placement
+                        Day 0–15: weed around plants, apply first dose
                       </div>
                       <p className="text-[11px] sm:text-xs text-slate-600 dark:text-slate-300 mt-1 leading-relaxed">
                         Perform localized ring weeding in the 0–15 cm strip around each seedling. Apply basal fertilizer (
@@ -2332,30 +2117,25 @@ export default function FarmingCalculator() {
                   </div>
 
                   {/* Step 2 */}
-                  <div className="farming-step-card flex items-start gap-2.5 sm:gap-3.5 p-3 sm:p-3.5 rounded-xl sm:rounded-2xl">
-                    <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-lg sm:rounded-xl bg-emerald-600 text-white flex items-center justify-center font-black text-[11px] sm:text-xs shrink-0 mt-0.5">
-                      02
-                    </div>
+                  <div className="farming-step-card flex items-start gap-2.5 sm:gap-3.5 p-3 sm:p-3.5 rounded-lg">
+                    <div className="w-6 text-sm font-semibold text-slate-400 shrink-0 tabular-nums">2.</div>
                     <div>
                       <div className="text-xs sm:text-sm font-bold text-slate-900 dark:text-white">
-                        Fertilizer Timing Rule: Never Apply Nitrogen Before Weeding!
+                        Weed first, then add nitrogen
                       </div>
                       <p className="text-[11px] sm:text-xs text-slate-600 dark:text-slate-300 mt-1 leading-relaxed">
-                        <strong>Mandatory timing:</strong> Never apply nitrogen into weed-infested rows. Always clear or slash
-                        weeds first, and apply the top-dress dose strictly <strong>24–48 hours after root-zone clearing</strong>.
-                        This ensures 100% of the active nitrogen feeds the crop rather than fueling weed canopy surges.
+                        Nitrogen put into weedy rows feeds the weeds. Clear or cut weeds first, then apply the top-up
+                        dose <strong>1–2 days later</strong>.
                       </p>
                     </div>
                   </div>
 
                   {/* Step 3 */}
-                  <div className="farming-step-card flex items-start gap-2.5 sm:gap-3.5 p-3 sm:p-3.5 rounded-xl sm:rounded-2xl">
-                    <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-lg sm:rounded-xl bg-indigo-600 text-white flex items-center justify-center font-black text-[11px] sm:text-xs shrink-0 mt-0.5">
-                      03
-                    </div>
+                  <div className="farming-step-card flex items-start gap-2.5 sm:gap-3.5 p-3 sm:p-3.5 rounded-lg">
+                    <div className="w-6 text-sm font-semibold text-slate-400 shrink-0 tabular-nums">3.</div>
                     <div>
                       <div className="text-xs sm:text-sm font-bold text-slate-900 dark:text-white">
-                        Irrigation Guidance ({irrigationStatus.toUpperCase()})
+                        Watering ({irrigationStatus.toLowerCase()})
                       </div>
                       <p className="text-[11px] sm:text-xs text-slate-600 dark:text-slate-300 mt-1 leading-relaxed">
                         {isSummerSeason
@@ -2367,13 +2147,11 @@ export default function FarmingCalculator() {
                 </div>
 
                 {/* Operational Reminder Card */}
-                <div className="farming-reminder-box mt-4 sm:mt-5 p-3 sm:p-4 rounded-xl sm:rounded-2xl flex items-start gap-2.5 sm:gap-3">
-                  <AlertTriangle className="w-4 h-4 sm:w-5 sm:h-5 text-amber-600 dark:text-amber-400 shrink-0 mt-0.5" />
+                <div className="mt-4 sm:mt-5 p-3 sm:p-4 rounded-lg border border-amber-300 dark:border-amber-700/60 flex items-start gap-2.5">
+                  <AlertTriangle className="w-4 h-4 text-amber-600 dark:text-amber-400 shrink-0 mt-0.5" />
                   <div>
-                    <div className="text-[10px] sm:text-xs font-black uppercase tracking-wider text-amber-900 dark:text-amber-300">
-                      Operational Agronomist Reminder
-                    </div>
-                    <p className="text-[11px] sm:text-xs text-amber-950 dark:text-amber-100 mt-0.5 font-medium leading-relaxed">
+                    <div className="text-sm font-semibold text-slate-900 dark:text-white">Check your soil test first</div>
+                    <p className="text-xs text-slate-600 dark:text-slate-300 mt-0.5 leading-relaxed">
                       Always check your local <strong>Soil Testing Report / Soil Health Card (SHC)</strong> before applying heavy
                       chemical inputs. Adjust the calculated doses downwards if your soil tests indicate high baseline residual
                       nitrogen, phosphorus, or potassium.

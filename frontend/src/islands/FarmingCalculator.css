@@ -1,0 +1,90 @@
+/* Farming calculator: plain, flat controls.
+ * The shared .btn-21st buttons are glossy (gradient, inner highlight, lift on hover) and the
+ * global heading rules make every h2/h3 display-sized. Inside the calculator we want ordinary
+ * form controls, so these rules are scoped to .farming-calc-page and win over the shared ones. */
+
+.farming-calc-page {
+  --fc-accent: #1d4ed8;
+  --fc-accent-hover: #1e40af;
+  --fc-surface: #ffffff;
+  --fc-ink: #0f172a;
+  --fc-line: #cbd5e1;
+  --fc-line-strong: #94a3b8;
+  --fc-hover: #f1f5f9;
+  --fc-card: #ffffff;
+  --fc-card-line: #e2e8f0;
+}
+
+html.dark .farming-calc-page,
+[data-theme="dark"] .farming-calc-page {
+  --fc-accent: #2563eb;
+  --fc-accent-hover: #1d4ed8;
+  --fc-surface: #1e293b;
+  --fc-ink: #e2e8f0;
+  --fc-line: #334155;
+  --fc-line-strong: #475569;
+  --fc-hover: #273449;
+  --fc-card: #0f172a;
+  --fc-card-line: #1e293b;
+}
+
+/* Buttons */
+html .farming-calc-page .btn-21st {
+  background-image: none !important;
+  box-shadow: none !important;
+  transform: none !important;
+  border: 1px solid var(--fc-line) !important;
+  transition: background-color 0.12s, border-color 0.12s;
+}
+html .farming-calc-page .btn-21st-secondary {
+  background: var(--fc-surface) !important;
+  color: var(--fc-ink) !important;
+}
+html .farming-calc-page .btn-21st-secondary:hover {
+  background: var(--fc-hover) !important;
+  border-color: var(--fc-line-strong) !important;
+}
+html .farming-calc-page .btn-21st-primary,
+html .farming-calc-page .btn-21st-primary:hover {
+  background: var(--fc-accent) !important;
+  border-color: var(--fc-accent) !important;
+}
+html .farming-calc-page .btn-21st-primary:hover {
+  background: var(--fc-accent-hover) !important;
+}
+/* Light mode forces text black site-wide; keep text on the accent white. */
+html .farming-calc-page .btn-21st-primary,
+html .farming-calc-page .btn-21st-primary * {
+  color: #ffffff !important;
+}
+html .farming-calc-page .btn-21st:focus-visible,
+html .farming-calc-page input:focus-visible,
+html .farming-calc-page select:focus-visible {
+  outline: 2px solid var(--fc-accent);
+  outline-offset: 2px;
+}
+
+/* Cards: one flat surface, no glow */
+html .farming-calc-page .farming-card {
+  background: var(--fc-card) !important;
+  border: 1px solid var(--fc-card-line) !important;
+  box-shadow: none !important;
+  border-radius: 12px;
+}
+
+/* Headings at form sizes */
+html .farming-calc-page h1 {
+  font-size: 1.5rem !important;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+}
+html .farming-calc-page h2,
+html .farming-calc-page h3 {
+  font-size: 1rem !important;
+  line-height: 1.4;
+  letter-spacing: normal;
+}
+html .farming-calc-page h4 {
+  font-size: 0.875rem !important;
+  letter-spacing: normal;
+}

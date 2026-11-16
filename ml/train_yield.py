@@ -102,6 +102,11 @@ def main():
                     for (c, st), g in df.groupby(['Crop', 'State'])},
     }, MODEL_PATH)
     (MODEL_PATH.parent / 'yield_metrics.json').write_text(json.dumps(metrics, indent=2))
+    # Small copy of the form choices: the calculator page reads this instead of the large model.
+    (MODEL_PATH.parent / 'yield_choices.json').write_text(json.dumps({
+        'latest_year': int(df.Crop_Year.max()), 'crops': sorted(df.Crop.unique()),
+        'states': sorted(df.State.unique()), 'seasons': sorted(df.Season.unique()), 'metrics': metrics,
+    }, indent=1, ensure_ascii=False))
     print(f'\nSaved Random Forest to {MODEL_PATH}')
 
 

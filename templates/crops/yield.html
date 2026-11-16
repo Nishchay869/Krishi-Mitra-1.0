@@ -11,7 +11,7 @@
   <script id="user-crops-data" type="application/json">{{ user_crops_json|safe }}</script>
   <div id="farming-calculator-root" data-react-island="FarmingCalculator">
     <!-- Skeleton shaped like the calculator, replaced as soon as it loads -->
-    <div class="max-w-4xl mx-auto p-6 farming-card rounded-3xl min-h-[500px]" role="status" aria-busy="true">
+    <div class="max-w-4xl mx-auto p-6 farming-card rounded-xl min-h-[500px]" role="status" aria-busy="true">
       <span class="visually-hidden">{% translate "Loading…" %}</span>
       <div class="d-flex gap-2 mb-4">
         <div class="sk sk-pill" style="width:120px"></div>
@@ -35,10 +35,10 @@
   {% if form or result %}
   <!-- Optional Historical State Average Benchmark (Collapsible) -->
   <div class="max-w-4xl mx-auto mt-8 pt-6 border-t border-slate-200 dark:border-slate-800">
-    <details class="group bg-slate-50 dark:bg-slate-800/50 rounded-2xl border border-slate-200 dark:border-slate-700/60 p-4 transition-all">
+    <details class="group bg-slate-50 dark:bg-slate-800/50 rounded-xl border border-slate-200 dark:border-slate-700/60 p-4 transition-all">
       <summary class="font-bold text-sm text-slate-700 dark:text-slate-300 cursor-pointer flex items-center justify-between">
-        <span><i class="bi bi-graph-up-arrow me-2 text-agri"></i> Historical State Yield Benchmark (Optional Model Reference)</span>
-        <span class="text-xs text-muted group-open:rotate-180 transition-transform">▼</span>
+        <span>{% translate "State averages" %}</span>
+        <span class="text-xs text-muted group-open:rotate-180 transition-transform" aria-hidden="true">▾</span>
       </summary>
       <div class="row g-4 mt-2">
         <div class="col-lg-6">
@@ -46,7 +46,7 @@
           <div class="card shadow-sm border-0"><div class="card-body">
             <form method="post" class="row">{% csrf_token %}
               {% include 'partials/fields.html' with col='col-sm-6' %}
-              <div class="col-12"><button class="btn btn-agri w-100">Estimate State Historical Yield</button></div>
+              <div class="col-12"><button class="btn btn-agri w-100">{% translate "Estimate yield" %}</button></div>
             </form>
           </div></div>
           {% endif %}

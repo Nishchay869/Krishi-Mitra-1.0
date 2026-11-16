@@ -15,7 +15,7 @@ from accounts.models import PredictionLog
 from .forms import CropForm, YieldForm
 from .crop_metadata import REGIONAL_PRESETS
 from .predictor import ModelNotTrained, recommend
-from .yield_predictor import load_bundle, predict_yield
+from .yield_predictor import load_bundle, load_choices, predict_yield
 
 
 def _run(request, data, top_n=3):
@@ -73,7 +73,7 @@ def yield_page(request):
     """Farming Calculator: Precision Agronomist Decision-Support Engine & Yield Planner."""
     bundle = None
     try:
-        bundle = load_bundle()
+        bundle = load_choices()   # small file: the 73 MB model loads only when a yield is estimated
     except Exception:
         bundle = None
 

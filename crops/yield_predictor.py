@@ -1,4 +1,5 @@
 """Crop yield inference (spec §3.4) using the model from ml/train_yield.py."""
+import json
 from functools import lru_cache
 
 import joblib
@@ -9,6 +10,19 @@ from django.conf import settings
 from .predictor import ModelNotTrained
 
 DEFAULT_UNIT = 'tonnes/ha'
+CHOICES_FILE = 'yield_choices.json'
+CHOICE_KEYS = ('latest_year', 'crops', 'states', 'seasons', 'metrics')
+
+
+@lru_cache(maxsize=1)
+def load_choices():
+    """Small form data (crops, states, seasons, metrics) without loading the 73 MB model, so the
+    Farming calculator page opens fast even on a freshly started server."""
+    path = settings.ML_MODELS_DIR / CHOICES_FILE
+    if path.exists():
+        return json.loads(path.read_text())
+    bundle = load_bundle()   # older deploy without the small file
+    return {key: bundle[key] for key in CHOICE_KEYS if key in bundle}
 
 
 @lru_cache(maxsize=1)
