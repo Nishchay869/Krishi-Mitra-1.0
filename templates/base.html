@@ -331,7 +331,7 @@
     window.CHAT_GREETING_URL = "{% url 'chatbot:greeting' %}"; {% endif %}
   </script>
   <script src="{% static 'vendor/bootstrap/bootstrap.bundle.min.js' %}"></script>
-  <script src="{% url 'javascript-catalog' %}"></script>
+  {# Translation catalog (gettext) is already loaded once in <head>. #}
   <script src="{% static 'js/chat.js' %}?v={{ STATIC_VERSION }}"></script>
   <script type="module" src="{% static 'frontend/islands.js' %}?v={{ STATIC_VERSION }}"></script>
   <script src="{% static 'js/offline-client.js' %}?v={{ STATIC_VERSION }}"></script>
