@@ -135,6 +135,17 @@ body {
 .live-overlay.d-none {
   display: none;
 }
+/* Light mode forces all text black with long !important selectors; the live view is always dark,
+   so keep its text white (an id outranks any number of classes). */
+html #live-overlay,
+html #live-overlay :is(div, span, p, small, strong, em, b) {
+  color: #fff !important;
+}
+#live-overlay .live-status,
+#live-overlay .live-hint,
+#live-overlay .live-title {
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.75);
+}
 /* React Bits Strands fills the background; everything else sits above it. */
 .live-strands {
   position: absolute;

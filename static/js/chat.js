@@ -126,7 +126,10 @@
     return div;
   }
 
-  const logFor = (form) => form.closest('[data-chat-root], #chat-widget').querySelector('[data-chat-log]');
+  // The React chat (AIChatIsland) replaces the old markup, so there may be no form or log: then
+  // bubbles go to a detached element and the live view shows the conversation itself.
+  const logFor = (form) => form?.closest('[data-chat-root], #chat-widget')?.querySelector('[data-chat-log]')
+    || document.createElement('div');
 
   async function ask(log, request) {
     const typing = addBubble(log, gettext("Thinking…"), 'bot typing');
@@ -254,24 +257,31 @@
       try {
         this.mic = await openMic();
       } catch (err) {
-        addBubble(this.log, err.message === 'unsupported'
+        // Explain in the live view (the chat log may not be visible); "Type instead" opens the chat.
+        this.active = true;
+        this.open();
+        this.show('paused', err.message === 'unsupported'
           ? gettext("Voice conversation is not supported in this browser. Please type your question.")
-          : gettext("Microphone access was blocked. Allow it in the browser settings to talk to the assistant."), 'bot');
-        return false;
+          : gettext("Microphone access was blocked. Allow it in the browser settings to talk to the assistant."), '', '');
+        return true;
       }
       this.active = true;
-      this.overlay().classList.remove('d-none');
-      document.body.classList.add('overflow-hidden');
+      this.open();
       this.startVisuals();
       this.run();
       return true;
     },
 
+    open() {
+      this.overlay().classList.remove('d-none');
+      document.body.classList.add('overflow-hidden');
+    },
+
     // Leave voice mode and continue the same conversation by typing.
     typeInstead() {
       this.end();
-      if (widget && this.form && widget.contains(this.form)) openWidget();
-      this.form?.elements.message.focus();
+      if (widget) openWidget();
+      this.form?.elements.message?.focus();
     },
 
     end() {
@@ -284,6 +294,7 @@
       this.mic = null;
       this.stopVisuals();
       this.el.classList.add('d-none');
+      window.dispatchEvent(new CustomEvent('krishi:live-ended'));
       document.body.classList.remove('overflow-hidden');
     },
 
@@ -389,6 +400,7 @@
       if (this.el) return this.el;
       const el = document.createElement('div');
       el.className = 'live-overlay d-none';
+      el.id = 'live-overlay'; // the id lets its white text beat the light-mode "all text black" rules
       el.setAttribute('role', 'dialog');
       el.setAttribute('aria-modal', 'true');
       el.setAttribute('aria-label', gettext("Live voice conversation"));
@@ -509,8 +521,8 @@
   function openWidget() {
     const log = widget.querySelector('[data-chat-log]');
     widget.classList.remove('d-none');
-    if (!log.childElementCount) addBubble(log, gettext("Namaste! Ask me about crops, fertilizers, pests or government schemes — type or speak in your own language."), 'bot');
-    widget.querySelector('input').focus();
+    if (log && !log.childElementCount) addBubble(log, gettext("Namaste! Ask me about crops, fertilizers, pests or government schemes — type or speak in your own language."), 'bot');
+    widget.querySelector('input, textarea')?.focus();
   }
 
   const pageForm = document.querySelector('[data-chat-root] [data-chat-form]');
@@ -522,6 +534,6 @@
       if (!widget.classList.contains('d-none')) { widget.classList.add('d-none'); return; }
       if (!speech.enabled() || !(await live.start(widget.querySelector('[data-chat-form]')))) openWidget();
     });
-    document.getElementById('chat-close').addEventListener('click', () => widget.classList.add('d-none'));
+    document.getElementById('chat-close')?.addEventListener('click', () => widget.classList.add('d-none'));
   }
 })();
